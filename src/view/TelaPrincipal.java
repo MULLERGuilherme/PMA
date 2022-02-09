@@ -28,8 +28,10 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 import model.bean.Consulta;
 import model.bean.Paciente;
+import model.bean.Vw_Consultas;
 import model.dao.ConsultaDAO;
 import model.dao.PacienteDAO;
+import model.dao.ViewsDAO;
 import util.Util;
 import static view.ExibirConsultasPaciente.codpaciente;
 
@@ -65,17 +67,17 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void ReadJTable(LocalDate data) {
         DefaultTableModel model = (DefaultTableModel) JTConsultas.getModel();
         model.setNumRows(0);
-       
-        ConsultaDAO cdao = new ConsultaDAO();
-        PacienteDAO pdao = new PacienteDAO();
-        Paciente p = new Paciente();
+        ViewsDAO vwdao = new ViewsDAO();
+        //ConsultaDAO cdao = new ConsultaDAO();
+        //PacienteDAO pdao = new PacienteDAO();
+        //Paciente p = new Paciente();
         
         
-        for (Consulta c : cdao.ReadConsultas(data, Main.cod)) {
-            p = pdao.ReadPaciente(c.getPaciente().getCodPaciente());
+        for (Vw_Consultas c : vwdao.ReadConsultas(data, Main.cod)) {
+            //p = pdao.ReadPaciente(c.getPaciente().getCodPaciente());
             model.addRow(new Object[]{
                c.getCodConsulta(),
-               p.getNome_Completo(),
+               c.getPaciente().getNome_Completo(),
                Validar.fDatetime((Timestamp) c.getDataConsulta()),
                c.getStatus(),
             });
