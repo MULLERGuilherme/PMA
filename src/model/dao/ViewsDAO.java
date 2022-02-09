@@ -16,6 +16,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.bean.Consulta;
 import model.bean.Vw_Consultas;
+import model.bean.Vw_TelefonesPacientes;
 
 /**
  *
@@ -57,4 +58,34 @@ public class ViewsDAO {
         return vw;
     }
     
+    
+    public List<Vw_TelefonesPacientes> ReadTelefonesPacientes() {
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        List<Vw_TelefonesPacientes> vw = new ArrayList<>();
+        try {
+            stmt = con.prepareStatement("SELECT * FROM vw_Telefonepacientes");
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                Vw_TelefonesPacientes v = new Vw_TelefonesPacientes();
+
+                v.getPaciente().setCodPaciente(rs.getInt("CodigoPaciente"));
+                v.getPaciente().setNome_Completo(rs.getString("Paciente"));
+                v.getPaciente().setEmail(rs.getString("Email"));
+                v.getTelefone().setNumero(rs.getString("Numero"));
+                
+                vw.add(v);
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ConsultaDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt, rs);
+        }
+
+        return vw;
+    }
 }

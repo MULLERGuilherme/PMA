@@ -32,8 +32,10 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 import model.bean.Paciente;
 import model.bean.Telefone;
+import model.bean.Vw_TelefonesPacientes;
 import model.dao.PacienteDAO;
 import model.dao.TelefoneDAO;
+import model.dao.ViewsDAO;
 import util.Util;
 
 /**
@@ -58,46 +60,28 @@ public class ManterPaciente extends javax.swing.JFrame {
     }
 
     public void ReadJTable() {
-
+        int anterior = -1;
         DefaultTableModel model = (DefaultTableModel) JTPacientes.getModel();
         model.setNumRows(0);
-        PacienteDAO pdao = new PacienteDAO();
-        TelefoneDAO tdao = new TelefoneDAO();
-        for (Paciente p : pdao.Read()) {
-            List<Telefone> telefones = new ArrayList<>();
-            telefones = (List<Telefone>) tdao.Read(p.getCodPaciente());
-            if (telefones.size() == 1) {
-
-                model.addRow(new Object[]{
-                    p.getCodPaciente(),
-                    p.getNome_Completo(),
-                    p.getCPF(),
-                    p.getEmail(),
-                    p.getEstadoCivil(),
-                    Validar.fDataNascBD((Date) p.getDataNasc()),
-                    p.getSexo(),
-                    p.getProfissao(),
-                    p.getReligiao(),
-                    p.getEscolaridade(),
-                    p.getEndereco(),
-                    p.getCidade(),
-                    telefones.get(0).getNumero(),});
-            } else if (telefones.size() == 2) {
-                model.addRow(new Object[]{
-                    p.getCodPaciente(),
-                    p.getNome_Completo(),
-                    p.getCPF(),
-                    p.getEmail(),
-                    p.getEstadoCivil(),
-                    Validar.fDataNascBD((Date) p.getDataNasc()),
-                    p.getSexo(),
-                    p.getProfissao(),
-                    p.getReligiao(),
-                    p.getEscolaridade(),
-                    p.getEndereco(),
-                    p.getCidade(),
-                    telefones.get(0).getNumero(),
-                    telefones.get(1).getNumero(),});
+        ViewsDAO vwdao = new ViewsDAO();
+        Object[] linha = null;
+        for (Vw_TelefonesPacientes vw : vwdao.ReadTelefonesPacientes()) {
+            if (anterior != vw.getPaciente().getCodPaciente()) {
+                if(anterior != -1) model.addRow(linha);
+                linha = new Object[]{
+                    vw.getPaciente().getCodPaciente(),
+                    vw.getPaciente().getNome_Completo(),
+                    vw.getPaciente().getEmail(),
+                    vw.getTelefone().getNumero(),
+                    null
+                };
+                anterior = vw.getPaciente().getCodPaciente();
+                
+            }else
+            {
+                linha[4] = vw.getTelefone().getNumero();
+                model.addRow(linha);
+               
             }
         }
     }
@@ -495,9 +479,17 @@ public class ManterPaciente extends javax.swing.JFrame {
 
             },
             new String [] {
-                "CodPaciente", "Nome Completo", "CPF", "Email", "Estado Civil", "Data de Nascimento", "Sexo", "Profissão", "Religião", "Escolaridade", "Endereço", "Cidade", "Telefone 1", "Telefone 2"
+                "ID", "Nome Completo", "Email", "Telefone 1", "Telefone 2"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         JTPacientes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 JTPacientesMouseClicked(evt);
@@ -509,6 +501,12 @@ public class ManterPaciente extends javax.swing.JFrame {
             }
         });
         jScrollPane4.setViewportView(JTPacientes);
+        if (JTPacientes.getColumnModel().getColumnCount() > 0) {
+            JTPacientes.getColumnModel().getColumn(0).setResizable(false);
+            JTPacientes.getColumnModel().getColumn(0).setPreferredWidth(1);
+            JTPacientes.getColumnModel().getColumn(3).setResizable(false);
+            JTPacientes.getColumnModel().getColumn(4).setResizable(false);
+        }
 
         BtnBuscar.setText("Buscar");
         BtnBuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -651,16 +649,17 @@ public class ManterPaciente extends javax.swing.JFrame {
                 .addGroup(EstadoCivilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtCPF, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(EstadoCivilLayout.createSequentialGroup()
-                        .addGroup(EstadoCivilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(EstadoCivilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(EstadoCivilLayout.createSequentialGroup()
                                 .addGap(6, 6, 6)
                                 .addComponent(Nome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(EstadoCivilLayout.createSequentialGroup()
                                 .addGap(2, 2, 2)
                                 .addComponent(txtNome))
-                            .addComponent(jLabel8)
-                            .addComponent(Sexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2))
+                            .addGroup(EstadoCivilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel8)
+                                .addComponent(Sexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel2)))
                         .addGap(1, 1, 1)))
                 .addGap(22, 22, 22)
                 .addGroup(EstadoCivilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -753,7 +752,7 @@ public class ManterPaciente extends javax.swing.JFrame {
 
     private void BtnManterAnotacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnManterAnotacaoActionPerformed
         // TODO add your handling code here:
-        ExibirAnamneses  ma = new ExibirAnamneses();
+        ExibirAnamneses ma = new ExibirAnamneses();
         Util.SizeJanela(ma);
         this.dispose();
     }//GEN-LAST:event_BtnManterAnotacaoActionPerformed
@@ -900,7 +899,7 @@ public class ManterPaciente extends javax.swing.JFrame {
                     tf.setPaciente(p);
                     tfdao.CreatePc(tf);
                 }
-                */
+                 */
                 //mostrar mensagem de sucesso
                 // JOptionPane.showMessageDialog(null,"Paciente Cadastrado com Sucesso!");
                 ReadJTable();
@@ -1047,7 +1046,7 @@ public class ManterPaciente extends javax.swing.JFrame {
                         tf.setPaciente(p);
                         tfdao.CreatePc(tf);
                     }
-                    */
+                     */
                     //mostrar mensagem de sucesso
                     // JOptionPane.showMessageDialog(null,"Paciente Cadastrado com Sucesso!");
                     ReadJTable();
@@ -1244,6 +1243,7 @@ public class ManterPaciente extends javax.swing.JFrame {
         TxtTelefone.setText(null);
         TxtTelefone2.setText(null);
     }
+
     /**
      * @param args the command line arguments
      */
