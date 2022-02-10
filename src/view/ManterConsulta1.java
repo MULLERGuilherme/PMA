@@ -20,9 +20,11 @@ import javax.swing.table.TableRowSorter;
 import model.bean.Consulta;
 import model.bean.Paciente;
 import model.bean.Telefone;
+import model.bean.Vw_TelefonesPacientes;
 import model.dao.ConsultaDAO;
 import model.dao.PacienteDAO;
 import model.dao.TelefoneDAO;
+import model.dao.ViewsDAO;
 
 /**
  *
@@ -40,34 +42,32 @@ public class ManterConsulta1 extends javax.swing.JFrame {
         ReadJTable();
     }
 
-    public void ReadJTable() {
-
+   public void ReadJTable() {
+        int anterior = -1;
         DefaultTableModel model = (DefaultTableModel) JTPacienteSimples.getModel();
         model.setNumRows(0);
-        PacienteDAO pdao = new PacienteDAO();
-        TelefoneDAO tdao = new TelefoneDAO();
-        
-        for (Paciente p : pdao.Read()) {
-            List<Telefone> telefones = new ArrayList<>();
-            telefones = (List<Telefone>) tdao.Read(p.getCodPaciente());
-            if (telefones.size() == 1) {
-
-                model.addRow(new Object[]{
-                    p.getCodPaciente(),
-                    p.getNome_Completo(),
-                    p.getCPF(),
-                    p.getEmail(),
-                    telefones.get(0).getNumero(),});
-            } else if (telefones.size() == 2) {
-                model.addRow(new Object[]{
-                    p.getCodPaciente(),
-                    p.getNome_Completo(),
-                    p.getCPF(),
-                    p.getEmail(),
-                    telefones.get(0).getNumero(),
-                    telefones.get(1).getNumero(),});
+        ViewsDAO vwdao = new ViewsDAO();
+        Object[] linha = null;
+        for (Vw_TelefonesPacientes vw : vwdao.ReadTelefonesPacientes()) {
+            if (anterior != vw.getPaciente().getCodPaciente()) {
+                if(anterior != -1) model.addRow(linha);
+                linha = new Object[]{
+                    vw.getPaciente().getCodPaciente(),
+                    vw.getPaciente().getNome_Completo(),
+                    vw.getPaciente().getEmail(),
+                    vw.getTelefone().getNumero(),
+                    null
+                };
+                anterior = vw.getPaciente().getCodPaciente();
+                
+            }else
+            {
+                linha[4] = vw.getTelefone().getNumero();
+                model.addRow(linha);
+               
             }
         }
+        if(linha != null)  model.addRow(linha);
     }
 
     public void ReadJTableBusca(String Atributo, String Busca) {
@@ -178,11 +178,11 @@ public class ManterConsulta1 extends javax.swing.JFrame {
 
             },
             new String [] {
-                "CodPaciente", "Nome", "CPF", "Email", "Telefone", "Telefone 2"
+                "ID", "Nome", "Email", "Telefone 1", "Telefone 2"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, true, false, false, true
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -190,6 +190,12 @@ public class ManterConsulta1 extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(JTPacienteSimples);
+        if (JTPacienteSimples.getColumnModel().getColumnCount() > 0) {
+            JTPacienteSimples.getColumnModel().getColumn(0).setResizable(false);
+            JTPacienteSimples.getColumnModel().getColumn(0).setPreferredWidth(1);
+            JTPacienteSimples.getColumnModel().getColumn(2).setResizable(false);
+            JTPacienteSimples.getColumnModel().getColumn(3).setResizable(false);
+        }
 
         btnBuscar.setText("Buscar");
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {

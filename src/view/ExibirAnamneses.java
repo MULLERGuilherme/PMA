@@ -14,9 +14,11 @@ import model.bean.Anamnese;
 import model.bean.Consulta;
 import model.bean.Paciente;
 import model.bean.Psicologo;
+import model.bean.Vw_Anamnese_Paciente;
 import model.dao.AnamneseDAO;
 import model.dao.ConsultaDAO;
 import model.dao.PacienteDAO;
+import model.dao.ViewsDAO;
 import static view.ExibirAnamnesesPaciente.codpaciente;
 
 /**
@@ -83,10 +85,13 @@ public class ExibirAnamneses extends javax.swing.JFrame {
 
             },
             new String [] {
-                "CodAnamnese", "QueixaPrincipal", "SubitaOuProgressiva", "InicioDaQueixa", "QueixasSecundárias", "HistoricoFamiliar", "Diagnostico", "Encaminhamento", "DoencasConhecidas", "MedicamentosUtilizados", "OQueMudou", "Sintomas", "ComoComecou", "QueixasCognitivas", "QueixasAfetivoEmocionais", "Psicomotricidade", "CodConsulta", "DataEmissão"
+                "ID Anamnese", "Paciente", "Diagnostico", "Data da Consulta"
             }
         ));
         jScrollPane1.setViewportView(JTAnamneses);
+        if (JTAnamneses.getColumnModel().getColumnCount() > 0) {
+            JTAnamneses.getColumnModel().getColumn(0).setPreferredWidth(1);
+        }
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -207,44 +212,65 @@ public class ExibirAnamneses extends javax.swing.JFrame {
             }
         });
     }
-      private void ReadJTable() {
-          DefaultTableModel model = (DefaultTableModel) JTAnamneses.getModel();
+    
+    private void ReadJTable() {
+        DefaultTableModel model = (DefaultTableModel) JTAnamneses.getModel();
         model.setNumRows(0);
-        AnamneseDAO dao = new AnamneseDAO();
-        ConsultaDAO cdao = new ConsultaDAO();
-        Psicologo p = new Psicologo();
-        p.setCodPsicologo(Main.cod);
+        ViewsDAO vwdao = new ViewsDAO();
+        //ConsultaDAO cdao = new ConsultaDAO();
+        //PacienteDAO pdao = new PacienteDAO();
+        //Paciente p = new Paciente();
         
-        for (Consulta c : cdao.Read(p)) {
-            List<Anamnese> a = new ArrayList<>();
-             a = (List<Anamnese>) dao.Read(c);
-             
-            for (int i = 0; i < a.size(); i++){
+        
+        for (Vw_Anamnese_Paciente v : vwdao.ReadAnamnesePaciente(Main.cod)) {
+            //p = pdao.ReadPaciente(c.getPaciente().getCodPaciente());
             model.addRow(new Object[]{
-                a.get(i).getCodAnamnese(),    
-                a.get(i).getQueixaPrincipal(),
-                a.get(i).getSubitaOuProgressiva(),
-                a.get(i).getInicioDaQueixa(),
-                a.get(i).getQueixasSecundarias(),
-                a.get(i).getHistoricoFamiliar(),
-                a.get(i).getDiagnostico(),
-                a.get(i).getEncaminhamento(),
-                a.get(i).getDoencasConhecidas(),
-                a.get(i).getMedicamentosUtilizados(),
-                
-                a.get(i).getOqueMudou(),
-                a.get(i).getSintomas(),
-                a.get(i).getComoComecou(),
-                a.get(i).getQueixasCognitivas(),
-                a.get(i).getQueixasAfetivoEmocionais(),
-                a.get(i).getPsicomotricidade(),
-                a.get(i).getConsulta().getCodConsulta(),
-               a.get(i).getDataEmissao(),
-
+              v.getAnamnese().getCodAnamnese(),
+              v.getPaciente().getNome_Completo(),
+              v.getAnamnese().getDiagnostico(),
+              v.getConsulta().getDataConsulta()
+              
             });
         }
     }
-    }
+//      private void ReadJTable() {
+//          DefaultTableModel model = (DefaultTableModel) JTAnamneses.getModel();
+//        model.setNumRows(0);
+//        AnamneseDAO dao = new AnamneseDAO();
+//        ConsultaDAO cdao = new ConsultaDAO();
+//        Psicologo p = new Psicologo();
+//        p.setCodPsicologo(Main.cod);
+//        
+//        for (Consulta c : cdao.Read(p)) {
+//            List<Anamnese> a = new ArrayList<>();
+//             a = (List<Anamnese>) dao.Read(c);
+//             
+//            for (int i = 0; i < a.size(); i++){
+//            model.addRow(new Object[]{
+//                a.get(i).getCodAnamnese(),    
+//                a.get(i).getQueixaPrincipal(),
+//                a.get(i).getSubitaOuProgressiva(),
+//                a.get(i).getInicioDaQueixa(),
+//                a.get(i).getQueixasSecundarias(),
+//                a.get(i).getHistoricoFamiliar(),
+//                a.get(i).getDiagnostico(),
+//                a.get(i).getEncaminhamento(),
+//                a.get(i).getDoencasConhecidas(),
+//                a.get(i).getMedicamentosUtilizados(),
+//                
+//                a.get(i).getOqueMudou(),
+//                a.get(i).getSintomas(),
+//                a.get(i).getComoComecou(),
+//                a.get(i).getQueixasCognitivas(),
+//                a.get(i).getQueixasAfetivoEmocionais(),
+//                a.get(i).getPsicomotricidade(),
+//                a.get(i).getConsulta().getCodConsulta(),
+//               a.get(i).getDataEmissao(),
+//
+//            });
+//        }
+//    }
+//    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable JTAnamneses;
     private javax.swing.JButton btnExcluir;

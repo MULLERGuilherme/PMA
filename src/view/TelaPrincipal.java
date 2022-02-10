@@ -95,13 +95,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jPanel1 = new JPanelGradient2();
         PainelEsquerda = new javax.swing.JPanel();
         PainelMenu = new JPanelGradient();
-        BtnExibiranamneses = new javax.swing.JButton();
+        BtnVoltar = new javax.swing.JButton();
         BtnManterPaciente = new javax.swing.JButton();
-        BtnManterPsicologo = new javax.swing.JButton();
         BtnManterConsulta = new javax.swing.JButton();
+        BtnManterPsicologo = new javax.swing.JButton();
+        BtnExibiranamneses = new javax.swing.JButton();
         BtnExibirAnotacao = new javax.swing.JButton();
         BtnSair = new javax.swing.JButton();
-        BtnVoltar = new javax.swing.JButton();
         PainelCentro = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         JTConsultas = new javax.swing.JTable();
@@ -130,16 +130,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.NORTH);
 
-        BtnExibiranamneses.setBackground(new java.awt.Color(102, 102, 102));
-        BtnExibiranamneses.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        BtnExibiranamneses.setForeground(new java.awt.Color(255, 255, 255));
-        BtnExibiranamneses.setText("Exibir Anamneses");
-        BtnExibiranamneses.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        BtnExibiranamneses.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnExibiranamnesesActionPerformed(evt);
-            }
-        });
+        BtnVoltar.setBackground(new java.awt.Color(102, 102, 102));
+        BtnVoltar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        BtnVoltar.setForeground(new java.awt.Color(255, 255, 255));
+        BtnVoltar.setText("Início");
 
         BtnManterPaciente.setBackground(new java.awt.Color(102, 102, 102));
         BtnManterPaciente.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -150,6 +144,17 @@ public class TelaPrincipal extends javax.swing.JFrame {
         BtnManterPaciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnManterPacienteActionPerformed(evt);
+            }
+        });
+
+        BtnManterConsulta.setBackground(new java.awt.Color(102, 102, 102));
+        BtnManterConsulta.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        BtnManterConsulta.setForeground(new java.awt.Color(255, 255, 255));
+        BtnManterConsulta.setText("Cadastrar Consulta");
+        BtnManterConsulta.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        BtnManterConsulta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnManterConsultaActionPerformed(evt);
             }
         });
 
@@ -164,14 +169,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        BtnManterConsulta.setBackground(new java.awt.Color(102, 102, 102));
-        BtnManterConsulta.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        BtnManterConsulta.setForeground(new java.awt.Color(255, 255, 255));
-        BtnManterConsulta.setText("Cadastrar Consulta");
-        BtnManterConsulta.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        BtnManterConsulta.addActionListener(new java.awt.event.ActionListener() {
+        BtnExibiranamneses.setBackground(new java.awt.Color(102, 102, 102));
+        BtnExibiranamneses.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        BtnExibiranamneses.setForeground(new java.awt.Color(255, 255, 255));
+        BtnExibiranamneses.setText("Exibir Anamneses");
+        BtnExibiranamneses.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        BtnExibiranamneses.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnManterConsultaActionPerformed(evt);
+                BtnExibiranamnesesActionPerformed(evt);
             }
         });
 
@@ -196,11 +201,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 BtnSairActionPerformed(evt);
             }
         });
-
-        BtnVoltar.setBackground(new java.awt.Color(102, 102, 102));
-        BtnVoltar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        BtnVoltar.setForeground(new java.awt.Color(255, 255, 255));
-        BtnVoltar.setText("Início");
 
         javax.swing.GroupLayout PainelMenuLayout = new javax.swing.GroupLayout(PainelMenu);
         PainelMenu.setLayout(PainelMenuLayout);
@@ -357,7 +357,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void BtnManterPsicologoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnManterPsicologoActionPerformed
         // TODO add your handling code here:
         ManterPsicologo mp = new ManterPsicologo();
-        Util.SizeJanela(mp);
+        //Util.SizeJanela(mp);
+        mp.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BtnManterPsicologoActionPerformed
 

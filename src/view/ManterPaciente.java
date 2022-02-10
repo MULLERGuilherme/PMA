@@ -84,6 +84,7 @@ public class ManterPaciente extends javax.swing.JFrame {
                
             }
         }
+        if(linha != null)  model.addRow(linha);
     }
 
     public void ReadJTableBusca(String Atributo, String Busca) {

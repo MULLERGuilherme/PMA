@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.bean.Consulta;
+import model.bean.Vw_Anamnese_Paciente;
 import model.bean.Vw_Consultas;
 import model.bean.Vw_TelefonesPacientes;
 
@@ -65,7 +66,7 @@ public class ViewsDAO {
         ResultSet rs = null;
         List<Vw_TelefonesPacientes> vw = new ArrayList<>();
         try {
-            stmt = con.prepareStatement("SELECT * FROM vw_Telefonepacientes");
+            stmt = con.prepareStatement("SELECT * FROM vw_TelefonesPacientes");
             rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -88,4 +89,39 @@ public class ViewsDAO {
 
         return vw;
     }
+    
+    
+     public List<Vw_Anamnese_Paciente> ReadAnamnesePaciente(int codPsicologo) {
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        List<Vw_Anamnese_Paciente> vw = new ArrayList<>();
+        try {
+            stmt = con.prepareStatement("SELECT * FROM vw_Anamnese_Paciente Where CodigoPsicologo = ?");
+            stmt.setInt(1, codPsicologo);
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                Vw_Anamnese_Paciente v = new Vw_Anamnese_Paciente();
+
+                v.getPaciente().setCodPaciente(rs.getInt("CodigoPaciente"));
+                v.getPaciente().setNome_Completo(rs.getString("Paciente"));
+                v.getConsulta().setDataConsulta(rs.getTimestamp("DataConsulta"));
+                
+                v.getAnamnese().setCodAnamnese(rs.getInt("CodAnamnese"));
+                 v.getAnamnese().setDiagnostico(rs.getString("Diagnostico"));
+                vw.add(v);
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ConsultaDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt, rs);
+        }
+
+        return vw;
+    }
+    
+    
 }
