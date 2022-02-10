@@ -13,7 +13,7 @@ public class Anotacao {
 private int CodAnotacao;
 private String Assunto;
 private String Texto;
-private String DataAnotacao;
+private Object DataAnotacao;
 private Consulta consulta;
 
     public Anotacao(){
@@ -44,13 +44,15 @@ private Consulta consulta;
         this.Texto = Texto;
     }
 
-    public String getDataAnotacao() {
+    public Object getDataAnotacao() {
         return DataAnotacao;
     }
 
-    public void setDataAnotacao(String DataAnotacao) {
+    public void setDataAnotacao(Object DataAnotacao) {
         this.DataAnotacao = DataAnotacao;
     }
+
+    
 
     public Consulta getConsulta() {
         return consulta;

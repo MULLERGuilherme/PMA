@@ -42,15 +42,27 @@ public class ManterConsulta1 extends javax.swing.JFrame {
         ReadJTable();
     }
 
-   public void ReadJTable() {
-        int anterior = -1;
+     public void ReadJTable() {
+
         DefaultTableModel model = (DefaultTableModel) JTPacienteSimples.getModel();
         model.setNumRows(0);
         ViewsDAO vwdao = new ViewsDAO();
         Object[] linha = null;
+        String fones = null;
+        String[] fones2 = null;
         for (Vw_TelefonesPacientes vw : vwdao.ReadTelefonesPacientes()) {
-            if (anterior != vw.getPaciente().getCodPaciente()) {
-                if(anterior != -1) model.addRow(linha);
+            fones = vw.getTelefone().getNumero();
+            if (fones.contains(",")) {
+
+                fones2 = fones.split(",");
+                linha = new Object[]{
+                    vw.getPaciente().getCodPaciente(),
+                    vw.getPaciente().getNome_Completo(),
+                    vw.getPaciente().getEmail(),
+                    fones2[0],
+                    fones2[1]
+                };
+            } else {
                 linha = new Object[]{
                     vw.getPaciente().getCodPaciente(),
                     vw.getPaciente().getNome_Completo(),
@@ -58,16 +70,13 @@ public class ManterConsulta1 extends javax.swing.JFrame {
                     vw.getTelefone().getNumero(),
                     null
                 };
-                anterior = vw.getPaciente().getCodPaciente();
-                
-            }else
-            {
-                linha[4] = vw.getTelefone().getNumero();
-                model.addRow(linha);
-               
+
             }
+            model.addRow(linha);
+            fones = null;
+            fones2 = null;
+
         }
-        if(linha != null)  model.addRow(linha);
     }
 
     public void ReadJTableBusca(String Atributo, String Busca) {

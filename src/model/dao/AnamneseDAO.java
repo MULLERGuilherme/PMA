@@ -285,4 +285,48 @@ public class AnamneseDAO {
 
         return a;
     }
+     
+          public Anamnese ReadAnamnese(int CodAnamnese) {
+
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        Anamnese a = new Anamnese();
+        try {
+            stmt = con.prepareStatement("SELECT * FROM anamnese WHERE CodAnamnese =?");
+            stmt.setInt(1, CodAnamnese);
+            rs = stmt.executeQuery();
+            if (rs != null) {
+                while (rs.next()) {
+                  a.setQueixaPrincipal( rs.getString("QueixaPrincipal"));
+                  a.setSubitaOuProgressiva(rs.getString("SubitaOuProgressiva"));
+                  a.setInicioDaQueixa(rs.getObject("InicioDaQueixa"));
+                  a.setQueixasSecundarias(rs.getString("QueixasSecundarias"));
+                  a.setHistoricoFamiliar(rs.getString("HistoricoFamiliar"));
+                  a.setDiagnostico(rs.getString("Diagnostico"));
+                  a.setEncaminhamento(rs.getString("Encaminhamento"));
+                  a.setDoencasConhecidas(rs.getString("DoencasConhecidas"));
+                  a.setMedicamentosUtilizados(rs.getString("MedicamentosUtilizados"));
+                  a.getConsulta().setCodConsulta(rs.getInt("CodConsulta"));
+                    a.setOqueMudou(rs.getString("OqueMudou"));
+                    a.setSintomas(rs.getString("Sintomas"));
+                    a.setComoComecou(rs.getString("ComoComecou"));
+                    a.setQueixasCognitivas(rs.getString("QueixasCognitivas"));
+                    a.setQueixasAfetivoEmocionais(rs.getString("QueixasAfetivoEmocionais"));
+                    a.setPsicomotricidade(rs.getString("Psicomotricidade"));
+                    a.setCodAnamnese(rs.getInt("codanamnese"));
+                    a.getConsulta().setCodConsulta(rs.getInt("CodConsulta"));
+
+                    
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PacienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt, rs);
+        }
+
+        return a;
+    }
 }

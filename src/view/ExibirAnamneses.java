@@ -140,7 +140,7 @@ public class ExibirAnamneses extends javax.swing.JFrame {
         // TODO add your handling code here:
           if (JTAnamneses.getSelectedRow() != -1) {
 
-            AlterarAnamnesePacienteMenu.codconsulta = ((int) JTAnamneses.getValueAt(JTAnamneses.getSelectedRow(), 16));
+            AlterarAnamnesePacienteMenu.codanamnese = ((int) JTAnamneses.getValueAt(JTAnamneses.getSelectedRow(), 0));
             AlterarAnamnesePacienteMenu cp = new AlterarAnamnesePacienteMenu();
             cp.setVisible(true);
             this.dispose();

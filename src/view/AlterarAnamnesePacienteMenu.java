@@ -26,8 +26,8 @@ import model.dao.AnamneseDAO;
  */
 public class AlterarAnamnesePacienteMenu extends javax.swing.JFrame {
 
-    public static int codconsulta;
-    private static int codanamnese;
+    //public static int codconsulta;
+    public static int codanamnese;
 
     /**
      * Creates new form ManterAnamnese
@@ -63,7 +63,7 @@ public class JPanelGradient2 extends JPanel{
     public void readcampos() {
         Anamnese a = new Anamnese();
         AnamneseDAO dao = new AnamneseDAO();
-        a = dao.ReadAnamneseConsulta(codconsulta);
+        a = dao.ReadAnamnese(codanamnese);
 
         codanamnese = a.getCodAnamnese();
         TxtQueixaPrincipal.setText(a.getQueixaPrincipal());
@@ -341,6 +341,7 @@ public class JPanelGradient2 extends JPanel{
     private void BtnAlterarAnamneseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAlterarAnamneseActionPerformed
         // TODO add your handling code here:
         Anamnese a = new Anamnese();
+        Anamnese a2 = new Anamnese();
         AnamneseDAO dao = new AnamneseDAO();
 
         a.setCodAnamnese(codanamnese);
@@ -349,7 +350,7 @@ public class JPanelGradient2 extends JPanel{
             a.setSubitaOuProgressiva((String) JCBSubita.getSelectedItem());
            
             
-
+            a2 = dao.ReadAnamnese(codanamnese);
             //java.util.Date date = new java.util.Date();
             Object param = InicioDaQueixa.getDate();
             a.setInicioDaQueixa(param);
@@ -359,7 +360,7 @@ public class JPanelGradient2 extends JPanel{
             a.setEncaminhamento(TxtEncaminhamento.getText());
             a.setDoencasConhecidas(TxtDoencasConhecidas.getText());
             a.setMedicamentosUtilizados(TxtMedicamentosUtilizados.getText());
-            a.getConsulta().setCodConsulta(codconsulta);
+            a.getConsulta().setCodConsulta(a2.getConsulta().getCodConsulta());
             a.setOqueMudou(TxtOqueMudou.getText());
             a.setSintomas(TxtSintomas.getText());
             a.setComoComecou(TxtComoComecou.getText());

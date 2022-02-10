@@ -13,8 +13,11 @@ import javax.swing.table.TableRowSorter;
 import model.bean.Anotacao;
 import model.bean.Consulta;
 import model.bean.Psicologo;
+import model.bean.Vw_Anamnese_Paciente;
+import model.bean.Vw_Anotacoes_Paciente;
 import model.dao.AnotacaoDAO;
 import model.dao.ConsultaDAO;
+import model.dao.ViewsDAO;
 
 /**
  *
@@ -33,30 +36,52 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
     }
     
     public void ReadJTable() {
-
         DefaultTableModel model = (DefaultTableModel) JTAnotacoes.getModel();
         model.setNumRows(0);
+        ViewsDAO vwdao = new ViewsDAO();
+        //ConsultaDAO cdao = new ConsultaDAO();
+        //PacienteDAO pdao = new PacienteDAO();
+        //Paciente p = new Paciente();
         
-        ConsultaDAO cdao = new ConsultaDAO();
-        AnotacaoDAO dao = new AnotacaoDAO();
-        List<Anotacao> a = new ArrayList<>();
-        Psicologo p = new Psicologo();
-        p.setCodPsicologo(Main.cod);
-        for (Consulta c : cdao.Read(p)) {
-            a = dao.Read(c);
-            int i = 0;
-            for( i = 0; i< a.size(); i++){
+        
+        for (Vw_Anotacoes_Paciente v : vwdao.ReadAnotacoesPaciente(Main.cod)) {
+            //p = pdao.ReadPaciente(c.getPaciente().getCodPaciente());
             model.addRow(new Object[]{
-                a.get(i).getCodAnotacao(),
-                a.get(i).getAssunto(),
-                a.get(i).getTexto(),
-                a.get(i).getConsulta().getCodConsulta(),
-                c.getCodConsulta(),
-                c.getDataConsulta(),
+              v.getAnotacao().getCodAnotacao(),
+              v.getPaciente().getNome_Completo(),
+              v.getAnotacao().getAssunto(),
+              v.getAnotacao().getDataAnotacao()
+
+              
             });
         }
     }
-    }
+    
+//    public void ReadJTable() {
+//
+//        DefaultTableModel model = (DefaultTableModel) JTAnotacoes.getModel();
+//        model.setNumRows(0);
+//        
+//        ConsultaDAO cdao = new ConsultaDAO();
+//        AnotacaoDAO dao = new AnotacaoDAO();
+//        List<Anotacao> a = new ArrayList<>();
+//        Psicologo p = new Psicologo();
+//        p.setCodPsicologo(Main.cod);
+//        for (Consulta c : cdao.Read(p)) {
+//            a = dao.Read(c);
+//            int i = 0;
+//            for( i = 0; i< a.size(); i++){
+//            model.addRow(new Object[]{
+//                a.get(i).getCodAnotacao(),
+//                a.get(i).getAssunto(),
+//                a.get(i).getTexto(),
+//                a.get(i).getConsulta().getCodConsulta(),
+//                c.getCodConsulta(),
+//                c.getDataConsulta(),
+//            });
+//        }
+//    }
+//    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -85,11 +110,11 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
 
             },
             new String [] {
-                "CodAnotacao", "Assunto", "Texto", "CodConsulta"
+                "ID Anotação", "Paciente", "Assunto", "Data da Anotação"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, true, true
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -97,6 +122,13 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(JTAnotacoes);
+        if (JTAnotacoes.getColumnModel().getColumnCount() > 0) {
+            JTAnotacoes.getColumnModel().getColumn(0).setResizable(false);
+            JTAnotacoes.getColumnModel().getColumn(0).setPreferredWidth(1);
+            JTAnotacoes.getColumnModel().getColumn(1).setResizable(false);
+            JTAnotacoes.getColumnModel().getColumn(2).setResizable(false);
+            JTAnotacoes.getColumnModel().getColumn(3).setResizable(false);
+        }
 
         BtnExcluirAnotacao.setText("Excluir");
         BtnExcluirAnotacao.addActionListener(new java.awt.event.ActionListener() {
