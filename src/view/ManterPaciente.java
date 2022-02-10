@@ -211,6 +211,8 @@ public class ManterPaciente extends javax.swing.JFrame {
         buttonGroup4 = new javax.swing.ButtonGroup();
         buttonGroup5 = new javax.swing.ButtonGroup();
         buttonGroup6 = new javax.swing.ButtonGroup();
+        DadosPaciente = new javax.swing.JDialog();
+        jLabel1 = new javax.swing.JLabel();
         PainelNorte = new javax.swing.JPanel();
         jPanel3 = new JPanelGradient2();
         PainelEsquerda = new javax.swing.JPanel();
@@ -265,6 +267,28 @@ public class ManterPaciente extends javax.swing.JFrame {
         btnVisuAnotacoes = new javax.swing.JButton();
         btnVisuAnamneses = new javax.swing.JButton();
         brnVisuConsultas = new javax.swing.JButton();
+        BtnDialog = new javax.swing.JButton();
+
+        DadosPaciente.setLocationRelativeTo(null);
+
+        jLabel1.setText("Dados Paciente");
+
+        javax.swing.GroupLayout DadosPacienteLayout = new javax.swing.GroupLayout(DadosPaciente.getContentPane());
+        DadosPaciente.getContentPane().setLayout(DadosPacienteLayout);
+        DadosPacienteLayout.setHorizontalGroup(
+            DadosPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DadosPacienteLayout.createSequentialGroup()
+                .addGap(238, 238, 238)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(339, Short.MAX_VALUE))
+        );
+        DadosPacienteLayout.setVerticalGroup(
+            DadosPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DadosPacienteLayout.createSequentialGroup()
+                .addGap(76, 76, 76)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(950, Short.MAX_VALUE))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -576,6 +600,13 @@ public class ManterPaciente extends javax.swing.JFrame {
             }
         });
 
+        BtnDialog.setText("Modal");
+        BtnDialog.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BtnDialogMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout EstadoCivilLayout = new javax.swing.GroupLayout(EstadoCivil);
         EstadoCivil.setLayout(EstadoCivilLayout);
         EstadoCivilLayout.setHorizontalGroup(
@@ -593,6 +624,12 @@ public class ManterPaciente extends javax.swing.JFrame {
                             .addComponent(BtnAlterar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(BtnExcluir, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EstadoCivilLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(DataNasc, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(320, 320, 320))
                     .addGroup(EstadoCivilLayout.createSequentialGroup()
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -602,14 +639,10 @@ public class ManterPaciente extends javax.swing.JFrame {
                         .addGap(40, 40, 40)
                         .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(43, 43, 43)
-                        .addComponent(BtnBuscar)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EstadoCivilLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(DataNasc, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(320, 320, 320))))
+                        .addGroup(EstadoCivilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(BtnDialog)
+                            .addComponent(BtnBuscar))
+                        .addGap(0, 0, Short.MAX_VALUE))))
             .addGroup(EstadoCivilLayout.createSequentialGroup()
                 .addGap(7, 7, 7)
                 .addComponent(jLabel14)
@@ -729,7 +762,9 @@ public class ManterPaciente extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(BtnAdicionarTelefone)
                         .addGap(18, 18, Short.MAX_VALUE)
-                        .addComponent(BtnCadastrarPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(EstadoCivilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(BtnCadastrarPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BtnDialog))
                         .addGap(50, 50, 50))
                     .addGroup(EstadoCivilLayout.createSequentialGroup()
                         .addGroup(EstadoCivilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1264,6 +1299,11 @@ public class ManterPaciente extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_brnVisuConsultasActionPerformed
 
+    private void BtnDialogMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnDialogMouseClicked
+            ModalPaciente MP= new ModalPaciente();
+            MP.setVisible(true);
+    }//GEN-LAST:event_BtnDialogMouseClicked
+
     public void clear() {
         //limpar a tela
         txtNome.setText(null);
@@ -1324,6 +1364,7 @@ public class ManterPaciente extends javax.swing.JFrame {
     private javax.swing.JButton BtnAlterar;
     private javax.swing.JButton BtnBuscar;
     private javax.swing.JButton BtnCadastrarPacientes;
+    private javax.swing.JButton BtnDialog;
     private javax.swing.JButton BtnExcluir;
     private javax.swing.JButton BtnExibirAnotacao;
     private javax.swing.JButton BtnManterAnotacao;
@@ -1332,6 +1373,7 @@ public class ManterPaciente extends javax.swing.JFrame {
     private javax.swing.JButton BtnManterPsicologo;
     private javax.swing.JButton BtnSair;
     private javax.swing.JButton BtnVoltar1;
+    private javax.swing.JDialog DadosPaciente;
     private com.github.lgooddatepicker.components.DatePicker DataNasc;
     private javax.swing.JPanel EstadoCivil;
     private javax.swing.JComboBox<String> JCBAtributo;
@@ -1360,6 +1402,7 @@ public class ManterPaciente extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup5;
     private javax.swing.ButtonGroup buttonGroup6;
     private javax.swing.JComboBox<String> estadocivil;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
