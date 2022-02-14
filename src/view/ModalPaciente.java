@@ -42,7 +42,6 @@ public class ModalPaciente extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         jEImagePanel1 = new LIB.JEImagePanel();
         jPanel1 = new javax.swing.JPanel();
@@ -76,17 +75,22 @@ public class ModalPaciente extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(720, 1080));
 
         jEImagePanel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/fondotransparente.png"))); // NOI18N
-        jEImagePanel1.setLayout(new java.awt.GridBagLayout());
+        jEImagePanel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jEImagePanel1MouseClicked(evt);
+            }
+        });
+        jEImagePanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(300, 1000));
 
         PainelIdentificacaoPessoal.setBackground(new java.awt.Color(0, 255, 0));
 
+        LabelIdentificacaoPessoal.setText("    Identificação Pessoal");
         LabelIdentificacaoPessoal.setBackground(new java.awt.Color(0, 255, 0));
         LabelIdentificacaoPessoal.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         LabelIdentificacaoPessoal.setForeground(new java.awt.Color(255, 255, 255));
-        LabelIdentificacaoPessoal.setText("    Identificação Pessoal");
 
         javax.swing.GroupLayout PainelIdentificacaoPessoalLayout = new javax.swing.GroupLayout(PainelIdentificacaoPessoal);
         PainelIdentificacaoPessoal.setLayout(PainelIdentificacaoPessoalLayout);
@@ -101,8 +105,8 @@ public class ModalPaciente extends javax.swing.JFrame {
 
         PainelNome.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("Nome:");
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         txtNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -130,18 +134,18 @@ public class ModalPaciente extends javax.swing.JFrame {
 
         PainelData.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel2.setText("Data de Nascimento: ");
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         DataNasc.setPreferredSize(new java.awt.Dimension(160, 17));
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel3.setText("Sexo:");
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         Sexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Feminino","Não Definido"}));
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel4.setText("Estado Civil:");
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         estadocivil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Solteiro", "Casado", "Separado", "Divorciado","Viuvo" }));
 
@@ -177,11 +181,11 @@ public class ModalPaciente extends javax.swing.JFrame {
 
         PainelEndereco.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel5.setText("Endereço:");
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel7.setText("Cidade:");
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         javax.swing.GroupLayout PainelEnderecoLayout = new javax.swing.GroupLayout(PainelEndereco);
         PainelEndereco.setLayout(PainelEnderecoLayout);
@@ -209,14 +213,14 @@ public class ModalPaciente extends javax.swing.JFrame {
 
         PainelProfissao.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel8.setText("Profissão:");
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel9.setText("Religião:");
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel10.setText("Escolaridade:");
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         javax.swing.GroupLayout PainelProfissaoLayout = new javax.swing.GroupLayout(PainelProfissao);
         PainelProfissao.setLayout(PainelProfissaoLayout);
@@ -275,16 +279,10 @@ public class ModalPaciente extends javax.swing.JFrame {
                 .addComponent(PainelEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(PainelProfissao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(736, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipady = 723;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 220, 209, 487);
-        jEImagePanel1.add(jPanel1, gridBagConstraints);
+        jEImagePanel1.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(422, 190, 1141, 380));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -305,6 +303,10 @@ public class ModalPaciente extends javax.swing.JFrame {
     private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNomeActionPerformed
+
+    private void jEImagePanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jEImagePanel1MouseClicked
+        this.dispose();
+    }//GEN-LAST:event_jEImagePanel1MouseClicked
 
     /**
      * @param args the command line arguments
