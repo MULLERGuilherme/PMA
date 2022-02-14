@@ -224,5 +224,40 @@ public class ViewsDAO {
         return vw;
     }
     
+      
+    public List<Vw_Anotacoes_Paciente> BuscaExibirAnotacoes(String Atributo, String Busca, int codPsicologo) {
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        List<Vw_Anotacoes_Paciente> vw = new ArrayList<>();
+        try {
+            String sql = "SELECT CodigoPaciente, Paciente, Assunto, DataAnotacao, CodAnotacao, texto FROM vw_Anotacoes_Paciente WHERE "+Atributo+ " Like '%"+Busca+"%' and CodigoPsicologo = ? Group By CodigoPaciente;";
+            stmt = con.prepareStatement(sql);
+            stmt.setInt(1, codPsicologo);
+            
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+             
+                Vw_Anotacoes_Paciente v = new Vw_Anotacoes_Paciente();
+
+                v.getPaciente().setCodPaciente(rs.getInt("CodigoPaciente"));
+                v.getPaciente().setNome_Completo(rs.getString("Paciente"));
+                v.getAnotacao().setDataAnotacao(rs.getTimestamp("DataAnotacao"));
+                v.getAnotacao().setAssunto(rs.getString("Assunto"));
+                v.getAnotacao().setTexto(rs.getString("texto"));
+                v.getAnotacao().setCodAnotacao(rs.getInt("CodAnotacao"));
+                
+                vw.add(v);
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(PacienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt, rs);
+        }
+
+        return vw;
+    }
     
 }
