@@ -79,32 +79,42 @@ public class ManterConsulta1 extends javax.swing.JFrame {
         }
     }
 
-    public void ReadJTableBusca(String Atributo, String Busca) {
+   public void ReadJTableBusca(String Atributo, String Busca) {
 
         DefaultTableModel model = (DefaultTableModel) JTPacienteSimples.getModel();
         model.setNumRows(0);
-        PacienteDAO pdao = new PacienteDAO();
-        TelefoneDAO tdao = new TelefoneDAO();
-        for (Paciente p : pdao.Busca(Atributo, Busca)) {
-            List<Telefone> telefones = new ArrayList<>();
-            telefones = (List<Telefone>) tdao.Read(p.getCodPaciente());
-            if (telefones.size() == 1) {
+        if(Atributo.equals("Nome Completo")) Atributo = "Paciente";
+        if(Atributo.equals("Telefone")) Atributo = "numero";
+        ViewsDAO vwdao = new ViewsDAO();
+        Object[] linha = null;
+        String fones = null;
+        String[] fones2 = null;
+        for (Vw_TelefonesPacientes vw : vwdao.BuscaManterPaciente(Atributo, Busca)) {
+            fones = vw.getTelefone().getNumero();
+            if (fones.contains(",")) {
 
-                model.addRow(new Object[]{
-                    p.getCodPaciente(),
-                    p.getNome_Completo(),
-                    p.getCPF(),
-                    p.getEmail(),
-                    telefones.get(0).getNumero(),});
-            } else if (telefones.size() == 2) {
-                model.addRow(new Object[]{
-                    p.getCodPaciente(),
-                    p.getNome_Completo(),
-                    p.getCPF(),
-                    p.getEmail(),
-                    telefones.get(0).getNumero(),
-                    telefones.get(1).getNumero(),});
+                fones2 = fones.split(",");
+                linha = new Object[]{
+                    vw.getPaciente().getCodPaciente(),
+                    vw.getPaciente().getNome_Completo(),
+                    vw.getPaciente().getEmail(),
+                    fones2[0],
+                    fones2[1]
+                };
+            } else {
+                linha = new Object[]{
+                    vw.getPaciente().getCodPaciente(),
+                    vw.getPaciente().getNome_Completo(),
+                    vw.getPaciente().getEmail(),
+                    vw.getTelefone().getNumero(),
+                    null
+                };
+
             }
+            model.addRow(linha);
+            fones = null;
+            fones2 = null;
+
         }
     }
 
@@ -213,7 +223,7 @@ public class ManterConsulta1 extends javax.swing.JFrame {
             }
         });
 
-        JCBAtributo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nome_Completo", "CPF", "Email" }));
+        JCBAtributo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nome Completo", "Email", "Telefone" }));
 
         jLabel2.setText("Buscar paciente Por");
 
@@ -234,8 +244,8 @@ public class ManterConsulta1 extends javax.swing.JFrame {
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 748, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(148, 148, 148)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(126, 126, 126)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(JCBAtributo, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -349,6 +359,8 @@ public class ManterConsulta1 extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(ManterConsulta1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
