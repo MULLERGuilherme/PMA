@@ -123,50 +123,89 @@ public class ManterPaciente extends javax.swing.JFrame {
 //        }
 //        if(linha != null)  model.addRow(linha);
 //    }
-    public void ReadJTableBusca(String Atributo, String Busca) {
+    
+     public void ReadJTableBusca(String Atributo, String Busca) {
 
         DefaultTableModel model = (DefaultTableModel) JTPacientes.getModel();
         model.setNumRows(0);
-        PacienteDAO pdao = new PacienteDAO();
-        TelefoneDAO tdao = new TelefoneDAO();
-        for (Paciente p : pdao.Busca(Atributo, Busca)) {
-            List<Telefone> telefones = new ArrayList<>();
-            telefones = (List<Telefone>) tdao.Read(p.getCodPaciente());
-            if (telefones.size() == 1) {
+        if(Atributo.equals("Nome Completo")) Atributo = "Paciente";
+        if(Atributo.equals("Telefone")) Atributo = "numero";
+        ViewsDAO vwdao = new ViewsDAO();
+        Object[] linha = null;
+        String fones = null;
+        String[] fones2 = null;
+        for (Vw_TelefonesPacientes vw : vwdao.BuscaManterPaciente(Atributo, Busca)) {
+            fones = vw.getTelefone().getNumero();
+            if (fones.contains(",")) {
 
-                model.addRow(new Object[]{
-                    p.getCodPaciente(),
-                    p.getNome_Completo(),
-                    p.getCPF(),
-                    p.getEmail(),
-                    p.getEstadoCivil(),
-                    Validar.fDataNascBD((Date) p.getDataNasc()),
-                    p.getSexo(),
-                    p.getProfissao(),
-                    p.getReligiao(),
-                    p.getEscolaridade(),
-                    p.getEndereco(),
-                    p.getCidade(),
-                    telefones.get(0).getNumero(),});
-            } else if (telefones.size() == 2) {
-                model.addRow(new Object[]{
-                    p.getCodPaciente(),
-                    p.getNome_Completo(),
-                    p.getCPF(),
-                    p.getEmail(),
-                    p.getEstadoCivil(),
-                    p.getDataNasc(),
-                    p.getSexo(),
-                    p.getProfissao(),
-                    p.getReligiao(),
-                    p.getEscolaridade(),
-                    p.getEndereco(),
-                    p.getCidade(),
-                    telefones.get(0).getNumero(),
-                    telefones.get(1).getNumero(),});
+                fones2 = fones.split(",");
+                linha = new Object[]{
+                    vw.getPaciente().getCodPaciente(),
+                    vw.getPaciente().getNome_Completo(),
+                    vw.getPaciente().getEmail(),
+                    fones2[0],
+                    fones2[1]
+                };
+            } else {
+                linha = new Object[]{
+                    vw.getPaciente().getCodPaciente(),
+                    vw.getPaciente().getNome_Completo(),
+                    vw.getPaciente().getEmail(),
+                    vw.getTelefone().getNumero(),
+                    null
+                };
+
             }
+            model.addRow(linha);
+            fones = null;
+            fones2 = null;
+
         }
     }
+//    public void ReadJTableBusca(String Atributo, String Busca) {
+//
+//        DefaultTableModel model = (DefaultTableModel) JTPacientes.getModel();
+//        model.setNumRows(0);
+//        PacienteDAO pdao = new PacienteDAO();
+//        TelefoneDAO tdao = new TelefoneDAO();
+//        for (Paciente p : pdao.Busca(Atributo, Busca)) {
+//            List<Telefone> telefones = new ArrayList<>();
+//            telefones = (List<Telefone>) tdao.Read(p.getCodPaciente());
+//            if (telefones.size() == 1) {
+//
+//                model.addRow(new Object[]{
+//                    p.getCodPaciente(),
+//                    p.getNome_Completo(),
+//                    p.getCPF(),
+//                    p.getEmail(),
+//                    p.getEstadoCivil(),
+//                    Validar.fDataNascBD((Date) p.getDataNasc()),
+//                    p.getSexo(),
+//                    p.getProfissao(),
+//                    p.getReligiao(),
+//                    p.getEscolaridade(),
+//                    p.getEndereco(),
+//                    p.getCidade(),
+//                    telefones.get(0).getNumero(),});
+//            } else if (telefones.size() == 2) {
+//                model.addRow(new Object[]{
+//                    p.getCodPaciente(),
+//                    p.getNome_Completo(),
+//                    p.getCPF(),
+//                    p.getEmail(),
+//                    p.getEstadoCivil(),
+//                    p.getDataNasc(),
+//                    p.getSexo(),
+//                    p.getProfissao(),
+//                    p.getReligiao(),
+//                    p.getEscolaridade(),
+//                    p.getEndereco(),
+//                    p.getCidade(),
+//                    telefones.get(0).getNumero(),
+//                    telefones.get(1).getNumero(),});
+//            }
+//        }
+//    }
 
     public class JPanelGradient extends JPanel {
 
@@ -531,7 +570,7 @@ public class ManterPaciente extends javax.swing.JFrame {
 
         jLabel6.setText("Buscar Paciente por");
 
-        JCBAtributo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nome_Completo", "CPF", "Email", "Sexo" }));
+        JCBAtributo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nome Completo", "Email", "Telefone" }));
 
         jLabel15.setText("Contendo");
 
@@ -1249,9 +1288,7 @@ public class ManterPaciente extends javax.swing.JFrame {
 
     private void BtnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBuscarActionPerformed
         // TODO add your handling code here:
-        Paciente p = new Paciente();
-        PacienteDAO dao = new PacienteDAO();
-        System.out.println(JCBAtributo.getSelectedIndex());
+        //System.out.println(JCBAtributo.getSelectedIndex());
         this.ReadJTableBusca((String) JCBAtributo.getSelectedItem(), txtBusca.getText());
     }//GEN-LAST:event_BtnBuscarActionPerformed
 
@@ -1346,6 +1383,10 @@ public class ManterPaciente extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(ManterPaciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>

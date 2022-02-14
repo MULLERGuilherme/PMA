@@ -784,7 +784,7 @@
             <Component class="javax.swing.JComboBox" name="JCBAtributo">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[] { &quot;Nome_Completo&quot;, &quot;CPF&quot;, &quot;Email&quot;, &quot;Sexo&quot; })" type="code"/>
+                  <Connection code="new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[] { &quot;Nome Completo&quot;, &quot;Email&quot;, &quot;Telefone&quot; })" type="code"/>
                 </Property>
               </Properties>
               <AuxValues>

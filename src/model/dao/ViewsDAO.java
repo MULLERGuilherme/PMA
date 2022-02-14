@@ -159,5 +159,35 @@ public class ViewsDAO {
         return vw;
     }
     
+    public List<Vw_TelefonesPacientes> BuscaManterPaciente(String Atributo, String Busca) {
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        List<Vw_TelefonesPacientes> vw = new ArrayList<>();
+        try {
+            String sql = "SELECT CodigoPaciente, Paciente, Email, GROUP_CONCAT(numero) as Telefone FROM vw_TelefonesPacientes WHERE "+Atributo+ " Like '%"+Busca+"%' Group By CodigoPaciente;";
+            stmt = con.prepareStatement(sql);
+            
+            
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                Vw_TelefonesPacientes v = new Vw_TelefonesPacientes();
+                v.getPaciente().setCodPaciente(rs.getInt("CodigoPaciente"));
+                v.getPaciente().setNome_Completo(rs.getString("Paciente"));
+                v.getPaciente().setEmail(rs.getString("Email"));
+                v.getTelefone().setNumero(rs.getString("Telefone"));
+                
+                vw.add(v);
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(PacienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt, rs);
+        }
+
+        return vw;
+    }
     
 }
