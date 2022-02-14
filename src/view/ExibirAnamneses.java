@@ -53,11 +53,15 @@ public class ExibirAnamneses extends javax.swing.JFrame {
         btnalterar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         JTAnamneses = new javax.swing.JTable();
+        jLabel2 = new javax.swing.JLabel();
+        JCBAtributo = new javax.swing.JComboBox<>();
+        txtBusca = new javax.swing.JTextField();
+        btnBuscar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel1.setText("Exibir Anamneses");
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
 
         jButton1.setText("Voltar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -93,12 +97,26 @@ public class ExibirAnamneses extends javax.swing.JFrame {
             JTAnamneses.getColumnModel().getColumn(0).setPreferredWidth(1);
         }
 
+        jLabel2.setText("Buscar Anamnese Por");
+
+        JCBAtributo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nome do Paciente", "Diagnóstico", "Data da Consulta" }));
+
+        btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -110,11 +128,16 @@ public class ExibirAnamneses extends javax.swing.JFrame {
                                 .addContainerGap()
                                 .addComponent(btnalterar)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnExcluir)))
-                        .addGap(0, 357, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1)))
+                                .addComponent(btnExcluir)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(JCBAtributo, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnBuscar)))
+                        .addGap(0, 13, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -125,9 +148,16 @@ public class ExibirAnamneses extends javax.swing.JFrame {
                     .addComponent(jLabel1)
                     .addComponent(jButton1))
                 .addGap(39, 39, 39)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnExcluir)
-                    .addComponent(btnalterar))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnExcluir)
+                        .addComponent(btnalterar))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(txtBusca, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(JCBAtributo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2)
+                            .addComponent(btnBuscar))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 416, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -177,6 +207,13 @@ public class ExibirAnamneses extends javax.swing.JFrame {
         tp.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        // TODO add your handling code here:
+      
+        //System.out.println(JCBAtributo.getSelectedIndex());
+        this.ReadJTableBusca((String) JCBAtributo.getSelectedItem(), txtBusca.getText());
+    }//GEN-LAST:event_btnBuscarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -233,6 +270,28 @@ public class ExibirAnamneses extends javax.swing.JFrame {
             });
         }
     }
+    
+      public void ReadJTableBusca(String Atributo, String Busca) {
+
+        DefaultTableModel model = (DefaultTableModel) JTAnamneses.getModel();
+        model.setNumRows(0);
+        if(Atributo.equals("Nome do Paciente")) Atributo = "Paciente";
+        if(Atributo.equals("Diagnóstico")) Atributo = "Diagnostico";
+        if(Atributo.equals("Data da Consulta")) Atributo = "DataConsulta";
+        ViewsDAO vwdao = new ViewsDAO();
+      
+      
+        for (Vw_Anamnese_Paciente v : vwdao.BuscaExibirAnamneses(Atributo, Busca, Main.cod)) {
+            
+             model.addRow(new Object[]{
+              v.getAnamnese().getCodAnamnese(),
+              v.getPaciente().getNome_Completo(),
+              v.getAnamnese().getDiagnostico(),
+              v.getConsulta().getDataConsulta()
+              
+            });
+        }
+    }
 //      private void ReadJTable() {
 //          DefaultTableModel model = (DefaultTableModel) JTAnamneses.getModel();
 //        model.setNumRows(0);
@@ -272,11 +331,15 @@ public class ExibirAnamneses extends javax.swing.JFrame {
 //    }
 //    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> JCBAtributo;
     private javax.swing.JTable JTAnamneses;
+    private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnalterar;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField txtBusca;
     // End of variables declaration//GEN-END:variables
 }
