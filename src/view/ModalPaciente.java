@@ -68,6 +68,7 @@ public class ModalPaciente extends javax.swing.JFrame {
         LabelCidade = new javax.swing.JLabel();
         LabelCidade1 = new javax.swing.JLabel();
         txtCPF = new javax.swing.JTextField();
+        txtCidade = new javax.swing.JTextField();
         PainelProfissao = new javax.swing.JPanel();
         TxtProfissao = new javax.swing.JTextField();
         LabelProfissao = new javax.swing.JLabel();
@@ -80,16 +81,21 @@ public class ModalPaciente extends javax.swing.JFrame {
         PainelTelefone = new javax.swing.JPanel();
         LabelCidade2 = new javax.swing.JLabel();
         LabelCidade3 = new javax.swing.JLabel();
-        txtCPF1 = new javax.swing.JTextField();
-        jTextField1 = new javax.swing.JTextField();
+        txtTelefone2 = new javax.swing.JTextField();
+        txtTelefone1 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         BtnSalvarAlteracoes = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        getContentPane().setLayout(new java.awt.GridBagLayout());
 
         jEImagePanel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/fondotransparente.png"))); // NOI18N
-        jEImagePanel2.setLayout(new java.awt.GridBagLayout());
+        jEImagePanel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jEImagePanel2MouseClicked(evt);
+            }
+        });
 
         PainelDadosPaciente.setBackground(new java.awt.Color(255, 255, 255));
         PainelDadosPaciente.setPreferredSize(new java.awt.Dimension(300, 1000));
@@ -100,7 +106,7 @@ public class ModalPaciente extends javax.swing.JFrame {
         PainelIdentificacaoPessoal.setLayout(PainelIdentificacaoPessoalLayout);
         PainelIdentificacaoPessoalLayout.setHorizontalGroup(
             PainelIdentificacaoPessoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 902, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         PainelIdentificacaoPessoalLayout.setVerticalGroup(
             PainelIdentificacaoPessoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -140,7 +146,7 @@ public class ModalPaciente extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(estadocivil, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(estadocivil, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PainelDataLayout.setVerticalGroup(
@@ -174,7 +180,7 @@ public class ModalPaciente extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(TxtEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 757, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(TxtEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 756, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PainelEnderecoLayout.setVerticalGroup(
@@ -205,9 +211,9 @@ public class ModalPaciente extends javax.swing.JFrame {
             .addGroup(PainelNomeLayout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addComponent(LabelNome)
-                .addGap(26, 26, 26)
-                .addComponent(txtNome, javax.swing.GroupLayout.DEFAULT_SIZE, 771, Short.MAX_VALUE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 761, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(75, 75, 75))
         );
         PainelNomeLayout.setVerticalGroup(
             PainelNomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -234,20 +240,22 @@ public class ModalPaciente extends javax.swing.JFrame {
             .addGroup(PainelCidadeLayout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addComponent(LabelCidade1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(32, 32, 32)
+                .addComponent(txtCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(LabelCidade)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1101, 1101, 1101))
+                .addGap(18, 18, 18)
+                .addComponent(txtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PainelCidadeLayout.setVerticalGroup(
             PainelCidadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PainelCidadeLayout.createSequentialGroup()
-                .addGap(3, 3, 3)
+            .addGroup(PainelCidadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(LabelCidade1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(PainelCidadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LabelCidade, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
-            .addComponent(LabelCidade1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(txtCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         PainelProfissao.setBackground(new java.awt.Color(255, 255, 255));
@@ -264,7 +272,7 @@ public class ModalPaciente extends javax.swing.JFrame {
             .addGroup(PainelProfissaoLayout.createSequentialGroup()
                 .addComponent(LabelProfissao, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TxtProfissao, javax.swing.GroupLayout.PREFERRED_SIZE, 758, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(TxtProfissao, javax.swing.GroupLayout.PREFERRED_SIZE, 757, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PainelProfissaoLayout.setVerticalGroup(
@@ -311,7 +319,7 @@ public class ModalPaciente extends javax.swing.JFrame {
             .addGroup(PainelEscolaridadeLayout.createSequentialGroup()
                 .addComponent(LabelEscolaridade)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtEscolaridade, javax.swing.GroupLayout.PREFERRED_SIZE, 726, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtEscolaridade, javax.swing.GroupLayout.PREFERRED_SIZE, 728, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PainelEscolaridadeLayout.setVerticalGroup(
@@ -328,9 +336,7 @@ public class ModalPaciente extends javax.swing.JFrame {
         LabelCidade3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         LabelCidade3.setText("*  Telefone1:");
 
-        txtCPF1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-
-        jTextField1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        txtTelefone2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         javax.swing.GroupLayout PainelTelefoneLayout = new javax.swing.GroupLayout(PainelTelefone);
         PainelTelefone.setLayout(PainelTelefoneLayout);
@@ -339,13 +345,13 @@ public class ModalPaciente extends javax.swing.JFrame {
             .addGroup(PainelTelefoneLayout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addComponent(LabelCidade3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
+                .addGap(31, 31, 31)
+                .addComponent(txtTelefone1, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(LabelCidade2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtCPF1, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(994, 994, 994))
+                .addComponent(txtTelefone2, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PainelTelefoneLayout.setVerticalGroup(
             PainelTelefoneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -353,10 +359,10 @@ public class ModalPaciente extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(PainelTelefoneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PainelTelefoneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(LabelCidade3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(LabelCidade2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtCPF1, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE))
-                    .addComponent(LabelCidade3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(txtTelefone2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtTelefone1)))
         );
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -376,27 +382,29 @@ public class ModalPaciente extends javax.swing.JFrame {
         PainelDadosPaciente.setLayout(PainelDadosPacienteLayout);
         PainelDadosPacienteLayout.setHorizontalGroup(
             PainelDadosPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(PainelIdentificacaoPessoal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(PainelDadosPacienteLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(PainelDadosPacienteLayout.createSequentialGroup()
-                .addGroup(PainelDadosPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(PainelCidade, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(PainelNome, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(PainelIdentificacaoPessoal, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PainelDadosPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(PainelTelefone, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addComponent(PainelEscolaridade, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(PainelReligiao, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(PainelProfissao, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(PainelEndereco, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(PainelData, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 3, Short.MAX_VALUE))
+                .addGroup(PainelDadosPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PainelDadosPacienteLayout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addGroup(PainelDadosPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(PainelTelefone, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(PainelEscolaridade, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(PainelReligiao, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(PainelProfissao, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(PainelEndereco, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(PainelCidade, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(PainelData, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(PainelNome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(PainelDadosPacienteLayout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(jLabel1)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(60, 60, 60))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelDadosPacienteLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(BtnSalvarAlteracoes, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(327, 327, 327))
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(BtnSalvarAlteracoes, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(369, 369, 369))
         );
         PainelDadosPacienteLayout.setVerticalGroup(
             PainelDadosPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -421,32 +429,35 @@ public class ModalPaciente extends javax.swing.JFrame {
                 .addComponent(PainelTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(52, 52, 52)
                 .addComponent(jLabel1)
-                .addGap(106, 106, 106)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
                 .addComponent(BtnSalvarAlteracoes, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(199, Short.MAX_VALUE))
+                .addGap(87, 87, 87))
+        );
+
+        javax.swing.GroupLayout jEImagePanel2Layout = new javax.swing.GroupLayout(jEImagePanel2);
+        jEImagePanel2.setLayout(jEImagePanel2Layout);
+        jEImagePanel2Layout.setHorizontalGroup(
+            jEImagePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jEImagePanel2Layout.createSequentialGroup()
+                .addGap(470, 470, 470)
+                .addComponent(PainelDadosPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 1000, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(2062, Short.MAX_VALUE))
+        );
+        jEImagePanel2Layout.setVerticalGroup(
+            jEImagePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jEImagePanel2Layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(PainelDadosPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 967, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(163, Short.MAX_VALUE))
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipadx = 3;
-        gridBagConstraints.ipady = 186;
+        gridBagConstraints.ipadx = -3532;
+        gridBagConstraints.ipady = -1140;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 230, 232, 384);
-        jEImagePanel2.add(PainelDadosPaciente, gridBagConstraints);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jEImagePanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 2051, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jEImagePanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 1372, Short.MAX_VALUE)
-        );
+        getContentPane().add(jEImagePanel2, gridBagConstraints);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -458,6 +469,10 @@ public class ModalPaciente extends javax.swing.JFrame {
     private void BtnSalvarAlteracoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalvarAlteracoesActionPerformed
 
     }//GEN-LAST:event_BtnSalvarAlteracoesActionPerformed
+
+    private void jEImagePanel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jEImagePanel2MouseClicked
+        this.dispose();
+    }//GEN-LAST:event_jEImagePanel2MouseClicked
 
     /**
      * @param args the command line arguments
@@ -525,12 +540,13 @@ public class ModalPaciente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField txtCPF;
-    private javax.swing.JTextField txtCPF1;
+    private javax.swing.JTextField txtCidade;
     private javax.swing.JTextField txtEscolaridade;
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtReligiao;
+    private javax.swing.JTextField txtTelefone1;
+    private javax.swing.JTextField txtTelefone2;
     // End of variables declaration//GEN-END:variables
 
  public class RoundedBorder implements Border {
