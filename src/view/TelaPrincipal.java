@@ -349,7 +349,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void BtnManterPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnManterPacienteActionPerformed
         // TODO add your handling code here:
-        ManterPaciente mp1 = new ManterPaciente();
+        ManterPaciente1 mp1 = new ManterPaciente1();
         Util.SizeJanela(mp1);
         this.dispose();
     }//GEN-LAST:event_BtnManterPacienteActionPerformed
