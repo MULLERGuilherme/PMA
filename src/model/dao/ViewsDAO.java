@@ -91,6 +91,36 @@ public class ViewsDAO {
         return vw;
     }
     
+      public Vw_TelefonesPacientes ReadTelefonesPacientes(int codigopaciente) {
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        Vw_TelefonesPacientes v = new Vw_TelefonesPacientes();
+        try {
+            stmt = con.prepareStatement("SELECT CodigoPaciente, Paciente, Email, GROUP_CONCAT(numero) as Numero FROM vw_TelefonesPacientes where CodigoPaciente = ? Group By CodigoPaciente") ;
+            stmt.setInt(1, codigopaciente);
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                
+
+                v.getPaciente().setCodPaciente(rs.getInt("CodigoPaciente"));
+                v.getPaciente().setNome_Completo(rs.getString("Paciente"));
+                v.getPaciente().setEmail(rs.getString("Email"));
+                v.getTelefone().setNumero(rs.getString("Numero"));
+   
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ConsultaDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt, rs);
+        }
+
+        return v;
+    }
+    
     
      public List<Vw_Anamnese_Paciente> ReadAnamnesePaciente(int codPsicologo) {
         Connection con = ConnectionFactory.getConnection();
