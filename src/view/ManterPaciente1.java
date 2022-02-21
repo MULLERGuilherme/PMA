@@ -306,8 +306,6 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         BtnCancelar3 = new javax.swing.JButton();
         BtnSalvarAlteracoes3 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jLabel40 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
         txtEmail12 = new javax.swing.JTextField();
         jEImagePanel2 = new LIB.JEImagePanel();
         jLabel5 = new javax.swing.JLabel();
@@ -1123,6 +1121,8 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         ModalAlterarPaciente.getContentPane().add(PainelDadosPaciente1, gridBagConstraints);
 
+        ModalAnamnese.setResizable(false);
+
         PainelDadosPaciente2.setBackground(new java.awt.Color(255, 255, 255));
         PainelDadosPaciente2.setPreferredSize(new java.awt.Dimension(300, 1000));
 
@@ -1268,14 +1268,9 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         jLabel4.setText("* Campos Obrigatórios");
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        jLabel40.setText("  Código da Consulta:");
-        jLabel40.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-
-        jTextField1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-
         txtEmail12.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        jEImagePanel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\guimu\\Downloads\\simboloma.png")); // NOI18N
+        jEImagePanel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\guimu\\Desktop\\Projeto\\PMA\\Img\\simboloma.png")); // NOI18N
 
         javax.swing.GroupLayout jEImagePanel2Layout = new javax.swing.GroupLayout(jEImagePanel2);
         jEImagePanel2.setLayout(jEImagePanel2Layout);
@@ -1288,7 +1283,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(59, 131, 117));
         jLabel5.setText("Anamnese Psicológica");
 
@@ -1366,10 +1361,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                                         .addComponent(txtEmail11)
                                         .addGroup(PainelDadosPaciente2Layout.createSequentialGroup()
                                             .addComponent(DataNasc2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(jLabel40)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                            .addGap(0, 0, Short.MAX_VALUE))))
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelDadosPaciente2Layout.createSequentialGroup()
                                     .addComponent(BtnCancelar3)
                                     .addGap(18, 18, 18)
@@ -1448,9 +1440,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(PainelDadosPaciente2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel39)
-                    .addComponent(DataNasc2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel40)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(DataNasc2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(68, 68, 68)
                 .addGroup(PainelDadosPaciente2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
@@ -2363,12 +2353,10 @@ public class ManterPaciente1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel labelInicioQueixa;
     private javax.swing.JLabel labelInicioQueixa1;
     private javax.swing.JTextField txtBusca;
