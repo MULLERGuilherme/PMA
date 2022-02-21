@@ -1343,10 +1343,10 @@
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="LabelNome2">
                   <Properties>
+                    <Property name="text" type="java.lang.String" value="*E-mail:"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="18" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="*E-mail:"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtEmail1">
@@ -1394,6 +1394,14 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="PainelIdentificacaoPessoal2" alignment="0" max="32767" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="BtnCancelar2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                      <Component id="BtnSalvarAlteracoes2" min="-2" pref="173" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
+                  </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
@@ -1486,20 +1494,22 @@
                       </Group>
                       <EmptySpace pref="53" max="32767" attributes="0"/>
                   </Group>
-                  <Component id="PainelIdentificacaoPessoal2" alignment="0" max="32767" attributes="0"/>
-                  <Group type="102" alignment="1" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="jEImagePanel2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="BtnCancelar2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-                      <Component id="BtnSalvarAlteracoes2" min="-2" pref="173" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
+                      <Component id="jLabel5" min="-2" pref="543" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="134" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="jEImagePanel2" max="32767" attributes="0"/>
+                          <Component id="jLabel5" pref="149" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                       <Component id="PainelIdentificacaoPessoal2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -1514,16 +1524,16 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="labelInicioQueixa" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="JCBQueixasAfetivoEmocionais" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel26" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="JCBQueixasCognitivas" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="JCBQueixasCognitivas" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                          <Component id="JCBQueixasAfetivoEmocionais" alignment="0" min="-2" pref="22" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel29" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="JCBPsicomotricidade1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="JCBPsicomotricidade1" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                           <Component id="labelInicioQueixa1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="JCBPsicomotricidade" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="JCBPsicomotricidade" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -1601,7 +1611,7 @@
             <Container class="javax.swing.JPanel" name="PainelIdentificacaoPessoal2">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="0" green="ff" red="0" type="rgb"/>
+                  <Color blue="75" green="83" red="3b" type="rgb"/>
                 </Property>
               </Properties>
 
@@ -1620,14 +1630,15 @@
             </Container>
             <Component class="javax.swing.JLabel" name="jLabel2">
               <Properties>
+                <Property name="text" type="java.lang.String" value="* Campos Obrigat&#xf3;rios"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="* Campos Obrigat&#xf3;rios"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="BtnSalvarAlteracoes2">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Salvar Altera&#xe7;&#xf5;es"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ba" green="70" red="0" type="rgb"/>
                 </Property>
@@ -1637,7 +1648,6 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Salvar Altera&#xe7;&#xf5;es"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnSalvarAlteracoes2ActionPerformed"/>
@@ -1645,6 +1655,7 @@
             </Component>
             <Component class="javax.swing.JButton" name="BtnCancelar2">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Cancelar"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="99" green="99" red="ff" type="rgb"/>
                 </Property>
@@ -1654,7 +1665,6 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Cancelar"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnCancelar2ActionPerformed"/>
@@ -1662,19 +1672,19 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel29">
               <Properties>
+                <Property name="text" type="java.lang.String" value="*Repentina ou Gradual:"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="*Repentina ou Gradual:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JComboBox" name="JCBPsicomotricidade1">
               <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="18" style="1"/>
-                </Property>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[] { &quot;Normal&quot;, &quot;Lento&quot;, &quot;Agitado&quot;})" type="code"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="18" style="1"/>
                 </Property>
               </Properties>
               <AuxValues>
@@ -1683,19 +1693,19 @@
             </Component>
             <Component class="javax.swing.JLabel" name="labelInicioQueixa1">
               <Properties>
+                <Property name="text" type="java.lang.String" value="*  Psicomotricidade: "/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="*  Psicomotricidade: "/>
               </Properties>
             </Component>
             <Component class="javax.swing.JComboBox" name="JCBPsicomotricidade">
               <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="18" style="1"/>
-                </Property>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[] { &quot;Normal&quot;, &quot;Lento&quot;, &quot;Agitado&quot;})" type="code"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="18" style="1"/>
                 </Property>
               </Properties>
               <AuxValues>
@@ -1704,19 +1714,19 @@
             </Component>
             <Component class="javax.swing.JLabel" name="labelInicioQueixa">
               <Properties>
+                <Property name="text" type="java.lang.String" value="*Queixas Afetivo-emocionais: "/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="*Queixas Afetivo-emocionais: "/>
               </Properties>
             </Component>
             <Component class="javax.swing.JComboBox" name="JCBQueixasAfetivoEmocionais">
               <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="18" style="1"/>
-                </Property>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[] { &quot;Nenhuma&quot;,&quot;Voli&#xe7;&#xe3;o&quot;, &quot;Afeto&quot;, &quot;Ansiedade&quot;, &quot;Medo&quot;, &quot;Culpa&quot;, &quot;Raiva&quot;, &quot;Luto&quot;, &quot;Desanimo&quot; })" type="code"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="18" style="1"/>
                 </Property>
               </Properties>
               <AuxValues>
@@ -1725,19 +1735,19 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel26">
               <Properties>
+                <Property name="text" type="java.lang.String" value="*  Queixas Cognitivas:"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="*  Queixas Cognitivas:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JComboBox" name="JCBQueixasCognitivas">
               <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="18" style="1"/>
-                </Property>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[] {&quot;Nenhuma&quot;, &quot;Integridade Sensorial&quot;,&quot;Percep&#xe7;&#xe3;o&quot;, &quot;Aten&#xe7;&#xe3;o&quot;, &quot;Mem&#xf3;ria&quot; })" type="code"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="18" style="1"/>
                 </Property>
               </Properties>
               <AuxValues>
@@ -1746,10 +1756,10 @@
             </Component>
             <Component class="javax.swing.JLabel" name="LabelEmail1">
               <Properties>
+                <Property name="text" type="java.lang.String" value="  Queixa Secund&#xe1;ria:"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="  Queixa Secund&#xe1;ria:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtEmail2">
@@ -1761,18 +1771,18 @@
             </Component>
             <Component class="javax.swing.JLabel" name="LabelNome3">
               <Properties>
+                <Property name="text" type="java.lang.String" value="*Queixa Principal:"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="*Queixa Principal:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel30">
               <Properties>
+                <Property name="text" type="java.lang.String" value="  Como come&#xe7;ou:"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="  Como come&#xe7;ou:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtEmail3">
@@ -1784,10 +1794,10 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel31">
               <Properties>
+                <Property name="text" type="java.lang.String" value="  Diagn&#xf3;stico:"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="  Diagn&#xf3;stico:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtEmail4">
@@ -1799,10 +1809,10 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel32">
               <Properties>
+                <Property name="text" type="java.lang.String" value="  Hist&#xf3;rico Familiar:"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="  Hist&#xf3;rico Familiar:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtEmail5">
@@ -1814,10 +1824,10 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel33">
               <Properties>
+                <Property name="text" type="java.lang.String" value="  Doen&#xe7;as Conhecidas:"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="  Doen&#xe7;as Conhecidas:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtEmail6">
@@ -1829,10 +1839,10 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel34">
               <Properties>
+                <Property name="text" type="java.lang.String" value="  Sintomas:"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="  Sintomas:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtEmail7">
@@ -1844,10 +1854,10 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel35">
               <Properties>
+                <Property name="text" type="java.lang.String" value="  Medicamentos Utilizados:"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="  Medicamentos Utilizados:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtEmail8">
@@ -1859,10 +1869,10 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel36">
               <Properties>
+                <Property name="text" type="java.lang.String" value="  O que mudou:"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="  O que mudou:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtEmail9">
@@ -1874,10 +1884,10 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel37">
               <Properties>
+                <Property name="text" type="java.lang.String" value="  Encaminhamento:"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="  Encaminhamento:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtEmail10">
@@ -1889,10 +1899,10 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel38">
               <Properties>
+                <Property name="text" type="java.lang.String" value="  Como come&#xe7;ou:"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="  Como come&#xe7;ou:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtEmail11">
@@ -1904,10 +1914,10 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel39">
               <Properties>
+                <Property name="text" type="java.lang.String" value="  Data de In&#xed;cio:"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="  Data de In&#xed;cio:"/>
               </Properties>
             </Component>
             <Component class="com.github.lgooddatepicker.components.DatePicker" name="DataNasc2">
@@ -1922,6 +1932,7 @@
             </Component>
             <Component class="javax.swing.JButton" name="BtnCancelar3">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Cancelar"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="99" green="99" red="ff" type="rgb"/>
                 </Property>
@@ -1931,7 +1942,6 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Cancelar"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnCancelar3ActionPerformed"/>
@@ -1939,6 +1949,7 @@
             </Component>
             <Component class="javax.swing.JButton" name="BtnSalvarAlteracoes3">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Salvar Altera&#xe7;&#xf5;es"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ba" green="70" red="0" type="rgb"/>
                 </Property>
@@ -1948,7 +1959,6 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Salvar Altera&#xe7;&#xf5;es"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnSalvarAlteracoes3ActionPerformed"/>
@@ -1956,18 +1966,18 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel4">
               <Properties>
+                <Property name="text" type="java.lang.String" value="* Campos Obrigat&#xf3;rios"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="* Campos Obrigat&#xf3;rios"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel40">
               <Properties>
+                <Property name="text" type="java.lang.String" value="  C&#xf3;digo da Consulta:"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="  C&#xf3;digo da Consulta:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextField1">
@@ -1982,6 +1992,37 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
+              </Properties>
+            </Component>
+            <Container class="LIB.JEImagePanel" name="jEImagePanel2">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="C:\Users\guimu\Downloads\simboloma.png"/>
+                </Property>
+              </Properties>
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <EmptySpace min="0" pref="272" max="32767" attributes="0"/>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+            </Container>
+            <Component class="javax.swing.JLabel" name="jLabel5">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="48" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="75" green="83" red="3b" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Anamnese Psicol&#xf3;gica"/>
               </Properties>
             </Component>
           </SubComponents>
