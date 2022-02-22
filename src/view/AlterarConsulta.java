@@ -114,6 +114,21 @@ public class AlterarConsulta extends javax.swing.JFrame {
         jEImagePanel2 = new LIB.JEImagePanel();
         jLabel5 = new javax.swing.JLabel();
         LabelModalAnamnese = new javax.swing.JLabel();
+        ModalAnotacao = new javax.swing.JDialog();
+        jEImagePanel4 = new LIB.JEImagePanel();
+        PainelIdentificacaoPessoal3 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        LabelNomePaciente = new javax.swing.JLabel();
+        LabelNome5 = new javax.swing.JLabel();
+        LabelDataConsulta = new javax.swing.JLabel();
+        datePicker1 = new com.github.lgooddatepicker.components.DatePicker();
+        LabelAssunto = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        LabelAssunto1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        BtnCancelarAnotacao = new javax.swing.JButton();
+        BtnSalvarAlteracoesAnotacao = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         BtnVoltar = new javax.swing.JButton();
@@ -124,6 +139,7 @@ public class AlterarConsulta extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        BtnModalAnotacao = new javax.swing.JButton();
 
         ModalAnamnese.setResizable(false);
 
@@ -284,8 +300,8 @@ public class AlterarConsulta extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(59, 131, 117));
 
-        LabelModalAnamnese.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 14)); // NOI18N
         LabelModalAnamnese.setText("jLabel7");
+        LabelModalAnamnese.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 14)); // NOI18N
 
         javax.swing.GroupLayout PainelDadosPaciente2Layout = new javax.swing.GroupLayout(PainelDadosPaciente2);
         PainelDadosPaciente2.setLayout(PainelDadosPaciente2Layout);
@@ -473,6 +489,144 @@ public class AlterarConsulta extends javax.swing.JFrame {
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
+        jEImagePanel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\guimu\\Desktop\\Projeto\\PMA\\Img\\simboloma.png")); // NOI18N
+
+        javax.swing.GroupLayout jEImagePanel4Layout = new javax.swing.GroupLayout(jEImagePanel4);
+        jEImagePanel4.setLayout(jEImagePanel4Layout);
+        jEImagePanel4Layout.setHorizontalGroup(
+            jEImagePanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 272, Short.MAX_VALUE)
+        );
+        jEImagePanel4Layout.setVerticalGroup(
+            jEImagePanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 150, Short.MAX_VALUE)
+        );
+
+        PainelIdentificacaoPessoal3.setBackground(new java.awt.Color(59, 131, 117));
+
+        javax.swing.GroupLayout PainelIdentificacaoPessoal3Layout = new javax.swing.GroupLayout(PainelIdentificacaoPessoal3);
+        PainelIdentificacaoPessoal3.setLayout(PainelIdentificacaoPessoal3Layout);
+        PainelIdentificacaoPessoal3Layout.setHorizontalGroup(
+            PainelIdentificacaoPessoal3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        PainelIdentificacaoPessoal3Layout.setVerticalGroup(
+            PainelIdentificacaoPessoal3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 50, Short.MAX_VALUE)
+        );
+
+        jLabel7.setText("Anotações da Consulta");
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(59, 131, 117));
+
+        LabelNomePaciente.setText("Nome do Paciente :");
+        LabelNomePaciente.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+
+        LabelNome5.setText(" Variável Nome do Paciente :");
+        LabelNome5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+
+        LabelDataConsulta.setText("Data da Consulta :");
+        LabelDataConsulta.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+
+        LabelAssunto.setText("Assunto:");
+        LabelAssunto.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+
+        jTextField1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+
+        LabelAssunto1.setText("Texto:");
+        LabelAssunto1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
+        BtnCancelarAnotacao.setText("Cancelar");
+        BtnCancelarAnotacao.setBackground(new java.awt.Color(255, 153, 153));
+        BtnCancelarAnotacao.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        BtnCancelarAnotacao.setForeground(new java.awt.Color(255, 255, 255));
+        BtnCancelarAnotacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnCancelarAnotacaoActionPerformed(evt);
+            }
+        });
+
+        BtnSalvarAlteracoesAnotacao.setText("Salvar Alterações");
+        BtnSalvarAlteracoesAnotacao.setBackground(new java.awt.Color(0, 112, 186));
+        BtnSalvarAlteracoesAnotacao.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        BtnSalvarAlteracoesAnotacao.setForeground(new java.awt.Color(255, 255, 255));
+        BtnSalvarAlteracoesAnotacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnSalvarAlteracoesAnotacaoActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout ModalAnotacaoLayout = new javax.swing.GroupLayout(ModalAnotacao.getContentPane());
+        ModalAnotacao.getContentPane().setLayout(ModalAnotacaoLayout);
+        ModalAnotacaoLayout.setHorizontalGroup(
+            ModalAnotacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(PainelIdentificacaoPessoal3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(ModalAnotacaoLayout.createSequentialGroup()
+                .addGroup(ModalAnotacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ModalAnotacaoLayout.createSequentialGroup()
+                        .addComponent(jEImagePanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 485, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(ModalAnotacaoLayout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addGroup(ModalAnotacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(ModalAnotacaoLayout.createSequentialGroup()
+                                .addGroup(ModalAnotacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(LabelNomePaciente)
+                                    .addComponent(LabelDataConsulta)
+                                    .addComponent(LabelAssunto))
+                                .addGap(18, 18, 18)
+                                .addGroup(ModalAnotacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(LabelNome5)
+                                    .addComponent(datePicker1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 762, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(ModalAnotacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(ModalAnotacaoLayout.createSequentialGroup()
+                                    .addComponent(BtnCancelarAnotacao)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(BtnSalvarAlteracoesAnotacao, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(ModalAnotacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(LabelAssunto1)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 762, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(48, Short.MAX_VALUE))
+        );
+        ModalAnotacaoLayout.setVerticalGroup(
+            ModalAnotacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ModalAnotacaoLayout.createSequentialGroup()
+                .addGroup(ModalAnotacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jEImagePanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(ModalAnotacaoLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 0, 0)
+                .addComponent(PainelIdentificacaoPessoal3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(ModalAnotacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LabelNomePaciente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(LabelNome5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(ModalAnotacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(datePicker1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LabelDataConsulta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(LabelAssunto)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(LabelAssunto1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(ModalAnotacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(BtnCancelarAnotacao, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BtnSalvarAlteracoesAnotacao, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(76, 76, 76))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Alterar Consulta");
@@ -533,6 +687,13 @@ public class AlterarConsulta extends javax.swing.JFrame {
             }
         });
 
+        BtnModalAnotacao.setText("Modal Anotação");
+        BtnModalAnotacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnModalAnotacaoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -560,6 +721,10 @@ public class AlterarConsulta extends javax.swing.JFrame {
                     .addComponent(status, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(38, 38, 38))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(123, 123, 123)
+                .addComponent(BtnModalAnotacao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -576,7 +741,9 @@ public class AlterarConsulta extends javax.swing.JFrame {
                     .addComponent(BtnAlterarConsulta)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
-                .addContainerGap(63, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(BtnModalAnotacao)
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         pack();
@@ -766,6 +933,21 @@ public class AlterarConsulta extends javax.swing.JFrame {
         
     }//GEN-LAST:event_BtnSalvarAlteracoes3ActionPerformed
 
+    private void BtnCancelarAnotacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCancelarAnotacaoActionPerformed
+        ModalAnotacao.dispose();
+    }//GEN-LAST:event_BtnCancelarAnotacaoActionPerformed
+
+    private void BtnSalvarAlteracoesAnotacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalvarAlteracoesAnotacaoActionPerformed
+        ModalAnotacao.dispose();
+    }//GEN-LAST:event_BtnSalvarAlteracoesAnotacaoActionPerformed
+
+    private void BtnModalAnotacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnModalAnotacaoActionPerformed
+        ModalAnotacao.setSize(862, 870);
+        ModalAnotacao.setModal(true);
+        ModalAnotacao.setLocationRelativeTo(null);
+        ModalAnotacao.setVisible(true);
+    }//GEN-LAST:event_BtnModalAnotacaoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -806,24 +988,36 @@ public class AlterarConsulta extends javax.swing.JFrame {
     private javax.swing.JButton BtnAlterarConsulta;
     private javax.swing.JButton BtnCancelar2;
     private javax.swing.JButton BtnCancelar3;
+    private javax.swing.JButton BtnCancelarAnotacao;
+    private javax.swing.JButton BtnModalAnotacao;
     private javax.swing.JButton BtnSalvarAlteracoes2;
     private javax.swing.JButton BtnSalvarAlteracoes3;
+    private javax.swing.JButton BtnSalvarAlteracoesAnotacao;
     private javax.swing.JButton BtnVoltar;
     private com.github.lgooddatepicker.components.DatePicker DataInicio;
     private javax.swing.JComboBox<String> JCBPsicomotricidade;
     private javax.swing.JComboBox<String> JCBQueixasAfetivoEmocionais;
     private javax.swing.JComboBox<String> JCBQueixasCognitivas;
+    private javax.swing.JLabel LabelAssunto;
+    private javax.swing.JLabel LabelAssunto1;
+    private javax.swing.JLabel LabelDataConsulta;
     private javax.swing.JLabel LabelEmail1;
     private javax.swing.JLabel LabelModalAnamnese;
     private javax.swing.JLabel LabelNome3;
+    private javax.swing.JLabel LabelNome5;
+    private javax.swing.JLabel LabelNomePaciente;
     private javax.swing.JDialog ModalAnamnese;
+    private javax.swing.JDialog ModalAnotacao;
     private javax.swing.JPanel PainelDadosPaciente2;
     private javax.swing.JPanel PainelIdentificacaoPessoal2;
+    private javax.swing.JPanel PainelIdentificacaoPessoal3;
     private javax.swing.JComboBox<String> SubitaOuProgressiva;
+    private com.github.lgooddatepicker.components.DatePicker datePicker1;
     private com.github.lgooddatepicker.components.DateTimePicker datepicker;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private LIB.JEImagePanel jEImagePanel2;
+    private LIB.JEImagePanel jEImagePanel4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel26;
@@ -841,7 +1035,11 @@ public class AlterarConsulta extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel labelInicioQueixa;
     private javax.swing.JLabel labelInicioQueixa1;
     private javax.swing.JComboBox<String> status;
