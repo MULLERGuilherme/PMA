@@ -22,6 +22,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import model.bean.Paciente;
 
@@ -230,7 +231,7 @@ public class Validar {
 
     }
     
-        public static boolean vCamposVaziosAnt(JFrame jframe, JTextField Assunto, JTextField Texto ) {
+        public static boolean vCamposVaziosAnt(JFrame jframe, JTextField Assunto, JTextArea Texto ) {
         boolean vazio = false;
         String msg = "Existem Campos Obrigatórios em branco.\nFavor verificar os seguintes campos:\n";
         if (Assunto.getText().isEmpty()) {

@@ -20,10 +20,12 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 import model.bean.Anamnese;
+import model.bean.Anotacao;
 import model.bean.Consulta;
 import model.bean.Paciente;
 import model.bean.Telefone;
 import model.dao.AnamneseDAO;
+import model.dao.AnotacaoDAO;
 import model.dao.ConsultaDAO;
 import model.dao.PacienteDAO;
 import model.dao.TelefoneDAO;
@@ -41,8 +43,8 @@ public class AlterarConsulta extends javax.swing.JFrame {
      */
     public AlterarConsulta() {
         initComponents();
-        System.out.println("alterar");
-        System.out.println(codconsulta);
+        //System.out.println("alterar");
+        //System.out.println(codconsulta);
         readatributos();
     }
 
@@ -120,13 +122,11 @@ public class AlterarConsulta extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         LabelNomePaciente = new javax.swing.JLabel();
         LabelNome5 = new javax.swing.JLabel();
-        LabelDataConsulta = new javax.swing.JLabel();
-        datePicker1 = new com.github.lgooddatepicker.components.DatePicker();
         LabelAssunto = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtAssunto = new javax.swing.JTextField();
         LabelAssunto1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txtTexto = new javax.swing.JTextArea();
         BtnCancelarAnotacao = new javax.swing.JButton();
         BtnSalvarAlteracoesAnotacao = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
@@ -489,8 +489,6 @@ public class AlterarConsulta extends javax.swing.JFrame {
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
-        jEImagePanel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\guimu\\Desktop\\Projeto\\PMA\\Img\\simboloma.png")); // NOI18N
-
         javax.swing.GroupLayout jEImagePanel4Layout = new javax.swing.GroupLayout(jEImagePanel4);
         jEImagePanel4.setLayout(jEImagePanel4Layout);
         jEImagePanel4Layout.setHorizontalGroup(
@@ -522,23 +520,20 @@ public class AlterarConsulta extends javax.swing.JFrame {
         LabelNomePaciente.setText("Nome do Paciente :");
         LabelNomePaciente.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        LabelNome5.setText(" Variável Nome do Paciente :");
+        LabelNome5.setText(" Variável Nome do Paciente");
         LabelNome5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-
-        LabelDataConsulta.setText("Data da Consulta :");
-        LabelDataConsulta.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         LabelAssunto.setText("Assunto:");
         LabelAssunto.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        jTextField1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        txtAssunto.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         LabelAssunto1.setText("Texto:");
         LabelAssunto1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        txtTexto.setColumns(20);
+        txtTexto.setRows(5);
+        jScrollPane1.setViewportView(txtTexto);
 
         BtnCancelarAnotacao.setText("Cancelar");
         BtnCancelarAnotacao.setBackground(new java.awt.Color(255, 153, 153));
@@ -577,13 +572,10 @@ public class AlterarConsulta extends javax.swing.JFrame {
                             .addGroup(ModalAnotacaoLayout.createSequentialGroup()
                                 .addGroup(ModalAnotacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(LabelNomePaciente)
-                                    .addComponent(LabelDataConsulta)
                                     .addComponent(LabelAssunto))
                                 .addGap(18, 18, 18)
-                                .addGroup(ModalAnotacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(LabelNome5)
-                                    .addComponent(datePicker1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 762, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(LabelNome5))
+                            .addComponent(txtAssunto, javax.swing.GroupLayout.PREFERRED_SIZE, 762, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(ModalAnotacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addGroup(ModalAnotacaoLayout.createSequentialGroup()
                                     .addComponent(BtnCancelarAnotacao)
@@ -608,14 +600,10 @@ public class AlterarConsulta extends javax.swing.JFrame {
                 .addGroup(ModalAnotacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LabelNomePaciente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(LabelNome5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addGroup(ModalAnotacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(datePicker1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(LabelDataConsulta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(LabelAssunto)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtAssunto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(LabelAssunto1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -830,9 +818,11 @@ public class AlterarConsulta extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         CadastrarAnotacaoPaciente tp = new CadastrarAnotacaoPaciente(codconsulta);
-        CadastrarAnotacaoPaciente.codconsulta = codconsulta;
-        tp.setVisible(true);
-        this.dispose();
+        CadastrarAnotacaoPaciente.codconsulta =codconsulta;
+        ModalAnotacao.setSize(1039, 967);
+        ModalAnotacao.setModal(true);
+        ModalAnotacao.setLocationRelativeTo(null);
+        ModalAnotacao.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void BtnSalvarAlteracoes2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalvarAlteracoes2ActionPerformed
@@ -938,7 +928,17 @@ public class AlterarConsulta extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnCancelarAnotacaoActionPerformed
 
     private void BtnSalvarAlteracoesAnotacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalvarAlteracoesAnotacaoActionPerformed
-        ModalAnotacao.dispose();
+        AnotacaoDAO dao = new AnotacaoDAO();
+        Anotacao a = new Anotacao();
+        if (!Validar.vCamposVaziosAnt(this, txtAssunto, txtTexto)) {
+            a.setAssunto(txtAssunto.getText());
+            a.setTexto(txtTexto.getText());
+
+            a.getConsulta().setCodConsulta(codconsulta);
+
+            boolean sucesso = dao.Create(a);
+           ModalAnotacao.dispose();
+        }
     }//GEN-LAST:event_BtnSalvarAlteracoesAnotacaoActionPerformed
 
     private void BtnModalAnotacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnModalAnotacaoActionPerformed
@@ -1000,7 +1000,6 @@ public class AlterarConsulta extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> JCBQueixasCognitivas;
     private javax.swing.JLabel LabelAssunto;
     private javax.swing.JLabel LabelAssunto1;
-    private javax.swing.JLabel LabelDataConsulta;
     private javax.swing.JLabel LabelEmail1;
     private javax.swing.JLabel LabelModalAnamnese;
     private javax.swing.JLabel LabelNome3;
@@ -1012,7 +1011,6 @@ public class AlterarConsulta extends javax.swing.JFrame {
     private javax.swing.JPanel PainelIdentificacaoPessoal2;
     private javax.swing.JPanel PainelIdentificacaoPessoal3;
     private javax.swing.JComboBox<String> SubitaOuProgressiva;
-    private com.github.lgooddatepicker.components.DatePicker datePicker1;
     private com.github.lgooddatepicker.components.DateTimePicker datepicker;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -1038,11 +1036,10 @@ public class AlterarConsulta extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel labelInicioQueixa;
     private javax.swing.JLabel labelInicioQueixa1;
     private javax.swing.JComboBox<String> status;
+    private javax.swing.JTextField txtAssunto;
     private javax.swing.JTextField txtComoComecou;
     private javax.swing.JTextField txtDiagnostico;
     private javax.swing.JTextField txtDoencasConhecidas;
@@ -1053,6 +1050,7 @@ public class AlterarConsulta extends javax.swing.JFrame {
     private javax.swing.JTextField txtQueixaPrincipal;
     private javax.swing.JTextField txtQueixaSecundaria;
     private javax.swing.JTextField txtSintomas;
+    private javax.swing.JTextArea txtTexto;
     // End of variables declaration//GEN-END:variables
 
 }

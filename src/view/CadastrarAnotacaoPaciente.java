@@ -165,19 +165,19 @@ public class CadastrarAnotacaoPaciente extends javax.swing.JFrame {
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
         // TODO add your handling code here Anotacao a = new Anotacao();
-        AnotacaoDAO dao = new AnotacaoDAO();
-        Anotacao a = new Anotacao();
-        if (!Validar.vCamposVaziosAnt(this, txtAssunto, txtTexto)) {
-            a.setAssunto(txtAssunto.getText());
-            a.setTexto(txtTexto.getText());
-
-            a.getConsulta().setCodConsulta(codconsulta);
-
-            boolean sucesso = dao.Create(a);
-            if (sucesso) {
-                JOptionPane.showMessageDialog(null, "Anotação Cadastrada com Sucesso!");
-            }
-        }
+//        AnotacaoDAO dao = new AnotacaoDAO();
+//        Anotacao a = new Anotacao();
+//        if (!Validar.vCamposVaziosAnt(this, txtAssunto, txtTexto)) {
+//            a.setAssunto(txtAssunto.getText());
+//            a.setTexto(txtTexto.getText());
+//
+//            a.getConsulta().setCodConsulta(codconsulta);
+//
+//            boolean sucesso = dao.Create(a);
+//            if (sucesso) {
+//                JOptionPane.showMessageDialog(null, "Anotação Cadastrada com Sucesso!");
+//            }
+//        }
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     /**
