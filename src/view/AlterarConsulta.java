@@ -35,7 +35,7 @@ import model.dao.TelefoneDAO;
 public class AlterarConsulta extends javax.swing.JFrame {
 
     public static int codconsulta;
-
+    public static boolean existe;
     /**
      * Creates new form ManterConsulta
      */
@@ -641,7 +641,7 @@ public class AlterarConsulta extends javax.swing.JFrame {
         AnamneseDAO dao2 = new AnamneseDAO();
         //a2 = dao2.ReadAnamneseConsulta(codconsulta);
         //codanamnese = a2.getCodAnamnese();
-        boolean existe = readcampos();
+       existe = readcampos();
         if (existe) {
             LabelModalAnamnese.setText("Lendo dados da Anamnese Cadastrada na consulta");
         } else {
@@ -680,51 +680,14 @@ public class AlterarConsulta extends javax.swing.JFrame {
         ModalAnamnese.dispose();
     }//GEN-LAST:event_BtnCancelar3ActionPerformed
 
-    private void BtnSalvarAlteracoes3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalvarAlteracoes3ActionPerformed
+    private void Cadastrar() {
         Anamnese a = new Anamnese();
         AnamneseDAO dao = new AnamneseDAO();
         a = dao.ReadAnamneseConsulta(codconsulta);
         int codanamnese = a.getCodAnamnese();
-        boolean existe = readcampos();
-        if (!existe) {
-            if (!Validar.vCamposVaziosAnm(this, txtQueixaPrincipal, DataInicio)) {
-                if (codanamnese == 0) {
+        if (!Validar.vCamposVaziosAnm(this, txtQueixaPrincipal, DataInicio)) {
+            if (codanamnese == 0) {
 
-                    a.setQueixaPrincipal(txtQueixaPrincipal.getText());
-                    a.setSubitaOuProgressiva((String) SubitaOuProgressiva.getSelectedItem());
-
-                    //java.util.Date date = new java.util.Date();
-                    Object param = DataInicio.getDate();
-                    a.setInicioDaQueixa(param);
-                    a.setQueixasSecundarias(txtQueixaSecundaria.getText());
-                    a.setHistoricoFamiliar(txtHistoricoFamiliar.getText());
-                    a.setDiagnostico(txtDiagnostico.getText());
-                    a.setEncaminhamento(txtEncaminhamento.getText());
-                    a.setDoencasConhecidas(txtDoencasConhecidas.getText());
-                    a.setMedicamentosUtilizados(txtMedicamentosUtilizados.getText());
-                    a.getConsulta().setCodConsulta(codconsulta);
-                    a.setOqueMudou(txtOqueMudou.getText());
-                    a.setSintomas(txtSintomas.getText());
-                    a.setComoComecou(txtComoComecou.getText());
-                    a.setQueixasCognitivas((String) JCBQueixasCognitivas.getSelectedItem());
-                    a.setQueixasAfetivoEmocionais((String) JCBQueixasAfetivoEmocionais.getSelectedItem());
-                    a.setPsicomotricidade((String) JCBPsicomotricidade.getSelectedItem());
-                    boolean sucesso = dao.Create(a);
-                    if (sucesso) {
-                        JOptionPane.showMessageDialog(this, "Anamnese Inserida Com Sucesso");
-                        a = dao.ReadAnamneseConsulta(codconsulta);
-                        codanamnese = a.getCodAnamnese();
-                    }
-                }
-
-            }
-        } else {
-
-            Anamnese a2 = new Anamnese();
-            AnamneseDAO dao2 = new AnamneseDAO();
-            a2 = dao2.ReadAnamneseConsulta(codconsulta);
-            a.setCodAnamnese(a2.getCodAnamnese());
-            if (a.getCodAnamnese() != 0) {
                 a.setQueixaPrincipal(txtQueixaPrincipal.getText());
                 a.setSubitaOuProgressiva((String) SubitaOuProgressiva.getSelectedItem());
 
@@ -744,19 +707,63 @@ public class AlterarConsulta extends javax.swing.JFrame {
                 a.setQueixasCognitivas((String) JCBQueixasCognitivas.getSelectedItem());
                 a.setQueixasAfetivoEmocionais((String) JCBQueixasAfetivoEmocionais.getSelectedItem());
                 a.setPsicomotricidade((String) JCBPsicomotricidade.getSelectedItem());
-
-                boolean sucesso = dao.Update(a);
+                boolean sucesso = dao.Create(a);
                 if (sucesso) {
-                    JOptionPane.showMessageDialog(this, "Anamnese Alterada Com Sucesso");
+                    JOptionPane.showMessageDialog(ModalAnamnese, "Anamnese Inserida Com Sucesso");
+                    a = dao.ReadAnamneseConsulta(codconsulta);
+                    codanamnese = a.getCodAnamnese();
                 }
             }
-            existe = readcampos();
-            if (existe) {
-                LabelModalAnamnese.setText("Lendo dados da Anamnese Cadastrada na consulta");
-            } else {
-                LabelModalAnamnese.setText(" Cadastrar anamnese na consulta");
+
+        }
+
+    }
+
+    private void Alterar() {
+        Anamnese a = new Anamnese();
+        AnamneseDAO dao = new AnamneseDAO();
+        Anamnese a2 = new Anamnese();
+        AnamneseDAO dao2 = new AnamneseDAO();
+        a2 = dao2.ReadAnamneseConsulta(codconsulta);
+        a.setCodAnamnese(a2.getCodAnamnese());
+        if (a.getCodAnamnese() != 0) {
+            a.setQueixaPrincipal(txtQueixaPrincipal.getText());
+            a.setSubitaOuProgressiva((String) SubitaOuProgressiva.getSelectedItem());
+
+            //java.util.Date date = new java.util.Date();
+            Object param = DataInicio.getDate();
+            a.setInicioDaQueixa(param);
+            a.setQueixasSecundarias(txtQueixaSecundaria.getText());
+            a.setHistoricoFamiliar(txtHistoricoFamiliar.getText());
+            a.setDiagnostico(txtDiagnostico.getText());
+            a.setEncaminhamento(txtEncaminhamento.getText());
+            a.setDoencasConhecidas(txtDoencasConhecidas.getText());
+            a.setMedicamentosUtilizados(txtMedicamentosUtilizados.getText());
+            a.getConsulta().setCodConsulta(codconsulta);
+            a.setOqueMudou(txtOqueMudou.getText());
+            a.setSintomas(txtSintomas.getText());
+            a.setComoComecou(txtComoComecou.getText());
+            a.setQueixasCognitivas((String) JCBQueixasCognitivas.getSelectedItem());
+            a.setQueixasAfetivoEmocionais((String) JCBQueixasAfetivoEmocionais.getSelectedItem());
+            a.setPsicomotricidade((String) JCBPsicomotricidade.getSelectedItem());
+
+            boolean sucesso = dao.Update(a);
+            if (sucesso) {
+                JOptionPane.showMessageDialog(this, "Anamnese Alterada Com Sucesso");
             }
         }
+    }
+
+    private void BtnSalvarAlteracoes3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalvarAlteracoes3ActionPerformed
+       
+            if (existe) {
+                Alterar();
+                LabelModalAnamnese.setText("Lendo dados da Anamnese Cadastrada na consulta");
+            } else {
+                Cadastrar();
+                LabelModalAnamnese.setText(" Cadastrar anamnese na consulta");
+            }
+        
     }//GEN-LAST:event_BtnSalvarAlteracoes3ActionPerformed
 
     /**
