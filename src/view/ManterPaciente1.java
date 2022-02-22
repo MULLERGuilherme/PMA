@@ -30,6 +30,7 @@ import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumnModel;
 import javax.swing.table.TableRowSorter;
 import model.bean.Paciente;
 import model.bean.Telefone;
@@ -63,6 +64,8 @@ public class ManterPaciente1 extends javax.swing.JFrame {
     public void ReadJTable() {
 
         DefaultTableModel model = (DefaultTableModel) JTPacientes.getModel();
+        TableColumnModel cmod = JTPacientes.getColumnModel();
+        cmod.removeColumn(cmod.getColumn(0));
         model.setNumRows(0);
         ViewsDAO vwdao = new ViewsDAO();
         Object[] linha = null;
@@ -100,6 +103,11 @@ public class ManterPaciente1 extends javax.swing.JFrame {
     public void ReadJTableBusca(String Atributo, String Busca) {
 
         DefaultTableModel model = (DefaultTableModel) JTPacientes.getModel();
+        TableColumnModel cmod = JTPacientes.getColumnModel();
+        //cmod.removeColumn(cmod.getColumn(0).getModelIndex());
+        cmod.removeColumn(cmod.getColumn(0));
+        
+        
         model.setNumRows(0);
         if (Atributo.equals("Nome Completo")) {
             Atributo = "Paciente";
@@ -1958,8 +1966,11 @@ public class ManterPaciente1 extends javax.swing.JFrame {
     private void brnVisuConsultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_brnVisuConsultasActionPerformed
         // TODO add your handling code here:
         if (JTPacientes.getSelectedRow() != -1) {
-
-            ExibirConsultasPaciente.codpaciente = ((int) JTPacientes.getValueAt(JTPacientes.getSelectedRow(), 0));
+            
+            int modelRow = JTPacientes.convertRowIndexToModel(JTPacientes.getSelectedRow());
+            int value = (Integer)JTPacientes.getModel().getValueAt(modelRow,0);
+            ExibirConsultasPaciente.codpaciente =  value;
+           
             ExibirConsultasPaciente cp = new ExibirConsultasPaciente();
             cp.setVisible(true);
             this.dispose();
@@ -1972,9 +1983,12 @@ public class ManterPaciente1 extends javax.swing.JFrame {
     private void btnVisuAnamnesesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisuAnamnesesActionPerformed
         // TODO add your handling code here:
         if (JTPacientes.getSelectedRow() != -1) {
-
+            
             boolean dadosvalidos = true;
-            ExibirAnamnesesPaciente.codpaciente = ((int) JTPacientes.getValueAt(JTPacientes.getSelectedRow(), 0));
+            //ExibirAnamnesesPaciente.codpaciente = ((int) JTPacientes.getModel().getValueAt(JTPacientes.getSelectedRow(),0));
+            int modelRow = JTPacientes.convertRowIndexToModel(JTPacientes.getSelectedRow());
+            int value = (Integer)JTPacientes.getModel().getValueAt(modelRow,0);
+            ExibirAnamnesesPaciente.codpaciente = value;
             ExibirAnamnesesPaciente ap = new ExibirAnamnesesPaciente();
             ap.setVisible(true);
             this.dispose();
@@ -1989,7 +2003,10 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         if (JTPacientes.getSelectedRow() != -1) {
 
             boolean dadosvalidos = true;
-            ExibirAnotacoesPaciente.codpaciente = ((int) JTPacientes.getValueAt(JTPacientes.getSelectedRow(), 0));
+            //ExibirAnotacoesPaciente.codpaciente = ((int) JTPacientes.getModel().getValueAt(JTPacientes.getSelectedRow(),0));
+            int modelRow = JTPacientes.convertRowIndexToModel(JTPacientes.getSelectedRow());
+            int value = (Integer)JTPacientes.getModel().getValueAt(modelRow,0);
+            ExibirAnotacoesPaciente.codpaciente = value;
             ExibirAnotacoesPaciente ap = new ExibirAnotacoesPaciente();
             ap.setVisible(true);
             this.dispose();
@@ -2008,14 +2025,19 @@ public class ManterPaciente1 extends javax.swing.JFrame {
     private void JTPacientesKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTPacientesKeyReleased
         // TODO add your handling code here:
         if (JTPacientes.getSelectedRow() != -1) {
-            this.codigopaciente = (int) JTPacientes.getValueAt(JTPacientes.getSelectedRow(), 0);
+            int modelRow = JTPacientes.convertRowIndexToModel(JTPacientes.getSelectedRow());
+            int value = (Integer)JTPacientes.getModel().getValueAt(modelRow,0);
+            this.codigopaciente = value;
+        
         }
     }//GEN-LAST:event_JTPacientesKeyReleased
 
     private void JTPacientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTPacientesMouseClicked
         // TODO add your handling code here:
         if (JTPacientes.getSelectedRow() != -1) {
-            this.codigopaciente = (int) JTPacientes.getValueAt(JTPacientes.getSelectedRow(), 0);
+           int modelRow = JTPacientes.convertRowIndexToModel(JTPacientes.getSelectedRow());
+            int value = (Integer)JTPacientes.getModel().getValueAt(modelRow,0);
+            this.codigopaciente = value;
         }
 
     }//GEN-LAST:event_JTPacientesMouseClicked
@@ -2023,7 +2045,9 @@ public class ManterPaciente1 extends javax.swing.JFrame {
     private void BtnVisuAlterarDadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVisuAlterarDadosActionPerformed
         // TODO add your handling code here:
         if (JTPacientes.getSelectedRow() != -1) {
-         
+            int modelRow = JTPacientes.convertRowIndexToModel(JTPacientes.getSelectedRow());
+            int value = (Integer)JTPacientes.getModel().getValueAt(modelRow,0);
+            this.codigopaciente = value;
             PacienteDAO dao = new PacienteDAO();
             ViewsDAO vwdao = new ViewsDAO();
             Paciente p = dao.ReadPaciente(codigopaciente);
@@ -2103,6 +2127,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         ModalNovo.setModal(true);
         ModalNovo.setLocationRelativeTo(null);
         ModalNovo.setVisible(true);
+        
     }//GEN-LAST:event_BtnNovoActionPerformed
 
     private void BtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCancelarActionPerformed

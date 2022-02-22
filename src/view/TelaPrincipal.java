@@ -25,6 +25,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumnModel;
 import javax.swing.table.TableRowSorter;
 import model.bean.Consulta;
 import model.bean.Paciente;
@@ -49,11 +50,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         //super("Fullscreen");
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
        
-         DefaultTableModel dtmPacientes = (DefaultTableModel) JTConsultas.getModel();
+        DefaultTableModel dtmPacientes = (DefaultTableModel) JTConsultas.getModel();
         JTConsultas.setRowSorter(new TableRowSorter(dtmPacientes));
         
         LocalDate localDate = LocalDate.now();
-        System.out.println(localDate);  
+        //System.out.println(localDate);  
         ReadJTable(localDate);
         Date date1 = Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
         DataChooser.setDate(date1);
@@ -66,6 +67,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
     private void ReadJTable(LocalDate data) {
         DefaultTableModel model = (DefaultTableModel) JTConsultas.getModel();
+        TableColumnModel cmod = JTConsultas.getColumnModel();
+        cmod.removeColumn(cmod.getColumn(0));
         model.setNumRows(0);
         ViewsDAO vwdao = new ViewsDAO();
         //ConsultaDAO cdao = new ConsultaDAO();
@@ -257,13 +260,28 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         ));
         JTConsultas.setMaximumSize(new java.awt.Dimension(1080, 200));
+        JTConsultas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JTConsultasMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(JTConsultas);
 
         BtnExcluir.setBackground(new java.awt.Color(204, 204, 204));
         BtnExcluir.setText("Excluir");
+        BtnExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnExcluirActionPerformed(evt);
+            }
+        });
 
         btnAlterar.setBackground(new java.awt.Color(204, 204, 204));
         btnAlterar.setText("Alterar");
+        btnAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAlterarActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         jLabel2.setText("jLabel2");
@@ -382,6 +400,30 @@ public class TelaPrincipal extends javax.swing.JFrame {
         tl.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BtnSairActionPerformed
+
+    private void JTConsultasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTConsultasMouseClicked
+        
+    }//GEN-LAST:event_JTConsultasMouseClicked
+
+    private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
+        // TODO add your handling code here:
+        if (JTConsultas.getSelectedRow() != -1) {
+            int modelRow = JTConsultas.convertRowIndexToModel(JTConsultas.getSelectedRow());
+            int value = (Integer)JTConsultas.getModel().getValueAt(modelRow,0);
+            AlterarConsultapelomenu.codconsulta = value;
+            
+            AlterarConsultapelomenu cp = new AlterarConsultapelomenu();
+            cp.setVisible(true);
+            this.dispose();
+
+        } else {
+            JOptionPane.showMessageDialog(this, "Selecione uma consulta para alterar");
+        }
+    }//GEN-LAST:event_btnAlterarActionPerformed
+
+    private void BtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExcluirActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnExcluirActionPerformed
 
     
 public class JPanelGradient extends JPanel{
