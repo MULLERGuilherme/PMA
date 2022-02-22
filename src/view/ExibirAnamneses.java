@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumnModel;
 import javax.swing.table.TableRowSorter;
 import model.bean.Anamnese;
 import model.bean.Consulta;
@@ -26,14 +27,16 @@ import static view.ExibirAnamnesesPaciente.codpaciente;
  * @author User
  */
 public class ExibirAnamneses extends javax.swing.JFrame {
-    
+
     /**
      * Creates new form ExibirAnamneses
      */
     public ExibirAnamneses() {
         initComponents();
-         
-         DefaultTableModel dtmPacientes = (DefaultTableModel) JTAnamneses.getModel();
+
+        DefaultTableModel dtmPacientes = (DefaultTableModel) JTAnamneses.getModel();
+        TableColumnModel cmod = JTAnamneses.getColumnModel();
+        cmod.removeColumn(cmod.getColumn(0));
         JTAnamneses.setRowSorter(new TableRowSorter(dtmPacientes));
         ReadJTable();
     }
@@ -168,9 +171,10 @@ public class ExibirAnamneses extends javax.swing.JFrame {
 
     private void btnalterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnalterarActionPerformed
         // TODO add your handling code here:
-          if (JTAnamneses.getSelectedRow() != -1) {
-
-            AlterarAnamnesePacienteMenu.codanamnese = ((int) JTAnamneses.getValueAt(JTAnamneses.getSelectedRow(), 0));
+        if (JTAnamneses.getSelectedRow() != -1) {
+            int modelRow = JTAnamneses.convertRowIndexToModel(JTAnamneses.getSelectedRow());
+            int value = (Integer) JTAnamneses.getModel().getValueAt(modelRow, 0);
+            AlterarAnamnesePacienteMenu.codanamnese = value;
             AlterarAnamnesePacienteMenu cp = new AlterarAnamnesePacienteMenu();
             cp.setVisible(true);
             this.dispose();
@@ -186,15 +190,16 @@ public class ExibirAnamneses extends javax.swing.JFrame {
 
             Anamnese a = new Anamnese();
             AnamneseDAO adao = new AnamneseDAO();
-            a.setCodAnamnese((int) JTAnamneses.getValueAt(JTAnamneses.getSelectedRow(), 0));
-              boolean sucesso = adao.Delete(a);
-              
-              if(sucesso){
-                              JOptionPane.showMessageDialog(this, "Anamnese Apagada com Sucesso");
-                              
+            int modelRow = JTAnamneses.convertRowIndexToModel(JTAnamneses.getSelectedRow());
+            int value = (Integer) JTAnamneses.getModel().getValueAt(modelRow, 0);
+            a.setCodAnamnese(value);
+            boolean sucesso = adao.Delete(a);
 
-              }
-          
+            if (sucesso) {
+                JOptionPane.showMessageDialog(this, "Anamnese Apagada com Sucesso");
+
+            }
+
         } else {
             JOptionPane.showMessageDialog(this, "Selecione uma anamnese para excluir");
         }
@@ -203,14 +208,14 @@ public class ExibirAnamneses extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-              TelaPrincipal tp = new TelaPrincipal();
+        TelaPrincipal tp = new TelaPrincipal();
         tp.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
-      
+
         //System.out.println(JCBAtributo.getSelectedIndex());
         this.ReadJTableBusca((String) JCBAtributo.getSelectedItem(), txtBusca.getText());
     }//GEN-LAST:event_btnBuscarActionPerformed
@@ -249,7 +254,7 @@ public class ExibirAnamneses extends javax.swing.JFrame {
             }
         });
     }
-    
+
     private void ReadJTable() {
         DefaultTableModel model = (DefaultTableModel) JTAnamneses.getModel();
         model.setNumRows(0);
@@ -257,79 +262,46 @@ public class ExibirAnamneses extends javax.swing.JFrame {
         //ConsultaDAO cdao = new ConsultaDAO();
         //PacienteDAO pdao = new PacienteDAO();
         //Paciente p = new Paciente();
-        
-        
+
         for (Vw_Anamnese_Paciente v : vwdao.ReadAnamnesePaciente(Main.cod)) {
             //p = pdao.ReadPaciente(c.getPaciente().getCodPaciente());
             model.addRow(new Object[]{
-              v.getAnamnese().getCodAnamnese(),
-              v.getPaciente().getNome_Completo(),
-              v.getAnamnese().getDiagnostico(),
-              v.getConsulta().getDataConsulta()
-              
+                v.getAnamnese().getCodAnamnese(),
+                v.getPaciente().getNome_Completo(),
+                v.getAnamnese().getDiagnostico(),
+                v.getConsulta().getDataConsulta()
+
             });
         }
     }
-    
-      public void ReadJTableBusca(String Atributo, String Busca) {
+
+    public void ReadJTableBusca(String Atributo, String Busca) {
 
         DefaultTableModel model = (DefaultTableModel) JTAnamneses.getModel();
         model.setNumRows(0);
-        if(Atributo.equals("Nome do Paciente")) Atributo = "Paciente";
-        if(Atributo.equals("Diagnóstico")) Atributo = "Diagnostico";
-        if(Atributo.equals("Data da Consulta")) Atributo = "DataConsulta";
+        if (Atributo.equals("Nome do Paciente")) {
+            Atributo = "Paciente";
+        }
+        if (Atributo.equals("Diagnóstico")) {
+            Atributo = "Diagnostico";
+        }
+        if (Atributo.equals("Data da Consulta")) {
+            Atributo = "DataConsulta";
+        }
         ViewsDAO vwdao = new ViewsDAO();
-      
-      
+
         for (Vw_Anamnese_Paciente v : vwdao.BuscaExibirAnamneses(Atributo, Busca, Main.cod)) {
-            
-             model.addRow(new Object[]{
-              v.getAnamnese().getCodAnamnese(),
-              v.getPaciente().getNome_Completo(),
-              v.getAnamnese().getDiagnostico(),
-              v.getConsulta().getDataConsulta()
-              
+
+            model.addRow(new Object[]{
+                v.getAnamnese().getCodAnamnese(),
+                v.getPaciente().getNome_Completo(),
+                v.getAnamnese().getDiagnostico(),
+                v.getConsulta().getDataConsulta()
+
             });
         }
     }
-//      private void ReadJTable() {
-//          DefaultTableModel model = (DefaultTableModel) JTAnamneses.getModel();
-//        model.setNumRows(0);
-//        AnamneseDAO dao = new AnamneseDAO();
-//        ConsultaDAO cdao = new ConsultaDAO();
-//        Psicologo p = new Psicologo();
-//        p.setCodPsicologo(Main.cod);
-//        
-//        for (Consulta c : cdao.Read(p)) {
-//            List<Anamnese> a = new ArrayList<>();
-//             a = (List<Anamnese>) dao.Read(c);
-//             
-//            for (int i = 0; i < a.size(); i++){
-//            model.addRow(new Object[]{
-//                a.get(i).getCodAnamnese(),    
-//                a.get(i).getQueixaPrincipal(),
-//                a.get(i).getSubitaOuProgressiva(),
-//                a.get(i).getInicioDaQueixa(),
-//                a.get(i).getQueixasSecundarias(),
-//                a.get(i).getHistoricoFamiliar(),
-//                a.get(i).getDiagnostico(),
-//                a.get(i).getEncaminhamento(),
-//                a.get(i).getDoencasConhecidas(),
-//                a.get(i).getMedicamentosUtilizados(),
-//                
-//                a.get(i).getOqueMudou(),
-//                a.get(i).getSintomas(),
-//                a.get(i).getComoComecou(),
-//                a.get(i).getQueixasCognitivas(),
-//                a.get(i).getQueixasAfetivoEmocionais(),
-//                a.get(i).getPsicomotricidade(),
-//                a.get(i).getConsulta().getCodConsulta(),
-//               a.get(i).getDataEmissao(),
-//
-//            });
-//        }
-//    }
-//    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> JCBAtributo;
     private javax.swing.JTable JTAnamneses;

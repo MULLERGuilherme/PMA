@@ -16,6 +16,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumnModel;
 import javax.swing.table.TableRowSorter;
 import model.bean.Consulta;
 import model.bean.Paciente;
@@ -38,6 +39,8 @@ public class ManterConsulta1 extends javax.swing.JFrame {
     public ManterConsulta1() {
         initComponents();
          DefaultTableModel dtmPacientes = (DefaultTableModel) JTPacienteSimples.getModel();
+         TableColumnModel cmod = JTPacienteSimples.getColumnModel();
+        cmod.removeColumn(cmod.getColumn(0));
         JTPacienteSimples.setRowSorter(new TableRowSorter(dtmPacientes));
         ReadJTable();
     }
@@ -45,6 +48,7 @@ public class ManterConsulta1 extends javax.swing.JFrame {
      public void ReadJTable() {
 
         DefaultTableModel model = (DefaultTableModel) JTPacienteSimples.getModel();
+        
         model.setNumRows(0);
         ViewsDAO vwdao = new ViewsDAO();
         Object[] linha = null;
@@ -82,6 +86,7 @@ public class ManterConsulta1 extends javax.swing.JFrame {
    public void ReadJTableBusca(String Atributo, String Busca) {
 
         DefaultTableModel model = (DefaultTableModel) JTPacienteSimples.getModel();
+        
         model.setNumRows(0);
         if(Atributo.equals("Nome Completo")) Atributo = "Paciente";
         if(Atributo.equals("Telefone")) Atributo = "numero";
@@ -299,8 +304,9 @@ public class ManterConsulta1 extends javax.swing.JFrame {
             Consulta c = new Consulta();
             ConsultaDAO cdao = new ConsultaDAO();
             Paciente p = new Paciente();
-            
-            c.getPaciente().setCodPaciente((int) JTPacienteSimples.getValueAt(JTPacienteSimples.getSelectedRow(), 0));
+            int modelRow = JTPacienteSimples.convertRowIndexToModel(JTPacienteSimples.getSelectedRow());
+            int value = (Integer)JTPacienteSimples.getModel().getValueAt(modelRow,0);
+            c.getPaciente().setCodPaciente(value);
             c.getPsicologo().setCodPsicologo(Main.cod);
            
             

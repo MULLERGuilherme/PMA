@@ -51,6 +51,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
        
         DefaultTableModel dtmPacientes = (DefaultTableModel) JTConsultas.getModel();
+        TableColumnModel cmod = JTConsultas.getColumnModel();
+        cmod.removeColumn(cmod.getColumn(0));
         JTConsultas.setRowSorter(new TableRowSorter(dtmPacientes));
         
         LocalDate localDate = LocalDate.now();
@@ -67,8 +69,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
     private void ReadJTable(LocalDate data) {
         DefaultTableModel model = (DefaultTableModel) JTConsultas.getModel();
-        TableColumnModel cmod = JTConsultas.getColumnModel();
-        cmod.removeColumn(cmod.getColumn(0));
+       
         model.setNumRows(0);
         ViewsDAO vwdao = new ViewsDAO();
         //ConsultaDAO cdao = new ConsultaDAO();

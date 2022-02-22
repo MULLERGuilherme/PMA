@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumnModel;
 import javax.swing.table.TableRowSorter;
 import model.bean.Anotacao;
 import model.bean.Consulta;
@@ -31,6 +32,8 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
     public ExibirAnotacoes() {
          initComponents();
         DefaultTableModel dtmPacientes = (DefaultTableModel) JTAnotacoes.getModel();
+        TableColumnModel cmod = JTAnotacoes.getColumnModel();
+        cmod.removeColumn(cmod.getColumn(0));
         JTAnotacoes.setRowSorter(new TableRowSorter(dtmPacientes));
         ReadJTable();
     }
@@ -80,31 +83,6 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
         }
     }
     
-//    public void ReadJTable() {
-//
-//        DefaultTableModel model = (DefaultTableModel) JTAnotacoes.getModel();
-//        model.setNumRows(0);
-//        
-//        ConsultaDAO cdao = new ConsultaDAO();
-//        AnotacaoDAO dao = new AnotacaoDAO();
-//        List<Anotacao> a = new ArrayList<>();
-//        Psicologo p = new Psicologo();
-//        p.setCodPsicologo(Main.cod);
-//        for (Consulta c : cdao.Read(p)) {
-//            a = dao.Read(c);
-//            int i = 0;
-//            for( i = 0; i< a.size(); i++){
-//            model.addRow(new Object[]{
-//                a.get(i).getCodAnotacao(),
-//                a.get(i).getAssunto(),
-//                a.get(i).getTexto(),
-//                a.get(i).getConsulta().getCodConsulta(),
-//                c.getCodConsulta(),
-//                c.getDataConsulta(),
-//            });
-//        }
-//    }
-//    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -266,8 +244,9 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
             
             Anotacao a = new Anotacao();
             AnotacaoDAO dao = new AnotacaoDAO();
-            
-            a.setCodAnotacao((int)JTAnotacoes.getValueAt(JTAnotacoes.getSelectedRow(), 0));
+             int modelRow = JTAnotacoes.convertRowIndexToModel(JTAnotacoes.getSelectedRow());
+            int value = (Integer)JTAnotacoes.getModel().getValueAt(modelRow,0);
+            a.setCodAnotacao(value);
             dao.Delete(a);
             //limpar a tela
           
@@ -283,8 +262,9 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
     private void BtnAlterarAnotacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAlterarAnotacaoActionPerformed
         // TODO add your handling code here:
       if (JTAnotacoes.getSelectedRow() != -1) {
-
-            AlterarAnotacaoPacienteMenu.codanotacao = ((int) JTAnotacoes.getValueAt(JTAnotacoes.getSelectedRow(), 0));
+             int modelRow = JTAnotacoes.convertRowIndexToModel(JTAnotacoes.getSelectedRow());
+            int value = (Integer)JTAnotacoes.getModel().getValueAt(modelRow,0);
+            AlterarAnotacaoPacienteMenu.codanotacao = value;
             AlterarAnotacaoPacienteMenu cp = new AlterarAnotacaoPacienteMenu();
             cp.setVisible(true);
             this.dispose();

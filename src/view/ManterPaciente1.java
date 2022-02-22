@@ -56,6 +56,8 @@ public class ManterPaciente1 extends javax.swing.JFrame {
     public ManterPaciente1() {
         initComponents();
         DefaultTableModel dtmPacientes = (DefaultTableModel) JTPacientes.getModel();
+        TableColumnModel cmod = JTPacientes.getColumnModel();
+        cmod.removeColumn(cmod.getColumn(0));
         JTPacientes.setRowSorter(new TableRowSorter(dtmPacientes));
 
         ReadJTable();
@@ -64,8 +66,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
     public void ReadJTable() {
 
         DefaultTableModel model = (DefaultTableModel) JTPacientes.getModel();
-        TableColumnModel cmod = JTPacientes.getColumnModel();
-        cmod.removeColumn(cmod.getColumn(0));
+       
         model.setNumRows(0);
         ViewsDAO vwdao = new ViewsDAO();
         Object[] linha = null;
@@ -103,9 +104,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
     public void ReadJTableBusca(String Atributo, String Busca) {
 
         DefaultTableModel model = (DefaultTableModel) JTPacientes.getModel();
-        TableColumnModel cmod = JTPacientes.getColumnModel();
-        //cmod.removeColumn(cmod.getColumn(0).getModelIndex());
-        cmod.removeColumn(cmod.getColumn(0));
+        
         
         
         model.setNumRows(0);
@@ -1913,8 +1912,8 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             // System.out.println("data "+ date_time);
             //java.util.Date date = new java.util.Date();
             Object param = DataNasc.getDate();
-            System.out.println("era aki");
-            System.out.println(param);
+            //System.out.println("era aki");
+            //System.out.println(param);
             p.setDataNasc(param);
             p.setSexo((String) Sexo.getSelectedItem());
             p.setProfissao(TxtProfissao.getText());
