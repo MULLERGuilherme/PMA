@@ -1270,8 +1270,6 @@ public class ManterPaciente1 extends javax.swing.JFrame {
 
         txtEmail12.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        jEImagePanel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\guimu\\Desktop\\Projeto\\PMA\\Img\\simboloma.png")); // NOI18N
-
         javax.swing.GroupLayout jEImagePanel2Layout = new javax.swing.GroupLayout(jEImagePanel2);
         jEImagePanel2.setLayout(jEImagePanel2Layout);
         jEImagePanel2Layout.setHorizontalGroup(
@@ -1390,11 +1388,12 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                     .addComponent(LabelEmail1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtEmail3))
                 .addGap(18, 18, 18)
-                .addGroup(PainelDadosPaciente2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelInicioQueixa)
-                    .addComponent(jLabel26)
-                    .addComponent(JCBQueixasCognitivas, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JCBQueixasAfetivoEmocionais, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(PainelDadosPaciente2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(JCBQueixasAfetivoEmocionais, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(PainelDadosPaciente2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(labelInicioQueixa)
+                        .addComponent(jLabel26)
+                        .addComponent(JCBQueixasCognitivas, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(PainelDadosPaciente2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel29)
