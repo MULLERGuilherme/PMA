@@ -9,6 +9,7 @@ import Validacoes.Deletar;
 import Validacoes.Validar;
 import connection.ConnectionFactory;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -365,19 +366,22 @@ public class ManterPaciente1 extends javax.swing.JFrame {
 
         PainelData.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel17.setText("   *  Data de Nascimento: ");
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel17.setText("   *  Data de Nascimento: ");
 
+        DataNasc.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         DataNasc.setPreferredSize(new java.awt.Dimension(160, 17));
 
-        jLabel18.setText("*  Sexo:");
         jLabel18.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel18.setText("*  Sexo:");
 
+        Sexo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         Sexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Feminino","Não Definido"}));
 
-        jLabel19.setText("*  Estado Civil:");
         jLabel19.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel19.setText("*  Estado Civil:");
 
+        estadocivil.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         estadocivil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Solteiro", "Casado", "Separado", "Divorciado","Viuvo" }));
 
         javax.swing.GroupLayout PainelDataLayout = new javax.swing.GroupLayout(PainelData);
@@ -417,8 +421,8 @@ public class ManterPaciente1 extends javax.swing.JFrame {
 
         PainelEndereco.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel20.setText("   Endereço:");
         jLabel20.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel20.setText("   Endereço:");
 
         TxtEndereco.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
@@ -444,8 +448,8 @@ public class ManterPaciente1 extends javax.swing.JFrame {
 
         PainelNome.setBackground(new java.awt.Color(255, 255, 255));
 
-        LabelNome.setText("*  Nome:");
         LabelNome.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        LabelNome.setText("*  Nome:");
 
         txtNome.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         txtNome.addActionListener(new java.awt.event.ActionListener() {
@@ -470,19 +474,21 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             .addGroup(PainelNomeLayout.createSequentialGroup()
                 .addGap(1, 1, 1)
                 .addGroup(PainelNomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LabelNome, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                    .addComponent(LabelNome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtNome, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)))
         );
 
         PainelCidade.setBackground(new java.awt.Color(255, 255, 255));
 
-        LabelCidade.setText("*  CPF:");
         LabelCidade.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        LabelCidade.setText("*  CPF:");
 
-        LabelCidade1.setText("    Cidade:");
         LabelCidade1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        LabelCidade1.setText("    Cidade:");
 
         txtCPF.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+
+        TxtCidade.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         javax.swing.GroupLayout PainelCidadeLayout = new javax.swing.GroupLayout(PainelCidade);
         PainelCidade.setLayout(PainelCidadeLayout);
@@ -513,8 +519,8 @@ public class ManterPaciente1 extends javax.swing.JFrame {
 
         TxtProfissao.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        LabelProfissao.setText("        Profissão:");
         LabelProfissao.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        LabelProfissao.setText("        Profissão:");
 
         javax.swing.GroupLayout PainelProfissaoLayout = new javax.swing.GroupLayout(PainelProfissao);
         PainelProfissao.setLayout(PainelProfissaoLayout);
@@ -537,8 +543,8 @@ public class ManterPaciente1 extends javax.swing.JFrame {
 
         TxtReligiao.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        LabelReligiao.setText("        Religião:");
         LabelReligiao.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        LabelReligiao.setText("        Religião:");
 
         javax.swing.GroupLayout PainelReligiaoLayout = new javax.swing.GroupLayout(PainelReligiao);
         PainelReligiao.setLayout(PainelReligiaoLayout);
@@ -560,8 +566,8 @@ public class ManterPaciente1 extends javax.swing.JFrame {
 
         TxtEscolaridade.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        LabelEscolaridade.setText("        Escolaridade:");
         LabelEscolaridade.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        LabelEscolaridade.setText("        Escolaridade:");
 
         javax.swing.GroupLayout PainelEscolaridadeLayout = new javax.swing.GroupLayout(PainelEscolaridade);
         PainelEscolaridade.setLayout(PainelEscolaridadeLayout);
@@ -581,13 +587,15 @@ public class ManterPaciente1 extends javax.swing.JFrame {
 
         PainelTelefone.setBackground(new java.awt.Color(255, 255, 255));
 
-        LabelCidade2.setText("Telefone2:");
         LabelCidade2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        LabelCidade2.setText("Telefone2:");
 
-        LabelCidade3.setText("*  Telefone1:");
         LabelCidade3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        LabelCidade3.setText("*  Telefone1:");
 
         TxtTelefone2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+
+        TxtTelefone.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         javax.swing.GroupLayout PainelTelefoneLayout = new javax.swing.GroupLayout(PainelTelefone);
         PainelTelefone.setLayout(PainelTelefoneLayout);
@@ -616,23 +624,23 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                     .addComponent(TxtTelefone)))
         );
 
-        jLabel1.setText("* Campos Obrigatórios");
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setText("* Campos Obrigatórios");
 
-        BtnSalvarAlteracoes.setText("Salvar Alterações");
         BtnSalvarAlteracoes.setBackground(new java.awt.Color(0, 112, 186));
         BtnSalvarAlteracoes.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnSalvarAlteracoes.setForeground(new java.awt.Color(255, 255, 255));
+        BtnSalvarAlteracoes.setText("Salvar Alterações");
         BtnSalvarAlteracoes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnSalvarAlteracoesActionPerformed(evt);
             }
         });
 
-        BtnCancelar.setText("Cancelar");
         BtnCancelar.setBackground(new java.awt.Color(255, 153, 153));
         BtnCancelar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnCancelar.setForeground(new java.awt.Color(255, 255, 255));
+        BtnCancelar.setText("Cancelar");
         BtnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnCancelarActionPerformed(evt);
@@ -641,8 +649,10 @@ public class ManterPaciente1 extends javax.swing.JFrame {
 
         PainelEmail.setBackground(new java.awt.Color(255, 255, 255));
 
-        LabelEmail.setText("* E-mail:");
         LabelEmail.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        LabelEmail.setText("* E-mail:");
+
+        txtEmail.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         javax.swing.GroupLayout PainelEmailLayout = new javax.swing.GroupLayout(PainelEmail);
         PainelEmail.setLayout(PainelEmailLayout);
@@ -660,8 +670,8 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             .addGroup(PainelEmailLayout.createSequentialGroup()
                 .addGap(2, 2, 2)
                 .addGroup(PainelEmailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(LabelEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
-                    .addComponent(txtEmail)))
+                    .addComponent(LabelEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout PainelDadosPacienteLayout = new javax.swing.GroupLayout(PainelDadosPaciente);
@@ -724,13 +734,13 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                 .addGroup(PainelDadosPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BtnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BtnSalvarAlteracoes, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addContainerGap(254, Short.MAX_VALUE))
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipady = 51;
+        gridBagConstraints.ipady = 241;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         ModalNovo.getContentPane().add(PainelDadosPaciente, gridBagConstraints);
 
@@ -755,19 +765,22 @@ public class ManterPaciente1 extends javax.swing.JFrame {
 
         PainelData1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel21.setText("   *  Data de Nascimento: ");
         jLabel21.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel21.setText("   *  Data de Nascimento: ");
 
+        DataNasc1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         DataNasc1.setPreferredSize(new java.awt.Dimension(160, 17));
 
-        jLabel22.setText("*  Sexo:");
         jLabel22.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel22.setText("*  Sexo:");
 
+        Sexo1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         Sexo1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Feminino","Não Definido"}));
 
-        jLabel23.setText("*  Estado Civil:");
         jLabel23.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel23.setText("*  Estado Civil:");
 
+        estadocivil1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         estadocivil1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Solteiro", "Casado", "Separado", "Divorciado","Viuvo" }));
 
         javax.swing.GroupLayout PainelData1Layout = new javax.swing.GroupLayout(PainelData1);
@@ -807,8 +820,8 @@ public class ManterPaciente1 extends javax.swing.JFrame {
 
         PainelEndereco1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel24.setText("   Endereço:");
         jLabel24.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel24.setText("   Endereço:");
 
         TxtEndereco1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
@@ -834,8 +847,8 @@ public class ManterPaciente1 extends javax.swing.JFrame {
 
         PainelNome1.setBackground(new java.awt.Color(255, 255, 255));
 
-        LabelNome1.setText("*  Nome:");
         LabelNome1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        LabelNome1.setText("*  Nome:");
 
         txtNome1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         txtNome1.addActionListener(new java.awt.event.ActionListener() {
@@ -865,13 +878,15 @@ public class ManterPaciente1 extends javax.swing.JFrame {
 
         PainelCidade1.setBackground(new java.awt.Color(255, 255, 255));
 
-        LabelCidade4.setText("*  CPF:");
         LabelCidade4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        LabelCidade4.setText("*  CPF:");
 
-        LabelCidade5.setText("    Cidade:");
         LabelCidade5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        LabelCidade5.setText("    Cidade:");
 
         txtCPF1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+
+        TxtCidade1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         javax.swing.GroupLayout PainelCidade1Layout = new javax.swing.GroupLayout(PainelCidade1);
         PainelCidade1.setLayout(PainelCidade1Layout);
@@ -902,8 +917,8 @@ public class ManterPaciente1 extends javax.swing.JFrame {
 
         TxtProfissao1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        LabelProfissao1.setText("        Profissão:");
         LabelProfissao1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        LabelProfissao1.setText("        Profissão:");
 
         javax.swing.GroupLayout PainelProfissao1Layout = new javax.swing.GroupLayout(PainelProfissao1);
         PainelProfissao1.setLayout(PainelProfissao1Layout);
@@ -931,8 +946,8 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             }
         });
 
-        LabelReligiao1.setText("        Religião:");
         LabelReligiao1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        LabelReligiao1.setText("        Religião:");
 
         javax.swing.GroupLayout PainelReligiao1Layout = new javax.swing.GroupLayout(PainelReligiao1);
         PainelReligiao1.setLayout(PainelReligiao1Layout);
@@ -954,8 +969,8 @@ public class ManterPaciente1 extends javax.swing.JFrame {
 
         TxtEscolaridade1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        LabelEscolaridade1.setText("        Escolaridade:");
         LabelEscolaridade1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        LabelEscolaridade1.setText("        Escolaridade:");
 
         javax.swing.GroupLayout PainelEscolaridade1Layout = new javax.swing.GroupLayout(PainelEscolaridade1);
         PainelEscolaridade1.setLayout(PainelEscolaridade1Layout);
@@ -975,13 +990,15 @@ public class ManterPaciente1 extends javax.swing.JFrame {
 
         PainelTelefone1.setBackground(new java.awt.Color(255, 255, 255));
 
-        LabelCidade6.setText("Telefone2:");
         LabelCidade6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        LabelCidade6.setText("Telefone2:");
 
-        LabelCidade7.setText("*  Telefone1:");
         LabelCidade7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        LabelCidade7.setText("*  Telefone1:");
 
         TxtTelefone21.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+
+        TxtTelefone1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         javax.swing.GroupLayout PainelTelefone1Layout = new javax.swing.GroupLayout(PainelTelefone1);
         PainelTelefone1.setLayout(PainelTelefone1Layout);
@@ -1010,23 +1027,23 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                     .addComponent(TxtTelefone1)))
         );
 
-        jLabel3.setText("* Campos Obrigatórios");
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel3.setText("* Campos Obrigatórios");
 
-        BtnSalvarAlteracoes1.setText("Salvar Alterações");
         BtnSalvarAlteracoes1.setBackground(new java.awt.Color(0, 112, 186));
         BtnSalvarAlteracoes1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnSalvarAlteracoes1.setForeground(new java.awt.Color(255, 255, 255));
+        BtnSalvarAlteracoes1.setText("Salvar Alterações");
         BtnSalvarAlteracoes1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnSalvarAlteracoes1ActionPerformed(evt);
             }
         });
 
-        BtnCancelar1.setText("Cancelar");
         BtnCancelar1.setBackground(new java.awt.Color(255, 153, 153));
         BtnCancelar1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnCancelar1.setForeground(new java.awt.Color(255, 255, 255));
+        BtnCancelar1.setText("Cancelar");
         BtnCancelar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnCancelar1ActionPerformed(evt);
@@ -1035,8 +1052,10 @@ public class ManterPaciente1 extends javax.swing.JFrame {
 
         PainelEmail2.setBackground(new java.awt.Color(255, 255, 255));
 
-        LabelNome2.setText("*E-mail:");
         LabelNome2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        LabelNome2.setText("*E-mail:");
+
+        txtEmail1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         javax.swing.GroupLayout PainelEmail2Layout = new javax.swing.GroupLayout(PainelEmail2);
         PainelEmail2.setLayout(PainelEmail2Layout);
@@ -1054,7 +1073,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             .addGroup(PainelEmail2Layout.createSequentialGroup()
                 .addGap(2, 2, 2)
                 .addGroup(PainelEmail2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LabelNome2, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
+                    .addComponent(LabelNome2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtEmail1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
@@ -1118,17 +1137,18 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                 .addGroup(PainelDadosPaciente1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BtnCancelar1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BtnSalvarAlteracoes1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(151, Short.MAX_VALUE))
+                .addContainerGap(238, Short.MAX_VALUE))
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipady = 51;
+        gridBagConstraints.ipady = 225;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         ModalAlterarPaciente.getContentPane().add(PainelDadosPaciente1, gridBagConstraints);
 
         ModalAnamnese.setResizable(false);
+        ModalAnamnese.getContentPane().setLayout(new java.awt.GridBagLayout());
 
         PainelDadosPaciente2.setBackground(new java.awt.Color(255, 255, 255));
         PainelDadosPaciente2.setPreferredSize(new java.awt.Dimension(300, 1000));
@@ -1146,134 +1166,134 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             .addGap(0, 50, Short.MAX_VALUE)
         );
 
-        jLabel2.setText("* Campos Obrigatórios");
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel2.setText("* Campos Obrigatórios");
 
-        BtnSalvarAlteracoes2.setText("Salvar Alterações");
         BtnSalvarAlteracoes2.setBackground(new java.awt.Color(0, 112, 186));
         BtnSalvarAlteracoes2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnSalvarAlteracoes2.setForeground(new java.awt.Color(255, 255, 255));
+        BtnSalvarAlteracoes2.setText("Salvar Alterações");
         BtnSalvarAlteracoes2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnSalvarAlteracoes2ActionPerformed(evt);
             }
         });
 
-        BtnCancelar2.setText("Cancelar");
         BtnCancelar2.setBackground(new java.awt.Color(255, 153, 153));
         BtnCancelar2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnCancelar2.setForeground(new java.awt.Color(255, 255, 255));
+        BtnCancelar2.setText("Cancelar");
         BtnCancelar2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnCancelar2ActionPerformed(evt);
             }
         });
 
-        jLabel29.setText("*Repentina ou Gradual:");
         jLabel29.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel29.setText("*Repentina ou Gradual:");
 
-        JCBPsicomotricidade1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normal", "Lento", "Agitado"}));
         JCBPsicomotricidade1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        JCBPsicomotricidade1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normal", "Lento", "Agitado"}));
 
-        labelInicioQueixa1.setText("*  Psicomotricidade: ");
         labelInicioQueixa1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        labelInicioQueixa1.setText("*  Psicomotricidade: ");
 
-        JCBPsicomotricidade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normal", "Lento", "Agitado"}));
         JCBPsicomotricidade.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        JCBPsicomotricidade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normal", "Lento", "Agitado"}));
 
-        labelInicioQueixa.setText("*Queixas Afetivo-emocionais: ");
         labelInicioQueixa.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        labelInicioQueixa.setText("*Queixas Afetivo-emocionais: ");
 
-        JCBQueixasAfetivoEmocionais.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nenhuma","Volição", "Afeto", "Ansiedade", "Medo", "Culpa", "Raiva", "Luto", "Desanimo" }));
         JCBQueixasAfetivoEmocionais.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        JCBQueixasAfetivoEmocionais.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nenhuma","Volição", "Afeto", "Ansiedade", "Medo", "Culpa", "Raiva", "Luto", "Desanimo" }));
 
-        jLabel26.setText("*  Queixas Cognitivas:");
         jLabel26.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel26.setText("*  Queixas Cognitivas:");
 
-        JCBQueixasCognitivas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"Nenhuma", "Integridade Sensorial","Percepção", "Atenção", "Memória" }));
         JCBQueixasCognitivas.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        JCBQueixasCognitivas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"Nenhuma", "Integridade Sensorial","Percepção", "Atenção", "Memória" }));
 
-        LabelEmail1.setText("  Queixa Secundária:");
         LabelEmail1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        LabelEmail1.setText("  Queixa Secundária:");
 
         txtEmail2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        LabelNome3.setText("*Queixa Principal:");
         LabelNome3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        LabelNome3.setText("*Queixa Principal:");
 
-        jLabel30.setText("  Como começou:");
         jLabel30.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel30.setText("  Como começou:");
 
         txtEmail3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        jLabel31.setText("  Diagnóstico:");
         jLabel31.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel31.setText("  Diagnóstico:");
 
         txtEmail4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        jLabel32.setText("  Histórico Familiar:");
         jLabel32.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel32.setText("  Histórico Familiar:");
 
         txtEmail5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        jLabel33.setText("  Doenças Conhecidas:");
         jLabel33.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel33.setText("  Doenças Conhecidas:");
 
         txtEmail6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        jLabel34.setText("  Sintomas:");
         jLabel34.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel34.setText("  Sintomas:");
 
         txtEmail7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        jLabel35.setText("  Medicamentos Utilizados:");
         jLabel35.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel35.setText("  Medicamentos Utilizados:");
 
         txtEmail8.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        jLabel36.setText("  O que mudou:");
         jLabel36.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel36.setText("  O que mudou:");
 
         txtEmail9.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        jLabel37.setText("  Encaminhamento:");
         jLabel37.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel37.setText("  Encaminhamento:");
 
         txtEmail10.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        jLabel38.setText("  Como começou:");
         jLabel38.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel38.setText("  Como começou:");
 
         txtEmail11.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        jLabel39.setText("  Data de Início:");
         jLabel39.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel39.setText("  Data de Início:");
 
         DataNasc2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         DataNasc2.setPreferredSize(new java.awt.Dimension(160, 17));
 
-        BtnCancelar3.setText("Cancelar");
         BtnCancelar3.setBackground(new java.awt.Color(255, 153, 153));
         BtnCancelar3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnCancelar3.setForeground(new java.awt.Color(255, 255, 255));
+        BtnCancelar3.setText("Cancelar");
         BtnCancelar3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnCancelar3ActionPerformed(evt);
             }
         });
 
-        BtnSalvarAlteracoes3.setText("Salvar Alterações");
         BtnSalvarAlteracoes3.setBackground(new java.awt.Color(0, 112, 186));
         BtnSalvarAlteracoes3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnSalvarAlteracoes3.setForeground(new java.awt.Color(255, 255, 255));
+        BtnSalvarAlteracoes3.setText("Salvar Alterações");
         BtnSalvarAlteracoes3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnSalvarAlteracoes3ActionPerformed(evt);
             }
         });
 
-        jLabel4.setText("* Campos Obrigatórios");
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel4.setText("* Campos Obrigatórios");
 
         txtEmail12.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
@@ -1462,22 +1482,13 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout ModalAnamneseLayout = new javax.swing.GroupLayout(ModalAnamnese.getContentPane());
-        ModalAnamnese.getContentPane().setLayout(ModalAnamneseLayout);
-        ModalAnamneseLayout.setHorizontalGroup(
-            ModalAnamneseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 984, Short.MAX_VALUE)
-            .addGroup(ModalAnamneseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(PainelDadosPaciente2, javax.swing.GroupLayout.DEFAULT_SIZE, 984, Short.MAX_VALUE))
-        );
-        ModalAnamneseLayout.setVerticalGroup(
-            ModalAnamneseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 924, Short.MAX_VALUE)
-            .addGroup(ModalAnamneseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(ModalAnamneseLayout.createSequentialGroup()
-                    .addComponent(PainelDadosPaciente2, javax.swing.GroupLayout.PREFERRED_SIZE, 924, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipadx = -300;
+        gridBagConstraints.ipady = -1000;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        ModalAnamnese.getContentPane().add(PainelDadosPaciente2, gridBagConstraints);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -1509,77 +1520,77 @@ public class ManterPaciente1 extends javax.swing.JFrame {
 
         getContentPane().add(PainelNorte, java.awt.BorderLayout.PAGE_START);
 
-        BtnManterAnotacao.setText("Exibir Anamneses");
         BtnManterAnotacao.setBackground(new java.awt.Color(102, 102, 102));
-        BtnManterAnotacao.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnManterAnotacao.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnManterAnotacao.setForeground(new java.awt.Color(255, 255, 255));
+        BtnManterAnotacao.setText("Exibir Anamneses");
+        BtnManterAnotacao.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnManterAnotacao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnManterAnotacaoActionPerformed(evt);
             }
         });
 
-        BtnManterPaciente.setText("Manter Pacientes");
         BtnManterPaciente.setBackground(new java.awt.Color(102, 102, 102));
-        BtnManterPaciente.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        BtnManterPaciente.setFocusPainted(false);
         BtnManterPaciente.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnManterPaciente.setForeground(new java.awt.Color(255, 255, 255));
+        BtnManterPaciente.setText("Manter Pacientes");
+        BtnManterPaciente.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        BtnManterPaciente.setFocusPainted(false);
         BtnManterPaciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnManterPacienteActionPerformed(evt);
             }
         });
 
-        BtnManterPsicologo.setText("Meus Dados");
         BtnManterPsicologo.setBackground(new java.awt.Color(102, 102, 102));
-        BtnManterPsicologo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnManterPsicologo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnManterPsicologo.setForeground(new java.awt.Color(255, 255, 255));
+        BtnManterPsicologo.setText("Meus Dados");
+        BtnManterPsicologo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnManterPsicologo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnManterPsicologoActionPerformed(evt);
             }
         });
 
-        BtnManterConsulta.setText("Cadastrar Consulta");
         BtnManterConsulta.setBackground(new java.awt.Color(102, 102, 102));
-        BtnManterConsulta.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnManterConsulta.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnManterConsulta.setForeground(new java.awt.Color(255, 255, 255));
+        BtnManterConsulta.setText("Cadastrar Consulta");
+        BtnManterConsulta.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnManterConsulta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnManterConsultaActionPerformed(evt);
             }
         });
 
-        BtnExibirAnotacao.setText("Exibir Anotações");
         BtnExibirAnotacao.setBackground(new java.awt.Color(102, 102, 102));
-        BtnExibirAnotacao.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnExibirAnotacao.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnExibirAnotacao.setForeground(new java.awt.Color(255, 255, 255));
+        BtnExibirAnotacao.setText("Exibir Anotações");
+        BtnExibirAnotacao.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnExibirAnotacao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnExibirAnotacaoActionPerformed(evt);
             }
         });
 
-        BtnSair.setText("Sair");
         BtnSair.setBackground(new java.awt.Color(102, 102, 102));
-        BtnSair.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnSair.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnSair.setForeground(new java.awt.Color(255, 255, 255));
+        BtnSair.setText("Sair");
+        BtnSair.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnSairActionPerformed(evt);
             }
         });
 
-        BtnVoltar1.setText("Início");
         BtnVoltar1.setBackground(new java.awt.Color(102, 102, 102));
         BtnVoltar1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnVoltar1.setForeground(new java.awt.Color(255, 255, 255));
+        BtnVoltar1.setText("Início");
         BtnVoltar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnVoltar1ActionPerformed(evt);
@@ -1632,16 +1643,16 @@ public class ManterPaciente1 extends javax.swing.JFrame {
 
         getContentPane().add(PainelEsquerda, java.awt.BorderLayout.LINE_START);
 
-        BtnExcluir.setText("Excluir");
         BtnExcluir.setBackground(new java.awt.Color(204, 204, 204));
+        BtnExcluir.setText("Excluir");
         BtnExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnExcluirActionPerformed(evt);
             }
         });
 
-        BtnVisuAlterarDados.setText("Visualizar/ Alterar Dados");
         BtnVisuAlterarDados.setBackground(new java.awt.Color(204, 204, 204));
+        BtnVisuAlterarDados.setText("Visualizar/ Alterar Dados");
         BtnVisuAlterarDados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnVisuAlterarDadosActionPerformed(evt);
@@ -1695,32 +1706,32 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             }
         });
 
-        btnVisuAnotacoes.setText("Visualizar Anotaçoes");
         btnVisuAnotacoes.setBackground(new java.awt.Color(204, 204, 204));
+        btnVisuAnotacoes.setText("Visualizar Anotaçoes");
         btnVisuAnotacoes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVisuAnotacoesActionPerformed(evt);
             }
         });
 
-        btnVisuAnamneses.setText("Visualizar Anamneses");
         btnVisuAnamneses.setBackground(new java.awt.Color(204, 204, 204));
+        btnVisuAnamneses.setText("Visualizar Anamneses");
         btnVisuAnamneses.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVisuAnamnesesActionPerformed(evt);
             }
         });
 
-        brnVisuConsultas.setText("Visualizar Consultas");
         brnVisuConsultas.setBackground(new java.awt.Color(204, 204, 204));
+        brnVisuConsultas.setText("Visualizar Consultas");
         brnVisuConsultas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 brnVisuConsultasActionPerformed(evt);
             }
         });
 
-        BtnNovo.setText("Novo");
         BtnNovo.setBackground(new java.awt.Color(204, 204, 204));
+        BtnNovo.setText("Novo");
         BtnNovo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnNovoActionPerformed(evt);
@@ -2123,6 +2134,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
     private void BtnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnNovoActionPerformed
         // TODO add your handling code here:
         ModalNovo.setSize(1039, 967);
+        DataNasc1.setFont(new Font("Tahoma", Font.BOLD, 18));
         ModalNovo.setModal(true);
         ModalNovo.setLocationRelativeTo(null);
         ModalNovo.setVisible(true);
@@ -2139,7 +2151,102 @@ public class ManterPaciente1 extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNome1ActionPerformed
 
     private void BtnSalvarAlteracoes1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalvarAlteracoes1ActionPerformed
-        // TODO add your handling code here:
+        boolean dadosvalidos = true;
+
+            Paciente p = new Paciente();
+            PacienteDAO dao = new PacienteDAO();
+            Telefone tf = new Telefone();
+            Telefone tf2 = new Telefone();
+            TelefoneDAO tfdao = new TelefoneDAO();
+            String msg = "Existem campos com formatos Inválidos\n\nFavor Verificar os campos:";
+
+            if (!Validar.vCamposVazios(this, txtNome1, txtEmail1, txtCPF1, DataNasc1, TxtTelefone1)) {
+                p.setCodPaciente(codigopaciente);
+                if (Validar.vNome(txtNome1.getText())) {
+                    p.setNome_Completo(txtNome1.getText());
+                } else {
+                    dadosvalidos = false;
+                    msg += "\nNome Invalido: " + txtNome1.getText();
+                }
+
+                if (Validar.vEmail(txtEmail1.getText())) {
+                    p.setEmail(txtEmail1.getText());
+                } else {
+                    dadosvalidos = false;
+                    msg += "\nEmail Invalido: " + txtEmail1.getText();
+                }
+
+                if (Validar.vCPF(txtCPF1.getText())) {
+                    p.setCPF(txtCPF1.getText());
+                } else {
+                    dadosvalidos = false;
+                    msg += "\nCPF Invalido: " + txtCPF1.getText();
+                }
+
+                p.setEstadoCivil((String) estadocivil1.getSelectedItem());
+                p.setSexo((String) Sexo1.getSelectedItem());
+                p.setProfissao(TxtProfissao1.getText());
+                p.setReligiao(TxtReligiao1.getText());
+                p.setEscolaridade(TxtEscolaridade1.getText());
+                p.setEndereco(TxtEndereco1.getText());
+                p.setCidade(TxtCidade1.getText());
+
+                //java.util.Date date = new java.util.Date();
+                Object param = DataNasc1.getDate();
+
+                p.setDataNasc(param);
+
+                if (Validar.vTelefone(TxtTelefone1.getText())) {
+                    tf.setNumero(TxtTelefone1.getText());
+                } else {
+                    dadosvalidos = false;
+                    msg += "\nNúmero de Telefone Invalido: " + TxtTelefone1.getText() + "\nO Número deve ser no formato xxxxxxxxxxx";
+                }
+                if (!TxtTelefone21.getText().isEmpty()) {
+                    if (Validar.vTelefone(TxtTelefone21.getText())) {
+                        tf2.setNumero(TxtTelefone21.getText());
+                    } else {
+                        dadosvalidos = false;
+                        msg += "\nNúmero de Telefone 2 Invalido: " + TxtTelefone21.getText() + "\nO Número deve ser no formato xxxxxxxxxxx";
+                    }
+                }
+                if (dadosvalidos) {
+
+                    if (dao.Update(p)) {
+
+                        p = dao.ReadPaciente(p.getCPF());
+
+                        tf.setPaciente(p);
+                        List<Telefone> t = new ArrayList<>();
+                        t = tfdao.Read(p.getCodPaciente());
+                        t.get(0).setNumero(TxtTelefone1.getText());
+                        if (tfdao.UpdateTPaciente(t.get(0))) {
+                            if (t.size() == 2) {
+                                t.get(1).setNumero(TxtTelefone21.getText());
+                                tfdao.UpdateTPaciente(t.get(1));
+                            }
+                            JOptionPane.showMessageDialog(this, "Paciente " + p.getNome_Completo() + " Atualizado com sucesso");
+                            this.clear();
+                        }
+                    };
+
+                    /*   if(telefones){
+                        Telefone tf = new Telefone();
+                        TelefoneDAO tfdao = new TelefoneDAO();
+                        tf.setNumero(TxtTelefone.getText());
+                        p = dao.ReadPaciente(p.getCPF());
+                        tf.setPaciente(p);
+                        tfdao.CreatePc(tf);
+                    }
+                     */
+                    //mostrar mensagem de sucesso
+                    // JOptionPane.showMessageDialog(null,"Paciente Cadastrado com Sucesso!");
+                    ReadJTable();
+                } else {
+                    JOptionPane.showMessageDialog(this, msg);
+                }
+            }
+            ModalAlterarPaciente.dispose();
     }//GEN-LAST:event_BtnSalvarAlteracoes1ActionPerformed
 
     private void BtnCancelar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCancelar1ActionPerformed

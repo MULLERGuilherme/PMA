@@ -533,6 +533,7 @@ public class AlterarConsulta extends javax.swing.JFrame {
 
         txtTexto.setColumns(20);
         txtTexto.setRows(5);
+        txtTexto.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jScrollPane1.setViewportView(txtTexto);
 
         BtnCancelarAnotacao.setText("Cancelar");
