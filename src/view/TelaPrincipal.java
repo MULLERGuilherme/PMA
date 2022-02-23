@@ -268,6 +268,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(JTConsultas);
 
+        DataChooser.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+
         BtnExcluir.setBackground(new java.awt.Color(204, 204, 204));
         BtnExcluir.setText("Excluir");
         BtnExcluir.addActionListener(new java.awt.event.ActionListener() {
