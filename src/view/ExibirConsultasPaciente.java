@@ -6,6 +6,8 @@
 package view;
 
 import Validacoes.Deletar;
+import Validacoes.Validar;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -50,7 +52,7 @@ public class ExibirConsultasPaciente extends javax.swing.JFrame {
            
             model.addRow(new Object[]{
                c.getCodConsulta(),
-               c.getDataConsulta(),
+                Validar.fDatetime((Timestamp) c.getDataConsulta()),
                c.getStatus(),
             });
         }
