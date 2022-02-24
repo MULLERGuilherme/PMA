@@ -82,7 +82,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             model.addRow(new Object[]{
                c.getCodConsulta(),
                c.getPaciente().getNome_Completo(),
-               Validar.fDatetime((Timestamp) c.getDataConsulta()),
+               Validar.ftime((Timestamp) c.getDataConsulta()),
                c.getStatus(),
             });
         }
@@ -257,7 +257,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
             },
             new String [] {
-                "CodConsulta", "Paciente", "DataConsulta", "Status"
+                "CodConsulta", "Paciente", "Horário da Consulta", "Status"
             }
         ));
         JTConsultas.setMaximumSize(new java.awt.Dimension(1080, 200));

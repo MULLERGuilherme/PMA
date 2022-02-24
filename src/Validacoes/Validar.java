@@ -182,6 +182,14 @@ public class Validar {
         return dtf.format(fdate)  ;
     
 }
+ public static Object ftime(Timestamp datat) {
+
+
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm");
+        LocalDateTime fdate =datat.toLocalDateTime();
+        return dtf.format(fdate)  ;
+    
+}
 
     public static boolean vCamposVazios(JFrame jframe, JTextField Nome, JTextField Email, JTextField CPF, DatePicker DataNasc, JTextField Telefone) {
         boolean vazio = false;
