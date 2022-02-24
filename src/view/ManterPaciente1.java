@@ -409,6 +409,11 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         LabelCidade3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         TxtTelefone.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        TxtTelefone.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtTelefoneActionPerformed(evt);
+            }
+        });
 
         TxtTelefone2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
@@ -419,6 +424,11 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         LabelEscolaridade.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         TxtEscolaridade.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        TxtEscolaridade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtEscolaridadeActionPerformed(evt);
+            }
+        });
 
         TxtReligiao.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
@@ -528,96 +538,97 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                         .addComponent(jEImagePanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(224, 224, 224)
                         .addComponent(jLabel7))
-                    .addGroup(PainelDadosPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(PainelDadosPacienteLayout.createSequentialGroup()
-                            .addGap(38, 38, 38)
-                            .addComponent(jLabel8)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(PainelDadosPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(LabelEmail)
-                                .addComponent(LabelNome))
-                            .addGap(25, 25, 25)
-                            .addGroup(PainelDadosPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(PainelDadosPacienteLayout.createSequentialGroup()
-                                    .addGroup(PainelDadosPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(estadocivil, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGap(18, 18, 18)
-                                    .addGroup(PainelDadosPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(PainelDadosPacienteLayout.createSequentialGroup()
-                                            .addComponent(jLabel12)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(jLabel18)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(Sexo, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(PainelDadosPacienteLayout.createSequentialGroup()
-                                            .addComponent(jLabel10)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(LabelCPF))))
-                                .addComponent(txtNome)))
-                        .addGroup(PainelDadosPacienteLayout.createSequentialGroup()
-                            .addGap(30, 30, 30)
-                            .addGroup(PainelDadosPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(PainelDadosPacienteLayout.createSequentialGroup()
-                                    .addGroup(PainelDadosPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel14)
-                                        .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.TRAILING))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(PainelDadosPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jLabel1)
-                                        .addGroup(PainelDadosPacienteLayout.createSequentialGroup()
-                                            .addComponent(LabelEscolaridade)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(TxtEscolaridade))
-                                        .addGroup(PainelDadosPacienteLayout.createSequentialGroup()
-                                            .addComponent(LabelReligiao)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(TxtReligiao))
-                                        .addGroup(PainelDadosPacienteLayout.createSequentialGroup()
-                                            .addComponent(jLabel20)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(TxtEndereco))
-                                        .addGroup(PainelDadosPacienteLayout.createSequentialGroup()
-                                            .addComponent(LabelProfissao)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(TxtProfissao))
-                                        .addGroup(PainelDadosPacienteLayout.createSequentialGroup()
-                                            .addComponent(LabelCidade3)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(TxtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(11, 11, 11)
-                                            .addComponent(LabelCidade2)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addGroup(PainelDadosPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addGroup(PainelDadosPacienteLayout.createSequentialGroup()
-                                                    .addComponent(BtnCancelar)
-                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
-                                                    .addComponent(BtnSalvarAlteracoes, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addComponent(TxtTelefone2)))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelDadosPacienteLayout.createSequentialGroup()
-                                            .addComponent(LabelCidade)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(TxtCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addGroup(PainelDadosPacienteLayout.createSequentialGroup()
-                                    .addGap(8, 8, 8)
-                                    .addComponent(jLabel9))))
-                        .addGroup(PainelDadosPacienteLayout.createSequentialGroup()
-                            .addGap(36, 36, 36)
-                            .addGroup(PainelDadosPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(PainelDadosPacienteLayout.createSequentialGroup()
-                                    .addComponent(jLabel11)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jLabel17)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(DataNasc, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(PainelDadosPacienteLayout.createSequentialGroup()
-                                    .addComponent(jLabel13)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(LabelEstadoCivil))))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelDadosPacienteLayout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(txtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(38, Short.MAX_VALUE))
+                    .addGroup(PainelDadosPacienteLayout.createSequentialGroup()
+                        .addGroup(PainelDadosPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(PainelDadosPacienteLayout.createSequentialGroup()
+                                .addGap(38, 38, 38)
+                                .addComponent(jLabel8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(PainelDadosPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(LabelEmail)
+                                    .addComponent(LabelNome))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(PainelDadosPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(PainelDadosPacienteLayout.createSequentialGroup()
+                                        .addGroup(PainelDadosPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(estadocivil, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(PainelDadosPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(PainelDadosPacienteLayout.createSequentialGroup()
+                                                .addComponent(jLabel12)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jLabel18))
+                                            .addGroup(PainelDadosPacienteLayout.createSequentialGroup()
+                                                .addComponent(jLabel10)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(LabelCPF)))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(PainelDadosPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(txtCPF)
+                                            .addComponent(Sexo, 0, 241, Short.MAX_VALUE)))
+                                    .addComponent(txtNome)))
+                            .addGroup(PainelDadosPacienteLayout.createSequentialGroup()
+                                .addGap(30, 30, 30)
+                                .addGroup(PainelDadosPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(PainelDadosPacienteLayout.createSequentialGroup()
+                                        .addGroup(PainelDadosPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel14)
+                                            .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.TRAILING))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(PainelDadosPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jLabel1)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelDadosPacienteLayout.createSequentialGroup()
+                                                .addComponent(LabelCidade)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(TxtCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(PainelDadosPacienteLayout.createSequentialGroup()
+                                                .addGroup(PainelDadosPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(LabelProfissao)
+                                                    .addComponent(LabelReligiao))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addGroup(PainelDadosPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(TxtReligiao)
+                                                    .addComponent(TxtProfissao)))
+                                            .addGroup(PainelDadosPacienteLayout.createSequentialGroup()
+                                                .addComponent(LabelEscolaridade)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(TxtEscolaridade))
+                                            .addGroup(PainelDadosPacienteLayout.createSequentialGroup()
+                                                .addComponent(LabelCidade3, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(TxtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(LabelCidade2)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addGroup(PainelDadosPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addGroup(PainelDadosPacienteLayout.createSequentialGroup()
+                                                        .addComponent(BtnCancelar)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                                                        .addComponent(BtnSalvarAlteracoes, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                    .addComponent(TxtTelefone2)))
+                                            .addGroup(PainelDadosPacienteLayout.createSequentialGroup()
+                                                .addComponent(jLabel20)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(TxtEndereco))))
+                                    .addGroup(PainelDadosPacienteLayout.createSequentialGroup()
+                                        .addGap(8, 8, 8)
+                                        .addComponent(jLabel9))))
+                            .addGroup(PainelDadosPacienteLayout.createSequentialGroup()
+                                .addGap(36, 36, 36)
+                                .addGroup(PainelDadosPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(PainelDadosPacienteLayout.createSequentialGroup()
+                                        .addComponent(jLabel11)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel17)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(DataNasc, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(PainelDadosPacienteLayout.createSequentialGroup()
+                                        .addComponent(jLabel13)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(LabelEstadoCivil)))))
+                        .addGap(6, 6, 6)))
+                .addContainerGap(1030, Short.MAX_VALUE))
             .addComponent(PainelIdentificacaoPessoal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         PainelDadosPacienteLayout.setVerticalGroup(
@@ -1835,97 +1846,6 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_BtnVoltar1ActionPerformed
 
-    private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNomeActionPerformed
-
-    private void BtnSalvarAlteracoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalvarAlteracoesActionPerformed
-        boolean dadosvalidos = true;
-
-        Paciente p = new Paciente();
-        PacienteDAO dao = new PacienteDAO();
-        Telefone tf = new Telefone();
-        Telefone tf2 = new Telefone();
-        TelefoneDAO tfdao = new TelefoneDAO();
-        String msg = "Existem campos com formatos Inválidos\n\nFavor Verificar os campos:";
-
-        if (!Validar.vCamposVazios(this, txtNome, txtEmail, txtCPF, DataNasc, TxtTelefone)) {
-            if (Validar.vNome(txtNome.getText())) {
-                p.setNome_Completo(txtNome.getText());
-            } else {
-                dadosvalidos = false;
-                msg += "\nNome Invalido: " + txtNome.getText();
-            }
-
-            if (Validar.vEmail(txtEmail.getText())) {
-                p.setEmail(txtEmail.getText());
-            } else {
-                dadosvalidos = false;
-                msg += "\nEmail Invalido: " + txtEmail.getText();
-            }
-
-            if (Validar.vCPF(txtCPF.getText())) {
-                p.setCPF(txtCPF.getText());
-            } else {
-                dadosvalidos = false;
-                msg += "\nCPF Invalido: " + txtCPF.getText();
-            }
-
-            p.setEstadoCivil((String) estadocivil.getSelectedItem());
-
-            // System.out.println("data "+ date_time);
-            //java.util.Date date = new java.util.Date();
-            Object param = DataNasc.getDate();
-            //System.out.println("era aki");
-            //System.out.println(param);
-            p.setDataNasc(param);
-            p.setSexo((String) Sexo.getSelectedItem());
-            p.setProfissao(TxtProfissao.getText());
-            p.setReligiao(TxtReligiao.getText());
-            p.setEscolaridade(TxtEscolaridade.getText());
-            p.setEndereco(TxtEndereco.getText());
-            p.setCidade(TxtCidade.getText());
-
-            if (Validar.vTelefone(TxtTelefone.getText())) {
-                tf.setNumero(TxtTelefone.getText());
-            } else {
-                dadosvalidos = false;
-                msg += "\nNúmero de Telefone Invalido: " + TxtTelefone.getText() + "\nO Número deve ser no formato xxxxxxxxxxx";
-            }
-            if (!TxtTelefone2.getText().isEmpty()) {
-                if (Validar.vTelefone(TxtTelefone2.getText())) {
-                    tf2.setNumero(TxtTelefone2.getText());
-                } else {
-                    dadosvalidos = false;
-                    msg += "\nNúmero de Telefone 2 Invalido: " + TxtTelefone2.getText() + "\nO Número deve ser no formato xxxxxxxxxxx";
-                }
-            }
-            if (dadosvalidos) {
-                if (dao.Create(p)) {
-
-                    p = dao.ReadPaciente(p.getCPF());
-
-                    tf.setPaciente(p);
-                    if (tfdao.CreatePc(tf)) {
-                        if (fone2) {
-                            tf2.setPaciente(p);
-                            tfdao.CreatePc(tf2);
-                        }
-                        JOptionPane.showMessageDialog(this, "Paciente " + p.getNome_Completo() + " Salvo com sucesso");
-                        this.clear();
-                    } else {
-                        dao.Delete(p);
-                    }
-
-                }
-                ReadJTable();
-            } else {
-                JOptionPane.showMessageDialog(this, msg);
-            }
-        }
-        ModalNovo.dispose();
-    }//GEN-LAST:event_BtnSalvarAlteracoesActionPerformed
-
     private void brnVisuConsultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_brnVisuConsultasActionPerformed
         // TODO add your handling code here:
         if (JTPacientes.getSelectedRow() != -1) {
@@ -2093,11 +2013,6 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         
     }//GEN-LAST:event_BtnNovoActionPerformed
 
-    private void BtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCancelarActionPerformed
-        // TODO add your handling code here:
-        ModalNovo.dispose();
-    }//GEN-LAST:event_BtnCancelarActionPerformed
-
     private void txtNome1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNome1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNome1ActionPerformed
@@ -2232,6 +2147,110 @@ public class ManterPaciente1 extends javax.swing.JFrame {
     private void BtnSalvarAlteracoes3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalvarAlteracoes3ActionPerformed
         ModalAnamnese.dispose();
     }//GEN-LAST:event_BtnSalvarAlteracoes3ActionPerformed
+
+    private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNomeActionPerformed
+
+    private void TxtTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtTelefoneActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtTelefoneActionPerformed
+
+    private void BtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCancelarActionPerformed
+        // TODO add your handling code here:
+        ModalNovo.dispose();
+    }//GEN-LAST:event_BtnCancelarActionPerformed
+
+    private void BtnSalvarAlteracoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalvarAlteracoesActionPerformed
+        boolean dadosvalidos = true;
+
+        Paciente p = new Paciente();
+        PacienteDAO dao = new PacienteDAO();
+        Telefone tf = new Telefone();
+        Telefone tf2 = new Telefone();
+        TelefoneDAO tfdao = new TelefoneDAO();
+        String msg = "Existem campos com formatos Inválidos\n\nFavor Verificar os campos:";
+
+        if (!Validar.vCamposVazios(this, txtNome, txtEmail, txtCPF, DataNasc, TxtTelefone)) {
+            if (Validar.vNome(txtNome.getText())) {
+                p.setNome_Completo(txtNome.getText());
+            } else {
+                dadosvalidos = false;
+                msg += "\nNome Invalido: " + txtNome.getText();
+            }
+
+            if (Validar.vEmail(txtEmail.getText())) {
+                p.setEmail(txtEmail.getText());
+            } else {
+                dadosvalidos = false;
+                msg += "\nEmail Invalido: " + txtEmail.getText();
+            }
+
+            if (Validar.vCPF(txtCPF.getText())) {
+                p.setCPF(txtCPF.getText());
+            } else {
+                dadosvalidos = false;
+                msg += "\nCPF Invalido: " + txtCPF.getText();
+            }
+
+            p.setEstadoCivil((String) estadocivil.getSelectedItem());
+
+            // System.out.println("data "+ date_time);
+            //java.util.Date date = new java.util.Date();
+            Object param = DataNasc.getDate();
+            //System.out.println("era aki");
+            //System.out.println(param);
+            p.setDataNasc(param);
+            p.setSexo((String) Sexo.getSelectedItem());
+            p.setProfissao(TxtProfissao.getText());
+            p.setReligiao(TxtReligiao.getText());
+            p.setEscolaridade(TxtEscolaridade.getText());
+            p.setEndereco(TxtEndereco.getText());
+            p.setCidade(TxtCidade.getText());
+
+            if (Validar.vTelefone(TxtTelefone.getText())) {
+                tf.setNumero(TxtTelefone.getText());
+            } else {
+                dadosvalidos = false;
+                msg += "\nNúmero de Telefone Invalido: " + TxtTelefone.getText() + "\nO Número deve ser no formato xxxxxxxxxxx";
+            }
+            if (!TxtTelefone2.getText().isEmpty()) {
+                if (Validar.vTelefone(TxtTelefone2.getText())) {
+                    tf2.setNumero(TxtTelefone2.getText());
+                } else {
+                    dadosvalidos = false;
+                    msg += "\nNúmero de Telefone 2 Invalido: " + TxtTelefone2.getText() + "\nO Número deve ser no formato xxxxxxxxxxx";
+                }
+            }
+            if (dadosvalidos) {
+                if (dao.Create(p)) {
+
+                    p = dao.ReadPaciente(p.getCPF());
+
+                    tf.setPaciente(p);
+                    if (tfdao.CreatePc(tf)) {
+                        if (fone2) {
+                            tf2.setPaciente(p);
+                            tfdao.CreatePc(tf2);
+                        }
+                        JOptionPane.showMessageDialog(this, "Paciente " + p.getNome_Completo() + " Salvo com sucesso");
+                        this.clear();
+                    } else {
+                        dao.Delete(p);
+                    }
+
+                }
+                ReadJTable();
+            } else {
+                JOptionPane.showMessageDialog(this, msg);
+            }
+        }
+        ModalNovo.dispose();
+    }//GEN-LAST:event_BtnSalvarAlteracoesActionPerformed
+
+    private void TxtEscolaridadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtEscolaridadeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtEscolaridadeActionPerformed
 
     public void clear() {
         //limpar a tela
