@@ -347,7 +347,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         BtnModalAnamnese = new javax.swing.JButton();
 
         ModalNovo.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        ModalNovo.getContentPane().setLayout(new java.awt.GridLayout());
+        ModalNovo.getContentPane().setLayout(new java.awt.GridLayout(1, 0));
 
         PainelDadosPaciente.setBackground(new java.awt.Color(255, 255, 255));
         PainelDadosPaciente.setPreferredSize(new java.awt.Dimension(300, 1000));
@@ -640,20 +640,22 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                     .addComponent(jLabel9)
                     .addComponent(jLabel10))
                 .addGap(18, 18, 18)
-                .addGroup(PainelDadosPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel13)
-                    .addComponent(LabelEstadoCivil)
-                    .addComponent(jLabel12)
-                    .addComponent(Sexo, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel18)
-                    .addComponent(estadocivil, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(PainelDadosPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(estadocivil, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(PainelDadosPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel13)
+                        .addComponent(LabelEstadoCivil)
+                        .addComponent(jLabel12)
+                        .addComponent(Sexo, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel18)))
                 .addGap(18, 18, 18)
-                .addGroup(PainelDadosPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel17)
-                    .addComponent(jLabel11)
-                    .addComponent(LabelCidade)
-                    .addComponent(TxtCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(DataNasc, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(PainelDadosPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(DataNasc, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(PainelDadosPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel17)
+                        .addComponent(jLabel11)
+                        .addComponent(LabelCidade)
+                        .addComponent(TxtCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(PainelDadosPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel20)
@@ -1660,8 +1662,8 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             }
         });
 
-        btnVisuAnamneses.setBackground(new java.awt.Color(204, 204, 204));
         btnVisuAnamneses.setText("Visualizar Anamneses");
+        btnVisuAnamneses.setBackground(new java.awt.Color(204, 204, 204));
         btnVisuAnamneses.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVisuAnamnesesActionPerformed(evt);
@@ -1944,9 +1946,9 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             //ExibirAnamnesesPaciente.codpaciente = ((int) JTPacientes.getModel().getValueAt(JTPacientes.getSelectedRow(),0));
             int modelRow = JTPacientes.convertRowIndexToModel(JTPacientes.getSelectedRow());
             int value = (Integer)JTPacientes.getModel().getValueAt(modelRow,0);
-            ExibirAnamnesesPaciente.codpaciente = value;
-            ExibirAnamnesesPaciente ap = new ExibirAnamnesesPaciente();
-            ap.setVisible(true);
+          
+            ExibirAnamneses1 ea = new ExibirAnamneses1(value);
+            ea.setVisible(true);
             this.dispose();
 
         } else {

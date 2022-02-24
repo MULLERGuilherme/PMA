@@ -28,15 +28,21 @@ import static view.ExibirAnamnesesPaciente.codpaciente;
  *
  * @author User
  */
-public class ExibirAnamneses extends javax.swing.JFrame {
-        public boolean existe = false;
-          public static int codigoanamnese;
-    /**int
+public class ExibirAnamneses1 extends javax.swing.JFrame {
+
+    public static int codpaciente;
+    public static int codigoanamnese;
+    public boolean existe;
+
+    /**
      * Creates new form ExibirAnamneses
      */
-    public ExibirAnamneses() {
+    public ExibirAnamneses1(int cod) {
         initComponents();
-      
+        this.codpaciente = cod;
+        PacienteDAO pdao = new PacienteDAO();
+        Paciente p = new Paciente();
+        p = pdao.ReadPaciente(codpaciente);
         DefaultTableModel dtmPacientes = (DefaultTableModel) JTAnamneses.getModel();
         TableColumnModel cmod = JTAnamneses.getColumnModel();
         cmod.removeColumn(cmod.getColumn(0));
@@ -53,11 +59,11 @@ public class ExibirAnamneses extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        ModalAnamnese2 = new javax.swing.JDialog();
-        PainelDadosPaciente4 = new javax.swing.JPanel();
-        PainelIdentificacaoPessoal4 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
-        BtnSalvarAlteracoes5 = new javax.swing.JButton();
+        ModalAnamnese = new javax.swing.JDialog();
+        PainelDadosPaciente2 = new javax.swing.JPanel();
+        PainelIdentificacaoPessoal2 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        BtnSalvarAlteracoes2 = new javax.swing.JButton();
         BtnCancelar2 = new javax.swing.JButton();
         jLabel29 = new javax.swing.JLabel();
         SubitaOuProgressiva = new javax.swing.JComboBox<>();
@@ -106,34 +112,34 @@ public class ExibirAnamneses extends javax.swing.JFrame {
         txtBusca = new javax.swing.JTextField();
         btnBuscar = new javax.swing.JButton();
 
-        ModalAnamnese2.setResizable(false);
+        ModalAnamnese.setResizable(false);
 
-        PainelDadosPaciente4.setBackground(new java.awt.Color(255, 255, 255));
-        PainelDadosPaciente4.setPreferredSize(new java.awt.Dimension(300, 1000));
+        PainelDadosPaciente2.setBackground(new java.awt.Color(255, 255, 255));
+        PainelDadosPaciente2.setPreferredSize(new java.awt.Dimension(300, 1000));
 
-        PainelIdentificacaoPessoal4.setBackground(new java.awt.Color(59, 131, 117));
+        PainelIdentificacaoPessoal2.setBackground(new java.awt.Color(59, 131, 117));
 
-        javax.swing.GroupLayout PainelIdentificacaoPessoal4Layout = new javax.swing.GroupLayout(PainelIdentificacaoPessoal4);
-        PainelIdentificacaoPessoal4.setLayout(PainelIdentificacaoPessoal4Layout);
-        PainelIdentificacaoPessoal4Layout.setHorizontalGroup(
-            PainelIdentificacaoPessoal4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout PainelIdentificacaoPessoal2Layout = new javax.swing.GroupLayout(PainelIdentificacaoPessoal2);
+        PainelIdentificacaoPessoal2.setLayout(PainelIdentificacaoPessoal2Layout);
+        PainelIdentificacaoPessoal2Layout.setHorizontalGroup(
+            PainelIdentificacaoPessoal2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
-        PainelIdentificacaoPessoal4Layout.setVerticalGroup(
-            PainelIdentificacaoPessoal4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        PainelIdentificacaoPessoal2Layout.setVerticalGroup(
+            PainelIdentificacaoPessoal2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 50, Short.MAX_VALUE)
         );
 
-        jLabel7.setText("* Campos Obrigatórios");
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel3.setText("* Campos Obrigatórios");
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        BtnSalvarAlteracoes5.setText("Salvar Alterações");
-        BtnSalvarAlteracoes5.setBackground(new java.awt.Color(0, 112, 186));
-        BtnSalvarAlteracoes5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        BtnSalvarAlteracoes5.setForeground(new java.awt.Color(255, 255, 255));
-        BtnSalvarAlteracoes5.addActionListener(new java.awt.event.ActionListener() {
+        BtnSalvarAlteracoes2.setText("Salvar Alterações");
+        BtnSalvarAlteracoes2.setBackground(new java.awt.Color(0, 112, 186));
+        BtnSalvarAlteracoes2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        BtnSalvarAlteracoes2.setForeground(new java.awt.Color(255, 255, 255));
+        BtnSalvarAlteracoes2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnSalvarAlteracoes5ActionPerformed(evt);
+                BtnSalvarAlteracoes2ActionPerformed(evt);
             }
         });
 
@@ -270,60 +276,60 @@ public class ExibirAnamneses extends javax.swing.JFrame {
         LabelModalAnamnese.setText("jLabel7");
         LabelModalAnamnese.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 14)); // NOI18N
 
-        javax.swing.GroupLayout PainelDadosPaciente4Layout = new javax.swing.GroupLayout(PainelDadosPaciente4);
-        PainelDadosPaciente4.setLayout(PainelDadosPaciente4Layout);
-        PainelDadosPaciente4Layout.setHorizontalGroup(
-            PainelDadosPaciente4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PainelIdentificacaoPessoal4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelDadosPaciente4Layout.createSequentialGroup()
+        javax.swing.GroupLayout PainelDadosPaciente2Layout = new javax.swing.GroupLayout(PainelDadosPaciente2);
+        PainelDadosPaciente2.setLayout(PainelDadosPaciente2Layout);
+        PainelDadosPaciente2Layout.setHorizontalGroup(
+            PainelDadosPaciente2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(PainelIdentificacaoPessoal2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelDadosPaciente2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(BtnCancelar2)
                 .addGap(42, 42, 42)
-                .addComponent(BtnSalvarAlteracoes5, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BtnSalvarAlteracoes2, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(77, 77, 77))
-            .addGroup(PainelDadosPaciente4Layout.createSequentialGroup()
+            .addGroup(PainelDadosPaciente2Layout.createSequentialGroup()
                 .addComponent(jEImagePanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 543, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(75, 75, 75))
-            .addGroup(PainelDadosPaciente4Layout.createSequentialGroup()
-                .addGroup(PainelDadosPaciente4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PainelDadosPaciente4Layout.createSequentialGroup()
+            .addGroup(PainelDadosPaciente2Layout.createSequentialGroup()
+                .addGroup(PainelDadosPaciente2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PainelDadosPaciente2Layout.createSequentialGroup()
                         .addGap(33, 33, 33)
-                        .addComponent(jLabel7))
-                    .addGroup(PainelDadosPaciente4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(PainelDadosPaciente4Layout.createSequentialGroup()
+                        .addComponent(jLabel3))
+                    .addGroup(PainelDadosPaciente2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(PainelDadosPaciente2Layout.createSequentialGroup()
                             .addGap(55, 55, 55)
                             .addComponent(LabelNome3)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txtQueixaPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 669, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(PainelDadosPaciente4Layout.createSequentialGroup()
+                        .addGroup(PainelDadosPaciente2Layout.createSequentialGroup()
                             .addGap(56, 56, 56)
-                            .addGroup(PainelDadosPaciente4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(PainelDadosPaciente4Layout.createSequentialGroup()
-                                    .addGroup(PainelDadosPaciente4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(PainelDadosPaciente2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(PainelDadosPaciente2Layout.createSequentialGroup()
+                                    .addGroup(PainelDadosPaciente2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(labelInicioQueixa)
                                         .addComponent(jLabel29))
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(PainelDadosPaciente4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(PainelDadosPaciente4Layout.createSequentialGroup()
+                                    .addGroup(PainelDadosPaciente2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(PainelDadosPaciente2Layout.createSequentialGroup()
                                             .addComponent(JCBQueixasAfetivoEmocionais, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                             .addComponent(jLabel26))
-                                        .addGroup(PainelDadosPaciente4Layout.createSequentialGroup()
+                                        .addGroup(PainelDadosPaciente2Layout.createSequentialGroup()
                                             .addComponent(SubitaOuProgressiva, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                             .addComponent(labelInicioQueixa1)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(JCBPsicomotricidade, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addGroup(PainelDadosPaciente4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(PainelDadosPaciente2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(JCBQueixasCognitivas, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(PainelDadosPaciente4Layout.createSequentialGroup()
+                                    .addGroup(PainelDadosPaciente2Layout.createSequentialGroup()
                                         .addComponent(LabelEmail1)
                                         .addGap(18, 18, 18)
                                         .addComponent(txtQueixaSecundaria, javax.swing.GroupLayout.PREFERRED_SIZE, 669, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGroup(PainelDadosPaciente4Layout.createSequentialGroup()
-                                    .addGroup(PainelDadosPaciente4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(PainelDadosPaciente2Layout.createSequentialGroup()
+                                    .addGroup(PainelDadosPaciente2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jLabel31)
                                         .addComponent(jLabel30)
                                         .addComponent(jLabel33)
@@ -331,12 +337,12 @@ public class ExibirAnamneses extends javax.swing.JFrame {
                                         .addComponent(jLabel35)
                                         .addComponent(jLabel36)
                                         .addComponent(jLabel39)
-                                        .addGroup(PainelDadosPaciente4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addGroup(PainelDadosPaciente2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                             .addComponent(jLabel37, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(jLabel32, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                         .addComponent(jLabel4))
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(PainelDadosPaciente4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(PainelDadosPaciente2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(txtComoComecou)
                                         .addComponent(txtDiagnostico)
                                         .addComponent(txtHistoricoFamiliar)
@@ -345,121 +351,121 @@ public class ExibirAnamneses extends javax.swing.JFrame {
                                         .addComponent(txtMedicamentosUtilizados)
                                         .addComponent(txtOqueMudou)
                                         .addComponent(txtEncaminhamento)
-                                        .addGroup(PainelDadosPaciente4Layout.createSequentialGroup()
+                                        .addGroup(PainelDadosPaciente2Layout.createSequentialGroup()
                                             .addComponent(DataInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGap(0, 0, Short.MAX_VALUE))))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelDadosPaciente4Layout.createSequentialGroup()
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelDadosPaciente2Layout.createSequentialGroup()
                                     .addComponent(BtnCancelar3)
                                     .addGap(18, 18, 18)
                                     .addComponent(BtnSalvarAlteracoes3)))))
-                    .addGroup(PainelDadosPaciente4Layout.createSequentialGroup()
+                    .addGroup(PainelDadosPaciente2Layout.createSequentialGroup()
                         .addGap(63, 63, 63)
                         .addComponent(LabelModalAnamnese)))
                 .addContainerGap(53, Short.MAX_VALUE))
         );
-        PainelDadosPaciente4Layout.setVerticalGroup(
-            PainelDadosPaciente4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PainelDadosPaciente4Layout.createSequentialGroup()
-                .addGroup(PainelDadosPaciente4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+        PainelDadosPaciente2Layout.setVerticalGroup(
+            PainelDadosPaciente2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PainelDadosPaciente2Layout.createSequentialGroup()
+                .addGroup(PainelDadosPaciente2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jEImagePanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE))
                 .addGap(0, 0, 0)
-                .addComponent(PainelIdentificacaoPessoal4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(PainelIdentificacaoPessoal2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addComponent(LabelModalAnamnese)
                 .addGap(28, 28, 28)
-                .addGroup(PainelDadosPaciente4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(PainelDadosPaciente2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LabelNome3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtQueixaPrincipal))
                 .addGap(18, 18, 18)
-                .addGroup(PainelDadosPaciente4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(PainelDadosPaciente2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LabelEmail1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtQueixaSecundaria))
                 .addGap(18, 18, 18)
-                .addGroup(PainelDadosPaciente4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(PainelDadosPaciente2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(JCBQueixasAfetivoEmocionais, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(PainelDadosPaciente4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(PainelDadosPaciente2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(labelInicioQueixa)
                         .addComponent(jLabel26)
                         .addComponent(JCBQueixasCognitivas, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(PainelDadosPaciente4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(PainelDadosPaciente2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel29)
                     .addComponent(SubitaOuProgressiva, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelInicioQueixa1)
                     .addComponent(JCBPsicomotricidade, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(PainelDadosPaciente4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(PainelDadosPaciente2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel30)
                     .addComponent(txtComoComecou))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(PainelDadosPaciente4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(PainelDadosPaciente2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtDiagnostico)
                     .addComponent(jLabel31))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(PainelDadosPaciente4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(PainelDadosPaciente2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtEncaminhamento)
                     .addComponent(jLabel37))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(PainelDadosPaciente4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(PainelDadosPaciente2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtHistoricoFamiliar)
                     .addComponent(jLabel32))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(PainelDadosPaciente4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(PainelDadosPaciente2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtDoencasConhecidas)
                     .addComponent(jLabel33))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(PainelDadosPaciente4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(PainelDadosPaciente2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtSintomas)
                     .addComponent(jLabel34))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(PainelDadosPaciente4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(PainelDadosPaciente2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtMedicamentosUtilizados)
                     .addComponent(jLabel35))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(PainelDadosPaciente4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(PainelDadosPaciente2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtOqueMudou)
                     .addComponent(jLabel36))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(PainelDadosPaciente4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(PainelDadosPaciente2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel39)
                     .addComponent(DataInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(68, 68, 68)
-                .addGroup(PainelDadosPaciente4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(PainelDadosPaciente2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
-                    .addGroup(PainelDadosPaciente4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(PainelDadosPaciente2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(BtnCancelar3, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(BtnSalvarAlteracoes3, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(480, 480, 480)
-                .addComponent(jLabel7)
+                .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(PainelDadosPaciente4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(PainelDadosPaciente2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BtnCancelar2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BtnSalvarAlteracoes5, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(BtnSalvarAlteracoes2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout ModalAnamnese2Layout = new javax.swing.GroupLayout(ModalAnamnese2.getContentPane());
-        ModalAnamnese2.getContentPane().setLayout(ModalAnamnese2Layout);
-        ModalAnamnese2Layout.setHorizontalGroup(
-            ModalAnamnese2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout ModalAnamneseLayout = new javax.swing.GroupLayout(ModalAnamnese.getContentPane());
+        ModalAnamnese.getContentPane().setLayout(ModalAnamneseLayout);
+        ModalAnamneseLayout.setHorizontalGroup(
+            ModalAnamneseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 984, Short.MAX_VALUE)
-            .addGroup(ModalAnamnese2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(PainelDadosPaciente4, javax.swing.GroupLayout.DEFAULT_SIZE, 984, Short.MAX_VALUE))
+            .addGroup(ModalAnamneseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(PainelDadosPaciente2, javax.swing.GroupLayout.DEFAULT_SIZE, 984, Short.MAX_VALUE))
         );
-        ModalAnamnese2Layout.setVerticalGroup(
-            ModalAnamnese2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        ModalAnamneseLayout.setVerticalGroup(
+            ModalAnamneseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 924, Short.MAX_VALUE)
-            .addGroup(ModalAnamnese2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(ModalAnamnese2Layout.createSequentialGroup()
-                    .addComponent(PainelDadosPaciente4, javax.swing.GroupLayout.PREFERRED_SIZE, 924, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(ModalAnamneseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(ModalAnamneseLayout.createSequentialGroup()
+                    .addComponent(PainelDadosPaciente2, javax.swing.GroupLayout.PREFERRED_SIZE, 924, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Exibir Anamneses");
         jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel1.setText("Exibir Anamneses");
 
         jButton1.setText("Voltar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -602,8 +608,7 @@ public boolean readcampos(int cod) {
 //        } else {
 //            JOptionPane.showMessageDialog(this, "Selecione uma consulta para alterar");
 //        }
-
- if (JTAnamneses.getSelectedRow() != -1) {
+        if (JTAnamneses.getSelectedRow() != -1) {
             Anamnese a2 = new Anamnese();
             AnamneseDAO dao2 = new AnamneseDAO();
             int modelRow = JTAnamneses.convertRowIndexToModel(JTAnamneses.getSelectedRow());
@@ -618,10 +623,10 @@ public boolean readcampos(int cod) {
                 LabelModalAnamnese.setText(" Cadastrar anamnese na consulta");
             }
 
-            ModalAnamnese2.setSize(1039, 967);
-            ModalAnamnese2.setModal(true);
-            ModalAnamnese2.setLocationRelativeTo(null);
-            ModalAnamnese2.setVisible(true);
+            ModalAnamnese.setSize(1039, 967);
+            ModalAnamnese.setModal(true);
+            ModalAnamnese.setLocationRelativeTo(null);
+            ModalAnamnese.setVisible(true);
         }else {
             JOptionPane.showMessageDialog(this, "Selecione uma anamnese para alterar");
         }
@@ -663,16 +668,16 @@ public boolean readcampos(int cod) {
         this.ReadJTableBusca((String) JCBAtributo.getSelectedItem(), txtBusca.getText());
     }//GEN-LAST:event_btnBuscarActionPerformed
 
-    private void BtnSalvarAlteracoes5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalvarAlteracoes5ActionPerformed
+    private void BtnSalvarAlteracoes2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalvarAlteracoes2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_BtnSalvarAlteracoes5ActionPerformed
+    }//GEN-LAST:event_BtnSalvarAlteracoes2ActionPerformed
 
     private void BtnCancelar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCancelar2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnCancelar2ActionPerformed
 
     private void BtnCancelar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCancelar3ActionPerformed
-        ModalAnamnese2.dispose();
+        ModalAnamnese.dispose();
     }//GEN-LAST:event_BtnCancelar3ActionPerformed
 
     private void BtnSalvarAlteracoes3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalvarAlteracoes3ActionPerformed
@@ -681,90 +686,9 @@ public boolean readcampos(int cod) {
             Alterar(codigoanamnese);
             LabelModalAnamnese.setText("Lendo dados da Anamnese Cadastrada na consulta");
         }
+
     }//GEN-LAST:event_BtnSalvarAlteracoes3ActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ExibirAnamneses.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ExibirAnamneses.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ExibirAnamneses.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ExibirAnamneses.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ExibirAnamneses().setVisible(true);
-            }
-        });
-    }
-
-    private void ReadJTable() {
-        DefaultTableModel model = (DefaultTableModel) JTAnamneses.getModel();
-        model.setNumRows(0);
-        ViewsDAO vwdao = new ViewsDAO();
-        //ConsultaDAO cdao = new ConsultaDAO();
-        //PacienteDAO pdao = new PacienteDAO();
-        //Paciente p = new Paciente();
-
-        for (Vw_Anamnese_Paciente v : vwdao.ReadAnamnesePaciente(Main.cod)) {
-            //p = pdao.ReadPaciente(c.getPaciente().getCodPaciente());
-            model.addRow(new Object[]{
-                v.getAnamnese().getCodAnamnese(),
-                v.getPaciente().getNome_Completo(),
-                v.getAnamnese().getDiagnostico(),
-                v.getConsulta().getDataConsulta()
-
-            });
-        }
-    }
-
-    public void ReadJTableBusca(String Atributo, String Busca) {
-
-        DefaultTableModel model = (DefaultTableModel) JTAnamneses.getModel();
-        model.setNumRows(0);
-        if (Atributo.equals("Nome do Paciente")) {
-            Atributo = "Paciente";
-        }
-        if (Atributo.equals("Diagnóstico")) {
-            Atributo = "Diagnostico";
-        }
-        if (Atributo.equals("Data da Consulta")) {
-            Atributo = "DataConsulta";
-        }
-        ViewsDAO vwdao = new ViewsDAO();
-
-        for (Vw_Anamnese_Paciente v : vwdao.BuscaExibirAnamneses(Atributo, Busca, Main.cod)) {
-
-            model.addRow(new Object[]{
-                v.getAnamnese().getCodAnamnese(),
-                v.getPaciente().getNome_Completo(),
-                v.getAnamnese().getDiagnostico(),
-                v.getConsulta().getDataConsulta()
-
-            });
-        }
-    }
-      private void Alterar(int cod) {
+    private void Alterar(int cod) {
         Anamnese a = new Anamnese();
         AnamneseDAO dao = new AnamneseDAO();
         Anamnese a2 = new Anamnese();
@@ -798,13 +722,94 @@ public boolean readcampos(int cod) {
             }
         }
     }
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(ExibirAnamneses1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(ExibirAnamneses1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(ExibirAnamneses1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(ExibirAnamneses1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new ExibirAnamneses1(codpaciente).setVisible(true);
+            }
+        });
+    }
+
+    private void ReadJTable() {
+        DefaultTableModel model = (DefaultTableModel) JTAnamneses.getModel();
+        model.setNumRows(0);
+        ViewsDAO vwdao = new ViewsDAO();
+        //ConsultaDAO cdao = new ConsultaDAO();
+        //PacienteDAO pdao = new PacienteDAO();
+        //Paciente p = new Paciente();
+
+        for (Vw_Anamnese_Paciente v : vwdao.ReadAnamnesePaciente(Main.cod, this.codpaciente)) {
+            //p = pdao.ReadPaciente(c.getPaciente().getCodPaciente());
+            model.addRow(new Object[]{
+                v.getAnamnese().getCodAnamnese(),
+                v.getPaciente().getNome_Completo(),
+                v.getAnamnese().getDiagnostico(),
+                v.getConsulta().getDataConsulta()
+
+            });
+        }
+    }
+
+    public void ReadJTableBusca(String Atributo, String Busca) {
+
+        DefaultTableModel model = (DefaultTableModel) JTAnamneses.getModel();
+        model.setNumRows(0);
+        if (Atributo.equals("Nome do Paciente")) {
+            Atributo = "Paciente";
+        }
+        if (Atributo.equals("Diagnóstico")) {
+            Atributo = "Diagnostico";
+        }
+        if (Atributo.equals("Data da Consulta")) {
+            Atributo = "DataConsulta";
+        }
+        ViewsDAO vwdao = new ViewsDAO();
+
+        for (Vw_Anamnese_Paciente v : vwdao.BuscaExibirAnamneses(Atributo, Busca, Main.cod, this.codpaciente)) {
+
+            model.addRow(new Object[]{
+                v.getAnamnese().getCodAnamnese(),
+                v.getPaciente().getNome_Completo(),
+                v.getAnamnese().getDiagnostico(),
+                v.getConsulta().getDataConsulta()
+
+            });
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnCancelar2;
     private javax.swing.JButton BtnCancelar3;
     private javax.swing.JButton BtnSalvarAlteracoes2;
     private javax.swing.JButton BtnSalvarAlteracoes3;
-    private javax.swing.JButton BtnSalvarAlteracoes5;
     private com.github.lgooddatepicker.components.DatePicker DataInicio;
     private javax.swing.JComboBox<String> JCBAtributo;
     private javax.swing.JComboBox<String> JCBPsicomotricidade;
@@ -815,11 +820,8 @@ public boolean readcampos(int cod) {
     private javax.swing.JLabel LabelModalAnamnese;
     private javax.swing.JLabel LabelNome3;
     private javax.swing.JDialog ModalAnamnese;
-    private javax.swing.JDialog ModalAnamnese2;
     private javax.swing.JPanel PainelDadosPaciente2;
-    private javax.swing.JPanel PainelDadosPaciente4;
     private javax.swing.JPanel PainelIdentificacaoPessoal2;
-    private javax.swing.JPanel PainelIdentificacaoPessoal4;
     private javax.swing.JComboBox<String> SubitaOuProgressiva;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnExcluir;
@@ -842,7 +844,6 @@ public boolean readcampos(int cod) {
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labelInicioQueixa;
     private javax.swing.JLabel labelInicioQueixa1;

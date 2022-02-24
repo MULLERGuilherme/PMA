@@ -154,6 +154,39 @@ public class ViewsDAO {
         return vw;
     }
      
+    public List<Vw_Anamnese_Paciente> ReadAnamnesePaciente(int codPsicologo, int codPaciente) {
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        List<Vw_Anamnese_Paciente> vw = new ArrayList<>();
+        try {
+            stmt = con.prepareStatement("SELECT * FROM vw_Anamnese_Paciente Where CodigoPsicologo = ? and CodigoPaciente = ?");
+            stmt.setInt(1, codPsicologo);
+            stmt.setInt(2, codPaciente);
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                Vw_Anamnese_Paciente v = new Vw_Anamnese_Paciente();
+
+                v.getPaciente().setCodPaciente(rs.getInt("CodigoPaciente"));
+                v.getPaciente().setNome_Completo(rs.getString("Paciente"));
+                v.getConsulta().setDataConsulta(rs.getTimestamp("DataConsulta"));
+                
+                v.getAnamnese().setCodAnamnese(rs.getInt("CodAnamnese"));
+                 v.getAnamnese().setDiagnostico(rs.getString("Diagnostico"));
+                vw.add(v);
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ConsultaDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt, rs);
+        }
+
+        return vw;
+    }
+     
      
      
      public List<Vw_Anotacoes_Paciente> ReadAnotacoesPaciente(int codPsicologo) {
@@ -253,7 +286,40 @@ public class ViewsDAO {
 
         return vw;
     }
-    
+      
+    public List<Vw_Anamnese_Paciente> BuscaExibirAnamneses(String Atributo, String Busca, int codPsicologo, int codPaciente) {
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        List<Vw_Anamnese_Paciente> vw = new ArrayList<>();
+        try {
+            String sql = "SELECT CodigoPaciente, Paciente, Diagnostico, DataConsulta, CodAnamnese FROM vw_Anamnese_Paciente WHERE "+Atributo+ " Like '%"+Busca+"%' and CodigoPsicologo = ? and CodigoPaciente = ? Group By CodigoPaciente;";
+            stmt = con.prepareStatement(sql);
+            stmt.setInt(1, codPsicologo);
+             stmt.setInt(2, codPaciente);
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+             
+                Vw_Anamnese_Paciente v = new Vw_Anamnese_Paciente();
+
+                v.getPaciente().setCodPaciente(rs.getInt("CodigoPaciente"));
+                v.getPaciente().setNome_Completo(rs.getString("Paciente"));
+                v.getConsulta().setDataConsulta(rs.getTimestamp("DataConsulta"));
+                
+                v.getAnamnese().setCodAnamnese(rs.getInt("CodAnamnese"));
+                 v.getAnamnese().setDiagnostico(rs.getString("Diagnostico"));
+                vw.add(v);
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(PacienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt, rs);
+        }
+
+        return vw;
+    }
       
     public List<Vw_Anotacoes_Paciente> BuscaExibirAnotacoes(String Atributo, String Busca, int codPsicologo) {
         Connection con = ConnectionFactory.getConnection();
