@@ -7,6 +7,7 @@ package view;
 
 import Validacoes.Validar;
 import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -777,7 +778,7 @@ public boolean readcampos(int cod) {
                 v.getAnamnese().getCodAnamnese(),
                 v.getPaciente().getNome_Completo(),
                 v.getAnamnese().getDiagnostico(),
-                v.getConsulta().getDataConsulta()
+                Validar.fDatetime((Timestamp)  v.getConsulta().getDataConsulta())
 
             });
         }
@@ -804,7 +805,7 @@ public boolean readcampos(int cod) {
                 v.getAnamnese().getCodAnamnese(),
                 v.getPaciente().getNome_Completo(),
                 v.getAnamnese().getDiagnostico(),
-                v.getConsulta().getDataConsulta()
+                Validar.fDatetime((Timestamp)  v.getConsulta().getDataConsulta())
 
             });
         }

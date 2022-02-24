@@ -6,6 +6,7 @@
 package view;
 
 import Validacoes.Validar;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -64,7 +65,7 @@ public class ExibirAnotacoes1 extends javax.swing.JFrame {
                 v.getAnotacao().getCodAnotacao(),
                 v.getPaciente().getNome_Completo(),
                 v.getAnotacao().getAssunto(),
-                v.getAnotacao().getDataAnotacao()
+                 Validar.fDatetime((Timestamp)  v.getAnotacao().getDataAnotacao())
 
             });
         }
@@ -88,7 +89,7 @@ public class ExibirAnotacoes1 extends javax.swing.JFrame {
                 v.getAnotacao().getCodAnotacao(),
                 v.getPaciente().getNome_Completo(),
                 v.getAnotacao().getAssunto(),
-                v.getAnotacao().getDataAnotacao()
+                 Validar.fDatetime((Timestamp)  v.getAnotacao().getDataAnotacao())
 
             });
         }
