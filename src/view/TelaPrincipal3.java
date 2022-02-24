@@ -5,88 +5,28 @@
  */
 package view;
 
-import Validacoes.Deletar;
-import Validacoes.Validar;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.Toolkit;
-import java.sql.Timestamp;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
-import java.util.concurrent.TimeUnit;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumnModel;
-import javax.swing.table.TableRowSorter;
-import model.bean.Consulta;
-import model.bean.Paciente;
-import model.bean.Vw_Consultas;
-import model.dao.ConsultaDAO;
-import model.dao.PacienteDAO;
-import model.dao.ViewsDAO;
 import util.Util;
-import static view.ExibirConsultasPaciente.codpaciente;
+import view.ManterPaciente1.JPanelGradient;
 
 /**
  *
- * @author User
+ * @author guimu
  */
-public class TelaPrincipal extends javax.swing.JFrame {
-    
-    /**
-     * Creates new form TelaPrincipal
-     */
-    public TelaPrincipal() {
-        initComponents();
-        //super("Fullscreen");
-        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-       
-        DefaultTableModel dtmPacientes = (DefaultTableModel) JTConsultas.getModel();
-        TableColumnModel cmod = JTConsultas.getColumnModel();
-        cmod.removeColumn(cmod.getColumn(0));
-        JTConsultas.setRowSorter(new TableRowSorter(dtmPacientes));
-        
-        LocalDate localDate = LocalDate.now();
-        //System.out.println(localDate);  
-        ReadJTable(localDate);
-        Date date1 = Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
-        DataChooser.setDate(date1);
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-          
+public class TelaPrincipal3 extends javax.swing.JFrame {
 
-        jLabel2.setText(dtf.format(localDate));
-        
-  
+    /**
+     * Creates new form TelaPrincipal3
+     */
+    public TelaPrincipal3() {
+        initComponents();
     }
-    private void ReadJTable(LocalDate data) {
-        DefaultTableModel model = (DefaultTableModel) JTConsultas.getModel();
-       
-        model.setNumRows(0);
-        ViewsDAO vwdao = new ViewsDAO();
-        //ConsultaDAO cdao = new ConsultaDAO();
-        //PacienteDAO pdao = new PacienteDAO();
-        //Paciente p = new Paciente();
-        
-        
-        for (Vw_Consultas c : vwdao.ReadConsultas(data, Main.cod)) {
-            //p = pdao.ReadPaciente(c.getPaciente().getCodPaciente());
-            model.addRow(new Object[]{
-               c.getCodConsulta(),
-               c.getPaciente().getNome_Completo(),
-               Validar.ftime((Timestamp) c.getDataConsulta()),
-               c.getStatus(),
-            });
-        }
-    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -96,8 +36,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new JPanel();
-        PainelEsquerda = new javax.swing.JPanel();
+        jEImagePanel1 = new LIB.JEImagePanel();
+        jPanel3 = new JPanel();
         PainelMenu = new JPanelGradient();
         BtnVoltar = new javax.swing.JButton();
         BtnManterPaciente = new javax.swing.JButton();
@@ -106,35 +46,34 @@ public class TelaPrincipal extends javax.swing.JFrame {
         BtnExibiranamneses = new javax.swing.JButton();
         BtnExibirAnotacao = new javax.swing.JButton();
         BtnSair = new javax.swing.JButton();
-        PainelCentro = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         JTConsultas = new javax.swing.JTable();
         DataChooser = new com.toedter.calendar.JDateChooser();
-        BtnExcluir = new javax.swing.JButton();
         btnAlterar = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        BtnExcluir = new javax.swing.JButton();
         btnOk = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1920, 1080));
+        setResizable(false);
+        getContentPane().setLayout(new java.awt.GridLayout());
 
-        jPanel1.setBackground(new java.awt.Color(59, 131, 117));
-        jPanel1.setForeground(new java.awt.Color(59, 131, 117));
-        jPanel1.setPreferredSize(new java.awt.Dimension(1080, 89));
+        jEImagePanel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/spring-floral-watercolor-background-vector-green-with-leaf-illustration_53876-126350.jpg"))); // NOI18N
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1180, Short.MAX_VALUE)
+        jPanel3.setBackground(new java.awt.Color(59, 131, 117));
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1366, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 89, Short.MAX_VALUE)
         );
-
-        getContentPane().add(jPanel1, java.awt.BorderLayout.NORTH);
 
         BtnVoltar.setBackground(new java.awt.Color(102, 102, 102));
         BtnVoltar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -214,11 +153,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
             PainelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(BtnSair, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(BtnManterPaciente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(BtnManterConsulta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(BtnManterConsulta, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
             .addComponent(BtnManterPsicologo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(BtnExibiranamneses, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(BtnExibirAnotacao, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(BtnVoltar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
+            .addComponent(BtnVoltar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         PainelMenuLayout.setVerticalGroup(
             PainelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -239,21 +178,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout PainelEsquerdaLayout = new javax.swing.GroupLayout(PainelEsquerda);
-        PainelEsquerda.setLayout(PainelEsquerdaLayout);
-        PainelEsquerdaLayout.setHorizontalGroup(
-            PainelEsquerdaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PainelEsquerdaLayout.createSequentialGroup()
-                .addComponent(PainelMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        PainelEsquerdaLayout.setVerticalGroup(
-            PainelEsquerdaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PainelMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(PainelEsquerda, java.awt.BorderLayout.LINE_START);
-
         JTConsultas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -272,14 +196,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         DataChooser.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        BtnExcluir.setBackground(new java.awt.Color(204, 204, 204));
-        BtnExcluir.setText("Excluir");
-        BtnExcluir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnExcluirActionPerformed(evt);
-            }
-        });
-
         btnAlterar.setBackground(new java.awt.Color(204, 204, 204));
         btnAlterar.setText("Alterar");
         btnAlterar.addActionListener(new java.awt.event.ActionListener() {
@@ -288,94 +204,103 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
-        jLabel2.setText("jLabel2");
+        BtnExcluir.setBackground(new java.awt.Color(204, 204, 204));
+        BtnExcluir.setText("Excluir");
+        BtnExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnExcluirActionPerformed(evt);
+            }
+        });
 
         btnOk.setBackground(new java.awt.Color(204, 204, 204));
         btnOk.setText("OK");
-
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel3.setText("Selecionar dia");
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel1.setText("Exibindo as Consultas do dia");
 
-        javax.swing.GroupLayout PainelCentroLayout = new javax.swing.GroupLayout(PainelCentro);
-        PainelCentro.setLayout(PainelCentroLayout);
-        PainelCentroLayout.setHorizontalGroup(
-            PainelCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PainelCentroLayout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addGroup(PainelCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PainelCentroLayout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 545, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
-                        .addGap(47, 47, 47))
-                    .addGroup(PainelCentroLayout.createSequentialGroup()
-                        .addComponent(jScrollPane1)
-                        .addGap(39, 39, 39))))
-            .addGroup(PainelCentroLayout.createSequentialGroup()
-                .addGroup(PainelCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PainelCentroLayout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(jLabel3))
-                    .addGroup(PainelCentroLayout.createSequentialGroup()
-                        .addGap(58, 58, 58)
-                        .addComponent(DataChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(50, 50, 50)
-                .addComponent(btnAlterar)
-                .addGap(95, 95, 95)
-                .addComponent(BtnExcluir)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnOk)
-                .addGap(98, 98, 98))
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        jLabel2.setText("jLabel2");
+
+        javax.swing.GroupLayout jEImagePanel1Layout = new javax.swing.GroupLayout(jEImagePanel1);
+        jEImagePanel1.setLayout(jEImagePanel1Layout);
+        jEImagePanel1Layout.setHorizontalGroup(
+            jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jEImagePanel1Layout.createSequentialGroup()
+                .addComponent(PainelMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(60, 60, 60)
+                .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jEImagePanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel2)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jEImagePanel1Layout.createSequentialGroup()
+                        .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 761, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jEImagePanel1Layout.createSequentialGroup()
+                                .addComponent(DataChooser, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnOk)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnAlterar)
+                                .addGap(18, 18, 18)
+                                .addComponent(BtnExcluir)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
-        PainelCentroLayout.setVerticalGroup(
-            PainelCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelCentroLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(PainelCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1)
-                .addGroup(PainelCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PainelCentroLayout.createSequentialGroup()
-                        .addGap(51, 51, 51)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(DataChooser, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelCentroLayout.createSequentialGroup()
-                        .addGap(76, 76, 76)
-                        .addGroup(PainelCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnAlterar)
-                            .addComponent(BtnExcluir)
-                            .addComponent(btnOk))
-                        .addGap(36, 36, 36))))
+        jEImagePanel1Layout.setVerticalGroup(
+            jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jEImagePanel1Layout.createSequentialGroup()
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(PainelMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jEImagePanel1Layout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(DataChooser, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(btnOk)
+                                .addComponent(btnAlterar)
+                                .addComponent(BtnExcluir)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(33, 33, 33)
+                        .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2))
+                        .addContainerGap(103, Short.MAX_VALUE))))
         );
 
-        getContentPane().add(PainelCentro, java.awt.BorderLayout.CENTER);
+        getContentPane().add(jEImagePanel1);
 
-        setSize(new java.awt.Dimension(1198, 767));
-        setLocationRelativeTo(null);
+        pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void BtnExibiranamnesesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExibiranamnesesActionPerformed
-        // TODO add your handling code here:
-        ExibirAnamneses  ma = new ExibirAnamneses();
-        Util.SizeJanela(ma);
-        this.dispose();
-    }//GEN-LAST:event_BtnExibiranamnesesActionPerformed
-
+public class JPanelGradient extends JPanel{
+        protected void paintComponent(Graphics g){
+            Graphics2D g2d= (Graphics2D) g;
+            int largura= getWidth();
+            int altura= getHeight();
+            Color cor1=new Color(80,80,80);
+            Color cor2=new Color(102,102,102);
+            GradientPaint gp= new GradientPaint(0,0,cor1,180,altura,cor2);
+            g2d.setPaint(gp);
+            g2d.fillRect(0,0,largura,altura);
+        }
+    }
     private void BtnManterPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnManterPacienteActionPerformed
         // TODO add your handling code here:
         ManterPaciente1 mp1 = new ManterPaciente1();
         Util.SizeJanela(mp1);
         this.dispose();
     }//GEN-LAST:event_BtnManterPacienteActionPerformed
+
+    private void BtnManterConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnManterConsultaActionPerformed
+        // TODO add your handling code here:
+        ManterConsulta1 mc = new ManterConsulta1();
+        Util.SizeJanela(mc);
+        this.dispose();
+    }//GEN-LAST:event_BtnManterConsultaActionPerformed
 
     private void BtnManterPsicologoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnManterPsicologoActionPerformed
         // TODO add your handling code here:
@@ -385,12 +310,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_BtnManterPsicologoActionPerformed
 
-    private void BtnManterConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnManterConsultaActionPerformed
+    private void BtnExibiranamnesesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExibiranamnesesActionPerformed
         // TODO add your handling code here:
-        ManterConsulta1 mc = new ManterConsulta1();
-        Util.SizeJanela(mc);
+        ExibirAnamneses  ma = new ExibirAnamneses();
+        Util.SizeJanela(ma);
         this.dispose();
-    }//GEN-LAST:event_BtnManterConsultaActionPerformed
+    }//GEN-LAST:event_BtnExibiranamnesesActionPerformed
 
     private void BtnExibirAnotacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExibirAnotacaoActionPerformed
         // TODO add your handling code here:
@@ -407,7 +332,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnSairActionPerformed
 
     private void JTConsultasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTConsultasMouseClicked
-        
+
     }//GEN-LAST:event_JTConsultasMouseClicked
 
     private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
@@ -416,7 +341,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             int modelRow = JTConsultas.convertRowIndexToModel(JTConsultas.getSelectedRow());
             int value = (Integer)JTConsultas.getModel().getValueAt(modelRow,0);
             AlterarConsultapelomenu.codconsulta = value;
-            
+
             AlterarConsultapelomenu cp = new AlterarConsultapelomenu();
             cp.setVisible(true);
             this.dispose();
@@ -430,31 +355,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnExcluirActionPerformed
 
-    
-public class JPanelGradient extends JPanel{
-        protected void paintComponent(Graphics g){
-            Graphics2D g2d= (Graphics2D) g;
-            int largura= getWidth();
-            int altura= getHeight();
-            Color cor1=new Color(80,80,80);
-            Color cor2=new Color(102,102,102);
-            GradientPaint gp= new GradientPaint(0,0,cor1,180,altura,cor2);
-            g2d.setPaint(gp);
-            g2d.fillRect(0,0,largura,altura);
-        }
-    }
-public class JPanelGradient2 extends JPanel{
-        protected void paintComponent(Graphics g){
-            Graphics2D g2d= (Graphics2D) g;
-            int largura= getWidth();
-            int altura= getHeight();
-            Color cor1=new Color(1,112,186);
-            Color cor2=new Color(22,218,218);
-            GradientPaint gp= new GradientPaint(0,0,cor1,180,altura,cor2);
-            g2d.setPaint(gp);
-            g2d.fillRect(0,0,largura,altura);
-        }
-    }
     /**
      * @param args the command line arguments
      */
@@ -472,20 +372,20 @@ public class JPanelGradient2 extends JPanel{
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaPrincipal3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaPrincipal3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaPrincipal3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaPrincipal3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaPrincipal().setVisible(true);
+                new TelaPrincipal3().setVisible(true);
             }
         });
     }
@@ -501,15 +401,13 @@ public class JPanelGradient2 extends JPanel{
     private javax.swing.JButton BtnVoltar;
     private com.toedter.calendar.JDateChooser DataChooser;
     private javax.swing.JTable JTConsultas;
-    private javax.swing.JPanel PainelCentro;
-    private javax.swing.JPanel PainelEsquerda;
     private javax.swing.JPanel PainelMenu;
     private javax.swing.JButton btnAlterar;
     private javax.swing.JButton btnOk;
+    private LIB.JEImagePanel jEImagePanel1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

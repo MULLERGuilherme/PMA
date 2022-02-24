@@ -40,8 +40,8 @@ public class JPanelGradient extends JPanel{
             Graphics2D g2d= (Graphics2D) g;
             int largura= getWidth();
             int altura= getHeight();
-            Color cor1=new Color(1,112,186);
-            Color cor2=new Color(22,218,218);
+            Color cor1=new Color(59,131,117);
+            Color cor2=new Color(140,164,138);
             GradientPaint gp= new GradientPaint(0,0,cor1,180,altura,cor2);
             g2d.setPaint(gp);
             g2d.fillRect(0,0,largura,altura);
@@ -81,7 +81,7 @@ public class JPanelGradient extends JPanel{
             }
         });
 
-        BtnLogin.setBackground(new java.awt.Color(0, 112, 186));
+        BtnLogin.setBackground(new java.awt.Color(59, 131, 117));
         BtnLogin.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnLogin.setForeground(new java.awt.Color(255, 255, 255));
         BtnLogin.setText("Login");
@@ -221,7 +221,7 @@ public class JPanelGradient extends JPanel{
              //dialog.setVisible(true);
             
              
-             TelaPrincipal tp = new TelaPrincipal();
+             TelaPrincipal3 tp = new TelaPrincipal3();
              Util.SizeJanela(tp);
              tp.setVisible(true);     
              tp.setVisible(true);
