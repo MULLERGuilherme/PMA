@@ -14,25 +14,35 @@ import javax.swing.table.TableColumnModel;
 import javax.swing.table.TableRowSorter;
 import model.bean.Anotacao;
 import model.bean.Consulta;
+import model.bean.Paciente;
 import model.bean.Psicologo;
 import model.bean.Vw_Anamnese_Paciente;
 import model.bean.Vw_Anotacoes_Paciente;
 import model.dao.AnotacaoDAO;
 import model.dao.ConsultaDAO;
+import model.dao.PacienteDAO;
 import model.dao.ViewsDAO;
 
 /**
  *
  * @author User
  */
-public class ExibirAnotacoes extends javax.swing.JFrame {
-    public static int codigoanotacao;
-    public boolean existe;
+public class ExibirAnotacoes1 extends javax.swing.JFrame {
+
     /**
      * Creates new form ExibirAnotacoes
      */
-    public ExibirAnotacoes() {
+    public static int codpaciente;
+    public static int codigoanotacao;
+    public boolean existe;
+
+    public ExibirAnotacoes1(int cod) {
         initComponents();
+        this.codpaciente = cod;
+        PacienteDAO pdao = new PacienteDAO();
+        Paciente p = new Paciente();
+        p = pdao.ReadPaciente(codpaciente);
+        lNome.setText(p.getNome_Completo());
         DefaultTableModel dtmPacientes = (DefaultTableModel) JTAnotacoes.getModel();
         TableColumnModel cmod = JTAnotacoes.getColumnModel();
         cmod.removeColumn(cmod.getColumn(0));
@@ -48,7 +58,7 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
         //PacienteDAO pdao = new PacienteDAO();
         //Paciente p = new Paciente();
 
-        for (Vw_Anotacoes_Paciente v : vwdao.ReadAnotacoesPaciente(Main.cod)) {
+        for (Vw_Anotacoes_Paciente v : vwdao.ReadAnotacoesPaciente(Main.cod, codpaciente)) {
             //p = pdao.ReadPaciente(c.getPaciente().getCodPaciente());
             model.addRow(new Object[]{
                 v.getAnotacao().getCodAnotacao(),
@@ -72,7 +82,7 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
             Atributo = "DataAnotacao";
         }
 
-        for (Vw_Anotacoes_Paciente v : vwdao.BuscaExibirAnotacoes(Atributo, Busca, Main.cod)) {
+        for (Vw_Anotacoes_Paciente v : vwdao.BuscaExibirAnotacoes(Atributo, Busca, Main.cod, codpaciente)) {
 
             model.addRow(new Object[]{
                 v.getAnotacao().getCodAnotacao(),
@@ -117,6 +127,7 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
         btnBuscar = new javax.swing.JButton();
         txtBusca = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
+        lNome = new javax.swing.JLabel();
 
         jEImagePanel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/simboloma.png"))); // NOI18N
 
@@ -144,43 +155,43 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
             .addGap(0, 50, Short.MAX_VALUE)
         );
 
+        jLabel7.setText("Anotações da Consulta");
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(59, 131, 117));
-        jLabel7.setText("Anotações da Consulta");
 
-        LabelNomePaciente.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         LabelNomePaciente.setText("Nome do Paciente :");
+        LabelNomePaciente.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        LabelNome5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         LabelNome5.setText(" Variável Nome do Paciente");
+        LabelNome5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        LabelAssunto.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         LabelAssunto.setText("Assunto:");
+        LabelAssunto.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         txtAssunto.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        LabelAssunto1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         LabelAssunto1.setText("Texto:");
+        LabelAssunto1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         txtTexto.setColumns(20);
-        txtTexto.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         txtTexto.setRows(5);
+        txtTexto.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jScrollPane2.setViewportView(txtTexto);
 
+        BtnCancelarAnotacao.setText("Cancelar");
         BtnCancelarAnotacao.setBackground(new java.awt.Color(255, 153, 153));
         BtnCancelarAnotacao.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnCancelarAnotacao.setForeground(new java.awt.Color(255, 255, 255));
-        BtnCancelarAnotacao.setText("Cancelar");
         BtnCancelarAnotacao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnCancelarAnotacaoActionPerformed(evt);
             }
         });
 
+        BtnSalvarAlteracoesAnotacao.setText("Salvar Alterações");
         BtnSalvarAlteracoesAnotacao.setBackground(new java.awt.Color(0, 112, 186));
         BtnSalvarAlteracoesAnotacao.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnSalvarAlteracoesAnotacao.setForeground(new java.awt.Color(255, 255, 255));
-        BtnSalvarAlteracoesAnotacao.setText("Salvar Alterações");
         BtnSalvarAlteracoesAnotacao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnSalvarAlteracoesAnotacaoActionPerformed(evt);
@@ -249,7 +260,7 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        jLabel1.setText("Exibir Anotações");
+        jLabel1.setText("Exibindo Anotações do Paciente");
 
         JTAnotacoes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -308,6 +319,9 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
 
         jLabel2.setText("Buscar Anotação Por");
 
+        lNome.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        lNome.setText("jLabel3");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -318,23 +332,28 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jScrollPane1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(BrnVoltar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addComponent(BtnAlterarAnotacao)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(BtnExcluirAnotacao)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(JCBAtributo, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnBuscar)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(BrnVoltar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lNome, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(38, 38, 38)
+                                .addComponent(BtnAlterarAnotacao)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(BtnExcluirAnotacao)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(JCBAtributo, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnBuscar)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -343,7 +362,8 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BrnVoltar))
+                    .addComponent(BrnVoltar)
+                    .addComponent(lNome))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -401,9 +421,9 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
 
     private void BtnAlterarAnotacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAlterarAnotacaoActionPerformed
         // TODO add your handling code here:
-//      if (JTAnotacoes.getSelectedRow() != -1) {
-//             int modelRow = JTAnotacoes.convertRowIndexToModel(JTAnotacoes.getSelectedRow());
-//            int value = (Integer)JTAnotacoes.getModel().getValueAt(modelRow,0);
+//        if (JTAnotacoes.getSelectedRow() != -1) {
+//            int modelRow = JTAnotacoes.convertRowIndexToModel(JTAnotacoes.getSelectedRow());
+//            int value = (Integer) JTAnotacoes.getModel().getValueAt(modelRow, 0);
 //            AlterarAnotacaoPacienteMenu.codanotacao = value;
 //            AlterarAnotacaoPacienteMenu cp = new AlterarAnotacaoPacienteMenu();
 //            cp.setVisible(true);
@@ -412,6 +432,7 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
 //        } else {
 //            JOptionPane.showMessageDialog(this, "Selecione uma anotacao para alterar");
 //        }
+
         if (JTAnotacoes.getSelectedRow() != -1) {
             Anotacao a = new Anotacao();
             AnotacaoDAO dao = new AnotacaoDAO();
@@ -462,8 +483,9 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
             if (sucesso) {
                 JOptionPane.showMessageDialog(null, "Anotação Atualizada  com Sucesso!");
             }
+           
         }
-        ReadJTable();
+          ReadJTable();
     }//GEN-LAST:event_BtnSalvarAlteracoesAnotacaoActionPerformed
 
     /**
@@ -483,25 +505,28 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ExibirAnotacoes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ExibirAnotacoes1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ExibirAnotacoes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ExibirAnotacoes1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ExibirAnotacoes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ExibirAnotacoes1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ExibirAnotacoes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ExibirAnotacoes1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ExibirAnotacoes().setVisible(true);
+                new ExibirAnotacoes1(codpaciente).setVisible(true);
             }
         });
     }
-     public boolean readcampos(int cod) {
+
+    public boolean readcampos(int cod) {
         Anotacao a = new Anotacao();
         AnotacaoDAO dao = new AnotacaoDAO();
         a = dao.ReadAnotacao(cod);
@@ -513,7 +538,6 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
         }
         return false;
     }
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BrnVoltar;
@@ -537,6 +561,7 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lNome;
     private javax.swing.JTextField txtAssunto;
     private javax.swing.JTextField txtBusca;
     private javax.swing.JTextArea txtTexto;

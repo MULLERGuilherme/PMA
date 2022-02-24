@@ -1964,9 +1964,8 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             //ExibirAnotacoesPaciente.codpaciente = ((int) JTPacientes.getModel().getValueAt(JTPacientes.getSelectedRow(),0));
             int modelRow = JTPacientes.convertRowIndexToModel(JTPacientes.getSelectedRow());
             int value = (Integer)JTPacientes.getModel().getValueAt(modelRow,0);
-            ExibirAnotacoesPaciente.codpaciente = value;
-            ExibirAnotacoesPaciente ap = new ExibirAnotacoesPaciente();
-            ap.setVisible(true);
+             ExibirAnotacoes1 ea = new ExibirAnotacoes1(value);
+            ea.setVisible(true);
             this.dispose();
 
         } else {
