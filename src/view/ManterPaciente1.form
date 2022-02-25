@@ -2128,6 +2128,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="In&#xed;cio"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnVoltarActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="BtnManterPaciente">
           <Properties>

@@ -232,6 +232,7 @@ public class TelaPrincipal4 extends javax.swing.JFrame {
             }
         });
 
+        JTConsultas.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         JTConsultas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 

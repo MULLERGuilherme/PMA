@@ -16,13 +16,16 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumnModel;
 import javax.swing.table.TableRowSorter;
 import model.bean.Consulta;
 import model.bean.Paciente;
 import model.bean.Telefone;
+import model.bean.Vw_TelefonesPacientes;
 import model.dao.ConsultaDAO;
 import model.dao.PacienteDAO;
 import model.dao.TelefoneDAO;
+import model.dao.ViewsDAO;
 import util.Util;
 /**
  *
@@ -35,6 +38,11 @@ public class CadastrarConsulta2 extends javax.swing.JFrame {
      */
     public CadastrarConsulta2() {
         initComponents();
+         DefaultTableModel dtmPacientes = (DefaultTableModel) JTPacienteSimples.getModel();
+         TableColumnModel cmod = JTPacienteSimples.getColumnModel();
+        cmod.removeColumn(cmod.getColumn(0));
+        JTPacienteSimples.setRowSorter(new TableRowSorter(dtmPacientes));
+        ReadJTable();
     }
 
     /**
@@ -95,6 +103,11 @@ public class CadastrarConsulta2 extends javax.swing.JFrame {
         BtnVoltar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnVoltar.setForeground(new java.awt.Color(255, 255, 255));
         BtnVoltar.setText("Início");
+        BtnVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnVoltarActionPerformed(evt);
+            }
+        });
 
         BtnManterPaciente.setBackground(new java.awt.Color(102, 102, 102));
         BtnManterPaciente.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -203,6 +216,7 @@ public class CadastrarConsulta2 extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel1.setText("Manter Consulta");
 
+        JTPacienteSimples.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         JTPacienteSimples.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -320,33 +334,41 @@ public class CadastrarConsulta2 extends javax.swing.JFrame {
         Util.SizeJanela(mp1);
         this.dispose();
     }//GEN-LAST:event_BtnManterPacienteActionPerformed
- public void ReadJTable() {
+    public void ReadJTable() {
 
         DefaultTableModel model = (DefaultTableModel) JTPacienteSimples.getModel();
-        model.setNumRows(0);
-        PacienteDAO pdao = new PacienteDAO();
-        TelefoneDAO tdao = new TelefoneDAO();
         
-        for (Paciente p : pdao.Read()) {
-            List<Telefone> telefones = new ArrayList<>();
-            telefones = (List<Telefone>) tdao.Read(p.getCodPaciente());
-            if (telefones.size() == 1) {
+        model.setNumRows(0);
+        ViewsDAO vwdao = new ViewsDAO();
+        Object[] linha = null;
+        String fones = null;
+        String[] fones2 = null;
+        for (Vw_TelefonesPacientes vw : vwdao.ReadTelefonesPacientes()) {
+            fones = vw.getTelefone().getNumero();
+            if (fones.contains(",")) {
 
-                model.addRow(new Object[]{
-                    p.getCodPaciente(),
-                    p.getNome_Completo(),
-                    p.getCPF(),
-                    p.getEmail(),
-                    telefones.get(0).getNumero(),});
-            } else if (telefones.size() == 2) {
-                model.addRow(new Object[]{
-                    p.getCodPaciente(),
-                    p.getNome_Completo(),
-                    p.getCPF(),
-                    p.getEmail(),
-                    telefones.get(0).getNumero(),
-                    telefones.get(1).getNumero(),});
+                fones2 = fones.split(",");
+                linha = new Object[]{
+                    vw.getPaciente().getCodPaciente(),
+                    vw.getPaciente().getNome_Completo(),
+                    vw.getPaciente().getEmail(),
+                    fones2[0],
+                    fones2[1]
+                };
+            } else {
+                linha = new Object[]{
+                    vw.getPaciente().getCodPaciente(),
+                    vw.getPaciente().getNome_Completo(),
+                    vw.getPaciente().getEmail(),
+                    vw.getTelefone().getNumero(),
+                    null
+                };
+
             }
+            model.addRow(linha);
+            fones = null;
+            fones2 = null;
+
         }
     }
 
@@ -380,7 +402,7 @@ public class CadastrarConsulta2 extends javax.swing.JFrame {
     }
     private void BtnManterConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnManterConsultaActionPerformed
         // TODO add your handling code here:
-        ManterConsulta1 mc = new ManterConsulta1();
+        CadastrarConsulta2 mc = new CadastrarConsulta2();
         Util.SizeJanela(mc);
         this.dispose();
     }//GEN-LAST:event_BtnManterConsultaActionPerformed
@@ -446,6 +468,12 @@ public class CadastrarConsulta2 extends javax.swing.JFrame {
         }
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnCadastrarConsultaActionPerformed
+
+    private void BtnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVoltarActionPerformed
+         TelaPrincipal4 mp1 = new TelaPrincipal4();
+        Util.SizeJanela(mp1);
+        this.dispose();
+    }//GEN-LAST:event_BtnVoltarActionPerformed
 
     /**
      * @param args the command line arguments

@@ -1351,6 +1351,11 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         BtnVoltar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnVoltar.setForeground(new java.awt.Color(255, 255, 255));
         BtnVoltar.setText("Início");
+        BtnVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnVoltarActionPerformed(evt);
+            }
+        });
 
         BtnManterPaciente.setBackground(new java.awt.Color(102, 102, 102));
         BtnManterPaciente.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -2129,6 +2134,12 @@ public class ManterPaciente1 extends javax.swing.JFrame {
     private void BtnSalvarAlteracoes3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalvarAlteracoes3ActionPerformed
         ModalAnamnese.dispose();
     }//GEN-LAST:event_BtnSalvarAlteracoes3ActionPerformed
+
+    private void BtnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVoltarActionPerformed
+       TelaPrincipal4 mp1 = new TelaPrincipal4();
+        Util.SizeJanela(mp1);
+        this.dispose();
+    }//GEN-LAST:event_BtnVoltarActionPerformed
 
     /**
      * @param args the command line arguments
