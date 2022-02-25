@@ -221,7 +221,7 @@ public class JPanelGradient extends JPanel{
              //dialog.setVisible(true);
             
              
-             TelaPrincipal3 tp = new TelaPrincipal3();
+             TelaPrincipal4 tp = new TelaPrincipal4();
              Util.SizeJanela(tp);
              tp.setVisible(true);     
              tp.setVisible(true);
