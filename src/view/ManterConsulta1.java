@@ -32,7 +32,6 @@ import model.dao.PacienteDAO;
 import model.dao.TelefoneDAO;
 import model.dao.ViewsDAO;
 import util.Util;
-import view.ManterPaciente1.JPanelGradient;
 
 /**
  *
