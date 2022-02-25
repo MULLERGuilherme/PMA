@@ -302,7 +302,7 @@ public class JPanelGradient extends JPanel{
         else{
              msg = "Usuário ou Senha Inválidos! Por Favor Verifique os campos e tente novamente!";
              optionPane.setMessage(msg);
-             optionPane.setMessageType(JOptionPane.INFORMATION_MESSAGE); 
+             optionPane.setMessageType(JOptionPane.ERROR_MESSAGE); 
             JDialog dialog = optionPane.createDialog(this, "Falha no Login");
             dialog.setVisible(true);
         }
@@ -340,7 +340,7 @@ public class JPanelGradient extends JPanel{
         else{
              msg = "Usuário ou Senha Inválidos! Por Favor Verifique os campos e tente novamente!";
              optionPane.setMessage(msg);
-             optionPane.setMessageType(JOptionPane.INFORMATION_MESSAGE); 
+             optionPane.setMessageType(JOptionPane.ERROR_MESSAGE); 
             JDialog dialog = optionPane.createDialog(this, "Falha no Login");
             dialog.setVisible(true);
         }
