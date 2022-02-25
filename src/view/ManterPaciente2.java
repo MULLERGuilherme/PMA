@@ -51,6 +51,12 @@ public class ManterPaciente2 extends javax.swing.JFrame {
 
     public ManterPaciente2() {
         initComponents();
+        DefaultTableModel dtmPacientes = (DefaultTableModel) JTPacientes.getModel();
+        TableColumnModel cmod = JTPacientes.getColumnModel();
+        cmod.removeColumn(cmod.getColumn(0));
+        JTPacientes.setRowSorter(new TableRowSorter(dtmPacientes));
+
+        ReadJTable();
     }
 
     /**
