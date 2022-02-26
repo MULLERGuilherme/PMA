@@ -154,6 +154,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         jLabel46 = new javax.swing.JLabel();
         jLabel47 = new javax.swing.JLabel();
         jLabel48 = new javax.swing.JLabel();
+        LabelMsg = new javax.swing.JLabel();
         jPanel1 = new JPanel();
         PainelMenu = new javax.swing.JPanel();
         BtnVoltar = new javax.swing.JButton();
@@ -563,6 +564,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         BtnSalvarAlteracoes4.setBackground(new java.awt.Color(0, 112, 186));
         BtnSalvarAlteracoes4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnSalvarAlteracoes4.setForeground(new java.awt.Color(255, 255, 255));
+        BtnSalvarAlteracoes4.setToolTipText("Clique neste botão para alterar um paciente após preencher os dados");
         BtnSalvarAlteracoes4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnSalvarAlteracoes4ActionPerformed(evt);
@@ -719,6 +721,11 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         jLabel48.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel48.setForeground(new java.awt.Color(255, 0, 0));
 
+        LabelMsg.setBackground(new java.awt.Color(51, 255, 0));
+        LabelMsg.setFont(new java.awt.Font("Tahoma", 2, 18)); // NOI18N
+        LabelMsg.setText("jLabel2");
+        LabelMsg.setToolTipText("");
+
         javax.swing.GroupLayout PainelDadosPaciente3Layout = new javax.swing.GroupLayout(PainelDadosPaciente3);
         PainelDadosPaciente3.setLayout(PainelDadosPaciente3Layout);
         PainelDadosPaciente3Layout.setHorizontalGroup(
@@ -731,34 +738,6 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                         .addComponent(jLabel25))
                     .addGroup(PainelDadosPaciente3Layout.createSequentialGroup()
                         .addGroup(PainelDadosPaciente3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(PainelDadosPaciente3Layout.createSequentialGroup()
-                                .addGap(38, 38, 38)
-                                .addComponent(jLabel41)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(PainelDadosPaciente3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(LabelEmail2)
-                                    .addComponent(LabelNome4))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(PainelDadosPaciente3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(PainelDadosPaciente3Layout.createSequentialGroup()
-                                        .addGroup(PainelDadosPaciente3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(txtEmail13, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(estadocivil2, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(PainelDadosPaciente3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(PainelDadosPaciente3Layout.createSequentialGroup()
-                                                .addComponent(jLabel45)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jLabel40))
-                                            .addGroup(PainelDadosPaciente3Layout.createSequentialGroup()
-                                                .addComponent(jLabel43)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(LabelCPF1)))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(PainelDadosPaciente3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(txtCPF2)
-                                            .addComponent(Sexo2, 0, 241, Short.MAX_VALUE)))
-                                    .addComponent(txtNome2)))
                             .addGroup(PainelDadosPaciente3Layout.createSequentialGroup()
                                 .addGap(30, 30, 30)
                                 .addGroup(PainelDadosPaciente3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -793,9 +772,10 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                                                 .addComponent(LabelCidade9)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                 .addGroup(PainelDadosPaciente3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addGroup(PainelDadosPaciente3Layout.createSequentialGroup()
+                                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelDadosPaciente3Layout.createSequentialGroup()
+                                                        .addGap(0, 24, Short.MAX_VALUE)
                                                         .addComponent(BtnCancelar4)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                                                        .addGap(18, 18, 18)
                                                         .addComponent(BtnSalvarAlteracoes4, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                     .addComponent(TxtTelefone4)))
                                             .addGroup(PainelDadosPaciente3Layout.createSequentialGroup()
@@ -817,9 +797,40 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                                     .addGroup(PainelDadosPaciente3Layout.createSequentialGroup()
                                         .addComponent(jLabel46)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(LabelEstadoCivil1)))))
+                                        .addComponent(LabelEstadoCivil1))))
+                            .addGroup(PainelDadosPaciente3Layout.createSequentialGroup()
+                                .addGap(123, 123, 123)
+                                .addGroup(PainelDadosPaciente3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(txtEmail13, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(estadocivil2, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(PainelDadosPaciente3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(PainelDadosPaciente3Layout.createSequentialGroup()
+                                        .addComponent(jLabel45)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel40))
+                                    .addGroup(PainelDadosPaciente3Layout.createSequentialGroup()
+                                        .addComponent(jLabel43)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(LabelCPF1)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(PainelDadosPaciente3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtCPF2)
+                                    .addComponent(Sexo2, 0, 241, Short.MAX_VALUE)))
+                            .addGroup(PainelDadosPaciente3Layout.createSequentialGroup()
+                                .addGap(38, 38, 38)
+                                .addGroup(PainelDadosPaciente3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(LabelMsg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(PainelDadosPaciente3Layout.createSequentialGroup()
+                                        .addComponent(jLabel41)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(PainelDadosPaciente3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(LabelEmail2)
+                                            .addComponent(LabelNome4))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txtNome2)))))
                         .addGap(6, 6, 6)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(1034, 1034, 1034))
             .addComponent(PainelIdentificacaoPessoal3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         PainelDadosPaciente3Layout.setVerticalGroup(
@@ -832,7 +843,9 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                     .addComponent(jEImagePanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, 0)
                 .addComponent(PainelIdentificacaoPessoal3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(68, 68, 68)
+                .addGap(18, 18, 18)
+                .addComponent(LabelMsg, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(PainelDadosPaciente3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LabelNome4)
                     .addComponent(txtNome2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1353,7 +1366,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             }
 
             txtEmail13.setText(p.getEmail());
-
+            LabelMsg.setVisible(false);
             ModalAlterar.setSize(1039, 967);
             ModalAlterar.setModal(true);
             ModalAlterar.setLocationRelativeTo(null);
@@ -1638,14 +1651,18 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                             t.get(1).setNumero(TxtTelefone4.getText());
                             tfdao.UpdateTPaciente(t.get(1));
                         }
-                        if (!TxtTelefone4.getText().isEmpty()) {
+                        if (!TxtTelefone4.getText().isEmpty() && t.size() == 1) {
                             tf2.setPaciente(p);
                             tf2.setNumero(TxtTelefone4.getText());
                             tfdao.CreatePc(tf2);
                          
                         }
-                        JOptionPane.showMessageDialog(this, "Paciente " + p.getNome_Completo() + " Atualizado com sucesso");
-                        this.clear();
+                        //JOptionPane.showMessageDialog(this, "Paciente " + p.getNome_Completo() + " Atualizado com sucesso");
+                        //this.clear();
+                        String str = "Paciente " + p.getNome_Completo() + " Atualizado com sucesso";
+                        LabelMsg.setText(str);
+                        LabelMsg.setVisible(true);
+                        BtnCancelar4.setText("Fechar");
                     }
 
                 }
@@ -1657,11 +1674,12 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, msg);
             }
         }
-        ModalAlterar.dispose();
+        //ModalAlterar.dispose();
     }//GEN-LAST:event_BtnSalvarAlteracoes4ActionPerformed
 
     private void BtnCancelar4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCancelar4ActionPerformed
         // TODO add your handling code here:
+        ModalAlterar.dispose();
     }//GEN-LAST:event_BtnCancelar4ActionPerformed
 
     private void TxtTelefone3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtTelefone3ActionPerformed
@@ -1745,6 +1763,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
     private javax.swing.JLabel LabelEscolaridade2;
     private javax.swing.JLabel LabelEstadoCivil;
     private javax.swing.JLabel LabelEstadoCivil1;
+    private javax.swing.JLabel LabelMsg;
     private javax.swing.JLabel LabelNome;
     private javax.swing.JLabel LabelNome4;
     private javax.swing.JLabel LabelProfissao;
