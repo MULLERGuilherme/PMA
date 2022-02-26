@@ -202,10 +202,10 @@ public class Validar {
             msg += "\nEmail";
             vazio = true;
         }
-//            if(CPF.getText().isEmpty()){
-//               msg+= "\nCPF";
-//                vazio = true;
-//            }
+            if(CPF.getText().isEmpty()){
+               msg+= "\nCPF";
+                vazio = true;
+            }
         if (Telefone.getText().isEmpty()) {
             msg += "\nTelefone";
             vazio = true;
@@ -215,7 +215,7 @@ public class Validar {
             vazio = true;
         }
         if (vazio) {
-            JOptionPane.showMessageDialog(jframe, msg);
+            JOptionPane.showMessageDialog(jframe, msg, "ERRO!", JOptionPane.ERROR_MESSAGE);
         }
         return vazio;
 
@@ -233,7 +233,7 @@ public class Validar {
         }
      
         if (vazio) {
-            JOptionPane.showMessageDialog(jframe, msg);
+            JOptionPane.showMessageDialog(jframe, msg, "ERRO!", JOptionPane.ERROR_MESSAGE);
         }
         return vazio;
 
@@ -252,7 +252,7 @@ public class Validar {
         }
      
         if (vazio) {
-            JOptionPane.showMessageDialog(jframe, msg);
+           JOptionPane.showMessageDialog(jframe, msg, "ERRO!", JOptionPane.ERROR_MESSAGE);
         }
         return vazio;
 
@@ -285,7 +285,7 @@ public class Validar {
             vazio = true;
         }
         if (vazio) {
-            JOptionPane.showMessageDialog(jframe, msg);
+           JOptionPane.showMessageDialog(jframe, msg, "ERRO!", JOptionPane.ERROR_MESSAGE);
         }
         return vazio;
 
@@ -306,7 +306,7 @@ public class Validar {
             vazio = true;
         }
         if (vazio) {
-            JOptionPane.showMessageDialog(jframe, msg);
+           JOptionPane.showMessageDialog(jframe, msg, "ERRO!", JOptionPane.ERROR_MESSAGE);
         }
         return vazio;
 
@@ -329,7 +329,7 @@ public class Validar {
             vazio = true;
         }
         if (vazio) {
-            JOptionPane.showMessageDialog(jframe, msg);
+            JOptionPane.showMessageDialog(jframe, msg, "ERRO!", JOptionPane.ERROR_MESSAGE);
         }
         return vazio;
 
@@ -364,7 +364,7 @@ public class Validar {
             vazio = true;
         }
         if (vazio) {
-            JOptionPane.showMessageDialog(jframe, msg);
+            JOptionPane.showMessageDialog(jframe, msg, "ERRO!", JOptionPane.ERROR_MESSAGE);
         }
         return vazio;
 

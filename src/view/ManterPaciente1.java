@@ -721,9 +721,9 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         jLabel48.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel48.setForeground(new java.awt.Color(255, 0, 0));
 
+        LabelMsg.setText("jLabel2");
         LabelMsg.setBackground(new java.awt.Color(51, 255, 0));
         LabelMsg.setFont(new java.awt.Font("Tahoma", 2, 18)); // NOI18N
-        LabelMsg.setText("jLabel2");
         LabelMsg.setToolTipText("");
 
         javax.swing.GroupLayout PainelDadosPaciente3Layout = new javax.swing.GroupLayout(PainelDadosPaciente3);
@@ -799,10 +799,10 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(LabelEstadoCivil1))))
                             .addGroup(PainelDadosPaciente3Layout.createSequentialGroup()
-                                .addGap(123, 123, 123)
+                                .addGap(131, 131, 131)
                                 .addGroup(PainelDadosPaciente3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txtEmail13, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(estadocivil2, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtEmail13, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(estadocivil2, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(PainelDadosPaciente3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(PainelDadosPaciente3Layout.createSequentialGroup()
@@ -1367,7 +1367,8 @@ public class ManterPaciente1 extends javax.swing.JFrame {
 
             txtEmail13.setText(p.getEmail());
             LabelMsg.setVisible(false);
-            ModalAlterar.setSize(1039, 967);
+            DataNasc3.setFont(new Font("Tahoma", Font.BOLD, 18));
+            ModalAlterar.setSize(950, 950);
             ModalAlterar.setModal(true);
             ModalAlterar.setLocationRelativeTo(null);
             ModalAlterar.setVisible(true);
@@ -1537,7 +1538,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                             tf2.setPaciente(p);
                             tfdao.CreatePc(tf2);
                         }
-                        JOptionPane.showMessageDialog(this, "Paciente " + p.getNome_Completo() + " Salvo com sucesso");
+                        JOptionPane.showMessageDialog(ModalNovo, "Paciente " + p.getNome_Completo() + " Salvo com sucesso");
                         this.clear();
                     } else {
                         dao.Delete(p);
@@ -1546,10 +1547,10 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                 }
                 ReadJTable();
             } else {
-                JOptionPane.showMessageDialog(this, msg);
+                JOptionPane.showMessageDialog(this, msg,"ERRO!", JOptionPane.ERROR_MESSAGE);
             }
         }
-        ModalNovo.dispose();
+        //ModalNovo.dispose();
     }//GEN-LAST:event_BtnSalvarAlteracoesActionPerformed
 
     private void BtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCancelarActionPerformed
@@ -1671,7 +1672,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                 // JOptionPane.showMessageDialog(null,"Paciente Cadastrado com Sucesso!");
                 ReadJTable();
             } else {
-                JOptionPane.showMessageDialog(this, msg);
+                JOptionPane.showMessageDialog(this, msg,"ERRO!", JOptionPane.ERROR_MESSAGE);
             }
         }
         //ModalAlterar.dispose();
