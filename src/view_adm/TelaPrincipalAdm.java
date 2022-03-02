@@ -42,8 +42,43 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
      */
     public TelaPrincipalAdm() {
         initComponents();
-    }
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+       
+        DefaultTableModel dtmPacientes = (DefaultTableModel) JTConsultas.getModel();
+        TableColumnModel cmod = JTConsultas.getColumnModel();
+        cmod.removeColumn(cmod.getColumn(0));
+        JTConsultas.setRowSorter(new TableRowSorter(dtmPacientes));
+        
+        LocalDate localDate = LocalDate.now();
+        //System.out.println(localDate);  
+        ReadJTable(localDate);
+        Date date1 = Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
+        DataChooser.setDate(date1);
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+          
 
+        jLabel2.setText(dtf.format(localDate));
+    }
+      private void ReadJTable(LocalDate data) {
+        DefaultTableModel model = (DefaultTableModel) JTConsultas.getModel();
+       
+        model.setNumRows(0);
+        ViewsDAO vwdao = new ViewsDAO();
+        //ConsultaDAO cdao = new ConsultaDAO();
+        //PacienteDAO pdao = new PacienteDAO();
+        //Paciente p = new Paciente();
+        
+        
+        for (Vw_Consultas c : vwdao.ReadConsultas(data, Main.cod)) {
+            //p = pdao.ReadPaciente(c.getPaciente().getCodPaciente());
+            model.addRow(new Object[]{
+               c.getCodConsulta(),
+               c.getPaciente().getNome_Completo(),
+               Validar.ftime((Timestamp) c.getDataConsulta()),
+               c.getStatus(),
+            });
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -244,9 +279,17 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
 
             },
             new String [] {
-                "CodConsulta", "Paciente", "Horário da Consulta", "Status"
+                "CodConsulta", "Paciente", "Psicologo", "Horário da Consulta", "Status"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         JTConsultas.setMaximumSize(new java.awt.Dimension(1080, 200));
         JTConsultas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
