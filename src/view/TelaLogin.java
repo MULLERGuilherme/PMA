@@ -20,6 +20,7 @@ import javax.swing.JPanel;
 import model.bean.Psicologo;
 import model.dao.PsicologoDAO;
 import util.Util;
+import view_adm.TelaPrincipalAdm;
 
 /**
  *
@@ -31,22 +32,25 @@ public class TelaLogin extends javax.swing.JFrame {
      * Creates new form TelaLogin
      */
     public TelaLogin() {
-        
+
         initComponents();
-        
+
     }
-public class JPanelGradient extends JPanel{
-        protected void paintComponent(Graphics g){
-            Graphics2D g2d= (Graphics2D) g;
-            int largura= getWidth();
-            int altura= getHeight();
-            Color cor1=new Color(59,131,117);
-            Color cor2=new Color(140,164,138);
-            GradientPaint gp= new GradientPaint(0,0,cor1,180,altura,cor2);
+
+    public class JPanelGradient extends JPanel {
+
+        protected void paintComponent(Graphics g) {
+            Graphics2D g2d = (Graphics2D) g;
+            int largura = getWidth();
+            int altura = getHeight();
+            Color cor1 = new Color(59, 131, 117);
+            Color cor2 = new Color(140, 164, 138);
+            GradientPaint gp = new GradientPaint(0, 0, cor1, 180, altura, cor2);
             g2d.setPaint(gp);
-            g2d.fillRect(0,0,largura,altura);
+            g2d.fillRect(0, 0, largura, altura);
         }
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -207,36 +211,38 @@ public class JPanelGradient extends JPanel{
         String msg;
         p.setLogin(txtLogin.getText());
         String senha = new String(txtSenha.getPassword());
-       
+
         p.setSenha(senha);
         boolean valido = dao.ValidarLogin(p, this);
-        
-        if(valido){
-             p = dao.ReadPsicologoLS(p.getLogin(), p.getSenha());
+
+        if (valido && p.getLogin().equals("Admin")) {
              Main.cod = p.getCodPsicologo();
-             msg = "Olá "+p.getNome_completo()+", Seja Bem Vindo(a)!";
-             //optionPane.setMessage(msg);
-             //optionPane.setMessageType(JOptionPane.INFORMATION_MESSAGE); 
-             //JDialog dialog = optionPane.createDialog(this, "Bem Vindo(a)!");
-             //dialog.setVisible(true);
+            TelaPrincipalAdm mp1 = new TelaPrincipalAdm();
+            Util.SizeJanela(mp1);
             
-             
-             TelaPrincipal4 tp = new TelaPrincipal4();
-             Util.SizeJanela(tp);
-             tp.setVisible(true);     
-             tp.setVisible(true);
-             this.dispose();
-         }
-        else{
-             msg = "Usuário ou Senha Inválidos! Por Favor Verifique os campos e tente novamente!";
-             optionPane.setMessage(msg);
-             optionPane.setMessageType(JOptionPane.ERROR_MESSAGE); 
+            this.dispose();
+        } else if (valido) {
+            p = dao.ReadPsicologoLS(p.getLogin(), p.getSenha());
+            Main.cod = p.getCodPsicologo();
+            msg = "Olá " + p.getNome_completo() + ", Seja Bem Vindo(a)!";
+            //optionPane.setMessage(msg);
+            //optionPane.setMessageType(JOptionPane.INFORMATION_MESSAGE); 
+            //JDialog dialog = optionPane.createDialog(this, "Bem Vindo(a)!");
+            //dialog.setVisible(true);
+
+            TelaPrincipal4 tp = new TelaPrincipal4();
+            Util.SizeJanela(tp);
+            tp.setVisible(true);
+            tp.setVisible(true);
+            this.dispose();
+        } else {
+            msg = "Usuário ou Senha Inválidos! Por Favor Verifique os campos e tente novamente!";
+            optionPane.setMessage(msg);
+            optionPane.setMessageType(JOptionPane.ERROR_MESSAGE);
             JDialog dialog = optionPane.createDialog(this, "Falha no Login");
             dialog.setVisible(true);
         }
-        
-       
-       
+
 
     }//GEN-LAST:event_BtnLoginActionPerformed
 
@@ -246,22 +252,22 @@ public class JPanelGradient extends JPanel{
 
     private void LabelEsqueciSenhaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LabelEsqueciSenhaMouseClicked
         // TODO add your handling code here:
-        ValidarUsuario  vu = new ValidarUsuario();
+        ValidarUsuario vu = new ValidarUsuario();
         vu.setVisible(true);
+        
         this.dispose();
     }//GEN-LAST:event_LabelEsqueciSenhaMouseClicked
 
     private void ChckMostrarSenhaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ChckMostrarSenhaMouseClicked
-        if(ChckMostrarSenha.isSelected()){
-            txtSenha.setEchoChar((char)0);
-        }
-        else{
+        if (ChckMostrarSenha.isSelected()) {
+            txtSenha.setEchoChar((char) 0);
+        } else {
             txtSenha.setEchoChar('*');
         }
     }//GEN-LAST:event_ChckMostrarSenhaMouseClicked
 
     private void LabelEsqueciSenhaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LabelEsqueciSenhaMouseEntered
-       LabelEsqueciSenha.setForeground(new java.awt.Color(255, 0, 255));
+        LabelEsqueciSenha.setForeground(new java.awt.Color(255, 0, 255));
     }//GEN-LAST:event_LabelEsqueciSenhaMouseEntered
 
     private void LabelEsqueciSenhaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LabelEsqueciSenhaMouseReleased
@@ -273,78 +279,83 @@ public class JPanelGradient extends JPanel{
     }//GEN-LAST:event_LabelEsqueciSenhaMouseExited
 
     private void txtSenhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSenhaKeyPressed
-        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             Psicologo p = new Psicologo();
-        PsicologoDAO dao = new PsicologoDAO();
-        JOptionPane optionPane = new JOptionPane();
-        String msg;
-        p.setLogin(txtLogin.getText());
-        String senha = new String(txtSenha.getPassword());
-       
-        p.setSenha(senha);
-        boolean valido = dao.ValidarLogin(p, this);
-        
-        if(valido){
-             p = dao.ReadPsicologoLS(p.getLogin(), p.getSenha());
-             Main.cod = p.getCodPsicologo();
+            PsicologoDAO dao = new PsicologoDAO();
+            JOptionPane optionPane = new JOptionPane();
+            String msg;
+            p.setLogin(txtLogin.getText());
+            String senha = new String(txtSenha.getPassword());
+
+            p.setSenha(senha);
+            boolean valido = dao.ValidarLogin(p, this);
+            if (valido && p.getLogin().equals("Admin")) {
+                 Main.cod = p.getCodPsicologo();
+                TelaPrincipalAdm mp1 = new TelaPrincipalAdm();
+                Util.SizeJanela(mp1);
+                this.dispose();
+            } else if (valido) {
+                p = dao.ReadPsicologoLS(p.getLogin(), p.getSenha());
+                Main.cod = p.getCodPsicologo();
 //             msg = "Olá "+p.getNome_completo()+", Seja Bem Vindo(a)!";
 //             optionPane.setMessage(msg);
 //             optionPane.setMessageType(JOptionPane.INFORMATION_MESSAGE); 
 //             JDialog dialog = optionPane.createDialog(this, "Bem Vindo(a)!");
 //             dialog.setVisible(true);
-            
-             
-             TelaPrincipal tp = new TelaPrincipal();
-             Util.SizeJanela(tp);
-             this.dispose();
-             
-         }
-        else{
-             msg = "Usuário ou Senha Inválidos! Por Favor Verifique os campos e tente novamente!";
-             optionPane.setMessage(msg);
-             optionPane.setMessageType(JOptionPane.ERROR_MESSAGE); 
-            JDialog dialog = optionPane.createDialog(this, "Falha no Login");
-            dialog.setVisible(true);
-        }
-        
+
+                TelaPrincipal tp = new TelaPrincipal();
+                Util.SizeJanela(tp);
+                this.dispose();
+
+            } else {
+                msg = "Usuário ou Senha Inválidos! Por Favor Verifique os campos e tente novamente!";
+                optionPane.setMessage(msg);
+                optionPane.setMessageType(JOptionPane.ERROR_MESSAGE);
+                JDialog dialog = optionPane.createDialog(this, "Falha no Login");
+                dialog.setVisible(true);
+            }
+
         }
     }//GEN-LAST:event_txtSenhaKeyPressed
 
     private void txtLoginKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtLoginKeyPressed
-        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             Psicologo p = new Psicologo();
-        PsicologoDAO dao = new PsicologoDAO();
-        JOptionPane optionPane = new JOptionPane();
-        String msg;
-        p.setLogin(txtLogin.getText());
-        String senha = new String(txtSenha.getPassword());
-       
-        p.setSenha(senha);
-        boolean valido = dao.ValidarLogin(p, this);
-        
-        if(valido){
-             p = dao.ReadPsicologoLS(p.getLogin(), p.getSenha());
-             Main.cod = p.getCodPsicologo();
+            PsicologoDAO dao = new PsicologoDAO();
+            JOptionPane optionPane = new JOptionPane();
+            String msg;
+            p.setLogin(txtLogin.getText());
+            String senha = new String(txtSenha.getPassword());
+
+            p.setSenha(senha);
+            boolean valido = dao.ValidarLogin(p, this);
+            if (valido && p.getLogin().equals("Admin")) {
+                 Main.cod = p.getCodPsicologo();
+                TelaPrincipalAdm mp1 = new TelaPrincipalAdm();
+                Util.SizeJanela(mp1);
+                this.dispose();
+            } else if (valido) {
+                p = dao.ReadPsicologoLS(p.getLogin(), p.getSenha());
+                Main.cod = p.getCodPsicologo();
 //             msg = "Olá "+p.getNome_completo()+", Seja Bem Vindo(a)!";
 //             optionPane.setMessage(msg);
 //             optionPane.setMessageType(JOptionPane.INFORMATION_MESSAGE); 
 //             JDialog dialog = optionPane.createDialog(this, "Bem Vindo(a)!");
 //             dialog.setVisible(true);
-             
-             TelaPrincipal tp = new TelaPrincipal();    
-             Util.SizeJanela(tp);
-             tp.setVisible(true);                     
-             this.dispose();
-             
-         }
-        else{
-             msg = "Usuário ou Senha Inválidos! Por Favor Verifique os campos e tente novamente!";
-             optionPane.setMessage(msg);
-             optionPane.setMessageType(JOptionPane.ERROR_MESSAGE); 
-            JDialog dialog = optionPane.createDialog(this, "Falha no Login");
-            dialog.setVisible(true);
-        }
-        
+
+                TelaPrincipal tp = new TelaPrincipal();
+                Util.SizeJanela(tp);
+                tp.setVisible(true);
+                this.dispose();
+
+            } else {
+                msg = "Usuário ou Senha Inválidos! Por Favor Verifique os campos e tente novamente!";
+                optionPane.setMessage(msg);
+                optionPane.setMessageType(JOptionPane.ERROR_MESSAGE);
+                JDialog dialog = optionPane.createDialog(this, "Falha no Login");
+                dialog.setVisible(true);
+            }
+
         }
     }//GEN-LAST:event_txtLoginKeyPressed
 

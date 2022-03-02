@@ -1184,7 +1184,6 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
                     vw.getPsicologo().getNome_completo(),
                     vw.getPsicologo().getCRP(),
                     vw.getPsicologo().getEmail(),
-                    
                     fones2[0],
                     fones2[1]
                 };
@@ -1231,7 +1230,6 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
                     vw.getPsicologo().getNome_completo(),
                     vw.getPsicologo().getCRP(),
                     vw.getPsicologo().getEmail(),
-                    
                     fones2[0],
                     fones2[1]
                 };
@@ -1261,11 +1259,14 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
 
     private void BtnVisuAlterarDadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVisuAlterarDadosActionPerformed
         // TODO add your handling code here:
-       if (JTPsicologos.getSelectedRow() != -1) {
-            ManterPsicologo mp = new ManterPsicologo();
-        //Util.SizeJanela(mp);
-        mp.setVisible(true);
-        this.dispose();
+        if (JTPsicologos.getSelectedRow() != -1) {
+            int modelRow = JTPsicologos.convertRowIndexToModel(JTPsicologos.getSelectedRow());
+            int value = (Integer) JTPsicologos.getModel().getValueAt(modelRow, 0);
+           
+            ExibirPsicologoAdm mp = new ExibirPsicologoAdm(value);
+            //Util.SizeJanela(mp);
+            mp.setVisible(true);
+            this.dispose();
 //            int modelRow = JTPsicologos.convertRowIndexToModel(JTPsicologos.getSelectedRow());
 //            int value = (Integer) JTPsicologos.getModel().getValueAt(modelRow, 0);
 //            this.codigopaciente = value;
@@ -1309,7 +1310,7 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
 //            ModalAlterar.setVisible(true);
 //
         } else {
-//            JOptionPane.showMessageDialog(this, "Selecione um paciente para alterar");
+            JOptionPane.showMessageDialog(this, "Selecione um paciente para alterar");
         }
     }//GEN-LAST:event_BtnVisuAlterarDadosActionPerformed
 
@@ -1447,7 +1448,7 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
                 }
                 ReadJTable();
             } else {
-                JOptionPane.showMessageDialog(this, msg,"ERRO!", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, msg, "ERRO!", JOptionPane.ERROR_MESSAGE);
             }
         }
         //ModalNovo.dispose();
@@ -1550,7 +1551,7 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
                             tf2.setPaciente(p);
                             tf2.setNumero(TxtTelefone4.getText());
                             tfdao.CreatePc(tf2);
-                         
+
                         }
                         //JOptionPane.showMessageDialog(this, "Paciente " + p.getNome_Completo() + " Atualizado com sucesso");
                         //this.clear();
@@ -1566,7 +1567,7 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
                 // JOptionPane.showMessageDialog(null,"Paciente Cadastrado com Sucesso!");
                 ReadJTable();
             } else {
-                JOptionPane.showMessageDialog(this, msg,"ERRO!", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, msg, "ERRO!", JOptionPane.ERROR_MESSAGE);
             }
         }
         //ModalAlterar.dispose();
@@ -1612,10 +1613,10 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
 
     private void BtnManterPsicologoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnManterPsicologoActionPerformed
         // TODO add your handling code here:
-        ManterPsicologo mp = new ManterPsicologo();
-        //Util.SizeJanela(mp);
-        mp.setVisible(true);
-        this.dispose();
+//        ManterPsicologo mp = new ManterPsicologo();
+//        //Util.SizeJanela(mp);
+//        mp.setVisible(true);
+//        this.dispose();
     }//GEN-LAST:event_BtnManterPsicologoActionPerformed
 
     private void BtnManterConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnManterConsultaActionPerformed
@@ -1627,7 +1628,10 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
 
     private void BtnManterPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnManterPacienteActionPerformed
         // TODO add your handling code here:
-     
+        ManterPacienteAdm mp1 = new ManterPacienteAdm();
+        Util.SizeJanela(mp1);
+        this.dispose();
+
     }//GEN-LAST:event_BtnManterPacienteActionPerformed
 
     private void BtnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVoltarActionPerformed
@@ -1638,7 +1642,7 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        CadastrarNovoPsicologo  np = new CadastrarNovoPsicologo();
+        CadastrarNovoPsicologo np = new CadastrarNovoPsicologo();
         np.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
