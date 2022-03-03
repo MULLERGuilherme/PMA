@@ -30,6 +30,7 @@ import javax.swing.table.TableRowSorter;
 import model.bean.Consulta;
 import model.bean.Paciente;
 import model.bean.Vw_Consultas;
+import model.dao.ADMDAO;
 import model.dao.ConsultaDAO;
 import model.dao.PacienteDAO;
 import model.dao.ViewsDAO;
@@ -63,13 +64,13 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) JTConsultas.getModel();
        
         model.setNumRows(0);
-        ViewsDAO vwdao = new ViewsDAO();
+        ADMDAO vwdao = new ADMDAO();
         //ConsultaDAO cdao = new ConsultaDAO();
         //PacienteDAO pdao = new PacienteDAO();
         //Paciente p = new Paciente();
         
         
-        for (Vw_Consultas c : vwdao.ReadConsultas(data, Main.cod)) {
+        for (Vw_Consultas c : vwdao.ReadConsultas(data)) {
             //p = pdao.ReadPaciente(c.getPaciente().getCodPaciente());
             model.addRow(new Object[]{
                c.getCodConsulta(),
