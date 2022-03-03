@@ -41,8 +41,43 @@ public class TelaPrincipal4 extends javax.swing.JFrame {
      */
     public TelaPrincipal4() {
         initComponents();
-    }
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+       
+        DefaultTableModel dtmPacientes = (DefaultTableModel) JTConsultas.getModel();
+        TableColumnModel cmod = JTConsultas.getColumnModel();
+        cmod.removeColumn(cmod.getColumn(0));
+        JTConsultas.setRowSorter(new TableRowSorter(dtmPacientes));
+        
+        LocalDate localDate = LocalDate.now();
+        //System.out.println(localDate);  
+        ReadJTable(localDate);
+        Date date1 = Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
+        DataChooser.setDate(date1);
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+          
 
+        jLabel2.setText(dtf.format(localDate));
+    }
+private void ReadJTable(LocalDate data) {
+        DefaultTableModel model = (DefaultTableModel) JTConsultas.getModel();
+       
+        model.setNumRows(0);
+        ViewsDAO vwdao = new ViewsDAO();
+        //ConsultaDAO cdao = new ConsultaDAO();
+        //PacienteDAO pdao = new PacienteDAO();
+        //Paciente p = new Paciente();
+        
+        
+        for (Vw_Consultas c : vwdao.ReadConsultas(data, Main.cod)) {
+            //p = pdao.ReadPaciente(c.getPaciente().getCodPaciente());
+            model.addRow(new Object[]{
+               c.getCodConsulta(),
+               c.getPaciente().getNome_Completo(),
+               Validar.ftime((Timestamp) c.getDataConsulta()),
+               c.getStatus(),
+            });
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -213,6 +248,11 @@ public class TelaPrincipal4 extends javax.swing.JFrame {
 
         btnOk.setBackground(new java.awt.Color(204, 204, 204));
         btnOk.setText("OK");
+        btnOk.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOkActionPerformed(evt);
+            }
+        });
 
         DataChooser.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
@@ -371,6 +411,10 @@ public class TelaPrincipal4 extends javax.swing.JFrame {
     private void JTConsultasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTConsultasMouseClicked
 
     }//GEN-LAST:event_JTConsultasMouseClicked
+
+    private void btnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOkActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnOkActionPerformed
 
     /**
      * @param args the command line arguments

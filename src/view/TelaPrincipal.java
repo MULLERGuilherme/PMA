@@ -293,6 +293,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         btnOk.setBackground(new java.awt.Color(204, 204, 204));
         btnOk.setText("OK");
+        btnOk.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOkActionPerformed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel3.setText("Selecionar dia");
@@ -429,6 +434,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void BtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExcluirActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnExcluirActionPerformed
+
+    private void btnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOkActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnOkActionPerformed
 
     
 public class JPanelGradient extends JPanel{
