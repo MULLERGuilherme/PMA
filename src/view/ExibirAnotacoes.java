@@ -543,7 +543,7 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
     private void BtnManterPsicologoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnManterPsicologoActionPerformed
         // TODO add your handling code here:
         ManterPsicologo mp = new ManterPsicologo();
-        //Util.SizeJanela(mp);
+        Util.SizeJanela(mp);
         mp.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BtnManterPsicologoActionPerformed
