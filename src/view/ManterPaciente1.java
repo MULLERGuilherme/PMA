@@ -74,7 +74,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         PainelDadosPaciente = new javax.swing.JPanel();
         PainelIdentificacaoPessoal = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        BtnSalvarAlteracoes = new javax.swing.JButton();
+        BtnSalvarAlteracoesNovo = new javax.swing.JButton();
         BtnCancelar = new javax.swing.JButton();
         jEImagePanel4 = new LIB.JEImagePanel();
         jLabel7 = new javax.swing.JLabel();
@@ -116,7 +116,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         PainelDadosPaciente3 = new javax.swing.JPanel();
         PainelIdentificacaoPessoal3 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
-        BtnSalvarAlteracoes4 = new javax.swing.JButton();
+        BtnSalvarAlteracoesAlterar = new javax.swing.JButton();
         BtnCancelar4 = new javax.swing.JButton();
         jEImagePanel5 = new LIB.JEImagePanel();
         jLabel25 = new javax.swing.JLabel();
@@ -200,13 +200,13 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         jLabel1.setText("Campos Obrigatórios");
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        BtnSalvarAlteracoes.setText("Salvar Alterações");
-        BtnSalvarAlteracoes.setBackground(new java.awt.Color(0, 112, 186));
-        BtnSalvarAlteracoes.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        BtnSalvarAlteracoes.setForeground(new java.awt.Color(255, 255, 255));
-        BtnSalvarAlteracoes.addActionListener(new java.awt.event.ActionListener() {
+        BtnSalvarAlteracoesNovo.setText("Salvar Alterações");
+        BtnSalvarAlteracoesNovo.setBackground(new java.awt.Color(0, 112, 186));
+        BtnSalvarAlteracoesNovo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        BtnSalvarAlteracoesNovo.setForeground(new java.awt.Color(255, 255, 255));
+        BtnSalvarAlteracoesNovo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnSalvarAlteracoesActionPerformed(evt);
+                BtnSalvarAlteracoesNovoActionPerformed(evt);
             }
         });
 
@@ -296,14 +296,24 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         jLabel18.setText("Sexo:");
         jLabel18.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        Sexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Feminino","Não Definido"}));
+        Sexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"Feminino", "Masculino", "Não Definido"}));
         Sexo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        Sexo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SexoActionPerformed(evt);
+            }
+        });
 
         LabelEstadoCivil.setText("Estado Civil:");
         LabelEstadoCivil.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        estadocivil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Solteiro", "Casado", "Separado", "Divorciado","Viuvo" }));
+        estadocivil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"Casado","Divorciado","Separado","Solteiro" ,"Viuvo" }));
         estadocivil.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        estadocivil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                estadocivilActionPerformed(evt);
+            }
+        });
 
         txtEmail.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
@@ -437,7 +447,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                                                     .addGroup(PainelDadosPacienteLayout.createSequentialGroup()
                                                         .addComponent(BtnCancelar)
                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
-                                                        .addComponent(BtnSalvarAlteracoes, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addComponent(BtnSalvarAlteracoesNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                     .addComponent(TxtTelefone2)))
                                             .addGroup(PainelDadosPacienteLayout.createSequentialGroup()
                                                 .addComponent(jLabel20)
@@ -532,7 +542,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(PainelDadosPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BtnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BtnSalvarAlteracoes, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(BtnSalvarAlteracoesNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(144, 144, 144))
         );
 
@@ -560,14 +570,14 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         jLabel19.setText("Campos Obrigatórios");
         jLabel19.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        BtnSalvarAlteracoes4.setText("Salvar Alterações");
-        BtnSalvarAlteracoes4.setBackground(new java.awt.Color(0, 112, 186));
-        BtnSalvarAlteracoes4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        BtnSalvarAlteracoes4.setForeground(new java.awt.Color(255, 255, 255));
-        BtnSalvarAlteracoes4.setToolTipText("Clique neste botão para alterar um paciente após preencher os dados");
-        BtnSalvarAlteracoes4.addActionListener(new java.awt.event.ActionListener() {
+        BtnSalvarAlteracoesAlterar.setText("Salvar Alterações");
+        BtnSalvarAlteracoesAlterar.setBackground(new java.awt.Color(0, 112, 186));
+        BtnSalvarAlteracoesAlterar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        BtnSalvarAlteracoesAlterar.setForeground(new java.awt.Color(255, 255, 255));
+        BtnSalvarAlteracoesAlterar.setToolTipText("Clique neste botão para alterar um paciente após preencher os dados");
+        BtnSalvarAlteracoesAlterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnSalvarAlteracoes4ActionPerformed(evt);
+                BtnSalvarAlteracoesAlterarActionPerformed(evt);
             }
         });
 
@@ -657,13 +667,13 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         jLabel40.setText("Sexo:");
         jLabel40.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        Sexo2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Feminino","Não Definido"}));
+        Sexo2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Feminino", "Masculino", "Não Definido"}));
         Sexo2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         LabelEstadoCivil1.setText("Estado Civil:");
         LabelEstadoCivil1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        estadocivil2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Solteiro", "Casado", "Separado", "Divorciado","Viuvo" }));
+        estadocivil2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {  "Casado", "Divorciado", "Separado","Solteiro", "Viuvo" }));
         estadocivil2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         txtEmail13.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -776,7 +786,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                                                         .addGap(0, 24, Short.MAX_VALUE)
                                                         .addComponent(BtnCancelar4)
                                                         .addGap(18, 18, 18)
-                                                        .addComponent(BtnSalvarAlteracoes4, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addComponent(BtnSalvarAlteracoesAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                     .addComponent(TxtTelefone4)))
                                             .addGroup(PainelDadosPaciente3Layout.createSequentialGroup()
                                                 .addComponent(jLabel27)
@@ -904,7 +914,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(PainelDadosPaciente3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BtnCancelar4, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BtnSalvarAlteracoes4, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(BtnSalvarAlteracoesAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(144, 144, 144))
         );
 
@@ -1466,7 +1476,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         TxtTelefone2.setText(null);
     }
 
-    private void BtnSalvarAlteracoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalvarAlteracoesActionPerformed
+    private void BtnSalvarAlteracoesNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalvarAlteracoesNovoActionPerformed
         boolean dadosvalidos = true;
 
         Paciente p = new Paciente();
@@ -1551,7 +1561,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             }
         }
         //ModalNovo.dispose();
-    }//GEN-LAST:event_BtnSalvarAlteracoesActionPerformed
+    }//GEN-LAST:event_BtnSalvarAlteracoesNovoActionPerformed
 
     private void BtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCancelarActionPerformed
         // TODO add your handling code here:
@@ -1576,7 +1586,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_BtnVoltarActionPerformed
 
-    private void BtnSalvarAlteracoes4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalvarAlteracoes4ActionPerformed
+    private void BtnSalvarAlteracoesAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalvarAlteracoesAlterarActionPerformed
         // TODO add your handling code here:
         boolean dadosvalidos = true;
 
@@ -1676,7 +1686,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             }
         }
         //ModalAlterar.dispose();
-    }//GEN-LAST:event_BtnSalvarAlteracoes4ActionPerformed
+    }//GEN-LAST:event_BtnSalvarAlteracoesAlterarActionPerformed
 
     private void BtnCancelar4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCancelar4ActionPerformed
         // TODO add your handling code here:
@@ -1694,6 +1704,14 @@ public class ManterPaciente1 extends javax.swing.JFrame {
     private void txtNome2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNome2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNome2ActionPerformed
+
+    private void estadocivilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_estadocivilActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_estadocivilActionPerformed
+
+    private void SexoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SexoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SexoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1742,8 +1760,8 @@ public class ManterPaciente1 extends javax.swing.JFrame {
     private javax.swing.JButton BtnManterPsicologo;
     private javax.swing.JButton BtnNovo;
     private javax.swing.JButton BtnSair;
-    private javax.swing.JButton BtnSalvarAlteracoes;
-    private javax.swing.JButton BtnSalvarAlteracoes4;
+    private javax.swing.JButton BtnSalvarAlteracoesAlterar;
+    private javax.swing.JButton BtnSalvarAlteracoesNovo;
     private javax.swing.JButton BtnVisuAlterarDados;
     private javax.swing.JButton BtnVoltar;
     private com.github.lgooddatepicker.components.DatePicker DataNasc;

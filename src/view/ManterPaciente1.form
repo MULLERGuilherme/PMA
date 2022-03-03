@@ -114,7 +114,7 @@
                                                           <Group type="102" alignment="0" attributes="0">
                                                               <Component id="BtnCancelar" min="-2" max="-2" attributes="0"/>
                                                               <EmptySpace pref="42" max="32767" attributes="0"/>
-                                                              <Component id="BtnSalvarAlteracoes" min="-2" pref="173" max="-2" attributes="0"/>
+                                                              <Component id="BtnSalvarAlteracoesNovo" min="-2" pref="173" max="-2" attributes="0"/>
                                                           </Group>
                                                           <Component id="TxtTelefone2" alignment="0" max="32767" attributes="0"/>
                                                       </Group>
@@ -240,7 +240,7 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="BtnCancelar" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
-                          <Component id="BtnSalvarAlteracoes" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
+                          <Component id="BtnSalvarAlteracoesNovo" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="144" max="-2" attributes="0"/>
                   </Group>
@@ -276,7 +276,7 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="BtnSalvarAlteracoes">
+            <Component class="javax.swing.JButton" name="BtnSalvarAlteracoesNovo">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Salvar Altera&#xe7;&#xf5;es"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -290,7 +290,7 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnSalvarAlteracoesActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnSalvarAlteracoesNovoActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="BtnCancelar">
@@ -496,12 +496,15 @@
             <Component class="javax.swing.JComboBox" name="Sexo">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[] { &quot;Masculino&quot;, &quot;Feminino&quot;,&quot;N&#xe3;o Definido&quot;})" type="code"/>
+                  <Connection code="new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[] {&quot;Feminino&quot;, &quot;Masculino&quot;, &quot;N&#xe3;o Definido&quot;})" type="code"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SexoActionPerformed"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JComboBox&lt;&gt;()"/>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -518,12 +521,15 @@
             <Component class="javax.swing.JComboBox" name="estadocivil">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[] { &quot;Solteiro&quot;, &quot;Casado&quot;, &quot;Separado&quot;, &quot;Divorciado&quot;,&quot;Viuvo&quot; })" type="code"/>
+                  <Connection code="new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[] {&quot;Casado&quot;,&quot;Divorciado&quot;,&quot;Separado&quot;,&quot;Solteiro&quot; ,&quot;Viuvo&quot; })" type="code"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="estadocivilActionPerformed"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
@@ -753,7 +759,7 @@
                                                               <EmptySpace min="0" pref="24" max="32767" attributes="0"/>
                                                               <Component id="BtnCancelar4" min="-2" max="-2" attributes="0"/>
                                                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                              <Component id="BtnSalvarAlteracoes4" min="-2" pref="173" max="-2" attributes="0"/>
+                                                              <Component id="BtnSalvarAlteracoesAlterar" min="-2" pref="173" max="-2" attributes="0"/>
                                                           </Group>
                                                           <Component id="TxtTelefone4" alignment="0" max="32767" attributes="0"/>
                                                       </Group>
@@ -922,7 +928,7 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="BtnCancelar4" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
-                          <Component id="BtnSalvarAlteracoes4" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
+                          <Component id="BtnSalvarAlteracoesAlterar" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="144" max="-2" attributes="0"/>
                   </Group>
@@ -958,7 +964,7 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="BtnSalvarAlteracoes4">
+            <Component class="javax.swing.JButton" name="BtnSalvarAlteracoesAlterar">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Salvar Altera&#xe7;&#xf5;es"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -973,7 +979,7 @@
                 <Property name="toolTipText" type="java.lang.String" value="Clique neste bot&#xe3;o para alterar um paciente ap&#xf3;s preencher os dados"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnSalvarAlteracoes4ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnSalvarAlteracoesAlterarActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="BtnCancelar4">
@@ -1179,7 +1185,7 @@
             <Component class="javax.swing.JComboBox" name="Sexo2">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[] { &quot;Masculino&quot;, &quot;Feminino&quot;,&quot;N&#xe3;o Definido&quot;})" type="code"/>
+                  <Connection code="new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[] { &quot;Feminino&quot;, &quot;Masculino&quot;, &quot;N&#xe3;o Definido&quot;})" type="code"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
@@ -1201,7 +1207,7 @@
             <Component class="javax.swing.JComboBox" name="estadocivil2">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[] { &quot;Solteiro&quot;, &quot;Casado&quot;, &quot;Separado&quot;, &quot;Divorciado&quot;,&quot;Viuvo&quot; })" type="code"/>
+                  <Connection code="new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[] {  &quot;Casado&quot;, &quot;Divorciado&quot;, &quot;Separado&quot;,&quot;Solteiro&quot;, &quot;Viuvo&quot; })" type="code"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
