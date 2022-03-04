@@ -747,7 +747,7 @@ private void ReadJTable() {
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(580, 580, 580)
                     .addComponent(jLabel1)
-                    .addContainerGap(581, Short.MAX_VALUE)))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -797,22 +797,22 @@ private void ReadJTable() {
             }
         });
 
+        BtnManterPsicologo.setText("Meus Dados");
         BtnManterPsicologo.setBackground(new java.awt.Color(102, 102, 102));
+        BtnManterPsicologo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnManterPsicologo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnManterPsicologo.setForeground(new java.awt.Color(255, 255, 255));
-        BtnManterPsicologo.setText("Meus Dados");
-        BtnManterPsicologo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnManterPsicologo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnManterPsicologoActionPerformed(evt);
             }
         });
 
+        BtnExibiranamneses.setText("Exibir Anamneses");
         BtnExibiranamneses.setBackground(new java.awt.Color(102, 102, 102));
+        BtnExibiranamneses.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnExibiranamneses.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnExibiranamneses.setForeground(new java.awt.Color(255, 255, 255));
-        BtnExibiranamneses.setText("Exibir Anamneses");
-        BtnExibiranamneses.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnExibiranamneses.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnExibiranamnesesActionPerformed(evt);
@@ -947,7 +947,7 @@ private void ReadJTable() {
                     .addComponent(btnBuscar))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 416, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(122, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         getContentPane().add(jEImagePanel1, java.awt.BorderLayout.CENTER);
@@ -976,7 +976,7 @@ private void ReadJTable() {
     }//GEN-LAST:event_BtnManterConsultaActionPerformed
 
     private void BtnManterPsicologoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnManterPsicologoActionPerformed
-        // TODO add your handling code here:
+        
         ManterPsicologo mp = new ManterPsicologo();
         Util.SizeJanela(mp);
         mp.setVisible(true);
