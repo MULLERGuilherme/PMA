@@ -203,7 +203,7 @@ public class ValidarUsuarioMP extends javax.swing.JFrame {
  
 
                     if (p.getCodPsicologo() != 0) {
-                        JOptionPane.showMessageDialog(this, "Usuário Confirmado! Por favor Prossiga");
+                        //JOptionPane.showMessageDialog(this, "Usuário Confirmado! Por favor Prossiga");
                         AlterarUsuarioSenha aus = new AlterarUsuarioSenha();
                         aus.setVisible(true);
                         AlterarUsuarioSenha.CodPsicologo = p.getCodPsicologo();

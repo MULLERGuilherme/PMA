@@ -29,7 +29,9 @@ import util.Util;
  * @author User
  */
 public class VisuPsicologoADM extends javax.swing.JFrame {
+
     public static int codpsicologo;
+
     /**
      * Creates new form ManterPsicologo
      */
@@ -40,7 +42,8 @@ public class VisuPsicologoADM extends javax.swing.JFrame {
         codpsicologo = cod;
         readpsicologo();
     }
-    public void readpsicologo(){
+
+    public void readpsicologo() {
         Psicologo p = new Psicologo();
         PsicologoDAO dao = new PsicologoDAO();
         p = dao.ReadPsicologo(codpsicologo);
@@ -54,35 +57,39 @@ public class VisuPsicologoADM extends javax.swing.JFrame {
         txtLogin.setText(p.getLogin());
         TxtTelefone.setText(t.get(0).getNumero());
 
-        if(t.size() == 2){
+        if (t.size() == 2) {
             TxtTelefone2.setVisible(true);
             labeltelefone2.setVisible(true);
             TxtTelefone2.setText(t.get(1).getNumero());
-            
+
         }
     }
-public class JPanelGradient extends JPanel{
-        protected void paintComponent(Graphics g){
-            Graphics2D g2d= (Graphics2D) g;
-            int largura= getWidth();
-            int altura= getHeight();
-            Color cor1=new Color(80,80,80);
-            Color cor2=new Color(102,102,102);
-            GradientPaint gp= new GradientPaint(0,0,cor1,180,altura,cor2);
+
+    public class JPanelGradient extends JPanel {
+
+        protected void paintComponent(Graphics g) {
+            Graphics2D g2d = (Graphics2D) g;
+            int largura = getWidth();
+            int altura = getHeight();
+            Color cor1 = new Color(80, 80, 80);
+            Color cor2 = new Color(102, 102, 102);
+            GradientPaint gp = new GradientPaint(0, 0, cor1, 180, altura, cor2);
             g2d.setPaint(gp);
-            g2d.fillRect(0,0,largura,altura);
+            g2d.fillRect(0, 0, largura, altura);
         }
     }
-public class JPanelGradient2 extends JPanel{
-        protected void paintComponent(Graphics g){
-            Graphics2D g2d= (Graphics2D) g;
-            int largura= getWidth();
-            int altura= getHeight();
-            Color cor1=new Color(1,112,186);
-            Color cor2=new Color(22,218,218);
-            GradientPaint gp= new GradientPaint(0,0,cor1,180,altura,cor2);
+
+    public class JPanelGradient2 extends JPanel {
+
+        protected void paintComponent(Graphics g) {
+            Graphics2D g2d = (Graphics2D) g;
+            int largura = getWidth();
+            int altura = getHeight();
+            Color cor1 = new Color(1, 112, 186);
+            Color cor2 = new Color(22, 218, 218);
+            GradientPaint gp = new GradientPaint(0, 0, cor1, 180, altura, cor2);
             g2d.setPaint(gp);
-            g2d.fillRect(0,0,largura,altura);
+            g2d.fillRect(0, 0, largura, altura);
         }
     }
 
@@ -399,8 +406,8 @@ public class JPanelGradient2 extends JPanel{
         Telefone tf2 = new Telefone();
         TelefoneDAO tfdao = new TelefoneDAO();
         String msg = "Existem campos com formatos Inválidos\n\nFavor Verificar os campos:";
-        
-      if (!Validar.vCamposVaziosManterPSI(this, txtNome, txtEmail, txtCRP, txtLogin, TxtTelefone)) {
+
+        if (!Validar.vCamposVaziosManterPSI(this, txtNome, txtEmail, txtCRP, txtLogin, TxtTelefone)) {
             if (Validar.vNome(txtNome.getText())) {
                 p.setNome_completo(txtNome.getText());
             } else {
@@ -423,17 +430,17 @@ public class JPanelGradient2 extends JPanel{
             }
 
             p.setLogin(txtLogin.getText());
-            
+
             p.setCodPsicologo(codpsicologo);
-            
+
             if (Validar.vTelefone(TxtTelefone.getText())) {
                 tf.setNumero(TxtTelefone.getText());
             } else {
                 dadosvalidos = false;
                 msg += "\nNúmero de Telefone Invalido: " + TxtTelefone.getText() + "\nO Número deve ser no formato xxxxxxxxxxx";
             }
-            
-             if (!TxtTelefone2.getText().isEmpty()) {
+
+            if (!TxtTelefone2.getText().isEmpty()) {
                 if (Validar.vTelefone(TxtTelefone2.getText())) {
                     tf2.setNumero(TxtTelefone2.getText());
                 } else {
@@ -441,32 +448,31 @@ public class JPanelGradient2 extends JPanel{
                     msg += "\nNúmero de Telefone 2 Invalido: " + TxtTelefone.getText() + "\nO Número deve ser no formato xxxxxxxxxxx";
                 }
             }
-            if( !TxtTelefone2.getText().isEmpty()){
-             if (Validar.vTelefone(TxtTelefone2.getText()) ){
-                tf.setNumero(TxtTelefone.getText());
-            } else {
-                dadosvalidos = false;
-                msg += "\nNúmero de Telefone 2 Invalido: " + TxtTelefone.getText() + "\nO Número deve ser no formato xxxxxxxxxxx";
-            }
+            if (!TxtTelefone2.getText().isEmpty()) {
+                if (Validar.vTelefone(TxtTelefone2.getText())) {
+                    tf.setNumero(TxtTelefone.getText());
+                } else {
+                    dadosvalidos = false;
+                    msg += "\nNúmero de Telefone 2 Invalido: " + TxtTelefone.getText() + "\nO Número deve ser no formato xxxxxxxxxxx";
+                }
             }
             if (dadosvalidos) {
                 if (dao.UpdateMP(p)) {
 
                     p = dao.ReadPsicologo(p.getCRP());
 
-                     List<Telefone> t = tfdao.ReadTPsicologo(p.getCodPsicologo());
-                     t.get(0).setNumero(TxtTelefone.getText());
+                    List<Telefone> t = tfdao.ReadTPsicologo(p.getCodPsicologo());
+                    t.get(0).setNumero(TxtTelefone.getText());
                     if (tfdao.UpdateTPsicologo(t.get(0))) {
-                        
-                        if(t.size() == 2){
+
+                        if (t.size() == 2) {
                             t.get(1).setNumero(TxtTelefone2.getText());
-                       tfdao.UpdateTPsicologo(t.get(1));
-                        
+                            tfdao.UpdateTPsicologo(t.get(1));
+
+                        }
+                        JOptionPane.showMessageDialog(this, "Psicologo: " + p.getNome_completo() + " Salvo com sucesso");
+                        // this.clear();
                     }
-                         JOptionPane.showMessageDialog(this, "Psicologo: " + p.getNome_completo() + " Salvo com sucesso");
-                       // this.clear();
-                    }
-                    
 
                 }
 
@@ -481,35 +487,35 @@ public class JPanelGradient2 extends JPanel{
                  */
                 //mostrar mensagem de sucesso
                 // JOptionPane.showMessageDialog(null,"Paciente Cadastrado com Sucesso!");
-               // ReadJTable();
+                // ReadJTable();
             } else {
                 JOptionPane.showMessageDialog(this, msg);
             }
-       }
+        }
     }//GEN-LAST:event_BtnAlterarActionPerformed
-    
+
     public void clear() {
         txtNome.setText(null);
         txtEmail.setText(null);
         txtCRP.setText(null);
         txtLogin.setText(null);
-        
+
         TxtTelefone.setText(null);
     }
     private void BtnExcluirPsicologoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExcluirPsicologoActionPerformed
-         if(codpsicologo != 0){
-             Psicologo p = new Psicologo();
-             PsicologoDAO pdao = new PsicologoDAO();
-             p = pdao.ReadPsicologo(codpsicologo);
-              boolean sucesso = Deletar.DPsicologo(p);
-              if(sucesso){
-                    JOptionPane.showMessageDialog(this, "Psicologo Deletado com sucesso");
-                    codpsicologo = 0;
-                    TelaLogin tl = new TelaLogin();
-                    tl.setVisible(true);
-                    this.dispose();
-              }
-    }
+        if (codpsicologo != 0) {
+            Psicologo p = new Psicologo();
+            PsicologoDAO pdao = new PsicologoDAO();
+            p = pdao.ReadPsicologo(codpsicologo);
+            boolean sucesso = Deletar.DPsicologo(p);
+            if (sucesso) {
+                JOptionPane.showMessageDialog(this, "Psicologo Deletado com sucesso");
+                codpsicologo = 0;
+                TelaLogin tl = new TelaLogin();
+                tl.setVisible(true);
+                this.dispose();
+            }
+        }
     }//GEN-LAST:event_BtnExcluirPsicologoActionPerformed
 
     private void BtnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVoltarActionPerformed
@@ -521,7 +527,7 @@ public class JPanelGradient2 extends JPanel{
 
     private void BtnManterAnotacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnManterAnotacaoActionPerformed
         // TODO add your handling code here:
-        ExibirAnamnesesAdm  ma = new ExibirAnamnesesAdm();
+        ExibirAnamnesesAdm ma = new ExibirAnamnesesAdm();
         Util.SizeJanela(ma);
         this.dispose();
     }//GEN-LAST:event_BtnManterAnotacaoActionPerformed
@@ -538,7 +544,7 @@ public class JPanelGradient2 extends JPanel{
         ManterPsicologoAdm mp = new ManterPsicologoAdm();
         Util.SizeJanela(mp);
         this.dispose();
-   
+
     }//GEN-LAST:event_BtnManterPsicologoActionPerformed
 
     private void BtnManterConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnManterConsultaActionPerformed
@@ -550,29 +556,45 @@ public class JPanelGradient2 extends JPanel{
 
     private void BtnExibirAnotacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExibirAnotacaoActionPerformed
         // TODO add your handling code here:
-       ExibirAnotacoesAdm ea = new ExibirAnotacoesAdm();
+        ExibirAnotacoesAdm ea = new ExibirAnotacoesAdm();
         Util.SizeJanela(ea);
         this.dispose();
     }//GEN-LAST:event_BtnExibirAnotacaoActionPerformed
 
     private void BtnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSairActionPerformed
         // TODO add your handling code here:
-        TelaLogin  tl = new TelaLogin();
+        TelaLogin tl = new TelaLogin();
         tl.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BtnSairActionPerformed
 
     private void BrnRedefinirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BrnRedefinirActionPerformed
         // TODO add your handling code here:
-        ValidarUsuarioMP  vu = new ValidarUsuarioMP();
-        vu.setVisible(true);
-        this.dispose();
+        boolean dadosvalidos = true;
+
+        Psicologo p = new Psicologo();
+        PsicologoDAO dao = new PsicologoDAO();
+
+        p = dao.ReadPsicologo(codpsicologo);
+        //System.out.println(p.getCodPsicologo());
+
+        if (p.getCodPsicologo() != 0) {
+            //JOptionPane.showMessageDialog(this, "Usuário Confirmado! Por favor Prossiga");
+            AlterarUsuarioSenhaAdm aus = new AlterarUsuarioSenhaAdm();
+            aus.setVisible(true);
+            AlterarUsuarioSenhaAdm.CodPsicologo = p.getCodPsicologo();
+            this.dispose();
+        } else {
+            JOptionPane.showMessageDialog(this, "Usuário não Encontrado");
+        }
+
+    
     }//GEN-LAST:event_BrnRedefinirActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
+/**
+ * @param args the command line arguments
+ */
+public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -583,16 +605,28 @@ public class JPanelGradient2 extends JPanel{
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
-                }
+                
+
+}
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VisuPsicologoADM.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VisuPsicologoADM.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VisuPsicologoADM.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VisuPsicologoADM.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VisuPsicologoADM.class
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        
+
+} catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(VisuPsicologoADM.class
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        
+
+} catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(VisuPsicologoADM.class
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        
+
+} catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(VisuPsicologoADM.class
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
