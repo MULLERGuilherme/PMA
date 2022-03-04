@@ -14,12 +14,20 @@ public class Vw_Anamnese_Paciente {
     private Paciente paciente;
     private Consulta consulta;
     private Anamnese anamnese;
-
+    private Psicologo psicologo;
     public Vw_Anamnese_Paciente() {
         this.paciente = new Paciente();
         this.consulta = new Consulta();
         this.anamnese = new Anamnese();
+        this.psicologo = new Psicologo();
+    }
 
+    public Psicologo getPsicologo() {
+        return psicologo;
+    }
+
+    public void setPsicologo(Psicologo psicologo) {
+        this.psicologo = psicologo;
     }
 
     public Paciente getPaciente() {

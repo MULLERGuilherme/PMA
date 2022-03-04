@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import model.bean.Vw_Anamnese_Paciente;
 import model.bean.Vw_Consultas;
 import model.bean.Vw_TelefonesPsicologos;
 
@@ -118,4 +119,77 @@ public class ADMDAO {
 
         return vw;
     }
+       
+       
+            public List<Vw_Anamnese_Paciente> ReadALLAnamneses() {
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        List<Vw_Anamnese_Paciente> vw = new ArrayList<>();
+        try {
+            stmt = con.prepareStatement("SELECT * FROM vw_Anamnese_Paciente");
+         
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                Vw_Anamnese_Paciente v = new Vw_Anamnese_Paciente();
+
+                v.getPaciente().setCodPaciente(rs.getInt("CodigoPaciente"));
+                v.getPaciente().setNome_Completo(rs.getString("Paciente"));
+                v.getPsicologo().setCodPsicologo(rs.getInt("CodigoPsicologo"));
+                v.getPsicologo().setNome_completo(rs.getString("Psicologo"));
+                v.getConsulta().setDataConsulta(rs.getTimestamp("DataConsulta"));
+                
+                v.getAnamnese().setCodAnamnese(rs.getInt("CodAnamnese"));
+                 v.getAnamnese().setDiagnostico(rs.getString("Diagnostico"));
+                vw.add(v);
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ConsultaDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt, rs);
+        }
+
+        return vw;
+    }
+            
+            
+        public List<Vw_Anamnese_Paciente> BuscaALLAnamneses(String Atributo, String Busca) {
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        List<Vw_Anamnese_Paciente> vw = new ArrayList<>();
+        try {
+            String sql = "SELECT CodigoPaciente, Paciente, Diagnostico, DataConsulta, CodAnamnese FROM vw_Anamnese_Paciente WHERE "+Atributo+ " Like '%"+Busca+"%'  Group By CodigoPaciente;";
+            stmt = con.prepareStatement(sql);
+           
+            
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+             
+                Vw_Anamnese_Paciente v = new Vw_Anamnese_Paciente();
+
+            
+                v.getPaciente().setCodPaciente(rs.getInt("CodigoPaciente"));
+                v.getPaciente().setNome_Completo(rs.getString("Paciente"));
+                v.getPsicologo().setCodPsicologo(rs.getInt("CodigoPsicologo"));
+                v.getPsicologo().setNome_completo(rs.getString("Psicologo"));
+                v.getConsulta().setDataConsulta(rs.getTimestamp("DataConsulta"));
+                
+                v.getAnamnese().setCodAnamnese(rs.getInt("CodAnamnese"));
+                 v.getAnamnese().setDiagnostico(rs.getString("Diagnostico"));
+                vw.add(v);
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(PacienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt, rs);
+        }
+
+        return vw;
+        }
 }

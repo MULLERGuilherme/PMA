@@ -379,7 +379,7 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
 
     private void BtnExibiranamnesesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExibiranamnesesActionPerformed
         // TODO add your handling code here:
-        ExibirAnamneses  ma = new ExibirAnamneses();
+        ExibirAnamnesesAdm  ma = new ExibirAnamnesesAdm();
         Util.SizeJanela(ma);
         this.dispose();
     }//GEN-LAST:event_BtnExibiranamnesesActionPerformed

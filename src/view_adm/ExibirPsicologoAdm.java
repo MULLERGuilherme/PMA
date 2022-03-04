@@ -514,14 +514,14 @@ public class JPanelGradient2 extends JPanel{
 
     private void BtnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVoltarActionPerformed
         // TODO add your handling code here:
-        TelaPrincipal tp = new TelaPrincipal();
+        TelaPrincipalAdm tp = new TelaPrincipalAdm();
         Util.SizeJanela(tp);
         this.dispose();
     }//GEN-LAST:event_BtnVoltarActionPerformed
 
     private void BtnManterAnotacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnManterAnotacaoActionPerformed
         // TODO add your handling code here:
-        ExibirAnamneses  ma = new ExibirAnamneses();
+        ExibirAnamnesesAdm  ma = new ExibirAnamnesesAdm();
         Util.SizeJanela(ma);
         this.dispose();
     }//GEN-LAST:event_BtnManterAnotacaoActionPerformed
