@@ -20,7 +20,7 @@ import javax.swing.JPanel;
 import model.bean.Psicologo;
 import model.dao.PsicologoDAO;
 import util.Util;
-import view_adm.TelaPrincipalAdm;
+import view_adm.MenuPrincipal.TelaPrincipalAdm;
 
 /**
  *

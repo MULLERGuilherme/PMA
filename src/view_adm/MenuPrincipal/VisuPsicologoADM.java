@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package view_adm;
+package view_adm.MenuPrincipal;
 
 import view.*;
 import Validacoes.Deletar;
@@ -28,12 +28,12 @@ import util.Util;
  *
  * @author User
  */
-public class ExibirPsicologoAdm extends javax.swing.JFrame {
+public class VisuPsicologoADM extends javax.swing.JFrame {
     public static int codpsicologo;
     /**
      * Creates new form ManterPsicologo
      */
-    public ExibirPsicologoAdm(int cod) {
+    public VisuPsicologoADM(int cod) {
         initComponents();
         TxtTelefone2.setVisible(false);
         labeltelefone2.setVisible(false);
@@ -122,77 +122,77 @@ public class JPanelGradient2 extends JPanel{
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        BtnManterAnotacao.setText("Exibir Anamneses");
         BtnManterAnotacao.setBackground(new java.awt.Color(102, 102, 102));
+        BtnManterAnotacao.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnManterAnotacao.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnManterAnotacao.setForeground(new java.awt.Color(255, 255, 255));
-        BtnManterAnotacao.setText("Exibir Anamneses");
-        BtnManterAnotacao.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnManterAnotacao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnManterAnotacaoActionPerformed(evt);
             }
         });
 
-        BtnManterPaciente.setBackground(new java.awt.Color(102, 102, 102));
-        BtnManterPaciente.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        BtnManterPaciente.setForeground(new java.awt.Color(255, 255, 255));
         BtnManterPaciente.setText("Manter Pacientes");
+        BtnManterPaciente.setBackground(new java.awt.Color(102, 102, 102));
         BtnManterPaciente.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnManterPaciente.setFocusPainted(false);
+        BtnManterPaciente.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        BtnManterPaciente.setForeground(new java.awt.Color(255, 255, 255));
         BtnManterPaciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnManterPacienteActionPerformed(evt);
             }
         });
 
+        BtnManterPsicologo.setText("Meus Dados");
         BtnManterPsicologo.setBackground(new java.awt.Color(102, 102, 102));
+        BtnManterPsicologo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnManterPsicologo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnManterPsicologo.setForeground(new java.awt.Color(255, 255, 255));
-        BtnManterPsicologo.setText("Meus Dados");
-        BtnManterPsicologo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnManterPsicologo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnManterPsicologoActionPerformed(evt);
             }
         });
 
+        BtnManterConsulta.setText("Cadastrar Consulta");
         BtnManterConsulta.setBackground(new java.awt.Color(102, 102, 102));
+        BtnManterConsulta.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnManterConsulta.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnManterConsulta.setForeground(new java.awt.Color(255, 255, 255));
-        BtnManterConsulta.setText("Cadastrar Consulta");
-        BtnManterConsulta.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnManterConsulta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnManterConsultaActionPerformed(evt);
             }
         });
 
+        BtnExibirAnotacao.setText("Exibir Anotações");
         BtnExibirAnotacao.setBackground(new java.awt.Color(102, 102, 102));
+        BtnExibirAnotacao.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnExibirAnotacao.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnExibirAnotacao.setForeground(new java.awt.Color(255, 255, 255));
-        BtnExibirAnotacao.setText("Exibir Anotações");
-        BtnExibirAnotacao.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnExibirAnotacao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnExibirAnotacaoActionPerformed(evt);
             }
         });
 
+        BtnSair.setText("Sair");
         BtnSair.setBackground(new java.awt.Color(102, 102, 102));
+        BtnSair.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnSair.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnSair.setForeground(new java.awt.Color(255, 255, 255));
-        BtnSair.setText("Sair");
-        BtnSair.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnSairActionPerformed(evt);
             }
         });
 
+        BtnVoltar.setText("Início");
         BtnVoltar.setBackground(new java.awt.Color(102, 102, 102));
         BtnVoltar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnVoltar.setForeground(new java.awt.Color(255, 255, 255));
-        BtnVoltar.setText("Início");
         BtnVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnVoltarActionPerformed(evt);
@@ -241,12 +241,12 @@ public class JPanelGradient2 extends JPanel{
             .addGap(0, 95, Short.MAX_VALUE)
         );
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel2.setText("Nome Completo");
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
+        BtnAlterar.setText("Alterar");
         BtnAlterar.setBackground(new java.awt.Color(0, 112, 186));
         BtnAlterar.setForeground(new java.awt.Color(255, 255, 255));
-        BtnAlterar.setText("Alterar");
         BtnAlterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnAlterarActionPerformed(evt);
@@ -259,8 +259,8 @@ public class JPanelGradient2 extends JPanel{
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel3.setText("Email");
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         txtCRP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -268,28 +268,28 @@ public class JPanelGradient2 extends JPanel{
             }
         });
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel5.setText("Login");
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel4.setText("CRP");
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        BtnExcluirPsicologo.setBackground(new java.awt.Color(204, 204, 204));
         BtnExcluirPsicologo.setText("Excluir");
+        BtnExcluirPsicologo.setBackground(new java.awt.Color(204, 204, 204));
         BtnExcluirPsicologo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnExcluirPsicologoActionPerformed(evt);
             }
         });
 
-        labeltelefone.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         labeltelefone.setText("Telefone");
+        labeltelefone.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        labeltelefone2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         labeltelefone2.setText("Telefone 2");
+        labeltelefone2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        BrnRedefinir.setBackground(new java.awt.Color(204, 204, 204));
         BrnRedefinir.setText("Alterar Login/Senha");
+        BrnRedefinir.setBackground(new java.awt.Color(204, 204, 204));
         BrnRedefinir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BrnRedefinirActionPerformed(evt);
@@ -528,26 +528,29 @@ public class JPanelGradient2 extends JPanel{
 
     private void BtnManterPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnManterPacienteActionPerformed
         // TODO add your handling code here:
-        ManterPaciente mp1 = new ManterPaciente();
+        ManterPacienteAdm mp1 = new ManterPacienteAdm();
         Util.SizeJanela(mp1);
         this.dispose();
     }//GEN-LAST:event_BtnManterPacienteActionPerformed
 
     private void BtnManterPsicologoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnManterPsicologoActionPerformed
         // TODO add your handling code here:
+        ManterPsicologoAdm mp = new ManterPsicologoAdm();
+        Util.SizeJanela(mp);
+        this.dispose();
    
     }//GEN-LAST:event_BtnManterPsicologoActionPerformed
 
     private void BtnManterConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnManterConsultaActionPerformed
         // TODO add your handling code here:
-        ManterConsulta1 mc = new ManterConsulta1();
-        Util.SizeJanela(mc);
-        this.dispose();
+//        ManterConsulta1 mc = new ManterConsulta1();
+//        Util.SizeJanela(mc);
+//        this.dispose();
     }//GEN-LAST:event_BtnManterConsultaActionPerformed
 
     private void BtnExibirAnotacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExibirAnotacaoActionPerformed
         // TODO add your handling code here:
-       ExibirAnotacoes ea = new ExibirAnotacoes();
+       ExibirAnotacoesAdm ea = new ExibirAnotacoesAdm();
         Util.SizeJanela(ea);
         this.dispose();
     }//GEN-LAST:event_BtnExibirAnotacaoActionPerformed
@@ -583,21 +586,23 @@ public class JPanelGradient2 extends JPanel{
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ExibirPsicologoAdm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VisuPsicologoADM.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ExibirPsicologoAdm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VisuPsicologoADM.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ExibirPsicologoAdm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VisuPsicologoADM.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ExibirPsicologoAdm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VisuPsicologoADM.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ExibirPsicologoAdm(codpsicologo).setVisible(true);
+                new VisuPsicologoADM(codpsicologo).setVisible(true);
             }
         });
     }

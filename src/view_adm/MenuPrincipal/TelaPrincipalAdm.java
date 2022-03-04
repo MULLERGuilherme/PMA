@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package view_adm;
+package view_adm.MenuPrincipal;
 import view.*;
 import Validacoes.Deletar;
 import Validacoes.Validar;
@@ -175,11 +175,11 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
             }
         });
 
+        BtnExibiranamneses.setText("Exibir Todas as Anamneses");
         BtnExibiranamneses.setBackground(new java.awt.Color(102, 102, 102));
+        BtnExibiranamneses.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnExibiranamneses.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnExibiranamneses.setForeground(new java.awt.Color(255, 255, 255));
-        BtnExibiranamneses.setText("Exibir Todas as Anamneses");
-        BtnExibiranamneses.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnExibiranamneses.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnExibiranamnesesActionPerformed(evt);
@@ -364,9 +364,9 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
 
     private void BtnManterConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnManterConsultaActionPerformed
         // TODO add your handling code here:
-        CadastrarConsulta2 mc = new CadastrarConsulta2();
-        Util.SizeJanela(mc);
-        this.dispose();
+//        CadastrarConsulta2 mc = new CadastrarConsulta2();
+//        Util.SizeJanela(mc);
+//        this.dispose();
     }//GEN-LAST:event_BtnManterConsultaActionPerformed
 
     private void BtnManterPsicologoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnManterPsicologoActionPerformed
@@ -386,7 +386,7 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
 
     private void BtnExibirAnotacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExibirAnotacaoActionPerformed
         // TODO add your handling code here:
-        ExibirAnotacoes ea = new ExibirAnotacoes();
+        ExibirAnotacoesAdm ea = new ExibirAnotacoesAdm();
         Util.SizeJanela(ea);
         this.dispose();
     }//GEN-LAST:event_BtnExibirAnotacaoActionPerformed

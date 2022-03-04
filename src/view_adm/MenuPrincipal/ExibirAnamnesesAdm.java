@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package view_adm;
+package view_adm.MenuPrincipal;
 import view.*;
 import util.Util;
 import Validacoes.Validar;
@@ -815,23 +815,23 @@ private void ReadJTable() {
 
     private void BtnManterPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnManterPacienteActionPerformed
         // TODO add your handling code here:
-        ManterPaciente1 mp1 = new ManterPaciente1();
+        ManterPacienteAdm mp1 = new ManterPacienteAdm();
         Util.SizeJanela(mp1);
         this.dispose();
     }//GEN-LAST:event_BtnManterPacienteActionPerformed
 
     private void BtnManterConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnManterConsultaActionPerformed
         // TODO add your handling code here:
-        CadastrarConsulta2 mc = new CadastrarConsulta2();
-        Util.SizeJanela(mc);
-        this.dispose();
+//        CadastrarConsulta2 mc = new CadastrarConsulta2();
+//        Util.SizeJanela(mc);
+//        this.dispose();
     }//GEN-LAST:event_BtnManterConsultaActionPerformed
 
     private void BtnManterPsicologoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnManterPsicologoActionPerformed
         // TODO add your handling code here:
-        ManterPsicologo mp = new ManterPsicologo();
+        ManterPsicologoAdm mp = new ManterPsicologoAdm();
         Util.SizeJanela(mp);
-        mp.setVisible(true);
+
         this.dispose();
     }//GEN-LAST:event_BtnManterPsicologoActionPerformed
 
@@ -841,7 +841,7 @@ private void ReadJTable() {
 
     private void BtnExibirAnotacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExibirAnotacaoActionPerformed
         // TODO add your handling code here:
-        ExibirAnotacoes ea = new ExibirAnotacoes();
+        ExibirAnotacoesAdm ea = new ExibirAnotacoesAdm();
         Util.SizeJanela(ea);
         this.dispose();
     }//GEN-LAST:event_BtnExibirAnotacaoActionPerformed

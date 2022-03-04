@@ -12,10 +12,19 @@ package model.bean;
 public class Vw_Anotacoes_Paciente {
     private Paciente paciente;
     private Anotacao anotacao;
-    
+     private Psicologo psicologo;
     public Vw_Anotacoes_Paciente() {
         this.paciente = new Paciente();
         this.anotacao = new Anotacao();
+        this.psicologo = new Psicologo();
+    }
+
+    public Psicologo getPsicologo() {
+        return psicologo;
+    }
+
+    public void setPsicologo(Psicologo psicologo) {
+        this.psicologo = psicologo;
     }
     
     public Paciente getPaciente() {

@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.bean.Vw_Anamnese_Paciente;
+import model.bean.Vw_Anotacoes_Paciente;
 import model.bean.Vw_Consultas;
 import model.bean.Vw_TelefonesPsicologos;
 
@@ -23,13 +24,14 @@ import model.bean.Vw_TelefonesPsicologos;
  * @author Eliézer
  */
 public class ADMDAO {
+
     public List<Vw_TelefonesPsicologos> ReadTelefonesPsicologos() {
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;
         List<Vw_TelefonesPsicologos> vw = new ArrayList<>();
         try {
-            stmt = con.prepareStatement("SELECT CodigoPsicologo, Psicologo, Email,CRP, GROUP_CONCAT(numero) as Numero FROM vw_TelefonePsicologos Group By CodigoPsicologo") ;
+            stmt = con.prepareStatement("SELECT CodigoPsicologo, Psicologo, Email,CRP, GROUP_CONCAT(numero) as Numero FROM vw_TelefonePsicologos Group By CodigoPsicologo");
             rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -40,7 +42,7 @@ public class ADMDAO {
                 v.getPsicologo().setEmail(rs.getString("Email"));
                 v.getPsicologo().setCRP(rs.getString("CRP"));
                 v.getTelefone().setNumero(rs.getString("Numero"));
-                
+
                 vw.add(v);
 
             }
@@ -53,27 +55,26 @@ public class ADMDAO {
 
         return vw;
     }
-    
-     public List<Vw_TelefonesPsicologos> BuscaManterPsicologo(String Atributo, String Busca) {
+
+    public List<Vw_TelefonesPsicologos> BuscaManterPsicologo(String Atributo, String Busca) {
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;
         List<Vw_TelefonesPsicologos> vw = new ArrayList<>();
         try {
-            String sql = "SELECT CodigoPsicologo, Psicologo, Email,CRP, GROUP_CONCAT(numero) as Telefone FROM vw_TelefonePsicologos WHERE "+Atributo+ " Like '%"+Busca+"%' Group By CodigoPsicologo;";
+            String sql = "SELECT CodigoPsicologo, Psicologo, Email,CRP, GROUP_CONCAT(numero) as Telefone FROM vw_TelefonePsicologos WHERE " + Atributo + " Like '%" + Busca + "%' Group By CodigoPsicologo;";
             stmt = con.prepareStatement(sql);
-            
-            
+
             rs = stmt.executeQuery();
 
             while (rs.next()) {
                 Vw_TelefonesPsicologos v = new Vw_TelefonesPsicologos();
-                 v.getPsicologo().setCodPsicologo(rs.getInt("CodigoPsicologo"));
+                v.getPsicologo().setCodPsicologo(rs.getInt("CodigoPsicologo"));
                 v.getPsicologo().setNome_completo(rs.getString("Psicologo"));
                 v.getPsicologo().setEmail(rs.getString("Email"));
                 v.getPsicologo().setCRP(rs.getString("CRP"));
                 v.getTelefone().setNumero(rs.getString("Numero"));
-                
+
                 vw.add(v);
             }
 
@@ -85,16 +86,16 @@ public class ADMDAO {
 
         return vw;
     }
-     
-       public List<Vw_Consultas> ReadConsultas(Object data) {
+
+    public List<Vw_Consultas> ReadConsultas(Object data) {
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;
         List<Vw_Consultas> vw = new ArrayList<>();
         try {
             stmt = con.prepareStatement("SELECT * FROM vw_Consultas Where DataConsulta Like ? ORDER BY DataConsulta");
-            stmt.setObject(1, data+"%");
-          
+            stmt.setObject(1, data + "%");
+
             rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -119,16 +120,15 @@ public class ADMDAO {
 
         return vw;
     }
-       
-       
-            public List<Vw_Anamnese_Paciente> ReadALLAnamneses() {
+
+    public List<Vw_Anamnese_Paciente> ReadALLAnamneses() {
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;
         List<Vw_Anamnese_Paciente> vw = new ArrayList<>();
         try {
             stmt = con.prepareStatement("SELECT * FROM vw_Anamnese_Paciente");
-         
+
             rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -139,9 +139,9 @@ public class ADMDAO {
                 v.getPsicologo().setCodPsicologo(rs.getInt("CodigoPsicologo"));
                 v.getPsicologo().setNome_completo(rs.getString("Psicologo"));
                 v.getConsulta().setDataConsulta(rs.getTimestamp("DataConsulta"));
-                
+
                 v.getAnamnese().setCodAnamnese(rs.getInt("CodAnamnese"));
-                 v.getAnamnese().setDiagnostico(rs.getString("Diagnostico"));
+                v.getAnamnese().setDiagnostico(rs.getString("Diagnostico"));
                 vw.add(v);
 
             }
@@ -154,33 +154,30 @@ public class ADMDAO {
 
         return vw;
     }
-            
-            
-        public List<Vw_Anamnese_Paciente> BuscaALLAnamneses(String Atributo, String Busca) {
+
+    public List<Vw_Anamnese_Paciente> BuscaALLAnamneses(String Atributo, String Busca) {
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;
         List<Vw_Anamnese_Paciente> vw = new ArrayList<>();
         try {
-            String sql = "SELECT CodigoPaciente, Paciente, Diagnostico, DataConsulta, CodAnamnese FROM vw_Anamnese_Paciente WHERE "+Atributo+ " Like '%"+Busca+"%'  Group By CodigoPaciente;";
+            String sql = "SELECT CodigoPaciente, Paciente, Diagnostico, DataConsulta, CodAnamnese FROM vw_Anamnese_Paciente WHERE " + Atributo + " Like '%" + Busca + "%'  Group By CodigoPaciente;";
             stmt = con.prepareStatement(sql);
-           
-            
+
             rs = stmt.executeQuery();
 
             while (rs.next()) {
-             
+
                 Vw_Anamnese_Paciente v = new Vw_Anamnese_Paciente();
 
-            
                 v.getPaciente().setCodPaciente(rs.getInt("CodigoPaciente"));
                 v.getPaciente().setNome_Completo(rs.getString("Paciente"));
                 v.getPsicologo().setCodPsicologo(rs.getInt("CodigoPsicologo"));
                 v.getPsicologo().setNome_completo(rs.getString("Psicologo"));
                 v.getConsulta().setDataConsulta(rs.getTimestamp("DataConsulta"));
-                
+
                 v.getAnamnese().setCodAnamnese(rs.getInt("CodAnamnese"));
-                 v.getAnamnese().setDiagnostico(rs.getString("Diagnostico"));
+                v.getAnamnese().setDiagnostico(rs.getString("Diagnostico"));
                 vw.add(v);
             }
 
@@ -191,5 +188,76 @@ public class ADMDAO {
         }
 
         return vw;
+    }
+
+    public List<Vw_Anotacoes_Paciente> ReadALLAnotacoes() {
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        List<Vw_Anotacoes_Paciente> vw = new ArrayList<>();
+        try {
+            stmt = con.prepareStatement("SELECT * FROM vw_Anotacoes_Paciente");
+
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                Vw_Anotacoes_Paciente v = new Vw_Anotacoes_Paciente();
+
+                v.getPaciente().setCodPaciente(rs.getInt("CodigoPaciente"));
+                v.getPaciente().setNome_Completo(rs.getString("Paciente"));
+                v.getPsicologo().setCodPsicologo(rs.getInt("CodigoPsicologo"));
+                v.getPsicologo().setNome_completo(rs.getString("Psicologo"));
+                v.getAnotacao().setDataAnotacao(rs.getTimestamp("DataAnotacao"));
+                v.getAnotacao().setAssunto(rs.getString("Assunto"));
+                v.getAnotacao().setTexto(rs.getString("Texto"));
+                v.getAnotacao().setCodAnotacao(rs.getInt("CodAnotacao"));
+
+                vw.add(v);
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ConsultaDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt, rs);
         }
+
+        return vw;
+    }
+
+    public List<Vw_Anotacoes_Paciente> BuscaALLAnotacoes(String Atributo, String Busca) {
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        List<Vw_Anotacoes_Paciente> vw = new ArrayList<>();
+        try {
+            String sql = "SELECT CodigoPaciente, Paciente, Assunto, DataAnotacao, CodAnotacao, texto FROM vw_Anotacoes_Paciente WHERE " + Atributo + " Like '%" + Busca + "%'  Group By CodigoPaciente;";
+            stmt = con.prepareStatement(sql);
+
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+
+                Vw_Anotacoes_Paciente v = new Vw_Anotacoes_Paciente();
+
+                v.getPaciente().setCodPaciente(rs.getInt("CodigoPaciente"));
+                v.getPaciente().setNome_Completo(rs.getString("Paciente"));
+                v.getPsicologo().setCodPsicologo(rs.getInt("CodigoPsicologo"));
+                v.getPsicologo().setNome_completo(rs.getString("Psicologo"));
+                v.getAnotacao().setDataAnotacao(rs.getTimestamp("DataAnotacao"));
+                v.getAnotacao().setAssunto(rs.getString("Assunto"));
+                v.getAnotacao().setTexto(rs.getString("texto"));
+                v.getAnotacao().setCodAnotacao(rs.getInt("CodAnotacao"));
+
+                vw.add(v);
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(PacienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt, rs);
+        }
+
+        return vw;
+    }
 }
