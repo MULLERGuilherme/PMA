@@ -4,13 +4,14 @@
  * and open the template in the editor.
  */
 package view;
-
+import util.Util;
 import Validacoes.Validar;
 import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
 import javax.swing.table.TableRowSorter;
@@ -24,27 +25,129 @@ import model.dao.ConsultaDAO;
 import model.dao.PacienteDAO;
 import model.dao.ViewsDAO;
 import static view.ExibirAnamnesesPaciente.codpaciente;
-
 /**
  *
- * @author User
+ * @author guimu
  */
 public class ExibirAnamneses extends javax.swing.JFrame {
-        public boolean existe = false;
+
+   public boolean existe = false;
           public static int codigoanamnese;
-    /**int
-     * Creates new form ExibirAnamneses
-     */
     public ExibirAnamneses() {
         initComponents();
-      
-        DefaultTableModel dtmPacientes = (DefaultTableModel) JTAnamneses.getModel();
+         DefaultTableModel dtmPacientes = (DefaultTableModel) JTAnamneses.getModel();
         TableColumnModel cmod = JTAnamneses.getColumnModel();
         cmod.removeColumn(cmod.getColumn(0));
         JTAnamneses.setRowSorter(new TableRowSorter(dtmPacientes));
         ReadJTable();
     }
+public boolean readcampos(int cod) {
+        Anamnese a = new Anamnese();
+        AnamneseDAO dao = new AnamneseDAO();
+        a = dao.ReadAnamnese(cod);
+        int codanamnese = a.getCodAnamnese();
+        if (codanamnese != 0) {
 
+            txtQueixaPrincipal.setText(a.getQueixaPrincipal());
+            DataInicio.setText((String) Validar.fDataNascBD((Date) a.getInicioDaQueixa()));
+            SubitaOuProgressiva.setSelectedItem(a.getSubitaOuProgressiva());
+            txtQueixaSecundaria.setText(a.getQueixasSecundarias());
+            txtHistoricoFamiliar.setText(a.getHistoricoFamiliar());
+            txtDiagnostico.setText(a.getDiagnostico());
+            txtEncaminhamento.setText(a.getEncaminhamento());
+            txtDoencasConhecidas.setText(a.getDoencasConhecidas());
+            txtMedicamentosUtilizados.setText(a.getMedicamentosUtilizados());
+            txtOqueMudou.setText(a.getOqueMudou());
+            txtSintomas.setText(a.getSintomas());
+            txtComoComecou.setText(a.getComoComecou());
+            JCBQueixasCognitivas.setSelectedItem(a.getQueixasCognitivas());
+            JCBQueixasAfetivoEmocionais.setSelectedItem(a.getQueixasAfetivoEmocionais());
+            JCBPsicomotricidade.setSelectedItem(a.getPsicomotricidade());
+            return true;
+        }
+        return false;
+    }
+private void ReadJTable() {
+        DefaultTableModel model = (DefaultTableModel) JTAnamneses.getModel();
+        model.setNumRows(0);
+        ViewsDAO vwdao = new ViewsDAO();
+        //ConsultaDAO cdao = new ConsultaDAO();
+        //PacienteDAO pdao = new PacienteDAO();
+        //Paciente p = new Paciente();
+
+        for (Vw_Anamnese_Paciente v : vwdao.ReadAnamnesePaciente(Main.cod)) {
+            //p = pdao.ReadPaciente(c.getPaciente().getCodPaciente());
+            model.addRow(new Object[]{
+                v.getAnamnese().getCodAnamnese(),
+                v.getPaciente().getNome_Completo(),
+                v.getAnamnese().getDiagnostico(),
+                Validar.fDatetime((Timestamp)  v.getConsulta().getDataConsulta())
+               
+
+            });
+        }
+    }
+
+    public void ReadJTableBusca(String Atributo, String Busca) {
+
+        DefaultTableModel model = (DefaultTableModel) JTAnamneses.getModel();
+        model.setNumRows(0);
+        if (Atributo.equals("Nome do Paciente")) {
+            Atributo = "Paciente";
+        }
+        if (Atributo.equals("Diagnóstico")) {
+            Atributo = "Diagnostico";
+        }
+        if (Atributo.equals("Data da Consulta")) {
+            Atributo = "DataConsulta";
+        }
+        ViewsDAO vwdao = new ViewsDAO();
+
+        for (Vw_Anamnese_Paciente v : vwdao.BuscaExibirAnamneses(Atributo, Busca, Main.cod)) {
+
+            model.addRow(new Object[]{
+                v.getAnamnese().getCodAnamnese(),
+                v.getPaciente().getNome_Completo(),
+                v.getAnamnese().getDiagnostico(),
+                Validar.fDatetime((Timestamp)  v.getConsulta().getDataConsulta())
+
+            });
+        }
+    }
+      private void Alterar(int cod) {
+        Anamnese a = new Anamnese();
+        AnamneseDAO dao = new AnamneseDAO();
+        Anamnese a2 = new Anamnese();
+        AnamneseDAO dao2 = new AnamneseDAO();
+        a2 = dao2.ReadAnamnese(cod);
+        a.setCodAnamnese(a2.getCodAnamnese());
+        if (a.getCodAnamnese() != 0) {
+            a.setQueixaPrincipal(txtQueixaPrincipal.getText());
+            a.setSubitaOuProgressiva((String) SubitaOuProgressiva.getSelectedItem());
+
+            //java.util.Date date = new java.util.Date();
+            Object param = DataInicio.getDate();
+            a.setInicioDaQueixa(param);
+            a.setQueixasSecundarias(txtQueixaSecundaria.getText());
+            a.setHistoricoFamiliar(txtHistoricoFamiliar.getText());
+            a.setDiagnostico(txtDiagnostico.getText());
+            a.setEncaminhamento(txtEncaminhamento.getText());
+            a.setDoencasConhecidas(txtDoencasConhecidas.getText());
+            a.setMedicamentosUtilizados(txtMedicamentosUtilizados.getText());
+            a.getConsulta().setCodConsulta(a2.getConsulta().getCodConsulta());
+            a.setOqueMudou(txtOqueMudou.getText());
+            a.setSintomas(txtSintomas.getText());
+            a.setComoComecou(txtComoComecou.getText());
+            a.setQueixasCognitivas((String) JCBQueixasCognitivas.getSelectedItem());
+            a.setQueixasAfetivoEmocionais((String) JCBQueixasAfetivoEmocionais.getSelectedItem());
+            a.setPsicomotricidade((String) JCBPsicomotricidade.getSelectedItem());
+
+            boolean sucesso = dao.Update(a);
+            if (sucesso) {
+                JOptionPane.showMessageDialog(this, "Anamnese Alterada Com Sucesso");
+            }
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -61,13 +164,13 @@ public class ExibirAnamneses extends javax.swing.JFrame {
         BtnSalvarAlteracoes5 = new javax.swing.JButton();
         BtnCancelar2 = new javax.swing.JButton();
         jLabel29 = new javax.swing.JLabel();
-        SubitaOuProgressiva = new javax.swing.JComboBox<>();
+        SubitaOuProgressiva = new javax.swing.JComboBox<String>();
         labelInicioQueixa1 = new javax.swing.JLabel();
-        JCBPsicomotricidade = new javax.swing.JComboBox<>();
+        JCBPsicomotricidade = new javax.swing.JComboBox<String>();
         labelInicioQueixa = new javax.swing.JLabel();
-        JCBQueixasAfetivoEmocionais = new javax.swing.JComboBox<>();
+        JCBQueixasAfetivoEmocionais = new javax.swing.JComboBox<String>();
         jLabel26 = new javax.swing.JLabel();
-        JCBQueixasCognitivas = new javax.swing.JComboBox<>();
+        JCBQueixasCognitivas = new javax.swing.JComboBox<String>();
         LabelEmail1 = new javax.swing.JLabel();
         txtComoComecou = new javax.swing.JTextField();
         LabelNome3 = new javax.swing.JLabel();
@@ -96,16 +199,25 @@ public class ExibirAnamneses extends javax.swing.JFrame {
         jEImagePanel2 = new LIB.JEImagePanel();
         jLabel5 = new javax.swing.JLabel();
         LabelModalAnamnese = new javax.swing.JLabel();
+        jPanel1 = new JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        btnExcluir = new javax.swing.JButton();
+        PainelMenu = new javax.swing.JPanel();
+        BtnVoltar = new javax.swing.JButton();
+        BtnManterPaciente = new javax.swing.JButton();
+        BtnManterConsulta = new javax.swing.JButton();
+        BtnManterPsicologo = new javax.swing.JButton();
+        BtnExibiranamneses = new javax.swing.JButton();
+        BtnExibirAnotacao = new javax.swing.JButton();
+        BtnSair = new javax.swing.JButton();
+        jEImagePanel1 = new LIB.JEImagePanel();
         btnalterar = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        JTAnamneses = new javax.swing.JTable();
+        btnExcluir = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        JCBAtributo = new javax.swing.JComboBox<>();
+        JCBAtributo = new javax.swing.JComboBox<String>();
         txtBusca = new javax.swing.JTextField();
         btnBuscar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        JTAnamneses = new javax.swing.JTable();
 
         ModalAnamnese2.setResizable(false);
 
@@ -125,129 +237,129 @@ public class ExibirAnamneses extends javax.swing.JFrame {
             .addGap(0, 50, Short.MAX_VALUE)
         );
 
-        jLabel7.setText("* Campos Obrigatórios");
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel7.setText("* Campos Obrigatórios");
 
-        BtnSalvarAlteracoes5.setText("Salvar Alterações");
         BtnSalvarAlteracoes5.setBackground(new java.awt.Color(0, 112, 186));
         BtnSalvarAlteracoes5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnSalvarAlteracoes5.setForeground(new java.awt.Color(255, 255, 255));
+        BtnSalvarAlteracoes5.setText("Salvar Alterações");
         BtnSalvarAlteracoes5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnSalvarAlteracoes5ActionPerformed(evt);
             }
         });
 
-        BtnCancelar2.setText("Cancelar");
         BtnCancelar2.setBackground(new java.awt.Color(255, 153, 153));
         BtnCancelar2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnCancelar2.setForeground(new java.awt.Color(255, 255, 255));
+        BtnCancelar2.setText("Cancelar");
         BtnCancelar2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnCancelar2ActionPerformed(evt);
             }
         });
 
-        jLabel29.setText("*Subita ou Progressiva:");
         jLabel29.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel29.setText("*Subita ou Progressiva:");
 
-        SubitaOuProgressiva.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Subita", "Progressiva"}));
         SubitaOuProgressiva.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        SubitaOuProgressiva.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Subita", "Progressiva"}));
 
-        labelInicioQueixa1.setText("*  Psicomotricidade: ");
         labelInicioQueixa1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        labelInicioQueixa1.setText("*  Psicomotricidade: ");
 
-        JCBPsicomotricidade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normal", "Lento", "Agitado"}));
         JCBPsicomotricidade.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        JCBPsicomotricidade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normal", "Lento", "Agitado"}));
 
-        labelInicioQueixa.setText("*Queixas Afetivo-emocionais: ");
         labelInicioQueixa.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        labelInicioQueixa.setText("*Queixas Afetivo-emocionais: ");
 
-        JCBQueixasAfetivoEmocionais.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nenhuma","Volição", "Afeto", "Ansiedade", "Medo", "Culpa", "Raiva", "Luto", "Desanimo" }));
         JCBQueixasAfetivoEmocionais.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        JCBQueixasAfetivoEmocionais.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nenhuma","Volição", "Afeto", "Ansiedade", "Medo", "Culpa", "Raiva", "Luto", "Desanimo" }));
 
-        jLabel26.setText("*  Queixas Cognitivas:");
         jLabel26.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel26.setText("*  Queixas Cognitivas:");
 
-        JCBQueixasCognitivas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"Nenhuma", "Integridade Sensorial","Percepção", "Atenção", "Memória" }));
         JCBQueixasCognitivas.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        JCBQueixasCognitivas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"Nenhuma", "Integridade Sensorial","Percepção", "Atenção", "Memória" }));
 
-        LabelEmail1.setText("  Queixa Secundária:");
         LabelEmail1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        LabelEmail1.setText("  Queixa Secundária:");
 
         txtComoComecou.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        LabelNome3.setText("*Queixa Principal:");
         LabelNome3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        LabelNome3.setText("*Queixa Principal:");
 
-        jLabel30.setText("  Como começou:");
         jLabel30.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel30.setText("  Como começou:");
 
         txtQueixaSecundaria.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        jLabel31.setText("  Diagnóstico:");
         jLabel31.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel31.setText("  Diagnóstico:");
 
         txtDiagnostico.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        jLabel32.setText("  Histórico Familiar:");
         jLabel32.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel32.setText("  Histórico Familiar:");
 
         txtHistoricoFamiliar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        jLabel33.setText("  Doenças Conhecidas:");
         jLabel33.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel33.setText("  Doenças Conhecidas:");
 
         txtDoencasConhecidas.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        jLabel34.setText("  Sintomas:");
         jLabel34.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel34.setText("  Sintomas:");
 
         txtSintomas.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        jLabel35.setText("  Medicamentos Utilizados:");
         jLabel35.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel35.setText("  Medicamentos Utilizados:");
 
         txtMedicamentosUtilizados.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        jLabel36.setText("  O que mudou:");
         jLabel36.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel36.setText("  O que mudou:");
 
         txtOqueMudou.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        jLabel37.setText("  Encaminhamento:");
         jLabel37.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel37.setText("  Encaminhamento:");
 
         txtEncaminhamento.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        jLabel39.setText("  Data de Início:");
         jLabel39.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel39.setText("  Data de Início:");
 
         DataInicio.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         DataInicio.setPreferredSize(new java.awt.Dimension(160, 17));
 
-        BtnCancelar3.setText("Cancelar");
         BtnCancelar3.setBackground(new java.awt.Color(255, 153, 153));
         BtnCancelar3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnCancelar3.setForeground(new java.awt.Color(255, 255, 255));
+        BtnCancelar3.setText("Cancelar");
         BtnCancelar3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnCancelar3ActionPerformed(evt);
             }
         });
 
-        BtnSalvarAlteracoes3.setText("Salvar Alterações");
         BtnSalvarAlteracoes3.setBackground(new java.awt.Color(0, 112, 186));
         BtnSalvarAlteracoes3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnSalvarAlteracoes3.setForeground(new java.awt.Color(255, 255, 255));
+        BtnSalvarAlteracoes3.setText("Salvar Alterações");
         BtnSalvarAlteracoes3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnSalvarAlteracoes3ActionPerformed(evt);
             }
         });
 
-        jLabel4.setText("* Campos Obrigatórios");
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel4.setText("* Campos Obrigatórios");
 
         txtQueixaPrincipal.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
@@ -264,12 +376,12 @@ public class ExibirAnamneses extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        jLabel5.setText("Anamnese Psicológica");
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(59, 131, 117));
+        jLabel5.setText("Anamnese Psicológica");
 
-        LabelModalAnamnese.setText("jLabel7");
         LabelModalAnamnese.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 14)); // NOI18N
+        LabelModalAnamnese.setText("jLabel7");
 
         javax.swing.GroupLayout PainelDadosPaciente4Layout = new javax.swing.GroupLayout(PainelDadosPaciente4);
         PainelDadosPaciente4.setLayout(PainelDadosPaciente4Layout);
@@ -459,13 +571,155 @@ public class ExibirAnamneses extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Exibir Anamneses");
-        jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jPanel1.setBackground(new java.awt.Color(59, 131, 117));
+        jPanel1.setForeground(new java.awt.Color(59, 131, 117));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1080, 89));
 
-        jButton1.setText("Voltar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel1.setText("Exibir Anamneses");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1368, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(580, 580, 580)
+                    .addComponent(jLabel1)
+                    .addContainerGap(581, Short.MAX_VALUE)))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 89, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(30, 30, 30)
+                    .addComponent(jLabel1)
+                    .addContainerGap(30, Short.MAX_VALUE)))
+        );
+
+        getContentPane().add(jPanel1, java.awt.BorderLayout.NORTH);
+
+        PainelMenu.setBackground(new java.awt.Color(102, 102, 102));
+        PainelMenu.setForeground(new java.awt.Color(102, 102, 102));
+
+        BtnVoltar.setBackground(new java.awt.Color(102, 102, 102));
+        BtnVoltar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        BtnVoltar.setForeground(new java.awt.Color(255, 255, 255));
+        BtnVoltar.setText("Início");
+        BtnVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                BtnVoltarActionPerformed(evt);
+            }
+        });
+
+        BtnManterPaciente.setBackground(new java.awt.Color(102, 102, 102));
+        BtnManterPaciente.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        BtnManterPaciente.setForeground(new java.awt.Color(255, 255, 255));
+        BtnManterPaciente.setText("Manter Pacientes");
+        BtnManterPaciente.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        BtnManterPaciente.setFocusPainted(false);
+        BtnManterPaciente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnManterPacienteActionPerformed(evt);
+            }
+        });
+
+        BtnManterConsulta.setBackground(new java.awt.Color(102, 102, 102));
+        BtnManterConsulta.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        BtnManterConsulta.setForeground(new java.awt.Color(255, 255, 255));
+        BtnManterConsulta.setText("Cadastrar Consulta");
+        BtnManterConsulta.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        BtnManterConsulta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnManterConsultaActionPerformed(evt);
+            }
+        });
+
+        BtnManterPsicologo.setBackground(new java.awt.Color(102, 102, 102));
+        BtnManterPsicologo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        BtnManterPsicologo.setForeground(new java.awt.Color(255, 255, 255));
+        BtnManterPsicologo.setText("Meus Dados");
+        BtnManterPsicologo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        BtnManterPsicologo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnManterPsicologoActionPerformed(evt);
+            }
+        });
+
+        BtnExibiranamneses.setBackground(new java.awt.Color(102, 102, 102));
+        BtnExibiranamneses.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        BtnExibiranamneses.setForeground(new java.awt.Color(255, 255, 255));
+        BtnExibiranamneses.setText("Exibir Anamneses");
+        BtnExibiranamneses.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        BtnExibiranamneses.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnExibiranamnesesActionPerformed(evt);
+            }
+        });
+
+        BtnExibirAnotacao.setBackground(new java.awt.Color(102, 102, 102));
+        BtnExibirAnotacao.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        BtnExibirAnotacao.setForeground(new java.awt.Color(255, 255, 255));
+        BtnExibirAnotacao.setText("Exibir Anotações");
+        BtnExibirAnotacao.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        BtnExibirAnotacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnExibirAnotacaoActionPerformed(evt);
+            }
+        });
+
+        BtnSair.setBackground(new java.awt.Color(102, 102, 102));
+        BtnSair.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        BtnSair.setForeground(new java.awt.Color(255, 255, 255));
+        BtnSair.setText("Sair");
+        BtnSair.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        BtnSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnSairActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout PainelMenuLayout = new javax.swing.GroupLayout(PainelMenu);
+        PainelMenu.setLayout(PainelMenuLayout);
+        PainelMenuLayout.setHorizontalGroup(
+            PainelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(BtnVoltar, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
+            .addComponent(BtnManterPaciente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(BtnManterConsulta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(BtnManterPsicologo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(BtnExibiranamneses, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(BtnExibirAnotacao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(BtnSair, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        PainelMenuLayout.setVerticalGroup(
+            PainelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PainelMenuLayout.createSequentialGroup()
+                .addComponent(BtnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(BtnManterPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(BtnManterConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(BtnManterPsicologo, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(BtnExibiranamneses, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(BtnExibirAnotacao, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(BtnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(PainelMenu, java.awt.BorderLayout.LINE_START);
+
+        jEImagePanel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/spring-floral-watercolor-background-vector-green-with-leaf-illustration_53876-126350.jpg"))); // NOI18N
+
+        btnalterar.setText("Alterar");
+        btnalterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnalterarActionPerformed(evt);
             }
         });
 
@@ -475,26 +729,6 @@ public class ExibirAnamneses extends javax.swing.JFrame {
                 btnExcluirActionPerformed(evt);
             }
         });
-
-        btnalterar.setText("Alterar");
-        btnalterar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnalterarActionPerformed(evt);
-            }
-        });
-
-        JTAnamneses.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "ID Anamnese", "Paciente", "Diagnostico", "Data da Consulta"
-            }
-        ));
-        jScrollPane1.setViewportView(JTAnamneses);
-        if (JTAnamneses.getColumnModel().getColumnCount() > 0) {
-            JTAnamneses.getColumnModel().getColumn(0).setPreferredWidth(1);
-        }
 
         jLabel2.setText("Buscar Anamnese Por");
 
@@ -507,104 +741,124 @@ public class ExibirAnamneses extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(32, 32, 32)
-                                .addComponent(jButton1)
-                                .addGap(76, 76, 76)
-                                .addComponent(jLabel1))
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(btnalterar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnExcluir)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(JCBAtributo, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnBuscar)))
-                        .addGap(0, 13, Short.MAX_VALUE)))
+        JTAnamneses.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID Anamnese", "Paciente", "Diagnostico", "Data da Consulta"
+            }
+        ));
+        jScrollPane1.setViewportView(JTAnamneses);
+
+        javax.swing.GroupLayout jEImagePanel1Layout = new javax.swing.GroupLayout(jEImagePanel1);
+        jEImagePanel1.setLayout(jEImagePanel1Layout);
+        jEImagePanel1Layout.setHorizontalGroup(
+            jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jEImagePanel1Layout.createSequentialGroup()
+                .addGap(87, 87, 87)
+                .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
+                    .addGroup(jEImagePanel1Layout.createSequentialGroup()
+                        .addComponent(btnalterar)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnExcluir)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(JCBAtributo, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnBuscar)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jButton1))
-                .addGap(39, 39, 39)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnExcluir)
-                        .addComponent(btnalterar))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(txtBusca, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(JCBAtributo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2)
-                            .addComponent(btnBuscar))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+        jEImagePanel1Layout.setVerticalGroup(
+            jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jEImagePanel1Layout.createSequentialGroup()
+                .addGap(66, 66, 66)
+                .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnalterar)
+                    .addComponent(btnExcluir)
+                    .addComponent(jLabel2)
+                    .addComponent(JCBAtributo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscar))
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 416, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(122, Short.MAX_VALUE))
         );
+
+        getContentPane().add(jEImagePanel1, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-public boolean readcampos(int cod) {
-        Anamnese a = new Anamnese();
-        AnamneseDAO dao = new AnamneseDAO();
-        a = dao.ReadAnamnese(cod);
-        int codanamnese = a.getCodAnamnese();
-        if (codanamnese != 0) {
 
-            txtQueixaPrincipal.setText(a.getQueixaPrincipal());
-            DataInicio.setText((String) Validar.fDataNascBD((Date) a.getInicioDaQueixa()));
-            SubitaOuProgressiva.setSelectedItem(a.getSubitaOuProgressiva());
-            txtQueixaSecundaria.setText(a.getQueixasSecundarias());
-            txtHistoricoFamiliar.setText(a.getHistoricoFamiliar());
-            txtDiagnostico.setText(a.getDiagnostico());
-            txtEncaminhamento.setText(a.getEncaminhamento());
-            txtDoencasConhecidas.setText(a.getDoencasConhecidas());
-            txtMedicamentosUtilizados.setText(a.getMedicamentosUtilizados());
-            txtOqueMudou.setText(a.getOqueMudou());
-            txtSintomas.setText(a.getSintomas());
-            txtComoComecou.setText(a.getComoComecou());
-            JCBQueixasCognitivas.setSelectedItem(a.getQueixasCognitivas());
-            JCBQueixasAfetivoEmocionais.setSelectedItem(a.getQueixasAfetivoEmocionais());
-            JCBPsicomotricidade.setSelectedItem(a.getPsicomotricidade());
-            return true;
-        }
-        return false;
-    }
+    private void BtnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVoltarActionPerformed
+        TelaPrincipal mp1 = new TelaPrincipal();
+        Util.SizeJanela(mp1);
+        this.dispose();
+    }//GEN-LAST:event_BtnVoltarActionPerformed
+
+    private void BtnManterPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnManterPacienteActionPerformed
+        // TODO add your handling code here:
+        ManterPaciente1 mp1 = new ManterPaciente1();
+        Util.SizeJanela(mp1);
+        this.dispose();
+    }//GEN-LAST:event_BtnManterPacienteActionPerformed
+
+    private void BtnManterConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnManterConsultaActionPerformed
+        // TODO add your handling code here:
+        CadastrarConsulta2 mc = new CadastrarConsulta2();
+        Util.SizeJanela(mc);
+        this.dispose();
+    }//GEN-LAST:event_BtnManterConsultaActionPerformed
+
+    private void BtnManterPsicologoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnManterPsicologoActionPerformed
+        // TODO add your handling code here:
+        ManterPsicologo mp = new ManterPsicologo();
+        Util.SizeJanela(mp);
+        mp.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_BtnManterPsicologoActionPerformed
+
+    private void BtnExibiranamnesesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExibiranamnesesActionPerformed
+        // TODO add your handling code here:
+        ExibirAnamneses ma = new ExibirAnamneses();
+        Util.SizeJanela(ma);
+        this.dispose();
+    }//GEN-LAST:event_BtnExibiranamnesesActionPerformed
+
+    private void BtnExibirAnotacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExibirAnotacaoActionPerformed
+        // TODO add your handling code here:
+        ExibirAnotacoes ea = new ExibirAnotacoes();
+        Util.SizeJanela(ea);
+        this.dispose();
+    }//GEN-LAST:event_BtnExibirAnotacaoActionPerformed
+
+    private void BtnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSairActionPerformed
+        // TODO add your handling code here:
+        TelaLogin tl = new TelaLogin();
+        tl.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_BtnSairActionPerformed
+
     private void btnalterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnalterarActionPerformed
         // TODO add your handling code here:
-//        if (JTAnamneses.getSelectedRow() != -1) {
-//            int modelRow = JTAnamneses.convertRowIndexToModel(JTAnamneses.getSelectedRow());
-//            int value = (Integer) JTAnamneses.getModel().getValueAt(modelRow, 0);
-//            AlterarAnamnesePacienteMenu.codanamnese = value;
-//            AlterarAnamnesePacienteMenu cp = new AlterarAnamnesePacienteMenu();
-//            cp.setVisible(true);
-//            this.dispose();
-//
-//        } else {
-//            JOptionPane.showMessageDialog(this, "Selecione uma consulta para alterar");
-//        }
+        //        if (JTAnamneses.getSelectedRow() != -1) {
+            //            int modelRow = JTAnamneses.convertRowIndexToModel(JTAnamneses.getSelectedRow());
+            //            int value = (Integer) JTAnamneses.getModel().getValueAt(modelRow, 0);
+            //            AlterarAnamnesePacienteMenu.codanamnese = value;
+            //            AlterarAnamnesePacienteMenu cp = new AlterarAnamnesePacienteMenu();
+            //            cp.setVisible(true);
+            //            this.dispose();
+            //
+            //        } else {
+            //            JOptionPane.showMessageDialog(this, "Selecione uma consulta para alterar");
+            //        }
 
- if (JTAnamneses.getSelectedRow() != -1) {
+        if (JTAnamneses.getSelectedRow() != -1) {
             Anamnese a2 = new Anamnese();
             AnamneseDAO dao2 = new AnamneseDAO();
             int modelRow = JTAnamneses.convertRowIndexToModel(JTAnamneses.getSelectedRow());
@@ -649,13 +903,6 @@ public boolean readcampos(int cod) {
         }
         ReadJTable();
     }//GEN-LAST:event_btnExcluirActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        TelaPrincipal tp = new TelaPrincipal();
-        tp.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
@@ -710,6 +957,9 @@ public boolean readcampos(int cod) {
             java.util.logging.Logger.getLogger(ExibirAnamneses.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -719,94 +969,18 @@ public boolean readcampos(int cod) {
         });
     }
 
-    private void ReadJTable() {
-        DefaultTableModel model = (DefaultTableModel) JTAnamneses.getModel();
-        model.setNumRows(0);
-        ViewsDAO vwdao = new ViewsDAO();
-        //ConsultaDAO cdao = new ConsultaDAO();
-        //PacienteDAO pdao = new PacienteDAO();
-        //Paciente p = new Paciente();
-
-        for (Vw_Anamnese_Paciente v : vwdao.ReadAnamnesePaciente(Main.cod)) {
-            //p = pdao.ReadPaciente(c.getPaciente().getCodPaciente());
-            model.addRow(new Object[]{
-                v.getAnamnese().getCodAnamnese(),
-                v.getPaciente().getNome_Completo(),
-                v.getAnamnese().getDiagnostico(),
-                Validar.fDatetime((Timestamp)  v.getConsulta().getDataConsulta())
-               
-
-            });
-        }
-    }
-
-    public void ReadJTableBusca(String Atributo, String Busca) {
-
-        DefaultTableModel model = (DefaultTableModel) JTAnamneses.getModel();
-        model.setNumRows(0);
-        if (Atributo.equals("Nome do Paciente")) {
-            Atributo = "Paciente";
-        }
-        if (Atributo.equals("Diagnóstico")) {
-            Atributo = "Diagnostico";
-        }
-        if (Atributo.equals("Data da Consulta")) {
-            Atributo = "DataConsulta";
-        }
-        ViewsDAO vwdao = new ViewsDAO();
-
-        for (Vw_Anamnese_Paciente v : vwdao.BuscaExibirAnamneses(Atributo, Busca, Main.cod)) {
-
-            model.addRow(new Object[]{
-                v.getAnamnese().getCodAnamnese(),
-                v.getPaciente().getNome_Completo(),
-                v.getAnamnese().getDiagnostico(),
-                Validar.fDatetime((Timestamp)  v.getConsulta().getDataConsulta())
-
-            });
-        }
-    }
-      private void Alterar(int cod) {
-        Anamnese a = new Anamnese();
-        AnamneseDAO dao = new AnamneseDAO();
-        Anamnese a2 = new Anamnese();
-        AnamneseDAO dao2 = new AnamneseDAO();
-        a2 = dao2.ReadAnamnese(cod);
-        a.setCodAnamnese(a2.getCodAnamnese());
-        if (a.getCodAnamnese() != 0) {
-            a.setQueixaPrincipal(txtQueixaPrincipal.getText());
-            a.setSubitaOuProgressiva((String) SubitaOuProgressiva.getSelectedItem());
-
-            //java.util.Date date = new java.util.Date();
-            Object param = DataInicio.getDate();
-            a.setInicioDaQueixa(param);
-            a.setQueixasSecundarias(txtQueixaSecundaria.getText());
-            a.setHistoricoFamiliar(txtHistoricoFamiliar.getText());
-            a.setDiagnostico(txtDiagnostico.getText());
-            a.setEncaminhamento(txtEncaminhamento.getText());
-            a.setDoencasConhecidas(txtDoencasConhecidas.getText());
-            a.setMedicamentosUtilizados(txtMedicamentosUtilizados.getText());
-            a.getConsulta().setCodConsulta(a2.getConsulta().getCodConsulta());
-            a.setOqueMudou(txtOqueMudou.getText());
-            a.setSintomas(txtSintomas.getText());
-            a.setComoComecou(txtComoComecou.getText());
-            a.setQueixasCognitivas((String) JCBQueixasCognitivas.getSelectedItem());
-            a.setQueixasAfetivoEmocionais((String) JCBQueixasAfetivoEmocionais.getSelectedItem());
-            a.setPsicomotricidade((String) JCBPsicomotricidade.getSelectedItem());
-
-            boolean sucesso = dao.Update(a);
-            if (sucesso) {
-                JOptionPane.showMessageDialog(this, "Anamnese Alterada Com Sucesso");
-            }
-        }
-    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnCancelar2;
     private javax.swing.JButton BtnCancelar3;
-    private javax.swing.JButton BtnSalvarAlteracoes2;
+    private javax.swing.JButton BtnExibirAnotacao;
+    private javax.swing.JButton BtnExibiranamneses;
+    private javax.swing.JButton BtnManterConsulta;
+    private javax.swing.JButton BtnManterPaciente;
+    private javax.swing.JButton BtnManterPsicologo;
+    private javax.swing.JButton BtnSair;
     private javax.swing.JButton BtnSalvarAlteracoes3;
     private javax.swing.JButton BtnSalvarAlteracoes5;
+    private javax.swing.JButton BtnVoltar;
     private com.github.lgooddatepicker.components.DatePicker DataInicio;
     private javax.swing.JComboBox<String> JCBAtributo;
     private javax.swing.JComboBox<String> JCBPsicomotricidade;
@@ -816,23 +990,20 @@ public boolean readcampos(int cod) {
     private javax.swing.JLabel LabelEmail1;
     private javax.swing.JLabel LabelModalAnamnese;
     private javax.swing.JLabel LabelNome3;
-    private javax.swing.JDialog ModalAnamnese;
     private javax.swing.JDialog ModalAnamnese2;
-    private javax.swing.JPanel PainelDadosPaciente2;
     private javax.swing.JPanel PainelDadosPaciente4;
-    private javax.swing.JPanel PainelIdentificacaoPessoal2;
     private javax.swing.JPanel PainelIdentificacaoPessoal4;
+    private javax.swing.JPanel PainelMenu;
     private javax.swing.JComboBox<String> SubitaOuProgressiva;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnalterar;
-    private javax.swing.JButton jButton1;
+    private LIB.JEImagePanel jEImagePanel1;
     private LIB.JEImagePanel jEImagePanel2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel29;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
@@ -845,6 +1016,7 @@ public boolean readcampos(int cod) {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labelInicioQueixa;
     private javax.swing.JLabel labelInicioQueixa1;

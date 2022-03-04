@@ -349,7 +349,7 @@ public class ManterPsicologo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVoltarActionPerformed
-        TelaPrincipal4 mp1 = new TelaPrincipal4();
+        TelaPrincipal mp1 = new TelaPrincipal();
         Util.SizeJanela(mp1);
         this.dispose();
     }//GEN-LAST:event_BtnVoltarActionPerformed
@@ -378,7 +378,7 @@ public class ManterPsicologo extends javax.swing.JFrame {
 
     private void BtnExibiranamnesesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExibiranamnesesActionPerformed
         // TODO add your handling code here:
-        ExibirAnamneses2 ma = new ExibirAnamneses2();
+        ExibirAnamneses ma = new ExibirAnamneses();
         Util.SizeJanela(ma);
         this.dispose();
     }//GEN-LAST:event_BtnExibiranamnesesActionPerformed

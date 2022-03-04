@@ -230,7 +230,7 @@ public class TelaLogin extends javax.swing.JFrame {
             //JDialog dialog = optionPane.createDialog(this, "Bem Vindo(a)!");
             //dialog.setVisible(true);
 
-            TelaPrincipal4 tp = new TelaPrincipal4();
+            TelaPrincipal tp = new TelaPrincipal();
             Util.SizeJanela(tp);
             tp.setVisible(true);
             tp.setVisible(true);

@@ -470,7 +470,7 @@ public class CadastrarConsulta2 extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnCadastrarConsultaActionPerformed
 
     private void BtnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVoltarActionPerformed
-         TelaPrincipal4 mp1 = new TelaPrincipal4();
+         TelaPrincipal mp1 = new TelaPrincipal();
         Util.SizeJanela(mp1);
         this.dispose();
     }//GEN-LAST:event_BtnVoltarActionPerformed
