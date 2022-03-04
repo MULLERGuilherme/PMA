@@ -122,7 +122,7 @@ public class JPanelGradient2 extends JPanel{
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        BtnManterAnotacao.setText("Exibir Anamneses");
+        BtnManterAnotacao.setText("Exibir Todas as Anamneses");
         BtnManterAnotacao.setBackground(new java.awt.Color(102, 102, 102));
         BtnManterAnotacao.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnManterAnotacao.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -133,7 +133,7 @@ public class JPanelGradient2 extends JPanel{
             }
         });
 
-        BtnManterPaciente.setText("Manter Pacientes");
+        BtnManterPaciente.setText("Pacientes");
         BtnManterPaciente.setBackground(new java.awt.Color(102, 102, 102));
         BtnManterPaciente.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnManterPaciente.setFocusPainted(false);
@@ -145,7 +145,7 @@ public class JPanelGradient2 extends JPanel{
             }
         });
 
-        BtnManterPsicologo.setText("Meus Dados");
+        BtnManterPsicologo.setText("Psicólogos");
         BtnManterPsicologo.setBackground(new java.awt.Color(102, 102, 102));
         BtnManterPsicologo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnManterPsicologo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -167,7 +167,7 @@ public class JPanelGradient2 extends JPanel{
             }
         });
 
-        BtnExibirAnotacao.setText("Exibir Anotações");
+        BtnExibirAnotacao.setText("Exibir Todas as Anotações");
         BtnExibirAnotacao.setBackground(new java.awt.Color(102, 102, 102));
         BtnExibirAnotacao.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnExibirAnotacao.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N

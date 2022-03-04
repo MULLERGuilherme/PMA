@@ -800,7 +800,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="BtnManterPaciente">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Manter Pacientes"/>
+            <Property name="text" type="java.lang.String" value="Pacientes"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="66" red="66" type="rgb"/>
             </Property>
@@ -845,7 +845,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="BtnManterPsicologo">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Meus Dados"/>
+            <Property name="text" type="java.lang.String" value="Psic&#xf3;logos"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="66" red="66" type="rgb"/>
             </Property>
@@ -867,7 +867,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="BtnExibiranamneses">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Exibir Anamneses"/>
+            <Property name="text" type="java.lang.String" value="Exibir Todas as Anamneses"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="66" red="66" type="rgb"/>
             </Property>
@@ -889,7 +889,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="BtnExibirAnotacao">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Exibir Anota&#xe7;&#xf5;es"/>
+            <Property name="text" type="java.lang.String" value="Exibir Todas as Anota&#xe7;&#xf5;es"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="66" red="66" type="rgb"/>
             </Property>
