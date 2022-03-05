@@ -175,11 +175,11 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
             }
         });
 
-        BtnExibiranamneses.setText("Exibir Todas as Anamneses");
         BtnExibiranamneses.setBackground(new java.awt.Color(102, 102, 102));
-        BtnExibiranamneses.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnExibiranamneses.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnExibiranamneses.setForeground(new java.awt.Color(255, 255, 255));
+        BtnExibiranamneses.setText("Exibir Todas as Anamneses");
+        BtnExibiranamneses.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnExibiranamneses.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnExibiranamnesesActionPerformed(evt);
@@ -197,11 +197,11 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
             }
         });
 
+        BtnSair.setText("Sair");
         BtnSair.setBackground(new java.awt.Color(102, 102, 102));
+        BtnSair.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnSair.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnSair.setForeground(new java.awt.Color(255, 255, 255));
-        BtnSair.setText("Sair");
-        BtnSair.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnSairActionPerformed(evt);
@@ -243,18 +243,23 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
 
         jEImagePanel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/spring-floral-watercolor-background-vector-green-with-leaf-illustration_53876-126350.jpg"))); // NOI18N
 
-        jLabel1.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel1.setText("Exibindo as Consultas do dia");
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
 
-        jLabel2.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         jLabel2.setText("jLabel2");
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel3.setText("Selecionar dia");
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
 
         btnOk.setBackground(new java.awt.Color(204, 204, 204));
         btnOk.setText("OK");
+        btnOk.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOkActionPerformed(evt);
+            }
+        });
 
         DataChooser.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
@@ -425,6 +430,17 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
     private void BtnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnInicioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnInicioActionPerformed
+
+    private void btnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOkActionPerformed
+   if(DataChooser.getDate() != null){
+            Date date = DataChooser.getDate();
+            LocalDate localDate = date.toInstant().atZone( ZoneId.systemDefault() ).toLocalDate();
+           
+            ReadJTable(localDate);
+              DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            jLabel2.setText(dtf.format(localDate));
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_btnOkActionPerformed
 
     /**
      * @param args the command line arguments
