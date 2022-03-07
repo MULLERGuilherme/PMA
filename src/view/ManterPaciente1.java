@@ -33,6 +33,8 @@ import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
 import javax.swing.table.TableRowSorter;
+import javax.swing.text.DefaultFormatterFactory;
+import javax.swing.text.MaskFormatter;
 import model.bean.Paciente;
 import model.bean.Telefone;
 import model.bean.Vw_TelefonesPacientes;
@@ -99,7 +101,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         Sexo = new javax.swing.JComboBox<>();
         LabelEstadoCivil = new javax.swing.JLabel();
-        estadocivil = new javax.swing.JComboBox<String>();
+        estadocivil = new javax.swing.JComboBox<>();
         txtEmail = new javax.swing.JTextField();
         LabelEmail = new javax.swing.JLabel();
         txtNome = new javax.swing.JTextField();
@@ -141,7 +143,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         jLabel40 = new javax.swing.JLabel();
         Sexo2 = new javax.swing.JComboBox<>();
         LabelEstadoCivil1 = new javax.swing.JLabel();
-        estadocivil2 = new javax.swing.JComboBox<String>();
+        estadocivil2 = new javax.swing.JComboBox<>();
         txtEmail13 = new javax.swing.JTextField();
         LabelEmail2 = new javax.swing.JLabel();
         txtNome2 = new javax.swing.JTextField();
@@ -168,10 +170,9 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         txtEmail1 = new javax.swing.JTextField();
         LabelCPF2 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
-        txtCPF1 = new javax.swing.JTextField();
         LabelEstadoCivil2 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
-        estadocivil1 = new javax.swing.JComboBox<String>();
+        estadocivil1 = new javax.swing.JComboBox<>();
         jLabel26 = new javax.swing.JLabel();
         Sexo1 = new javax.swing.JComboBox<>();
         jEImagePanel6 = new LIB.JEImagePanel();
@@ -197,6 +198,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
         PainelIdentificacaoPessoal2 = new javax.swing.JPanel();
+        txtCPF1 = new javax.swing.JFormattedTextField();
         jPanel1 = new JPanel();
         PainelMenu = new javax.swing.JPanel();
         BtnVoltar = new javax.swing.JButton();
@@ -208,7 +210,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         BtnSair = new javax.swing.JButton();
         jEImagePanel1 = new LIB.JEImagePanel();
         jLabel6 = new javax.swing.JLabel();
-        JCBAtributo = new javax.swing.JComboBox<String>();
+        JCBAtributo = new javax.swing.JComboBox<>();
         jLabel15 = new javax.swing.JLabel();
         txtBusca = new javax.swing.JTextField();
         BtnBuscar = new javax.swing.JButton();
@@ -976,25 +978,25 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             }
         });
 
-        LabelNome1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         LabelNome1.setText("Nome:");
+        LabelNome1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         PainelIdentificacaoPessoal1.setBackground(new java.awt.Color(59, 131, 117));
 
+        BtnSalvarAlteracoesNovo1.setText("Salvar Alterações");
         BtnSalvarAlteracoesNovo1.setBackground(new java.awt.Color(0, 112, 186));
         BtnSalvarAlteracoesNovo1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnSalvarAlteracoesNovo1.setForeground(new java.awt.Color(255, 255, 255));
-        BtnSalvarAlteracoesNovo1.setText("Salvar Alterações");
         BtnSalvarAlteracoesNovo1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnSalvarAlteracoesNovo1ActionPerformed(evt);
             }
         });
 
+        BtnCancelar1.setText("Cancelar");
         BtnCancelar1.setBackground(new java.awt.Color(255, 153, 153));
         BtnCancelar1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnCancelar1.setForeground(new java.awt.Color(255, 255, 255));
-        BtnCancelar1.setText("Cancelar");
         BtnCancelar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnCancelar1ActionPerformed(evt);
@@ -1022,52 +1024,50 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jLabel21.setText("*");
         jLabel21.setBackground(new java.awt.Color(255, 0, 0));
         jLabel21.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel21.setText("*");
 
-        LabelEmail1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         LabelEmail1.setText("E-mail:");
+        LabelEmail1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
+        jLabel22.setText("*");
         jLabel22.setBackground(new java.awt.Color(255, 0, 0));
         jLabel22.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel22.setText("*");
 
         txtEmail1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        LabelCPF2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         LabelCPF2.setText("CPF:");
+        LabelCPF2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
+        jLabel23.setText("*");
         jLabel23.setBackground(new java.awt.Color(255, 0, 0));
         jLabel23.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel23.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel23.setText("*");
 
-        txtCPF1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-
-        LabelEstadoCivil2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         LabelEstadoCivil2.setText("Estado Civil:");
+        LabelEstadoCivil2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
+        jLabel24.setText("*");
         jLabel24.setBackground(new java.awt.Color(255, 0, 0));
         jLabel24.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel24.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel24.setText("*");
 
-        estadocivil1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         estadocivil1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"Casado","Divorciado","Separado","Solteiro" ,"Viuvo" }));
+        estadocivil1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         estadocivil1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 estadocivil1ActionPerformed(evt);
             }
         });
 
-        jLabel26.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel26.setText("Sexo:");
+        jLabel26.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        Sexo1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         Sexo1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"Feminino", "Masculino", "Não Definido"}));
+        Sexo1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         Sexo1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Sexo1ActionPerformed(evt);
@@ -1087,43 +1087,43 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             .addGap(0, 150, Short.MAX_VALUE)
         );
 
-        jLabel29.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel29.setText("Data de Nascimento: ");
+        jLabel29.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
+        jLabel30.setText("*");
         jLabel30.setBackground(new java.awt.Color(255, 0, 0));
         jLabel30.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel30.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel30.setText("*");
 
         DataNasc2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         DataNasc2.setPreferredSize(new java.awt.Dimension(160, 17));
 
-        LabelCidade4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         LabelCidade4.setText("Cidade:");
+        LabelCidade4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         TxtCidade1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        jLabel31.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel31.setText("Endereço:");
+        jLabel31.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         TxtEndereco1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
+        jLabel32.setText("Cadastrar Paciente");
         jLabel32.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         jLabel32.setForeground(new java.awt.Color(59, 131, 117));
-        jLabel32.setText("Cadastrar Paciente");
 
-        LabelProfissao1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         LabelProfissao1.setText("Profissão:");
+        LabelProfissao1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         TxtProfissao1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        LabelReligiao1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         LabelReligiao1.setText("Religião:");
+        LabelReligiao1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         TxtReligiao1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        LabelEscolaridade1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         LabelEscolaridade1.setText("Escolaridade:");
+        LabelEscolaridade1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         TxtEscolaridade1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         TxtEscolaridade1.addActionListener(new java.awt.event.ActionListener() {
@@ -1132,13 +1132,13 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             }
         });
 
-        LabelCidade5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         LabelCidade5.setText("Telefone1:");
+        LabelCidade5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
+        jLabel33.setText("*");
         jLabel33.setBackground(new java.awt.Color(255, 0, 0));
         jLabel33.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel33.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel33.setText("*");
 
         TxtTelefone1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         TxtTelefone1.addActionListener(new java.awt.event.ActionListener() {
@@ -1147,18 +1147,18 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             }
         });
 
-        LabelCidade6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         LabelCidade6.setText("Telefone2:");
+        LabelCidade6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         TxtTelefone5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel2.setText("Campos Obrigatórios");
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
+        jLabel34.setText("*");
         jLabel34.setBackground(new java.awt.Color(255, 0, 0));
         jLabel34.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel34.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel34.setText("*");
 
         PainelIdentificacaoPessoal2.setBackground(new java.awt.Color(59, 131, 117));
 
@@ -1172,6 +1172,12 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             PainelIdentificacaoPessoal2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 50, Short.MAX_VALUE)
         );
+
+        try {
+            txtCPF1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -1256,7 +1262,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addComponent(TxtReligiao1, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addComponent(TxtTelefone5, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
-                        .addGap(0, 41, Short.MAX_VALUE)))
+                        .addGap(0, 46, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(PainelIdentificacaoPessoal2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -1266,7 +1272,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap(21, Short.MAX_VALUE)
                         .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(81, 81, 81))
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -1283,7 +1289,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                     .addComponent(txtEmail1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(LabelCPF2)
                     .addComponent(jLabel23)
-                    .addComponent(txtCPF1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCPF1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LabelEstadoCivil2)
@@ -1758,7 +1764,15 @@ public class ManterPaciente1 extends javax.swing.JFrame {
 //        ModalNovo.setModal(true);
 //        ModalNovo.setLocationRelativeTo(null);
 //        ModalNovo.setVisible(true);
-        
+//        MaskFormatter formatter = new MaskFormatter();
+//        try {
+//            formatter = new MaskFormatter("###.###.###-##");
+//            formatter.setPlaceholderCharacter('_');
+//        } catch (ParseException ex) {
+//            Logger.getLogger(ManterPaciente1.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        
+//        txtCPF1.setFormatterFactory(new DefaultFormatterFactory(formatter));
         ModalNovoResolucaoMenor.setSize(851, 660);
         DataNasc2.setFont(new Font("Tahoma", Font.BOLD, 18));
         ModalNovoResolucaoMenor.setModal(true);
@@ -1903,6 +1917,23 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         TxtCidade.setText(null);
         TxtTelefone.setText(null);
         TxtTelefone2.setText(null);
+    }
+    
+    public void clearNovoR() {
+        //limpar a tela
+        txtNome1.setText(null);
+        txtEmail1.setText(null);
+        txtCPF1.setText(null);
+        estadocivil1.setSelectedIndex(0);
+        DataNasc2.clear();
+        Sexo1.setSelectedIndex(0);
+        TxtProfissao1.setText(null);
+        TxtReligiao1.setText(null);
+        TxtEscolaridade1.setText(null);
+        TxtEndereco1.setText(null);
+        TxtCidade1.setText(null);
+        TxtTelefone1.setText(null);
+        TxtTelefone5.setText(null);
     }
 
     private void BtnSalvarAlteracoesNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalvarAlteracoesNovoActionPerformed
@@ -2175,8 +2206,13 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         Telefone tf2 = new Telefone();
         TelefoneDAO tfdao = new TelefoneDAO();
         String msg = "Existem campos com formatos Inválidos\n\nFavor Verificar os campos:";
-
-        if (!Validar.vCamposVazios(this, txtNome1, txtEmail1, txtCPF1, DataNasc2, TxtTelefone1)) {
+        //System.out.println((String) txtCPF1.getValue());
+        String cpf = null;
+        if((String) txtCPF1.getValue() != null){
+            cpf = (String) txtCPF1.getValue();
+            cpf = cpf.replace(".","").replace("-","");
+        }
+        if (!Validar.vCamposVazios(this, txtNome1, txtEmail1, cpf, DataNasc2, TxtTelefone1)) {
             if (Validar.vNome(txtNome1.getText())) {
                 p.setNome_Completo(txtNome1.getText());
             } else {
@@ -2191,8 +2227,8 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                 msg += "\nEmail Invalido: " + txtEmail1.getText();
             }
 
-            if (Validar.vCPF(txtCPF1.getText())) {
-                p.setCPF(txtCPF1.getText());
+            if (Validar.vCPF(cpf)) {
+                p.setCPF(cpf);
             } else {
                 dadosvalidos = false;
                 msg += "\nCPF Invalido: " + txtCPF1.getText();
@@ -2239,7 +2275,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                             tfdao.CreatePc(tf2);
                         }
                         JOptionPane.showMessageDialog(ModalNovoResolucaoMenor, "Paciente " + p.getNome_Completo() + " Salvo com sucesso");
-                        this.clear();
+                        this.clearNovoR();
                          ModalNovoResolucaoMenor.dispose();
                     } else {
                         dao.Delete(p);
@@ -2436,7 +2472,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTextField txtBusca;
     private javax.swing.JTextField txtCPF;
-    private javax.swing.JTextField txtCPF1;
+    private javax.swing.JFormattedTextField txtCPF1;
     private javax.swing.JTextField txtCPF2;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtEmail1;

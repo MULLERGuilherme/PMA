@@ -381,7 +381,7 @@ public class Validar {
             msg += "\nEmail";
             vazio = true;
         }
-            if(CPF.isEmpty()){
+            if(CPF == null){
                msg+= "\nCPF";
                 vazio = true;
             }

@@ -1533,8 +1533,11 @@ public class ManterPacienteAdm extends javax.swing.JFrame {
         Telefone tf2 = new Telefone();
         TelefoneDAO tfdao = new TelefoneDAO();
         String msg = "Existem campos com formatos Inválidos\n\nFavor Verificar os campos:";
-        String cpf = (String) txtCPF2.getValue();
-        cpf = cpf.replace(".","").replace("-","");
+         String cpf = null;
+        if((String) txtCPF2.getValue() != null){
+            cpf = (String) txtCPF2.getValue();
+            cpf = cpf.replace(".","").replace("-","");
+        }
         if (!Validar.vCamposVazios(this, txtNome2, txtEmail13, cpf, DataNasc3, TxtTelefone3)) {
             p.setCodPaciente(codigopaciente);
             if (Validar.vNome(txtNome2.getText())) {
