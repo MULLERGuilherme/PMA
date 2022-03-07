@@ -893,7 +893,7 @@ public class ExibirAnamnesesAdm extends javax.swing.JFrame {
             ModalAnamnese2.setLocationRelativeTo(null);
             ModalAnamnese2.setVisible(true);
         } else {
-            JOptionPane.showMessageDialog(this, "Selecione uma anamnese para alterar");
+            JOptionPane.showMessageDialog(this, "Selecione uma Anamnese para alterar" ,"ERRO!", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnalterarActionPerformed
 
@@ -908,13 +908,13 @@ public class ExibirAnamnesesAdm extends javax.swing.JFrame {
             a.setCodAnamnese(value);
             boolean sucesso = adao.Delete(a);
 
-            if (sucesso) {
-                JOptionPane.showMessageDialog(this, "Anamnese Apagada com Sucesso");
+            if (!sucesso) {
+                JOptionPane.showMessageDialog(this, "Ocorreu um erro ao excluir a Anamnese, tente novamente mais tarde!" ,"ERRO!", JOptionPane.ERROR_MESSAGE);
 
             }
 
         } else {
-            JOptionPane.showMessageDialog(this, "Selecione uma anamnese para excluir");
+             JOptionPane.showMessageDialog(this, "Selecione uma Anamnese para excluir" ,"ERRO!", JOptionPane.ERROR_MESSAGE);
         }
         ReadJTable();
     }//GEN-LAST:event_btnExcluirActionPerformed

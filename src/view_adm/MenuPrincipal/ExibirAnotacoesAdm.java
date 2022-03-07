@@ -107,9 +107,7 @@ public class ExibirAnotacoesAdm extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) JTAnotacoes.getModel();
         model.setNumRows(0);
         ADMDAO vwdao = new ADMDAO();
-        if (Atributo.equals("Nome do Paciente")) {
-            Atributo = "Paciente";
-        }
+    
         if (Atributo.equals("Data da Anotação")) {
             Atributo = "DataAnotacao";
         }
@@ -207,33 +205,33 @@ public class ExibirAnotacoesAdm extends javax.swing.JFrame {
             .addGap(0, 50, Short.MAX_VALUE)
         );
 
+        jLabel7.setText("Anotações da Consulta");
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(59, 131, 117));
-        jLabel7.setText("Anotações da Consulta");
 
-        LabelNomePaciente.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         LabelNomePaciente.setText("Nome do Paciente :");
+        LabelNomePaciente.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        LabelNome5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         LabelNome5.setText(" Variável Nome do Paciente");
+        LabelNome5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        LabelAssunto.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         LabelAssunto.setText("Assunto:");
+        LabelAssunto.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         txtAssunto.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        LabelAssunto1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         LabelAssunto1.setText("Texto:");
+        LabelAssunto1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         txtTexto.setColumns(20);
         txtTexto.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         txtTexto.setRows(5);
         jScrollPane2.setViewportView(txtTexto);
 
+        BtnCancelarAnotacao.setText("Cancelar");
         BtnCancelarAnotacao.setBackground(new java.awt.Color(255, 153, 153));
         BtnCancelarAnotacao.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnCancelarAnotacao.setForeground(new java.awt.Color(255, 255, 255));
-        BtnCancelarAnotacao.setText("Cancelar");
         BtnCancelarAnotacao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnCancelarAnotacaoActionPerformed(evt);
@@ -331,10 +329,10 @@ public class ExibirAnotacoesAdm extends javax.swing.JFrame {
         PainelMenu.setBackground(new java.awt.Color(102, 102, 102));
         PainelMenu.setForeground(new java.awt.Color(102, 102, 102));
 
+        BtnVoltar.setText("Início");
         BtnVoltar.setBackground(new java.awt.Color(102, 102, 102));
         BtnVoltar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnVoltar.setForeground(new java.awt.Color(255, 255, 255));
-        BtnVoltar.setText("Início");
         BtnVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnVoltarActionPerformed(evt);
@@ -397,11 +395,11 @@ public class ExibirAnotacoesAdm extends javax.swing.JFrame {
             }
         });
 
+        BtnSair.setText("Sair");
         BtnSair.setBackground(new java.awt.Color(102, 102, 102));
+        BtnSair.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnSair.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnSair.setForeground(new java.awt.Color(255, 255, 255));
-        BtnSair.setText("Sair");
-        BtnSair.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnSairActionPerformed(evt);
@@ -459,7 +457,7 @@ public class ExibirAnotacoesAdm extends javax.swing.JFrame {
 
         jLabel2.setText("Buscar Anotação Por");
 
-        JCBAtributo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"Nome do Paciente", "Assunto", "Data da Anotação" }));
+        JCBAtributo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"Paciente","Psicologo", "Assunto", "Data da Anotação" }));
 
         btnBuscar.setText("Buscar");
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -608,7 +606,7 @@ public class ExibirAnotacoesAdm extends javax.swing.JFrame {
             ModalAnotacao.setLocationRelativeTo(null);
             ModalAnotacao.setVisible(true);
         } else {
-            JOptionPane.showMessageDialog(this, "Selecione uma anotacao para alterar");
+             JOptionPane.showMessageDialog(this, "Selecione uma Anotação para alterar" ,"ERRO!", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_BtnAlterarAnotacaoActionPerformed
 
@@ -621,15 +619,20 @@ public class ExibirAnotacoesAdm extends javax.swing.JFrame {
             int modelRow = JTAnotacoes.convertRowIndexToModel(JTAnotacoes.getSelectedRow());
             int value = (Integer) JTAnotacoes.getModel().getValueAt(modelRow, 0);
             a.setCodAnotacao(value);
-            dao.Delete(a);
+            boolean sucesso = dao.Delete(a);
             //limpar a tela
+              if (!sucesso) {
+                JOptionPane.showMessageDialog(this, "Ocorreu um erro ao excluir a Anotação, tente novamente mais tarde!" ,"ERRO!", JOptionPane.ERROR_MESSAGE);
+
+            }
 
             //mostrar mensagem de sucesso
             // JOptionPane.showMessageDialog(null,"Paciente Cadastrado com Sucesso!");
             ReadJTable();
 
         } else {
-            JOptionPane.showMessageDialog(null, "Selecione um paciente para excluir");
+            JOptionPane.showMessageDialog(this, "Selecione uma Anotação para excluir" ,"ERRO!", JOptionPane.ERROR_MESSAGE);
+            
         }
     }//GEN-LAST:event_BtnExcluirAnotacaoActionPerformed
 
@@ -653,8 +656,8 @@ public class ExibirAnotacoesAdm extends javax.swing.JFrame {
 
             a.setCodAnotacao(codigoanotacao);
             boolean sucesso = dao.Update(a);
-            if (sucesso) {
-                JOptionPane.showMessageDialog(null, "Anotação Atualizada  com Sucesso!");
+            if (!sucesso) {
+                JOptionPane.showMessageDialog(this, "Erro ao Alterar a Anotação","ERRO!", JOptionPane.ERROR_MESSAGE);
             }
         }
         ReadJTable();

@@ -231,7 +231,7 @@ public class ADMDAO {
         ResultSet rs = null;
         List<Vw_Anotacoes_Paciente> vw = new ArrayList<>();
         try {
-            String sql = "SELECT CodigoPaciente, Paciente, Assunto, DataAnotacao, CodAnotacao, texto FROM vw_Anotacoes_Paciente WHERE " + Atributo + " Like '%" + Busca + "%'  Group By CodigoPaciente;";
+            String sql = "SELECT CodigoPaciente,CodigoPsicologo, Psicologo, Paciente, Assunto, DataAnotacao, CodAnotacao, texto FROM vw_Anotacoes_Paciente WHERE " + Atributo + " Like '%" + Busca + "%'  Group By CodigoPaciente;";
             stmt = con.prepareStatement(sql);
 
             rs = stmt.executeQuery();
