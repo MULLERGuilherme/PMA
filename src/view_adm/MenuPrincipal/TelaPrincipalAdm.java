@@ -75,6 +75,7 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
             model.addRow(new Object[]{
                c.getCodConsulta(),
                c.getPaciente().getNome_Completo(),
+               c.getPsicologo().getNome_completo(),
                Validar.ftime((Timestamp) c.getDataConsulta()),
                c.getStatus(),
             });

@@ -35,6 +35,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
 import javax.swing.table.TableRowSorter;
 import model.bean.Paciente;
+import model.bean.Psicologo;
 import model.bean.Telefone;
 import model.bean.Vw_TelefonesPacientes;
 import model.bean.Vw_TelefonesPsicologos;
@@ -176,6 +177,7 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         JTPsicologos = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
+        BtnExcluirPsicologo = new javax.swing.JButton();
 
         ModalNovo.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         ModalNovo.getContentPane().setLayout(new java.awt.GridLayout(1, 0));
@@ -1098,6 +1100,13 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
             }
         });
 
+        BtnExcluirPsicologo.setText("Excluir");
+        BtnExcluirPsicologo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnExcluirPsicologoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jEImagePanel1Layout = new javax.swing.GroupLayout(jEImagePanel1);
         jEImagePanel1.setLayout(jEImagePanel1Layout);
         jEImagePanel1Layout.setHorizontalGroup(
@@ -1112,14 +1121,14 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BtnBuscar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(BtnBuscar))
                     .addGroup(jEImagePanel1Layout.createSequentialGroup()
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 866, Short.MAX_VALUE)
                         .addGap(63, 63, 63)
                         .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(BtnVisuAlterarDados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(BtnExcluirPsicologo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(349, Short.MAX_VALUE))
         );
         jEImagePanel1Layout.setVerticalGroup(
@@ -1136,7 +1145,9 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
                     .addGroup(jEImagePanel1Layout.createSequentialGroup()
                         .addComponent(jButton1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(BtnVisuAlterarDados))
+                        .addComponent(BtnVisuAlterarDados)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(BtnExcluirPsicologo))
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 488, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(395, Short.MAX_VALUE))
         );
@@ -1291,7 +1302,7 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
 //            ModalAlterar.setVisible(true);
 //
         } else {
-            JOptionPane.showMessageDialog(this, "Selecione um Psicologo para alterar" ,"ERRO!", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Selecione um Psicologo para alterar", "ERRO!", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_BtnVisuAlterarDadosActionPerformed
 
@@ -1611,9 +1622,36 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void BtnExcluirPsicologoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExcluirPsicologoActionPerformed
+        if (JTPsicologos.getSelectedRow() != -1) {
+            int modelRow = JTPsicologos.convertRowIndexToModel(JTPsicologos.getSelectedRow());
+            int value = (Integer) JTPsicologos.getModel().getValueAt(modelRow, 0); 
+            
+            Psicologo p = new Psicologo();
+
+            p.setCodPsicologo(value);
+            boolean status = Deletar.DPsicologo(p);
+            //limpar a tela
+            if (!status) {
+                JOptionPane.showMessageDialog(this, "Houve um problema ao Excluir o Psicologo, tente novamente!", "ERRO!", JOptionPane.ERROR_MESSAGE);
+
+               
+            }
+            this.clear();
+            //mostrar mensagem de sucesso
+            // JOptionPane.showMessageDialog(null,"Paciente Cadastrado com Sucesso!");
+            ReadJTable();
+
+        } else {
+            JOptionPane.showMessageDialog(this, "Selecione um Psicologo para alterar", "ERRO!", JOptionPane.ERROR_MESSAGE);
+
+        }
+
+    }//GEN-LAST:event_BtnExcluirPsicologoActionPerformed
+
     /**
-     * @param args the command line arguments
-     */
+         * @param args the command line arguments
+         */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -1657,6 +1695,7 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
     private javax.swing.JButton BtnBuscar;
     private javax.swing.JButton BtnCancelar;
     private javax.swing.JButton BtnCancelar4;
+    private javax.swing.JButton BtnExcluirPsicologo;
     private javax.swing.JButton BtnExibirAnotacao;
     private javax.swing.JButton BtnExibiranamneses;
     private javax.swing.JButton BtnManterConsulta;

@@ -175,6 +175,7 @@ public class ManterPacienteAdm extends javax.swing.JFrame {
         BtnVisuAlterarDados = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
         JTPacientes = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
 
         ModalNovo.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         ModalNovo.getContentPane().setLayout(new java.awt.GridLayout(1, 0));
@@ -1107,6 +1108,13 @@ public class ManterPacienteAdm extends javax.swing.JFrame {
         });
         jScrollPane4.setViewportView(JTPacientes);
 
+        jButton1.setText("Excluir");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jEImagePanel1Layout = new javax.swing.GroupLayout(jEImagePanel1);
         jEImagePanel1.setLayout(jEImagePanel1Layout);
         jEImagePanel1Layout.setHorizontalGroup(
@@ -1121,12 +1129,13 @@ public class ManterPacienteAdm extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BtnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(BtnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jEImagePanel1Layout.createSequentialGroup()
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 866, Short.MAX_VALUE)
                         .addGap(62, 62, 62)
-                        .addComponent(BtnVisuAlterarDados)))
+                        .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(BtnVisuAlterarDados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(349, Short.MAX_VALUE))
         );
         jEImagePanel1Layout.setVerticalGroup(
@@ -1146,7 +1155,9 @@ public class ManterPacienteAdm extends javax.swing.JFrame {
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 488, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jEImagePanel1Layout.createSequentialGroup()
                         .addGap(60, 60, 60)
-                        .addComponent(BtnVisuAlterarDados)))
+                        .addComponent(BtnVisuAlterarDados)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton1)))
                 .addContainerGap(400, Short.MAX_VALUE))
         );
 
@@ -1335,7 +1346,7 @@ public class ManterPacienteAdm extends javax.swing.JFrame {
                 }
                 ReadJTable();
             } else {
-                JOptionPane.showMessageDialog(this, msg,"ERRO!", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, msg, "ERRO!", JOptionPane.ERROR_MESSAGE);
             }
         }
         //ModalNovo.dispose();
@@ -1369,9 +1380,9 @@ public class ManterPacienteAdm extends javax.swing.JFrame {
         TelefoneDAO tfdao = new TelefoneDAO();
         String msg = "Existem campos com formatos Inválidos\n\nFavor Verificar os campos:";
         String cpf = null;
-        if((String) txtCPF2.getValue() != null){
+        if ((String) txtCPF2.getValue() != null) {
             cpf = (String) txtCPF2.getValue();
-            cpf = cpf.replace(".","").replace("-","");
+            cpf = cpf.replace(".", "").replace("-", "");
         }
         if (!Validar.vCamposVazios(this, txtNome2, txtEmail13, cpf, DataNasc3, TxtTelefone3)) {
             p.setCodPaciente(codigopaciente);
@@ -1442,7 +1453,7 @@ public class ManterPacienteAdm extends javax.swing.JFrame {
                             tf2.setPaciente(p);
                             tf2.setNumero(TxtTelefone4.getText());
                             tfdao.CreatePc(tf2);
-                         
+
                         }
                         //JOptionPane.showMessageDialog(this, "Paciente " + p.getNome_Completo() + " Atualizado com sucesso");
                         //this.clear();
@@ -1458,7 +1469,7 @@ public class ManterPacienteAdm extends javax.swing.JFrame {
                 // JOptionPane.showMessageDialog(null,"Paciente Cadastrado com Sucesso!");
                 ReadJTable();
             } else {
-                JOptionPane.showMessageDialog(this, msg,"ERRO!", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, msg, "ERRO!", JOptionPane.ERROR_MESSAGE);
             }
         }
         //ModalAlterar.dispose();
@@ -1512,14 +1523,14 @@ public class ManterPacienteAdm extends javax.swing.JFrame {
 
     private void BtnManterConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnManterConsultaActionPerformed
         // TODO add your handling code here:
-         ManterConsultasAdm mc = new ManterConsultasAdm();
+        ManterConsultasAdm mc = new ManterConsultasAdm();
         Util.SizeJanela(mc);
         this.dispose();
     }//GEN-LAST:event_BtnManterConsultaActionPerformed
 
     private void BtnManterPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnManterPacienteActionPerformed
         // TODO add your handling code here:
-     
+
     }//GEN-LAST:event_BtnManterPacienteActionPerformed
 
     private void BtnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVoltarActionPerformed
@@ -1603,7 +1614,7 @@ public class ManterPacienteAdm extends javax.swing.JFrame {
             ModalAlterar.setVisible(true);
 
         } else {
-             JOptionPane.showMessageDialog(this, "Selecione um Paciente para Alterar", "ERRO!", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Selecione um Paciente para Alterar", "ERRO!", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_BtnVisuAlterarDadosActionPerformed
 
@@ -1612,6 +1623,34 @@ public class ManterPacienteAdm extends javax.swing.JFrame {
         //System.out.println(JCBAtributo.getSelectedIndex());
         this.ReadJTableBusca((String) JCBAtributo.getSelectedItem(), txtBusca.getText());
     }//GEN-LAST:event_BtnBuscarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        if (JTPacientes.getSelectedRow() != -1) {
+            int modelRow = JTPacientes.convertRowIndexToModel(JTPacientes.getSelectedRow());
+            int value = (Integer) JTPacientes.getModel().getValueAt(modelRow, 0);
+            this.codigopaciente = value;
+
+            Paciente p = new Paciente();
+
+            p.setCodPaciente(value);
+            boolean status = Deletar.DPaciente(p);
+            //limpar a tela
+            if (!status) {
+                JOptionPane.showMessageDialog(this, "Houve um problema ao Excluir o Paciente, tente novamente!", "ERRO!", JOptionPane.ERROR_MESSAGE);
+
+                
+            }
+            this.clear();
+            //mostrar mensagem de sucesso
+            // JOptionPane.showMessageDialog(null,"Paciente Cadastrado com Sucesso!");
+            ReadJTable();
+
+        } else {
+            JOptionPane.showMessageDialog(this, "Selecione um Paciente para alterar", "ERRO!", JOptionPane.ERROR_MESSAGE);
+
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1727,6 +1766,7 @@ public class ManterPacienteAdm extends javax.swing.JFrame {
     private javax.swing.JTextField TxtTelefone4;
     private javax.swing.JComboBox<String> estadocivil;
     private javax.swing.JComboBox<String> estadocivil2;
+    private javax.swing.JButton jButton1;
     private LIB.JEImagePanel jEImagePanel1;
     private LIB.JEImagePanel jEImagePanel4;
     private LIB.JEImagePanel jEImagePanel5;
