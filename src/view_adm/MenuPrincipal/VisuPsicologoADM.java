@@ -549,9 +549,9 @@ public class VisuPsicologoADM extends javax.swing.JFrame {
 
     private void BtnManterConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnManterConsultaActionPerformed
         // TODO add your handling code here:
-//        ManterConsulta1 mc = new ManterConsulta1();
-//        Util.SizeJanela(mc);
-//        this.dispose();
+        ManterConsultasAdm mc = new ManterConsultasAdm();
+        Util.SizeJanela(mc);
+        this.dispose();
     }//GEN-LAST:event_BtnManterConsultaActionPerformed
 
     private void BtnExibirAnotacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExibirAnotacaoActionPerformed

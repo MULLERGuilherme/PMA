@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package view_adm.MenuPrincipal;
+
 import view.*;
 import Validacoes.Deletar;
 import Validacoes.Validar;
@@ -61,15 +62,16 @@ import model.dao.ADMDAO;
 import model.dao.AnotacaoDAO;
 import model.dao.ConsultaDAO;
 import model.dao.ViewsDAO;
+
 /**
  *
  * @author guimu
  */
 public class ExibirAnotacoesAdm extends javax.swing.JFrame {
 
-     public static int codigoanotacao;
+    public static int codigoanotacao;
     public boolean existe;
-    
+
     public ExibirAnotacoesAdm() {
         initComponents();
         DefaultTableModel dtmPacientes = (DefaultTableModel) JTAnotacoes.getModel();
@@ -78,7 +80,8 @@ public class ExibirAnotacoesAdm extends javax.swing.JFrame {
         JTAnotacoes.setRowSorter(new TableRowSorter(dtmPacientes));
         ReadJTable();
     }
- public void ReadJTable() {
+
+    public void ReadJTable() {
         DefaultTableModel model = (DefaultTableModel) JTAnotacoes.getModel();
         model.setNumRows(0);
         ADMDAO vwdao = new ADMDAO();
@@ -93,12 +96,13 @@ public class ExibirAnotacoesAdm extends javax.swing.JFrame {
                 v.getPaciente().getNome_Completo(),
                 v.getPsicologo().getNome_completo(),
                 v.getAnotacao().getAssunto(),
-                Validar.fDatetime((Timestamp)  v.getAnotacao().getDataAnotacao())
+                Validar.fDatetime((Timestamp) v.getAnotacao().getDataAnotacao())
 
             });
         }
     }
- public void ReadJTableBusca(String Atributo, String Busca) {
+
+    public void ReadJTableBusca(String Atributo, String Busca) {
 
         DefaultTableModel model = (DefaultTableModel) JTAnotacoes.getModel();
         model.setNumRows(0);
@@ -115,14 +119,15 @@ public class ExibirAnotacoesAdm extends javax.swing.JFrame {
             model.addRow(new Object[]{
                 v.getAnotacao().getCodAnotacao(),
                 v.getPaciente().getNome_Completo(),
-                 v.getPsicologo().getNome_completo(),
+                v.getPsicologo().getNome_completo(),
                 v.getAnotacao().getAssunto(),
-                Validar.fDatetime((Timestamp)  v.getAnotacao().getDataAnotacao())
+                Validar.fDatetime((Timestamp) v.getAnotacao().getDataAnotacao())
 
             });
         }
     }
- public boolean readcampos(int cod) {
+
+    public boolean readcampos(int cod) {
         Anotacao a = new Anotacao();
         AnotacaoDAO dao = new AnotacaoDAO();
         a = dao.ReadAnotacao(cod);
@@ -134,6 +139,7 @@ public class ExibirAnotacoesAdm extends javax.swing.JFrame {
         }
         return false;
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -539,16 +545,16 @@ public class ExibirAnotacoesAdm extends javax.swing.JFrame {
 
     private void BtnManterConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnManterConsultaActionPerformed
         // TODO add your handling code here:
-//        CadastrarConsulta2 mc = new CadastrarConsulta2();
-//        Util.SizeJanela(mc);
-//        this.dispose();
+        ManterConsultasAdm mc = new ManterConsultasAdm();
+        Util.SizeJanela(mc);
+        this.dispose();
     }//GEN-LAST:event_BtnManterConsultaActionPerformed
 
     private void BtnManterPsicologoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnManterPsicologoActionPerformed
         // TODO add your handling code here:
         ManterPsicologoAdm mp = new ManterPsicologoAdm();
         Util.SizeJanela(mp);
-    
+
         this.dispose();
     }//GEN-LAST:event_BtnManterPsicologoActionPerformed
 
@@ -576,16 +582,16 @@ public class ExibirAnotacoesAdm extends javax.swing.JFrame {
     private void BtnAlterarAnotacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAlterarAnotacaoActionPerformed
         // TODO add your handling code here:
         //      if (JTAnotacoes.getSelectedRow() != -1) {
-            //             int modelRow = JTAnotacoes.convertRowIndexToModel(JTAnotacoes.getSelectedRow());
-            //            int value = (Integer)JTAnotacoes.getModel().getValueAt(modelRow,0);
-            //            AlterarAnotacaoPacienteMenu.codanotacao = value;
-            //            AlterarAnotacaoPacienteMenu cp = new AlterarAnotacaoPacienteMenu();
-            //            cp.setVisible(true);
-            //            this.dispose();
-            //
-            //        } else {
-            //            JOptionPane.showMessageDialog(this, "Selecione uma anotacao para alterar");
-            //        }
+        //             int modelRow = JTAnotacoes.convertRowIndexToModel(JTAnotacoes.getSelectedRow());
+        //            int value = (Integer)JTAnotacoes.getModel().getValueAt(modelRow,0);
+        //            AlterarAnotacaoPacienteMenu.codanotacao = value;
+        //            AlterarAnotacaoPacienteMenu cp = new AlterarAnotacaoPacienteMenu();
+        //            cp.setVisible(true);
+        //            this.dispose();
+        //
+        //        } else {
+        //            JOptionPane.showMessageDialog(this, "Selecione uma anotacao para alterar");
+        //        }
         if (JTAnotacoes.getSelectedRow() != -1) {
             Anotacao a = new Anotacao();
             AnotacaoDAO dao = new AnotacaoDAO();

@@ -4,82 +4,66 @@
  * and open the template in the editor.
  */
 package view_adm.MenuPrincipal;
+
 import view.*;
 import Validacoes.Deletar;
 import Validacoes.Validar;
+import connection.ConnectionFactory;
 import java.awt.Color;
-import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.Toolkit;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
-import java.util.concurrent.TimeUnit;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JDialog;
+import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
 import javax.swing.table.TableRowSorter;
-import model.bean.Consulta;
 import model.bean.Paciente;
+import model.bean.Telefone;
 import model.bean.Vw_Consultas;
-import model.dao.ADMDAO;
-import model.dao.ConsultaDAO;
+import model.bean.Vw_TelefonesPacientes;
 import model.dao.PacienteDAO;
+import model.dao.TelefoneDAO;
 import model.dao.ViewsDAO;
 import util.Util;
-import static view.ExibirConsultasPaciente.codpaciente;
-public class TelaPrincipalAdm extends javax.swing.JFrame {
 
-    /**
-     * Creates new form TelaPrincipal4
-     */
-    public TelaPrincipalAdm() {
+/**
+ *
+ * @author guimu
+ */
+public class ManterConsultasAdm extends javax.swing.JFrame {
+
+
+
+    public ManterConsultasAdm() {
         initComponents();
-        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-       
-        DefaultTableModel dtmPacientes = (DefaultTableModel) JTConsultas.getModel();
+        DefaultTableModel dtmConsultas = (DefaultTableModel) JTConsultas.getModel();
         TableColumnModel cmod = JTConsultas.getColumnModel();
         cmod.removeColumn(cmod.getColumn(0));
-        JTConsultas.setRowSorter(new TableRowSorter(dtmPacientes));
-        
-        LocalDate localDate = LocalDate.now();
-        //System.out.println(localDate);  
-        ReadJTable(localDate);
-        Date date1 = Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
-        DataChooser.setDate(date1);
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-          
+        JTConsultas.setRowSorter(new TableRowSorter(dtmConsultas));
 
-        jLabel2.setText(dtf.format(localDate));
+        ReadJTable();
     }
-      private void ReadJTable(LocalDate data) {
-        DefaultTableModel model = (DefaultTableModel) JTConsultas.getModel();
-       
-        model.setNumRows(0);
-        ADMDAO vwdao = new ADMDAO();
-        //ConsultaDAO cdao = new ConsultaDAO();
-        //PacienteDAO pdao = new PacienteDAO();
-        //Paciente p = new Paciente();
-        
-        
-        for (Vw_Consultas c : vwdao.ReadConsultas(data)) {
-            //p = pdao.ReadPaciente(c.getPaciente().getCodPaciente());
-            model.addRow(new Object[]{
-               c.getCodConsulta(),
-               c.getPaciente().getNome_Completo(),
-               Validar.ftime((Timestamp) c.getDataConsulta()),
-               c.getStatus(),
-            });
-        }
-    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -91,7 +75,7 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
 
         jPanel1 = new JPanel();
         PainelMenu = new javax.swing.JPanel();
-        BtnInicio = new javax.swing.JButton();
+        BtnVoltar = new javax.swing.JButton();
         BtnManterPaciente = new javax.swing.JButton();
         BtnManterConsulta = new javax.swing.JButton();
         BtnManterPsicologo = new javax.swing.JButton();
@@ -99,14 +83,11 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
         BtnExibirAnotacao = new javax.swing.JButton();
         BtnSair = new javax.swing.JButton();
         jEImagePanel1 = new LIB.JEImagePanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        btnOk = new javax.swing.JButton();
-        DataChooser = new com.toedter.calendar.JDateChooser();
-        btnAlterar = new javax.swing.JButton();
-        BtnExcluir = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        jLabel6 = new javax.swing.JLabel();
+        JCBAtributo = new javax.swing.JComboBox<>();
+        txtBusca = new javax.swing.JTextField();
+        BtnBuscar = new javax.swing.JButton();
+        jScrollPane4 = new javax.swing.JScrollPane();
         JTConsultas = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -119,7 +100,7 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1386, Short.MAX_VALUE)
+            .addGap(0, 1920, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -131,66 +112,66 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
         PainelMenu.setBackground(new java.awt.Color(102, 102, 102));
         PainelMenu.setForeground(new java.awt.Color(102, 102, 102));
 
-        BtnInicio.setBackground(new java.awt.Color(102, 102, 102));
-        BtnInicio.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        BtnInicio.setForeground(new java.awt.Color(255, 255, 255));
-        BtnInicio.setText("Início");
-        BtnInicio.addActionListener(new java.awt.event.ActionListener() {
+        BtnVoltar.setText("Início");
+        BtnVoltar.setBackground(new java.awt.Color(102, 102, 102));
+        BtnVoltar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        BtnVoltar.setForeground(new java.awt.Color(255, 255, 255));
+        BtnVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnInicioActionPerformed(evt);
+                BtnVoltarActionPerformed(evt);
             }
         });
 
-        BtnManterPaciente.setBackground(new java.awt.Color(102, 102, 102));
-        BtnManterPaciente.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        BtnManterPaciente.setForeground(new java.awt.Color(255, 255, 255));
         BtnManterPaciente.setText("Pacientes");
+        BtnManterPaciente.setBackground(new java.awt.Color(102, 102, 102));
         BtnManterPaciente.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnManterPaciente.setFocusPainted(false);
+        BtnManterPaciente.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        BtnManterPaciente.setForeground(new java.awt.Color(255, 255, 255));
         BtnManterPaciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnManterPacienteActionPerformed(evt);
             }
         });
 
+        BtnManterConsulta.setText("Cadastrar Consulta");
         BtnManterConsulta.setBackground(new java.awt.Color(102, 102, 102));
+        BtnManterConsulta.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnManterConsulta.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnManterConsulta.setForeground(new java.awt.Color(255, 255, 255));
-        BtnManterConsulta.setText("Cadastrar Consulta");
-        BtnManterConsulta.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnManterConsulta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnManterConsultaActionPerformed(evt);
             }
         });
 
+        BtnManterPsicologo.setText("Psicólogos");
         BtnManterPsicologo.setBackground(new java.awt.Color(102, 102, 102));
+        BtnManterPsicologo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnManterPsicologo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnManterPsicologo.setForeground(new java.awt.Color(255, 255, 255));
-        BtnManterPsicologo.setText("Psicólogos");
-        BtnManterPsicologo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnManterPsicologo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnManterPsicologoActionPerformed(evt);
             }
         });
 
+        BtnExibiranamneses.setText("Exibir Todas as Anamneses");
         BtnExibiranamneses.setBackground(new java.awt.Color(102, 102, 102));
+        BtnExibiranamneses.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnExibiranamneses.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnExibiranamneses.setForeground(new java.awt.Color(255, 255, 255));
-        BtnExibiranamneses.setText("Exibir Todas as Anamneses");
-        BtnExibiranamneses.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnExibiranamneses.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnExibiranamnesesActionPerformed(evt);
             }
         });
 
+        BtnExibirAnotacao.setText("Exibir Todas as Anotações");
         BtnExibirAnotacao.setBackground(new java.awt.Color(102, 102, 102));
+        BtnExibirAnotacao.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnExibirAnotacao.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnExibirAnotacao.setForeground(new java.awt.Color(255, 255, 255));
-        BtnExibirAnotacao.setText("Exibir Todas as Anotações");
-        BtnExibirAnotacao.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnExibirAnotacao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnExibirAnotacaoActionPerformed(evt);
@@ -212,7 +193,7 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
         PainelMenu.setLayout(PainelMenuLayout);
         PainelMenuLayout.setHorizontalGroup(
             PainelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(BtnInicio, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
+            .addComponent(BtnVoltar, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
             .addComponent(BtnManterPaciente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(BtnManterConsulta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(BtnManterPsicologo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -223,7 +204,7 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
         PainelMenuLayout.setVerticalGroup(
             PainelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PainelMenuLayout.createSequentialGroup()
-                .addComponent(BtnInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BtnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(BtnManterPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
@@ -236,56 +217,30 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
                 .addComponent(BtnExibirAnotacao, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(BtnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 148, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         getContentPane().add(PainelMenu, java.awt.BorderLayout.LINE_START);
 
         jEImagePanel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/spring-floral-watercolor-background-vector-green-with-leaf-illustration_53876-126350.jpg"))); // NOI18N
 
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jLabel1.setText("Exibindo as Consultas do dia");
-        jLabel1.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        jLabel6.setText("Buscar Consulta  por");
 
-        jLabel2.setText("jLabel2");
-        jLabel2.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        JCBAtributo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Paciente", "Psicologo", "Data/Hora Consulta", "Status" }));
 
-        jLabel3.setText("Selecionar dia");
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-
-        btnOk.setBackground(new java.awt.Color(204, 204, 204));
-        btnOk.setText("OK");
-        btnOk.addActionListener(new java.awt.event.ActionListener() {
+        BtnBuscar.setText("Buscar");
+        BtnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnOkActionPerformed(evt);
+                BtnBuscarActionPerformed(evt);
             }
         });
 
-        DataChooser.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-
-        btnAlterar.setBackground(new java.awt.Color(204, 204, 204));
-        btnAlterar.setText("Alterar");
-        btnAlterar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAlterarActionPerformed(evt);
-            }
-        });
-
-        BtnExcluir.setBackground(new java.awt.Color(204, 204, 204));
-        BtnExcluir.setText("Excluir");
-        BtnExcluir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnExcluirActionPerformed(evt);
-            }
-        });
-
-        JTConsultas.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         JTConsultas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "CodConsulta", "Paciente", "Psicologo", "Horário da Consulta", "Status"
+                "ID", "Paciente", "Psicologo", "Data da Consulta", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -296,63 +251,50 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        JTConsultas.setMaximumSize(new java.awt.Dimension(1080, 200));
         JTConsultas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 JTConsultasMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(JTConsultas);
+        JTConsultas.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                JTConsultasKeyReleased(evt);
+            }
+        });
+        jScrollPane4.setViewportView(JTConsultas);
 
         javax.swing.GroupLayout jEImagePanel1Layout = new javax.swing.GroupLayout(jEImagePanel1);
         jEImagePanel1.setLayout(jEImagePanel1Layout);
         jEImagePanel1Layout.setHorizontalGroup(
             jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jEImagePanel1Layout.createSequentialGroup()
-                .addGap(142, 142, 142)
-                .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(134, 134, 134)
+                .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jEImagePanel1Layout.createSequentialGroup()
-                        .addComponent(DataChooser, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(41, 41, 41)
-                        .addComponent(btnOk)
+                        .addComponent(jLabel6)
                         .addGap(18, 18, 18)
-                        .addComponent(btnAlterar)
+                        .addComponent(JCBAtributo, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(BtnExcluir))
-                    .addComponent(jLabel3)
+                        .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(BtnBuscar)
+                        .addContainerGap(973, Short.MAX_VALUE))
                     .addGroup(jEImagePanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel2)))
-                .addContainerGap(258, Short.MAX_VALUE))
-            .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jEImagePanel1Layout.createSequentialGroup()
-                    .addGap(143, 143, 143)
-                    .addComponent(jScrollPane1)
-                    .addGap(144, 144, 144)))
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 1402, Short.MAX_VALUE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jEImagePanel1Layout.setVerticalGroup(
             jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jEImagePanel1Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addGap(74, 74, 74)
                 .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 452, Short.MAX_VALUE)
-                .addComponent(jLabel3)
+                    .addComponent(jLabel6)
+                    .addComponent(JCBAtributo, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BtnBuscar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnOk)
-                        .addComponent(btnAlterar)
-                        .addComponent(BtnExcluir))
-                    .addComponent(DataChooser, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(43, 43, 43))
-            .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jEImagePanel1Layout.createSequentialGroup()
-                    .addGap(104, 104, 104)
-                    .addComponent(jScrollPane1)
-                    .addGap(104, 104, 104)))
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 488, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(400, Short.MAX_VALUE))
         );
 
         getContentPane().add(jEImagePanel1, java.awt.BorderLayout.CENTER);
@@ -360,22 +302,94 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BtnManterPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnManterPacienteActionPerformed
-        // TODO add your handling code here:
-        ManterPacienteAdm mp1 = new ManterPacienteAdm();
-        Util.SizeJanela(mp1);
-        this.dispose();
-    }//GEN-LAST:event_BtnManterPacienteActionPerformed
+    public void ReadJTable() {
 
-    private void BtnManterConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnManterConsultaActionPerformed
+        DefaultTableModel model = (DefaultTableModel) JTConsultas.getModel();
+
+        model.setNumRows(0);
+        ViewsDAO vwdao = new ViewsDAO();
+     
+  for (Vw_Consultas c : vwdao.ReadALLConsultas()) {
+            //p = pdao.ReadPaciente(c.getPaciente().getCodPaciente());
+            model.addRow(new Object[]{
+               c.getCodConsulta(),
+               c.getPaciente().getNome_Completo(),
+               c.getPsicologo().getNome_completo(),
+               Validar.fDatetime((Timestamp) c.getDataConsulta()),
+               c.getStatus(),
+            });
+        }
+    }
+
+    public void ReadJTableBusca(String Atributo, String Busca) {
+
+        DefaultTableModel model = (DefaultTableModel) JTConsultas.getModel();
+
+        model.setNumRows(0);
+        ViewsDAO vwdao = new ViewsDAO();
+          for (Vw_Consultas c : vwdao.ReadALLConsultas()) {
+            //p = pdao.ReadPaciente(c.getPaciente().getCodPaciente());
+            model.addRow(new Object[]{
+               c.getCodConsulta(),
+               c.getPaciente().getNome_Completo(),
+               c.getPsicologo().getNome_completo(),
+               Validar.fDatetime((Timestamp) c.getDataConsulta()),
+               c.getStatus(),
+            });
+        }
+    
+    }
+
+    private void BtnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBuscarActionPerformed
         // TODO add your handling code here:
-        ManterConsultasAdm mc = new ManterConsultasAdm();
-        Util.SizeJanela(mc);
+        //System.out.println(JCBAtributo.getSelectedIndex());
+        this.ReadJTableBusca((String) JCBAtributo.getSelectedItem(), txtBusca.getText());
+    }//GEN-LAST:event_BtnBuscarActionPerformed
+
+    private void JTConsultasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTConsultasMouseClicked
+        // TODO add your handling code here:
+        if (JTConsultas.getSelectedRow() != -1) {
+            int modelRow = JTConsultas.convertRowIndexToModel(JTConsultas.getSelectedRow());
+            int value = (Integer) JTConsultas.getModel().getValueAt(modelRow, 0);
+            
+        }
+    }//GEN-LAST:event_JTConsultasMouseClicked
+
+    private void JTConsultasKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTConsultasKeyReleased
+        // TODO add your handling code here:
+        if (JTConsultas.getSelectedRow() != -1) {
+            int modelRow = JTConsultas.convertRowIndexToModel(JTConsultas.getSelectedRow());
+            int value = (Integer) JTConsultas.getModel().getValueAt(modelRow, 0);
+         
+
+        }
+    }//GEN-LAST:event_JTConsultasKeyReleased
+
+    public void clear() {
+        //limpar a tela
+  
+    }
+
+    private void BtnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSairActionPerformed
+        // TODO add your handling code here:
+        TelaLogin tl = new TelaLogin();
+        tl.setVisible(true);
         this.dispose();
-//        CadastrarConsulta2 mc = new CadastrarConsulta2();
-//        Util.SizeJanela(mc);
-//        this.dispose();
-    }//GEN-LAST:event_BtnManterConsultaActionPerformed
+    }//GEN-LAST:event_BtnSairActionPerformed
+
+    private void BtnExibirAnotacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExibirAnotacaoActionPerformed
+        // TODO add your handling code here:
+        ExibirAnotacoesAdm ea = new ExibirAnotacoesAdm();
+        Util.SizeJanela(ea);
+        this.dispose();
+    }//GEN-LAST:event_BtnExibirAnotacaoActionPerformed
+
+    private void BtnExibiranamnesesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExibiranamnesesActionPerformed
+        // TODO add your handling code here:
+        ExibirAnamnesesAdm ma = new ExibirAnamnesesAdm();
+        Util.SizeJanela(ma);
+        this.dispose();
+    }//GEN-LAST:event_BtnExibiranamnesesActionPerformed
 
     private void BtnManterPsicologoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnManterPsicologoActionPerformed
         // TODO add your handling code here:
@@ -385,65 +399,23 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_BtnManterPsicologoActionPerformed
 
-    private void BtnExibiranamnesesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExibiranamnesesActionPerformed
+    private void BtnManterConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnManterConsultaActionPerformed
         // TODO add your handling code here:
-        ExibirAnamnesesAdm  ma = new ExibirAnamnesesAdm();
-        Util.SizeJanela(ma);
+//        CadastrarConsulta2 mc = new CadastrarConsulta2();
+//        Util.SizeJanela(mc);
+//        this.dispose();
+    }//GEN-LAST:event_BtnManterConsultaActionPerformed
+
+    private void BtnManterPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnManterPacienteActionPerformed
+        // TODO add your handling code here:
+     
+    }//GEN-LAST:event_BtnManterPacienteActionPerformed
+
+    private void BtnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVoltarActionPerformed
+        TelaPrincipalAdm mp1 = new TelaPrincipalAdm();
+        Util.SizeJanela(mp1);
         this.dispose();
-    }//GEN-LAST:event_BtnExibiranamnesesActionPerformed
-
-    private void BtnExibirAnotacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExibirAnotacaoActionPerformed
-        // TODO add your handling code here:
-        ExibirAnotacoesAdm ea = new ExibirAnotacoesAdm();
-        Util.SizeJanela(ea);
-        this.dispose();
-    }//GEN-LAST:event_BtnExibirAnotacaoActionPerformed
-
-    private void BtnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSairActionPerformed
-        // TODO add your handling code here:
-        TelaLogin  tl = new TelaLogin();
-        tl.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_BtnSairActionPerformed
-
-    private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
-        // TODO add your handling code here:
-        if (JTConsultas.getSelectedRow() != -1) {
-            int modelRow = JTConsultas.convertRowIndexToModel(JTConsultas.getSelectedRow());
-            int value = (Integer)JTConsultas.getModel().getValueAt(modelRow,0);
-            AlterarConsultapelomenu.codconsulta = value;
-
-            AlterarConsultapelomenu cp = new AlterarConsultapelomenu();
-            cp.setVisible(true);
-            this.dispose();
-
-        } else {
-            JOptionPane.showMessageDialog(this, "Selecione uma consulta para alterar");
-        }
-    }//GEN-LAST:event_btnAlterarActionPerformed
-
-    private void BtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExcluirActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BtnExcluirActionPerformed
-
-    private void JTConsultasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTConsultasMouseClicked
-
-    }//GEN-LAST:event_JTConsultasMouseClicked
-
-    private void BtnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnInicioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BtnInicioActionPerformed
-
-    private void btnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOkActionPerformed
-   if(DataChooser.getDate() != null){
-            Date date = DataChooser.getDate();
-            LocalDate localDate = date.toInstant().atZone( ZoneId.systemDefault() ).toLocalDate();
-           
-            ReadJTable(localDate);
-              DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-            jLabel2.setText(dtf.format(localDate));
-        }        // TODO add your handling code here:
-    }//GEN-LAST:event_btnOkActionPerformed
+    }//GEN-LAST:event_BtnVoltarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -462,44 +434,71 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaPrincipalAdm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManterConsultasAdm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaPrincipalAdm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManterConsultasAdm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaPrincipalAdm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManterConsultasAdm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaPrincipalAdm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManterConsultasAdm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaPrincipalAdm().setVisible(true);
+                new ManterConsultasAdm().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BtnExcluir;
+    private javax.swing.JButton BtnBuscar;
     private javax.swing.JButton BtnExibirAnotacao;
     private javax.swing.JButton BtnExibiranamneses;
-    private javax.swing.JButton BtnInicio;
     private javax.swing.JButton BtnManterConsulta;
     private javax.swing.JButton BtnManterPaciente;
     private javax.swing.JButton BtnManterPsicologo;
     private javax.swing.JButton BtnSair;
-    private com.toedter.calendar.JDateChooser DataChooser;
+    private javax.swing.JButton BtnVoltar;
+    private javax.swing.JComboBox<String> JCBAtributo;
     private javax.swing.JTable JTConsultas;
     private javax.swing.JPanel PainelMenu;
-    private javax.swing.JButton btnAlterar;
-    private javax.swing.JButton btnOk;
     private LIB.JEImagePanel jEImagePanel1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JTextField txtBusca;
     // End of variables declaration//GEN-END:variables
 }

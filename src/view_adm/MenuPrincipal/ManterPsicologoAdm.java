@@ -1262,7 +1262,7 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
         if (JTPsicologos.getSelectedRow() != -1) {
             int modelRow = JTPsicologos.convertRowIndexToModel(JTPsicologos.getSelectedRow());
             int value = (Integer) JTPsicologos.getModel().getValueAt(modelRow, 0);
-           
+
             VisuPsicologoADM mp = new VisuPsicologoADM(value);
             //Util.SizeJanela(mp);
             mp.setVisible(true);
@@ -1621,9 +1621,9 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
 
     private void BtnManterConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnManterConsultaActionPerformed
         // TODO add your handling code here:
-//        CadastrarConsulta2 mc = new CadastrarConsulta2();
-//        Util.SizeJanela(mc);
-//        this.dispose();
+        ManterConsultasAdm mc = new ManterConsultasAdm();
+        Util.SizeJanela(mc);
+        this.dispose();
     }//GEN-LAST:event_BtnManterConsultaActionPerformed
 
     private void BtnManterPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnManterPacienteActionPerformed

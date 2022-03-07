@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package view_adm.MenuPrincipal;
+
 import view.*;
 import util.Util;
 import Validacoes.Validar;
@@ -27,23 +28,26 @@ import model.dao.ConsultaDAO;
 import model.dao.PacienteDAO;
 import model.dao.ViewsDAO;
 import static view.ExibirAnamnesesPaciente.codpaciente;
+
 /**
  *
  * @author guimu
  */
 public class ExibirAnamnesesAdm extends javax.swing.JFrame {
 
-   public boolean existe = false;
-          public static int codigoanamnese;
+    public boolean existe = false;
+    public static int codigoanamnese;
+
     public ExibirAnamnesesAdm() {
         initComponents();
-         DefaultTableModel dtmPacientes = (DefaultTableModel) JTAnamneses.getModel();
+        DefaultTableModel dtmPacientes = (DefaultTableModel) JTAnamneses.getModel();
         TableColumnModel cmod = JTAnamneses.getColumnModel();
         cmod.removeColumn(cmod.getColumn(0));
         JTAnamneses.setRowSorter(new TableRowSorter(dtmPacientes));
         ReadJTable();
     }
-public boolean readcampos(int cod) {
+
+    public boolean readcampos(int cod) {
         Anamnese a = new Anamnese();
         AnamneseDAO dao = new AnamneseDAO();
         a = dao.ReadAnamnese(cod);
@@ -69,7 +73,8 @@ public boolean readcampos(int cod) {
         }
         return false;
     }
-private void ReadJTable() {
+
+    private void ReadJTable() {
         DefaultTableModel model = (DefaultTableModel) JTAnamneses.getModel();
         model.setNumRows(0);
         ADMDAO vwdao = new ADMDAO();
@@ -84,8 +89,7 @@ private void ReadJTable() {
                 v.getPaciente().getNome_Completo(),
                 v.getPsicologo().getNome_completo(),
                 v.getAnamnese().getDiagnostico(),
-                Validar.fDatetime((Timestamp)  v.getConsulta().getDataConsulta())
-               
+                Validar.fDatetime((Timestamp) v.getConsulta().getDataConsulta())
 
             });
         }
@@ -109,16 +113,17 @@ private void ReadJTable() {
         for (Vw_Anamnese_Paciente v : vwdao.BuscaALLAnamneses(Atributo, Busca)) {
 
             model.addRow(new Object[]{
-               v.getAnamnese().getCodAnamnese(),
+                v.getAnamnese().getCodAnamnese(),
                 v.getPaciente().getNome_Completo(),
                 v.getPsicologo().getNome_completo(),
                 v.getAnamnese().getDiagnostico(),
-                Validar.fDatetime((Timestamp)  v.getConsulta().getDataConsulta())
+                Validar.fDatetime((Timestamp) v.getConsulta().getDataConsulta())
 
             });
         }
     }
-      private void Alterar(int cod) {
+
+    private void Alterar(int cod) {
         Anamnese a = new Anamnese();
         AnamneseDAO dao = new AnamneseDAO();
         Anamnese a2 = new Anamnese();
@@ -152,6 +157,7 @@ private void ReadJTable() {
             }
         }
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -822,9 +828,9 @@ private void ReadJTable() {
 
     private void BtnManterConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnManterConsultaActionPerformed
         // TODO add your handling code here:
-//        CadastrarConsulta2 mc = new CadastrarConsulta2();
-//        Util.SizeJanela(mc);
-//        this.dispose();
+        ManterConsultasAdm mc = new ManterConsultasAdm();
+        Util.SizeJanela(mc);
+        this.dispose();
     }//GEN-LAST:event_BtnManterConsultaActionPerformed
 
     private void BtnManterPsicologoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnManterPsicologoActionPerformed
@@ -836,7 +842,7 @@ private void ReadJTable() {
     }//GEN-LAST:event_BtnManterPsicologoActionPerformed
 
     private void BtnExibiranamnesesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExibiranamnesesActionPerformed
-  
+
     }//GEN-LAST:event_BtnExibiranamnesesActionPerformed
 
     private void BtnExibirAnotacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExibirAnotacaoActionPerformed
@@ -856,16 +862,16 @@ private void ReadJTable() {
     private void btnalterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnalterarActionPerformed
         // TODO add your handling code here:
         //        if (JTAnamneses.getSelectedRow() != -1) {
-            //            int modelRow = JTAnamneses.convertRowIndexToModel(JTAnamneses.getSelectedRow());
-            //            int value = (Integer) JTAnamneses.getModel().getValueAt(modelRow, 0);
-            //            AlterarAnamnesePacienteMenu.codanamnese = value;
-            //            AlterarAnamnesePacienteMenu cp = new AlterarAnamnesePacienteMenu();
-            //            cp.setVisible(true);
-            //            this.dispose();
-            //
-            //        } else {
-            //            JOptionPane.showMessageDialog(this, "Selecione uma consulta para alterar");
-            //        }
+        //            int modelRow = JTAnamneses.convertRowIndexToModel(JTAnamneses.getSelectedRow());
+        //            int value = (Integer) JTAnamneses.getModel().getValueAt(modelRow, 0);
+        //            AlterarAnamnesePacienteMenu.codanamnese = value;
+        //            AlterarAnamnesePacienteMenu cp = new AlterarAnamnesePacienteMenu();
+        //            cp.setVisible(true);
+        //            this.dispose();
+        //
+        //        } else {
+        //            JOptionPane.showMessageDialog(this, "Selecione uma consulta para alterar");
+        //        }
 
         if (JTAnamneses.getSelectedRow() != -1) {
             Anamnese a2 = new Anamnese();
@@ -886,7 +892,7 @@ private void ReadJTable() {
             ModalAnamnese2.setModal(true);
             ModalAnamnese2.setLocationRelativeTo(null);
             ModalAnamnese2.setVisible(true);
-        }else {
+        } else {
             JOptionPane.showMessageDialog(this, "Selecione uma anamnese para alterar");
         }
     }//GEN-LAST:event_btnalterarActionPerformed

@@ -1682,9 +1682,9 @@ public class ManterPacienteAdm extends javax.swing.JFrame {
 
     private void BtnManterConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnManterConsultaActionPerformed
         // TODO add your handling code here:
-//        CadastrarConsulta2 mc = new CadastrarConsulta2();
-//        Util.SizeJanela(mc);
-//        this.dispose();
+         ManterConsultasAdm mc = new ManterConsultasAdm();
+        Util.SizeJanela(mc);
+        this.dispose();
     }//GEN-LAST:event_BtnManterConsultaActionPerformed
 
     private void BtnManterPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnManterPacienteActionPerformed
