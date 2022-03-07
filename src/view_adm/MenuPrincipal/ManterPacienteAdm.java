@@ -1533,8 +1533,9 @@ public class ManterPacienteAdm extends javax.swing.JFrame {
         Telefone tf2 = new Telefone();
         TelefoneDAO tfdao = new TelefoneDAO();
         String msg = "Existem campos com formatos Inválidos\n\nFavor Verificar os campos:";
-
-        if (!Validar.vCamposVazios(this, txtNome2, txtEmail13, txtCPF2, DataNasc3, TxtTelefone3)) {
+        String cpf = (String) txtCPF2.getValue();
+        cpf = cpf.replace(".","").replace("-","");
+        if (!Validar.vCamposVazios(this, txtNome2, txtEmail13, cpf, DataNasc3, TxtTelefone3)) {
             p.setCodPaciente(codigopaciente);
             if (Validar.vNome(txtNome2.getText())) {
                 p.setNome_Completo(txtNome2.getText());
@@ -1550,11 +1551,11 @@ public class ManterPacienteAdm extends javax.swing.JFrame {
                 msg += "\nEmail Invalido: " + txtEmail13.getText();
             }
 
-            if (Validar.vCPF(txtCPF2.getText())) {
-                p.setCPF(txtCPF2.getText());
+            if (Validar.vCPF(cpf)) {
+                p.setCPF(cpf);
             } else {
                 dadosvalidos = false;
-                msg += "\nCPF Invalido: " + txtCPF2.getText();
+                msg += "\nCPF Invalido: " + cpf;
             }
 
             p.setEstadoCivil((String) estadocivil2.getSelectedItem());

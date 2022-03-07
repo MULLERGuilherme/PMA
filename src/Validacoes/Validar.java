@@ -25,6 +25,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import model.bean.Paciente;
+import view_adm.MenuPrincipal.ManterPacienteAdm;
 
 /**
  *
@@ -361,6 +362,35 @@ public class Validar {
         }
         if(Telefone.getText().isEmpty()){
             msg += "\nTelefone 1";
+            vazio = true;
+        }
+        if (vazio) {
+            JOptionPane.showMessageDialog(jframe, msg, "ERRO!", JOptionPane.ERROR_MESSAGE);
+        }
+        return vazio;
+
+    }
+ public static boolean vCamposVazios(JFrame jframe, JTextField Nome, JTextField Email, String CPF, DatePicker DataNasc, JTextField Telefone) {
+        boolean vazio = false;
+        String msg = "Existem Campos Obrigatórios em branco.\nFavor verificar os seguintes campos:\n";
+        if (Nome.getText().isEmpty()) {
+            msg += "Nome Completo";
+            vazio = true;
+        }
+        if (Email.getText().isEmpty()) {
+            msg += "\nEmail";
+            vazio = true;
+        }
+            if(CPF.isEmpty()){
+               msg+= "\nCPF";
+                vazio = true;
+            }
+        if (Telefone.getText().isEmpty()) {
+            msg += "\nTelefone";
+            vazio = true;
+        }
+        if (DataNasc.getDate() == null) {
+            msg += "\nData de Nascimento";
             vazio = true;
         }
         if (vazio) {
