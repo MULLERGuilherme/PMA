@@ -137,7 +137,6 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         LabelCidade1 = new javax.swing.JLabel();
         TxtCidade2 = new javax.swing.JTextField();
         LabelCPF1 = new javax.swing.JLabel();
-        txtCPF2 = new javax.swing.JTextField();
         jLabel28 = new javax.swing.JLabel();
         DataNasc3 = new com.github.lgooddatepicker.components.DatePicker();
         jLabel40 = new javax.swing.JLabel();
@@ -157,6 +156,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         jLabel47 = new javax.swing.JLabel();
         jLabel48 = new javax.swing.JLabel();
         LabelMsg = new javax.swing.JLabel();
+        txtCPF2 = new javax.swing.JFormattedTextField();
         ModalNovoResolucaoMenor = new javax.swing.JDialog();
         jPanel2 = new javax.swing.JPanel();
         txtNome1 = new javax.swing.JTextField();
@@ -705,8 +705,6 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         LabelCPF1.setText("CPF:");
         LabelCPF1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        txtCPF2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-
         jLabel28.setText("Data de Nascimento: ");
         jLabel28.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
@@ -784,6 +782,13 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         LabelMsg.setBackground(new java.awt.Color(51, 255, 0));
         LabelMsg.setFont(new java.awt.Font("Tahoma", 2, 18)); // NOI18N
         LabelMsg.setToolTipText("");
+
+        try {
+            txtCPF2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        txtCPF2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         javax.swing.GroupLayout PainelDadosPaciente3Layout = new javax.swing.GroupLayout(PainelDadosPaciente3);
         PainelDadosPaciente3.setLayout(PainelDadosPaciente3Layout);
@@ -873,9 +878,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(LabelCPF1)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(PainelDadosPaciente3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtCPF2)
-                                    .addComponent(Sexo2, 0, 241, Short.MAX_VALUE)))
+                                .addComponent(Sexo2, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(PainelDadosPaciente3Layout.createSequentialGroup()
                                 .addGap(38, 38, 38)
                                 .addGroup(PainelDadosPaciente3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -886,8 +889,13 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                                         .addGroup(PainelDadosPaciente3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(LabelEmail2)
                                             .addComponent(LabelNome4))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtNome2)))))
+                                        .addGroup(PainelDadosPaciente3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(PainelDadosPaciente3Layout.createSequentialGroup()
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(txtNome2))
+                                            .addGroup(PainelDadosPaciente3Layout.createSequentialGroup()
+                                                .addGap(531, 531, 531)
+                                                .addComponent(txtCPF2)))))))
                         .addGap(6, 6, 6)))
                 .addGap(1034, 1034, 1034))
             .addComponent(PainelIdentificacaoPessoal3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -910,13 +918,14 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                     .addComponent(txtNome2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel41))
                 .addGap(18, 18, 18)
-                .addGroup(PainelDadosPaciente3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtEmail13, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(LabelEmail2)
-                    .addComponent(LabelCPF1)
-                    .addComponent(txtCPF2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel42)
-                    .addComponent(jLabel43))
+                .addGroup(PainelDadosPaciente3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PainelDadosPaciente3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtEmail13, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(LabelEmail2)
+                        .addComponent(LabelCPF1)
+                        .addComponent(jLabel42)
+                        .addComponent(jLabel43))
+                    .addComponent(txtCPF2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(PainelDadosPaciente3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(estadocivil2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1178,6 +1187,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        txtCPF1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -1272,7 +1282,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap(21, Short.MAX_VALUE)
+                        .addContainerGap(17, Short.MAX_VALUE)
                         .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(81, 81, 81))
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -2056,8 +2066,12 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         Telefone tf2 = new Telefone();
         TelefoneDAO tfdao = new TelefoneDAO();
         String msg = "Existem campos com formatos Inválidos\n\nFavor Verificar os campos:";
-
-        if (!Validar.vCamposVazios(this, txtNome2, txtEmail13, txtCPF2, DataNasc3, TxtTelefone3)) {
+        String cpf = null;
+        if((String) txtCPF2.getValue() != null){
+            cpf = (String) txtCPF2.getValue();
+            cpf = cpf.replace(".","").replace("-","");
+        }
+        if (!Validar.vCamposVazios(this, txtNome2, txtEmail13, cpf, DataNasc3, TxtTelefone3)) {
             p.setCodPaciente(codigopaciente);
             if (Validar.vNome(txtNome2.getText())) {
                 p.setNome_Completo(txtNome2.getText());
@@ -2073,11 +2087,11 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                 msg += "\nEmail Invalido: " + txtEmail13.getText();
             }
 
-            if (Validar.vCPF(txtCPF2.getText())) {
-                p.setCPF(txtCPF2.getText());
+            if (Validar.vCPF(cpf)) {
+                p.setCPF(cpf);
             } else {
                 dadosvalidos = false;
-                msg += "\nCPF Invalido: " + txtCPF2.getText();
+                msg += "\nCPF Invalido: " + cpf;
             }
 
             p.setEstadoCivil((String) estadocivil2.getSelectedItem());
@@ -2473,7 +2487,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
     private javax.swing.JTextField txtBusca;
     private javax.swing.JTextField txtCPF;
     private javax.swing.JFormattedTextField txtCPF1;
-    private javax.swing.JTextField txtCPF2;
+    private javax.swing.JFormattedTextField txtCPF2;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtEmail1;
     private javax.swing.JTextField txtEmail13;

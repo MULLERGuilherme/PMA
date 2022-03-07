@@ -636,6 +636,11 @@ public class ManterPacienteAdm extends javax.swing.JFrame {
         TxtProfissao2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         TxtEndereco2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        TxtEndereco2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtEndereco2ActionPerformed(evt);
+            }
+        });
 
         jLabel27.setText("Endereço:");
         jLabel27.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -1533,7 +1538,7 @@ public class ManterPacienteAdm extends javax.swing.JFrame {
         Telefone tf2 = new Telefone();
         TelefoneDAO tfdao = new TelefoneDAO();
         String msg = "Existem campos com formatos Inválidos\n\nFavor Verificar os campos:";
-         String cpf = null;
+        String cpf = null;
         if((String) txtCPF2.getValue() != null){
             cpf = (String) txtCPF2.getValue();
             cpf = cpf.replace(".","").replace("-","");
@@ -1696,6 +1701,10 @@ public class ManterPacienteAdm extends javax.swing.JFrame {
     private void estadocivil2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_estadocivil2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_estadocivil2ActionPerformed
+
+    private void TxtEndereco2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtEndereco2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtEndereco2ActionPerformed
 
     /**
      * @param args the command line arguments
