@@ -170,13 +170,9 @@ public class ManterPacienteAdm extends javax.swing.JFrame {
         jEImagePanel1 = new LIB.JEImagePanel();
         jLabel6 = new javax.swing.JLabel();
         JCBAtributo = new javax.swing.JComboBox<>();
-        jLabel15 = new javax.swing.JLabel();
         txtBusca = new javax.swing.JTextField();
         BtnBuscar = new javax.swing.JButton();
         BtnVisuAlterarDados = new javax.swing.JButton();
-        btnVisuAnamneses = new javax.swing.JButton();
-        brnVisuConsultas = new javax.swing.JButton();
-        btnVisuAnotacoes = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
         JTPacientes = new javax.swing.JTable();
 
@@ -1068,8 +1064,6 @@ public class ManterPacienteAdm extends javax.swing.JFrame {
 
         JCBAtributo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nome Completo", "Email", "Telefone" }));
 
-        jLabel15.setText("Contendo");
-
         BtnBuscar.setText("Buscar");
         BtnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1082,30 +1076,6 @@ public class ManterPacienteAdm extends javax.swing.JFrame {
         BtnVisuAlterarDados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnVisuAlterarDadosActionPerformed(evt);
-            }
-        });
-
-        btnVisuAnamneses.setText("Visualizar Anamneses");
-        btnVisuAnamneses.setBackground(new java.awt.Color(204, 204, 204));
-        btnVisuAnamneses.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVisuAnamnesesActionPerformed(evt);
-            }
-        });
-
-        brnVisuConsultas.setText("Visualizar Consultas");
-        brnVisuConsultas.setBackground(new java.awt.Color(204, 204, 204));
-        brnVisuConsultas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                brnVisuConsultasActionPerformed(evt);
-            }
-        });
-
-        btnVisuAnotacoes.setText("Visualizar Anotaçoes");
-        btnVisuAnotacoes.setBackground(new java.awt.Color(204, 204, 204));
-        btnVisuAnotacoes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVisuAnotacoesActionPerformed(evt);
             }
         });
 
@@ -1146,48 +1116,37 @@ public class ManterPacienteAdm extends javax.swing.JFrame {
                 .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jEImagePanel1Layout.createSequentialGroup()
                         .addComponent(jLabel6)
-                        .addGap(18, 18, 18)
-                        .addComponent(JCBAtributo, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel15)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(BtnBuscar)
-                        .addGap(290, 290, 290))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(JCBAtributo, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(BtnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jEImagePanel1Layout.createSequentialGroup()
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 866, Short.MAX_VALUE)
                         .addGap(62, 62, 62)
-                        .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnVisuAnotacoes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(brnVisuConsultas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(BtnVisuAlterarDados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnVisuAnamneses, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(BtnVisuAlterarDados)))
                 .addContainerGap(349, Short.MAX_VALUE))
         );
         jEImagePanel1Layout.setVerticalGroup(
             jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jEImagePanel1Layout.createSequentialGroup()
                 .addGap(74, 74, 74)
-                .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(JCBAtributo, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BtnBuscar))
+                .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel6)
+                        .addComponent(JCBAtributo, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(BtnBuscar)))
                 .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jEImagePanel1Layout.createSequentialGroup()
-                        .addGap(90, 90, 90)
-                        .addComponent(BtnVisuAlterarDados)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnVisuAnamneses)
-                        .addGap(18, 18, 18)
-                        .addComponent(brnVisuConsultas)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnVisuAnotacoes))
-                    .addGroup(jEImagePanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 488, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 488, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jEImagePanel1Layout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addComponent(BtnVisuAlterarDados)))
                 .addContainerGap(400, Short.MAX_VALUE))
         );
 
@@ -1277,135 +1236,6 @@ public class ManterPacienteAdm extends javax.swing.JFrame {
 
         }
     }
-
-    private void BtnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBuscarActionPerformed
-        // TODO add your handling code here:
-        //System.out.println(JCBAtributo.getSelectedIndex());
-        this.ReadJTableBusca((String) JCBAtributo.getSelectedItem(), txtBusca.getText());
-    }//GEN-LAST:event_BtnBuscarActionPerformed
-
-    private void BtnVisuAlterarDadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVisuAlterarDadosActionPerformed
-        // TODO add your handling code here:
-        if (JTPacientes.getSelectedRow() != -1) {
-            int modelRow = JTPacientes.convertRowIndexToModel(JTPacientes.getSelectedRow());
-            int value = (Integer) JTPacientes.getModel().getValueAt(modelRow, 0);
-            this.codigopaciente = value;
-            PacienteDAO dao = new PacienteDAO();
-            ViewsDAO vwdao = new ViewsDAO();
-            Paciente p = dao.ReadPaciente(codigopaciente);
-            Vw_TelefonesPacientes v = new Vw_TelefonesPacientes();
-            v = vwdao.ReadTelefonesPacientes(codigopaciente);
-            txtNome2.setText(p.getNome_Completo());
-            Date date = (Date) p.getDataNasc();
-
-            //LocalDate localDate = date.toInstant().atZone( ZoneId.systemDefault() ).toLocalDate();
-            DataNasc3.setDate(date.toLocalDate());
-            //DataNasc1.setDate((LocalDate) p.getDataNasc());
-            Sexo2.setSelectedItem(p.getSexo());
-            estadocivil2.setSelectedItem(p.getEstadoCivil());
-            TxtCidade2.setText(p.getCidade());
-            txtCPF2.setText(p.getCPF());
-            TxtEndereco2.setText(p.getEndereco());
-            TxtProfissao2.setText(p.getProfissao());
-            TxtReligiao2.setText(p.getReligiao());
-            TxtEscolaridade2.setText(p.getEscolaridade());
-            String fones = null;
-            String[] fones2 = null;
-            fones = v.getTelefone().getNumero();
-            if (fones.contains(",")) {
-                fones2 = fones.split(",");
-                TxtTelefone3.setText(fones2[0]);
-                TxtTelefone4.setText(fones2[1]);
-            } else {
-                TxtTelefone3.setText(fones);
-                TxtTelefone4.setText("");
-            }
-
-            txtEmail13.setText(p.getEmail());
-            LabelMsg.setVisible(false);
-            JTextField textField = DataNasc3.getComponentDateTextField();
-           
-            textField.setFont(new Font("Tahoma", Font.BOLD, 18));
-            ModalAlterar.setSize(950, 950);
-            ModalAlterar.setModal(true);
-            ModalAlterar.setLocationRelativeTo(null);
-            ModalAlterar.setVisible(true);
-
-        } else {
-            JOptionPane.showMessageDialog(this, "Selecione um paciente para alterar");
-        }
-    }//GEN-LAST:event_BtnVisuAlterarDadosActionPerformed
-
-    private void btnVisuAnamnesesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisuAnamnesesActionPerformed
-        // TODO add your handling code here:
-        if (JTPacientes.getSelectedRow() != -1) {
-
-            boolean dadosvalidos = true;
-            //ExibirAnamnesesPaciente.codpaciente = ((int) JTPacientes.getModel().getValueAt(JTPacientes.getSelectedRow(),0));
-            int modelRow = JTPacientes.convertRowIndexToModel(JTPacientes.getSelectedRow());
-            int value = (Integer) JTPacientes.getModel().getValueAt(modelRow, 0);
-
-            ExibirAnamneses1 ea = new ExibirAnamneses1(value);
-            ea.setVisible(true);
-            this.dispose();
-
-        } else {
-            JOptionPane.showMessageDialog(this, "Selecione um paciente para Vizualizar Informações");
-        }
-    }//GEN-LAST:event_btnVisuAnamnesesActionPerformed
-
-    private void brnVisuConsultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_brnVisuConsultasActionPerformed
-        // TODO add your handling code here:
-        if (JTPacientes.getSelectedRow() != -1) {
-
-            int modelRow = JTPacientes.convertRowIndexToModel(JTPacientes.getSelectedRow());
-            int value = (Integer) JTPacientes.getModel().getValueAt(modelRow, 0);
-            ExibirConsultasPaciente.codpaciente = value;
-
-            ExibirConsultasPaciente cp = new ExibirConsultasPaciente();
-            cp.setVisible(true);
-            this.dispose();
-
-        } else {
-            JOptionPane.showMessageDialog(this, "Selecione um paciente para Vizualizar Informações");
-        }
-    }//GEN-LAST:event_brnVisuConsultasActionPerformed
-
-    private void btnVisuAnotacoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisuAnotacoesActionPerformed
-        // TODO add your handling code here:
-        if (JTPacientes.getSelectedRow() != -1) {
-
-            boolean dadosvalidos = true;
-            //ExibirAnotacoesPaciente.codpaciente = ((int) JTPacientes.getModel().getValueAt(JTPacientes.getSelectedRow(),0));
-            int modelRow = JTPacientes.convertRowIndexToModel(JTPacientes.getSelectedRow());
-            int value = (Integer) JTPacientes.getModel().getValueAt(modelRow, 0);
-            ExibirAnotacoes1 ea = new ExibirAnotacoes1(value);
-            ea.setVisible(true);
-            this.dispose();
-
-        } else {
-            JOptionPane.showMessageDialog(this, "Selecione um paciente para Vizualizar Informações");
-        }
-    }//GEN-LAST:event_btnVisuAnotacoesActionPerformed
-
-    private void JTPacientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTPacientesMouseClicked
-        // TODO add your handling code here:
-        if (JTPacientes.getSelectedRow() != -1) {
-            int modelRow = JTPacientes.convertRowIndexToModel(JTPacientes.getSelectedRow());
-            int value = (Integer) JTPacientes.getModel().getValueAt(modelRow, 0);
-            this.codigopaciente = value;
-        }
-    }//GEN-LAST:event_JTPacientesMouseClicked
-
-    private void JTPacientesKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTPacientesKeyReleased
-        // TODO add your handling code here:
-        if (JTPacientes.getSelectedRow() != -1) {
-            int modelRow = JTPacientes.convertRowIndexToModel(JTPacientes.getSelectedRow());
-            int value = (Integer) JTPacientes.getModel().getValueAt(modelRow, 0);
-            this.codigopaciente = value;
-
-        }
-    }//GEN-LAST:event_JTPacientesKeyReleased
 
     public void clear() {
         //limpar a tela
@@ -1706,6 +1536,83 @@ public class ManterPacienteAdm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_TxtEndereco2ActionPerformed
 
+    private void JTPacientesKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTPacientesKeyReleased
+        // TODO add your handling code here:
+        if (JTPacientes.getSelectedRow() != -1) {
+            int modelRow = JTPacientes.convertRowIndexToModel(JTPacientes.getSelectedRow());
+            int value = (Integer) JTPacientes.getModel().getValueAt(modelRow, 0);
+            this.codigopaciente = value;
+
+        }
+    }//GEN-LAST:event_JTPacientesKeyReleased
+
+    private void JTPacientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTPacientesMouseClicked
+        // TODO add your handling code here:
+        if (JTPacientes.getSelectedRow() != -1) {
+            int modelRow = JTPacientes.convertRowIndexToModel(JTPacientes.getSelectedRow());
+            int value = (Integer) JTPacientes.getModel().getValueAt(modelRow, 0);
+            this.codigopaciente = value;
+        }
+    }//GEN-LAST:event_JTPacientesMouseClicked
+
+    private void BtnVisuAlterarDadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVisuAlterarDadosActionPerformed
+        // TODO add your handling code here:
+        if (JTPacientes.getSelectedRow() != -1) {
+            int modelRow = JTPacientes.convertRowIndexToModel(JTPacientes.getSelectedRow());
+            int value = (Integer) JTPacientes.getModel().getValueAt(modelRow, 0);
+            this.codigopaciente = value;
+            PacienteDAO dao = new PacienteDAO();
+            ViewsDAO vwdao = new ViewsDAO();
+            Paciente p = dao.ReadPaciente(codigopaciente);
+            Vw_TelefonesPacientes v = new Vw_TelefonesPacientes();
+            v = vwdao.ReadTelefonesPacientes(codigopaciente);
+            txtNome2.setText(p.getNome_Completo());
+            Date date = (Date) p.getDataNasc();
+
+            //LocalDate localDate = date.toInstant().atZone( ZoneId.systemDefault() ).toLocalDate();
+            DataNasc3.setDate(date.toLocalDate());
+            //DataNasc1.setDate((LocalDate) p.getDataNasc());
+            Sexo2.setSelectedItem(p.getSexo());
+            estadocivil2.setSelectedItem(p.getEstadoCivil());
+            TxtCidade2.setText(p.getCidade());
+            txtCPF2.setText(p.getCPF());
+            TxtEndereco2.setText(p.getEndereco());
+            TxtProfissao2.setText(p.getProfissao());
+            TxtReligiao2.setText(p.getReligiao());
+            TxtEscolaridade2.setText(p.getEscolaridade());
+            String fones = null;
+            String[] fones2 = null;
+            fones = v.getTelefone().getNumero();
+            if (fones.contains(",")) {
+                fones2 = fones.split(",");
+                TxtTelefone3.setText(fones2[0]);
+                TxtTelefone4.setText(fones2[1]);
+            } else {
+                TxtTelefone3.setText(fones);
+                TxtTelefone4.setText("");
+            }
+
+            txtEmail13.setText(p.getEmail());
+            LabelMsg.setVisible(false);
+            JTextField textField = DataNasc3.getComponentDateTextField();
+
+            textField.setFont(new Font("Tahoma", Font.BOLD, 18));
+            ModalAlterar.setSize(950, 950);
+            ModalAlterar.setModal(true);
+            ModalAlterar.setLocationRelativeTo(null);
+            ModalAlterar.setVisible(true);
+
+        } else {
+             JOptionPane.showMessageDialog(this, "Selecione um Paciente para Alterar", "ERRO!", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_BtnVisuAlterarDadosActionPerformed
+
+    private void BtnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBuscarActionPerformed
+        // TODO add your handling code here:
+        //System.out.println(JCBAtributo.getSelectedIndex());
+        this.ReadJTableBusca((String) JCBAtributo.getSelectedItem(), txtBusca.getText());
+    }//GEN-LAST:event_BtnBuscarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1818,9 +1725,6 @@ public class ManterPacienteAdm extends javax.swing.JFrame {
     private javax.swing.JTextField TxtTelefone2;
     private javax.swing.JTextField TxtTelefone3;
     private javax.swing.JTextField TxtTelefone4;
-    private javax.swing.JButton brnVisuConsultas;
-    private javax.swing.JButton btnVisuAnamneses;
-    private javax.swing.JButton btnVisuAnotacoes;
     private javax.swing.JComboBox<String> estadocivil;
     private javax.swing.JComboBox<String> estadocivil2;
     private LIB.JEImagePanel jEImagePanel1;
@@ -1832,7 +1736,6 @@ public class ManterPacienteAdm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;

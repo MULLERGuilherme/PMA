@@ -170,11 +170,9 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
         jEImagePanel1 = new LIB.JEImagePanel();
         jLabel6 = new javax.swing.JLabel();
         JCBAtributo = new javax.swing.JComboBox<>();
-        jLabel15 = new javax.swing.JLabel();
         txtBusca = new javax.swing.JTextField();
         BtnBuscar = new javax.swing.JButton();
         BtnVisuAlterarDados = new javax.swing.JButton();
-        brnVisuConsultas = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
         JTPsicologos = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
@@ -1045,11 +1043,10 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
 
         jEImagePanel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/spring-floral-watercolor-background-vector-green-with-leaf-illustration_53876-126350.jpg"))); // NOI18N
 
-        jLabel6.setText("Buscar Psicologo  por");
+        jLabel6.setText("Buscar Psicologo por");
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         JCBAtributo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nome Completo", "Email", "Telefone" }));
-
-        jLabel15.setText("Contendo");
 
         BtnBuscar.setText("Buscar");
         BtnBuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -1063,14 +1060,6 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
         BtnVisuAlterarDados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnVisuAlterarDadosActionPerformed(evt);
-            }
-        });
-
-        brnVisuConsultas.setText("Visualizar Consultas");
-        brnVisuConsultas.setBackground(new java.awt.Color(204, 204, 204));
-        brnVisuConsultas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                brnVisuConsultasActionPerformed(evt);
             }
         });
 
@@ -1118,20 +1107,17 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
                 .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jEImagePanel1Layout.createSequentialGroup()
                         .addComponent(jLabel6)
-                        .addGap(18, 18, 18)
-                        .addComponent(JCBAtributo, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel15)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(JCBAtributo, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(BtnBuscar)
-                        .addGap(290, 290, 290))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jEImagePanel1Layout.createSequentialGroup()
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 866, Short.MAX_VALUE)
                         .addGap(63, 63, 63)
                         .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(brnVisuConsultas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(BtnVisuAlterarDados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(349, Short.MAX_VALUE))
@@ -1143,20 +1129,15 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
                 .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(JCBAtributo, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BtnBuscar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jEImagePanel1Layout.createSequentialGroup()
-                        .addGap(49, 49, 49)
                         .addComponent(jButton1)
-                        .addGap(18, 18, 18)
-                        .addComponent(BtnVisuAlterarDados)
-                        .addGap(18, 18, 18)
-                        .addComponent(brnVisuConsultas))
-                    .addGroup(jEImagePanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 488, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(BtnVisuAlterarDados))
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 488, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(395, Short.MAX_VALUE))
         );
 
@@ -1310,26 +1291,9 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
 //            ModalAlterar.setVisible(true);
 //
         } else {
-            JOptionPane.showMessageDialog(this, "Selecione um paciente para alterar");
+            JOptionPane.showMessageDialog(this, "Selecione um Psicologo para alterar" ,"ERRO!", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_BtnVisuAlterarDadosActionPerformed
-
-    private void brnVisuConsultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_brnVisuConsultasActionPerformed
-        // TODO add your handling code here:
-//        if (JTPsicologos.getSelectedRow() != -1) {
-//
-//            int modelRow = JTPsicologos.convertRowIndexToModel(JTPsicologos.getSelectedRow());
-//            int value = (Integer) JTPsicologos.getModel().getValueAt(modelRow, 0);
-//            ExibirConsultasPaciente.codpaciente = value;
-//
-//            ExibirConsultasPaciente cp = new ExibirConsultasPaciente();
-//            cp.setVisible(true);
-//            this.dispose();
-//
-//        } else {
-//            JOptionPane.showMessageDialog(this, "Selecione um paciente para Vizualizar Informações");
-//        }
-    }//GEN-LAST:event_brnVisuConsultasActionPerformed
 
     private void JTPsicologosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTPsicologosMouseClicked
         // TODO add your handling code here:
@@ -1439,7 +1403,7 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
                             tf2.setPaciente(p);
                             tfdao.CreatePc(tf2);
                         }
-                        JOptionPane.showMessageDialog(ModalNovo, "Paciente " + p.getNome_Completo() + " Salvo com sucesso");
+                        //JOptionPane.showMessageDialog(ModalNovo, "Paciente " + p.getNome_Completo() + " Salvo com sucesso");
                         this.clear();
                     } else {
                         dao.Delete(p);
@@ -1751,7 +1715,6 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
     private javax.swing.JTextField TxtTelefone2;
     private javax.swing.JTextField TxtTelefone3;
     private javax.swing.JTextField TxtTelefone4;
-    private javax.swing.JButton brnVisuConsultas;
     private javax.swing.JComboBox<String> estadocivil;
     private javax.swing.JComboBox<String> estadocivil2;
     private javax.swing.JButton jButton1;
@@ -1764,7 +1727,6 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
