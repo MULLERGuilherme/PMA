@@ -280,7 +280,7 @@ public class ManterConsultasAdm extends javax.swing.JFrame {
                         .addComponent(BtnBuscar)
                         .addContainerGap(973, Short.MAX_VALUE))
                     .addGroup(jEImagePanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 1402, Short.MAX_VALUE)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 1405, Short.MAX_VALUE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jEImagePanel1Layout.setVerticalGroup(
@@ -294,7 +294,7 @@ public class ManterConsultasAdm extends javax.swing.JFrame {
                     .addComponent(BtnBuscar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 488, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(400, Short.MAX_VALUE))
+                .addContainerGap(445, Short.MAX_VALUE))
         );
 
         getContentPane().add(jEImagePanel1, java.awt.BorderLayout.CENTER);
@@ -326,8 +326,11 @@ public class ManterConsultasAdm extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) JTConsultas.getModel();
 
         model.setNumRows(0);
+         if (Atributo.equals("Data/Hora Consulta")) {
+            Atributo = "DataConsulta";
+        }
         ViewsDAO vwdao = new ViewsDAO();
-          for (Vw_Consultas c : vwdao.ReadALLConsultas()) {
+          for (Vw_Consultas c : vwdao.BuscaALLConsultas(Atributo, Busca)) {
             //p = pdao.ReadPaciente(c.getPaciente().getCodPaciente());
             model.addRow(new Object[]{
                c.getCodConsulta(),
@@ -343,6 +346,7 @@ public class ManterConsultasAdm extends javax.swing.JFrame {
     private void BtnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBuscarActionPerformed
         // TODO add your handling code here:
         //System.out.println(JCBAtributo.getSelectedIndex());
+     
         this.ReadJTableBusca((String) JCBAtributo.getSelectedItem(), txtBusca.getText());
     }//GEN-LAST:event_BtnBuscarActionPerformed
 

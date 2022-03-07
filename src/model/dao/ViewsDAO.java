@@ -93,7 +93,40 @@ public class ViewsDAO {
 
         return vw;
     }
-    
+    public List<Vw_Consultas> BuscaALLConsultas(String Atributo, String Busca) {
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        List<Vw_Consultas> vw = new ArrayList<>();
+        try {
+            String sql = "SELECT CodigoConsulta, Paciente, Psicologo, DataConsulta, Status FROM vw_Consultas WHERE "+Atributo+ " Like '%"+Busca+"%' Group By DataConsulta;";
+            stmt = con.prepareStatement(sql);
+            
+            
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                Vw_Consultas c = new Vw_Consultas();
+
+                c.setCodConsulta(rs.getInt("CodigoConsulta"));
+                c.getPaciente().setNome_Completo(rs.getString("Paciente"));
+                //c.getPsicologo().setCodPsicologo(rs.getInt("CodPsicologo"));
+                c.getPsicologo().setNome_completo(rs.getString("Psicologo"));
+                c.setDataConsulta(rs.getObject("DataConsulta"));
+                c.setStatus(rs.getString("Status"));
+
+                vw.add(c);
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ConsultaDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt, rs);
+        }
+
+        return vw;
+    }
     
     public List<Vw_TelefonesPacientes> ReadTelefonesPacientes() {
         Connection con = ConnectionFactory.getConnection();
