@@ -7,7 +7,10 @@ package view;
 
 import Validacoes.Deletar;
 import Validacoes.Validar;
+import com.github.lgooddatepicker.components.TimePickerSettings;
+import com.github.lgooddatepicker.components.TimePickerSettings.TimeIncrement;
 import java.sql.Timestamp;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -77,7 +80,11 @@ public class ExibirConsultasPaciente extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        dateTimePicker1 = new com.github.lgooddatepicker.components.DateTimePicker();
+        TimePickerSettings tps = new TimePickerSettings();
+        tps.use24HourClockFormat();
+
+        tps.generatePotentialMenuTimes(TimeIncrement.OneHour, LocalTime.of(8,0), LocalTime.of(20, 0));
+        dateTimePicker1 = new com.github.lgooddatepicker.components.DateTimePicker(null,tps);
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         lNome = new javax.swing.JLabel();
