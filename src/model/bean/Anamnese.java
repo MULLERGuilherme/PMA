@@ -11,52 +11,74 @@ package model.bean;
  */
 public class Anamnese {
 
-private int CodAnamnese;
-private String QueixaPrincipal;
-private String SubitaOuProgressiva;
-private Object InicioDaQueixa;
-private String QueixasSecundarias;
-private String HistoricoFamiliar;
-private String Diagnostico;
-private String Encaminhamento;
-private String DoencasConhecidas;
-private String MedicamentosUtilizados;
-private String DataEmissao;
-private Consulta consulta;
+    private int CodAnamnese;
+    private String QueixaPrincipal;
+    private String SubitaOuProgressiva;
+    private Object InicioDaQueixa;
+    private String QueixasSecundarias;
+    private String HistoricoFamiliar;
+    private String Diagnostico;
+    private String Encaminhamento;
+    private String DoencasConhecidas;
+    private String MedicamentosUtilizados;
+    private String DataEmissao;
+    private Consulta consulta;
 
 //Mudanças
-private String OqueMudou;
-private String Sintomas;
-private String ComoComecou;
-private String QueixasCognitivas;
-private String QueixasAfetivoEmocionais;
-private String Psicomotricidade;
+    private String OqueMudou;
+    private String Sintomas;
+    private String ComoComecou;
+    private String Psicomotricidade;
 
-public Anamnese(){
-   
-    this.QueixasSecundarias = null;
-    this.HistoricoFamiliar = null;
-    this.Diagnostico = null;
-    this.Encaminhamento = null;
-    this.DoencasConhecidas = null;
-    this.MedicamentosUtilizados = null;
-    this.DataEmissao = null;
-    this.QueixasCognitivas = null;
-    this.QueixasAfetivoEmocionais = null;
-    this.Psicomotricidade = "Normal";
-    this.consulta = new Consulta();
-    
-    
-}
-
-    public Object getInicioDaQueixa() {
-        return InicioDaQueixa;
+//Mudancas 2.0
+//private String QueixasCognitivas;
+    public void setQAEDesanimo(boolean QAEDesanimo) {
+        this.QAEDesanimo = QAEDesanimo;
     }
+    private boolean QCIntegridadeSensorial;
+    private boolean QCPercepcao;
+    private boolean QCAtencao;
+    private boolean QCMemoria;
 
-    public void setInicioDaQueixa(Object InicioDaQueixa) {
-        this.InicioDaQueixa = InicioDaQueixa;
+//private String QueixasAfetivoEmocionais;
+    private boolean QAEVolicao;
+    private boolean QAEAfeto;
+    private boolean QAEAnsiedade;
+    private boolean QAEMedo;
+    private boolean QAECulpa;
+    private boolean QAERaiva;
+    private boolean QAELuto;
+    private boolean QAEDesanimo;
+
+    public Anamnese() {
+
+        this.QueixasSecundarias = null;
+        this.HistoricoFamiliar = null;
+        this.Diagnostico = null;
+        this.Encaminhamento = null;
+        this.DoencasConhecidas = null;
+        this.MedicamentosUtilizados = null;
+        this.DataEmissao = null;
+
+        this.QCIntegridadeSensorial = false;
+        this.QCPercepcao = false;
+        this.QCAtencao = false;
+        this.QCMemoria = false;
+
+        this.QAEVolicao = false;
+        this.QAEAfeto = false;
+        this.QAEAnsiedade = false;
+        this.QAEMedo = false;
+        this.QAECulpa = false;
+        this.QAERaiva = false;
+        this.QAELuto = false;
+        this.QAEDesanimo = false;
+
+        this.Psicomotricidade = "Normal";
+
+        this.consulta = new Consulta();
+
     }
-
 
     public int getCodAnamnese() {
         return CodAnamnese;
@@ -82,7 +104,13 @@ public Anamnese(){
         this.SubitaOuProgressiva = SubitaOuProgressiva;
     }
 
- 
+    public Object getInicioDaQueixa() {
+        return InicioDaQueixa;
+    }
+
+    public void setInicioDaQueixa(Object InicioDaQueixa) {
+        this.InicioDaQueixa = InicioDaQueixa;
+    }
 
     public String getQueixasSecundarias() {
         return QueixasSecundarias;
@@ -172,22 +200,6 @@ public Anamnese(){
         this.ComoComecou = ComoComecou;
     }
 
-    public String getQueixasCognitivas() {
-        return QueixasCognitivas;
-    }
-
-    public void setQueixasCognitivas(String QueixasCognitivas) {
-        this.QueixasCognitivas = QueixasCognitivas;
-    }
-
-    public String getQueixasAfetivoEmocionais() {
-        return QueixasAfetivoEmocionais;
-    }
-
-    public void setQueixasAfetivoEmocionais(String QueixasAfetivoEmocionais) {
-        this.QueixasAfetivoEmocionais = QueixasAfetivoEmocionais;
-    }
-
     public String getPsicomotricidade() {
         return Psicomotricidade;
     }
@@ -196,6 +208,96 @@ public Anamnese(){
         this.Psicomotricidade = Psicomotricidade;
     }
 
+    public boolean isQCIntegridadeSensorial() {
+        return QCIntegridadeSensorial;
+    }
 
+    public void setQCIntegridadeSensorial(boolean QCIntegridadeSensorial) {
+        this.QCIntegridadeSensorial = QCIntegridadeSensorial;
+    }
+
+    public boolean isQCPercepcao() {
+        return QCPercepcao;
+    }
+
+    public void setQCPercepcao(boolean QCPercepcao) {
+        this.QCPercepcao = QCPercepcao;
+    }
+
+    public boolean isQCAtencao() {
+        return QCAtencao;
+    }
+
+    public void setQCAtencao(boolean QCAtencao) {
+        this.QCAtencao = QCAtencao;
+    }
+
+    public boolean isQCMemoria() {
+        return QCMemoria;
+    }
+
+    public void setQCMemoria(boolean QCMemoria) {
+        this.QCMemoria = QCMemoria;
+    }
+
+    public boolean isQAEVolicao() {
+        return QAEVolicao;
+    }
+
+    public void setQAEVolicao(boolean QAEVolicao) {
+        this.QAEVolicao = QAEVolicao;
+    }
+
+    public boolean isQAEAfeto() {
+        return QAEAfeto;
+    }
+
+    public void setQAEAfeto(boolean QAEAfeto) {
+        this.QAEAfeto = QAEAfeto;
+    }
+
+    public boolean isQAEAnsiedade() {
+        return QAEAnsiedade;
+    }
+
+    public void setQAEAnsiedade(boolean QAEAnsiedade) {
+        this.QAEAnsiedade = QAEAnsiedade;
+    }
+
+    public boolean isQAEMedo() {
+        return QAEMedo;
+    }
+
+    public void setQAEMedo(boolean QAEMedo) {
+        this.QAEMedo = QAEMedo;
+    }
+
+    public boolean isQAECulpa() {
+        return QAECulpa;
+    }
+
+    public void setQAECulpa(boolean QAECulpa) {
+        this.QAECulpa = QAECulpa;
+    }
+
+    public boolean isQAERaiva() {
+        return QAERaiva;
+    }
+
+    public void setQAERaiva(boolean QAERaiva) {
+        this.QAERaiva = QAERaiva;
+    }
+
+    public boolean isQAELuto() {
+        return QAELuto;
+    }
+
+    public void setQAELuto(boolean QAELuto) {
+        this.QAELuto = QAELuto;
+    }
+
+    public boolean isQAEDesanimo() {
+        return QAEDesanimo;
+    }
 
 }
