@@ -456,7 +456,7 @@ public class ExibirAnotacoes1 extends javax.swing.JFrame {
 
     private void BrnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BrnVoltarActionPerformed
         // TODO add your handling code here:
-        TelaPrincipal tp = new TelaPrincipal();
+        ManterPaciente1 tp = new ManterPaciente1();
         tp.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BrnVoltarActionPerformed
