@@ -220,14 +220,14 @@ public class AlterarConsultapelomenu extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        CadastrarAnamnesePaciente tp = new CadastrarAnamnesePaciente(codconsulta);
-         tp.codconsulta = codconsulta;
-        CadastrarAnamnesePaciente.codconsulta =codconsulta;
-        
-       
-    
-        this.dispose();
-        tp.setVisible(true);
+//        CadastrarAnamnesePaciente tp = new CadastrarAnamnesePaciente(codconsulta);
+//         tp.codconsulta = codconsulta;
+//        CadastrarAnamnesePaciente.codconsulta =codconsulta;
+//        
+//       
+//    
+//        this.dispose();
+//        tp.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

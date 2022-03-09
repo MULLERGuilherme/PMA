@@ -196,7 +196,7 @@ public class ExibirAnotacoesPaciente extends javax.swing.JFrame {
 
     private void BrnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BrnVoltarActionPerformed
         // TODO add your handling code here:
-             ManterPaciente mp = new ManterPaciente();
+             ManterPaciente1 mp = new ManterPaciente1();
              mp.setVisible(true);
              this.dispose();
     }//GEN-LAST:event_BrnVoltarActionPerformed
