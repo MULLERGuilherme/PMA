@@ -107,7 +107,7 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
         DataChooser = new com.toedter.calendar.JDateChooser();
         btnAlterar = new javax.swing.JButton();
         BtnExcluir = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        jScrollPane2 = new javax.swing.JScrollPane();
         JTConsultas = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -154,11 +154,11 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
             }
         });
 
+        BtnManterConsulta.setText("Cadastrar Consulta");
         BtnManterConsulta.setBackground(new java.awt.Color(102, 102, 102));
+        BtnManterConsulta.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnManterConsulta.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnManterConsulta.setForeground(new java.awt.Color(255, 255, 255));
-        BtnManterConsulta.setText("Cadastrar Consulta");
-        BtnManterConsulta.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnManterConsulta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnManterConsultaActionPerformed(evt);
@@ -198,11 +198,11 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
             }
         });
 
-        BtnSair.setText("Sair");
         BtnSair.setBackground(new java.awt.Color(102, 102, 102));
-        BtnSair.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnSair.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnSair.setForeground(new java.awt.Color(255, 255, 255));
+        BtnSair.setText("Sair");
+        BtnSair.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnSairActionPerformed(evt);
@@ -244,15 +244,15 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
 
         jEImagePanel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/spring-floral-watercolor-background-vector-green-with-leaf-illustration_53876-126350.jpg"))); // NOI18N
 
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel1.setText("Exibindo as Consultas do dia");
-        jLabel1.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
 
-        jLabel2.setText("jLabel2");
         jLabel2.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        jLabel2.setText("jLabel2");
 
-        jLabel3.setText("Selecionar dia");
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel3.setText("Selecionar dia");
 
         btnOk.setBackground(new java.awt.Color(204, 204, 204));
         btnOk.setText("OK");
@@ -303,7 +303,7 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
                 JTConsultasMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(JTConsultas);
+        jScrollPane2.setViewportView(JTConsultas);
 
         javax.swing.GroupLayout jEImagePanel1Layout = new javax.swing.GroupLayout(jEImagePanel1);
         jEImagePanel1.setLayout(jEImagePanel1Layout);
@@ -329,7 +329,7 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
             .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jEImagePanel1Layout.createSequentialGroup()
                     .addGap(143, 143, 143)
-                    .addComponent(jScrollPane1)
+                    .addComponent(jScrollPane2)
                     .addGap(144, 144, 144)))
         );
         jEImagePanel1Layout.setVerticalGroup(
@@ -352,7 +352,7 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
             .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jEImagePanel1Layout.createSequentialGroup()
                     .addGap(104, 104, 104)
-                    .addComponent(jScrollPane1)
+                    .addComponent(jScrollPane2)
                     .addGap(104, 104, 104)))
         );
 
@@ -502,5 +502,6 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
 }
