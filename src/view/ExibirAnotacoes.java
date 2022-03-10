@@ -95,19 +95,14 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
             });
         }
     }
- public void ReadJTableBusca(String Atributo, String Busca) {
+ public void ReadJTableBusca(String Busca) {
 
         DefaultTableModel model = (DefaultTableModel) JTAnotacoes.getModel();
         model.setNumRows(0);
         ViewsDAO vwdao = new ViewsDAO();
-        if (Atributo.equals("Nome do Paciente")) {
-            Atributo = "Paciente";
-        }
-        if (Atributo.equals("Data da Anotação")) {
-            Atributo = "DataAnotacao";
-        }
+  
 
-        for (Vw_Anotacoes_Paciente v : vwdao.BuscaExibirAnotacoes(Atributo, Busca, Main.cod)) {
+        for (Vw_Anotacoes_Paciente v : vwdao.BuscaExibirAnotacoesOA( Busca, Main.cod)) {
 
             model.addRow(new Object[]{
                 v.getAnotacao().getCodAnotacao(),
@@ -165,7 +160,6 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
         BtnAlterarAnotacao = new javax.swing.JButton();
         BtnExcluirAnotacao = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        JCBAtributo = new javax.swing.JComboBox<>();
         txtBusca = new javax.swing.JTextField();
         btnBuscar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -309,7 +303,7 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1368, Short.MAX_VALUE)
+            .addGap(0, 1429, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -321,77 +315,77 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
         PainelMenu.setBackground(new java.awt.Color(102, 102, 102));
         PainelMenu.setForeground(new java.awt.Color(102, 102, 102));
 
-        BtnVoltar.setText("Início");
         BtnVoltar.setBackground(new java.awt.Color(102, 102, 102));
         BtnVoltar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnVoltar.setForeground(new java.awt.Color(255, 255, 255));
+        BtnVoltar.setText("Início");
         BtnVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnVoltarActionPerformed(evt);
             }
         });
 
-        BtnManterPaciente.setText("Manter Pacientes");
         BtnManterPaciente.setBackground(new java.awt.Color(102, 102, 102));
-        BtnManterPaciente.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        BtnManterPaciente.setFocusPainted(false);
         BtnManterPaciente.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnManterPaciente.setForeground(new java.awt.Color(255, 255, 255));
+        BtnManterPaciente.setText("Manter Pacientes");
+        BtnManterPaciente.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        BtnManterPaciente.setFocusPainted(false);
         BtnManterPaciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnManterPacienteActionPerformed(evt);
             }
         });
 
-        BtnManterConsulta.setText("Cadastrar Consulta");
         BtnManterConsulta.setBackground(new java.awt.Color(102, 102, 102));
-        BtnManterConsulta.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnManterConsulta.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnManterConsulta.setForeground(new java.awt.Color(255, 255, 255));
+        BtnManterConsulta.setText("Cadastrar Consulta");
+        BtnManterConsulta.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnManterConsulta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnManterConsultaActionPerformed(evt);
             }
         });
 
-        BtnManterPsicologo.setText("Meus Dados");
         BtnManterPsicologo.setBackground(new java.awt.Color(102, 102, 102));
-        BtnManterPsicologo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnManterPsicologo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnManterPsicologo.setForeground(new java.awt.Color(255, 255, 255));
+        BtnManterPsicologo.setText("Meus Dados");
+        BtnManterPsicologo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnManterPsicologo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnManterPsicologoActionPerformed(evt);
             }
         });
 
-        BtnExibiranamneses.setText("Exibir Anamneses");
         BtnExibiranamneses.setBackground(new java.awt.Color(102, 102, 102));
-        BtnExibiranamneses.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnExibiranamneses.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnExibiranamneses.setForeground(new java.awt.Color(255, 255, 255));
+        BtnExibiranamneses.setText("Exibir Anamneses");
+        BtnExibiranamneses.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnExibiranamneses.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnExibiranamnesesActionPerformed(evt);
             }
         });
 
-        BtnExibirAnotacao.setText("Exibir Anotações");
         BtnExibirAnotacao.setBackground(new java.awt.Color(102, 102, 102));
-        BtnExibirAnotacao.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnExibirAnotacao.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnExibirAnotacao.setForeground(new java.awt.Color(255, 255, 255));
+        BtnExibirAnotacao.setText("Exibir Anotações");
+        BtnExibirAnotacao.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnExibirAnotacao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnExibirAnotacaoActionPerformed(evt);
             }
         });
 
-        BtnSair.setText("Sair");
         BtnSair.setBackground(new java.awt.Color(102, 102, 102));
-        BtnSair.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnSair.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnSair.setForeground(new java.awt.Color(255, 255, 255));
+        BtnSair.setText("Sair");
+        BtnSair.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnSairActionPerformed(evt);
@@ -449,8 +443,6 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
 
         jLabel2.setText("Buscar Anotação Por");
 
-        JCBAtributo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"Nome do Paciente", "Assunto", "Data da Anotação" }));
-
         btnBuscar.setText("Buscar");
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -491,13 +483,11 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
                 .addComponent(BtnExcluirAnotacao)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(JCBAtributo, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(199, 199, 199)
                 .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnBuscar)
-                .addContainerGap(122, Short.MAX_VALUE))
+                .addContainerGap(201, Short.MAX_VALUE))
         );
         jEImagePanel1Layout.setVerticalGroup(
             jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -507,12 +497,11 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
                     .addComponent(BtnAlterarAnotacao)
                     .addComponent(BtnExcluirAnotacao)
                     .addComponent(jLabel2)
-                    .addComponent(JCBAtributo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBuscar))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(107, Short.MAX_VALUE))
+                .addContainerGap(93, Short.MAX_VALUE))
         );
 
         getContentPane().add(jEImagePanel1, java.awt.BorderLayout.CENTER);
@@ -627,7 +616,7 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         //System.out.println(JCBAtributo.getSelectedIndex());
-        this.ReadJTableBusca((String) JCBAtributo.getSelectedItem(), txtBusca.getText());
+        this.ReadJTableBusca( txtBusca.getText());
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void BtnCancelarAnotacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCancelarAnotacaoActionPerformed
@@ -698,7 +687,6 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
     private javax.swing.JButton BtnSair;
     private javax.swing.JButton BtnSalvarAlteracoesAnotacao;
     private javax.swing.JButton BtnVoltar;
-    private javax.swing.JComboBox<String> JCBAtributo;
     private javax.swing.JTable JTAnotacoes;
     private javax.swing.JLabel LabelAssunto;
     private javax.swing.JLabel LabelAssunto1;
