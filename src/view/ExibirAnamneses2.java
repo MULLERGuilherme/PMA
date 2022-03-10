@@ -133,7 +133,6 @@ public class ExibirAnamneses2 extends javax.swing.JFrame {
         btnalterar = new javax.swing.JButton();
         btnExcluir = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        JCBAtributo = new javax.swing.JComboBox<>();
         txtBusca = new javax.swing.JTextField();
         btnBuscar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -788,8 +787,6 @@ public class ExibirAnamneses2 extends javax.swing.JFrame {
 
         jLabel2.setText("Buscar Anamnese Por");
 
-        JCBAtributo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nome do Paciente", "Diagnóstico", "Data da Consulta" }));
-
         btnBuscar.setText("Buscar");
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -833,13 +830,11 @@ public class ExibirAnamneses2 extends javax.swing.JFrame {
                                 .addComponent(btnExcluir)
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(JCBAtributo, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
+                                .addGap(199, 199, 199)
                                 .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(btnBuscar)))
-                        .addGap(0, 135, Short.MAX_VALUE)))
+                        .addGap(0, 155, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jEImagePanel1Layout.setVerticalGroup(
@@ -854,12 +849,11 @@ public class ExibirAnamneses2 extends javax.swing.JFrame {
                     .addComponent(btnalterar)
                     .addComponent(btnExcluir)
                     .addComponent(jLabel2)
-                    .addComponent(JCBAtributo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBuscar))
                 .addGap(29, 29, 29)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 461, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         getContentPane().add(jEImagePanel1, java.awt.BorderLayout.CENTER);
@@ -1076,22 +1070,14 @@ private void ReadJTable() {
         }
     }
 
-     public void ReadJTableBusca(String Atributo, String Busca) {
+     public void ReadJTableBusca( String Busca) {
 
         DefaultTableModel model = (DefaultTableModel) JTAnamneses.getModel();
         model.setNumRows(0);
-        if (Atributo.equals("Nome do Paciente")) {
-            Atributo = "Paciente";
-        }
-        if (Atributo.equals("Diagnóstico")) {
-            Atributo = "Diagnostico";
-        }
-        if (Atributo.equals("Data da Consulta")) {
-            Atributo = "DataConsulta";
-        }
+   
         ViewsDAO vwdao = new ViewsDAO();
 
-        for (Vw_Anamnese_Paciente v : vwdao.BuscaExibirAnamneses(Atributo, Busca, Main.cod, this.codpaciente)) {
+        for (Vw_Anamnese_Paciente v : vwdao.BuscaExibirAnamnesesOA( Busca, Main.cod, this.codpaciente)) {
 
             model.addRow(new Object[]{
                 v.getAnamnese().getCodAnamnese(),
@@ -1106,7 +1092,7 @@ private void ReadJTable() {
         // TODO add your handling code here:
 
         //System.out.println(JCBAtributo.getSelectedIndex());
-        this.ReadJTableBusca((String) JCBAtributo.getSelectedItem(), txtBusca.getText());
+        this.ReadJTableBusca( txtBusca.getText());
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void BtnSalvarAlteracoes5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalvarAlteracoes5ActionPerformed
@@ -1190,7 +1176,6 @@ private void ReadJTable() {
     private javax.swing.JCheckBox CheckBoxRaiva;
     private javax.swing.JCheckBox CheckBoxVolicao;
     private com.github.lgooddatepicker.components.DatePicker DataInicio1;
-    private javax.swing.JComboBox<String> JCBAtributo;
     private javax.swing.JComboBox<String> JCBPsicomotricidade1;
     private javax.swing.JTable JTAnamneses;
     private javax.swing.JLabel LabelEmail2;
