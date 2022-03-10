@@ -1047,6 +1047,12 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
         jLabel6.setText("Buscar Psicologo por");
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
+        txtBusca.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtBuscaKeyTyped(evt);
+            }
+        });
+
         BtnBuscar.setText("Buscar");
         BtnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1081,6 +1087,9 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
         JTPsicologos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 JTPsicologosMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                JTPsicologosMousePressed(evt);
             }
         });
         JTPsicologos.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -1637,6 +1646,68 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_BtnExcluirPsicologoActionPerformed
+
+    private void JTPsicologosMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTPsicologosMousePressed
+        if(evt.getClickCount() == 2 ) {
+            if (JTPsicologos.getSelectedRow() != -1) {
+            int modelRow = JTPsicologos.convertRowIndexToModel(JTPsicologos.getSelectedRow());
+            int value = (Integer) JTPsicologos.getModel().getValueAt(modelRow, 0);
+
+            VisuPsicologoADM mp = new VisuPsicologoADM(value);
+            //Util.SizeJanela(mp);
+            mp.setVisible(true);
+            this.dispose();
+//            int modelRow = JTPsicologos.convertRowIndexToModel(JTPsicologos.getSelectedRow());
+//            int value = (Integer) JTPsicologos.getModel().getValueAt(modelRow, 0);
+//            this.codigopaciente = value;
+//            PacienteDAO dao = new PacienteDAO();
+//            ViewsDAO vwdao = new ViewsDAO();
+//            Paciente p = dao.ReadPaciente(codigopaciente);
+//            Vw_TelefonesPacientes v = new Vw_TelefonesPacientes();
+//            v = vwdao.ReadTelefonesPacientes(codigopaciente);
+//            txtNome2.setText(p.getNome_Completo());
+//            Date date = (Date) p.getDataNasc();
+//
+//            LocalDate localDate = date.toInstant().atZone( ZoneId.systemDefault() ).toLocalDate();
+//            DataNasc3.setDate(date.toLocalDate());
+//            DataNasc1.setDate((LocalDate) p.getDataNasc());
+//            Sexo2.setSelectedItem(p.getSexo());
+//            estadocivil2.setSelectedItem(p.getEstadoCivil());
+//            TxtCidade2.setText(p.getCidade());
+//            txtCPF2.setText(p.getCPF());
+//            TxtEndereco2.setText(p.getEndereco());
+//            TxtProfissao2.setText(p.getProfissao());
+//            TxtReligiao2.setText(p.getReligiao());
+//            TxtEscolaridade2.setText(p.getEscolaridade());
+//            String fones = null;
+//            String[] fones2 = null;
+//            fones = v.getTelefone().getNumero();
+//            if (fones.contains(",")) {
+//                fones2 = fones.split(",");
+//                TxtTelefone3.setText(fones2[0]);
+//                TxtTelefone4.setText(fones2[1]);
+//            } else {
+//                TxtTelefone3.setText(fones);
+//                TxtTelefone4.setText("");
+//            }
+//
+//            txtEmail13.setText(p.getEmail());
+//            LabelMsg.setVisible(false);
+//            DataNasc3.setFont(new Font("Tahoma", Font.BOLD, 18));
+//            ModalAlterar.setSize(950, 950);
+//            ModalAlterar.setModal(true);
+//            ModalAlterar.setLocationRelativeTo(null);
+//            ModalAlterar.setVisible(true);
+//
+        } else {
+            JOptionPane.showMessageDialog(this, "Selecione um Psicologo para alterar", "ERRO!", JOptionPane.ERROR_MESSAGE);
+        }
+        }
+    }//GEN-LAST:event_JTPsicologosMousePressed
+
+    private void txtBuscaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscaKeyTyped
+        this.ReadJTableBusca( txtBusca.getText());
+    }//GEN-LAST:event_txtBuscaKeyTyped
 
     /**
          * @param args the command line arguments
