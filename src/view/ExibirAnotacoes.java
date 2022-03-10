@@ -159,7 +159,6 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
         jEImagePanel1 = new LIB.JEImagePanel();
         BtnAlterarAnotacao = new javax.swing.JButton();
         BtnExcluirAnotacao = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
         txtBusca = new javax.swing.JTextField();
         btnBuscar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -441,8 +440,6 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setText("Buscar Anotação Por");
-
         txtBusca.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtBuscaKeyTyped(evt);
@@ -472,6 +469,11 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        JTAnotacoes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                JTAnotacoesMousePressed(evt);
+            }
+        });
         jScrollPane1.setViewportView(JTAnotacoes);
 
         javax.swing.GroupLayout jEImagePanel1Layout = new javax.swing.GroupLayout(jEImagePanel1);
@@ -487,13 +489,11 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
                 .addComponent(BtnAlterarAnotacao)
                 .addGap(18, 18, 18)
                 .addComponent(BtnExcluirAnotacao)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(199, 199, 199)
+                .addGap(346, 346, 346)
                 .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnBuscar)
-                .addContainerGap(201, Short.MAX_VALUE))
+                .addContainerGap(183, Short.MAX_VALUE))
         );
         jEImagePanel1Layout.setVerticalGroup(
             jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -502,12 +502,11 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
                 .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BtnAlterarAnotacao)
                     .addComponent(BtnExcluirAnotacao)
-                    .addComponent(jLabel2)
                     .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBuscar))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(93, Short.MAX_VALUE))
+                .addContainerGap(91, Short.MAX_VALUE))
         );
 
         getContentPane().add(jEImagePanel1, java.awt.BorderLayout.CENTER);
@@ -649,6 +648,30 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
                 this.ReadJTableBusca( txtBusca.getText());
     }//GEN-LAST:event_txtBuscaKeyTyped
 
+    private void JTAnotacoesMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTAnotacoesMousePressed
+       if(evt.getClickCount() == 2 ) {
+           if (JTAnotacoes.getSelectedRow() != -1) {
+            Anotacao a = new Anotacao();
+            AnotacaoDAO dao = new AnotacaoDAO();
+            int modelRow = JTAnotacoes.convertRowIndexToModel(JTAnotacoes.getSelectedRow());
+            int value = (Integer) JTAnotacoes.getModel().getValueAt(modelRow, 0);
+            this.codigoanotacao = value;
+            String nome = (String) JTAnotacoes.getModel().getValueAt(modelRow, 1);
+            //a2 = dao2.ReadAnamneseConsulta(codconsulta);
+            //codanamnese = a2.getCodAnamnese();
+            existe = readcampos(codigoanotacao);
+            ModalAnotacao.setSize(862, 870);
+            LabelNome5.setText(nome);
+            ModalAnotacao.setModal(true);
+            ModalAnotacao.setLocationRelativeTo(null);
+            ModalAnotacao.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(this, "Selecione uma anotacao para alterar");
+        }
+           
+       }
+    }//GEN-LAST:event_JTAnotacoesMousePressed
+
     /**
      * @param args the command line arguments
      */
@@ -708,7 +731,6 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
     private javax.swing.JButton btnBuscar;
     private LIB.JEImagePanel jEImagePanel1;
     private LIB.JEImagePanel jEImagePanel4;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

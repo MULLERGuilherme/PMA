@@ -951,6 +951,11 @@ public class ExibirAnamneses extends javax.swing.JFrame {
                 "ID Anamnese", "Paciente", "Diagnostico", "Data da Consulta"
             }
         ));
+        JTAnamneses.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                JTAnamnesesMousePressed(evt);
+            }
+        });
         jScrollPane2.setViewportView(JTAnamneses);
 
         javax.swing.GroupLayout jEImagePanel1Layout = new javax.swing.GroupLayout(jEImagePanel1);
@@ -1138,6 +1143,38 @@ public class ExibirAnamneses extends javax.swing.JFrame {
     private void BtnSalvarAlteracoes7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalvarAlteracoes7ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnSalvarAlteracoes7ActionPerformed
+
+    private void JTAnamnesesMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTAnamnesesMousePressed
+        if(evt.getClickCount() == 2 ) {
+           if (JTAnamneses.getSelectedRow() != -1) {
+            if (JTAnamneses.getSelectedRow() != -1) {
+            Anamnese a2 = new Anamnese();
+            AnamneseDAO dao2 = new AnamneseDAO();
+            int modelRow = JTAnamneses.convertRowIndexToModel(JTAnamneses.getSelectedRow());
+            int value = (Integer) JTAnamneses.getModel().getValueAt(modelRow, 0);
+            this.codigoanamnese = value;
+            //a2 = dao2.ReadAnamneseConsulta(codconsulta);
+            //codanamnese = a2.getCodAnamnese();
+            existe = readcampos(codigoanamnese);
+            if (existe) {
+                //LabelModalAnamnese.setText("Lendo dados da Anamnese Cadastrada na consulta");
+            } else {
+                //LabelModalAnamnese.setText(" Cadastrar anamnese na consulta");
+            }
+
+            ModalAnamnese2.setSize(1039, 967);
+            jScrollPane3.getVerticalScrollBar().setUnitIncrement(20);
+            ModalAnamnese2.setModal(true);
+            ModalAnamnese2.setLocationRelativeTo(null);
+            ModalAnamnese2.setVisible(true);
+            
+            
+        } else {
+            JOptionPane.showMessageDialog(this, "Selecione uma anamnese para alterar");
+        }
+      }
+     } 
+    }//GEN-LAST:event_JTAnamnesesMousePressed
 
     /**
      * @param args the command line arguments

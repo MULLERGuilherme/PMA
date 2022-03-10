@@ -2126,6 +2126,9 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 JTPacientesMouseClicked(evt);
             }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                JTPacientesMousePressed(evt);
+            }
         });
         JTPacientes.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -2879,6 +2882,57 @@ public class ManterPaciente1 extends javax.swing.JFrame {
     private void txtBuscaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscaKeyTyped
        this.ReadJTableBusca(txtBusca.getText());
     }//GEN-LAST:event_txtBuscaKeyTyped
+
+    private void JTPacientesMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTPacientesMousePressed
+         if(evt.getClickCount() == 2 ) {
+              if (JTPacientes.getSelectedRow() != -1) {
+            int modelRow = JTPacientes.convertRowIndexToModel(JTPacientes.getSelectedRow());
+            int value = (Integer) JTPacientes.getModel().getValueAt(modelRow, 0);
+            this.codigopaciente = value;
+            PacienteDAO dao = new PacienteDAO();
+            ViewsDAO vwdao = new ViewsDAO();
+            Paciente p = dao.ReadPaciente(codigopaciente);
+            Vw_TelefonesPacientes v = new Vw_TelefonesPacientes();
+            v = vwdao.ReadTelefonesPacientes(codigopaciente);
+            txtNome2.setText(p.getNome_Completo());
+            Date date = (Date) p.getDataNasc();
+
+            //LocalDate localDate = date.toInstant().atZone( ZoneId.systemDefault() ).toLocalDate();
+            DataNasc3.setDate(date.toLocalDate());
+            //DataNasc1.setDate((LocalDate) p.getDataNasc());
+            Sexo2.setSelectedItem(p.getSexo());
+            estadocivil2.setSelectedItem(p.getEstadoCivil());
+            TxtCidade2.setText(p.getCidade());
+            txtCPF2.setText(p.getCPF());
+            TxtEndereco2.setText(p.getEndereco());
+            TxtProfissao2.setText(p.getProfissao());
+            TxtReligiao2.setText(p.getReligiao());
+            TxtEscolaridade2.setText(p.getEscolaridade());
+            String fones = null;
+            String[] fones2 = null;
+            fones = v.getTelefone().getNumero();
+            if (fones.contains(",")) {
+                fones2 = fones.split(",");
+                TxtTelefone3.setText(fones2[0]);
+                TxtTelefone4.setText(fones2[1]);
+            } else {
+                TxtTelefone3.setText(fones);
+                TxtTelefone4.setText("");
+            }
+
+            txtEmail13.setText(p.getEmail());
+            LabelMsg.setVisible(false);
+            DataNasc3.setFont(new Font("Tahoma", Font.BOLD, 18));
+            ModalAlterar.setSize(950, 950);
+            ModalAlterar.setModal(true);
+            ModalAlterar.setLocationRelativeTo(null);
+            ModalAlterar.setVisible(true);
+
+        } else {
+            JOptionPane.showMessageDialog(this, "Selecione um paciente para alterar");
+        }
+         }
+    }//GEN-LAST:event_JTPacientesMousePressed
 
     private void Alterar(int cod) {
         Anamnese a = new Anamnese();
