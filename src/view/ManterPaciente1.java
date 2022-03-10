@@ -2053,6 +2053,12 @@ public class ManterPaciente1 extends javax.swing.JFrame {
 
         jLabel6.setText("Buscar Paciente por");
 
+        txtBusca.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtBuscaKeyTyped(evt);
+            }
+        });
+
         BtnBuscar.setText("Buscar");
         BtnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2140,8 +2146,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BtnBuscar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(BtnBuscar))
                     .addGroup(jEImagePanel1Layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 622, Short.MAX_VALUE)
                         .addGap(63, 63, 63)
@@ -2870,6 +2875,10 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             //LabelModalAnamnese.setText("Lendo dados da Anamnese Cadastrada na consulta");
        
     }//GEN-LAST:event_BtnSalvarAlteracoes4ActionPerformed
+
+    private void txtBuscaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscaKeyTyped
+       this.ReadJTableBusca(txtBusca.getText());
+    }//GEN-LAST:event_txtBuscaKeyTyped
 
     private void Alterar(int cod) {
         Anamnese a = new Anamnese();

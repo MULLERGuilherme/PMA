@@ -443,6 +443,12 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
 
         jLabel2.setText("Buscar Anotação Por");
 
+        txtBusca.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtBuscaKeyTyped(evt);
+            }
+        });
+
         btnBuscar.setText("Buscar");
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -638,6 +644,10 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
         }
         ReadJTable();
     }//GEN-LAST:event_BtnSalvarAlteracoesAnotacaoActionPerformed
+
+    private void txtBuscaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscaKeyTyped
+                this.ReadJTableBusca( txtBusca.getText());
+    }//GEN-LAST:event_txtBuscaKeyTyped
 
     /**
      * @param args the command line arguments

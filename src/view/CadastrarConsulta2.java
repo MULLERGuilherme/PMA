@@ -244,6 +244,12 @@ public class CadastrarConsulta2 extends javax.swing.JFrame {
 
         jLabel2.setText("Buscar paciente Por");
 
+        txtBusca.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtBuscaKeyTyped(evt);
+            }
+        });
+
         jLabel6.setText("Status");
 
         status.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A Confirmar","Confirmada","Cancelada", "Realizada" }));
@@ -485,6 +491,13 @@ public class CadastrarConsulta2 extends javax.swing.JFrame {
         Util.SizeJanela(mp1);
         this.dispose();
     }//GEN-LAST:event_BtnVoltarActionPerformed
+
+    private void txtBuscaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscaKeyTyped
+       Paciente p = new Paciente();
+        PacienteDAO dao = new PacienteDAO();
+       
+        this.ReadJTableBusca( txtBusca.getText());
+    }//GEN-LAST:event_txtBuscaKeyTyped
 
     /**
      * @param args the command line arguments
