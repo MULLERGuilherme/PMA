@@ -31,7 +31,7 @@ public class ADMDAO {
         ResultSet rs = null;
         List<Vw_TelefonesPsicologos> vw = new ArrayList<>();
         try {
-            stmt = con.prepareStatement("SELECT CodigoPsicologo, Psicologo, Email,CRP, GROUP_CONCAT(numero) as Numero FROM vw_TelefonePsicologos Group By CodigoPsicologo");
+            stmt = con.prepareStatement("SELECT CodigoPsicologo, Psicologo, Email,CRP, GROUP_CONCAT(numero) as Telefone FROM vw_TelefonePsicologos Group By CodigoPsicologo");
             rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -41,7 +41,7 @@ public class ADMDAO {
                 v.getPsicologo().setNome_completo(rs.getString("Psicologo"));
                 v.getPsicologo().setEmail(rs.getString("Email"));
                 v.getPsicologo().setCRP(rs.getString("CRP"));
-                v.getTelefone().setNumero(rs.getString("Numero"));
+                v.getTelefone().setNumero(rs.getString("Telefone"));
 
                 vw.add(v);
 
@@ -56,13 +56,13 @@ public class ADMDAO {
         return vw;
     }
 
-    public List<Vw_TelefonesPsicologos> BuscaManterPsicologo(String Atributo, String Busca) {
+    public List<Vw_TelefonesPsicologos> BuscaManterPsicologo( String Busca) {
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;
         List<Vw_TelefonesPsicologos> vw = new ArrayList<>();
         try {
-            String sql = "SELECT CodigoPsicologo, Psicologo, Email,CRP, GROUP_CONCAT(numero) as Telefone FROM vw_TelefonePsicologos WHERE " + Atributo + " Like '%" + Busca + "%' Group By CodigoPsicologo;";
+            String sql = "SELECT CodigoPsicologo, Psicologo, Email,CRP, GROUP_CONCAT(numero) as Telefone FROM vw_TelefonePsicologos WHERE ((Psicologo Like '%" + Busca + "%') OR (Email Like '%" + Busca + "%') OR (Telefone Like '%" + Busca + "%')) Group By CodigoPsicologo;";
             stmt = con.prepareStatement(sql);
 
             rs = stmt.executeQuery();
@@ -73,7 +73,37 @@ public class ADMDAO {
                 v.getPsicologo().setNome_completo(rs.getString("Psicologo"));
                 v.getPsicologo().setEmail(rs.getString("Email"));
                 v.getPsicologo().setCRP(rs.getString("CRP"));
-                v.getTelefone().setNumero(rs.getString("Numero"));
+                v.getTelefone().setNumero(rs.getString("Telefone"));
+
+                vw.add(v);
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(PacienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt, rs);
+        }
+
+        return vw;
+    }
+ public List<Vw_TelefonesPsicologos> BuscaManterPsicologoOA( String Busca) {
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        List<Vw_TelefonesPsicologos> vw = new ArrayList<>();
+        try {
+            String sql = "SELECT CodigoPsicologo, Psicologo, Email,CRP, GROUP_CONCAT(numero) as Telefone FROM vw_TelefonePsicologos WHERE ((Psicologo Like '%" + Busca + "%') OR (Email Like '%" + Busca + "%') OR (numero Like '%" + Busca + "%')) Group By CodigoPsicologo;";
+            stmt = con.prepareStatement(sql);
+
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                Vw_TelefonesPsicologos v = new Vw_TelefonesPsicologos();
+                v.getPsicologo().setCodPsicologo(rs.getInt("CodigoPsicologo"));
+                v.getPsicologo().setNome_completo(rs.getString("Psicologo"));
+                v.getPsicologo().setEmail(rs.getString("Email"));
+                v.getPsicologo().setCRP(rs.getString("CRP"));
+                v.getTelefone().setNumero(rs.getString("Telefone"));
 
                 vw.add(v);
             }

@@ -170,7 +170,6 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
         BtnSair = new javax.swing.JButton();
         jEImagePanel1 = new LIB.JEImagePanel();
         jLabel6 = new javax.swing.JLabel();
-        JCBAtributo = new javax.swing.JComboBox<>();
         txtBusca = new javax.swing.JTextField();
         BtnBuscar = new javax.swing.JButton();
         BtnVisuAlterarDados = new javax.swing.JButton();
@@ -1048,8 +1047,6 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
         jLabel6.setText("Buscar Psicologo por");
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        JCBAtributo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nome Completo", "Email", "Telefone" }));
-
         BtnBuscar.setText("Buscar");
         BtnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1116,9 +1113,7 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
                 .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jEImagePanel1Layout.createSequentialGroup()
                         .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(JCBAtributo, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(194, 194, 194)
                         .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(BtnBuscar))
@@ -1137,7 +1132,6 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
                 .addGap(74, 74, 74)
                 .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(JCBAtributo, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BtnBuscar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -1197,22 +1191,17 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
         }
     }
 
-    public void ReadJTableBusca(String Atributo, String Busca) {
+    public void ReadJTableBusca( String Busca) {
 
         DefaultTableModel model = (DefaultTableModel) JTPsicologos.getModel();
 
         model.setNumRows(0);
-        if (Atributo.equals("Nome Completo")) {
-            Atributo = "Paciente";
-        }
-        if (Atributo.equals("Telefone")) {
-            Atributo = "numero";
-        }
+       
         ADMDAO vwdao = new ADMDAO();
         Object[] linha = null;
         String fones = null;
         String[] fones2 = null;
-        for (Vw_TelefonesPsicologos vw : vwdao.BuscaManterPsicologo(Atributo, Busca)) {
+        for (Vw_TelefonesPsicologos vw : vwdao.BuscaManterPsicologoOA( Busca)) {
             fones = vw.getTelefone().getNumero();
             if (fones.contains(",")) {
 
@@ -1246,7 +1235,7 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
     private void BtnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBuscarActionPerformed
         // TODO add your handling code here:
         //System.out.println(JCBAtributo.getSelectedIndex());
-        this.ReadJTableBusca((String) JCBAtributo.getSelectedItem(), txtBusca.getText());
+        this.ReadJTableBusca( txtBusca.getText());
     }//GEN-LAST:event_BtnBuscarActionPerformed
 
     private void BtnVisuAlterarDadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVisuAlterarDadosActionPerformed
@@ -1708,7 +1697,6 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
     private javax.swing.JButton BtnVoltar;
     private com.github.lgooddatepicker.components.DatePicker DataNasc;
     private com.github.lgooddatepicker.components.DatePicker DataNasc3;
-    private javax.swing.JComboBox<String> JCBAtributo;
     private javax.swing.JTable JTPsicologos;
     private javax.swing.JLabel LabelCPF;
     private javax.swing.JLabel LabelCPF1;
