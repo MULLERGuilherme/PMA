@@ -1207,7 +1207,7 @@ public class ManterPacienteAdm extends javax.swing.JFrame {
         Object[] linha = null;
         String fones = null;
         String[] fones2 = null;
-        for (Vw_TelefonesPacientes vw : vwdao.BuscaManterPaciente( Busca)) {
+        for (Vw_TelefonesPacientes vw : vwdao.BuscaManterPacienteOA( Busca)) {
             fones = vw.getTelefone().getNumero();
             if (fones.contains(",")) {
 
