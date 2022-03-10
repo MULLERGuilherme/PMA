@@ -321,13 +321,13 @@ public class ViewsDAO {
 
         return vw;
     }
-    public List<Vw_TelefonesPacientes> BuscaManterPaciente(String Atributo, String Busca) {
+    public List<Vw_TelefonesPacientes> BuscaManterPaciente( String Busca) {
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;
         List<Vw_TelefonesPacientes> vw = new ArrayList<>();
         try {
-            String sql = "SELECT CodigoPaciente, Paciente, Email, GROUP_CONCAT(numero) as Telefone FROM vw_TelefonesPacientes WHERE "+Atributo+ " Like '%"+Busca+"%' Group By CodigoPaciente;";
+            String sql = "SELECT CodigoPaciente, Paciente, Email, GROUP_CONCAT(numero) as Telefone FROM vw_TelefonesPacientes WHERE (Paciente Like '%"+Busca+"%') OR (Email Like '%"+Busca+"%') OR (numero Like '%"+Busca+"%') Group By CodigoPaciente;";
             stmt = con.prepareStatement(sql);
             
             

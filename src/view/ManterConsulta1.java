@@ -102,18 +102,17 @@ public class ManterConsulta1 extends javax.swing.JFrame {
         }
     }
 
-   public void ReadJTableBusca(String Atributo, String Busca) {
+   public void ReadJTableBusca( String Busca) {
 
         DefaultTableModel model = (DefaultTableModel) JTPacienteSimples.getModel();
         
         model.setNumRows(0);
-        if(Atributo.equals("Nome Completo")) Atributo = "Paciente";
-        if(Atributo.equals("Telefone")) Atributo = "numero";
+       
         ViewsDAO vwdao = new ViewsDAO();
         Object[] linha = null;
         String fones = null;
         String[] fones2 = null;
-        for (Vw_TelefonesPacientes vw : vwdao.BuscaManterPaciente(Atributo, Busca)) {
+        for (Vw_TelefonesPacientes vw : vwdao.BuscaManterPaciente( Busca)) {
             fones = vw.getTelefone().getNumero();
             if (fones.contains(",")) {
 
@@ -158,8 +157,6 @@ public class ManterConsulta1 extends javax.swing.JFrame {
         data = new com.github.lgooddatepicker.components.DateTimePicker();
         jLabel3 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        JCBAtributo = new javax.swing.JComboBox<>();
-        jLabel2 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         JTPacienteSimples = new javax.swing.JTable();
@@ -200,10 +197,6 @@ public class ManterConsulta1 extends javax.swing.JFrame {
         jLabel3.setText("Por Favor Selecione um paciente:");
 
         jLabel6.setText("Status:");
-
-        JCBAtributo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nome Completo", "Email", "Telefone" }));
-
-        jLabel2.setText("Buscar Paciente Por:");
 
         jLabel7.setText("Data:");
 
@@ -399,17 +392,10 @@ public class ManterConsulta1 extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jEImagePanel1Layout.createSequentialGroup()
-                                        .addComponent(data, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(93, 93, 93)))
-                                .addGap(18, 18, 18)
-                                .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING))))
-                        .addGap(18, 18, 18)
-                        .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(JCBAtributo, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(status, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(data, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(82, 82, 82)
+                                .addComponent(jLabel6)))
+                        .addComponent(status, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 838, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -430,8 +416,6 @@ public class ManterConsulta1 extends javax.swing.JFrame {
                     .addGroup(jEImagePanel1Layout.createSequentialGroup()
                         .addGap(36, 36, 36)
                         .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(JCBAtributo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4))
                         .addGap(18, 18, 18)
@@ -497,8 +481,8 @@ public class ManterConsulta1 extends javax.swing.JFrame {
         // TODO add your handling code here:
         Paciente p = new Paciente();
         PacienteDAO dao = new PacienteDAO();
-        System.out.println(JCBAtributo.getSelectedIndex());
-        this.ReadJTableBusca((String) JCBAtributo.getSelectedItem(), txtBusca.getText());
+  
+        this.ReadJTableBusca( txtBusca.getText());
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void BtnManterPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnManterPacienteActionPerformed
@@ -548,8 +532,8 @@ public class ManterConsulta1 extends javax.swing.JFrame {
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             Paciente p = new Paciente();
         PacienteDAO dao = new PacienteDAO();
-        System.out.println(JCBAtributo.getSelectedIndex());
-        this.ReadJTableBusca((String) JCBAtributo.getSelectedItem(), txtBusca.getText());   
+    
+        this.ReadJTableBusca( txtBusca.getText());   
         }
     }//GEN-LAST:event_txtBuscaKeyPressed
 
@@ -600,7 +584,6 @@ public class ManterConsulta1 extends javax.swing.JFrame {
     private javax.swing.JButton BtnManterPsicologo;
     private javax.swing.JButton BtnSair;
     private javax.swing.JButton BtnVoltar1;
-    private javax.swing.JComboBox<String> JCBAtributo;
     private javax.swing.JTable JTPacienteSimples;
     private javax.swing.JPanel PainelEsquerda;
     private javax.swing.JPanel PainelMenu;
@@ -608,7 +591,6 @@ public class ManterConsulta1 extends javax.swing.JFrame {
     private com.github.lgooddatepicker.components.DateTimePicker data;
     private LIB.JEImagePanel jEImagePanel1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;

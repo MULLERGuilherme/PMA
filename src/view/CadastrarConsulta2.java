@@ -77,7 +77,6 @@ public class CadastrarConsulta2 extends javax.swing.JFrame {
         data = new com.github.lgooddatepicker.components.DateTimePicker(null,tps);
         jLabel7 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        JCBAtributo = new javax.swing.JComboBox<>();
         txtBusca = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         status = new javax.swing.JComboBox<>();
@@ -245,8 +244,6 @@ public class CadastrarConsulta2 extends javax.swing.JFrame {
 
         jLabel2.setText("Buscar paciente Por");
 
-        JCBAtributo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nome Completo", "Email", "Telefone" }));
-
         jLabel6.setText("Status");
 
         status.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A Confirmar","Confirmada","Cancelada", "Realizada" }));
@@ -297,10 +294,9 @@ public class CadastrarConsulta2 extends javax.swing.JFrame {
                                         .addGap(18, 18, 18)
                                         .addComponent(BtnCadastrarConsulta))
                                     .addGroup(jEImagePanel1Layout.createSequentialGroup()
-                                        .addComponent(JCBAtributo, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGap(169, 169, 169)
                                         .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(628, Short.MAX_VALUE))
         );
         jEImagePanel1Layout.setVerticalGroup(
             jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -316,7 +312,6 @@ public class CadastrarConsulta2 extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(JCBAtributo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -326,7 +321,7 @@ public class CadastrarConsulta2 extends javax.swing.JFrame {
                     .addComponent(BtnCadastrarConsulta))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(371, Short.MAX_VALUE))
         );
 
         getContentPane().add(jEImagePanel1, java.awt.BorderLayout.CENTER);
@@ -378,32 +373,42 @@ public class CadastrarConsulta2 extends javax.swing.JFrame {
         }
     }
 
-    public void ReadJTableBusca(String Atributo, String Busca) {
+    public void ReadJTableBusca( String Busca) {
 
         DefaultTableModel model = (DefaultTableModel) JTPacienteSimples.getModel();
+        
         model.setNumRows(0);
-        PacienteDAO pdao = new PacienteDAO();
-        TelefoneDAO tdao = new TelefoneDAO();
-        for (Paciente p : pdao.Busca(Atributo, Busca)) {
-            List<Telefone> telefones = new ArrayList<>();
-            telefones = (List<Telefone>) tdao.Read(p.getCodPaciente());
-            if (telefones.size() == 1) {
+       
+        ViewsDAO vwdao = new ViewsDAO();
+        Object[] linha = null;
+        String fones = null;
+        String[] fones2 = null;
+        for (Vw_TelefonesPacientes vw : vwdao.BuscaManterPaciente( Busca)) {
+            fones = vw.getTelefone().getNumero();
+            if (fones.contains(",")) {
 
-                model.addRow(new Object[]{
-                    p.getCodPaciente(),
-                    p.getNome_Completo(),
-                    p.getCPF(),
-                    p.getEmail(),
-                    telefones.get(0).getNumero(),});
-            } else if (telefones.size() == 2) {
-                model.addRow(new Object[]{
-                    p.getCodPaciente(),
-                    p.getNome_Completo(),
-                    p.getCPF(),
-                    p.getEmail(),
-                    telefones.get(0).getNumero(),
-                    telefones.get(1).getNumero(),});
+                fones2 = fones.split(",");
+                linha = new Object[]{
+                    vw.getPaciente().getCodPaciente(),
+                    vw.getPaciente().getNome_Completo(),
+                    vw.getPaciente().getEmail(),
+                    fones2[0],
+                    fones2[1]
+                };
+            } else {
+                linha = new Object[]{
+                    vw.getPaciente().getCodPaciente(),
+                    vw.getPaciente().getNome_Completo(),
+                    vw.getPaciente().getEmail(),
+                    vw.getTelefone().getNumero(),
+                    null
+                };
+
             }
+            model.addRow(linha);
+            fones = null;
+            fones2 = null;
+
         }
     }
     private void BtnManterConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnManterConsultaActionPerformed
@@ -446,8 +451,8 @@ public class CadastrarConsulta2 extends javax.swing.JFrame {
         // TODO add your handling code here:
         Paciente p = new Paciente();
         PacienteDAO dao = new PacienteDAO();
-        System.out.println(JCBAtributo.getSelectedIndex());
-        this.ReadJTableBusca((String) JCBAtributo.getSelectedItem(), txtBusca.getText());
+       
+        this.ReadJTableBusca( txtBusca.getText());
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void BtnCadastrarConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCadastrarConsultaActionPerformed
@@ -525,7 +530,6 @@ public class CadastrarConsulta2 extends javax.swing.JFrame {
     private javax.swing.JButton BtnManterPsicologo;
     private javax.swing.JButton BtnSair;
     private javax.swing.JButton BtnVoltar;
-    private javax.swing.JComboBox<String> JCBAtributo;
     private javax.swing.JTable JTPacienteSimples;
     private javax.swing.JPanel PainelMenu;
     private javax.swing.JButton btnBuscar;
