@@ -29,6 +29,7 @@ import model.dao.AnotacaoDAO;
 import model.dao.ConsultaDAO;
 import model.dao.PacienteDAO;
 import model.dao.TelefoneDAO;
+import util.Util;
 
 /**
  *
@@ -916,7 +917,8 @@ public class AlterarConsulta extends javax.swing.JFrame {
 
     private void BtnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVoltarActionPerformed
         // TODO add your handling code here:
-        ExibirConsultasPaciente tp = new ExibirConsultasPaciente();
+        ExibirConsultasManterPaciente tp = new ExibirConsultasManterPaciente();
+        Util.SizeJanela(tp);
         tp.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BtnVoltarActionPerformed
