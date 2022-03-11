@@ -2571,6 +2571,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             int value = (Integer) JTPacientes.getModel().getValueAt(modelRow, 0);
 
             ExibirAnamneses2 ea = new ExibirAnamneses2(value);
+            Util.SizeJanela(ea);
             ea.setVisible(true);
             this.dispose();
 
@@ -2604,7 +2605,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             //ExibirAnotacoesPaciente.codpaciente = ((int) JTPacientes.getModel().getValueAt(JTPacientes.getSelectedRow(),0));
             int modelRow = JTPacientes.convertRowIndexToModel(JTPacientes.getSelectedRow());
             int value = (Integer) JTPacientes.getModel().getValueAt(modelRow, 0);
-            ExibirAnotacoes1 ea = new ExibirAnotacoes1(value);
+            ExibirAnotacoesManterPaciente ea = new ExibirAnotacoesManterPaciente(value);
             ea.setVisible(true);
             this.dispose();
 
