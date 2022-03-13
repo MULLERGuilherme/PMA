@@ -134,7 +134,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         Sexo = new javax.swing.JComboBox<>();
         LabelEstadoCivil = new javax.swing.JLabel();
-        estadocivil = new javax.swing.JComboBox<>();
+        estadocivil = new javax.swing.JComboBox<String>();
         txtEmail = new javax.swing.JTextField();
         LabelEmail = new javax.swing.JLabel();
         txtNome = new javax.swing.JTextField();
@@ -175,7 +175,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         jLabel40 = new javax.swing.JLabel();
         Sexo2 = new javax.swing.JComboBox<>();
         LabelEstadoCivil1 = new javax.swing.JLabel();
-        estadocivil2 = new javax.swing.JComboBox<>();
+        estadocivil2 = new javax.swing.JComboBox<String>();
         txtEmail13 = new javax.swing.JTextField();
         LabelEmail2 = new javax.swing.JLabel();
         txtNome2 = new javax.swing.JTextField();
@@ -205,7 +205,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         jLabel23 = new javax.swing.JLabel();
         LabelEstadoCivil2 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
-        estadocivil1 = new javax.swing.JComboBox<>();
+        estadocivil1 = new javax.swing.JComboBox<String>();
         jLabel26 = new javax.swing.JLabel();
         Sexo1 = new javax.swing.JComboBox<>();
         jEImagePanel6 = new LIB.JEImagePanel();
@@ -239,9 +239,9 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         BtnSalvarAlteracoes5 = new javax.swing.JButton();
         BtnCancelar6 = new javax.swing.JButton();
         jLabel38 = new javax.swing.JLabel();
-        SubitaOuProgressiva1 = new javax.swing.JComboBox<>();
+        SubitaOuProgressiva1 = new javax.swing.JComboBox<String>();
         labelInicioQueixa2 = new javax.swing.JLabel();
-        JCBPsicomotricidade1 = new javax.swing.JComboBox<>();
+        JCBPsicomotricidade1 = new javax.swing.JComboBox<String>();
         labelInicioQueixa3 = new javax.swing.JLabel();
         jLabel64 = new javax.swing.JLabel();
         LabelEmail4 = new javax.swing.JLabel();
@@ -329,8 +329,16 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         btnVisuAnotacoes = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         JTPacientes = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        PainelPaginacao = new javax.swing.JPanel();
+        LabelLimite = new javax.swing.JLabel();
+        SpinnerLimite = new javax.swing.JSpinner();
+        BtnVoltarBastante = new javax.swing.JButton();
+        BtnVoltarPouco = new javax.swing.JButton();
+        LabelPagina = new javax.swing.JLabel();
+        SpinnerNumPaginas = new javax.swing.JSpinner();
+        LabelQtdePaginas = new javax.swing.JLabel();
+        BtnAvancarBastante = new javax.swing.JButton();
+        BtnAvancarPouco = new javax.swing.JButton();
 
         ModalNovo.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         ModalNovo.getContentPane().setLayout(new java.awt.GridLayout(1, 0));
@@ -2125,7 +2133,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(PainelMeusDados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 1586, Short.MAX_VALUE))
+                .addGap(0, 960, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2244,14 +2252,14 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                 .addComponent(BtnExibirAnotacao, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(BtnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 193, Short.MAX_VALUE))
         );
 
         getContentPane().add(PainelMenu, java.awt.BorderLayout.LINE_START);
 
         jEImagePanel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/spring-floral-watercolor-background-vector-green-with-leaf-illustration_53876-126350.jpg"))); // NOI18N
 
-        jLabel6.setText("Buscar Paciente por");
+        jLabel6.setText("Buscar Paciente");
 
         txtBusca.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -2337,78 +2345,143 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(JTPacientes);
 
-        jButton1.setText("Próximo");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        PainelPaginacao.setOpaque(false);
+
+        LabelLimite.setBackground(new java.awt.Color(204, 204, 204));
+        LabelLimite.setText("Limite");
+
+        BtnVoltarBastante.setText("<<");
+        BtnVoltarBastante.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                BtnVoltarBastanteActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Anterior");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        BtnVoltarPouco.setText("<");
+        BtnVoltarPouco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                BtnVoltarPoucoActionPerformed(evt);
             }
         });
+
+        LabelPagina.setBackground(new java.awt.Color(204, 204, 204));
+        LabelPagina.setText("Página");
+
+        LabelQtdePaginas.setBackground(new java.awt.Color(204, 204, 204));
+        LabelQtdePaginas.setText("de X");
+
+        BtnAvancarBastante.setText(">");
+        BtnAvancarBastante.setOpaque(false);
+        BtnAvancarBastante.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAvancarBastanteActionPerformed(evt);
+            }
+        });
+
+        BtnAvancarPouco.setText(">>");
+        BtnAvancarPouco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAvancarPoucoActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout PainelPaginacaoLayout = new javax.swing.GroupLayout(PainelPaginacao);
+        PainelPaginacao.setLayout(PainelPaginacaoLayout);
+        PainelPaginacaoLayout.setHorizontalGroup(
+            PainelPaginacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PainelPaginacaoLayout.createSequentialGroup()
+                .addContainerGap(34, Short.MAX_VALUE)
+                .addComponent(LabelLimite)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(SpinnerLimite, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(BtnVoltarBastante)
+                .addGap(18, 18, 18)
+                .addComponent(BtnVoltarPouco)
+                .addGap(18, 18, 18)
+                .addComponent(LabelPagina)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(SpinnerNumPaginas, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(LabelQtdePaginas)
+                .addGap(18, 18, 18)
+                .addComponent(BtnAvancarBastante)
+                .addGap(18, 18, 18)
+                .addComponent(BtnAvancarPouco))
+        );
+        PainelPaginacaoLayout.setVerticalGroup(
+            PainelPaginacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelPaginacaoLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(PainelPaginacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LabelLimite, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SpinnerLimite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BtnVoltarBastante)
+                    .addComponent(BtnVoltarPouco)
+                    .addGroup(PainelPaginacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(SpinnerNumPaginas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(LabelPagina, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(LabelQtdePaginas, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(BtnAvancarBastante)
+                        .addComponent(BtnAvancarPouco))))
+        );
 
         javax.swing.GroupLayout jEImagePanel1Layout = new javax.swing.GroupLayout(jEImagePanel1);
         jEImagePanel1.setLayout(jEImagePanel1Layout);
         jEImagePanel1Layout.setHorizontalGroup(
             jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jEImagePanel1Layout.createSequentialGroup()
-                .addGap(133, 133, 133)
-                .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jEImagePanel1Layout.createSequentialGroup()
+                .addGap(51, 51, 51)
+                .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jEImagePanel1Layout.createSequentialGroup()
                         .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BtnBuscar))
+                        .addGap(18, 18, 18)
+                        .addComponent(txtBusca)
+                        .addGap(18, 18, 18)
+                        .addComponent(BtnBuscar)
+                        .addGap(178, 178, 178))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jEImagePanel1Layout.createSequentialGroup()
+                        .addGap(0, 160, Short.MAX_VALUE)
+                        .addComponent(PainelPaginacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jEImagePanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 635, Short.MAX_VALUE)
-                        .addGap(63, 63, 63)
-                        .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnVisuAnotacoes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(brnVisuConsultas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(BtnNovo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(BtnVisuAlterarDados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnVisuAnamneses, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(606, Short.MAX_VALUE))
-            .addGroup(jEImagePanel1Layout.createSequentialGroup()
-                .addGap(291, 291, 291)
-                .addComponent(jButton3)
-                .addGap(149, 149, 149)
-                .addComponent(jButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(21, 21, 21)
+                        .addComponent(BtnNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jEImagePanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(brnVisuConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnVisuAnotacoes, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnVisuAnamneses, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BtnVisuAlterarDados))))
+                .addContainerGap())
         );
         jEImagePanel1Layout.setVerticalGroup(
             jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jEImagePanel1Layout.createSequentialGroup()
-                .addGap(76, 76, 76)
+                .addGap(77, 77, 77)
                 .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BtnBuscar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jEImagePanel1Layout.createSequentialGroup()
-                        .addGap(49, 49, 49)
                         .addComponent(BtnNovo)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(BtnVisuAlterarDados)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnVisuAnamneses)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(brnVisuConsultas)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnVisuAnotacoes))
-                    .addGroup(jEImagePanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnVisuAnotacoes)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 456, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1)
-                    .addComponent(jButton3))
-                .addContainerGap(413, Short.MAX_VALUE))
+                .addComponent(PainelPaginacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(70, 70, 70))
         );
 
         getContentPane().add(jEImagePanel1, java.awt.BorderLayout.CENTER);
@@ -3214,21 +3287,35 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         ModalMeusDados.setVisible(true);
     }//GEN-LAST:event_jButton2MouseClicked
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void BtnVoltarPoucoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVoltarPoucoActionPerformed
         // TODO add your handling code here:
         if(currentPage != 1){
             getPageData(currentPage-1);
             
         }
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_BtnVoltarPoucoActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void BtnAvancarBastanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAvancarBastanteActionPerformed
         // TODO add your handling code here:
         if(currentPage != 0 && currentPage < totalPages){
             getPageData(currentPage+1);
             
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_BtnAvancarBastanteActionPerformed
+
+    private void BtnVoltarBastanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVoltarBastanteActionPerformed
+         if(currentPage != 0 && currentPage < totalPages){
+            getPageData(currentPage-5);
+            
+        }
+    }//GEN-LAST:event_BtnVoltarBastanteActionPerformed
+
+    private void BtnAvancarPoucoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAvancarPoucoActionPerformed
+        if(currentPage != 0 && currentPage < totalPages){
+            getPageData(currentPage+5);
+            
+        }
+    }//GEN-LAST:event_BtnAvancarPoucoActionPerformed
 
     private void Alterar(int cod) {
         Anamnese a = new Anamnese();
@@ -3311,6 +3398,8 @@ public class ManterPaciente1 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnAvancarBastante;
+    private javax.swing.JButton BtnAvancarPouco;
     private javax.swing.JButton BtnBuscar;
     private javax.swing.JButton BtnCancelar;
     private javax.swing.JButton BtnCancelar1;
@@ -3331,6 +3420,8 @@ public class ManterPaciente1 extends javax.swing.JFrame {
     private javax.swing.JButton BtnSalvarAlteracoesNovo1;
     private javax.swing.JButton BtnVisuAlterarDados;
     private javax.swing.JButton BtnVoltar;
+    private javax.swing.JButton BtnVoltarBastante;
+    private javax.swing.JButton BtnVoltarPouco;
     private javax.swing.JCheckBox CheckBoxAfeto;
     private javax.swing.JCheckBox CheckBoxAnsiedade;
     private javax.swing.JCheckBox CheckBoxAtencao;
@@ -3372,15 +3463,18 @@ public class ManterPaciente1 extends javax.swing.JFrame {
     private javax.swing.JLabel LabelEstadoCivil;
     private javax.swing.JLabel LabelEstadoCivil1;
     private javax.swing.JLabel LabelEstadoCivil2;
+    private javax.swing.JLabel LabelLimite;
     private javax.swing.JLabel LabelModalAnamnese;
     private javax.swing.JLabel LabelMsg;
     private javax.swing.JLabel LabelNome;
     private javax.swing.JLabel LabelNome1;
     private javax.swing.JLabel LabelNome4;
     private javax.swing.JLabel LabelNome5;
+    private javax.swing.JLabel LabelPagina;
     private javax.swing.JLabel LabelProfissao;
     private javax.swing.JLabel LabelProfissao1;
     private javax.swing.JLabel LabelProfissao2;
+    private javax.swing.JLabel LabelQtdePaginas;
     private javax.swing.JLabel LabelReligiao;
     private javax.swing.JLabel LabelReligiao1;
     private javax.swing.JLabel LabelReligiao2;
@@ -3400,9 +3494,12 @@ public class ManterPaciente1 extends javax.swing.JFrame {
     private javax.swing.JPanel PainelIdentificacaoPessoal5;
     private javax.swing.JPanel PainelMenu;
     private javax.swing.JPanel PainelMeusDados;
+    private javax.swing.JPanel PainelPaginacao;
     private javax.swing.JComboBox<String> Sexo;
     private javax.swing.JComboBox<String> Sexo1;
     private javax.swing.JComboBox<String> Sexo2;
+    private javax.swing.JSpinner SpinnerLimite;
+    private javax.swing.JSpinner SpinnerNumPaginas;
     private javax.swing.JComboBox<String> SubitaOuProgressiva1;
     private javax.swing.JTextField TxtCidade;
     private javax.swing.JTextField TxtCidade1;
@@ -3433,9 +3530,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> estadocivil;
     private javax.swing.JComboBox<String> estadocivil1;
     private javax.swing.JComboBox<String> estadocivil2;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private LIB.JEImagePanel jEImagePanel1;
     private LIB.JEImagePanel jEImagePanel3;
     private LIB.JEImagePanel jEImagePanel4;
