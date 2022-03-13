@@ -38,13 +38,16 @@ import javax.swing.text.DefaultFormatterFactory;
 import javax.swing.text.MaskFormatter;
 import model.bean.Anamnese;
 import model.bean.Paciente;
+import model.bean.Psicologo;
 import model.bean.Telefone;
 import model.bean.Vw_TelefonesPacientes;
 import model.dao.AnamneseDAO;
 import model.dao.PacienteDAO;
+import model.dao.PsicologoDAO;
 import model.dao.TelefoneDAO;
 import model.dao.ViewsDAO;
 import util.Util;
+import static view.ManterPsicologo.codpsicologo;
 
 /**
  *
@@ -134,7 +137,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         Sexo = new javax.swing.JComboBox<>();
         LabelEstadoCivil = new javax.swing.JLabel();
-        estadocivil = new javax.swing.JComboBox<String>();
+        estadocivil = new javax.swing.JComboBox<>();
         txtEmail = new javax.swing.JTextField();
         LabelEmail = new javax.swing.JLabel();
         txtNome = new javax.swing.JTextField();
@@ -175,7 +178,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         jLabel40 = new javax.swing.JLabel();
         Sexo2 = new javax.swing.JComboBox<>();
         LabelEstadoCivil1 = new javax.swing.JLabel();
-        estadocivil2 = new javax.swing.JComboBox<String>();
+        estadocivil2 = new javax.swing.JComboBox<>();
         txtEmail13 = new javax.swing.JTextField();
         LabelEmail2 = new javax.swing.JLabel();
         txtNome2 = new javax.swing.JTextField();
@@ -205,7 +208,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         jLabel23 = new javax.swing.JLabel();
         LabelEstadoCivil2 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
-        estadocivil1 = new javax.swing.JComboBox<String>();
+        estadocivil1 = new javax.swing.JComboBox<>();
         jLabel26 = new javax.swing.JLabel();
         Sexo1 = new javax.swing.JComboBox<>();
         jEImagePanel6 = new LIB.JEImagePanel();
@@ -239,9 +242,9 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         BtnSalvarAlteracoes5 = new javax.swing.JButton();
         BtnCancelar6 = new javax.swing.JButton();
         jLabel38 = new javax.swing.JLabel();
-        SubitaOuProgressiva1 = new javax.swing.JComboBox<String>();
+        SubitaOuProgressiva1 = new javax.swing.JComboBox<>();
         labelInicioQueixa2 = new javax.swing.JLabel();
-        JCBPsicomotricidade1 = new javax.swing.JComboBox<String>();
+        JCBPsicomotricidade1 = new javax.swing.JComboBox<>();
         labelInicioQueixa3 = new javax.swing.JLabel();
         jLabel64 = new javax.swing.JLabel();
         LabelEmail4 = new javax.swing.JLabel();
@@ -306,7 +309,9 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         PainelIdentificacaoPessoal5 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
-        jEImagePanel7 = new LIB.JEImagePanel();
+        BtnAlterar = new javax.swing.JButton();
+        txtLogin = new javax.swing.JTextField();
+        jLabel36 = new javax.swing.JLabel();
         jPanel1 = new JPanel();
         PainelMeusDados = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
@@ -2020,80 +2025,84 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                 .addComponent(jLabel15)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel35)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(86, Short.MAX_VALUE))
         );
         PainelIdentificacaoPessoal5Layout.setVerticalGroup(
             PainelIdentificacaoPessoal5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelIdentificacaoPessoal5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+            .addComponent(jLabel35, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jEImagePanel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/simboloma.png"))); // NOI18N
+        BtnAlterar.setBackground(new java.awt.Color(59, 131, 117));
+        BtnAlterar.setForeground(new java.awt.Color(255, 255, 255));
+        BtnAlterar.setText("Alterar");
+        BtnAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAlterarActionPerformed(evt);
+            }
+        });
 
-        javax.swing.GroupLayout jEImagePanel7Layout = new javax.swing.GroupLayout(jEImagePanel7);
-        jEImagePanel7.setLayout(jEImagePanel7Layout);
-        jEImagePanel7Layout.setHorizontalGroup(
-            jEImagePanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 272, Short.MAX_VALUE)
-        );
-        jEImagePanel7Layout.setVerticalGroup(
-            jEImagePanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 150, Short.MAX_VALUE)
-        );
+        jLabel36.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel36.setText("Login");
 
         javax.swing.GroupLayout ModalMeusDadosLayout = new javax.swing.GroupLayout(ModalMeusDados.getContentPane());
         ModalMeusDados.getContentPane().setLayout(ModalMeusDadosLayout);
         ModalMeusDadosLayout.setHorizontalGroup(
             ModalMeusDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(PainelIdentificacaoPessoal5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ModalMeusDadosLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(BtnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(190, 190, 190))
             .addGroup(ModalMeusDadosLayout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addGroup(ModalMeusDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(ModalMeusDadosLayout.createSequentialGroup()
-                        .addComponent(jEImagePanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(112, 112, 112))
-                    .addGroup(ModalMeusDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(45, 45, 45)
+                .addGroup(ModalMeusDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel36)
+                    .addGroup(ModalMeusDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jLabel4)
                         .addComponent(jLabel5)
                         .addComponent(labeltelefone)
                         .addComponent(labeltelefone2)
-                        .addComponent(TxtTelefone7, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(ModalMeusDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(TxtTelefone6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE)
-                            .addComponent(txtEmail2, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtCRP, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtNome3, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addComponent(jLabel3)))
-                .addContainerGap(26, Short.MAX_VALUE))
+                        .addComponent(jLabel3)
+                        .addComponent(txtLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 441, Short.MAX_VALUE)
+                        .addComponent(TxtTelefone6)
+                        .addComponent(TxtTelefone7)
+                        .addComponent(txtEmail2)
+                        .addComponent(txtCRP)
+                        .addComponent(txtNome3)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         ModalMeusDadosLayout.setVerticalGroup(
             ModalMeusDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ModalMeusDadosLayout.createSequentialGroup()
-                .addComponent(jEImagePanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 3, Short.MAX_VALUE)
+            .addGroup(ModalMeusDadosLayout.createSequentialGroup()
                 .addComponent(PainelIdentificacaoPessoal5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtNome3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
+                .addComponent(txtNome3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtCRP, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
+                .addComponent(txtCRP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtEmail2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(24, 24, 24)
+                .addComponent(txtEmail2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(jLabel36)
+                .addGap(18, 18, 18)
+                .addComponent(txtLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(labeltelefone)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TxtTelefone6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
+                .addComponent(TxtTelefone6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(labeltelefone2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TxtTelefone7, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32))
+                .addGap(18, 18, 18)
+                .addComponent(TxtTelefone7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                .addComponent(BtnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -2347,8 +2356,8 @@ public class ManterPaciente1 extends javax.swing.JFrame {
 
         PainelPaginacao.setOpaque(false);
 
-        LabelLimite.setBackground(new java.awt.Color(204, 204, 204));
         LabelLimite.setText("Limite");
+        LabelLimite.setBackground(new java.awt.Color(204, 204, 204));
 
         BtnVoltarBastante.setText("<<");
         BtnVoltarBastante.addActionListener(new java.awt.event.ActionListener() {
@@ -2364,11 +2373,11 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             }
         });
 
-        LabelPagina.setBackground(new java.awt.Color(204, 204, 204));
         LabelPagina.setText("Página");
+        LabelPagina.setBackground(new java.awt.Color(204, 204, 204));
 
-        LabelQtdePaginas.setBackground(new java.awt.Color(204, 204, 204));
         LabelQtdePaginas.setText("de X");
+        LabelQtdePaginas.setBackground(new java.awt.Color(204, 204, 204));
 
         BtnAvancarBastante.setText(">");
         BtnAvancarBastante.setOpaque(false);
@@ -2413,17 +2422,18 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             PainelPaginacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelPaginacaoLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(PainelPaginacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LabelLimite, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(SpinnerLimite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BtnVoltarBastante)
-                    .addComponent(BtnVoltarPouco)
+                .addGroup(PainelPaginacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PainelPaginacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(SpinnerNumPaginas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(LabelPagina, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(LabelQtdePaginas, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(BtnAvancarBastante)
-                        .addComponent(BtnAvancarPouco))))
+                        .addComponent(BtnAvancarPouco))
+                    .addGroup(PainelPaginacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(LabelLimite, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(SpinnerLimite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(BtnVoltarBastante)
+                        .addComponent(BtnVoltarPouco))))
         );
 
         javax.swing.GroupLayout jEImagePanel1Layout = new javax.swing.GroupLayout(jEImagePanel1);
@@ -3283,10 +3293,34 @@ public class ManterPaciente1 extends javax.swing.JFrame {
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         ModalMeusDados.setSize(540, 620);
         ModalMeusDados.setModal(true);
+         TxtTelefone7.setVisible(false);
+        labeltelefone2.setVisible(false);
+        readpsicologo();
         ModalMeusDados.setLocationRelativeTo(null);
         ModalMeusDados.setVisible(true);
     }//GEN-LAST:event_jButton2MouseClicked
+public void readpsicologo(){
+        Psicologo p = new Psicologo();
+        PsicologoDAO dao = new PsicologoDAO();
+        p = dao.ReadPsicologo(Main.cod);
+        codpsicologo = p.getCodPsicologo();
+        List<Telefone> t = new ArrayList<>();
+        TelefoneDAO tdao = new TelefoneDAO();
+        t = tdao.ReadTPsicologo(p.getCodPsicologo());
+        txtNome3.setText(p.getNome_completo());
+        jLabel35.setText(p.getNome_completo());
+        txtLogin.setText(p.getLogin());
+        txtCRP.setText(p.getCRP());
+        txtEmail2.setText(p.getEmail());
+        TxtTelefone6.setText(t.get(0).getNumero());
 
+        if(t.size() == 2){
+            TxtTelefone7.setVisible(true);
+            labeltelefone2.setVisible(true);
+            TxtTelefone7.setText(t.get(1).getNumero());
+            
+        }
+    }
     private void BtnVoltarPoucoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVoltarPoucoActionPerformed
         // TODO add your handling code here:
         if(currentPage != 1){
@@ -3316,6 +3350,105 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_BtnAvancarPoucoActionPerformed
+
+    private void BtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAlterarActionPerformed
+        // TODO add your handling code here:
+        boolean dadosvalidos = true;
+
+        Psicologo p = new Psicologo();
+        PsicologoDAO dao = new PsicologoDAO();
+        Telefone tf = new Telefone();
+        Telefone tf2 = new Telefone();
+        TelefoneDAO tfdao = new TelefoneDAO();
+        String msg = "Existem campos com formatos Inválidos\n\nFavor Verificar os campos:";
+
+        if (!Validar.vCamposVaziosManterPSI(this, txtNome3, txtEmail2, txtCRP, txtLogin, TxtTelefone6)) {
+            if (Validar.vNome(txtNome3.getText())) {
+                p.setNome_completo(txtNome3.getText());
+            } else {
+                dadosvalidos = false;
+                msg += "\nNome Invalido: " + txtNome3.getText();
+            }
+
+            if (Validar.vEmail(txtEmail2.getText())) {
+                p.setEmail(txtEmail2.getText());
+            } else {
+                dadosvalidos = false;
+                msg += "\nEmail Invalido: " + txtEmail2.getText();
+            }
+
+            if (Validar.vCRP(txtCRP.getText())) {
+                p.setCRP(txtCRP.getText());
+            } else {
+                dadosvalidos = false;
+                msg += "\nCPF Invalido: " + txtCRP.getText();
+            }
+
+            p.setLogin(txtLogin.getText());
+
+            p.setCodPsicologo(codpsicologo);
+
+            if (Validar.vTelefone(TxtTelefone6.getText())) {
+                tf.setNumero(TxtTelefone6.getText());
+            } else {
+                dadosvalidos = false;
+                msg += "\nNúmero de Telefone Invalido: " + TxtTelefone6.getText() + "\nO Número deve ser no formato xxxxxxxxxxx";
+            }
+
+            if (!TxtTelefone7.getText().isEmpty()) {
+                if (Validar.vTelefone(TxtTelefone7.getText())) {
+                    tf2.setNumero(TxtTelefone7.getText());
+                } else {
+                    dadosvalidos = false;
+                    msg += "\nNúmero de Telefone 2 Invalido: " + TxtTelefone7.getText() + "\nO Número deve ser no formato xxxxxxxxxxx";
+                }
+            }
+            if( !TxtTelefone7.getText().isEmpty()){
+                if (Validar.vTelefone(TxtTelefone7.getText()) ){
+                    tf.setNumero(TxtTelefone7.getText());
+                } else {
+                    dadosvalidos = false;
+                    msg += "\nNúmero de Telefone 2 Invalido: " + TxtTelefone7.getText() + "\nO Número deve ser no formato xxxxxxxxxxx";
+                }
+            }
+            if (dadosvalidos) {
+                if (dao.UpdateMP(p)) {
+
+                    p = dao.ReadPsicologo(p.getCRP());
+
+                    List<Telefone> t = tfdao.ReadTPsicologo(p.getCodPsicologo());
+                    t.get(0).setNumero(TxtTelefone6.getText());
+                    if (tfdao.UpdateTPsicologo(t.get(0))) {
+
+                        if(t.size() == 2){
+                            t.get(1).setNumero(TxtTelefone7.getText());
+                            tfdao.UpdateTPsicologo(t.get(1));
+
+                        }
+                        JOptionPane.showMessageDialog(this, "Psicologo: " + p.getNome_completo() + " Salvo com sucesso");
+                        ModalMeusDados.dispose();
+                        // this.clear();
+                    }
+
+                }
+
+                /*   if(telefones){
+                    Telefone tf = new Telefone();
+                    TelefoneDAO tfdao = new TelefoneDAO();
+                    tf.setNumero(TxtTelefone.getText());
+                    p = dao.ReadPaciente(p.getCPF());
+                    tf.setPaciente(p);
+                    tfdao.CreatePc(tf);
+                }
+                */
+                //mostrar mensagem de sucesso
+                // JOptionPane.showMessageDialog(null,"Paciente Cadastrado com Sucesso!");
+                // ReadJTable();
+            } else {
+                JOptionPane.showMessageDialog(this, msg);
+            }
+        }
+    }//GEN-LAST:event_BtnAlterarActionPerformed
 
     private void Alterar(int cod) {
         Anamnese a = new Anamnese();
@@ -3398,6 +3531,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnAlterar;
     private javax.swing.JButton BtnAvancarBastante;
     private javax.swing.JButton BtnAvancarPouco;
     private javax.swing.JButton BtnBuscar;
@@ -3536,7 +3670,6 @@ public class ManterPaciente1 extends javax.swing.JFrame {
     private LIB.JEImagePanel jEImagePanel4;
     private LIB.JEImagePanel jEImagePanel5;
     private LIB.JEImagePanel jEImagePanel6;
-    private LIB.JEImagePanel jEImagePanel7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -3566,6 +3699,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
@@ -3623,6 +3757,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
     private javax.swing.JTextField txtEmail2;
     private javax.swing.JTextField txtEncaminhamento1;
     private javax.swing.JTextField txtHistoricoFamiliar1;
+    private javax.swing.JTextField txtLogin;
     private javax.swing.JTextField txtMedicamentosUtilizados1;
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtNome1;

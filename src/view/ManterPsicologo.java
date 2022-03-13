@@ -441,7 +441,7 @@ public class ManterPsicologo extends javax.swing.JFrame {
                 msg += "\nCPF Invalido: " + txtCRP.getText();
             }
 
-            p.setLogin(txtLogin.getText());
+           // p.setLogin(txtLogin.getText());
 
             p.setCodPsicologo(codpsicologo);
 
