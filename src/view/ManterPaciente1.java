@@ -57,14 +57,43 @@ public class ManterPaciente1 extends javax.swing.JFrame {
     private int codigopaciente = -1;
     private int codigoconsulta = -1;
     
+    //Paginacao
+    final int PAGE_SIZE = 5;
+    double tableRowCount;
+    int totalPages = 0;
+    int currentPage = 0;
+    int startRow = 0;
+    
+     public void getCount() {
+        ViewsDAO dao = new ViewsDAO();
+        tableRowCount = dao.getRowCountTableManterPacientes();
+        if (tableRowCount > 0) {
+            totalPages = (int) Math.ceil(tableRowCount / PAGE_SIZE);
+            currentPage = 1;
+            
+        }
+        
+    }
+      public void getPageData(int pageNo) {
+ 
+        currentPage = pageNo;
+        ViewsDAO dao = new ViewsDAO();
+        //calculate starting row for pagination
+        startRow = PAGE_SIZE * (pageNo - 1);
+        
+        ReadJTablePag(startRow, PAGE_SIZE);
+            
+       
+ 
+    }
     public ManterPaciente1() {
         initComponents();
         DefaultTableModel dtmPacientes = (DefaultTableModel) JTPacientes.getModel();
         TableColumnModel cmod = JTPacientes.getColumnModel();
         cmod.removeColumn(cmod.getColumn(0));
         JTPacientes.setRowSorter(new TableRowSorter(dtmPacientes));
-
-        ReadJTable();
+        this.getCount();
+        this.getPageData(1);
     }
 
     /**
@@ -300,6 +329,8 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         btnVisuAnotacoes = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         JTPacientes = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         ModalNovo.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         ModalNovo.getContentPane().setLayout(new java.awt.GridLayout(1, 0));
@@ -1935,8 +1966,8 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel3.setText("Nome:");
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         txtNome3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1944,8 +1975,8 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel4.setText("CRP:");
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         txtCRP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1953,24 +1984,24 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel5.setText("E-mail:");
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        labeltelefone.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         labeltelefone.setText("Telefone:");
+        labeltelefone.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        labeltelefone2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         labeltelefone2.setText("Telefone 2:");
+        labeltelefone2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         PainelIdentificacaoPessoal5.setBackground(new java.awt.Color(59, 131, 117));
 
+        jLabel15.setText("DADOS DO PSICÓLOGO");
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel15.setText("DADOS DO PSICÓLOGO");
 
+        jLabel35.setText("NOME");
         jLabel35.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel35.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel35.setText("NOME");
 
         javax.swing.GroupLayout PainelIdentificacaoPessoal5Layout = new javax.swing.GroupLayout(PainelIdentificacaoPessoal5);
         PainelIdentificacaoPessoal5.setLayout(PainelIdentificacaoPessoal5Layout);
@@ -2065,8 +2096,8 @@ public class ManterPaciente1 extends javax.swing.JFrame {
 
         PainelMeusDados.setBackground(new java.awt.Color(102, 102, 102));
 
-        jButton2.setBackground(new java.awt.Color(102, 102, 102));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/UserIconBranco90x90.png"))); // NOI18N
+        jButton2.setBackground(new java.awt.Color(102, 102, 102));
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton2MouseClicked(evt);
@@ -2306,6 +2337,20 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(JTPacientes);
 
+        jButton1.setText("Próximo");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton3.setText("Anterior");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jEImagePanel1Layout = new javax.swing.GroupLayout(jEImagePanel1);
         jEImagePanel1.setLayout(jEImagePanel1Layout);
         jEImagePanel1Layout.setHorizontalGroup(
@@ -2320,7 +2365,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(BtnBuscar))
                     .addGroup(jEImagePanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 622, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 635, Short.MAX_VALUE)
                         .addGap(63, 63, 63)
                         .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnVisuAnotacoes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -2328,7 +2373,13 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                             .addComponent(BtnNovo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(BtnVisuAlterarDados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnVisuAnamneses, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(593, Short.MAX_VALUE))
+                .addContainerGap(606, Short.MAX_VALUE))
+            .addGroup(jEImagePanel1Layout.createSequentialGroup()
+                .addGap(291, 291, 291)
+                .addComponent(jButton3)
+                .addGap(149, 149, 149)
+                .addComponent(jButton1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jEImagePanel1Layout.setVerticalGroup(
             jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2353,7 +2404,11 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                     .addGroup(jEImagePanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(446, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1)
+                    .addComponent(jButton3))
+                .addContainerGap(413, Short.MAX_VALUE))
         );
 
         getContentPane().add(jEImagePanel1, java.awt.BorderLayout.CENTER);
@@ -2378,6 +2433,45 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         String fones = null;
         String[] fones2 = null;
         for (Vw_TelefonesPacientes vw : vwdao.ReadTelefonesPacientes()) {
+            fones = vw.getTelefone().getNumero();
+            if (fones.contains(",")) {
+
+                fones2 = fones.split(",");
+                linha = new Object[]{
+                    vw.getPaciente().getCodPaciente(),
+                    vw.getPaciente().getNome_Completo(),
+                    vw.getPaciente().getEmail(),
+                    fones2[0],
+                    fones2[1]
+                };
+            } else {
+                linha = new Object[]{
+                    vw.getPaciente().getCodPaciente(),
+                    vw.getPaciente().getNome_Completo(),
+                    vw.getPaciente().getEmail(),
+                    vw.getTelefone().getNumero(),
+                    null
+                };
+
+            }
+            model.addRow(linha);
+            fones = null;
+            fones2 = null;
+
+        }
+    }
+    
+    
+    public void ReadJTablePag(int start, int size) {
+
+        DefaultTableModel model = (DefaultTableModel) JTPacientes.getModel();
+
+        model.setNumRows(0);
+        ViewsDAO vwdao = new ViewsDAO();
+        Object[] linha = null;
+        String fones = null;
+        String[] fones2 = null;
+        for (Vw_TelefonesPacientes vw : vwdao.fetchBySize(start, size)) {
             fones = vw.getTelefone().getNumero();
             if (fones.contains(",")) {
 
@@ -3120,6 +3214,22 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         ModalMeusDados.setVisible(true);
     }//GEN-LAST:event_jButton2MouseClicked
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        if(currentPage != 1){
+            getPageData(currentPage-1);
+            
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        if(currentPage != 0 && currentPage < totalPages){
+            getPageData(currentPage+1);
+            
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     private void Alterar(int cod) {
         Anamnese a = new Anamnese();
         AnamneseDAO dao = new AnamneseDAO();
@@ -3323,7 +3433,9 @@ public class ManterPaciente1 extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> estadocivil;
     private javax.swing.JComboBox<String> estadocivil1;
     private javax.swing.JComboBox<String> estadocivil2;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private LIB.JEImagePanel jEImagePanel1;
     private LIB.JEImagePanel jEImagePanel3;
     private LIB.JEImagePanel jEImagePanel4;
