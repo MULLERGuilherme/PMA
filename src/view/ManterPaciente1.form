@@ -3190,13 +3190,13 @@
         </Container>
         <Component class="javax.swing.JButton" name="BtnAlterar">
           <Properties>
+            <Property name="text" type="java.lang.String" value="Alterar"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="75" green="83" red="3b" type="rgb"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Alterar"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnAlterarActionPerformed"/>
@@ -3206,10 +3206,10 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel36">
           <Properties>
+            <Property name="text" type="java.lang.String" value="Login"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="18" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Login"/>
           </Properties>
         </Component>
       </SubComponents>
@@ -3549,7 +3549,7 @@
                       </Group>
                       <Component id="jScrollPane1" alignment="1" max="32767" attributes="0"/>
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace min="0" pref="160" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="187" max="32767" attributes="0"/>
                           <Component id="PainelPaginacao" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -3574,7 +3574,7 @@
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
                   <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -3595,7 +3595,7 @@
                           <Component id="btnVisuAnotacoes" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="jScrollPane1" pref="456" max="32767" attributes="0"/>
+                      <Component id="jScrollPane1" pref="460" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="PainelPaginacao" min="-2" max="-2" attributes="0"/>
@@ -3728,10 +3728,11 @@
                       <Component id="SpinnerNumPaginas" min="-2" pref="60" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="LabelQtdePaginas" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="BtnAvancarPouco" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="BtnAvancarBastante" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="BtnAvancarPouco" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -3744,8 +3745,8 @@
                               <Component id="SpinnerNumPaginas" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="LabelPagina" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                               <Component id="LabelQtdePaginas" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                              <Component id="BtnAvancarBastante" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="BtnAvancarPouco" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="BtnAvancarBastante" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="LabelLimite" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
@@ -3768,6 +3769,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JSpinner" name="SpinnerLimite">
+              <Events>
+                <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="SpinnerLimiteStateChanged"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="BtnVoltarBastante">
               <Properties>
@@ -3803,21 +3807,21 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="BtnAvancarBastante">
+            <Component class="javax.swing.JButton" name="BtnAvancarPouco">
               <Properties>
                 <Property name="text" type="java.lang.String" value="&gt;"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnAvancarPoucoActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="BtnAvancarBastante">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="&gt;&gt;"/>
                 <Property name="opaque" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnAvancarBastanteActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="BtnAvancarPouco">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="&gt;&gt;"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnAvancarPoucoActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

@@ -59,36 +59,46 @@ public class ManterPaciente1 extends javax.swing.JFrame {
     private boolean fone2 = false;
     private int codigopaciente = -1;
     private int codigoconsulta = -1;
-    
+
     //Paginacao
-    final int PAGE_SIZE = 5;
+    int PAGE_SIZE = 1;
     double tableRowCount;
     int totalPages = 0;
     int currentPage = 0;
     int startRow = 0;
-    
-     public void getCount() {
+
+    public void getCount() {
         ViewsDAO dao = new ViewsDAO();
         tableRowCount = dao.getRowCountTableManterPacientes();
         if (tableRowCount > 0) {
             totalPages = (int) Math.ceil(tableRowCount / PAGE_SIZE);
             currentPage = 1;
-            
+
         }
-        
+
     }
-      public void getPageData(int pageNo) {
- 
+      public void getCount(int curpage) {
+        ViewsDAO dao = new ViewsDAO();
+        tableRowCount = dao.getRowCountTableManterPacientes();
+        if (tableRowCount > 0) {
+            totalPages = (int) Math.ceil(tableRowCount / PAGE_SIZE);
+            currentPage = curpage;
+
+        }
+
+    }
+
+    public void getPageData(int pageNo) {
+
         currentPage = pageNo;
         ViewsDAO dao = new ViewsDAO();
         //calculate starting row for pagination
         startRow = PAGE_SIZE * (pageNo - 1);
-        
+
         ReadJTablePag(startRow, PAGE_SIZE);
-            
-       
- 
+
     }
+
     public ManterPaciente1() {
         initComponents();
         DefaultTableModel dtmPacientes = (DefaultTableModel) JTPacientes.getModel();
@@ -97,6 +107,9 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         JTPacientes.setRowSorter(new TableRowSorter(dtmPacientes));
         this.getCount();
         this.getPageData(1);
+        SpinnerNumPaginas.setValue((int) currentPage);
+        LabelQtdePaginas.setText("de "+totalPages);
+        SpinnerLimite.setValue((int) PAGE_SIZE);
     }
 
     /**
@@ -342,8 +355,8 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         LabelPagina = new javax.swing.JLabel();
         SpinnerNumPaginas = new javax.swing.JSpinner();
         LabelQtdePaginas = new javax.swing.JLabel();
-        BtnAvancarBastante = new javax.swing.JButton();
         BtnAvancarPouco = new javax.swing.JButton();
+        BtnAvancarBastante = new javax.swing.JButton();
 
         ModalNovo.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         ModalNovo.getContentPane().setLayout(new java.awt.GridLayout(1, 0));
@@ -2033,17 +2046,17 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             .addComponent(jLabel35, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        BtnAlterar.setText("Alterar");
         BtnAlterar.setBackground(new java.awt.Color(59, 131, 117));
         BtnAlterar.setForeground(new java.awt.Color(255, 255, 255));
-        BtnAlterar.setText("Alterar");
         BtnAlterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnAlterarActionPerformed(evt);
             }
         });
 
-        jLabel36.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel36.setText("Login");
+        jLabel36.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         javax.swing.GroupLayout ModalMeusDadosLayout = new javax.swing.GroupLayout(ModalMeusDados.getContentPane());
         ModalMeusDados.getContentPane().setLayout(ModalMeusDadosLayout);
@@ -2359,6 +2372,12 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         LabelLimite.setText("Limite");
         LabelLimite.setBackground(new java.awt.Color(204, 204, 204));
 
+        SpinnerLimite.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                SpinnerLimiteStateChanged(evt);
+            }
+        });
+
         BtnVoltarBastante.setText("<<");
         BtnVoltarBastante.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2379,18 +2398,18 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         LabelQtdePaginas.setText("de X");
         LabelQtdePaginas.setBackground(new java.awt.Color(204, 204, 204));
 
-        BtnAvancarBastante.setText(">");
+        BtnAvancarPouco.setText(">");
+        BtnAvancarPouco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAvancarPoucoActionPerformed(evt);
+            }
+        });
+
+        BtnAvancarBastante.setText(">>");
         BtnAvancarBastante.setOpaque(false);
         BtnAvancarBastante.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnAvancarBastanteActionPerformed(evt);
-            }
-        });
-
-        BtnAvancarPouco.setText(">>");
-        BtnAvancarPouco.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnAvancarPoucoActionPerformed(evt);
             }
         });
 
@@ -2413,10 +2432,11 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                 .addComponent(SpinnerNumPaginas, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(LabelQtdePaginas)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(BtnAvancarPouco)
                 .addGap(18, 18, 18)
                 .addComponent(BtnAvancarBastante)
-                .addGap(18, 18, 18)
-                .addComponent(BtnAvancarPouco))
+                .addGap(8, 8, 8))
         );
         PainelPaginacaoLayout.setVerticalGroup(
             PainelPaginacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2427,8 +2447,8 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                         .addComponent(SpinnerNumPaginas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(LabelPagina, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(LabelQtdePaginas, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(BtnAvancarBastante)
-                        .addComponent(BtnAvancarPouco))
+                        .addComponent(BtnAvancarPouco)
+                        .addComponent(BtnAvancarBastante))
                     .addGroup(PainelPaginacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(LabelLimite, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(SpinnerLimite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2452,7 +2472,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                         .addGap(178, 178, 178))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jEImagePanel1Layout.createSequentialGroup()
-                        .addGap(0, 160, Short.MAX_VALUE)
+                        .addGap(0, 187, Short.MAX_VALUE)
                         .addComponent(PainelPaginacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jEImagePanel1Layout.createSequentialGroup()
@@ -2469,7 +2489,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         );
         jEImagePanel1Layout.setVerticalGroup(
             jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jEImagePanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jEImagePanel1Layout.createSequentialGroup()
                 .addGap(77, 77, 77)
                 .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
@@ -2488,7 +2508,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnVisuAnotacoes)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 456, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 460, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(PainelPaginacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(70, 70, 70))
@@ -2543,8 +2563,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
 
         }
     }
-    
-    
+
     public void ReadJTablePag(int start, int size) {
 
         DefaultTableModel model = (DefaultTableModel) JTPacientes.getModel();
@@ -2583,17 +2602,17 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         }
     }
 
-    public void ReadJTableBusca( String Busca) {
+    public void ReadJTableBusca(String Busca) {
 
         DefaultTableModel model = (DefaultTableModel) JTPacientes.getModel();
 
         model.setNumRows(0);
-     
+
         ViewsDAO vwdao = new ViewsDAO();
         Object[] linha = null;
         String fones = null;
         String[] fones2 = null;
-        for (Vw_TelefonesPacientes vw : vwdao.BuscaManterPacienteOA( Busca)) {
+        for (Vw_TelefonesPacientes vw : vwdao.BuscaManterPacienteOA(Busca)) {
             fones = vw.getTelefone().getNumero();
             if (fones.contains(",")) {
 
@@ -2766,7 +2785,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             ExibirConsultasManterPaciente.codpaciente = value;
 
             ExibirConsultasManterPaciente cp = new ExibirConsultasManterPaciente();
-             Util.SizeJanela(cp);
+            Util.SizeJanela(cp);
             cp.setVisible(true);
             this.dispose();
 
@@ -2827,7 +2846,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         TxtTelefone.setText(null);
         TxtTelefone2.setText(null);
     }
-    
+
     public void clearNovoR() {
         //limpar a tela
         txtNome1.setText(null);
@@ -2926,7 +2945,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                 }
                 ReadJTable();
             } else {
-                JOptionPane.showMessageDialog(this, msg,"ERRO!", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, msg, "ERRO!", JOptionPane.ERROR_MESSAGE);
             }
         }
         //ModalNovo.dispose();
@@ -2966,9 +2985,9 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         TelefoneDAO tfdao = new TelefoneDAO();
         String msg = "Existem campos com formatos Inválidos\n\nFavor Verificar os campos:";
         String cpf = null;
-        if((String) txtCPF2.getValue() != null){
+        if ((String) txtCPF2.getValue() != null) {
             cpf = (String) txtCPF2.getValue();
-            cpf = cpf.replace(".","").replace("-","");
+            cpf = cpf.replace(".", "").replace("-", "");
         }
         if (!Validar.vCamposVazios(this, txtNome2, txtEmail13, cpf, DataNasc3, TxtTelefone3)) {
             p.setCodPaciente(codigopaciente);
@@ -3039,7 +3058,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                             tf2.setPaciente(p);
                             tf2.setNumero(TxtTelefone4.getText());
                             tfdao.CreatePc(tf2);
-                         
+
                         }
                         //JOptionPane.showMessageDialog(this, "Paciente " + p.getNome_Completo() + " Atualizado com sucesso");
                         //this.clear();
@@ -3055,7 +3074,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                 // JOptionPane.showMessageDialog(null,"Paciente Cadastrado com Sucesso!");
                 ReadJTable();
             } else {
-                JOptionPane.showMessageDialog(this, msg,"ERRO!", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, msg, "ERRO!", JOptionPane.ERROR_MESSAGE);
             }
         }
         //ModalAlterar.dispose();
@@ -3111,7 +3130,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
     }//GEN-LAST:event_TxtTelefone1ActionPerformed
 
     private void BtnSalvarAlteracoesNovo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalvarAlteracoesNovo1ActionPerformed
-       boolean dadosvalidos = true;
+        boolean dadosvalidos = true;
 
         Paciente p = new Paciente();
         PacienteDAO dao = new PacienteDAO();
@@ -3121,9 +3140,9 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         String msg = "Existem campos com formatos Inválidos\n\nFavor Verificar os campos:";
         //System.out.println((String) txtCPF1.getValue());
         String cpf = null;
-        if((String) txtCPF1.getValue() != null){
+        if ((String) txtCPF1.getValue() != null) {
             cpf = (String) txtCPF1.getValue();
-            cpf = cpf.replace(".","").replace("-","");
+            cpf = cpf.replace(".", "").replace("-", "");
         }
         if (!Validar.vCamposVazios(this, txtNome1, txtEmail1, cpf, DataNasc2, TxtTelefone1)) {
             if (Validar.vNome(txtNome1.getText())) {
@@ -3189,7 +3208,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                         }
                         JOptionPane.showMessageDialog(ModalNovoResolucaoMenor, "Paciente " + p.getNome_Completo() + " Salvo com sucesso");
                         this.clearNovoR();
-                         ModalNovoResolucaoMenor.dispose();
+                        ModalNovoResolucaoMenor.dispose();
                     } else {
                         dao.Delete(p);
                     }
@@ -3197,10 +3216,10 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                 }
                 ReadJTable();
             } else {
-                JOptionPane.showMessageDialog(this, msg,"ERRO!", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, msg, "ERRO!", JOptionPane.ERROR_MESSAGE);
             }
         }
-       
+
     }//GEN-LAST:event_BtnSalvarAlteracoesNovo1ActionPerformed
 
     private void BtnCancelar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCancelar1ActionPerformed
@@ -3221,65 +3240,66 @@ public class ManterPaciente1 extends javax.swing.JFrame {
 
     private void BtnSalvarAlteracoes4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalvarAlteracoes4ActionPerformed
 
-        if(codigoconsulta != -1)
+        if (codigoconsulta != -1) {
             Alterar(codigoconsulta);
-            //LabelModalAnamnese.setText("Lendo dados da Anamnese Cadastrada na consulta");
-       
+        }
+        //LabelModalAnamnese.setText("Lendo dados da Anamnese Cadastrada na consulta");
+
     }//GEN-LAST:event_BtnSalvarAlteracoes4ActionPerformed
 
     private void txtBuscaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscaKeyTyped
-       this.ReadJTableBusca(txtBusca.getText());
+        this.ReadJTableBusca(txtBusca.getText());
     }//GEN-LAST:event_txtBuscaKeyTyped
 
     private void JTPacientesMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTPacientesMousePressed
-         if(evt.getClickCount() == 2 ) {
-              if (JTPacientes.getSelectedRow() != -1) {
-            int modelRow = JTPacientes.convertRowIndexToModel(JTPacientes.getSelectedRow());
-            int value = (Integer) JTPacientes.getModel().getValueAt(modelRow, 0);
-            this.codigopaciente = value;
-            PacienteDAO dao = new PacienteDAO();
-            ViewsDAO vwdao = new ViewsDAO();
-            Paciente p = dao.ReadPaciente(codigopaciente);
-            Vw_TelefonesPacientes v = new Vw_TelefonesPacientes();
-            v = vwdao.ReadTelefonesPacientes(codigopaciente);
-            txtNome2.setText(p.getNome_Completo());
-            Date date = (Date) p.getDataNasc();
+        if (evt.getClickCount() == 2) {
+            if (JTPacientes.getSelectedRow() != -1) {
+                int modelRow = JTPacientes.convertRowIndexToModel(JTPacientes.getSelectedRow());
+                int value = (Integer) JTPacientes.getModel().getValueAt(modelRow, 0);
+                this.codigopaciente = value;
+                PacienteDAO dao = new PacienteDAO();
+                ViewsDAO vwdao = new ViewsDAO();
+                Paciente p = dao.ReadPaciente(codigopaciente);
+                Vw_TelefonesPacientes v = new Vw_TelefonesPacientes();
+                v = vwdao.ReadTelefonesPacientes(codigopaciente);
+                txtNome2.setText(p.getNome_Completo());
+                Date date = (Date) p.getDataNasc();
 
-            //LocalDate localDate = date.toInstant().atZone( ZoneId.systemDefault() ).toLocalDate();
-            DataNasc3.setDate(date.toLocalDate());
-            //DataNasc1.setDate((LocalDate) p.getDataNasc());
-            Sexo2.setSelectedItem(p.getSexo());
-            estadocivil2.setSelectedItem(p.getEstadoCivil());
-            TxtCidade2.setText(p.getCidade());
-            txtCPF2.setText(p.getCPF());
-            TxtEndereco2.setText(p.getEndereco());
-            TxtProfissao2.setText(p.getProfissao());
-            TxtReligiao2.setText(p.getReligiao());
-            TxtEscolaridade2.setText(p.getEscolaridade());
-            String fones = null;
-            String[] fones2 = null;
-            fones = v.getTelefone().getNumero();
-            if (fones.contains(",")) {
-                fones2 = fones.split(",");
-                TxtTelefone3.setText(fones2[0]);
-                TxtTelefone4.setText(fones2[1]);
+                //LocalDate localDate = date.toInstant().atZone( ZoneId.systemDefault() ).toLocalDate();
+                DataNasc3.setDate(date.toLocalDate());
+                //DataNasc1.setDate((LocalDate) p.getDataNasc());
+                Sexo2.setSelectedItem(p.getSexo());
+                estadocivil2.setSelectedItem(p.getEstadoCivil());
+                TxtCidade2.setText(p.getCidade());
+                txtCPF2.setText(p.getCPF());
+                TxtEndereco2.setText(p.getEndereco());
+                TxtProfissao2.setText(p.getProfissao());
+                TxtReligiao2.setText(p.getReligiao());
+                TxtEscolaridade2.setText(p.getEscolaridade());
+                String fones = null;
+                String[] fones2 = null;
+                fones = v.getTelefone().getNumero();
+                if (fones.contains(",")) {
+                    fones2 = fones.split(",");
+                    TxtTelefone3.setText(fones2[0]);
+                    TxtTelefone4.setText(fones2[1]);
+                } else {
+                    TxtTelefone3.setText(fones);
+                    TxtTelefone4.setText("");
+                }
+
+                txtEmail13.setText(p.getEmail());
+                LabelMsg.setVisible(false);
+                DataNasc3.setFont(new Font("Tahoma", Font.BOLD, 18));
+                ModalAlterar.setSize(950, 950);
+                ModalAlterar.setModal(true);
+                ModalAlterar.setLocationRelativeTo(null);
+                ModalAlterar.setVisible(true);
+
             } else {
-                TxtTelefone3.setText(fones);
-                TxtTelefone4.setText("");
+                JOptionPane.showMessageDialog(this, "Selecione um paciente para alterar");
             }
-
-            txtEmail13.setText(p.getEmail());
-            LabelMsg.setVisible(false);
-            DataNasc3.setFont(new Font("Tahoma", Font.BOLD, 18));
-            ModalAlterar.setSize(950, 950);
-            ModalAlterar.setModal(true);
-            ModalAlterar.setLocationRelativeTo(null);
-            ModalAlterar.setVisible(true);
-
-        } else {
-            JOptionPane.showMessageDialog(this, "Selecione um paciente para alterar");
         }
-         }
     }//GEN-LAST:event_JTPacientesMousePressed
 
     private void txtNome3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNome3ActionPerformed
@@ -3293,13 +3313,13 @@ public class ManterPaciente1 extends javax.swing.JFrame {
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         ModalMeusDados.setSize(540, 620);
         ModalMeusDados.setModal(true);
-         TxtTelefone7.setVisible(false);
+        TxtTelefone7.setVisible(false);
         labeltelefone2.setVisible(false);
         readpsicologo();
         ModalMeusDados.setLocationRelativeTo(null);
         ModalMeusDados.setVisible(true);
     }//GEN-LAST:event_jButton2MouseClicked
-public void readpsicologo(){
+    public void readpsicologo() {
         Psicologo p = new Psicologo();
         PsicologoDAO dao = new PsicologoDAO();
         p = dao.ReadPsicologo(Main.cod);
@@ -3314,41 +3334,53 @@ public void readpsicologo(){
         txtEmail2.setText(p.getEmail());
         TxtTelefone6.setText(t.get(0).getNumero());
 
-        if(t.size() == 2){
+        if (t.size() == 2) {
             TxtTelefone7.setVisible(true);
             labeltelefone2.setVisible(true);
             TxtTelefone7.setText(t.get(1).getNumero());
-            
+
         }
     }
     private void BtnVoltarPoucoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVoltarPoucoActionPerformed
         // TODO add your handling code here:
-        if(currentPage != 1){
-            getPageData(currentPage-1);
-            
+        if (currentPage != 1) { //diferente da 1 pagina
+            getPageData(currentPage - 1);
+
         }
+        SpinnerNumPaginas.setValue((int) currentPage);
     }//GEN-LAST:event_BtnVoltarPoucoActionPerformed
 
     private void BtnAvancarBastanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAvancarBastanteActionPerformed
         // TODO add your handling code here:
-        if(currentPage != 0 && currentPage < totalPages){
-            getPageData(currentPage+1);
-            
+        if (currentPage < totalPages) { //se tem pagina e é menor que a ultima
+            if (currentPage + 5 > totalPages) {
+                getPageData(totalPages);
+            } else {
+                getPageData(currentPage + 5);
+            }
+
         }
+        SpinnerNumPaginas.setValue((int) currentPage);
     }//GEN-LAST:event_BtnAvancarBastanteActionPerformed
 
     private void BtnVoltarBastanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVoltarBastanteActionPerformed
-         if(currentPage != 0 && currentPage < totalPages){
-            getPageData(currentPage-5);
-            
+        if (currentPage != 1) {
+            if (currentPage - 5 < 1) {
+                getPageData(1);
+            } else {
+                getPageData(currentPage - 5);
+            }
+
         }
+        SpinnerNumPaginas.setValue((int) currentPage);
     }//GEN-LAST:event_BtnVoltarBastanteActionPerformed
 
     private void BtnAvancarPoucoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAvancarPoucoActionPerformed
-        if(currentPage != 0 && currentPage < totalPages){
-            getPageData(currentPage+5);
-            
+        if (currentPage < totalPages) {
+            getPageData(currentPage + 1);
+
         }
+        SpinnerNumPaginas.setValue((int) currentPage);
     }//GEN-LAST:event_BtnAvancarPoucoActionPerformed
 
     private void BtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAlterarActionPerformed
@@ -3403,8 +3435,8 @@ public void readpsicologo(){
                     msg += "\nNúmero de Telefone 2 Invalido: " + TxtTelefone7.getText() + "\nO Número deve ser no formato xxxxxxxxxxx";
                 }
             }
-            if( !TxtTelefone7.getText().isEmpty()){
-                if (Validar.vTelefone(TxtTelefone7.getText()) ){
+            if (!TxtTelefone7.getText().isEmpty()) {
+                if (Validar.vTelefone(TxtTelefone7.getText())) {
                     tf.setNumero(TxtTelefone7.getText());
                 } else {
                     dadosvalidos = false;
@@ -3420,7 +3452,7 @@ public void readpsicologo(){
                     t.get(0).setNumero(TxtTelefone6.getText());
                     if (tfdao.UpdateTPsicologo(t.get(0))) {
 
-                        if(t.size() == 2){
+                        if (t.size() == 2) {
                             t.get(1).setNumero(TxtTelefone7.getText());
                             tfdao.UpdateTPsicologo(t.get(1));
 
@@ -3440,7 +3472,7 @@ public void readpsicologo(){
                     tf.setPaciente(p);
                     tfdao.CreatePc(tf);
                 }
-                */
+                 */
                 //mostrar mensagem de sucesso
                 // JOptionPane.showMessageDialog(null,"Paciente Cadastrado com Sucesso!");
                 // ReadJTable();
@@ -3449,6 +3481,15 @@ public void readpsicologo(){
             }
         }
     }//GEN-LAST:event_BtnAlterarActionPerformed
+
+    private void SpinnerLimiteStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_SpinnerLimiteStateChanged
+        // TODO add your handling code here:
+        PAGE_SIZE = (int) SpinnerLimite.getValue();
+        getCount(currentPage);
+        SpinnerNumPaginas.setValue((int) currentPage);
+        LabelQtdePaginas.setText("de "+totalPages);
+        getPageData(1);
+    }//GEN-LAST:event_SpinnerLimiteStateChanged
 
     private void Alterar(int cod) {
         Anamnese a = new Anamnese();
@@ -3494,6 +3535,7 @@ public void readpsicologo(){
             }
         }
     }
+
     /**
      * @param args the command line arguments
      */
