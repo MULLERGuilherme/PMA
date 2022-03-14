@@ -413,7 +413,14 @@ private void ReadJTable(LocalDate data) {
     }//GEN-LAST:event_JTConsultasMouseClicked
 
     private void btnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOkActionPerformed
-        // TODO add your handling code here:
+       if(DataChooser.getDate() != null){
+            Date date = DataChooser.getDate();
+            LocalDate localDate = date.toInstant().atZone( ZoneId.systemDefault() ).toLocalDate();
+           
+            ReadJTable(localDate);
+              DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            jLabel2.setText(dtf.format(localDate));
+        }        // TODO add your handling code here:
     }//GEN-LAST:event_btnOkActionPerformed
 
     /**
