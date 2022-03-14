@@ -157,13 +157,13 @@ public class ViewsDAO {
 
         return vw;
     }
-     public List<Vw_TelefonesPacientes> fetchBySize(int start, int size) {
+     public List<Vw_TelefonesPacientes> fetchBySizeMP(int start, int size) {
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;
         List<Vw_TelefonesPacientes> vw = new ArrayList<>();
         try {
-            stmt = con.prepareStatement("SELECT CodigoPaciente, Paciente, Email, GROUP_CONCAT(numero) as Numero FROM vw_TelefonesPacientes Group By CodigoPaciente Limit "+start+","+size) ;
+            stmt = con.prepareStatement("SELECT CodigoPaciente, Paciente, Email, GROUP_CONCAT(numero) as Numero FROM vw_TelefonesPacientes Group By Paciente Limit "+start+","+size) ;
             rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -187,6 +187,40 @@ public class ViewsDAO {
         return vw;
     }
      
+     public List<Vw_TelefonesPacientes> fetchBySizeBuscaMP(int start, int size, String Busca) {
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        List<Vw_TelefonesPacientes> vw = new ArrayList<>();
+        try {
+            stmt = con.prepareStatement("SELECT CodigoPaciente, Paciente, Email, GROUP_CONCAT(numero) as Numero FROM vw_TelefonesPacientes WHERE ((Paciente Like '%"+Busca+"%') OR (Email Like '%"+Busca+"%') OR (numero Like '%"+Busca+"%')) Limit "+start+","+size) ;
+
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                Vw_TelefonesPacientes v = new Vw_TelefonesPacientes();
+
+                v.getPaciente().setCodPaciente(rs.getInt("CodigoPaciente"));
+                v.getPaciente().setNome_Completo(rs.getString("Paciente"));
+                v.getPaciente().setEmail(rs.getString("Email"));
+                v.getTelefone().setNumero(rs.getString("Numero"));
+                
+                vw.add(v);
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ConsultaDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt, rs);
+        }
+
+        return vw;
+    }
+    
+     
+ 
+     
      public double getRowCountTableManterPacientes(){
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
@@ -194,6 +228,30 @@ public class ViewsDAO {
         long count = 0;
           try {
             stmt = con.prepareStatement("SELECT count(Distinct CodigoPaciente) from vw_TelefonesPacientes") ;
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                count = rs.getLong("count(Distinct CodigoPaciente)");
+ 
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ViewsDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt, rs);
+        }
+
+        return count;
+    }
+     
+     public double getRowCountTableManterPacientesBusca(String Busca){
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        long count = 0;
+          try {
+            stmt = con.prepareStatement("SELECT count(Distinct CodigoPaciente) from vw_TelefonesPacientes WHERE (Paciente Like '%"+Busca+"%') OR (Email Like '%"+Busca+"%') OR (numero Like '%"+Busca+"%')") ;
+            
             rs = stmt.executeQuery();
 
             while (rs.next()) {

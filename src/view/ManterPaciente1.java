@@ -78,11 +78,12 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         }
 
     }
-      public void getCount(int curpage) {
+
+    public void getCount(int curpage) {
         ViewsDAO dao = new ViewsDAO();
-        
+
         tableRowCount = dao.getRowCountTableManterPacientes();
-          //System.out.println(tableRowCount);
+        //System.out.println(tableRowCount);
         if (tableRowCount > 0) {
             totalPages = (int) Math.ceil(tableRowCount / PAGE_SIZE);
             currentPage = curpage;
@@ -91,14 +92,36 @@ public class ManterPaciente1 extends javax.swing.JFrame {
 
     }
 
+    public void getCountBusca(String Busca) {
+        ViewsDAO dao = new ViewsDAO();
+        tableRowCount = dao.getRowCountTableManterPacientesBusca(Busca);
+        if (tableRowCount > 0) {
+            totalPages = (int) Math.ceil(tableRowCount / PAGE_SIZE);
+            currentPage = 1;
+
+        }
+
+    }
+
     public void getPageData(int pageNo) {
 
         currentPage = pageNo;
-        ViewsDAO dao = new ViewsDAO();
+       
         //calculate starting row for pagination
         startRow = PAGE_SIZE * (pageNo - 1);
 
         ReadJTablePag(startRow, PAGE_SIZE);
+
+    }
+
+    public void getPageDataBusca(int pageNo, String Busca) {
+
+        currentPage = pageNo;
+       
+        //calculate starting row for pagination
+        startRow = PAGE_SIZE * (pageNo - 1);
+
+        ReadJTableBuscaPag(Busca, startRow, PAGE_SIZE);
 
     }
 
@@ -109,10 +132,10 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         TableColumnModel cmod = JTPacientes.getColumnModel();
         cmod.removeColumn(cmod.getColumn(0));
         JTPacientes.setRowSorter(new TableRowSorter(dtmPacientes));
-        
+
         this.getPageData(1);
         SpinnerNumPaginas.setValue((int) currentPage);
-        LabelQtdePaginas.setText("de "+totalPages);
+        LabelQtdePaginas.setText("de " + totalPages);
         SpinnerLimite.setValue((int) PAGE_SIZE);
     }
 
@@ -2583,7 +2606,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         Object[] linha = null;
         String fones = null;
         String[] fones2 = null;
-        for (Vw_TelefonesPacientes vw : vwdao.fetchBySize(start, size)) {
+        for (Vw_TelefonesPacientes vw : vwdao.fetchBySizeMP(start, size)) {
             fones = vw.getTelefone().getNumero();
             if (fones.contains(",")) {
 
@@ -2651,6 +2674,45 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         }
     }
 
+    public void ReadJTableBuscaPag(String Busca, int start, int size) {
+
+        DefaultTableModel model = (DefaultTableModel) JTPacientes.getModel();
+
+        model.setNumRows(0);
+
+        ViewsDAO vwdao = new ViewsDAO();
+        Object[] linha = null;
+        String fones = null;
+        String[] fones2 = null;
+        for (Vw_TelefonesPacientes vw : vwdao.fetchBySizeBuscaMP(start, size, Busca)) {
+            fones = vw.getTelefone().getNumero();
+            if (fones.contains(",")) {
+
+                fones2 = fones.split(",");
+                linha = new Object[]{
+                    vw.getPaciente().getCodPaciente(),
+                    vw.getPaciente().getNome_Completo(),
+                    vw.getPaciente().getEmail(),
+                    fones2[0],
+                    fones2[1]
+                };
+            } else {
+                linha = new Object[]{
+                    vw.getPaciente().getCodPaciente(),
+                    vw.getPaciente().getNome_Completo(),
+                    vw.getPaciente().getEmail(),
+                    vw.getTelefone().getNumero(),
+                    null
+                };
+
+            }
+            model.addRow(linha);
+            fones = null;
+            fones2 = null;
+
+        }
+    }
+
     private void BtnManterConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnManterConsultaActionPerformed
         // TODO add your handling code here:
         CadastrarConsulta2 mc = new CadastrarConsulta2();
@@ -2690,7 +2752,11 @@ public class ManterPaciente1 extends javax.swing.JFrame {
     private void BtnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBuscarActionPerformed
         // TODO add your handling code here:
         //System.out.println(JCBAtributo.getSelectedIndex());
-        this.ReadJTableBusca(txtBusca.getText());
+        getCountBusca(txtBusca.getText());
+        SpinnerNumPaginas.setValue((int) currentPage);
+        LabelQtdePaginas.setText("de " + totalPages);
+        SpinnerLimite.setValue((int) PAGE_SIZE);
+        this.getPageDataBusca(1, txtBusca.getText());
     }//GEN-LAST:event_BtnBuscarActionPerformed
 
     private void BtnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnNovoActionPerformed
@@ -3258,7 +3324,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnSalvarAlteracoes4ActionPerformed
 
     private void txtBuscaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscaKeyTyped
-        this.ReadJTableBusca(txtBusca.getText());
+        //this.ReadJTableBusca(txtBusca.getText());
     }//GEN-LAST:event_txtBuscaKeyTyped
 
     private void JTPacientesMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTPacientesMousePressed
@@ -3354,7 +3420,14 @@ public class ManterPaciente1 extends javax.swing.JFrame {
     private void BtnVoltarPoucoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVoltarPoucoActionPerformed
         // TODO add your handling code here:
         if (currentPage != 1) { //diferente da 1 pagina
-            getPageData(currentPage - 1);
+            System.out.println(txtBusca.getText());
+            System.out.println(txtBusca.getText().isEmpty());
+            if (txtBusca.getText().isEmpty()) {
+                getPageData(currentPage - 1);
+            }else {
+                System.out.println("ta entrando no lugar certo");
+                getPageDataBusca(currentPage - 1, txtBusca.getText());
+            }
 
         }
         SpinnerNumPaginas.setValue((int) currentPage);
@@ -3363,10 +3436,18 @@ public class ManterPaciente1 extends javax.swing.JFrame {
     private void BtnAvancarBastanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAvancarBastanteActionPerformed
         // TODO add your handling code here:
         if (currentPage < totalPages) { //se tem pagina e é menor que a ultima
-            if (currentPage + 5 > totalPages) {
-                getPageData(totalPages);
+            if (txtBusca.getText() == null) {
+                if (currentPage + 5 > totalPages) {
+                    getPageData(totalPages);
+                } else {
+                    getPageData(currentPage + 5);
+                }
             } else {
-                getPageData(currentPage + 5);
+                if (currentPage + 5 > totalPages) {
+                    getPageDataBusca(totalPages, txtBusca.getText());
+                } else {
+                    getPageDataBusca(currentPage + 5, txtBusca.getText());
+                }
             }
 
         }
@@ -3375,19 +3456,33 @@ public class ManterPaciente1 extends javax.swing.JFrame {
 
     private void BtnVoltarBastanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVoltarBastanteActionPerformed
         if (currentPage != 1) {
-            if (currentPage - 5 < 1) {
-                getPageData(1);
+            if (txtBusca.getText() == null) {
+                if (currentPage - 5 < 1) {
+                    getPageData(1);
+                } else {
+                    getPageData(currentPage - 5);
+                }
             } else {
-                getPageData(currentPage - 5);
+                if (currentPage - 5 < 1) {
+                    getPageDataBusca(1, txtBusca.getText());
+                } else {
+                    getPageDataBusca(currentPage - 5, txtBusca.getText());
+                }
             }
-
         }
         SpinnerNumPaginas.setValue((int) currentPage);
     }//GEN-LAST:event_BtnVoltarBastanteActionPerformed
 
     private void BtnAvancarPoucoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAvancarPoucoActionPerformed
         if (currentPage < totalPages) {
-            getPageData(currentPage + 1);
+            //System.out.println(txtBusca.getText());
+            //System.out.println(txtBusca.getText().isEmpty());
+            if (txtBusca.getText().isEmpty()) {
+                getPageData(currentPage + 1);
+            } else {
+                //System.out.println("entrei aki");
+                getPageDataBusca(currentPage + 1, txtBusca.getText());
+            }
 
         }
         SpinnerNumPaginas.setValue((int) currentPage);
@@ -3497,13 +3592,13 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         PAGE_SIZE = (int) SpinnerLimite.getValue();
         getCount(currentPage);
         SpinnerNumPaginas.setValue((int) currentPage);
-        LabelQtdePaginas.setText("de "+totalPages);
+        LabelQtdePaginas.setText("de " + totalPages);
         getPageData(1);
     }//GEN-LAST:event_SpinnerLimiteStateChanged
 
     private void SpinnerNumPaginasStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_SpinnerNumPaginasStateChanged
         // TODO add your handling code here:
-        getPageData((int)SpinnerNumPaginas.getValue());
+        getPageData((int) SpinnerNumPaginas.getValue());
     }//GEN-LAST:event_SpinnerNumPaginasStateChanged
 
     private void Alterar(int cod) {
