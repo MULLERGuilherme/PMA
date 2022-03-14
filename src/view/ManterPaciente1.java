@@ -31,6 +31,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.SpinnerNumberModel;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
 import javax.swing.table.TableRowSorter;
@@ -63,7 +64,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
     //Paginacao
     int PAGE_SIZE = 1;
     double tableRowCount;
-    int totalPages = 0;
+    int totalPages;
     int currentPage = 0;
     int startRow = 0;
 
@@ -79,7 +80,9 @@ public class ManterPaciente1 extends javax.swing.JFrame {
     }
       public void getCount(int curpage) {
         ViewsDAO dao = new ViewsDAO();
+        
         tableRowCount = dao.getRowCountTableManterPacientes();
+          //System.out.println(tableRowCount);
         if (tableRowCount > 0) {
             totalPages = (int) Math.ceil(tableRowCount / PAGE_SIZE);
             currentPage = curpage;
@@ -100,12 +103,13 @@ public class ManterPaciente1 extends javax.swing.JFrame {
     }
 
     public ManterPaciente1() {
+        this.getCount();
         initComponents();
         DefaultTableModel dtmPacientes = (DefaultTableModel) JTPacientes.getModel();
         TableColumnModel cmod = JTPacientes.getColumnModel();
         cmod.removeColumn(cmod.getColumn(0));
         JTPacientes.setRowSorter(new TableRowSorter(dtmPacientes));
-        this.getCount();
+        
         this.getPageData(1);
         SpinnerNumPaginas.setValue((int) currentPage);
         LabelQtdePaginas.setText("de "+totalPages);
@@ -2372,6 +2376,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         LabelLimite.setText("Limite");
         LabelLimite.setBackground(new java.awt.Color(204, 204, 204));
 
+        SpinnerLimite.setModel(new javax.swing.SpinnerNumberModel(1, 1, 15, 1));
         SpinnerLimite.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 SpinnerLimiteStateChanged(evt);
@@ -2394,6 +2399,13 @@ public class ManterPaciente1 extends javax.swing.JFrame {
 
         LabelPagina.setText("Página");
         LabelPagina.setBackground(new java.awt.Color(204, 204, 204));
+
+        SpinnerNumPaginas.setModel(new javax.swing.SpinnerNumberModel(1, 1, totalPages, 1));
+        SpinnerNumPaginas.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                SpinnerNumPaginasStateChanged(evt);
+            }
+        });
 
         LabelQtdePaginas.setText("de X");
         LabelQtdePaginas.setBackground(new java.awt.Color(204, 204, 204));
@@ -2418,18 +2430,18 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         PainelPaginacaoLayout.setHorizontalGroup(
             PainelPaginacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PainelPaginacaoLayout.createSequentialGroup()
-                .addContainerGap(34, Short.MAX_VALUE)
+                .addContainerGap(67, Short.MAX_VALUE)
                 .addComponent(LabelLimite)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(SpinnerLimite, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(BtnVoltarBastante)
                 .addGap(18, 18, 18)
                 .addComponent(BtnVoltarPouco)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(LabelPagina)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(SpinnerNumPaginas, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(SpinnerNumPaginas, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(LabelQtdePaginas)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -2442,18 +2454,16 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             PainelPaginacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelPaginacaoLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(PainelPaginacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PainelPaginacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(SpinnerNumPaginas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(LabelPagina, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(LabelQtdePaginas, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(BtnAvancarPouco)
-                        .addComponent(BtnAvancarBastante))
-                    .addGroup(PainelPaginacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(LabelLimite, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(SpinnerLimite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(BtnVoltarBastante)
-                        .addComponent(BtnVoltarPouco))))
+                .addGroup(PainelPaginacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(SpinnerNumPaginas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LabelPagina, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LabelQtdePaginas, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BtnAvancarPouco)
+                    .addComponent(BtnAvancarBastante)
+                    .addComponent(BtnVoltarPouco)
+                    .addComponent(BtnVoltarBastante)
+                    .addComponent(SpinnerLimite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LabelLimite, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         javax.swing.GroupLayout jEImagePanel1Layout = new javax.swing.GroupLayout(jEImagePanel1);
@@ -2472,7 +2482,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                         .addGap(178, 178, 178))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jEImagePanel1Layout.createSequentialGroup()
-                        .addGap(0, 187, Short.MAX_VALUE)
+                        .addGap(0, 178, Short.MAX_VALUE)
                         .addComponent(PainelPaginacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jEImagePanel1Layout.createSequentialGroup()
@@ -3490,6 +3500,11 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         LabelQtdePaginas.setText("de "+totalPages);
         getPageData(1);
     }//GEN-LAST:event_SpinnerLimiteStateChanged
+
+    private void SpinnerNumPaginasStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_SpinnerNumPaginasStateChanged
+        // TODO add your handling code here:
+        getPageData((int)SpinnerNumPaginas.getValue());
+    }//GEN-LAST:event_SpinnerNumPaginasStateChanged
 
     private void Alterar(int cod) {
         Anamnese a = new Anamnese();

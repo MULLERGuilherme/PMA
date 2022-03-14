@@ -193,11 +193,11 @@ public class ViewsDAO {
         ResultSet rs = null;
         long count = 0;
           try {
-            stmt = con.prepareStatement("SELECT count(*) FROM vw_TelefonesPacientes") ;
+            stmt = con.prepareStatement("SELECT count(Distinct CodigoPaciente) from vw_TelefonesPacientes") ;
             rs = stmt.executeQuery();
 
             while (rs.next()) {
-                count = rs.getLong("count(*)");
+                count = rs.getLong("count(Distinct CodigoPaciente)");
  
             }
 

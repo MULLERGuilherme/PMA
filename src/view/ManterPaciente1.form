@@ -3549,7 +3549,7 @@
                       </Group>
                       <Component id="jScrollPane1" alignment="1" max="32767" attributes="0"/>
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace min="0" pref="187" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="178" max="32767" attributes="0"/>
                           <Component id="PainelPaginacao" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -3714,18 +3714,18 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace pref="34" max="32767" attributes="0"/>
+                      <EmptySpace pref="67" max="32767" attributes="0"/>
                       <Component id="LabelLimite" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="SpinnerLimite" min="-2" pref="60" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="BtnVoltarBastante" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="BtnVoltarPouco" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="LabelPagina" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="SpinnerNumPaginas" min="-2" pref="60" max="-2" attributes="0"/>
+                      <Component id="SpinnerNumPaginas" min="-2" pref="38" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="LabelQtdePaginas" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -3740,20 +3740,16 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                              <Component id="SpinnerNumPaginas" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="LabelPagina" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                              <Component id="LabelQtdePaginas" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                              <Component id="BtnAvancarPouco" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="BtnAvancarBastante" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="LabelLimite" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                              <Component id="SpinnerLimite" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="BtnVoltarBastante" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="BtnVoltarPouco" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="SpinnerNumPaginas" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="LabelPagina" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="LabelQtdePaginas" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="BtnAvancarPouco" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="BtnAvancarBastante" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="BtnVoltarPouco" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="BtnVoltarBastante" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="SpinnerLimite" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="LabelLimite" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -3769,6 +3765,11 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JSpinner" name="SpinnerLimite">
+              <Properties>
+                <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+                  <SpinnerModel initial="1" maximum="15" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
+                </Property>
+              </Properties>
               <Events>
                 <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="SpinnerLimiteStateChanged"/>
               </Events>
@@ -3798,6 +3799,14 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JSpinner" name="SpinnerNumPaginas">
+              <Properties>
+                <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="new javax.swing.SpinnerNumberModel(1, 1, totalPages, 1)" type="code"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="SpinnerNumPaginasStateChanged"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="LabelQtdePaginas">
               <Properties>
