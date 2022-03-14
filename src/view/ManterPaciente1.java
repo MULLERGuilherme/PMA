@@ -29,14 +29,17 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JDialog;
+import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
 import javax.swing.table.TableRowSorter;
 import javax.swing.text.DefaultFormatterFactory;
 import javax.swing.text.MaskFormatter;
+import javax.swing.text.NumberFormatter;
 import model.bean.Anamnese;
 import model.bean.Paciente;
 import model.bean.Psicologo;
@@ -2467,6 +2470,11 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                 SpinnerLimiteStateChanged(evt);
             }
         });
+        SpinnerLimite.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                SpinnerLimiteKeyTyped(evt);
+            }
+        });
 
         BtnVoltarBastante.setText("<<");
         BtnVoltarBastante.addActionListener(new java.awt.event.ActionListener() {
@@ -3746,6 +3754,16 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             evt.consume();
          }    
     }//GEN-LAST:event_TxtTelefone4KeyTyped
+
+    private void SpinnerLimiteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SpinnerLimiteKeyTyped
+        JFormattedTextField txt = ((JSpinner.NumberEditor) SpinnerLimite.getEditor()).getTextField();
+        ((NumberFormatter) txt.getFormatter()).setAllowsInvalid(false);
+        PAGE_SIZE = (int) SpinnerLimite.getValue();
+        getCount(currentPage);
+        SpinnerNumPaginas.setValue((int) currentPage);
+        LabelQtdePaginas.setText("de " + totalPages);
+        getPageData(1);
+    }//GEN-LAST:event_SpinnerLimiteKeyTyped
 
     private void Alterar(int cod) {
         Anamnese a = new Anamnese();
