@@ -255,6 +255,11 @@ private void ReadJTable(LocalDate data) {
         });
 
         DataChooser.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        DataChooser.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                DataChooserPropertyChange(evt);
+            }
+        });
 
         btnAlterar.setBackground(new java.awt.Color(204, 204, 204));
         btnAlterar.setText("Alterar");
@@ -422,6 +427,17 @@ private void ReadJTable(LocalDate data) {
             jLabel2.setText(dtf.format(localDate));
         }        // TODO add your handling code here:
     }//GEN-LAST:event_btnOkActionPerformed
+
+    private void DataChooserPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_DataChooserPropertyChange
+         if(DataChooser.getDate() != null){
+            Date date = DataChooser.getDate();
+            LocalDate localDate = date.toInstant().atZone( ZoneId.systemDefault() ).toLocalDate();
+           
+            ReadJTable(localDate);
+              DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            jLabel2.setText(dtf.format(localDate));
+        }      
+    }//GEN-LAST:event_DataChooserPropertyChange
 
     /**
      * @param args the command line arguments
