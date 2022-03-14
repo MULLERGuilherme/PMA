@@ -2949,6 +2949,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             int modelRow = JTPacientes.convertRowIndexToModel(JTPacientes.getSelectedRow());
             int value = (Integer) JTPacientes.getModel().getValueAt(modelRow, 0);
             ExibirAnotacoesManterPaciente ea = new ExibirAnotacoesManterPaciente(value);
+            Util.SizeJanela(ea);
             ea.setVisible(true);
             this.dispose();
 
