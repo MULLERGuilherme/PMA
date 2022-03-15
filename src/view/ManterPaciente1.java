@@ -65,7 +65,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
     private int codigoconsulta = -1;
 
     //Paginacao
-    int PAGE_SIZE = 1;
+    int PAGE_SIZE = 5;
     double tableRowCount;
     int totalPages;
     int currentPage = 0;
@@ -3662,6 +3662,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         // TODO add your handling code here:
         PAGE_SIZE = (int) SpinnerLimite.getValue();
         getCount(currentPage);
+        SpinnerNumPaginas.setModel(new javax.swing.SpinnerNumberModel(1, 1, totalPages, 1));
         SpinnerNumPaginas.setValue((int) currentPage);
         LabelQtdePaginas.setText("de " + totalPages);
         getPageData(1);
@@ -3761,6 +3762,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         ((NumberFormatter) txt.getFormatter()).setAllowsInvalid(false);
         PAGE_SIZE = (int) SpinnerLimite.getValue();
         getCount(currentPage);
+        SpinnerNumPaginas.setModel(new javax.swing.SpinnerNumberModel(1, 1, totalPages, 1));
         SpinnerNumPaginas.setValue((int) currentPage);
         LabelQtdePaginas.setText("de " + totalPages);
         getPageData(1);

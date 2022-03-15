@@ -75,7 +75,7 @@ public class PacienteDAO {
             stmt.executeUpdate();
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao inserir :" +ex);
+            JOptionPane.showMessageDialog(null, ex.getMessage());
             status = false;
 
         } finally {
@@ -212,7 +212,7 @@ public class PacienteDAO {
             stmt.executeUpdate();
 
         } catch (SQLException ex) {
-             JOptionPane.showMessageDialog(null, "Erro ao alterar :" +ex);
+            JOptionPane.showMessageDialog(null, "Erro ao alterar :" +ex.getMessage());
             status = false;
 
         } finally {
