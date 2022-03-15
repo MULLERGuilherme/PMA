@@ -192,7 +192,7 @@ public class ViewsDAO {
         ResultSet rs = null;
         List<Vw_TelefonesPacientes> vw = new ArrayList<>();
         try {
-            stmt = con.prepareStatement("SELECT CodigoPaciente, Paciente, Email, GROUP_CONCAT(numero) as Numero FROM vw_TelefonesPacientes WHERE (Paciente Like '%"+Busca+"%') Group By Paciente Limit "+size+" OFFSET "+start) ;
+            stmt = con.prepareStatement("SELECT CodigoPaciente, Paciente, Email, GROUP_CONCAT(numero) as Numero FROM vw_TelefonesPacientes WHERE (Paciente Like '%"+Busca+"%') OR (Email Like '%"+Busca+"%') OR (Numero Like '%"+Busca+"%') Group By Paciente Limit "+size+" OFFSET "+start) ;
             rs = stmt.executeQuery();
 
             while (rs.next()) {
