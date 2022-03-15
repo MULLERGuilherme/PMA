@@ -186,15 +186,13 @@ public class ViewsDAO {
 
         return vw;
     }
-     
-     public List<Vw_TelefonesPacientes> fetchBySizeBuscaMP(int start, int size, String Busca) {
+      public List<Vw_TelefonesPacientes> fetchBySizeBuscaMP(int start, int size, String Busca) {
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;
         List<Vw_TelefonesPacientes> vw = new ArrayList<>();
         try {
-            stmt = con.prepareStatement("SELECT CodigoPaciente, Paciente, Email, GROUP_CONCAT(numero) as Numero FROM vw_TelefonesPacientes WHERE ((Paciente Like '%"+Busca+"%') OR (Email Like '%"+Busca+"%') OR (numero Like '%"+Busca+"%')) Limit "+start+","+size) ;
-
+            stmt = con.prepareStatement("SELECT CodigoPaciente, Paciente, Email, GROUP_CONCAT(numero) as Numero FROM vw_TelefonesPacientes WHERE (Paciente Like '%"+Busca+"%') Group By Paciente Limit "+size+" OFFSET "+start) ;
             rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -217,7 +215,7 @@ public class ViewsDAO {
 
         return vw;
     }
-    
+  
      
  
      
