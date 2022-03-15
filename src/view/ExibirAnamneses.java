@@ -36,6 +36,7 @@ public class ExibirAnamneses extends javax.swing.JFrame {
 
     public boolean existe = false;
     public static int codigoanamnese;
+    private int codigoconsulta;
 
     public ExibirAnamneses() {
         initComponents();
@@ -1081,7 +1082,7 @@ public class ExibirAnamneses extends javax.swing.JFrame {
                 //LabelModalAnamnese.setText(" Cadastrar anamnese na consulta");
             }
 
-            ModalAnamnese2.setSize(1039, 967);
+            ModalAnamnese2.setSize(1039, 600);
             jScrollPane3.getVerticalScrollBar().setUnitIncrement(20);
             ModalAnamnese2.setModal(true);
             ModalAnamnese2.setLocationRelativeTo(null);
@@ -1137,11 +1138,13 @@ public class ExibirAnamneses extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnCancelar5ActionPerformed
 
     private void BtnCancelar7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCancelar7ActionPerformed
-        // TODO add your handling code here:
+       ModalAnamnese2.dispose();
     }//GEN-LAST:event_BtnCancelar7ActionPerformed
 
     private void BtnSalvarAlteracoes7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalvarAlteracoes7ActionPerformed
-        // TODO add your handling code here:
+         if (codigoconsulta != -1) {
+            Alterar(codigoconsulta);
+        }
     }//GEN-LAST:event_BtnSalvarAlteracoes7ActionPerformed
 
     private void JTAnamnesesMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTAnamnesesMousePressed

@@ -61,6 +61,9 @@ private void ReadJTable() {
             });
         }
     }
+
+
+
  private void Alterar(int cod) {
         Anamnese a = new Anamnese();
         AnamneseDAO dao = new AnamneseDAO();
@@ -998,6 +1001,7 @@ private void ReadJTable() {
         Util.SizeJanela(mp1);
         this.dispose();
     }//GEN-LAST:event_BtnVoltarActionPerformed
+
 
     private void BtnManterPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnManterPacienteActionPerformed
         // TODO add your handling code here:
