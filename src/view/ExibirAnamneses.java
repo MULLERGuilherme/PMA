@@ -36,7 +36,7 @@ public class ExibirAnamneses extends javax.swing.JFrame {
 
     public boolean existe = false;
     public static int codigoanamnese;
-    private int codigoconsulta;
+   
 
     public ExibirAnamneses() {
         initComponents();
@@ -50,7 +50,7 @@ public class ExibirAnamneses extends javax.swing.JFrame {
     }
 
     public boolean readcampos(int cod) {
-        Anamnese a = new Anamnese();
+        Anamnese a ;
         AnamneseDAO dao = new AnamneseDAO();
         a = dao.ReadAnamnese(cod);
         int codanamnese = a.getCodAnamnese();
@@ -130,7 +130,7 @@ public class ExibirAnamneses extends javax.swing.JFrame {
     private void Alterar(int cod) {
         Anamnese a = new Anamnese();
         AnamneseDAO dao = new AnamneseDAO();
-        Anamnese a2 = new Anamnese();
+        Anamnese a2;
         AnamneseDAO dao2 = new AnamneseDAO();
         a2 = dao2.ReadAnamnese(cod);
         a.setCodAnamnese(a2.getCodAnamnese());
@@ -242,7 +242,6 @@ public class ExibirAnamneses extends javax.swing.JFrame {
         jLabel26 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
-        LabelModalAnamnese1 = new javax.swing.JLabel();
         jPanel1 = new JPanel();
         jLabel1 = new javax.swing.JLabel();
         PainelMenu = new javax.swing.JPanel();
@@ -506,8 +505,6 @@ public class ExibirAnamneses extends javax.swing.JFrame {
         jLabel30.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel30.setForeground(new java.awt.Color(255, 0, 0));
 
-        LabelModalAnamnese1.setText("jLabel3");
-
         javax.swing.GroupLayout PainelDadosPaciente4Layout = new javax.swing.GroupLayout(PainelDadosPaciente4);
         PainelDadosPaciente4.setLayout(PainelDadosPaciente4Layout);
         PainelDadosPaciente4Layout.setHorizontalGroup(
@@ -565,73 +562,71 @@ public class ExibirAnamneses extends javax.swing.JFrame {
                                         .addComponent(jLabel23)
                                         .addComponent(jLabel25, javax.swing.GroupLayout.Alignment.TRAILING))
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addGroup(PainelDadosPaciente4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(LabelModalAnamnese1)
-                                        .addGroup(PainelDadosPaciente4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addGroup(PainelDadosPaciente4Layout.createSequentialGroup()
-                                                .addComponent(CheckBoxIntegridadeSensorial1)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(CheckBoxPercepcao1)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(CheckBoxAtencao1)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(CheckBoxMemoria1))
-                                            .addComponent(jLabel49)
-                                            .addComponent(jLabel50)
-                                            .addComponent(jLabel56)
-                                            .addComponent(jLabel51, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel52)
-                                            .addGroup(PainelDadosPaciente4Layout.createSequentialGroup()
-                                                .addGroup(PainelDadosPaciente4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jLabel54)
-                                                    .addComponent(jLabel55)
-                                                    .addComponent(jLabel53))
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addGroup(PainelDadosPaciente4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(txtComoComecou2)
-                                                    .addComponent(txtDiagnostico2)
-                                                    .addGroup(PainelDadosPaciente4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                        .addComponent(txtSintomas2)
-                                                        .addComponent(txtMedicamentosUtilizados2)
-                                                        .addComponent(txtOqueMudou2)
-                                                        .addComponent(txtDoencasConhecidas2, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                    .addComponent(txtEncaminhamento2)
-                                                    .addComponent(txtHistoricoFamiliar2)))
-                                            .addComponent(labelInicioQueixa5)
-                                            .addGroup(PainelDadosPaciente4Layout.createSequentialGroup()
-                                                .addGap(6, 6, 6)
-                                                .addComponent(LabelEmail3)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(txtQueixaSecundaria2))
-                                            .addGroup(PainelDadosPaciente4Layout.createSequentialGroup()
-                                                .addComponent(CheckBoxVolicao1)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(CheckBoxAfeto1)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(CheckBoxHumor1)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(CheckBoxAnsiedade1)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(CheckBoxMedo1)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(CheckBoxCulpa1)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(CheckBoxRaiva1)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(CheckBoxLuto1)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(CheckBoxDesanimo1))
-                                            .addGroup(PainelDadosPaciente4Layout.createSequentialGroup()
-                                                .addComponent(jLabel39)
-                                                .addGap(32, 32, 32)
-                                                .addComponent(SubitaOuProgressiva2, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(jLabel26)
-                                                .addGap(6, 6, 6)
-                                                .addComponent(labelInicioQueixa4)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(JCBPsicomotricidade2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(PainelDadosPaciente4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addGroup(PainelDadosPaciente4Layout.createSequentialGroup()
+                                            .addComponent(CheckBoxIntegridadeSensorial1)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(CheckBoxPercepcao1)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(CheckBoxAtencao1)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(CheckBoxMemoria1))
+                                        .addComponent(jLabel49)
+                                        .addComponent(jLabel50)
+                                        .addComponent(jLabel56)
+                                        .addComponent(jLabel51, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel52)
+                                        .addGroup(PainelDadosPaciente4Layout.createSequentialGroup()
+                                            .addGroup(PainelDadosPaciente4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jLabel54)
+                                                .addComponent(jLabel55)
+                                                .addComponent(jLabel53))
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addGroup(PainelDadosPaciente4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(txtComoComecou2)
+                                                .addComponent(txtDiagnostico2)
+                                                .addGroup(PainelDadosPaciente4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                    .addComponent(txtSintomas2)
+                                                    .addComponent(txtMedicamentosUtilizados2)
+                                                    .addComponent(txtOqueMudou2)
+                                                    .addComponent(txtDoencasConhecidas2, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(txtEncaminhamento2)
+                                                .addComponent(txtHistoricoFamiliar2)))
+                                        .addComponent(labelInicioQueixa5)
+                                        .addGroup(PainelDadosPaciente4Layout.createSequentialGroup()
+                                            .addGap(6, 6, 6)
+                                            .addComponent(LabelEmail3)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(txtQueixaSecundaria2))
+                                        .addGroup(PainelDadosPaciente4Layout.createSequentialGroup()
+                                            .addComponent(CheckBoxVolicao1)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(CheckBoxAfeto1)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(CheckBoxHumor1)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(CheckBoxAnsiedade1)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(CheckBoxMedo1)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(CheckBoxCulpa1)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(CheckBoxRaiva1)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(CheckBoxLuto1)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(CheckBoxDesanimo1))
+                                        .addGroup(PainelDadosPaciente4Layout.createSequentialGroup()
+                                            .addComponent(jLabel39)
+                                            .addGap(32, 32, 32)
+                                            .addComponent(SubitaOuProgressiva2, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(jLabel26)
+                                            .addGap(6, 6, 6)
+                                            .addComponent(labelInicioQueixa4)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(JCBPsicomotricidade2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
         PainelDadosPaciente4Layout.setVerticalGroup(
             PainelDadosPaciente4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -641,9 +636,7 @@ public class ExibirAnamneses extends javax.swing.JFrame {
                     .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE))
                 .addGap(0, 0, 0)
                 .addComponent(PainelIdentificacaoPessoal4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
-                .addComponent(LabelModalAnamnese1)
-                .addGap(28, 28, 28)
+                .addGap(71, 71, 71)
                 .addGroup(PainelDadosPaciente4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtQueixaPrincipal2)
                     .addComponent(LabelNome5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1082,16 +1075,14 @@ public class ExibirAnamneses extends javax.swing.JFrame {
             //codanamnese = a2.getCodAnamnese();
             existe = readcampos(codigoanamnese);
             if (existe) {
-                //LabelModalAnamnese.setText("Lendo dados da Anamnese Cadastrada na consulta");
+                ModalAnamnese2.setSize(1039, 600);
+                jScrollPane3.getVerticalScrollBar().setUnitIncrement(15);
+                ModalAnamnese2.setModal(true);
+                ModalAnamnese2.setLocationRelativeTo(null);
+                ModalAnamnese2.setVisible(true);
             } else {
-                //LabelModalAnamnese.setText(" Cadastrar anamnese na consulta");
+                JOptionPane.showMessageDialog(this, "Houve um problema ao ler a anamnese selecionada", "ERRO", JOptionPane.ERROR_MESSAGE);
             }
-
-            ModalAnamnese2.setSize(1039, 600);
-            jScrollPane3.getVerticalScrollBar().setUnitIncrement(20);
-            ModalAnamnese2.setModal(true);
-            ModalAnamnese2.setLocationRelativeTo(null);
-            ModalAnamnese2.setVisible(true);
             
             
         } else {
@@ -1147,9 +1138,9 @@ public class ExibirAnamneses extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnCancelar7ActionPerformed
 
     private void BtnSalvarAlteracoes7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalvarAlteracoes7ActionPerformed
-         if (codigoconsulta != -1) {
-            Alterar(codigoconsulta);
-        }
+         
+            Alterar(codigoanamnese);
+        
     }//GEN-LAST:event_BtnSalvarAlteracoes7ActionPerformed
 
     private void JTAnamnesesMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTAnamnesesMousePressed
@@ -1256,7 +1247,6 @@ public class ExibirAnamneses extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> JCBPsicomotricidade2;
     private javax.swing.JTable JTAnamneses;
     private javax.swing.JLabel LabelEmail3;
-    private javax.swing.JLabel LabelModalAnamnese1;
     private javax.swing.JLabel LabelNome5;
     private javax.swing.JDialog ModalAnamnese2;
     private javax.swing.JPanel PainelDadosPaciente4;
