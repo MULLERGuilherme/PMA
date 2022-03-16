@@ -999,7 +999,7 @@ public boolean readcampos(int cod) {
                 LabelModalAnamnese1.setText(" Cadastrar anamnese na consulta");
             }
 
-            ModalAnamnese2.setSize(1039, 967);
+            ModalAnamnese2.setSize(1039, 600);
             ModalAnamnese2.setModal(true);
             ModalAnamnese2.setLocationRelativeTo(null);
             ModalAnamnese2.setVisible(true);
