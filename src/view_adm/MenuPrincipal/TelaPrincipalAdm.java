@@ -154,11 +154,11 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
             }
         });
 
-        BtnManterConsulta.setText("Cadastrar Consulta");
         BtnManterConsulta.setBackground(new java.awt.Color(102, 102, 102));
-        BtnManterConsulta.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnManterConsulta.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnManterConsulta.setForeground(new java.awt.Color(255, 255, 255));
+        BtnManterConsulta.setText("Cadastrar Consulta");
+        BtnManterConsulta.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnManterConsulta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnManterConsultaActionPerformed(evt);
@@ -263,6 +263,11 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
         });
 
         DataChooser.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        DataChooser.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                DataChooserPropertyChange(evt);
+            }
+        });
 
         btnAlterar.setBackground(new java.awt.Color(204, 204, 204));
         btnAlterar.setText("Alterar");
@@ -446,6 +451,17 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
         }        // TODO add your handling code here:
     }//GEN-LAST:event_btnOkActionPerformed
 
+    private void DataChooserPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_DataChooserPropertyChange
+        if(DataChooser.getDate() != null){
+            Date date = DataChooser.getDate();
+            LocalDate localDate = date.toInstant().atZone( ZoneId.systemDefault() ).toLocalDate();
+           
+            ReadJTable(localDate);
+              DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            jLabel2.setText(dtf.format(localDate));
+        }        // T
+    }//GEN-LAST:event_DataChooserPropertyChange
+
     /**
      * @param args the command line arguments
      */
@@ -501,7 +517,6 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
 }
