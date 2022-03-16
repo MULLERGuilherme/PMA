@@ -62,6 +62,8 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
 
     public ManterPsicologoAdm() {
         initComponents();
+        BtnVisuAlterarDados.setEnabled(false);
+        BtnExcluirPsicologo.setEnabled(false);
         DefaultTableModel dtmPacientes = (DefaultTableModel) JTPsicologos.getModel();
         TableColumnModel cmod = JTPsicologos.getColumnModel();
         cmod.removeColumn(cmod.getColumn(0));
@@ -231,7 +233,7 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
         BtnVisuAlterarDados = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
         JTPsicologos = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        BtnNovoPsicologo = new javax.swing.JButton();
         BtnExcluirPsicologo = new javax.swing.JButton();
 
         ModalNovo.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -1600,10 +1602,10 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
         });
         jScrollPane4.setViewportView(JTPsicologos);
 
-        jButton1.setText("Novo Psicologo");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        BtnNovoPsicologo.setText("Novo Psicologo");
+        BtnNovoPsicologo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                BtnNovoPsicologoActionPerformed(evt);
             }
         });
 
@@ -1634,7 +1636,7 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
                 .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(BtnExcluirPsicologo, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BtnVisuAlterarDados)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(BtnNovoPsicologo, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(31, 31, 31))
         );
         jEImagePanel1Layout.setVerticalGroup(
@@ -1648,7 +1650,7 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jEImagePanel1Layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(BtnNovoPsicologo)
                         .addGap(18, 18, 18)
                         .addComponent(BtnVisuAlterarDados)
                         .addGap(18, 18, 18)
@@ -2122,13 +2124,13 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_BtnVoltarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void BtnNovoPsicologoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnNovoPsicologoActionPerformed
         // TODO add your handling code here:
             ModalCadastrarPsicologo.setSize(458, 724);
             ModalCadastrarPsicologo.setModal(true);
             ModalCadastrarPsicologo.setLocationRelativeTo(null);
             ModalCadastrarPsicologo.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_BtnNovoPsicologoActionPerformed
 
     private void BtnExcluirPsicologoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExcluirPsicologoActionPerformed
         if (JTPsicologos.getSelectedRow() != -1) {
@@ -2158,6 +2160,8 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnExcluirPsicologoActionPerformed
 
     private void JTPsicologosMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTPsicologosMousePressed
+        BtnVisuAlterarDados.setEnabled(true);
+        BtnExcluirPsicologo.setEnabled(true);
         if(evt.getClickCount() == 2 ) {
             if (JTPsicologos.getSelectedRow() != -1) {
             int modelRow = JTPsicologos.convertRowIndexToModel(JTPsicologos.getSelectedRow());
@@ -2506,6 +2510,7 @@ public void readpsicologo() {
     private javax.swing.JButton BtnManterConsulta;
     private javax.swing.JButton BtnManterPaciente;
     private javax.swing.JButton BtnManterPsicologo;
+    private javax.swing.JButton BtnNovoPsicologo;
     private javax.swing.JButton BtnSair;
     private javax.swing.JButton BtnSalvarAlteracoes;
     private javax.swing.JButton BtnSalvarAlteracoes4;
@@ -2575,7 +2580,6 @@ public void readpsicologo() {
     private javax.swing.JCheckBox chckMostrarSenha1;
     private javax.swing.JComboBox<String> estadocivil;
     private javax.swing.JComboBox<String> estadocivil2;
-    private javax.swing.JButton jButton1;
     private LIB.JEImagePanel jEImagePanel1;
     private LIB.JEImagePanel jEImagePanel4;
     private LIB.JEImagePanel jEImagePanel5;

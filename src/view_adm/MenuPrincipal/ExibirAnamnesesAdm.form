@@ -350,14 +350,15 @@
             </Container>
             <Component class="javax.swing.JLabel" name="jLabel8">
               <Properties>
+                <Property name="text" type="java.lang.String" value="* Campos Obrigat&#xf3;rios"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="* Campos Obrigat&#xf3;rios"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="BtnSalvarAlteracoes5">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Salvar Altera&#xe7;&#xf5;es"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ba" green="70" red="0" type="rgb"/>
                 </Property>
@@ -367,7 +368,6 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Salvar Altera&#xe7;&#xf5;es"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnSalvarAlteracoes5ActionPerformed"/>
@@ -375,6 +375,7 @@
             </Component>
             <Component class="javax.swing.JButton" name="BtnCancelar4">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Cancelar"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="99" green="99" red="ff" type="rgb"/>
                 </Property>
@@ -384,7 +385,6 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Cancelar"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnCancelar4ActionPerformed"/>
@@ -392,19 +392,19 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel38">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Subita ou Progressiva:"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Subita ou Progressiva:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JComboBox" name="SubitaOuProgressiva1">
               <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="18" style="1"/>
-                </Property>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[] { &quot;Subita&quot;, &quot;Progressiva&quot;})" type="code"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="18" style="1"/>
                 </Property>
               </Properties>
               <AuxValues>
@@ -413,19 +413,19 @@
             </Component>
             <Component class="javax.swing.JLabel" name="labelInicioQueixa2">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Psicomotricidade: "/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Psicomotricidade: "/>
               </Properties>
             </Component>
             <Component class="javax.swing.JComboBox" name="JCBPsicomotricidade1">
               <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="18" style="1"/>
-                </Property>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[] { &quot;Normal&quot;, &quot;Lento&quot;, &quot;Agitado&quot;})" type="code"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="18" style="1"/>
                 </Property>
               </Properties>
               <AuxValues>
@@ -434,26 +434,26 @@
             </Component>
             <Component class="javax.swing.JLabel" name="labelInicioQueixa3">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Queixas Afetivo-emocionais:"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Queixas Afetivo-emocionais:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel27">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Queixas Cognitivas:"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Queixas Cognitivas:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="LabelEmail2">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Queixa Secund&#xe1;ria:"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Queixa Secund&#xe1;ria:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtComoComecou1">
@@ -465,18 +465,18 @@
             </Component>
             <Component class="javax.swing.JLabel" name="LabelNome4">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Queixa Principal:"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Queixa Principal:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel40">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Como come&#xe7;ou:"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Como come&#xe7;ou:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtQueixaSecundaria1">
@@ -488,10 +488,10 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel41">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Diagn&#xf3;stico:"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Diagn&#xf3;stico:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtDiagnostico1">
@@ -503,10 +503,10 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel42">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Hist&#xf3;rico Familiar:"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Hist&#xf3;rico Familiar:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtHistoricoFamiliar1">
@@ -518,10 +518,10 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel43">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Doen&#xe7;as Conhecidas:"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Doen&#xe7;as Conhecidas:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtDoencasConhecidas1">
@@ -533,10 +533,10 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel44">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Sintomas:"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Sintomas:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtSintomas1">
@@ -548,10 +548,10 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel45">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Medicamentos Utilizados:"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Medicamentos Utilizados:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtMedicamentosUtilizados1">
@@ -563,10 +563,10 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel46">
               <Properties>
+                <Property name="text" type="java.lang.String" value="O que mudou:"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="O que mudou:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtOqueMudou1">
@@ -578,10 +578,10 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel47">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Encaminhamento:"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Encaminhamento:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtEncaminhamento1">
@@ -593,10 +593,10 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel48">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Data de In&#xed;cio:"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Data de In&#xed;cio:"/>
               </Properties>
             </Component>
             <Component class="com.github.lgooddatepicker.components.DatePicker" name="DataInicio1">
@@ -611,6 +611,7 @@
             </Component>
             <Component class="javax.swing.JButton" name="BtnCancelar5">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Cancelar"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="99" green="99" red="ff" type="rgb"/>
                 </Property>
@@ -620,7 +621,6 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Cancelar"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnCancelar5ActionPerformed"/>
@@ -628,6 +628,7 @@
             </Component>
             <Component class="javax.swing.JButton" name="BtnSalvarAlteracoes4">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Salvar Altera&#xe7;&#xf5;es"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ba" green="70" red="0" type="rgb"/>
                 </Property>
@@ -637,7 +638,6 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Salvar Altera&#xe7;&#xf5;es"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnSalvarAlteracoes4ActionPerformed"/>
@@ -645,10 +645,10 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel9">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Campos Obrigat&#xf3;rios"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Campos Obrigat&#xf3;rios"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtQueixaPrincipal1">
@@ -680,160 +680,161 @@
             </Container>
             <Component class="javax.swing.JLabel" name="jLabel10">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Anamnese Psicol&#xf3;gica"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="48" style="0"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="75" green="83" red="3b" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Anamnese Psicol&#xf3;gica"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JCheckBox" name="CheckBoxVolicao">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Voli&#xe7;&#xe3;o"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Voli&#xe7;&#xe3;o"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JCheckBox" name="CheckBoxAfeto">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Afeto"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Afeto"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JCheckBox" name="CheckBoxHumor">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Humor"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Humor"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JCheckBox" name="CheckBoxAnsiedade">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Ansiedade"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Ansiedade"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JCheckBox" name="CheckBoxMedo">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Medo"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Medo"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JCheckBox" name="CheckBoxCulpa">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Culpa"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Culpa"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JCheckBox" name="CheckBoxRaiva">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Raiva"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Raiva"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JCheckBox" name="CheckBoxLuto">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Luto"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Luto"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JCheckBox" name="CheckBoxDesanimo">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Des&#xe2;nimo"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Des&#xe2;nimo"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JCheckBox" name="CheckBoxIntegridadeSensorial">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Integridade Sensorial"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Integridade Sensorial"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JCheckBox" name="CheckBoxPercepcao">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Percep&#xe7;&#xe3;o"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Percep&#xe7;&#xe3;o"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JCheckBox" name="CheckBoxAtencao">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Aten&#xe7;&#xe3;o"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Aten&#xe7;&#xe3;o"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JCheckBox" name="CheckBoxMemoria">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Mem&#xf3;ria"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Mem&#xf3;ria"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel11">
               <Properties>
+                <Property name="text" type="java.lang.String" value="*"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="ff" type="rgb"/>
                 </Property>
@@ -843,11 +844,11 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="*"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel12">
               <Properties>
+                <Property name="text" type="java.lang.String" value="*"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="ff" type="rgb"/>
                 </Property>
@@ -857,11 +858,11 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="*"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel13">
               <Properties>
+                <Property name="text" type="java.lang.String" value="*"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="ff" type="rgb"/>
                 </Property>
@@ -871,11 +872,11 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="*"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel15">
               <Properties>
+                <Property name="text" type="java.lang.String" value="*"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="ff" type="rgb"/>
                 </Property>
@@ -885,11 +886,11 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="*"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel16">
               <Properties>
+                <Property name="text" type="java.lang.String" value="*"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="ff" type="rgb"/>
                 </Property>
@@ -899,11 +900,11 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="*"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel17">
               <Properties>
+                <Property name="text" type="java.lang.String" value="*"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="ff" type="rgb"/>
                 </Property>
@@ -913,11 +914,11 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="*"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel18">
               <Properties>
+                <Property name="text" type="java.lang.String" value="*"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="ff" type="rgb"/>
                 </Property>
@@ -927,7 +928,6 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="*"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="LabelModalAnamnese">
@@ -1371,6 +1371,9 @@
                   <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="JTAnamnesesMouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

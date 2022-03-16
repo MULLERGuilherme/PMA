@@ -74,6 +74,8 @@ public class ExibirAnotacoesAdm extends javax.swing.JFrame {
 
     public ExibirAnotacoesAdm() {
         initComponents();
+        BtnAlterarAnotacao.setEnabled(false);
+        BtnExcluirAnotacao.setEnabled(false);
         DefaultTableModel dtmPacientes = (DefaultTableModel) JTAnotacoes.getModel();
         TableColumnModel cmod = JTAnotacoes.getColumnModel();
         cmod.removeColumn(cmod.getColumn(0));
@@ -482,6 +484,11 @@ public class ExibirAnotacoesAdm extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        JTAnotacoes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JTAnotacoesMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(JTAnotacoes);
 
         javax.swing.GroupLayout jEImagePanel1Layout = new javax.swing.GroupLayout(jEImagePanel1);
@@ -505,7 +512,7 @@ public class ExibirAnotacoesAdm extends javax.swing.JFrame {
                 .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnBuscar)
-                .addContainerGap(11, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jEImagePanel1Layout.setVerticalGroup(
             jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -662,6 +669,11 @@ public class ExibirAnotacoesAdm extends javax.swing.JFrame {
         }
         ReadJTable();
     }//GEN-LAST:event_BtnSalvarAlteracoesAnotacaoActionPerformed
+
+    private void JTAnotacoesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTAnotacoesMouseClicked
+        BtnAlterarAnotacao.setEnabled(true);
+        BtnExcluirAnotacao.setEnabled(true);
+    }//GEN-LAST:event_JTAnotacoesMouseClicked
 
     /**
      * @param args the command line arguments

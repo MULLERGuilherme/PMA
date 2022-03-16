@@ -70,6 +70,8 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
     
     public ExibirAnotacoes() {
         initComponents();
+        BtnAlterarAnotacao.setEnabled(false);
+        BtnExcluirAnotacao.setEnabled(false);
         DefaultTableModel dtmPacientes = (DefaultTableModel) JTAnotacoes.getModel();
         TableColumnModel cmod = JTAnotacoes.getColumnModel();
         cmod.removeColumn(cmod.getColumn(0));
@@ -649,7 +651,9 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
     }//GEN-LAST:event_txtBuscaKeyTyped
 
     private void JTAnotacoesMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTAnotacoesMousePressed
-       if(evt.getClickCount() == 2 ) {
+       BtnAlterarAnotacao.setEnabled(true);
+        BtnExcluirAnotacao.setEnabled(true);
+        if(evt.getClickCount() == 2 ) {
            if (JTAnotacoes.getSelectedRow() != -1) {
             Anotacao a = new Anotacao();
             AnotacaoDAO dao = new AnotacaoDAO();

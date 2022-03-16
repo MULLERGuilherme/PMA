@@ -116,8 +116,13 @@ public class ManterPaciente1 extends javax.swing.JFrame {
 
     public ManterPaciente1() {
         this.getCount();
+        
         initComponents();
         DefaultTableModel dtmPacientes = (DefaultTableModel) JTPacientes.getModel();
+        BtnVisuAlterarDados.setEnabled(false);
+        btnVisuAnamneses.setEnabled(false);
+        btnVisuConsultas.setEnabled(false);
+        btnVisuAnotacoes.setEnabled(false);
         TableColumnModel cmod = JTPacientes.getColumnModel();
         cmod.removeColumn(cmod.getColumn(0));
         JTPacientes.setRowSorter(new TableRowSorter(dtmPacientes));
@@ -358,7 +363,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         BtnNovo = new javax.swing.JButton();
         BtnVisuAlterarDados = new javax.swing.JButton();
         btnVisuAnamneses = new javax.swing.JButton();
-        brnVisuConsultas = new javax.swing.JButton();
+        btnVisuConsultas = new javax.swing.JButton();
         btnVisuAnotacoes = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         JTPacientes = new javax.swing.JTable();
@@ -2218,11 +2223,11 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             }
         });
 
+        BtnExibiranamneses.setText("Exibir Anamneses");
         BtnExibiranamneses.setBackground(new java.awt.Color(102, 102, 102));
+        BtnExibiranamneses.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnExibiranamneses.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnExibiranamneses.setForeground(new java.awt.Color(255, 255, 255));
-        BtnExibiranamneses.setText("Exibir Anamneses");
-        BtnExibiranamneses.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnExibiranamneses.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnExibiranamnesesActionPerformed(evt);
@@ -2325,11 +2330,11 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             }
         });
 
-        brnVisuConsultas.setText("Visualizar Consultas");
-        brnVisuConsultas.setBackground(new java.awt.Color(204, 204, 204));
-        brnVisuConsultas.addActionListener(new java.awt.event.ActionListener() {
+        btnVisuConsultas.setText("Visualizar Consultas");
+        btnVisuConsultas.setBackground(new java.awt.Color(204, 204, 204));
+        btnVisuConsultas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                brnVisuConsultasActionPerformed(evt);
+                btnVisuConsultasActionPerformed(evt);
             }
         });
 
@@ -2492,7 +2497,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jEImagePanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(brnVisuConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnVisuConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnVisuAnotacoes, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnVisuAnamneses, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(BtnVisuAlterarDados))))
@@ -2515,7 +2520,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnVisuAnamneses)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(brnVisuConsultas)
+                        .addComponent(btnVisuConsultas)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnVisuAnotacoes)
                         .addGap(0, 0, Short.MAX_VALUE))
@@ -2830,7 +2835,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnVisuAnamnesesActionPerformed
 
-    private void brnVisuConsultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_brnVisuConsultasActionPerformed
+    private void btnVisuConsultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisuConsultasActionPerformed
         // TODO add your handling code here:
         if (JTPacientes.getSelectedRow() != -1) {
 
@@ -2846,7 +2851,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(this, "Selecione um paciente para Vizualizar Informações");
         }
-    }//GEN-LAST:event_brnVisuConsultasActionPerformed
+    }//GEN-LAST:event_btnVisuConsultasActionPerformed
 
     private void btnVisuAnotacoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisuAnotacoesActionPerformed
         // TODO add your handling code here:
@@ -3339,6 +3344,10 @@ public class ManterPaciente1 extends javax.swing.JFrame {
     }//GEN-LAST:event_txtBuscaKeyTyped
 
     private void JTPacientesMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTPacientesMousePressed
+        BtnVisuAlterarDados.setEnabled(true);
+        btnVisuAnamneses.setEnabled(true);
+        btnVisuConsultas.setEnabled(true);
+        btnVisuAnotacoes.setEnabled(true);
         if (evt.getClickCount() == 2) {
             if (JTPacientes.getSelectedRow() != -1) {
                 int modelRow = JTPacientes.convertRowIndexToModel(JTPacientes.getSelectedRow());
@@ -3843,9 +3852,9 @@ public class ManterPaciente1 extends javax.swing.JFrame {
     private javax.swing.JTextField TxtTelefone5;
     private javax.swing.JTextField TxtTelefone6;
     private javax.swing.JTextField TxtTelefone7;
-    private javax.swing.JButton brnVisuConsultas;
     private javax.swing.JButton btnVisuAnamneses;
     private javax.swing.JButton btnVisuAnotacoes;
+    private javax.swing.JButton btnVisuConsultas;
     private javax.swing.JComboBox<String> estadocivil;
     private javax.swing.JComboBox<String> estadocivil1;
     private javax.swing.JComboBox<String> estadocivil2;

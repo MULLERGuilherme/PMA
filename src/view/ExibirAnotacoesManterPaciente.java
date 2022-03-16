@@ -36,6 +36,8 @@ public class ExibirAnotacoesManterPaciente extends javax.swing.JFrame {
     public boolean existe;
     public ExibirAnotacoesManterPaciente(int cod) {
         initComponents();
+        BtnAlterarAnotacao.setEnabled(false);
+        BtnExcluirAnotacao.setEnabled(false);
         this.codpaciente = cod;
         PacienteDAO pdao = new PacienteDAO();
         Paciente p = new Paciente();
@@ -655,6 +657,8 @@ public boolean readcampos(int cod) {
     }//GEN-LAST:event_BtnSalvarAlteracoesAnotacaoActionPerformed
 
     private void JTAnotacoesMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTAnotacoesMousePressed
+        BtnAlterarAnotacao.setEnabled(true);
+        BtnExcluirAnotacao.setEnabled(true);
         if(evt.getClickCount() == 2 ) {
              if (JTAnotacoes.getSelectedRow() != -1) {
             Anotacao a = new Anotacao();

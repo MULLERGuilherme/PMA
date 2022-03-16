@@ -40,6 +40,8 @@ public class ExibirAnamnesesAdm extends javax.swing.JFrame {
 
     public ExibirAnamnesesAdm() {
         initComponents();
+        btnalterar.setEnabled(false);
+        btnExcluir.setEnabled(false);
         DefaultTableModel dtmPacientes = (DefaultTableModel) JTAnamneses.getModel();
         TableColumnModel cmod = JTAnamneses.getColumnModel();
         cmod.removeColumn(cmod.getColumn(0));
@@ -954,6 +956,11 @@ public class ExibirAnamnesesAdm extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        JTAnamneses.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JTAnamnesesMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(JTAnamneses);
 
         javax.swing.GroupLayout jEImagePanel1Layout = new javax.swing.GroupLayout(jEImagePanel1);
@@ -1132,6 +1139,11 @@ public class ExibirAnamnesesAdm extends javax.swing.JFrame {
             //LabelModalAnamnese.setText("Lendo dados da Anamnese Cadastrada na consulta");
         }
     }//GEN-LAST:event_BtnSalvarAlteracoes4ActionPerformed
+
+    private void JTAnamnesesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTAnamnesesMouseClicked
+        btnalterar.setEnabled(true);
+        btnExcluir.setEnabled(true);
+    }//GEN-LAST:event_JTAnamnesesMouseClicked
 
     /**
      * @param args the command line arguments

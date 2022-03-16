@@ -56,6 +56,8 @@ public class ManterPacienteAdm extends javax.swing.JFrame {
 
     public ManterPacienteAdm() {
         initComponents();
+        BtnVisuAlterarDados.setEnabled(false);
+        BtnExcluirPaciente.setEnabled(false);
         DefaultTableModel dtmPacientes = (DefaultTableModel) JTPacientes.getModel();
         TableColumnModel cmod = JTPacientes.getColumnModel();
         cmod.removeColumn(cmod.getColumn(0));
@@ -174,7 +176,7 @@ public class ManterPacienteAdm extends javax.swing.JFrame {
         BtnVisuAlterarDados = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
         JTPacientes = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        BtnExcluirPaciente = new javax.swing.JButton();
 
         ModalNovo.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         ModalNovo.getContentPane().setLayout(new java.awt.GridLayout(1, 0));
@@ -1114,10 +1116,10 @@ public class ManterPacienteAdm extends javax.swing.JFrame {
         });
         jScrollPane4.setViewportView(JTPacientes);
 
-        jButton1.setText("Excluir");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        BtnExcluirPaciente.setText("Excluir");
+        BtnExcluirPaciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                BtnExcluirPacienteActionPerformed(evt);
             }
         });
 
@@ -1140,7 +1142,7 @@ public class ManterPacienteAdm extends javax.swing.JFrame {
                         .addGap(62, 62, 62)
                         .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(BtnVisuAlterarDados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(BtnExcluirPaciente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(349, Short.MAX_VALUE))
         );
         jEImagePanel1Layout.setVerticalGroup(
@@ -1159,7 +1161,7 @@ public class ManterPacienteAdm extends javax.swing.JFrame {
                         .addGap(60, 60, 60)
                         .addComponent(BtnVisuAlterarDados)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton1)))
+                        .addComponent(BtnExcluirPaciente)))
                 .addContainerGap(400, Short.MAX_VALUE))
         );
 
@@ -1621,7 +1623,7 @@ public class ManterPacienteAdm extends javax.swing.JFrame {
         this.ReadJTableBusca( txtBusca.getText());
     }//GEN-LAST:event_BtnBuscarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void BtnExcluirPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExcluirPacienteActionPerformed
         // TODO add your handling code here:
         if (JTPacientes.getSelectedRow() != -1) {
             int modelRow = JTPacientes.convertRowIndexToModel(JTPacientes.getSelectedRow());
@@ -1647,9 +1649,11 @@ public class ManterPacienteAdm extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Selecione um Paciente para alterar", "ERRO!", JOptionPane.ERROR_MESSAGE);
 
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_BtnExcluirPacienteActionPerformed
 
     private void JTPacientesMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTPacientesMousePressed
+        BtnVisuAlterarDados.setEnabled(true);
+        BtnExcluirPaciente.setEnabled(true);
         if(evt.getClickCount() == 2 ) {
             if (JTPacientes.getSelectedRow() != -1) {
             int modelRow = JTPacientes.convertRowIndexToModel(JTPacientes.getSelectedRow());
@@ -1760,6 +1764,7 @@ public class ManterPacienteAdm extends javax.swing.JFrame {
     private javax.swing.JButton BtnBuscar;
     private javax.swing.JButton BtnCancelar;
     private javax.swing.JButton BtnCancelar4;
+    private javax.swing.JButton BtnExcluirPaciente;
     private javax.swing.JButton BtnExibirAnotacao;
     private javax.swing.JButton BtnExibiranamneses;
     private javax.swing.JButton BtnManterConsulta;
@@ -1819,7 +1824,6 @@ public class ManterPacienteAdm extends javax.swing.JFrame {
     private javax.swing.JTextField TxtTelefone4;
     private javax.swing.JComboBox<String> estadocivil;
     private javax.swing.JComboBox<String> estadocivil2;
-    private javax.swing.JButton jButton1;
     private LIB.JEImagePanel jEImagePanel1;
     private LIB.JEImagePanel jEImagePanel4;
     private LIB.JEImagePanel jEImagePanel5;

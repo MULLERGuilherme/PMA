@@ -3542,7 +3542,7 @@
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="brnVisuConsultas" min="-2" pref="175" max="-2" attributes="0"/>
+                              <Component id="btnVisuConsultas" min="-2" pref="175" max="-2" attributes="0"/>
                               <Component id="btnVisuAnotacoes" min="-2" pref="175" max="-2" attributes="0"/>
                               <Component id="btnVisuAnamneses" alignment="1" min="-2" pref="175" max="-2" attributes="0"/>
                               <Component id="BtnVisuAlterarDados" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -3571,7 +3571,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="btnVisuAnamneses" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="brnVisuConsultas" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnVisuConsultas" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="btnVisuAnotacoes" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -3637,7 +3637,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVisuAnamnesesActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="brnVisuConsultas">
+        <Component class="javax.swing.JButton" name="btnVisuConsultas">
           <Properties>
             <Property name="text" type="java.lang.String" value="Visualizar Consultas"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -3645,7 +3645,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="brnVisuConsultasActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVisuConsultasActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnVisuAnotacoes">

@@ -1705,14 +1705,14 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="LableCadstrarNovoPsicologo1">
               <Properties>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="text" type="java.lang.String" value="Alterar Dados de Psic&#xf3;logo"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="33" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="Alterar Dados de Psic&#xf3;logo"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -1793,10 +1793,10 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jLabel21">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Nome"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Nome"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtNome3">
@@ -1806,20 +1806,20 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel22">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Email"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Email"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtEmail2">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel23">
               <Properties>
+                <Property name="text" type="java.lang.String" value="CRP"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="CRP"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtCRP1">
@@ -1829,24 +1829,25 @@
             </Component>
             <Component class="javax.swing.JLabel" name="labeltelefone1">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Telefone"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Telefone"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="TxtTelefone6">
             </Component>
             <Component class="javax.swing.JLabel" name="LabelTelefone3">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Telefone (2)"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Telefone (2)"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="BtnCadastrarPsicologo1">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Alterar Dados"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ba" green="70" red="0" type="rgb"/>
                 </Property>
@@ -1856,7 +1857,6 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Alterar Dados"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnCadastrarPsicologo1ActionPerformed"/>
@@ -1864,6 +1864,7 @@
             </Component>
             <Component class="javax.swing.JButton" name="BtnCancelar6">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Cancelar"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="99" green="99" red="ff" type="rgb"/>
                 </Property>
@@ -1873,7 +1874,6 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Cancelar"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnCancelar6ActionPerformed"/>
@@ -1948,14 +1948,14 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jLabel29">
               <Properties>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="text" type="java.lang.String" value="Alterar Senha"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="36" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="Alterar Senha"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -2013,10 +2013,10 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jLabel24">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Nova Senha"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Nova Senha"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JPasswordField" name="txtSenha1">
@@ -2028,10 +2028,10 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel26">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Confirme a Nova Senha"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Confirme a Nova Senha"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JPasswordField" name="txtConfirmarSenha1">
@@ -2051,6 +2051,7 @@
             </Component>
             <Component class="javax.swing.JButton" name="BtnAlterar">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Alterar"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ba" green="70" red="0" type="rgb"/>
                 </Property>
@@ -2060,7 +2061,6 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Alterar"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnAlterarActionPerformed"/>
@@ -2068,6 +2068,7 @@
             </Component>
             <Component class="javax.swing.JButton" name="BtnCancelar7">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Cancelar"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="99" green="99" red="ff" type="rgb"/>
                 </Property>
@@ -2077,7 +2078,6 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Cancelar"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnCancelar7ActionPerformed"/>
@@ -2379,7 +2379,7 @@
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Component id="BtnExcluirPsicologo" min="-2" pref="175" max="-2" attributes="0"/>
                       <Component id="BtnVisuAlterarDados" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButton1" min="-2" pref="175" max="-2" attributes="0"/>
+                      <Component id="BtnNovoPsicologo" min="-2" pref="175" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
               </Group>
@@ -2397,7 +2397,7 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                          <Component id="BtnNovoPsicologo" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="BtnVisuAlterarDados" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -2508,12 +2508,12 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="BtnNovoPsicologo">
           <Properties>
             <Property name="text" type="java.lang.String" value="Novo Psicologo"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnNovoPsicologoActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="BtnExcluirPsicologo">

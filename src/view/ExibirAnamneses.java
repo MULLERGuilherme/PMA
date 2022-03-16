@@ -40,6 +40,8 @@ public class ExibirAnamneses extends javax.swing.JFrame {
 
     public ExibirAnamneses() {
         initComponents();
+        btnalterar.setEnabled(false);
+        btnExcluir.setEnabled(false);
         DefaultTableModel dtmPacientes = (DefaultTableModel) JTAnamneses.getModel();
         TableColumnModel cmod = JTAnamneses.getColumnModel();
         cmod.removeColumn(cmod.getColumn(0));
@@ -953,6 +955,9 @@ public class ExibirAnamneses extends javax.swing.JFrame {
             }
         ));
         JTAnamneses.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JTAnamnesesMouseClicked(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 JTAnamnesesMousePressed(evt);
             }
@@ -1178,6 +1183,11 @@ public class ExibirAnamneses extends javax.swing.JFrame {
       }
      } 
     }//GEN-LAST:event_JTAnamnesesMousePressed
+
+    private void JTAnamnesesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTAnamnesesMouseClicked
+        btnalterar.setEnabled(true);
+        btnExcluir.setEnabled(true);
+    }//GEN-LAST:event_JTAnamnesesMouseClicked
 
     /**
      * @param args the command line arguments

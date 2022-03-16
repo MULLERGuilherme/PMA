@@ -1675,7 +1675,7 @@
                           <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="BtnVisuAlterarDados" max="32767" attributes="0"/>
-                              <Component id="jButton1" max="32767" attributes="0"/>
+                              <Component id="BtnExcluirPaciente" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -1701,7 +1701,7 @@
                           <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
                           <Component id="BtnVisuAlterarDados" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                          <Component id="BtnExcluirPaciente" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="400" max="32767" attributes="0"/>
@@ -1769,12 +1769,12 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="BtnExcluirPaciente">
           <Properties>
             <Property name="text" type="java.lang.String" value="Excluir"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnExcluirPacienteActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

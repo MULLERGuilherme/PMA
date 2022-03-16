@@ -37,6 +37,8 @@ public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
      */
     public ExibirConsultasManterPaciente() {
         initComponents();
+        btnalterarconsulta.setEnabled(false);
+        BtnExcluir.setEnabled(false);
         PacienteDAO pdao = new PacienteDAO();
          Paciente p = new Paciente();
          p = pdao.ReadPaciente(codpaciente);
@@ -1082,6 +1084,8 @@ private void ReadJTable() {
     }//GEN-LAST:event_BtnExcluirActionPerformed
 
     private void JTConsultasMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTConsultasMousePressed
+        btnalterarconsulta.setEnabled(true);
+        BtnExcluir.setEnabled(true);
         if(evt.getClickCount() == 2 ) {
             if (JTConsultas.getSelectedRow() != -1) {
 

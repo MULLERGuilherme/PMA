@@ -43,6 +43,8 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
      */
     public TelaPrincipalAdm() {
         initComponents();
+        btnAlterar.setEnabled(false);
+        BtnExcluir.setEnabled(false);
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
        
         DefaultTableModel dtmPacientes = (DefaultTableModel) JTConsultas.getModel();
@@ -103,7 +105,6 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        btnOk = new javax.swing.JButton();
         DataChooser = new com.toedter.calendar.JDateChooser();
         btnAlterar = new javax.swing.JButton();
         BtnExcluir = new javax.swing.JButton();
@@ -254,14 +255,6 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel3.setText("Selecionar dia");
 
-        btnOk.setBackground(new java.awt.Color(204, 204, 204));
-        btnOk.setText("OK");
-        btnOk.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnOkActionPerformed(evt);
-            }
-        });
-
         DataChooser.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         DataChooser.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
@@ -319,9 +312,7 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
                 .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jEImagePanel1Layout.createSequentialGroup()
                         .addComponent(DataChooser, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(41, 41, 41)
-                        .addComponent(btnOk)
-                        .addGap(18, 18, 18)
+                        .addGap(108, 108, 108)
                         .addComponent(btnAlterar)
                         .addGap(18, 18, 18)
                         .addComponent(BtnExcluir))
@@ -349,7 +340,6 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnOk)
                         .addComponent(btnAlterar)
                         .addComponent(BtnExcluir))
                     .addComponent(DataChooser, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -433,23 +423,13 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnExcluirActionPerformed
 
     private void JTConsultasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTConsultasMouseClicked
-
+        btnAlterar.setEnabled(true);
+        BtnExcluir.setEnabled(true);
     }//GEN-LAST:event_JTConsultasMouseClicked
 
     private void BtnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnInicioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnInicioActionPerformed
-
-    private void btnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOkActionPerformed
-   if(DataChooser.getDate() != null){
-            Date date = DataChooser.getDate();
-            LocalDate localDate = date.toInstant().atZone( ZoneId.systemDefault() ).toLocalDate();
-           
-            ReadJTable(localDate);
-              DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-            jLabel2.setText(dtf.format(localDate));
-        }        // TODO add your handling code here:
-    }//GEN-LAST:event_btnOkActionPerformed
 
     private void DataChooserPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_DataChooserPropertyChange
         if(DataChooser.getDate() != null){
@@ -511,7 +491,6 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
     private javax.swing.JTable JTConsultas;
     private javax.swing.JPanel PainelMenu;
     private javax.swing.JButton btnAlterar;
-    private javax.swing.JButton btnOk;
     private LIB.JEImagePanel jEImagePanel1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

@@ -41,6 +41,7 @@ public class CadastrarConsulta2 extends javax.swing.JFrame {
      */
     public CadastrarConsulta2() {
         initComponents();
+        BtnCadastrarConsulta.setEnabled(false);
          DefaultTableModel dtmPacientes = (DefaultTableModel) JTPacienteSimples.getModel();
          TableColumnModel cmod = JTPacienteSimples.getColumnModel();
         cmod.removeColumn(cmod.getColumn(0));
@@ -236,6 +237,11 @@ public class CadastrarConsulta2 extends javax.swing.JFrame {
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
+            }
+        });
+        JTPacienteSimples.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JTPacienteSimplesMouseClicked(evt);
             }
         });
         jScrollPane1.setViewportView(JTPacienteSimples);
@@ -498,6 +504,10 @@ public class CadastrarConsulta2 extends javax.swing.JFrame {
        
         this.ReadJTableBusca( txtBusca.getText());
     }//GEN-LAST:event_txtBuscaKeyTyped
+
+    private void JTPacienteSimplesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTPacienteSimplesMouseClicked
+          BtnCadastrarConsulta.setEnabled(true);
+    }//GEN-LAST:event_JTPacienteSimplesMouseClicked
 
     /**
      * @param args the command line arguments

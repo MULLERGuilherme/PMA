@@ -42,6 +42,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     public TelaPrincipal() {
         initComponents();
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        btnAlterar.setEnabled(false);
+        BtnExcluir.setEnabled(false);
        
         DefaultTableModel dtmPacientes = (DefaultTableModel) JTConsultas.getModel();
         TableColumnModel cmod = JTConsultas.getColumnModel();
@@ -100,7 +102,6 @@ private void ReadJTable(LocalDate data) {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        btnOk = new javax.swing.JButton();
         DataChooser = new com.toedter.calendar.JDateChooser();
         btnAlterar = new javax.swing.JButton();
         BtnExcluir = new javax.swing.JButton();
@@ -129,72 +130,72 @@ private void ReadJTable(LocalDate data) {
         PainelMenu.setBackground(new java.awt.Color(102, 102, 102));
         PainelMenu.setForeground(new java.awt.Color(102, 102, 102));
 
+        BtnVoltar.setText("Início");
         BtnVoltar.setBackground(new java.awt.Color(102, 102, 102));
         BtnVoltar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnVoltar.setForeground(new java.awt.Color(255, 255, 255));
-        BtnVoltar.setText("Início");
 
-        BtnManterPaciente.setBackground(new java.awt.Color(102, 102, 102));
-        BtnManterPaciente.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        BtnManterPaciente.setForeground(new java.awt.Color(255, 255, 255));
         BtnManterPaciente.setText("Manter Pacientes");
+        BtnManterPaciente.setBackground(new java.awt.Color(102, 102, 102));
         BtnManterPaciente.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnManterPaciente.setFocusPainted(false);
+        BtnManterPaciente.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        BtnManterPaciente.setForeground(new java.awt.Color(255, 255, 255));
         BtnManterPaciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnManterPacienteActionPerformed(evt);
             }
         });
 
+        BtnManterConsulta.setText("Cadastrar Consulta");
         BtnManterConsulta.setBackground(new java.awt.Color(102, 102, 102));
+        BtnManterConsulta.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnManterConsulta.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnManterConsulta.setForeground(new java.awt.Color(255, 255, 255));
-        BtnManterConsulta.setText("Cadastrar Consulta");
-        BtnManterConsulta.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnManterConsulta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnManterConsultaActionPerformed(evt);
             }
         });
 
+        BtnManterPsicologo.setText("Meus Dados");
         BtnManterPsicologo.setBackground(new java.awt.Color(102, 102, 102));
+        BtnManterPsicologo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnManterPsicologo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnManterPsicologo.setForeground(new java.awt.Color(255, 255, 255));
-        BtnManterPsicologo.setText("Meus Dados");
-        BtnManterPsicologo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnManterPsicologo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnManterPsicologoActionPerformed(evt);
             }
         });
 
+        BtnExibiranamneses.setText("Exibir Anamneses");
         BtnExibiranamneses.setBackground(new java.awt.Color(102, 102, 102));
+        BtnExibiranamneses.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnExibiranamneses.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnExibiranamneses.setForeground(new java.awt.Color(255, 255, 255));
-        BtnExibiranamneses.setText("Exibir Anamneses");
-        BtnExibiranamneses.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnExibiranamneses.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnExibiranamnesesActionPerformed(evt);
             }
         });
 
+        BtnExibirAnotacao.setText("Exibir Anotações");
         BtnExibirAnotacao.setBackground(new java.awt.Color(102, 102, 102));
+        BtnExibirAnotacao.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnExibirAnotacao.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnExibirAnotacao.setForeground(new java.awt.Color(255, 255, 255));
-        BtnExibirAnotacao.setText("Exibir Anotações");
-        BtnExibirAnotacao.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnExibirAnotacao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnExibirAnotacaoActionPerformed(evt);
             }
         });
 
+        BtnSair.setText("Sair");
         BtnSair.setBackground(new java.awt.Color(102, 102, 102));
+        BtnSair.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnSair.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnSair.setForeground(new java.awt.Color(255, 255, 255));
-        BtnSair.setText("Sair");
-        BtnSair.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnSairActionPerformed(evt);
@@ -236,41 +237,36 @@ private void ReadJTable(LocalDate data) {
 
         jEImagePanel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/spring-floral-watercolor-background-vector-green-with-leaf-illustration_53876-126350.jpg"))); // NOI18N
 
-        jLabel1.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel1.setText("Exibindo as Consultas do dia");
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
 
-        jLabel2.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         jLabel2.setText("jLabel2");
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel3.setText("Selecionar dia");
-
-        btnOk.setBackground(new java.awt.Color(204, 204, 204));
-        btnOk.setText("OK");
-        btnOk.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnOkActionPerformed(evt);
-            }
-        });
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
 
         DataChooser.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        DataChooser.setToolTipText("Seleciona uma Data em que desejam ser vistas as consultas");
         DataChooser.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
                 DataChooserPropertyChange(evt);
             }
         });
 
-        btnAlterar.setBackground(new java.awt.Color(204, 204, 204));
         btnAlterar.setText("Alterar");
+        btnAlterar.setBackground(new java.awt.Color(204, 204, 204));
+        btnAlterar.setToolTipText("Altera dados de uma consulta selecionada");
         btnAlterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAlterarActionPerformed(evt);
             }
         });
 
-        BtnExcluir.setBackground(new java.awt.Color(204, 204, 204));
         BtnExcluir.setText("Excluir");
+        BtnExcluir.setBackground(new java.awt.Color(204, 204, 204));
+        BtnExcluir.setToolTipText("Exclui uma consulta selecionada");
         BtnExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnExcluirActionPerformed(evt);
@@ -287,6 +283,7 @@ private void ReadJTable(LocalDate data) {
             }
         ));
         JTConsultas.setMaximumSize(new java.awt.Dimension(1080, 200));
+        JTConsultas.setToolTipText("Exibe as consultas de uma determinada data");
         JTConsultas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 JTConsultasMouseClicked(evt);
@@ -303,9 +300,7 @@ private void ReadJTable(LocalDate data) {
                 .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jEImagePanel1Layout.createSequentialGroup()
                         .addComponent(DataChooser, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(41, 41, 41)
-                        .addComponent(btnOk)
-                        .addGap(18, 18, 18)
+                        .addGap(108, 108, 108)
                         .addComponent(btnAlterar)
                         .addGap(18, 18, 18)
                         .addComponent(BtnExcluir))
@@ -333,7 +328,6 @@ private void ReadJTable(LocalDate data) {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnOk)
                         .addComponent(btnAlterar)
                         .addComponent(BtnExcluir))
                     .addComponent(DataChooser, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -414,19 +408,9 @@ private void ReadJTable(LocalDate data) {
     }//GEN-LAST:event_BtnExcluirActionPerformed
 
     private void JTConsultasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTConsultasMouseClicked
-
+        btnAlterar.setEnabled(true);
+        BtnExcluir.setEnabled(true);
     }//GEN-LAST:event_JTConsultasMouseClicked
-
-    private void btnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOkActionPerformed
-       if(DataChooser.getDate() != null){
-            Date date = DataChooser.getDate();
-            LocalDate localDate = date.toInstant().atZone( ZoneId.systemDefault() ).toLocalDate();
-           
-            ReadJTable(localDate);
-              DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-            jLabel2.setText(dtf.format(localDate));
-        }        // TODO add your handling code here:
-    }//GEN-LAST:event_btnOkActionPerformed
 
     private void DataChooserPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_DataChooserPropertyChange
          if(DataChooser.getDate() != null){
@@ -488,7 +472,6 @@ private void ReadJTable(LocalDate data) {
     private javax.swing.JTable JTConsultas;
     private javax.swing.JPanel PainelMenu;
     private javax.swing.JButton btnAlterar;
-    private javax.swing.JButton btnOk;
     private LIB.JEImagePanel jEImagePanel1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
