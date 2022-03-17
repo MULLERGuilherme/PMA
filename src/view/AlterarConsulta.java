@@ -49,6 +49,7 @@ public class AlterarConsulta extends javax.swing.JFrame {
      */
     public AlterarConsulta(JFrame pai) {
         initComponents();
+        setUndecorated(true);
         jfpai = pai;
         pai.setEnabled(false);
         this.windowAdapter = new WindowAdapter() {
