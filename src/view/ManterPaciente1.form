@@ -1605,6 +1605,7 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNome1ActionPerformed"/>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtNome1KeyTyped"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="LabelNome1">
@@ -1983,6 +1984,7 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TxtTelefone1ActionPerformed"/>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TxtTelefone1KeyTyped"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="LabelCidade6">
@@ -1999,6 +2001,9 @@
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TxtTelefone5KeyTyped"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel2">
               <Properties>
@@ -2051,6 +2056,9 @@
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCPF1KeyTyped"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -3073,6 +3081,7 @@
         <Component class="javax.swing.JTextField" name="txtNome3">
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNome3ActionPerformed"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtNome3KeyTyped"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
@@ -3086,6 +3095,7 @@
         <Component class="javax.swing.JTextField" name="txtCRP">
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCRPActionPerformed"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCRPKeyTyped"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
@@ -3107,6 +3117,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="TxtTelefone6">
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TxtTelefone6KeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="labeltelefone2">
           <Properties>
@@ -3117,6 +3130,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="TxtTelefone7">
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TxtTelefone7KeyTyped"/>
+          </Events>
         </Component>
         <Container class="javax.swing.JPanel" name="PainelIdentificacaoPessoal5">
           <Properties>
@@ -3428,14 +3444,15 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNome5ActionPerformed"/>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtNome5KeyTyped"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="LabelNome3">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Nome:"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Nome:"/>
               </Properties>
             </Component>
             <Container class="javax.swing.JPanel" name="PainelIdentificacaoPessoal7">
@@ -3473,6 +3490,7 @@
               <SubComponents>
                 <Component class="javax.swing.JButton" name="BtnSalvarAlteracoesNovo3">
                   <Properties>
+                    <Property name="text" type="java.lang.String" value="Salvar Altera&#xe7;&#xf5;es"/>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ba" green="70" red="0" type="rgb"/>
                     </Property>
@@ -3482,7 +3500,6 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Salvar Altera&#xe7;&#xf5;es"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnSalvarAlteracoesNovo3ActionPerformed"/>
@@ -3490,6 +3507,7 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="BtnCancelar3">
                   <Properties>
+                    <Property name="text" type="java.lang.String" value="Cancelar"/>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="99" green="99" red="ff" type="rgb"/>
                     </Property>
@@ -3499,7 +3517,6 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Cancelar"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnCancelar3ActionPerformed"/>
@@ -3509,6 +3526,7 @@
             </Container>
             <Component class="javax.swing.JLabel" name="jLabel60">
               <Properties>
+                <Property name="text" type="java.lang.String" value="*"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="ff" type="rgb"/>
                 </Property>
@@ -3518,19 +3536,19 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="*"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="LabelEmail5">
               <Properties>
+                <Property name="text" type="java.lang.String" value="E-mail:"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="E-mail:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel61">
               <Properties>
+                <Property name="text" type="java.lang.String" value="*"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="ff" type="rgb"/>
                 </Property>
@@ -3540,7 +3558,6 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="*"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtEmail4">
@@ -3552,14 +3569,15 @@
             </Component>
             <Component class="javax.swing.JLabel" name="LabelCPF4">
               <Properties>
+                <Property name="text" type="java.lang.String" value="CPF:"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="CPF:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel62">
               <Properties>
+                <Property name="text" type="java.lang.String" value="*"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="ff" type="rgb"/>
                 </Property>
@@ -3569,19 +3587,19 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="*"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="LabelEstadoCivil4">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Estado Civil:"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Estado Civil:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel83">
               <Properties>
+                <Property name="text" type="java.lang.String" value="*"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="ff" type="rgb"/>
                 </Property>
@@ -3591,16 +3609,15 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="*"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JComboBox" name="estadocivil4">
               <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="18" style="1"/>
-                </Property>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[] {&quot;Casado&quot;,&quot;Divorciado&quot;,&quot;Separado&quot;,&quot;Solteiro&quot; ,&quot;Viuvo&quot; })" type="code"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="18" style="1"/>
                 </Property>
               </Properties>
               <Events>
@@ -3612,19 +3629,19 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel84">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Sexo:"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Sexo:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JComboBox" name="Sexo4">
               <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="18" style="1"/>
-                </Property>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[] {&quot;Feminino&quot;, &quot;Masculino&quot;, &quot;N&#xe3;o Definido&quot;})" type="code"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="18" style="1"/>
                 </Property>
               </Properties>
               <Events>
@@ -3657,14 +3674,15 @@
             </Container>
             <Component class="javax.swing.JLabel" name="jLabel85">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Data de Nascimento: "/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Data de Nascimento: "/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel86">
               <Properties>
+                <Property name="text" type="java.lang.String" value="*"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="ff" type="rgb"/>
                 </Property>
@@ -3674,7 +3692,6 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="*"/>
               </Properties>
             </Component>
             <Component class="com.github.lgooddatepicker.components.DatePicker" name="DataNasc4">
@@ -3689,10 +3706,10 @@
             </Component>
             <Component class="javax.swing.JLabel" name="LabelCidade12">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Cidade:"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Cidade:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="TxtCidade4">
@@ -3704,10 +3721,10 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel87">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Endere&#xe7;o:"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Endere&#xe7;o:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="TxtEndereco4">
@@ -3719,21 +3736,21 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel88">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Alterar Dados do Paciente"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="45" style="0"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="75" green="83" red="3b" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Alterar Dados do Paciente"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="LabelProfissao4">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Profiss&#xe3;o:"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Profiss&#xe3;o:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="TxtProfissao4">
@@ -3745,10 +3762,10 @@
             </Component>
             <Component class="javax.swing.JLabel" name="LabelReligiao4">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Religi&#xe3;o:"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Religi&#xe3;o:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="TxtReligiao4">
@@ -3760,10 +3777,10 @@
             </Component>
             <Component class="javax.swing.JLabel" name="LabelEscolaridade4">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Escolaridade:"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Escolaridade:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="TxtEscolaridade4">
@@ -3778,14 +3795,15 @@
             </Component>
             <Component class="javax.swing.JLabel" name="LabelCidade13">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Telefone1:"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Telefone1:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel89">
               <Properties>
+                <Property name="text" type="java.lang.String" value="*"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="ff" type="rgb"/>
                 </Property>
@@ -3795,7 +3813,6 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="*"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="TxtTelefone10">
@@ -3806,14 +3823,15 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TxtTelefone10ActionPerformed"/>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TxtTelefone10KeyTyped"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="LabelCidade14">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Telefone2:"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Telefone2:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="TxtTelefone11">
@@ -3822,17 +3840,21 @@
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TxtTelefone11KeyTyped"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel90">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Campos Obrigat&#xf3;rios"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Campos Obrigat&#xf3;rios"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel91">
               <Properties>
+                <Property name="text" type="java.lang.String" value="*"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="ff" type="rgb"/>
                 </Property>
@@ -3842,7 +3864,6 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="*"/>
               </Properties>
             </Component>
             <Container class="javax.swing.JPanel" name="PainelIdentificacaoPessoal8">
@@ -3874,6 +3895,9 @@
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCPF4KeyTyped"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

@@ -255,23 +255,23 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
             .addGap(0, 50, Short.MAX_VALUE)
         );
 
-        jLabel1.setText("Campos Obrigatórios");
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setText("Campos Obrigatórios");
 
-        BtnSalvarAlteracoes.setText("Salvar Alterações");
         BtnSalvarAlteracoes.setBackground(new java.awt.Color(0, 112, 186));
         BtnSalvarAlteracoes.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnSalvarAlteracoes.setForeground(new java.awt.Color(255, 255, 255));
+        BtnSalvarAlteracoes.setText("Salvar Alterações");
         BtnSalvarAlteracoes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnSalvarAlteracoesActionPerformed(evt);
             }
         });
 
-        BtnCancelar.setText("Cancelar");
         BtnCancelar.setBackground(new java.awt.Color(255, 153, 153));
         BtnCancelar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnCancelar.setForeground(new java.awt.Color(255, 255, 255));
+        BtnCancelar.setText("Cancelar");
         BtnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnCancelarActionPerformed(evt);
@@ -291,12 +291,12 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
             .addGap(0, 150, Short.MAX_VALUE)
         );
 
-        jLabel7.setText("Cadastrar Paciente");
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(59, 131, 117));
+        jLabel7.setText("Cadastrar Paciente");
 
-        LabelCidade3.setText("Telefone1:");
         LabelCidade3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        LabelCidade3.setText("Telefone1:");
 
         TxtTelefone.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         TxtTelefone.addActionListener(new java.awt.event.ActionListener() {
@@ -307,11 +307,11 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
 
         TxtTelefone2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        LabelCidade2.setText("Telefone2:");
         LabelCidade2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        LabelCidade2.setText("Telefone2:");
 
-        LabelEscolaridade.setText("Escolaridade:");
         LabelEscolaridade.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        LabelEscolaridade.setText("Escolaridade:");
 
         TxtEscolaridade.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         TxtEscolaridade.addActionListener(new java.awt.event.ActionListener() {
@@ -322,51 +322,51 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
 
         TxtReligiao.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        LabelReligiao.setText("Religião:");
         LabelReligiao.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        LabelReligiao.setText("Religião:");
 
-        LabelProfissao.setText("Profissão:");
         LabelProfissao.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        LabelProfissao.setText("Profissão:");
 
         TxtProfissao.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         TxtEndereco.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        jLabel20.setText("Endereço:");
         jLabel20.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel20.setText("Endereço:");
 
-        LabelCidade.setText("Cidade:");
         LabelCidade.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        LabelCidade.setText("Cidade:");
 
         TxtCidade.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        LabelCPF.setText("CPF:");
         LabelCPF.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        LabelCPF.setText("CPF:");
 
         txtCPF.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        jLabel17.setText("Data de Nascimento: ");
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel17.setText("Data de Nascimento: ");
 
         DataNasc.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         DataNasc.setPreferredSize(new java.awt.Dimension(160, 17));
 
-        jLabel18.setText("Sexo:");
         jLabel18.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel18.setText("Sexo:");
 
-        Sexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Feminino","Não Definido"}));
         Sexo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        Sexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Feminino","Não Definido"}));
 
-        LabelEstadoCivil.setText("Estado Civil:");
         LabelEstadoCivil.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        LabelEstadoCivil.setText("Estado Civil:");
 
-        estadocivil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Solteiro", "Casado", "Separado", "Divorciado","Viuvo" }));
         estadocivil.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        estadocivil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Solteiro", "Casado", "Separado", "Divorciado","Viuvo" }));
 
         txtEmail.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        LabelEmail.setText("E-mail:");
         LabelEmail.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        LabelEmail.setText("E-mail:");
 
         txtNome.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         txtNome.addActionListener(new java.awt.event.ActionListener() {
@@ -375,48 +375,48 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
             }
         });
 
-        LabelNome.setText("Nome:");
         LabelNome.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        LabelNome.setText("Nome:");
 
-        jLabel8.setText("*");
         jLabel8.setBackground(new java.awt.Color(255, 0, 0));
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel8.setText("*");
 
-        jLabel9.setText("*");
         jLabel9.setBackground(new java.awt.Color(255, 0, 0));
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel9.setText("*");
 
-        jLabel10.setText("*");
         jLabel10.setBackground(new java.awt.Color(255, 0, 0));
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel10.setText("*");
 
-        jLabel11.setText("*");
         jLabel11.setBackground(new java.awt.Color(255, 0, 0));
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel11.setText("*");
 
-        jLabel12.setText("*");
         jLabel12.setBackground(new java.awt.Color(255, 0, 0));
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel12.setText("*");
 
-        jLabel13.setText("*");
         jLabel13.setBackground(new java.awt.Color(255, 0, 0));
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel13.setText("*");
 
-        jLabel14.setText("*");
         jLabel14.setBackground(new java.awt.Color(255, 0, 0));
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel14.setText("*");
 
-        jLabel16.setText("*");
         jLabel16.setBackground(new java.awt.Color(255, 0, 0));
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel16.setText("*");
 
         javax.swing.GroupLayout PainelDadosPacienteLayout = new javax.swing.GroupLayout(PainelDadosPaciente);
         PainelDadosPaciente.setLayout(PainelDadosPacienteLayout);
@@ -615,13 +615,13 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
             .addGap(0, 50, Short.MAX_VALUE)
         );
 
-        jLabel19.setText("Campos Obrigatórios");
         jLabel19.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel19.setText("Campos Obrigatórios");
 
-        BtnSalvarAlteracoes4.setText("Salvar Alterações");
         BtnSalvarAlteracoes4.setBackground(new java.awt.Color(0, 112, 186));
         BtnSalvarAlteracoes4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnSalvarAlteracoes4.setForeground(new java.awt.Color(255, 255, 255));
+        BtnSalvarAlteracoes4.setText("Salvar Alterações");
         BtnSalvarAlteracoes4.setToolTipText("Clique neste botão para alterar um paciente após preencher os dados");
         BtnSalvarAlteracoes4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -629,10 +629,10 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
             }
         });
 
-        BtnCancelar4.setText("Cancelar");
         BtnCancelar4.setBackground(new java.awt.Color(255, 153, 153));
         BtnCancelar4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnCancelar4.setForeground(new java.awt.Color(255, 255, 255));
+        BtnCancelar4.setText("Cancelar");
         BtnCancelar4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnCancelar4ActionPerformed(evt);
@@ -652,12 +652,12 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
             .addGap(0, 150, Short.MAX_VALUE)
         );
 
-        jLabel25.setText("Alterar Paciente");
         jLabel25.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         jLabel25.setForeground(new java.awt.Color(59, 131, 117));
+        jLabel25.setText("Alterar Paciente");
 
-        LabelCidade8.setText("Telefone1:");
         LabelCidade8.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        LabelCidade8.setText("Telefone1:");
 
         TxtTelefone3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         TxtTelefone3.addActionListener(new java.awt.event.ActionListener() {
@@ -668,11 +668,11 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
 
         TxtTelefone4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        LabelCidade9.setText("Telefone2:");
         LabelCidade9.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        LabelCidade9.setText("Telefone2:");
 
-        LabelEscolaridade2.setText("Escolaridade:");
         LabelEscolaridade2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        LabelEscolaridade2.setText("Escolaridade:");
 
         TxtEscolaridade2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         TxtEscolaridade2.addActionListener(new java.awt.event.ActionListener() {
@@ -683,51 +683,51 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
 
         TxtReligiao2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        LabelReligiao2.setText("Religião:");
         LabelReligiao2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        LabelReligiao2.setText("Religião:");
 
-        LabelProfissao2.setText("Profissão:");
         LabelProfissao2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        LabelProfissao2.setText("Profissão:");
 
         TxtProfissao2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         TxtEndereco2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        jLabel27.setText("Endereço:");
         jLabel27.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel27.setText("Endereço:");
 
-        LabelCidade1.setText("Cidade:");
         LabelCidade1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        LabelCidade1.setText("Cidade:");
 
         TxtCidade2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        LabelCPF1.setText("CPF:");
         LabelCPF1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        LabelCPF1.setText("CPF:");
 
         txtCPF2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        jLabel28.setText("Data de Nascimento: ");
         jLabel28.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel28.setText("Data de Nascimento: ");
 
         DataNasc3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         DataNasc3.setPreferredSize(new java.awt.Dimension(160, 17));
 
-        jLabel40.setText("Sexo:");
         jLabel40.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel40.setText("Sexo:");
 
-        Sexo2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Feminino","Não Definido"}));
         Sexo2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        Sexo2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Feminino","Não Definido"}));
 
-        LabelEstadoCivil1.setText("Estado Civil:");
         LabelEstadoCivil1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        LabelEstadoCivil1.setText("Estado Civil:");
 
-        estadocivil2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Solteiro", "Casado", "Separado", "Divorciado","Viuvo" }));
         estadocivil2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        estadocivil2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Solteiro", "Casado", "Separado", "Divorciado","Viuvo" }));
 
         txtEmail13.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        LabelEmail2.setText("E-mail:");
         LabelEmail2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        LabelEmail2.setText("E-mail:");
 
         txtNome2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         txtNome2.addActionListener(new java.awt.event.ActionListener() {
@@ -736,52 +736,52 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
             }
         });
 
-        LabelNome4.setText("Nome:");
         LabelNome4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        LabelNome4.setText("Nome:");
 
-        jLabel41.setText("*");
         jLabel41.setBackground(new java.awt.Color(255, 0, 0));
         jLabel41.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel41.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel41.setText("*");
 
-        jLabel42.setText("*");
         jLabel42.setBackground(new java.awt.Color(255, 0, 0));
         jLabel42.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel42.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel42.setText("*");
 
-        jLabel43.setText("*");
         jLabel43.setBackground(new java.awt.Color(255, 0, 0));
         jLabel43.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel43.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel43.setText("*");
 
-        jLabel44.setText("*");
         jLabel44.setBackground(new java.awt.Color(255, 0, 0));
         jLabel44.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel44.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel44.setText("*");
 
-        jLabel45.setText("*");
         jLabel45.setBackground(new java.awt.Color(255, 0, 0));
         jLabel45.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel45.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel45.setText("*");
 
-        jLabel46.setText("*");
         jLabel46.setBackground(new java.awt.Color(255, 0, 0));
         jLabel46.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel46.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel46.setText("*");
 
-        jLabel47.setText("*");
         jLabel47.setBackground(new java.awt.Color(255, 0, 0));
         jLabel47.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel47.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel47.setText("*");
 
-        jLabel48.setText("*");
         jLabel48.setBackground(new java.awt.Color(255, 0, 0));
         jLabel48.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel48.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel48.setText("*");
 
-        LabelMsg.setText("jLabel2");
         LabelMsg.setBackground(new java.awt.Color(51, 255, 0));
         LabelMsg.setFont(new java.awt.Font("Tahoma", 2, 18)); // NOI18N
+        LabelMsg.setText("jLabel2");
         LabelMsg.setToolTipText("");
 
         javax.swing.GroupLayout PainelDadosPaciente3Layout = new javax.swing.GroupLayout(PainelDadosPaciente3);
@@ -972,10 +972,10 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
         jPanel2.setForeground(new java.awt.Color(59, 131, 117));
         jPanel2.setPreferredSize(new java.awt.Dimension(1080, 89));
 
-        LableCadstrarNovoPsicologo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        LableCadstrarNovoPsicologo.setText("Cadastrar Novo Psicólogo");
         LableCadstrarNovoPsicologo.setFont(new java.awt.Font("Tahoma", 1, 33)); // NOI18N
         LableCadstrarNovoPsicologo.setForeground(new java.awt.Color(255, 255, 255));
+        LableCadstrarNovoPsicologo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        LableCadstrarNovoPsicologo.setText("Cadastrar Novo Psicólogo");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -988,35 +988,45 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
             .addComponent(LableCadstrarNovoPsicologo, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
         );
 
-        jLabel2.setText("Nome");
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel2.setText("Nome");
 
         txtNome1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNome1ActionPerformed(evt);
             }
         });
+        txtNome1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNome1KeyTyped(evt);
+            }
+        });
 
-        jLabel3.setText("Email");
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel3.setText("Email");
 
-        jLabel4.setText("CRP");
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel4.setText("CRP");
 
         txtCRP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCRPActionPerformed(evt);
             }
         });
+        txtCRP.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCRPKeyTyped(evt);
+            }
+        });
 
-        jLabel5.setText("Usuário");
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel5.setText("Usuário");
 
-        jLabel15.setText("Senha");
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel15.setText("Senha");
 
-        LabelConfirmarSenha.setText("Confirmar Senha");
         LabelConfirmarSenha.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        LabelConfirmarSenha.setText("Confirmar Senha");
 
         chckMostrarSenha.setText("Mostar Senha");
         chckMostrarSenha.addActionListener(new java.awt.event.ActionListener() {
@@ -1025,29 +1035,41 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
             }
         });
 
-        labeltelefone.setText("Telefone");
         labeltelefone.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        labeltelefone.setText("Telefone");
 
-        LabelTelefone2.setText("Telefone (2)");
+        TxtTelefone1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TxtTelefone1KeyTyped(evt);
+            }
+        });
+
         LabelTelefone2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        LabelTelefone2.setText("Telefone (2)");
 
-        BtnCadastrarPsicologo.setText("Cadastrar");
         BtnCadastrarPsicologo.setBackground(new java.awt.Color(0, 112, 186));
         BtnCadastrarPsicologo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnCadastrarPsicologo.setForeground(new java.awt.Color(255, 255, 255));
+        BtnCadastrarPsicologo.setText("Cadastrar");
         BtnCadastrarPsicologo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnCadastrarPsicologoActionPerformed(evt);
             }
         });
 
-        BtnCancelar5.setText("Cancelar");
         BtnCancelar5.setBackground(new java.awt.Color(255, 153, 153));
         BtnCancelar5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnCancelar5.setForeground(new java.awt.Color(255, 255, 255));
+        BtnCancelar5.setText("Cancelar");
         BtnCancelar5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnCancelar5ActionPerformed(evt);
+            }
+        });
+
+        TxtTelefone5.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TxtTelefone5KeyTyped(evt);
             }
         });
 
@@ -1179,6 +1201,11 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
                 txtNome3ActionPerformed(evt);
             }
         });
+        txtNome3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNome3KeyTyped(evt);
+            }
+        });
 
         jLabel22.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel22.setText("Email");
@@ -1191,9 +1218,20 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
                 txtCRP1ActionPerformed(evt);
             }
         });
+        txtCRP1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCRP1KeyTyped(evt);
+            }
+        });
 
         labeltelefone1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         labeltelefone1.setText("Telefone");
+
+        TxtTelefone6.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TxtTelefone6KeyTyped(evt);
+            }
+        });
 
         LabelTelefone3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         LabelTelefone3.setText("Telefone (2)");
@@ -1215,6 +1253,12 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
         BtnCancelar6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnCancelar6ActionPerformed(evt);
+            }
+        });
+
+        TxtTelefone7.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TxtTelefone7KeyTyped(evt);
             }
         });
 
@@ -1435,77 +1479,77 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
         PainelMenu.setBackground(new java.awt.Color(102, 102, 102));
         PainelMenu.setForeground(new java.awt.Color(102, 102, 102));
 
-        BtnVoltar.setText("Início");
         BtnVoltar.setBackground(new java.awt.Color(102, 102, 102));
         BtnVoltar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnVoltar.setForeground(new java.awt.Color(255, 255, 255));
+        BtnVoltar.setText("Início");
         BtnVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnVoltarActionPerformed(evt);
             }
         });
 
-        BtnManterPaciente.setText("Pacientes");
         BtnManterPaciente.setBackground(new java.awt.Color(102, 102, 102));
-        BtnManterPaciente.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        BtnManterPaciente.setFocusPainted(false);
         BtnManterPaciente.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnManterPaciente.setForeground(new java.awt.Color(255, 255, 255));
+        BtnManterPaciente.setText("Pacientes");
+        BtnManterPaciente.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        BtnManterPaciente.setFocusPainted(false);
         BtnManterPaciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnManterPacienteActionPerformed(evt);
             }
         });
 
-        BtnManterConsulta.setText("Cadastrar Consulta");
         BtnManterConsulta.setBackground(new java.awt.Color(102, 102, 102));
-        BtnManterConsulta.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnManterConsulta.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnManterConsulta.setForeground(new java.awt.Color(255, 255, 255));
+        BtnManterConsulta.setText("Cadastrar Consulta");
+        BtnManterConsulta.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnManterConsulta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnManterConsultaActionPerformed(evt);
             }
         });
 
-        BtnManterPsicologo.setText("Psicólogos");
         BtnManterPsicologo.setBackground(new java.awt.Color(102, 102, 102));
-        BtnManterPsicologo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnManterPsicologo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnManterPsicologo.setForeground(new java.awt.Color(255, 255, 255));
+        BtnManterPsicologo.setText("Psicólogos");
+        BtnManterPsicologo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnManterPsicologo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnManterPsicologoActionPerformed(evt);
             }
         });
 
-        BtnExibiranamneses.setText("Exibir Todas as Anamneses");
         BtnExibiranamneses.setBackground(new java.awt.Color(102, 102, 102));
-        BtnExibiranamneses.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnExibiranamneses.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnExibiranamneses.setForeground(new java.awt.Color(255, 255, 255));
+        BtnExibiranamneses.setText("Exibir Todas as Anamneses");
+        BtnExibiranamneses.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnExibiranamneses.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnExibiranamnesesActionPerformed(evt);
             }
         });
 
-        BtnExibirAnotacao.setText("Exibir Todas as Anotações");
         BtnExibirAnotacao.setBackground(new java.awt.Color(102, 102, 102));
-        BtnExibirAnotacao.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnExibirAnotacao.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnExibirAnotacao.setForeground(new java.awt.Color(255, 255, 255));
+        BtnExibirAnotacao.setText("Exibir Todas as Anotações");
+        BtnExibirAnotacao.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnExibirAnotacao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnExibirAnotacaoActionPerformed(evt);
             }
         });
 
-        BtnSair.setText("Sair");
         BtnSair.setBackground(new java.awt.Color(102, 102, 102));
-        BtnSair.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnSair.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnSair.setForeground(new java.awt.Color(255, 255, 255));
+        BtnSair.setText("Sair");
+        BtnSair.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         BtnSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnSairActionPerformed(evt);
@@ -1547,8 +1591,8 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
 
         jEImagePanel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/spring-floral-watercolor-background-vector-green-with-leaf-illustration_53876-126350.jpg"))); // NOI18N
 
-        jLabel6.setText("Buscar Psicologo");
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel6.setText("Buscar Psicologo");
 
         txtBusca.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -1563,8 +1607,8 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
             }
         });
 
-        BtnVisuAlterarDados.setText("Visualizar/ Alterar Dados");
         BtnVisuAlterarDados.setBackground(new java.awt.Color(204, 204, 204));
+        BtnVisuAlterarDados.setText("Visualizar/ Alterar Dados");
         BtnVisuAlterarDados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnVisuAlterarDadosActionPerformed(evt);
@@ -2451,6 +2495,62 @@ public void readpsicologo() {
     private void BtnCancelar7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCancelar7ActionPerformed
         ModalAlterarSenha.dispose();
     }//GEN-LAST:event_BtnCancelar7ActionPerformed
+
+    private void txtNome1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNome1KeyTyped
+        char c = evt.getKeyChar();
+        if (Character.isDigit(c)){
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtNome1KeyTyped
+
+    private void txtCRPKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCRPKeyTyped
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c)){
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtCRPKeyTyped
+
+    private void TxtTelefone1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtTelefone1KeyTyped
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c)){
+            evt.consume();
+        }
+    }//GEN-LAST:event_TxtTelefone1KeyTyped
+
+    private void TxtTelefone5KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtTelefone5KeyTyped
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c)){
+            evt.consume();
+        }
+    }//GEN-LAST:event_TxtTelefone5KeyTyped
+
+    private void txtNome3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNome3KeyTyped
+        char c = evt.getKeyChar();
+        if (Character.isDigit(c)){
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtNome3KeyTyped
+
+    private void txtCRP1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCRP1KeyTyped
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c)){
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtCRP1KeyTyped
+
+    private void TxtTelefone6KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtTelefone6KeyTyped
+       char c = evt.getKeyChar();
+        if (!Character.isDigit(c)){
+            evt.consume();
+        }
+    }//GEN-LAST:event_TxtTelefone6KeyTyped
+
+    private void TxtTelefone7KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtTelefone7KeyTyped
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c)){
+            evt.consume();
+        }
+    }//GEN-LAST:event_TxtTelefone7KeyTyped
 
     /**
          * @param args the command line arguments
