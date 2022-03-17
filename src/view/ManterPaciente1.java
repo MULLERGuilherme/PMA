@@ -303,6 +303,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         jLabel91 = new javax.swing.JLabel();
         PainelIdentificacaoPessoal8 = new javax.swing.JPanel();
         txtCPF4 = new javax.swing.JFormattedTextField();
+        ModalHelp = new javax.swing.JDialog();
         jPanel1 = new JPanel();
         PainelMeusDados = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
@@ -335,6 +336,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         LabelQtdePaginas = new javax.swing.JLabel();
         BtnAvancarPouco = new javax.swing.JButton();
         BtnAvancarBastante = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -1783,6 +1785,17 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        javax.swing.GroupLayout ModalHelpLayout = new javax.swing.GroupLayout(ModalHelp.getContentPane());
+        ModalHelp.getContentPane().setLayout(ModalHelpLayout);
+        ModalHelpLayout.setHorizontalGroup(
+            ModalHelpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        ModalHelpLayout.setVerticalGroup(
+            ModalHelpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(59, 131, 117));
@@ -2127,6 +2140,13 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                     .addComponent(LabelLimite, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/SimboloHelp.png"))); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jEImagePanel1Layout = new javax.swing.GroupLayout(jEImagePanel1);
         jEImagePanel1.setLayout(jEImagePanel1Layout);
         jEImagePanel1Layout.setHorizontalGroup(
@@ -2157,11 +2177,17 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                             .addComponent(btnVisuAnamneses, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(BtnVisuAlterarDados))))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jEImagePanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34))
         );
         jEImagePanel1Layout.setVerticalGroup(
             jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jEImagePanel1Layout.createSequentialGroup()
-                .addGap(77, 77, 77)
+                .addContainerGap()
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
                 .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2179,7 +2205,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnVisuAnotacoes)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 456, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 470, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(PainelPaginacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(70, 70, 70))
@@ -3263,6 +3289,15 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_TxtTelefone7KeyTyped
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        ModalHelp.setSize(540, 620);
+        ModalHelp.setModal(true);
+        ModalHelp.setVisible(false);
+        ModalHelp.setVisible(false);
+        ModalHelp.setLocationRelativeTo(null);
+        ModalHelp.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     private void Alterar(int cod) {
         Anamnese a = new Anamnese();
         AnamneseDAO dao = new AnamneseDAO();
@@ -3420,6 +3455,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
     private javax.swing.JLabel LabelReligiao4;
     private javax.swing.JDialog ModalAlterarResolucaoMenor;
     private javax.swing.JDialog ModalAnamnese2;
+    private javax.swing.JDialog ModalHelp;
     private javax.swing.JDialog ModalMeusDados;
     private javax.swing.JDialog ModalNovoResolucaoMenor;
     private javax.swing.JPanel PainelDadosPaciente4;
@@ -3458,6 +3494,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
     private javax.swing.JButton btnVisuConsultas;
     private javax.swing.JComboBox<String> estadocivil1;
     private javax.swing.JComboBox<String> estadocivil4;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private LIB.JEImagePanel jEImagePanel1;
     private LIB.JEImagePanel jEImagePanel3;
