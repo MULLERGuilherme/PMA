@@ -921,6 +921,7 @@ public class ExibirAnamneses2 extends javax.swing.JFrame {
 
             if (existe) {
                 ModalAnamnese2.setSize(1039, 600);
+                jScrollPane3.getVerticalScrollBar().setUnitIncrement(15);
                 ModalAnamnese2.setModal(true);
                 ModalAnamnese2.setLocationRelativeTo(null);
                 ModalAnamnese2.setVisible(true);
