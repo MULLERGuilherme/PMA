@@ -3773,51 +3773,51 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         btnVisuAnotacoes.setEnabled(true);
         if (evt.getClickCount() == 2) {
             if (JTPacientes.getSelectedRow() != -1) {
-                int modelRow = JTPacientes.convertRowIndexToModel(JTPacientes.getSelectedRow());
-                int value = (Integer) JTPacientes.getModel().getValueAt(modelRow, 0);
-                this.codigopaciente = value;
-                PacienteDAO dao = new PacienteDAO();
-                ViewsDAO vwdao = new ViewsDAO();
-                Paciente p = dao.ReadPaciente(codigopaciente);
-                Vw_TelefonesPacientes v = new Vw_TelefonesPacientes();
-                v = vwdao.ReadTelefonesPacientes(codigopaciente);
-                txtNome2.setText(p.getNome_Completo());
-                Date date = (Date) p.getDataNasc();
+            int modelRow = JTPacientes.convertRowIndexToModel(JTPacientes.getSelectedRow());
+            int value = (Integer) JTPacientes.getModel().getValueAt(modelRow, 0);
+            this.codigopaciente = value;
+            PacienteDAO dao = new PacienteDAO();
+            ViewsDAO vwdao = new ViewsDAO();
+            Paciente p = dao.ReadPaciente(codigopaciente);
+            Vw_TelefonesPacientes v = new Vw_TelefonesPacientes();
+            v = vwdao.ReadTelefonesPacientes(codigopaciente);
+            txtNome5.setText(p.getNome_Completo());
+            Date date = (Date) p.getDataNasc();
 
-                //LocalDate localDate = date.toInstant().atZone( ZoneId.systemDefault() ).toLocalDate();
-                DataNasc3.setDate(date.toLocalDate());
-                //DataNasc1.setDate((LocalDate) p.getDataNasc());
-                Sexo2.setSelectedItem(p.getSexo());
-                estadocivil2.setSelectedItem(p.getEstadoCivil());
-                TxtCidade2.setText(p.getCidade());
-                txtCPF2.setText(p.getCPF());
-                TxtEndereco2.setText(p.getEndereco());
-                TxtProfissao2.setText(p.getProfissao());
-                TxtReligiao2.setText(p.getReligiao());
-                TxtEscolaridade2.setText(p.getEscolaridade());
-                String fones = null;
-                String[] fones2 = null;
-                fones = v.getTelefone().getNumero();
-                if (fones.contains(",")) {
-                    fones2 = fones.split(",");
-                    TxtTelefone3.setText(fones2[0]);
-                    TxtTelefone4.setText(fones2[1]);
-                } else {
-                    TxtTelefone3.setText(fones);
-                    TxtTelefone4.setText("");
-                }
-
-                txtEmail13.setText(p.getEmail());
-
-                DataNasc3.setFont(new Font("Tahoma", Font.BOLD, 18));
-                ModalAlterar.setSize(950, 950);
-                ModalAlterar.setModal(true);
-                ModalAlterar.setLocationRelativeTo(null);
-                ModalAlterar.setVisible(true);
-
+            //LocalDate localDate = date.toInstant().atZone( ZoneId.systemDefault() ).toLocalDate();
+            DataNasc4.setDate(date.toLocalDate());
+            //DataNasc1.setDate((LocalDate) p.getDataNasc());
+            Sexo4.setSelectedItem(p.getSexo());
+            estadocivil4.setSelectedItem(p.getEstadoCivil());
+            TxtCidade4.setText(p.getCidade());
+            txtCPF4.setText(p.getCPF());
+            TxtEndereco4.setText(p.getEndereco());
+            TxtProfissao4.setText(p.getProfissao());
+            TxtReligiao4.setText(p.getReligiao());
+            TxtEscolaridade4.setText(p.getEscolaridade());
+            String fones = null;
+            String[] fones2 = null;
+            fones = v.getTelefone().getNumero();
+            if (fones.contains(",")) {
+                fones2 = fones.split(",");
+                TxtTelefone10.setText(fones2[0]);
+                TxtTelefone11.setText(fones2[1]);
             } else {
-                JOptionPane.showMessageDialog(this, "Selecione um paciente para alterar");
+                TxtTelefone10.setText(fones);
+                TxtTelefone11.setText("");
             }
+
+            txtEmail4.setText(p.getEmail());
+
+            DataNasc4.setFont(new Font("Tahoma", Font.BOLD, 18));
+            ModalAlterarResolucaoMenor.setSize(851, 660);
+            ModalAlterarResolucaoMenor.setModal(true);
+            ModalAlterarResolucaoMenor.setLocationRelativeTo(null);
+            ModalAlterarResolucaoMenor.setVisible(true);
+
+        } else {
+            JOptionPane.showMessageDialog(this, "Selecione um paciente para alterar");
+        }
         }
     }//GEN-LAST:event_JTPacientesMousePressed
 
