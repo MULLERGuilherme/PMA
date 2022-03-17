@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package view;
+
 import Validacoes.Deletar;
 import Validacoes.Validar;
 import connection.ConnectionFactory;
@@ -59,16 +60,69 @@ import model.bean.Vw_Anotacoes_Paciente;
 import model.dao.AnotacaoDAO;
 import model.dao.ConsultaDAO;
 import model.dao.ViewsDAO;
+
 /**
  *
  * @author guimu
  */
 public class ExibirAnotacoes extends javax.swing.JFrame {
 
-     public static int codigoanotacao;
+    public static int codigoanotacao;
     public boolean existe;
-    
+
+    //Paginacao
+    int PAGE_SIZE = 1;
+    double tableRowCount;
+    int totalPages;
+    int currentPage = 0;
+    int startRow = 0;
+
+    public void getCount() {
+        ViewsDAO dao = new ViewsDAO();
+        tableRowCount = dao.getRowCountTableExibirAnotacoes(Main.cod);
+        if (tableRowCount > 0) {
+            totalPages = (int) Math.ceil(tableRowCount / PAGE_SIZE);
+            currentPage = 1;
+
+        }
+
+    }
+
+    public void getCountBusca(String Busca) {
+        ViewsDAO dao = new ViewsDAO();
+
+        tableRowCount = dao.getRowCountTableExibirAnotacoesBusca(Main.cod,Busca);
+        //System.out.println(tableRowCount);
+        if (tableRowCount > 0) {
+            totalPages = (int) Math.ceil(tableRowCount / PAGE_SIZE);
+            currentPage = 1;
+
+        }
+
+    }
+
+    public void getPageData(int pageNo) {
+
+        currentPage = pageNo;
+        ViewsDAO dao = new ViewsDAO();
+        //calculate starting row for pagination
+        startRow = PAGE_SIZE * (pageNo - 1);
+
+        ReadJTablePag(startRow, PAGE_SIZE);
+    }
+
+    public void getPageDataBusca(int pageNo, String Busca) {
+
+        currentPage = pageNo;
+
+        //calculate starting row for pagination
+        startRow = PAGE_SIZE * (pageNo - 1);
+
+        ReadJTableBuscaPag(Busca, startRow, PAGE_SIZE);
+    }
+
     public ExibirAnotacoes() {
+        this.getCount();
         initComponents();
         BtnAlterarAnotacao.setEnabled(false);
         BtnExcluirAnotacao.setEnabled(false);
@@ -76,9 +130,33 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
         TableColumnModel cmod = JTAnotacoes.getColumnModel();
         cmod.removeColumn(cmod.getColumn(0));
         JTAnotacoes.setRowSorter(new TableRowSorter(dtmPacientes));
-        ReadJTable();
+        this.getPageData(1);
+        SpinnerNumPaginas.setValue((int) currentPage);
+        LabelQtdePaginas.setText("de " + totalPages);
+        SpinnerLimite.setValue((int) PAGE_SIZE);
+        System.out.println(totalPages);
     }
- public void ReadJTable() {
+// public void ReadJTable() {
+//        DefaultTableModel model = (DefaultTableModel) JTAnotacoes.getModel();
+//        model.setNumRows(0);
+//        ViewsDAO vwdao = new ViewsDAO();
+//        //ConsultaDAO cdao = new ConsultaDAO();
+//        //PacienteDAO pdao = new PacienteDAO();
+//        //Paciente p = new Paciente();
+//
+//        for (Vw_Anotacoes_Paciente v : vwdao.ReadAnotacoesPaciente(Main.cod)) {
+//            //p = pdao.ReadPaciente(c.getPaciente().getCodPaciente());
+//            model.addRow(new Object[]{
+//                v.getAnotacao().getCodAnotacao(),
+//                v.getPaciente().getNome_Completo(),
+//                v.getAnotacao().getAssunto(),
+//                Validar.fDatetime((Timestamp)  v.getAnotacao().getDataAnotacao())
+//
+//            });
+//        }
+//    }
+
+    public void ReadJTablePag(int start, int size) {
         DefaultTableModel model = (DefaultTableModel) JTAnotacoes.getModel();
         model.setNumRows(0);
         ViewsDAO vwdao = new ViewsDAO();
@@ -86,36 +164,37 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
         //PacienteDAO pdao = new PacienteDAO();
         //Paciente p = new Paciente();
 
-        for (Vw_Anotacoes_Paciente v : vwdao.ReadAnotacoesPaciente(Main.cod)) {
+        for (Vw_Anotacoes_Paciente v : vwdao.fetchBySizeExibirAnotacoes(Main.cod, start, size)) {
             //p = pdao.ReadPaciente(c.getPaciente().getCodPaciente());
             model.addRow(new Object[]{
                 v.getAnotacao().getCodAnotacao(),
                 v.getPaciente().getNome_Completo(),
                 v.getAnotacao().getAssunto(),
-                Validar.fDatetime((Timestamp)  v.getAnotacao().getDataAnotacao())
+                Validar.fDatetime((Timestamp) v.getAnotacao().getDataAnotacao())
 
             });
         }
     }
- public void ReadJTableBusca(String Busca) {
+
+    public void ReadJTableBuscaPag(String Busca, int start, int size) {
 
         DefaultTableModel model = (DefaultTableModel) JTAnotacoes.getModel();
         model.setNumRows(0);
         ViewsDAO vwdao = new ViewsDAO();
-  
 
-        for (Vw_Anotacoes_Paciente v : vwdao.BuscaExibirAnotacoesOA( Busca, Main.cod)) {
+        for (Vw_Anotacoes_Paciente v : vwdao.fetchBySizeExibirAnotacoesBusca(Main.cod, start, size, Busca)) {
 
             model.addRow(new Object[]{
                 v.getAnotacao().getCodAnotacao(),
                 v.getPaciente().getNome_Completo(),
                 v.getAnotacao().getAssunto(),
-                Validar.fDatetime((Timestamp)  v.getAnotacao().getDataAnotacao())
+                Validar.fDatetime((Timestamp) v.getAnotacao().getDataAnotacao())
 
             });
         }
     }
- public boolean readcampos(int cod) {
+
+    public boolean readcampos(int cod) {
         Anotacao a = new Anotacao();
         AnotacaoDAO dao = new AnotacaoDAO();
         a = dao.ReadAnotacao(cod);
@@ -127,6 +206,7 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
         }
         return false;
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -153,10 +233,21 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
         jEImagePanel1 = new LIB.JEImagePanel();
         BtnAlterarAnotacao = new javax.swing.JButton();
         BtnExcluirAnotacao = new javax.swing.JButton();
-        txtBusca = new javax.swing.JTextField();
-        btnBuscar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         JTAnotacoes = new javax.swing.JTable();
+        jLabel14 = new javax.swing.JLabel();
+        txtBusca = new javax.swing.JTextField();
+        btnBuscar = new javax.swing.JButton();
+        PainelPaginacao = new javax.swing.JPanel();
+        LabelLimite = new javax.swing.JLabel();
+        SpinnerLimite = new javax.swing.JSpinner();
+        BtnVoltarBastante = new javax.swing.JButton();
+        BtnVoltarPouco = new javax.swing.JButton();
+        LabelPagina = new javax.swing.JLabel();
+        SpinnerNumPaginas = new javax.swing.JSpinner();
+        LabelQtdePaginas = new javax.swing.JLabel();
+        BtnAvancarPouco = new javax.swing.JButton();
+        BtnAvancarBastante = new javax.swing.JButton();
         PainelMenu = new javax.swing.JPanel();
         BtnVoltar = new javax.swing.JButton();
         BtnPacientes = new javax.swing.JButton();
@@ -303,7 +394,7 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1429, Short.MAX_VALUE)
+            .addGap(0, 1447, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -325,19 +416,6 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
         BtnExcluirAnotacao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnExcluirAnotacaoActionPerformed(evt);
-            }
-        });
-
-        txtBusca.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtBuscaKeyTyped(evt);
-            }
-        });
-
-        btnBuscar.setText("Buscar");
-        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscarActionPerformed(evt);
             }
         });
 
@@ -364,37 +442,156 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(JTAnotacoes);
 
+        jLabel14.setText("Buscar:");
+
+        txtBusca.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtBuscaKeyPressed(evt);
+            }
+        });
+
+        btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
+
+        PainelPaginacao.setOpaque(false);
+
+        LabelLimite.setBackground(new java.awt.Color(204, 204, 204));
+        LabelLimite.setText("Limite");
+
+        SpinnerLimite.setModel(new javax.swing.SpinnerNumberModel(1, 1, 15, 1));
+        SpinnerLimite.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                SpinnerLimiteStateChanged(evt);
+            }
+        });
+
+        BtnVoltarBastante.setText("<<");
+        BtnVoltarBastante.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnVoltarBastanteActionPerformed(evt);
+            }
+        });
+
+        BtnVoltarPouco.setText("<");
+        BtnVoltarPouco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnVoltarPoucoActionPerformed(evt);
+            }
+        });
+
+        LabelPagina.setBackground(new java.awt.Color(204, 204, 204));
+        LabelPagina.setText("Página");
+
+        SpinnerNumPaginas.setModel(new javax.swing.SpinnerNumberModel(1, 1, totalPages, 1));
+        SpinnerNumPaginas.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                SpinnerNumPaginasStateChanged(evt);
+            }
+        });
+
+        LabelQtdePaginas.setBackground(new java.awt.Color(204, 204, 204));
+        LabelQtdePaginas.setText("de X");
+
+        BtnAvancarPouco.setText(">");
+        BtnAvancarPouco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAvancarPoucoActionPerformed(evt);
+            }
+        });
+
+        BtnAvancarBastante.setText(">>");
+        BtnAvancarBastante.setOpaque(false);
+        BtnAvancarBastante.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAvancarBastanteActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout PainelPaginacaoLayout = new javax.swing.GroupLayout(PainelPaginacao);
+        PainelPaginacao.setLayout(PainelPaginacaoLayout);
+        PainelPaginacaoLayout.setHorizontalGroup(
+            PainelPaginacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PainelPaginacaoLayout.createSequentialGroup()
+                .addContainerGap(67, Short.MAX_VALUE)
+                .addComponent(LabelLimite)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(SpinnerLimite, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(BtnVoltarBastante)
+                .addGap(18, 18, 18)
+                .addComponent(BtnVoltarPouco)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(LabelPagina)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(SpinnerNumPaginas, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(LabelQtdePaginas)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(BtnAvancarPouco)
+                .addGap(18, 18, 18)
+                .addComponent(BtnAvancarBastante)
+                .addGap(8, 8, 8))
+        );
+        PainelPaginacaoLayout.setVerticalGroup(
+            PainelPaginacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelPaginacaoLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(PainelPaginacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(SpinnerNumPaginas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LabelPagina, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LabelQtdePaginas, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BtnAvancarPouco)
+                    .addComponent(BtnAvancarBastante)
+                    .addComponent(BtnVoltarPouco)
+                    .addComponent(BtnVoltarBastante)
+                    .addComponent(SpinnerLimite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LabelLimite, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+
         javax.swing.GroupLayout jEImagePanel1Layout = new javax.swing.GroupLayout(jEImagePanel1);
         jEImagePanel1.setLayout(jEImagePanel1Layout);
         jEImagePanel1Layout.setHorizontalGroup(
             jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jEImagePanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jEImagePanel1Layout.createSequentialGroup()
+                .addContainerGap(111, Short.MAX_VALUE)
+                .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(PainelPaginacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jEImagePanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel14)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 716, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(BtnExcluirAnotacao, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BtnAlterarAnotacao, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
-            .addGroup(jEImagePanel1Layout.createSequentialGroup()
-                .addGap(108, 108, 108)
-                .addComponent(BtnAlterarAnotacao)
-                .addGap(18, 18, 18)
-                .addComponent(BtnExcluirAnotacao)
-                .addGap(346, 346, 346)
-                .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnBuscar)
-                .addContainerGap(183, Short.MAX_VALUE))
         );
         jEImagePanel1Layout.setVerticalGroup(
             jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jEImagePanel1Layout.createSequentialGroup()
-                .addGap(97, 97, 97)
-                .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BtnAlterarAnotacao)
-                    .addComponent(BtnExcluirAnotacao)
-                    .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBuscar))
+                .addGap(30, 30, 30)
+                .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnBuscar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel14)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jEImagePanel1Layout.createSequentialGroup()
+                        .addComponent(BtnAlterarAnotacao, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(BtnExcluirAnotacao, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(91, Short.MAX_VALUE))
+                .addComponent(PainelPaginacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         getContentPane().add(jEImagePanel1, java.awt.BorderLayout.CENTER);
@@ -402,60 +599,60 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
         PainelMenu.setBackground(new java.awt.Color(102, 102, 102));
         PainelMenu.setForeground(new java.awt.Color(102, 102, 102));
 
-        BtnVoltar.setText("Início");
         BtnVoltar.setBackground(new java.awt.Color(102, 102, 102));
         BtnVoltar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnVoltar.setForeground(new java.awt.Color(255, 255, 255));
+        BtnVoltar.setText("Início");
         BtnVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnVoltarActionPerformed(evt);
             }
         });
 
-        BtnPacientes.setText("Pacientes");
         BtnPacientes.setBackground(new java.awt.Color(102, 102, 102));
         BtnPacientes.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnPacientes.setForeground(new java.awt.Color(255, 255, 255));
+        BtnPacientes.setText("Pacientes");
         BtnPacientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnPacientesActionPerformed(evt);
             }
         });
 
-        BtnConsultas.setText("Cadastrar Consultas");
         BtnConsultas.setBackground(new java.awt.Color(102, 102, 102));
         BtnConsultas.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnConsultas.setForeground(new java.awt.Color(255, 255, 255));
+        BtnConsultas.setText("Cadastrar Consultas");
         BtnConsultas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnConsultasActionPerformed(evt);
             }
         });
 
-        BtnExibirAnamneses.setText("Exibir Anamneses");
         BtnExibirAnamneses.setBackground(new java.awt.Color(102, 102, 102));
         BtnExibirAnamneses.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnExibirAnamneses.setForeground(new java.awt.Color(255, 255, 255));
+        BtnExibirAnamneses.setText("Exibir Anamneses");
         BtnExibirAnamneses.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnExibirAnamnesesActionPerformed(evt);
             }
         });
 
-        BtnExibirAnotacoes.setText("Exibir Anotações");
         BtnExibirAnotacoes.setBackground(new java.awt.Color(102, 102, 102));
         BtnExibirAnotacoes.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnExibirAnotacoes.setForeground(new java.awt.Color(255, 255, 255));
+        BtnExibirAnotacoes.setText("Exibir Anotações");
         BtnExibirAnotacoes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnExibirAnotacoesActionPerformed(evt);
             }
         });
 
-        BtnExibirAnotacoes1.setText("Sair");
         BtnExibirAnotacoes1.setBackground(new java.awt.Color(102, 102, 102));
         BtnExibirAnotacoes1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnExibirAnotacoes1.setForeground(new java.awt.Color(255, 255, 255));
+        BtnExibirAnotacoes1.setText("Sair");
         BtnExibirAnotacoes1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnExibirAnotacoes1ActionPerformed(evt);
@@ -498,16 +695,16 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
     private void BtnAlterarAnotacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAlterarAnotacaoActionPerformed
         // TODO add your handling code here:
         //      if (JTAnotacoes.getSelectedRow() != -1) {
-            //             int modelRow = JTAnotacoes.convertRowIndexToModel(JTAnotacoes.getSelectedRow());
-            //            int value = (Integer)JTAnotacoes.getModel().getValueAt(modelRow,0);
-            //            AlterarAnotacaoPacienteMenu.codanotacao = value;
-            //            AlterarAnotacaoPacienteMenu cp = new AlterarAnotacaoPacienteMenu();
-            //            cp.setVisible(true);
-            //            this.dispose();
-            //
-            //        } else {
-            //            JOptionPane.showMessageDialog(this, "Selecione uma anotacao para alterar");
-            //        }
+        //             int modelRow = JTAnotacoes.convertRowIndexToModel(JTAnotacoes.getSelectedRow());
+        //            int value = (Integer)JTAnotacoes.getModel().getValueAt(modelRow,0);
+        //            AlterarAnotacaoPacienteMenu.codanotacao = value;
+        //            AlterarAnotacaoPacienteMenu cp = new AlterarAnotacaoPacienteMenu();
+        //            cp.setVisible(true);
+        //            this.dispose();
+        //
+        //        } else {
+        //            JOptionPane.showMessageDialog(this, "Selecione uma anotacao para alterar");
+        //        }
         if (JTAnotacoes.getSelectedRow() != -1) {
             Anotacao a = new Anotacao();
             AnotacaoDAO dao = new AnotacaoDAO();
@@ -542,19 +739,22 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
 
             //mostrar mensagem de sucesso
             // JOptionPane.showMessageDialog(null,"Paciente Cadastrado com Sucesso!");
-            ReadJTable();
+            if (txtBusca.getText() == "") {
+                getCountBusca(txtBusca.getText());
+                SpinnerNumPaginas.setValue(currentPage);
+                LabelQtdePaginas.setText("de " + totalPages);
+                getPageDataBusca(currentPage, txtBusca.getText());
+            } else {
+                getCount();
+                SpinnerNumPaginas.setValue(currentPage);
+                LabelQtdePaginas.setText("de " + totalPages);
+                getPageDataBusca(currentPage, txtBusca.getText());
+            }
 
         } else {
             JOptionPane.showMessageDialog(null, "Selecione um paciente para excluir");
         }
     }//GEN-LAST:event_BtnExcluirAnotacaoActionPerformed
-
-    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        // TODO add your handling code here:
-
-        //System.out.println(JCBAtributo.getSelectedIndex());
-        this.ReadJTableBusca( txtBusca.getText());
-    }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void BtnCancelarAnotacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCancelarAnotacaoActionPerformed
         ModalAnotacao.dispose();
@@ -573,37 +773,43 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Anotação Atualizada  com Sucesso!");
             }
         }
-        ReadJTable();
+        if (txtBusca.getText() == "") {
+            getCountBusca(txtBusca.getText());
+            SpinnerNumPaginas.setValue(currentPage);
+            LabelQtdePaginas.setText("de " + totalPages);
+            getPageDataBusca(currentPage, txtBusca.getText());
+        } else {
+            getCount();
+            SpinnerNumPaginas.setValue(currentPage);
+            LabelQtdePaginas.setText("de " + totalPages);
+            getPageDataBusca(currentPage, txtBusca.getText());
+        }
     }//GEN-LAST:event_BtnSalvarAlteracoesAnotacaoActionPerformed
 
-    private void txtBuscaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscaKeyTyped
-                this.ReadJTableBusca( txtBusca.getText());
-    }//GEN-LAST:event_txtBuscaKeyTyped
-
     private void JTAnotacoesMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTAnotacoesMousePressed
-       BtnAlterarAnotacao.setEnabled(true);
+        BtnAlterarAnotacao.setEnabled(true);
         BtnExcluirAnotacao.setEnabled(true);
-        if(evt.getClickCount() == 2 ) {
-           if (JTAnotacoes.getSelectedRow() != -1) {
-            Anotacao a = new Anotacao();
-            AnotacaoDAO dao = new AnotacaoDAO();
-            int modelRow = JTAnotacoes.convertRowIndexToModel(JTAnotacoes.getSelectedRow());
-            int value = (Integer) JTAnotacoes.getModel().getValueAt(modelRow, 0);
-            this.codigoanotacao = value;
-            String nome = (String) JTAnotacoes.getModel().getValueAt(modelRow, 1);
-            //a2 = dao2.ReadAnamneseConsulta(codconsulta);
-            //codanamnese = a2.getCodAnamnese();
-            existe = readcampos(codigoanotacao);
-            ModalAnotacao.setSize(862, 870);
-            LabelNome5.setText(nome);
-            ModalAnotacao.setModal(true);
-            ModalAnotacao.setLocationRelativeTo(null);
-            ModalAnotacao.setVisible(true);
-        } else {
-            JOptionPane.showMessageDialog(this, "Selecione uma anotacao para alterar");
+        if (evt.getClickCount() == 2) {
+            if (JTAnotacoes.getSelectedRow() != -1) {
+                Anotacao a = new Anotacao();
+                AnotacaoDAO dao = new AnotacaoDAO();
+                int modelRow = JTAnotacoes.convertRowIndexToModel(JTAnotacoes.getSelectedRow());
+                int value = (Integer) JTAnotacoes.getModel().getValueAt(modelRow, 0);
+                this.codigoanotacao = value;
+                String nome = (String) JTAnotacoes.getModel().getValueAt(modelRow, 1);
+                //a2 = dao2.ReadAnamneseConsulta(codconsulta);
+                //codanamnese = a2.getCodAnamnese();
+                existe = readcampos(codigoanotacao);
+                ModalAnotacao.setSize(862, 870);
+                LabelNome5.setText(nome);
+                ModalAnotacao.setModal(true);
+                ModalAnotacao.setLocationRelativeTo(null);
+                ModalAnotacao.setVisible(true);
+            } else {
+                JOptionPane.showMessageDialog(this, "Selecione uma anotacao para alterar");
+            }
+
         }
-           
-       }
     }//GEN-LAST:event_JTAnotacoesMousePressed
 
     private void BtnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVoltarActionPerformed
@@ -641,6 +847,123 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
         tl.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BtnExibirAnotacoes1ActionPerformed
+
+    private void txtBuscaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscaKeyPressed
+        //        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+        //            this.ReadJTableBusca(txtBusca.getText());
+        //        }
+    }//GEN-LAST:event_txtBuscaKeyPressed
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        // TODO add your handling code here:
+
+        //System.out.println(JCBAtributo.getSelectedIndex());
+        getCountBusca(txtBusca.getText());
+        SpinnerNumPaginas.setValue(1);
+        LabelQtdePaginas.setText("de " + totalPages);
+        getPageDataBusca(1, txtBusca.getText());
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void SpinnerLimiteStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_SpinnerLimiteStateChanged
+        // TODO add your handling code here:
+        if (txtBusca.getText() != "") {
+            PAGE_SIZE = (int) SpinnerLimite.getValue();
+            getCountBusca(txtBusca.getText());
+            SpinnerNumPaginas.setModel(new javax.swing.SpinnerNumberModel(1, 1, totalPages, 1));
+            SpinnerNumPaginas.setValue((int) currentPage);
+
+            LabelQtdePaginas.setText("de " + totalPages);
+            getPageDataBusca(1, txtBusca.getText());
+        } else {
+            PAGE_SIZE = (int) SpinnerLimite.getValue();
+            getCount();
+
+            SpinnerNumPaginas.setModel(new javax.swing.SpinnerNumberModel(1, 1, totalPages, 1));
+            SpinnerNumPaginas.setValue((int) currentPage);
+
+            LabelQtdePaginas.setText("de " + totalPages);
+            getPageData(1);
+        }
+    }//GEN-LAST:event_SpinnerLimiteStateChanged
+
+    private void BtnVoltarBastanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVoltarBastanteActionPerformed
+        if (currentPage != 1) {
+            if (txtBusca.getText() != "") {
+                if (currentPage - 5 < 1) {
+                    getPageDataBusca(1, txtBusca.getText());
+                } else {
+                    getPageDataBusca(currentPage - 5, txtBusca.getText());
+                }
+
+            } else {
+                if (currentPage - 5 < 1) {
+                    getPageData(1);
+                } else {
+                    getPageData(currentPage - 5);
+                }
+            }
+
+        }
+        SpinnerNumPaginas.setValue((int) currentPage);
+    }//GEN-LAST:event_BtnVoltarBastanteActionPerformed
+
+    private void BtnVoltarPoucoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVoltarPoucoActionPerformed
+        // TODO add your handling code here:
+        if (currentPage != 1) { //diferente da 1 pagina
+            if (txtBusca.getText() != "") {
+                getPageDataBusca(currentPage - 1, txtBusca.getText());
+            } else {
+                getPageData(currentPage - 1);
+            }
+
+        }
+        SpinnerNumPaginas.setValue((int) currentPage);
+    }//GEN-LAST:event_BtnVoltarPoucoActionPerformed
+
+    private void SpinnerNumPaginasStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_SpinnerNumPaginasStateChanged
+        // TODO add your handling code here:
+        if (txtBusca.getText() != "") {
+            getPageDataBusca((int) SpinnerNumPaginas.getValue(), txtBusca.getText());
+
+        } else {
+
+            getPageData((int) SpinnerNumPaginas.getValue());
+        }
+        //
+    }//GEN-LAST:event_SpinnerNumPaginasStateChanged
+
+    private void BtnAvancarPoucoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAvancarPoucoActionPerformed
+        if (currentPage < totalPages) {
+            if (txtBusca.getText() != "") {
+                getPageDataBusca(currentPage + 1, txtBusca.getText());
+            } else {
+                getPageData(currentPage + 1);
+            }
+
+        }
+        SpinnerNumPaginas.setValue((int) currentPage);
+    }//GEN-LAST:event_BtnAvancarPoucoActionPerformed
+
+    private void BtnAvancarBastanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAvancarBastanteActionPerformed
+        // TODO add your handling code here:
+        if (currentPage < totalPages) { //se tem pagina e é menor que a ultima
+            if (txtBusca.getText() != "") {
+                if (currentPage + 5 > totalPages) {
+                    getPageDataBusca(totalPages, txtBusca.getText());
+                } else {
+                    getPageDataBusca(currentPage + 5, txtBusca.getText());
+                }
+            } else {
+                if (currentPage + 5 > totalPages) {
+                    getPageData(totalPages);
+                } else {
+                    getPageData(currentPage + 5);
+                }
+            }
+
+        }
+        SpinnerNumPaginas.setValue((int) currentPage);
+    }//GEN-LAST:event_BtnAvancarBastanteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -680,6 +1003,8 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnAlterarAnotacao;
+    private javax.swing.JButton BtnAvancarBastante;
+    private javax.swing.JButton BtnAvancarPouco;
     private javax.swing.JButton BtnCancelarAnotacao;
     private javax.swing.JButton BtnConsultas;
     private javax.swing.JButton BtnExcluirAnotacao;
@@ -689,17 +1014,26 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
     private javax.swing.JButton BtnPacientes;
     private javax.swing.JButton BtnSalvarAlteracoesAnotacao;
     private javax.swing.JButton BtnVoltar;
+    private javax.swing.JButton BtnVoltarBastante;
+    private javax.swing.JButton BtnVoltarPouco;
     private javax.swing.JTable JTAnotacoes;
     private javax.swing.JLabel LabelAssunto;
     private javax.swing.JLabel LabelAssunto1;
+    private javax.swing.JLabel LabelLimite;
     private javax.swing.JLabel LabelNome5;
     private javax.swing.JLabel LabelNomePaciente;
+    private javax.swing.JLabel LabelPagina;
+    private javax.swing.JLabel LabelQtdePaginas;
     private javax.swing.JDialog ModalAnotacao;
     private javax.swing.JPanel PainelIdentificacaoPessoal3;
     private javax.swing.JPanel PainelMenu;
+    private javax.swing.JPanel PainelPaginacao;
+    private javax.swing.JSpinner SpinnerLimite;
+    private javax.swing.JSpinner SpinnerNumPaginas;
     private javax.swing.JButton btnBuscar;
     private LIB.JEImagePanel jEImagePanel1;
     private LIB.JEImagePanel jEImagePanel4;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
