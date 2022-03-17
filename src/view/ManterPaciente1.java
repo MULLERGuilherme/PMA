@@ -3248,7 +3248,9 @@ public class ManterPaciente1 extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnConsultasActionPerformed
 
     private void BtnExibirAnamnesesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExibirAnamnesesActionPerformed
-        // TODO add your handling code here:
+        ExibirAnamneses ma = new ExibirAnamneses();
+        Util.SizeJanela(ma);
+        this.dispose();
     }//GEN-LAST:event_BtnExibirAnamnesesActionPerformed
 
     private void BtnExibirAnotacoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExibirAnotacoesActionPerformed
