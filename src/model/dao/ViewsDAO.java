@@ -731,4 +731,118 @@ public class ViewsDAO {
         return vw;
     }
     
+    
+    
+    //Paginacao Exibir Anamneses
+     public double getRowCountTableExibirAnamneses(int codPsicologo){
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        long count = 0;
+          try {
+            stmt = con.prepareStatement("SELECT count(Distinct CodAnamnese) FROM vw_Anamnese_Paciente Where CodigoPsicologo = ?") ;
+            stmt.setInt(1, codPsicologo);
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                count = rs.getLong("count(Distinct CodAnamnese)");
+ 
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ViewsDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt, rs);
+        }
+
+        return count;
+    }
+          public double getRowCountTableExibirAnamnesesBusca(int codPsicologo, String Busca){
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        long count = 0;
+          try {
+            stmt = con.prepareStatement("SELECT count(Distinct CodAnamnese) FROM vw_Anamnese_Paciente WHERE CodigoPsicologo = ? AND ((Paciente Like '%"+Busca+"%') OR (Diagnostico Like '%"+Busca+"%') OR (DataConsulta Like '%"+Busca+"%'))") ; 
+            stmt.setInt(1, codPsicologo);
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                count = rs.getLong("count(Distinct CodAnamnese)");
+ 
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ViewsDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt, rs);
+        }
+
+        return count;
+    }
+     
+     public List<Vw_Anamnese_Paciente> fetchBySizeExibirAnamneses(int codPsicologo, int start, int size) {
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        List<Vw_Anamnese_Paciente> vw = new ArrayList<>();
+        try {
+            stmt = con.prepareStatement("SELECT * FROM vw_Anamnese_Paciente Where CodigoPsicologo = ? Group By CodAnamnese Limit "+size+" OFFSET "+start) ;
+            stmt.setInt(1, codPsicologo);
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                Vw_Anamnese_Paciente v = new Vw_Anamnese_Paciente();
+
+                v.getPaciente().setCodPaciente(rs.getInt("CodigoPaciente"));
+                v.getPaciente().setNome_Completo(rs.getString("Paciente"));
+                v.getConsulta().setDataConsulta(rs.getTimestamp("DataConsulta"));
+                
+                v.getAnamnese().setCodAnamnese(rs.getInt("CodAnamnese"));
+                 v.getAnamnese().setDiagnostico(rs.getString("Diagnostico"));
+                vw.add(v);
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ConsultaDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt, rs);
+        }
+
+        return vw;
+    }
+     
+     
+     public List<Vw_Anamnese_Paciente> fetchBySizeExibirAnamnesesBusca(int codPsicologo, int start, int size, String Busca) {
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        List<Vw_Anamnese_Paciente> vw = new ArrayList<>();
+        try {
+            stmt = con.prepareStatement("SELECT * FROM vw_Anamnese_Paciente Where CodigoPsicologo = ? And ((Paciente Like '%"+Busca+"%') OR (Diagnostico Like '%"+Busca+"%') OR (DataConsulta Like '%"+Busca+"%')) Group By CodAnamnese Limit "+size+" OFFSET "+start) ; 
+            stmt.setInt(1, codPsicologo);
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                Vw_Anamnese_Paciente v = new Vw_Anamnese_Paciente();
+
+                v.getPaciente().setCodPaciente(rs.getInt("CodigoPaciente"));
+                v.getPaciente().setNome_Completo(rs.getString("Paciente"));
+                v.getConsulta().setDataConsulta(rs.getTimestamp("DataConsulta"));
+                
+                v.getAnamnese().setCodAnamnese(rs.getInt("CodAnamnese"));
+                 v.getAnamnese().setDiagnostico(rs.getString("Diagnostico"));
+                vw.add(v);
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ConsultaDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt, rs);
+        }
+
+        return vw;
+    }
 }

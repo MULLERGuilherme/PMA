@@ -27,7 +27,6 @@ import model.dao.ConsultaDAO;
 import model.dao.PacienteDAO;
 import model.dao.ViewsDAO;
 
-
 /**
  *
  * @author guimu
@@ -36,9 +35,64 @@ public class ExibirAnamneses extends javax.swing.JFrame {
 
     public boolean existe = false;
     public static int codigoanamnese;
-   
+
+    //Paginacao
+    int PAGE_SIZE = 1;
+    double tableRowCount;
+    int totalPages;
+    int currentPage = 0;
+    int startRow = 0;
+
+    public void getCount() {
+        ViewsDAO dao = new ViewsDAO();
+        tableRowCount = dao.getRowCountTableExibirAnamneses(Main.cod);
+//        System.out.println("linhas");
+//        System.out.println(tableRowCount);
+        if (tableRowCount > 0) {
+            totalPages = (int) Math.ceil(tableRowCount / PAGE_SIZE);
+            currentPage = 1;
+
+        }
+
+    }
+
+    public void getCountBusca(String Busca) {
+        ViewsDAO dao = new ViewsDAO();
+
+        tableRowCount = dao.getRowCountTableExibirAnamnesesBusca(Main.cod, Busca);
+        //System.out.println(tableRowCount);
+        if (tableRowCount > 0) {
+            totalPages = (int) Math.ceil(tableRowCount / PAGE_SIZE);
+            currentPage = 1;
+
+        }
+
+    }
+
+    public void getPageData(int pageNo) {
+
+        currentPage = pageNo;
+
+        //calculate starting row for pagination
+        startRow = PAGE_SIZE * (pageNo - 1);
+
+        ReadJTablePag(startRow, PAGE_SIZE);
+
+    }
+
+    public void getPageDataBusca(int pageNo, String Busca) {
+
+        currentPage = pageNo;
+
+        //calculate starting row for pagination
+        startRow = PAGE_SIZE * (pageNo - 1);
+
+        ReadJTableBuscaPag(Busca, startRow, PAGE_SIZE);
+
+    }
 
     public ExibirAnamneses() {
+        this.getCount();
         initComponents();
         btnalterar.setEnabled(false);
         btnExcluir.setEnabled(false);
@@ -46,11 +100,17 @@ public class ExibirAnamneses extends javax.swing.JFrame {
         TableColumnModel cmod = JTAnamneses.getColumnModel();
         cmod.removeColumn(cmod.getColumn(0));
         JTAnamneses.setRowSorter(new TableRowSorter(dtmPacientes));
-        ReadJTable();
+        this.getPageData(1);
+        SpinnerNumPaginas.setValue((int) currentPage);
+        LabelQtdePaginas.setText("de " + totalPages);
+        SpinnerLimite.setValue((int) PAGE_SIZE);
+        System.out.println(totalPages);
+
+        //ReadJTable();
     }
 
     public boolean readcampos(int cod) {
-        Anamnese a ;
+        Anamnese a;
         AnamneseDAO dao = new AnamneseDAO();
         a = dao.ReadAnamnese(cod);
         int codanamnese = a.getCodAnamnese();
@@ -88,7 +148,26 @@ public class ExibirAnamneses extends javax.swing.JFrame {
         return false;
     }
 
-    private void ReadJTable() {
+//    private void ReadJTable() {
+//        DefaultTableModel model = (DefaultTableModel) JTAnamneses.getModel();
+//        model.setNumRows(0);
+//        ViewsDAO vwdao = new ViewsDAO();
+//        //ConsultaDAO cdao = new ConsultaDAO();
+//        //PacienteDAO pdao = new PacienteDAO();
+//        //Paciente p = new Paciente();
+//
+//        for (Vw_Anamnese_Paciente v : vwdao.ReadAnamnesePaciente(Main.cod)) {
+//            //p = pdao.ReadPaciente(c.getPaciente().getCodPaciente());
+//            model.addRow(new Object[]{
+//                v.getAnamnese().getCodAnamnese(),
+//                v.getPaciente().getNome_Completo(),
+//                v.getAnamnese().getDiagnostico(),
+//                Validar.fDatetime((Timestamp) v.getConsulta().getDataConsulta())
+//
+//            });
+//        }
+//    }
+    private void ReadJTablePag(int start, int size) {
         DefaultTableModel model = (DefaultTableModel) JTAnamneses.getModel();
         model.setNumRows(0);
         ViewsDAO vwdao = new ViewsDAO();
@@ -96,7 +175,7 @@ public class ExibirAnamneses extends javax.swing.JFrame {
         //PacienteDAO pdao = new PacienteDAO();
         //Paciente p = new Paciente();
 
-        for (Vw_Anamnese_Paciente v : vwdao.ReadAnamnesePaciente(Main.cod)) {
+        for (Vw_Anamnese_Paciente v : vwdao.fetchBySizeExibirAnamneses(Main.cod, start, size)) {
             //p = pdao.ReadPaciente(c.getPaciente().getCodPaciente());
             model.addRow(new Object[]{
                 v.getAnamnese().getCodAnamnese(),
@@ -108,14 +187,32 @@ public class ExibirAnamneses extends javax.swing.JFrame {
         }
     }
 
-    public void ReadJTableBusca( String Busca) {
+//    public void ReadJTableBusca( String Busca) {
+//
+//        DefaultTableModel model = (DefaultTableModel) JTAnamneses.getModel();
+//        model.setNumRows(0);
+//      
+//        ViewsDAO vwdao = new ViewsDAO();
+//
+//        for (Vw_Anamnese_Paciente v : vwdao.BuscaExibirAnamnesesOA( Busca, Main.cod)) {
+//
+//            model.addRow(new Object[]{
+//                v.getAnamnese().getCodAnamnese(),
+//                v.getPaciente().getNome_Completo(),
+//                v.getAnamnese().getDiagnostico(),
+//                Validar.fDatetime((Timestamp) v.getConsulta().getDataConsulta())
+//
+//            });
+//        }
+//    }
+    public void ReadJTableBuscaPag(String Busca, int start, int size) {
 
         DefaultTableModel model = (DefaultTableModel) JTAnamneses.getModel();
         model.setNumRows(0);
-      
+
         ViewsDAO vwdao = new ViewsDAO();
 
-        for (Vw_Anamnese_Paciente v : vwdao.BuscaExibirAnamnesesOA( Busca, Main.cod)) {
+        for (Vw_Anamnese_Paciente v : vwdao.fetchBySizeExibirAnamnesesBusca(Main.cod, start, size, Busca)) {
 
             model.addRow(new Object[]{
                 v.getAnamnese().getCodAnamnese(),
@@ -252,6 +349,16 @@ public class ExibirAnamneses extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         JTAnamneses = new javax.swing.JTable();
+        PainelPaginacao = new javax.swing.JPanel();
+        LabelLimite = new javax.swing.JLabel();
+        SpinnerLimite = new javax.swing.JSpinner();
+        BtnVoltarBastante = new javax.swing.JButton();
+        BtnVoltarPouco = new javax.swing.JButton();
+        LabelPagina = new javax.swing.JLabel();
+        SpinnerNumPaginas = new javax.swing.JSpinner();
+        LabelQtdePaginas = new javax.swing.JLabel();
+        BtnAvancarPouco = new javax.swing.JButton();
+        BtnAvancarBastante = new javax.swing.JButton();
         PainelMenu = new javax.swing.JPanel();
         BtnVoltar = new javax.swing.JButton();
         BtnPacientes = new javax.swing.JButton();
@@ -843,20 +950,117 @@ public class ExibirAnamneses extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(JTAnamneses);
 
+        PainelPaginacao.setOpaque(false);
+
+        LabelLimite.setBackground(new java.awt.Color(204, 204, 204));
+        LabelLimite.setText("Limite");
+
+        SpinnerLimite.setModel(new javax.swing.SpinnerNumberModel(1, 1, 15, 1));
+        SpinnerLimite.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                SpinnerLimiteStateChanged(evt);
+            }
+        });
+
+        BtnVoltarBastante.setText("<<");
+        BtnVoltarBastante.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnVoltarBastanteActionPerformed(evt);
+            }
+        });
+
+        BtnVoltarPouco.setText("<");
+        BtnVoltarPouco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnVoltarPoucoActionPerformed(evt);
+            }
+        });
+
+        LabelPagina.setBackground(new java.awt.Color(204, 204, 204));
+        LabelPagina.setText("Página");
+
+        SpinnerNumPaginas.setModel(new javax.swing.SpinnerNumberModel(1, 1, totalPages, 1));
+        SpinnerNumPaginas.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                SpinnerNumPaginasStateChanged(evt);
+            }
+        });
+
+        LabelQtdePaginas.setBackground(new java.awt.Color(204, 204, 204));
+        LabelQtdePaginas.setText("de X");
+
+        BtnAvancarPouco.setText(">");
+        BtnAvancarPouco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAvancarPoucoActionPerformed(evt);
+            }
+        });
+
+        BtnAvancarBastante.setText(">>");
+        BtnAvancarBastante.setOpaque(false);
+        BtnAvancarBastante.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAvancarBastanteActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout PainelPaginacaoLayout = new javax.swing.GroupLayout(PainelPaginacao);
+        PainelPaginacao.setLayout(PainelPaginacaoLayout);
+        PainelPaginacaoLayout.setHorizontalGroup(
+            PainelPaginacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PainelPaginacaoLayout.createSequentialGroup()
+                .addContainerGap(67, Short.MAX_VALUE)
+                .addComponent(LabelLimite)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(SpinnerLimite, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(BtnVoltarBastante)
+                .addGap(18, 18, 18)
+                .addComponent(BtnVoltarPouco)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(LabelPagina)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(SpinnerNumPaginas, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(LabelQtdePaginas)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(BtnAvancarPouco)
+                .addGap(18, 18, 18)
+                .addComponent(BtnAvancarBastante)
+                .addGap(8, 8, 8))
+        );
+        PainelPaginacaoLayout.setVerticalGroup(
+            PainelPaginacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelPaginacaoLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(PainelPaginacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(SpinnerNumPaginas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LabelPagina, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LabelQtdePaginas, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BtnAvancarPouco)
+                    .addComponent(BtnAvancarBastante)
+                    .addComponent(BtnVoltarPouco)
+                    .addComponent(BtnVoltarBastante)
+                    .addComponent(SpinnerLimite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LabelLimite, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+
         javax.swing.GroupLayout jEImagePanel1Layout = new javax.swing.GroupLayout(jEImagePanel1);
         jEImagePanel1.setLayout(jEImagePanel1Layout);
         jEImagePanel1Layout.setHorizontalGroup(
             jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jEImagePanel1Layout.createSequentialGroup()
-                .addContainerGap(109, Short.MAX_VALUE)
-                .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jEImagePanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel14)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(7, 7, 7)
-                        .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 716, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jEImagePanel1Layout.createSequentialGroup()
+                .addContainerGap(111, Short.MAX_VALUE)
+                .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(PainelPaginacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jEImagePanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel14)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 716, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnalterar, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
@@ -866,21 +1070,22 @@ public class ExibirAnamneses extends javax.swing.JFrame {
         jEImagePanel1Layout.setVerticalGroup(
             jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jEImagePanel1Layout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel14)
-                    .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnBuscar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel14)))
                 .addGap(18, 18, 18)
                 .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jEImagePanel1Layout.createSequentialGroup()
-                        .addGap(58, 58, 58)
                         .addComponent(btnalterar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 369, Short.MAX_VALUE))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 525, Short.MAX_VALUE))
-                .addContainerGap())
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(PainelPaginacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         getContentPane().add(jEImagePanel1, java.awt.BorderLayout.CENTER);
@@ -1013,8 +1218,7 @@ public class ExibirAnamneses extends javax.swing.JFrame {
             } else {
                 JOptionPane.showMessageDialog(this, "Houve um problema ao ler a anamnese selecionada", "ERRO", JOptionPane.ERROR_MESSAGE);
             }
-            
-            
+
         } else {
             JOptionPane.showMessageDialog(this, "Selecione uma anamnese para alterar");
         }
@@ -1039,20 +1243,33 @@ public class ExibirAnamneses extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(this, "Selecione uma anamnese para excluir");
         }
-        ReadJTable();
+        if (txtBusca.getText() == "") {
+            getCountBusca(txtBusca.getText());
+            SpinnerNumPaginas.setValue(currentPage);
+            LabelQtdePaginas.setText("de " + totalPages);
+            getPageDataBusca(currentPage, txtBusca.getText());
+        } else {
+            getCount();
+            SpinnerNumPaginas.setValue(currentPage);
+            LabelQtdePaginas.setText("de " + totalPages);
+            getPageDataBusca(currentPage, txtBusca.getText());
+        }
     }//GEN-LAST:event_btnExcluirActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
 
         //System.out.println(JCBAtributo.getSelectedIndex());
-        this.ReadJTableBusca(txtBusca.getText());
+        getCountBusca(txtBusca.getText());
+        SpinnerNumPaginas.setValue(1);
+        LabelQtdePaginas.setText("de " + totalPages);
+        getPageDataBusca(1, txtBusca.getText());
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void txtBuscaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscaKeyPressed
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            this.ReadJTableBusca( txtBusca.getText());
-        }
+//        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+//            this.ReadJTableBusca(txtBusca.getText());
+//        }
     }//GEN-LAST:event_txtBuscaKeyPressed
 
     private void BtnSalvarAlteracoes5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalvarAlteracoes5ActionPerformed
@@ -1064,45 +1281,44 @@ public class ExibirAnamneses extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnCancelar5ActionPerformed
 
     private void BtnCancelar7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCancelar7ActionPerformed
-       ModalAnamnese2.dispose();
+        ModalAnamnese2.dispose();
     }//GEN-LAST:event_BtnCancelar7ActionPerformed
 
     private void BtnSalvarAlteracoes7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalvarAlteracoes7ActionPerformed
-         
-            Alterar(codigoanamnese);
-        
+
+        Alterar(codigoanamnese);
+
     }//GEN-LAST:event_BtnSalvarAlteracoes7ActionPerformed
 
     private void JTAnamnesesMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTAnamnesesMousePressed
-        if(evt.getClickCount() == 2 ) {
-           if (JTAnamneses.getSelectedRow() != -1) {
+        if (evt.getClickCount() == 2) {
             if (JTAnamneses.getSelectedRow() != -1) {
-            Anamnese a2 = new Anamnese();
-            AnamneseDAO dao2 = new AnamneseDAO();
-            int modelRow = JTAnamneses.convertRowIndexToModel(JTAnamneses.getSelectedRow());
-            int value = (Integer) JTAnamneses.getModel().getValueAt(modelRow, 0);
-            this.codigoanamnese = value;
-            //a2 = dao2.ReadAnamneseConsulta(codconsulta);
-            //codanamnese = a2.getCodAnamnese();
-            existe = readcampos(codigoanamnese);
-            if (existe) {
-                //LabelModalAnamnese.setText("Lendo dados da Anamnese Cadastrada na consulta");
-            } else {
-                //LabelModalAnamnese.setText(" Cadastrar anamnese na consulta");
-            }
+                if (JTAnamneses.getSelectedRow() != -1) {
+                    Anamnese a2 = new Anamnese();
+                    AnamneseDAO dao2 = new AnamneseDAO();
+                    int modelRow = JTAnamneses.convertRowIndexToModel(JTAnamneses.getSelectedRow());
+                    int value = (Integer) JTAnamneses.getModel().getValueAt(modelRow, 0);
+                    this.codigoanamnese = value;
+                    //a2 = dao2.ReadAnamneseConsulta(codconsulta);
+                    //codanamnese = a2.getCodAnamnese();
+                    existe = readcampos(codigoanamnese);
+                    if (existe) {
+                        //LabelModalAnamnese.setText("Lendo dados da Anamnese Cadastrada na consulta");
+                    } else {
+                        //LabelModalAnamnese.setText(" Cadastrar anamnese na consulta");
+                    }
 
-            ModalAnamnese2.setSize(1039, 967);
-            jScrollPane3.getVerticalScrollBar().setUnitIncrement(20);
-            ModalAnamnese2.setModal(true);
-            ModalAnamnese2.setLocationRelativeTo(null);
-            ModalAnamnese2.setVisible(true);
-            
-            
-        } else {
-            JOptionPane.showMessageDialog(this, "Selecione uma anamnese para alterar");
+                    ModalAnamnese2.setSize(1039, 967);
+                    jScrollPane3.getVerticalScrollBar().setUnitIncrement(20);
+                    ModalAnamnese2.setModal(true);
+                    ModalAnamnese2.setLocationRelativeTo(null);
+                    ModalAnamnese2.setVisible(true);
+
+                } else {
+                    JOptionPane.showMessageDialog(this, "Selecione uma anamnese para alterar");
+                }
+            }
         }
-      }
-     } 
     }//GEN-LAST:event_JTAnamnesesMousePressed
 
     private void JTAnamnesesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTAnamnesesMouseClicked
@@ -1146,6 +1362,107 @@ public class ExibirAnamneses extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_BtnExibirAnotacoes1ActionPerformed
 
+    private void SpinnerLimiteStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_SpinnerLimiteStateChanged
+        // TODO add your handling code here:
+        if (txtBusca.getText() != "") {
+            PAGE_SIZE = (int) SpinnerLimite.getValue();
+            getCountBusca(txtBusca.getText());
+            SpinnerNumPaginas.setModel(new javax.swing.SpinnerNumberModel(1, 1, totalPages, 1));
+            SpinnerNumPaginas.setValue((int) currentPage);
+
+            LabelQtdePaginas.setText("de " + totalPages);
+            getPageDataBusca(1, txtBusca.getText());
+        } else {
+            PAGE_SIZE = (int) SpinnerLimite.getValue();
+            getCount();
+
+            SpinnerNumPaginas.setModel(new javax.swing.SpinnerNumberModel(1, 1, totalPages, 1));
+            SpinnerNumPaginas.setValue((int) currentPage);
+
+            LabelQtdePaginas.setText("de " + totalPages);
+            getPageData(1);
+        }
+    }//GEN-LAST:event_SpinnerLimiteStateChanged
+
+    private void BtnVoltarBastanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVoltarBastanteActionPerformed
+        if (currentPage != 1) {
+            if (txtBusca.getText() != "") {
+                if (currentPage - 5 < 1) {
+                    getPageDataBusca(1, txtBusca.getText());
+                } else {
+                    getPageDataBusca(currentPage - 5, txtBusca.getText());
+                }
+
+            } else {
+                if (currentPage - 5 < 1) {
+                    getPageData(1);
+                } else {
+                    getPageData(currentPage - 5);
+                }
+            }
+
+        }
+        SpinnerNumPaginas.setValue((int) currentPage);
+    }//GEN-LAST:event_BtnVoltarBastanteActionPerformed
+
+    private void BtnVoltarPoucoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVoltarPoucoActionPerformed
+        // TODO add your handling code here:
+        if (currentPage != 1) { //diferente da 1 pagina
+            if (txtBusca.getText() != "") {
+                getPageDataBusca(currentPage - 1, txtBusca.getText());
+            } else {
+                getPageData(currentPage - 1);
+            }
+
+        }
+        SpinnerNumPaginas.setValue((int) currentPage);
+    }//GEN-LAST:event_BtnVoltarPoucoActionPerformed
+
+    private void SpinnerNumPaginasStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_SpinnerNumPaginasStateChanged
+        // TODO add your handling code here:
+        if (txtBusca.getText() != "") {
+            getPageDataBusca((int) SpinnerNumPaginas.getValue(), txtBusca.getText());
+
+        } else {
+
+            getPageData((int) SpinnerNumPaginas.getValue());
+        }
+        //
+    }//GEN-LAST:event_SpinnerNumPaginasStateChanged
+
+    private void BtnAvancarPoucoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAvancarPoucoActionPerformed
+        if (currentPage < totalPages) {
+            if (txtBusca.getText() != "") {
+                getPageDataBusca(currentPage + 1, txtBusca.getText());
+            } else {
+                getPageData(currentPage + 1);
+            }
+
+        }
+        SpinnerNumPaginas.setValue((int) currentPage);
+    }//GEN-LAST:event_BtnAvancarPoucoActionPerformed
+
+    private void BtnAvancarBastanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAvancarBastanteActionPerformed
+        // TODO add your handling code here:
+        if (currentPage < totalPages) { //se tem pagina e é menor que a ultima
+            if (txtBusca.getText() != "") {
+                if (currentPage + 5 > totalPages) {
+                    getPageDataBusca(totalPages, txtBusca.getText());
+                } else {
+                    getPageDataBusca(currentPage + 5, txtBusca.getText());
+                }
+            } else {
+                if (currentPage + 5 > totalPages) {
+                    getPageData(totalPages);
+                } else {
+                    getPageData(currentPage + 5);
+                }
+            }
+
+        }
+        SpinnerNumPaginas.setValue((int) currentPage);
+    }//GEN-LAST:event_BtnAvancarBastanteActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1185,6 +1502,8 @@ public class ExibirAnamneses extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnAvancarBastante;
+    private javax.swing.JButton BtnAvancarPouco;
     private javax.swing.JButton BtnCancelar5;
     private javax.swing.JButton BtnCancelar7;
     private javax.swing.JButton BtnConsultas;
@@ -1195,6 +1514,8 @@ public class ExibirAnamneses extends javax.swing.JFrame {
     private javax.swing.JButton BtnSalvarAlteracoes5;
     private javax.swing.JButton BtnSalvarAlteracoes7;
     private javax.swing.JButton BtnVoltar;
+    private javax.swing.JButton BtnVoltarBastante;
+    private javax.swing.JButton BtnVoltarPouco;
     private javax.swing.JCheckBox CheckBoxAfeto1;
     private javax.swing.JCheckBox CheckBoxAnsiedade1;
     private javax.swing.JCheckBox CheckBoxAtencao1;
@@ -1212,11 +1533,17 @@ public class ExibirAnamneses extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> JCBPsicomotricidade2;
     private javax.swing.JTable JTAnamneses;
     private javax.swing.JLabel LabelEmail3;
+    private javax.swing.JLabel LabelLimite;
     private javax.swing.JLabel LabelNome5;
+    private javax.swing.JLabel LabelPagina;
+    private javax.swing.JLabel LabelQtdePaginas;
     private javax.swing.JDialog ModalAnamnese2;
     private javax.swing.JPanel PainelDadosPaciente4;
     private javax.swing.JPanel PainelIdentificacaoPessoal4;
     private javax.swing.JPanel PainelMenu;
+    private javax.swing.JPanel PainelPaginacao;
+    private javax.swing.JSpinner SpinnerLimite;
+    private javax.swing.JSpinner SpinnerNumPaginas;
     private javax.swing.JComboBox<String> SubitaOuProgressiva2;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnExcluir;
