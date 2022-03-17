@@ -175,22 +175,21 @@ public class Validar {
         return dataFormatada;
     }
 
- public static Object fDatetime(Timestamp datat) {
-
+    public static Object fDatetime(Timestamp datat) {
 
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
-        LocalDateTime fdate =datat.toLocalDateTime();
-        return dtf.format(fdate)  ;
-    
-}
- public static Object ftime(Timestamp datat) {
+        LocalDateTime fdate = datat.toLocalDateTime();
+        return dtf.format(fdate);
 
+    }
+
+    public static Object ftime(Timestamp datat) {
 
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm");
-        LocalDateTime fdate =datat.toLocalDateTime();
-        return dtf.format(fdate)  ;
-    
-}
+        LocalDateTime fdate = datat.toLocalDateTime();
+        return dtf.format(fdate);
+
+    }
 
     public static boolean vCamposVazios(JFrame jframe, JTextField Nome, JTextField Email, JTextField CPF, DatePicker DataNasc, JTextField Telefone) {
         boolean vazio = false;
@@ -203,10 +202,10 @@ public class Validar {
             msg += "\nEmail";
             vazio = true;
         }
-            if(CPF.getText().isEmpty()){
-               msg+= "\nCPF";
-                vazio = true;
-            }
+        if (CPF.getText().isEmpty()) {
+            msg += "\nCPF";
+            vazio = true;
+        }
         if (Telefone.getText().isEmpty()) {
             msg += "\nTelefone";
             vazio = true;
@@ -221,7 +220,8 @@ public class Validar {
         return vazio;
 
     }
-     public static boolean vCamposVaziosAnm(JFrame jframe, JTextField QueixaPrincipal, DatePicker data ) {
+
+    public static boolean vCamposVaziosAnm(JFrame jframe, JTextField QueixaPrincipal, DatePicker data) {
         boolean vazio = false;
         String msg = "Existem Campos Obrigatórios em branco.\nFavor verificar os seguintes campos:\n";
         if (QueixaPrincipal.getText().isEmpty()) {
@@ -232,15 +232,15 @@ public class Validar {
             msg += "\n InicioDaQueixa";
             vazio = true;
         }
-     
+
         if (vazio) {
             JOptionPane.showMessageDialog(jframe, msg, "ERRO!", JOptionPane.ERROR_MESSAGE);
         }
         return vazio;
 
     }
-    
-        public static boolean vCamposVaziosAnt(JFrame jframe, JTextField Assunto, JTextArea Texto ) {
+
+    public static boolean vCamposVaziosAnt(JFrame jframe, JTextField Assunto, JTextArea Texto) {
         boolean vazio = false;
         String msg = "Existem Campos Obrigatórios em branco.\nFavor verificar os seguintes campos:\n";
         if (Assunto.getText().isEmpty()) {
@@ -251,13 +251,14 @@ public class Validar {
             msg += "\n Texto";
             vazio = true;
         }
-     
+
         if (vazio) {
-           JOptionPane.showMessageDialog(jframe, msg, "ERRO!", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(jframe, msg, "ERRO!", JOptionPane.ERROR_MESSAGE);
         }
         return vazio;
 
     }
+
     public static boolean vCamposVaziosPSI(JFrame jframe, JTextField Nome, JTextField Email, JTextField CRP, JTextField Login, JTextField Senha, JTextField Telefone) {
         boolean vazio = false;
         String msg = "Existem Campos Obrigatórios em branco.\nFavor verificar os seguintes campos:\n";
@@ -286,13 +287,11 @@ public class Validar {
             vazio = true;
         }
         if (vazio) {
-           JOptionPane.showMessageDialog(jframe, msg, "ERRO!", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(jframe, msg, "ERRO!", JOptionPane.ERROR_MESSAGE);
         }
         return vazio;
 
     }
-    
-    
 
     public static boolean vCamposVaziosPSI(JFrame jframe, JTextField Email, JTextField CRP) {
         boolean vazio = false;
@@ -307,7 +306,7 @@ public class Validar {
             vazio = true;
         }
         if (vazio) {
-           JOptionPane.showMessageDialog(jframe, msg, "ERRO!", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(jframe, msg, "ERRO!", JOptionPane.ERROR_MESSAGE);
         }
         return vazio;
 
@@ -335,8 +334,7 @@ public class Validar {
         return vazio;
 
     }
-    
-    
+
     public static boolean vCamposVaziosManterPSI(JFrame jframe, JTextField Nome, JTextField Email, JTextField CRP, JTextField Login, JTextField Telefone) {
         boolean vazio = false;
         String msg = "Existem Campos Obrigatórios em branco.\nFavor verificar os seguintes campos:\n";
@@ -360,7 +358,7 @@ public class Validar {
             msg += "\nLogin";
             vazio = true;
         }
-        if(Telefone.getText().isEmpty()){
+        if (Telefone.getText().isEmpty()) {
             msg += "\nTelefone 1";
             vazio = true;
         }
@@ -370,7 +368,8 @@ public class Validar {
         return vazio;
 
     }
- public static boolean vCamposVazios(JFrame jframe, JTextField Nome, JTextField Email, String CPF, DatePicker DataNasc, JTextField Telefone) {
+
+    public static boolean vCamposVazios(JFrame jframe, JTextField Nome, JTextField Email, String CPF, DatePicker DataNasc, JTextField Telefone) {
         boolean vazio = false;
         String msg = "Existem Campos Obrigatórios em branco.\nFavor verificar os seguintes campos:\n";
         if (Nome.getText().isEmpty()) {
@@ -381,10 +380,10 @@ public class Validar {
             msg += "\nEmail";
             vazio = true;
         }
-            if(CPF == null){
-               msg+= "\nCPF";
-                vazio = true;
-            }
+        if (CPF == "") {
+            msg += "\nCPF";
+            vazio = true;
+        }
         if (Telefone.getText().isEmpty()) {
             msg += "\nTelefone";
             vazio = true;
@@ -399,5 +398,5 @@ public class Validar {
         return vazio;
 
     }
-    
+
 }
