@@ -993,6 +993,11 @@ public class ManterPacienteAdm extends javax.swing.JFrame {
         BtnSalvarAlteracoesNovo3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnSalvarAlteracoesNovo3.setForeground(new java.awt.Color(255, 255, 255));
         BtnSalvarAlteracoesNovo3.setText("Salvar Alterações");
+        BtnSalvarAlteracoesNovo3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnSalvarAlteracoesNovo3ActionPerformed(evt);
+            }
+        });
 
         BtnCancelar3.setBackground(new java.awt.Color(255, 153, 153));
         BtnCancelar3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -2186,6 +2191,110 @@ public class ManterPacienteAdm extends javax.swing.JFrame {
             evt.consume();
         }
     }//GEN-LAST:event_txtCPF4KeyTyped
+
+    private void BtnSalvarAlteracoesNovo3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalvarAlteracoesNovo3ActionPerformed
+        boolean dadosvalidos = true;
+
+        Paciente p = new Paciente();
+        PacienteDAO dao = new PacienteDAO();
+        Telefone tf = new Telefone();
+        Telefone tf2 = new Telefone();
+        TelefoneDAO tfdao = new TelefoneDAO();
+        String msg = "Existem campos com formatos Inválidos\n\nFavor Verificar os campos:";
+        String cpf = null;
+        if ((String) txtCPF4.getValue() != null) {
+            cpf = (String) txtCPF4.getValue();
+            cpf = cpf.replace(".", "").replace("-", "");
+        }
+        if (!Validar.vCamposVazios(this, txtNome5, txtEmail4, cpf, DataNasc4, TxtTelefone10)) {
+            p.setCodPaciente(codigopaciente);
+            if (Validar.vNome(txtNome5.getText())) {
+                p.setNome_Completo(txtNome5.getText());
+            } else {
+                dadosvalidos = false;
+                msg += "\nNome Invalido: " + txtNome5.getText();
+            }
+
+            if (Validar.vEmail(txtEmail4.getText())) {
+                p.setEmail(txtEmail4.getText());
+            } else {
+                dadosvalidos = false;
+                msg += "\nEmail Invalido: " + txtEmail4.getText();
+            }
+
+            if (Validar.vCPF(cpf)) {
+                p.setCPF(cpf);
+            } else {
+                dadosvalidos = false;
+                msg += "\nCPF Invalido: " + cpf;
+            }
+
+            p.setEstadoCivil((String) estadocivil4.getSelectedItem());
+            p.setSexo((String) Sexo4.getSelectedItem());
+            p.setProfissao(TxtProfissao4.getText());
+            p.setReligiao(TxtReligiao4.getText());
+            p.setEscolaridade(TxtEscolaridade4.getText());
+            p.setEndereco(TxtEndereco4.getText());
+            p.setCidade(TxtCidade4.getText());
+
+            //java.util.Date date = new java.util.Date();
+            Object param = DataNasc4.getDate();
+
+            p.setDataNasc(param);
+
+            if (Validar.vTelefone(TxtTelefone10.getText())) {
+                tf.setNumero(TxtTelefone10.getText());
+            } else {
+                dadosvalidos = false;
+                msg += "\nNúmero de Telefone Invalido: " + TxtTelefone10.getText() + "\nO Número deve ser no formato xxxxxxxxxxx";
+            }
+            if (!TxtTelefone11.getText().isEmpty()) {
+                if (Validar.vTelefone(TxtTelefone11.getText())) {
+                    tf2.setNumero(TxtTelefone11.getText());
+                } else {
+                    dadosvalidos = false;
+                    msg += "\nNúmero de Telefone 2 Invalido: " + TxtTelefone11.getText() + "\nO Número deve ser no formato xxxxxxxxxxx";
+                }
+            }
+            if (dadosvalidos) {
+
+                if (dao.Update(p)) {
+
+                    p = dao.ReadPaciente(p.getCPF());
+
+                    tf.setPaciente(p);
+                    List<Telefone> t = new ArrayList<>();
+                    t = tfdao.Read(p.getCodPaciente());
+                    t.get(0).setNumero(TxtTelefone10.getText());
+                    if (tfdao.UpdateTPaciente(t.get(0))) {
+                        if (t.size() == 2) {
+                            t.get(1).setNumero(TxtTelefone11.getText());
+                            tfdao.UpdateTPaciente(t.get(1));
+                        }
+                        if (!TxtTelefone11.getText().isEmpty() && t.size() == 1) {
+                            tf2.setPaciente(p);
+                            tf2.setNumero(TxtTelefone11.getText());
+                            tfdao.CreatePc(tf2);
+
+                        }
+                        //JOptionPane.showMessageDialog(this, "Paciente " + p.getNome_Completo() + " Atualizado com sucesso");
+                        //this.clear();
+                        String str = "Paciente " + p.getNome_Completo() + " Atualizado com sucesso";
+                        LabelMsg.setText(str);
+                        LabelMsg.setVisible(true);
+                        BtnCancelar3.setText("Fechar");
+                    }
+
+                }
+
+                //mostrar mensagem de sucesso
+                // JOptionPane.showMessageDialog(null,"Paciente Cadastrado com Sucesso!");
+                ReadJTable();
+            } else {
+                JOptionPane.showMessageDialog(this, msg, "ERRO!", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }//GEN-LAST:event_BtnSalvarAlteracoesNovo3ActionPerformed
 
     /**
      * @param args the command line arguments
