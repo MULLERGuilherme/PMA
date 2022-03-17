@@ -24,14 +24,16 @@ import model.dao.AnamneseDAO;
 import model.dao.ConsultaDAO;
 import model.dao.PacienteDAO;
 import util.Util;
-import static view.ExibirConsultasPaciente.codpaciente;
+
 /**
  *
  * @author guimu
  */
 public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
+
     public static int codpaciente;
     private int codigoconsulta = -1;
+
     /**
      * Creates new form ExibirConsultasManterPaciente
      */
@@ -40,33 +42,30 @@ public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
         btnalterarconsulta.setEnabled(false);
         BtnExcluir.setEnabled(false);
         PacienteDAO pdao = new PacienteDAO();
-         Paciente p = new Paciente();
-         p = pdao.ReadPaciente(codpaciente);
-         lNome.setText(p.getNome_Completo());
-         DefaultTableModel dtmPacientes = (DefaultTableModel) JTConsultas.getModel();
+        Paciente p = new Paciente();
+        p = pdao.ReadPaciente(codpaciente);
+        lNome.setText(p.getNome_Completo());
+        DefaultTableModel dtmPacientes = (DefaultTableModel) JTConsultas.getModel();
         JTConsultas.setRowSorter(new TableRowSorter(dtmPacientes));
         ReadJTable();
     }
-private void ReadJTable() {
-          DefaultTableModel model = (DefaultTableModel) JTConsultas.getModel();
+
+    private void ReadJTable() {
+        DefaultTableModel model = (DefaultTableModel) JTConsultas.getModel();
         model.setNumRows(0);
-       
+
         ConsultaDAO cdao = new ConsultaDAO();
-        
-        
+
         for (Consulta c : cdao.Read(codpaciente)) {
-           
+
             model.addRow(new Object[]{
-               c.getCodConsulta(),
+                c.getCodConsulta(),
                 Validar.fDatetime((Timestamp) c.getDataConsulta()),
-               c.getStatus(),
-            });
+                c.getStatus(),});
         }
     }
 
-
-
- private void Alterar(int cod) {
+    private void Alterar(int cod) {
         Anamnese a = new Anamnese();
         AnamneseDAO dao = new AnamneseDAO();
         Anamnese a2 = new Anamnese();
@@ -110,6 +109,7 @@ private void ReadJTable() {
             }
         }
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -1053,11 +1053,12 @@ private void ReadJTable() {
         if (JTConsultas.getSelectedRow() != -1) {
 
             AlterarConsulta.codconsulta = ((int) JTConsultas.getValueAt(JTConsultas.getSelectedRow(), 0));
-            AlterarConsulta cp = new AlterarConsulta();
+            AlterarConsulta cp = new AlterarConsulta(this);
+            cp.setLocationRelativeTo(null);
+            cp.setResizable(false);
             cp.setVisible(true);
-            this.setEnabled(false);
-           // this.dispose();
 
+            // this.dispose();
         } else {
             JOptionPane.showMessageDialog(this, "Selecione uma consulta para alterar");
         }
@@ -1069,10 +1070,10 @@ private void ReadJTable() {
 
             Consulta c = new Consulta();
             ConsultaDAO cdao = new ConsultaDAO();
-            c.setCodConsulta( ((int) JTConsultas.getValueAt(JTConsultas.getSelectedRow(), 0)));
+            c.setCodConsulta(((int) JTConsultas.getValueAt(JTConsultas.getSelectedRow(), 0)));
             boolean sucesso = Deletar.DConsulta(c);
 
-            if(sucesso){
+            if (sucesso) {
                 JOptionPane.showMessageDialog(this, "Consulta Apagada com Sucesso");
 
             }
@@ -1086,13 +1087,14 @@ private void ReadJTable() {
     private void JTConsultasMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTConsultasMousePressed
         btnalterarconsulta.setEnabled(true);
         BtnExcluir.setEnabled(true);
-        if(evt.getClickCount() == 2 ) {
+        if (evt.getClickCount() == 2) {
             if (JTConsultas.getSelectedRow() != -1) {
 
                 AlterarConsulta.codconsulta = ((int) JTConsultas.getValueAt(JTConsultas.getSelectedRow(), 0));
-                AlterarConsulta cp = new AlterarConsulta();
+                AlterarConsulta cp = new AlterarConsulta(this);
+                cp.setLocationRelativeTo(null);
+                cp.setResizable(false);
                 cp.setVisible(true);
-                this.dispose();
 
             } else {
                 JOptionPane.showMessageDialog(this, "Selecione uma consulta para alterar");
@@ -1121,8 +1123,9 @@ private void ReadJTable() {
 
     private void BtnSalvarAlteracoes4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalvarAlteracoes4ActionPerformed
 
-        if(codigoconsulta != -1)
-        Alterar(codigoconsulta);
+        if (codigoconsulta != -1) {
+            Alterar(codigoconsulta);
+        }
         //Alterar(codigoanamnese);
         //LabelModalAnamnese.setText("Lendo dados da Anamnese Cadastrada na consulta");
 

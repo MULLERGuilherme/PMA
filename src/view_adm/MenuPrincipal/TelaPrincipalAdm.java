@@ -35,7 +35,7 @@ import model.dao.ConsultaDAO;
 import model.dao.PacienteDAO;
 import model.dao.ViewsDAO;
 import util.Util;
-import static view.ExibirConsultasPaciente.codpaciente;
+
 public class TelaPrincipalAdm extends javax.swing.JFrame {
 
     /**

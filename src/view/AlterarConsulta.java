@@ -7,6 +7,8 @@ package view;
 
 import view.*;
 import Validacoes.Validar;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -16,6 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
@@ -37,16 +40,45 @@ import util.Util;
  */
 public class AlterarConsulta extends javax.swing.JFrame {
 
+    private WindowAdapter windowAdapter = null;
     public static int codconsulta;
     public static boolean existe;
-
+    public static JFrame jfpai = null;
     /**
      * Creates new form ManterConsulta
      */
-    public AlterarConsulta() {
+    public AlterarConsulta(JFrame pai) {
         initComponents();
+        jfpai = pai;
+        pai.setEnabled(false);
+        this.windowAdapter = new WindowAdapter() {
+            // WINDOW_CLOSING event handler
+            @Override
+            public void windowClosing(WindowEvent e) {
+                super.windowClosing(e);
+                // You can still stop closing if you want to
+             
+                    // dispose method issues the WINDOW_CLOSED event
+                    pai.setEnabled(true);
+                    AlterarConsulta.this.dispose();
+                
+            }
+
+            // WINDOW_CLOSED event handler
+            @Override
+            public void windowClosed(WindowEvent e) {
+                super.windowClosed(e);
+                // Close application if you want to with System.exit(0)
+                // but don't forget to dispose of all resources 
+                // like child frames, threads, ...
+                // System.exit(0);
+            }
+        };
         //System.out.println("alterar");
         //System.out.println(codconsulta);
+        this.setDefaultCloseOperation(AlterarConsulta.DO_NOTHING_ON_CLOSE);
+        // don't forget this
+        this.addWindowListener(this.windowAdapter);
         readatributos();
     }
 
@@ -58,7 +90,7 @@ public class AlterarConsulta extends javax.swing.JFrame {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String string;
         string = dateFormat.format(c.getDataConsulta());
-        System.out.println(string);
+        //System.out.println(string);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         LocalDateTime dateTime = LocalDateTime.parse(string, formatter);
         //System.out.println(Validar.fDatetime(c.getDataConsulta()));
@@ -1114,13 +1146,13 @@ public class AlterarConsulta extends javax.swing.JFrame {
 
     private void BtnSalvarAlteracoes4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalvarAlteracoes4ActionPerformed
 
-          if (existe) {
-                Alterar();
-                LabelModalAnamnese.setText("Lendo dados da Anamnese Cadastrada na consulta");
-            } else {
-                Cadastrar();
-                LabelModalAnamnese.setText(" Cadastrar anamnese na consulta");
-            }
+        if (existe) {
+            Alterar();
+            LabelModalAnamnese.setText("Lendo dados da Anamnese Cadastrada na consulta");
+        } else {
+            Cadastrar();
+            LabelModalAnamnese.setText(" Cadastrar anamnese na consulta");
+        }
     }//GEN-LAST:event_BtnSalvarAlteracoes4ActionPerformed
 
     private void BtnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVoltarActionPerformed
@@ -1128,7 +1160,7 @@ public class AlterarConsulta extends javax.swing.JFrame {
         ExibirConsultasManterPaciente tp = new ExibirConsultasManterPaciente();
         Util.SizeJanela(tp);
         tp.setVisible(true);
-       
+
         this.dispose();
     }//GEN-LAST:event_BtnVoltarActionPerformed
 
@@ -1163,7 +1195,8 @@ public class AlterarConsulta extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AlterarConsulta().setVisible(true);
+                
+                new AlterarConsulta(jfpai).setVisible(true);
             }
         });
     }
