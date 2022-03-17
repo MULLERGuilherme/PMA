@@ -380,7 +380,7 @@ public class Validar {
             msg += "\nEmail";
             vazio = true;
         }
-        if (CPF == "") {
+        if (CPF == null) {
             msg += "\nCPF";
             vazio = true;
         }
