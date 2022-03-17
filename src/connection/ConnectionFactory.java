@@ -23,9 +23,9 @@ import javax.swing.JOptionPane;
 public class ConnectionFactory {
     
    private static final String DRIVER  = "com.mysql.jdbc.Driver";
-    private static final String URL = "jdbc:mysql://pmabanconovo.mysql.uhserver.com/pmabanconovo";
-    private static final String USER = "pmabanconovo";
-    private static final String PASSWORD = "Muller1@";
+    public static String URL = "jdbc:mysql://pmabanconovo.mysql.uhserver.com/pmabanconovo";
+    public static String USER = "pmabanconovo";
+    public static String PASSWORD = "Muller1@";
     
     public static Connection getConnection(){
          try {
