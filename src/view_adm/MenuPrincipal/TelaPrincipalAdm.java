@@ -14,6 +14,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Toolkit;
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -35,12 +36,12 @@ import model.dao.ConsultaDAO;
 import model.dao.PacienteDAO;
 import model.dao.ViewsDAO;
 import util.Util;
+import static view.AlterarConsultapelomenu.codconsulta;
 
 public class TelaPrincipalAdm extends javax.swing.JFrame {
 
-    /**
-     * Creates new form TelaPrincipal4
-     */
+     public static int codconsulta;
+     
     public TelaPrincipalAdm() {
         initComponents();
         btnAlterar.setEnabled(false);
@@ -92,6 +93,17 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        ModalAlterarConsulta = new javax.swing.JDialog();
+        jPanel2 = new JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        datepicker = new com.github.lgooddatepicker.components.DateTimePicker();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        status = new javax.swing.JComboBox<>();
+        BtnAlterarConsulta = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jPanel1 = new JPanel();
         PainelMenu = new javax.swing.JPanel();
         BtnInicio = new javax.swing.JButton();
@@ -110,6 +122,105 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
         BtnExcluir = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         JTConsultas = new javax.swing.JTable();
+
+        jPanel2.setBackground(new java.awt.Color(59, 131, 117));
+        jPanel2.setForeground(new java.awt.Color(59, 131, 117));
+        jPanel2.setPreferredSize(new java.awt.Dimension(1080, 89));
+
+        jLabel4.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel4.setText("Alterar Consulta");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 576, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGap(188, 188, 188)
+                    .addComponent(jLabel4)
+                    .addContainerGap(202, Short.MAX_VALUE)))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 89, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGap(30, 30, 30)
+                    .addComponent(jLabel4)
+                    .addContainerGap(30, Short.MAX_VALUE)))
+        );
+
+        ModalAlterarConsulta.getContentPane().add(jPanel2, java.awt.BorderLayout.NORTH);
+
+        jLabel5.setText("Data");
+
+        jLabel6.setText("Status");
+
+        status.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A Confirmar","Confirmada","Cancelada", "Realizada" }));
+
+        BtnAlterarConsulta.setText("Salvar Alterações");
+        BtnAlterarConsulta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAlterarConsultaActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Visualizar Anamnese");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Visualizar Anotação");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel5)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(datepicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel6))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addGap(18, 18, 18)
+                        .addComponent(BtnAlterarConsulta)))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(status, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2))
+                .addContainerGap(34, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(53, 53, 53)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(datepicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6)
+                    .addComponent(status, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(60, 60, 60)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2)
+                    .addComponent(BtnAlterarConsulta)
+                    .addComponent(jButton1))
+                .addContainerGap(70, Short.MAX_VALUE))
+        );
+
+        ModalAlterarConsulta.getContentPane().add(jPanel3, java.awt.BorderLayout.CENTER);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -133,70 +244,70 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
         PainelMenu.setBackground(new java.awt.Color(102, 102, 102));
         PainelMenu.setForeground(new java.awt.Color(102, 102, 102));
 
+        BtnInicio.setText("Início");
         BtnInicio.setBackground(new java.awt.Color(102, 102, 102));
         BtnInicio.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnInicio.setForeground(new java.awt.Color(255, 255, 255));
-        BtnInicio.setText("Início");
         BtnInicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnInicioActionPerformed(evt);
             }
         });
 
+        BtnManterPaciente.setText("Pacientes");
         BtnManterPaciente.setBackground(new java.awt.Color(102, 102, 102));
         BtnManterPaciente.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnManterPaciente.setForeground(new java.awt.Color(255, 255, 255));
-        BtnManterPaciente.setText("Pacientes");
         BtnManterPaciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnManterPacienteActionPerformed(evt);
             }
         });
 
+        BtnManterConsulta.setText("Cadastrar Consulta");
         BtnManterConsulta.setBackground(new java.awt.Color(102, 102, 102));
         BtnManterConsulta.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnManterConsulta.setForeground(new java.awt.Color(255, 255, 255));
-        BtnManterConsulta.setText("Cadastrar Consulta");
         BtnManterConsulta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnManterConsultaActionPerformed(evt);
             }
         });
 
+        BtnManterPsicologo.setText("Psicólogos");
         BtnManterPsicologo.setBackground(new java.awt.Color(102, 102, 102));
         BtnManterPsicologo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnManterPsicologo.setForeground(new java.awt.Color(255, 255, 255));
-        BtnManterPsicologo.setText("Psicólogos");
         BtnManterPsicologo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnManterPsicologoActionPerformed(evt);
             }
         });
 
+        BtnExibirTodasAnamneses.setText("Exibir Todas as Anamneses");
         BtnExibirTodasAnamneses.setBackground(new java.awt.Color(102, 102, 102));
         BtnExibirTodasAnamneses.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnExibirTodasAnamneses.setForeground(new java.awt.Color(255, 255, 255));
-        BtnExibirTodasAnamneses.setText("Exibir Todas as Anamneses");
         BtnExibirTodasAnamneses.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnExibirTodasAnamnesesActionPerformed(evt);
             }
         });
 
+        BtnExibirTodasAnotacoes.setText("Exibir Todas as Anotações");
         BtnExibirTodasAnotacoes.setBackground(new java.awt.Color(102, 102, 102));
         BtnExibirTodasAnotacoes.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnExibirTodasAnotacoes.setForeground(new java.awt.Color(255, 255, 255));
-        BtnExibirTodasAnotacoes.setText("Exibir Todas as Anotações");
         BtnExibirTodasAnotacoes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnExibirTodasAnotacoesActionPerformed(evt);
             }
         });
 
+        BtnSair.setText("Sair");
         BtnSair.setBackground(new java.awt.Color(102, 102, 102));
         BtnSair.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnSair.setForeground(new java.awt.Color(255, 255, 255));
-        BtnSair.setText("Sair");
         BtnSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnSairActionPerformed(evt);
@@ -238,15 +349,15 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
 
         jEImagePanel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/spring-floral-watercolor-background-vector-green-with-leaf-illustration_53876-126350.jpg"))); // NOI18N
 
-        jLabel1.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel1.setText("Exibindo as Consultas do dia");
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
 
-        jLabel2.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         jLabel2.setText("jLabel2");
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel3.setText("Selecionar dia");
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
 
         DataChooser.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         DataChooser.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
@@ -263,8 +374,8 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
             }
         });
 
-        BtnExcluir.setBackground(new java.awt.Color(204, 204, 204));
         BtnExcluir.setText("Excluir");
+        BtnExcluir.setBackground(new java.awt.Color(204, 204, 204));
         BtnExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnExcluirActionPerformed(evt);
@@ -354,11 +465,13 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
         if (JTConsultas.getSelectedRow() != -1) {
             int modelRow = JTConsultas.convertRowIndexToModel(JTConsultas.getSelectedRow());
             int value = (Integer)JTConsultas.getModel().getValueAt(modelRow,0);
-            AlterarConsultapelomenu.codconsulta = value;
+            codconsulta = value;
+            readatributos();
 
-            AlterarConsultapelomenu cp = new AlterarConsultapelomenu();
-            cp.setVisible(true);
-            this.dispose();
+            ModalAlterarConsulta.setSize(586, 320);
+            ModalAlterarConsulta.setModal(true);
+            ModalAlterarConsulta.setLocationRelativeTo(null);
+            ModalAlterarConsulta.setVisible(true);
 
         } else {
             JOptionPane.showMessageDialog(this, "Selecione uma consulta para alterar");
@@ -426,6 +539,62 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_BtnSairActionPerformed
 
+    private void BtnAlterarConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAlterarConsultaActionPerformed
+        if (datepicker.getDateTimePermissive() == null) {
+            JOptionPane.showMessageDialog(this, "Por favor Insira uma data válida");
+        } else {
+            Consulta c = new Consulta();
+            ConsultaDAO cdao = new ConsultaDAO();
+
+            boolean sucesso = false;
+            c.setCodConsulta(codconsulta);
+            c.setDataConsulta(datepicker.getDateTimePermissive());
+            c.setStatus((String) status.getSelectedItem());
+            sucesso = cdao.Update(c);
+            if (sucesso) {
+                JOptionPane.showMessageDialog(this, "Consulta Salva com sucesso");
+            }
+
+        }
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnAlterarConsultaActionPerformed
+public void readatributos() {
+        Consulta c = new Consulta();
+        ConsultaDAO cdao = new ConsultaDAO();
+
+        c = cdao.ReadConsulta(codconsulta);
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String string;
+        string = dateFormat.format(c.getDataConsulta());
+        System.out.println(string);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        LocalDateTime dateTime = LocalDateTime.parse(string, formatter);
+        //System.out.println(Validar.fDatetime(c.getDataConsulta()));
+        datepicker.setDateTimePermissive(dateTime);
+
+        status.setSelectedItem(c.getStatus());
+    }
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        //        CadastrarAnamnesePaciente tp = new CadastrarAnamnesePaciente(codconsulta);
+        //         tp.codconsulta = codconsulta;
+        //        CadastrarAnamnesePaciente.codconsulta =codconsulta;
+        //
+        //
+        //
+        //        this.dispose();
+        //        tp.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        CadastrarAnotacaoPaciente tp = new CadastrarAnotacaoPaciente(codconsulta);
+        CadastrarAnotacaoPaciente.codconsulta =codconsulta;
+        tp.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -463,6 +632,7 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnAlterarConsulta;
     private javax.swing.JButton BtnExcluir;
     private javax.swing.JButton BtnExibirTodasAnamneses;
     private javax.swing.JButton BtnExibirTodasAnotacoes;
@@ -473,13 +643,23 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
     private javax.swing.JButton BtnSair;
     private com.toedter.calendar.JDateChooser DataChooser;
     private javax.swing.JTable JTConsultas;
+    private javax.swing.JDialog ModalAlterarConsulta;
     private javax.swing.JPanel PainelMenu;
     private javax.swing.JButton btnAlterar;
+    private com.github.lgooddatepicker.components.DateTimePicker datepicker;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private LIB.JEImagePanel jEImagePanel1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JComboBox<String> status;
     // End of variables declaration//GEN-END:variables
 }
