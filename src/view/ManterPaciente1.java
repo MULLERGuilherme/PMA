@@ -64,8 +64,8 @@ public class ManterPaciente1 extends javax.swing.JFrame {
     //Paginacao
     int PAGE_SIZE = 5;
     double tableRowCount;
-    int totalPages;
-    int currentPage = 0;
+    int totalPages = 1;
+    int currentPage = 1;
     int startRow = 0;
 
     public void getCount() {
@@ -73,9 +73,10 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         tableRowCount = dao.getRowCountTableManterPacientes();
         if (tableRowCount > 0) {
             totalPages = (int) Math.ceil(tableRowCount / PAGE_SIZE);
-            currentPage = 1;
+            
 
         }
+        currentPage = 1;
 
     }
 
@@ -86,10 +87,10 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         //System.out.println(tableRowCount);
         if (tableRowCount > 0) {
             totalPages = (int) Math.ceil(tableRowCount / PAGE_SIZE);
-            currentPage = 1;
+            
 
         }
-
+        currentPage = 1;
     }
 
     public void getPageData(int pageNo) {
@@ -2440,10 +2441,13 @@ public class ManterPaciente1 extends javax.swing.JFrame {
 
             boolean dadosvalidos = true;
             //ExibirAnamnesesPaciente.codpaciente = ((int) JTPacientes.getModel().getValueAt(JTPacientes.getSelectedRow(),0));
+           
             int modelRow = JTPacientes.convertRowIndexToModel(JTPacientes.getSelectedRow());
             int value = (Integer) JTPacientes.getModel().getValueAt(modelRow, 0);
+            this.codigopaciente = value;
+        
 
-            ExibirAnamneses2 ea = new ExibirAnamneses2(value);
+            ExibirAnamneses2 ea = new ExibirAnamneses2(codigopaciente);
             Util.SizeJanela(ea);
             ea.setVisible(true);
             this.dispose();

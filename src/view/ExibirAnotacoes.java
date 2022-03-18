@@ -73,8 +73,8 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
     //Paginacao
     int PAGE_SIZE = 1;
     double tableRowCount;
-    int totalPages;
-    int currentPage = 0;
+    int totalPages = 1;
+    int currentPage = 1;
     int startRow = 0;
 
     public void getCount() {
@@ -82,10 +82,10 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
         tableRowCount = dao.getRowCountTableExibirAnotacoes(Main.cod);
         if (tableRowCount > 0) {
             totalPages = (int) Math.ceil(tableRowCount / PAGE_SIZE);
-            currentPage = 1;
+          
 
         }
-
+          currentPage = 1;
     }
 
     public void getCountBusca(String Busca) {
@@ -98,7 +98,7 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
             currentPage = 1;
 
         }
-
+          currentPage = 1;
     }
 
     public void getPageData(int pageNo) {
