@@ -620,7 +620,9 @@ public class ExibirAnotacoesAdm extends javax.swing.JFrame {
     }//GEN-LAST:event_JTAnotacoesMouseClicked
 
     private void BtnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnInicioActionPerformed
-        // TODO add your handling code here:
+         TelaPrincipalAdm mp1 = new TelaPrincipalAdm();
+        Util.SizeJanela(mp1);
+        this.dispose();
     }//GEN-LAST:event_BtnInicioActionPerformed
 
     private void BtnManterPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnManterPacienteActionPerformed
