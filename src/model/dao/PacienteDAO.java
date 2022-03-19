@@ -302,7 +302,7 @@ public class PacienteDAO {
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("Delete FROM paciente WHERE CodPaciente =? ");
+            stmt = con.prepareStatement("Update paciente set Deletado = true WHERE CodPaciente =? ");
 
             stmt.setInt(1, p.getCodPaciente());
 

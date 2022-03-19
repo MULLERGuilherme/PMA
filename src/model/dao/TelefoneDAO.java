@@ -202,16 +202,12 @@ public class TelefoneDAO {
         boolean status = true;
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
-
-        try {
-            stmt = con.prepareStatement("Delete FROM telefone WHERE CodPaciente =? ");
-
+        try{
+            stmt = con.prepareStatement("Update telefone set Deletado = true WHERE CodPaciente =? ");
             stmt.setInt(1, p.getCodPaciente());
 
             stmt.executeUpdate();
-
-          
-        } catch (SQLException ex) {
+        }catch (SQLException ex) {
           Logger.getLogger(TelefoneDAO.class.getName()).log(Level.SEVERE, null, ex);
           status = false;
 
@@ -219,6 +215,22 @@ public class TelefoneDAO {
             ConnectionFactory.closeConnection(con, stmt);
         }
         return status;
+//        try {
+//            stmt = con.prepareStatement("Delete FROM telefone WHERE CodPaciente =? ");
+//
+//            stmt.setInt(1, p.getCodPaciente());
+//
+//            stmt.executeUpdate();
+//
+//          
+//        } catch (SQLException ex) {
+//          Logger.getLogger(TelefoneDAO.class.getName()).log(Level.SEVERE, null, ex);
+//          status = false;
+//
+//        } finally {
+//            ConnectionFactory.closeConnection(con, stmt);
+//        }
+//        return status;
      }
      
      

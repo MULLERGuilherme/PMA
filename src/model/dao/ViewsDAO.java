@@ -155,6 +155,36 @@ public class ViewsDAO {
 
         return vw;
     }
+    
+        public List<Vw_TelefonesPacientes> ReadTelefonesPacientesADM() {
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        List<Vw_TelefonesPacientes> vw = new ArrayList<>();
+        try {
+            stmt = con.prepareStatement("SELECT CodigoPaciente, Paciente, Email, GROUP_CONCAT(numero) as Numero, PacienteDeletado FROM vw_TelefonesPacientes Group By CodigoPaciente");
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                Vw_TelefonesPacientes v = new Vw_TelefonesPacientes();
+
+                v.getPaciente().setCodPaciente(rs.getInt("CodigoPaciente"));
+                v.getPaciente().setNome_Completo(rs.getString("Paciente"));
+                v.getPaciente().setEmail(rs.getString("Email"));
+                v.getTelefone().setNumero(rs.getString("Numero"));
+                v.getPaciente().setDeletado(rs.getBoolean("PacienteDeletado"));
+                vw.add(v);
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ConsultaDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt, rs);
+        }
+
+        return vw;
+    }
 
     public List<Vw_TelefonesPacientes> fetchBySizeMP(int start, int size) {
         Connection con = ConnectionFactory.getConnection();
@@ -452,7 +482,36 @@ public class ViewsDAO {
 
         return vw;
     }
+        public List<Vw_TelefonesPacientes> BuscaManterPacienteADMOA(String Busca) {
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        List<Vw_TelefonesPacientes> vw = new ArrayList<>();
+        try {
+            String sql = "SELECT CodigoPaciente, Paciente, Email, GROUP_CONCAT(numero) as Telefone, PacienteDeletado FROM vw_TelefonesPacientes WHERE (Paciente Like '%" + Busca + "%') OR (Email Like '%" + Busca + "%') OR (numero Like '%" + Busca + "%') Group By Paciente;";
+            stmt = con.prepareStatement(sql);
 
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                Vw_TelefonesPacientes v = new Vw_TelefonesPacientes();
+                v.getPaciente().setCodPaciente(rs.getInt("CodigoPaciente"));
+                v.getPaciente().setNome_Completo(rs.getString("Paciente"));
+                v.getPaciente().setEmail(rs.getString("Email"));
+                v.getTelefone().setNumero(rs.getString("Telefone"));
+                v.getPaciente().setDeletado(rs.getBoolean("PacienteDeletado"));
+
+                vw.add(v);
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(PacienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt, rs);
+        }
+
+        return vw;
+    }
     public List<Vw_TelefonesPacientes> BuscaManterPacienteOA(String Busca) {
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;

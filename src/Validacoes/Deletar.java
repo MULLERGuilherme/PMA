@@ -22,6 +22,7 @@ import model.dao.TelefoneDAO;
 public class Deletar {
 
     public static boolean DPaciente(Paciente p) {
+        
         boolean status;
         
         PacienteDAO dao = new PacienteDAO();
@@ -32,8 +33,8 @@ public class Deletar {
         
         
         status = tdao.DeleteTPaciente(p);
-        System.out.println("telefone excluido com sucesso");
-        ;
+        //System.out.println("telefone excluido com sucesso");
+        
         if (status) {
             
         
