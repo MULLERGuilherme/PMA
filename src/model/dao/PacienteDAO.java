@@ -146,6 +146,7 @@ public class PacienteDAO {
                     p.setEscolaridade(rs.getString("Escolaridade"));
                     p.setEndereco(rs.getString("Endereco"));
                     p.setCidade(rs.getString("Cidade"));
+                    p.setDeletado(rs.getBoolean("Deletado"));
                 }
             }
         } catch (SQLException ex) {
@@ -163,7 +164,7 @@ public class PacienteDAO {
         PreparedStatement stmt = null;
         try {
 //            mudança
-            stmt = con.prepareStatement("Update  paciente SET CPF=?, Nome_Completo=?, Email=?, EstadoCivil=?, DataNasc=?, Sexo=?, Profissao=?, Religiao=?, Escolaridade=?, Endereco=?, Cidade=?  WHERE CodPaciente =? ");
+            stmt = con.prepareStatement("Update  paciente SET CPF=?, Nome_Completo=?, Email=?, EstadoCivil=?, DataNasc=?, Sexo=?, Profissao=?, Religiao=?, Escolaridade=?, Endereco=?, Cidade=?, Deletado=?  WHERE CodPaciente =? ");
 
             //sem CPF pq nao faz sentido
             //stmt.setString(1,  p.getCPF());
@@ -208,7 +209,8 @@ public class PacienteDAO {
             } else {
                 stmt.setString(11, p.getCidade());
             }
-            stmt.setInt(12, p.getCodPaciente());
+            stmt.setBoolean(12, p.isDeletado());
+            stmt.setInt(13, p.getCodPaciente());
             stmt.executeUpdate();
 
         } catch (SQLException ex) {
