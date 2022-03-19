@@ -10,12 +10,22 @@ package model.bean;
  * @author User
  */
 public class Psicologo {
- private int CodPsicologo;
- private String CRP;
- private String Nome_completo;
- private String Email;
- private String Login;
- private String Senha;
+
+    private int CodPsicologo;
+    private String CRP;
+    private String Nome_completo;
+    private String Email;
+    private String Login;
+    private String Senha;
+    private boolean Deletado = false;
+
+    public boolean isDeletado() {
+        return Deletado;
+    }
+
+    public void setDeletado(boolean Deletado) {
+        this.Deletado = Deletado;
+    }
 
     public int getCodPsicologo() {
         return CodPsicologo;
@@ -64,5 +74,5 @@ public class Psicologo {
     public void setSenha(String Senha) {
         this.Senha = Senha;
     }
- 
+
 }

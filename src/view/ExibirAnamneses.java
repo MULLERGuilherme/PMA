@@ -138,6 +138,7 @@ public class ExibirAnamneses extends javax.swing.JFrame {
             CheckBoxCulpa1.setSelected(a.isQAECulpa());
             CheckBoxRaiva1.setSelected(a.isQAERaiva());
             CheckBoxLuto1.setSelected(a.isQAELuto());
+            CheckBoxHumor1.setSelected(a.isQAEHumor());
             CheckBoxDesanimo1.setSelected(a.isQAEDesanimo());
 
             JCBPsicomotricidade2.setSelectedItem(a.getPsicomotricidade());
@@ -257,6 +258,7 @@ public class ExibirAnamneses extends javax.swing.JFrame {
             a.setQAECulpa(CheckBoxCulpa1.isSelected());
             a.setQAERaiva(CheckBoxRaiva1.isSelected());
             a.setQAELuto(CheckBoxLuto1.isSelected());
+            a.setQAEHumor(CheckBoxHumor1.isSelected());
             a.setQAEDesanimo(CheckBoxDesanimo1.isSelected());
             a.setPsicomotricidade((String) JCBPsicomotricidade2.getSelectedItem());
 
@@ -971,7 +973,15 @@ public class ExibirAnamneses extends javax.swing.JFrame {
             new String [] {
                 "ID Anamnese", "Paciente", "Diagnostico", "Data da Consulta"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                true, false, false, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         JTAnamneses.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 JTAnamnesesMouseClicked(evt);
@@ -981,6 +991,12 @@ public class ExibirAnamneses extends javax.swing.JFrame {
             }
         });
         jScrollPane2.setViewportView(JTAnamneses);
+        if (JTAnamneses.getColumnModel().getColumnCount() > 0) {
+            JTAnamneses.getColumnModel().getColumn(0).setResizable(false);
+            JTAnamneses.getColumnModel().getColumn(1).setResizable(false);
+            JTAnamneses.getColumnModel().getColumn(2).setResizable(false);
+            JTAnamneses.getColumnModel().getColumn(3).setResizable(false);
+        }
 
         PainelPaginacao.setOpaque(false);
 
@@ -1339,30 +1355,26 @@ public class ExibirAnamneses extends javax.swing.JFrame {
     private void JTAnamnesesMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTAnamnesesMousePressed
         if (evt.getClickCount() == 2) {
             if (JTAnamneses.getSelectedRow() != -1) {
-                if (JTAnamneses.getSelectedRow() != -1) {
-                    Anamnese a2 = new Anamnese();
-                    AnamneseDAO dao2 = new AnamneseDAO();
-                    int modelRow = JTAnamneses.convertRowIndexToModel(JTAnamneses.getSelectedRow());
-                    int value = (Integer) JTAnamneses.getModel().getValueAt(modelRow, 0);
-                    this.codigoanamnese = value;
-                    //a2 = dao2.ReadAnamneseConsulta(codconsulta);
-                    //codanamnese = a2.getCodAnamnese();
-                    existe = readcampos(codigoanamnese);
-                    if (existe) {
-                        //LabelModalAnamnese.setText("Lendo dados da Anamnese Cadastrada na consulta");
-                    } else {
-                        //LabelModalAnamnese.setText(" Cadastrar anamnese na consulta");
-                    }
-
-                    ModalAnamnese2.setSize(1039, 967);
-                    jScrollPane3.getVerticalScrollBar().setUnitIncrement(20);
+                Anamnese a2 = new Anamnese();
+                AnamneseDAO dao2 = new AnamneseDAO();
+                int modelRow = JTAnamneses.convertRowIndexToModel(JTAnamneses.getSelectedRow());
+                int value = (Integer) JTAnamneses.getModel().getValueAt(modelRow, 0);
+                this.codigoanamnese = value;
+                //a2 = dao2.ReadAnamneseConsulta(codconsulta);
+                //codanamnese = a2.getCodAnamnese();
+                existe = readcampos(codigoanamnese);
+                if (existe) {
+                    ModalAnamnese2.setSize(1039, 600);
+                    jScrollPane3.getVerticalScrollBar().setUnitIncrement(15);
                     ModalAnamnese2.setModal(true);
                     ModalAnamnese2.setLocationRelativeTo(null);
                     ModalAnamnese2.setVisible(true);
-
                 } else {
-                    JOptionPane.showMessageDialog(this, "Selecione uma anamnese para alterar");
+                    JOptionPane.showMessageDialog(this, "Houve um problema ao ler a anamnese selecionada", "ERRO", JOptionPane.ERROR_MESSAGE);
                 }
+
+            } else {
+                JOptionPane.showMessageDialog(this, "Selecione uma anamnese para alterar");
             }
         }
     }//GEN-LAST:event_JTAnamnesesMousePressed

@@ -30,7 +30,7 @@ public class AnamneseDAO {
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         try {
-            stmt = con.prepareStatement("INSERT INTO anamnese (QueixaPrincipal, SubitaOuProgressiva, InicioDaQueixa, QueixasSecundarias, HistoricoFamiliar, Diagnostico, Encaminhamento, DoencasConhecidas, MedicamentosUtilizados, CodConsulta, OqueMudou, Sintomas, ComoComecou,QCIntegridadeSensorial,QCPercepcao,QCAtencao,QCMemoria,QAEVolicao,QAEAfeto,QAEAnsiedade,QAEMedo,QAECulpa,QAERaiva,QAELuto,QAEDesanimo , Psicomotricidade) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ");
+            stmt = con.prepareStatement("INSERT INTO anamnese (QueixaPrincipal, SubitaOuProgressiva, InicioDaQueixa, QueixasSecundarias, HistoricoFamiliar, Diagnostico, Encaminhamento, DoencasConhecidas, MedicamentosUtilizados, CodConsulta, OqueMudou, Sintomas, ComoComecou,QCIntegridadeSensorial,QCPercepcao,QCAtencao,QCMemoria,QAEVolicao,QAEAfeto,QAEAnsiedade,QAEMedo,QAECulpa,QAERaiva,QAELuto,QAEDesanimo , Psicomotricidade,QAEHumor) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?) ");
             stmt.setString(1, a.getQueixaPrincipal());
             stmt.setString(2, a.getSubitaOuProgressiva());
             stmt.setObject(3, a.getInicioDaQueixa());
@@ -58,6 +58,7 @@ public class AnamneseDAO {
             stmt.setBoolean(24, a.isQAELuto());
             stmt.setBoolean(25, a.isQAEDesanimo());
             stmt.setString(26, a.getPsicomotricidade());
+            stmt.setBoolean(27, a.isQAEHumor());
 
             stmt.executeUpdate();
 
@@ -107,9 +108,10 @@ public class AnamneseDAO {
                 a.setQAERaiva(rs.getBoolean("QAERaiva"));
                 a.setQAELuto(rs.getBoolean("QAELuto"));
                 a.setQAEDesanimo(rs.getBoolean("QAEDesanimo"));
-
+                a.setQAEHumor(rs.getBoolean("QAEHumor"));
                 a.setPsicomotricidade(rs.getString("Psicomotricidade"));
                 a.setDataEmissao(rs.getString("DataEmissao"));
+                
 
                 anamneses.add(a);
 
@@ -161,6 +163,7 @@ public class AnamneseDAO {
                 a.setQAECulpa(rs.getBoolean("QAECulpa"));
                 a.setQAERaiva(rs.getBoolean("QAERaiva"));
                 a.setQAELuto(rs.getBoolean("QAELuto"));
+                a.setQAEHumor(rs.getBoolean("QAEHumor"));
                 a.setQAEDesanimo(rs.getBoolean("QAEDesanimo"));
                 a.setPsicomotricidade(rs.getString("Psicomotricidade"));
                 a.setDataEmissao(rs.getString("DataEmissao"));
@@ -187,7 +190,7 @@ public class AnamneseDAO {
         PreparedStatement stmt = null;
         try {
 
-            stmt = con.prepareStatement("UPDATE anamnese SET QueixaPrincipal=?, SubitaOuProgressiva=?, InicioDaQueixa=?, QueixasSecundarias=?, HistoricoFamiliar=?, Diagnostico=?, Encaminhamento=?, DoencasConhecidas=?, MedicamentosUtilizados=?, OqueMudou=?, Sintomas=?,ComoComecou=?, QCIntegridadeSensorial=?, QCPercepcao=?, QCAtencao=?, QCMemoria=?, QAEVolicao =?, QAEAfeto=?,QAEAnsiedade=?, QAEMedo=?, QAECulpa=?, QAERaiva=?, QAELuto =?, QAEDesanimo=?, Psicomotricidade=?  WHERE CodAnamnese = ? ");
+            stmt = con.prepareStatement("UPDATE anamnese SET QueixaPrincipal=?, SubitaOuProgressiva=?, InicioDaQueixa=?, QueixasSecundarias=?, HistoricoFamiliar=?, Diagnostico=?, Encaminhamento=?, DoencasConhecidas=?, MedicamentosUtilizados=?, OqueMudou=?, Sintomas=?,ComoComecou=?, QCIntegridadeSensorial=?, QCPercepcao=?, QCAtencao=?, QCMemoria=?, QAEVolicao =?, QAEAfeto=?,QAEAnsiedade=?, QAEMedo=?, QAECulpa=?, QAERaiva=?, QAELuto =?, QAEDesanimo=?, Psicomotricidade=?, QAEHumor=?  WHERE CodAnamnese = ? ");
             stmt.setString(1, a.getQueixaPrincipal());
             stmt.setString(2, a.getSubitaOuProgressiva());
             stmt.setObject(3, a.getInicioDaQueixa());
@@ -214,8 +217,8 @@ public class AnamneseDAO {
             stmt.setBoolean(23, a.isQAELuto());
             stmt.setBoolean(24, a.isQAEDesanimo());
             stmt.setString(25, a.getPsicomotricidade());
-
-            stmt.setInt(26, a.getCodAnamnese());
+            stmt.setBoolean(26, a.isQAEHumor());
+            stmt.setInt(27, a.getCodAnamnese());
 
             stmt.executeUpdate();
 
@@ -311,6 +314,7 @@ public class AnamneseDAO {
                     a.setQAECulpa(rs.getBoolean("QAECulpa"));
                     a.setQAERaiva(rs.getBoolean("QAERaiva"));
                     a.setQAELuto(rs.getBoolean("QAELuto"));
+                    a.setQAEHumor(rs.getBoolean("QAEHumor"));
                     a.setQAEDesanimo(rs.getBoolean("QAEDesanimo"));
                     a.setPsicomotricidade(rs.getString("Psicomotricidade"));
                     a.setCodAnamnese(rs.getInt("codanamnese"));
@@ -364,6 +368,7 @@ public class AnamneseDAO {
                     a.setQAECulpa(rs.getBoolean("QAECulpa"));
                     a.setQAERaiva(rs.getBoolean("QAERaiva"));
                     a.setQAELuto(rs.getBoolean("QAELuto"));
+                    a.setQAEHumor(rs.getBoolean("QAEHumor"));
                     a.setQAEDesanimo(rs.getBoolean("QAEDesanimo"));
                     a.setPsicomotricidade(rs.getString("Psicomotricidade"));
                     a.setCodAnamnese(rs.getInt("codanamnese"));

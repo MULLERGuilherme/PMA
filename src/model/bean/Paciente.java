@@ -23,7 +23,17 @@ public class Paciente {
   private String Escolaridade;
   private String Endereco;
   private String Cidade;
+  private boolean Deletado = false;
 
+    public boolean isDeletado() {
+        return Deletado;
+    }
+
+    public void setDeletado(boolean Deletado) {
+        this.Deletado = Deletado;
+    }
+    
+  
     public int getCodPaciente() {
         return codPaciente;
     }

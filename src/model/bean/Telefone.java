@@ -10,17 +10,27 @@ package model.bean;
  * @author User
  */
 public class Telefone {
-private int CodTelefone;
-private String Numero;
-private Paciente paciente;
-private Psicologo psicologo;
 
-public Telefone(){
-    this.Numero = null;
-    this.psicologo = new Psicologo();
-    this.paciente = new Paciente();
-}
+    private int CodTelefone;
+    private String Numero;
+    private Paciente paciente;
+    private Psicologo psicologo;
+    private boolean Deletado = false;
 
+    public boolean isDeletado() {
+        return Deletado;
+    }
+
+    public void setDeletado(boolean Deletado) {
+        this.Deletado = Deletado;
+    }
+
+    public Telefone() {
+        this.Numero = null;
+        this.psicologo = new Psicologo();
+        this.paciente = new Paciente();
+        this.Deletado = false;
+    }
 
     public int getCodTelefone() {
         return CodTelefone;
@@ -54,5 +64,4 @@ public Telefone(){
         this.psicologo = psicologo;
     }
 
-    
 }

@@ -43,6 +43,7 @@ public class Anamnese {
 //private String QueixasAfetivoEmocionais;
     private boolean QAEVolicao;
     private boolean QAEAfeto;
+    private boolean QAEHumor;
     private boolean QAEAnsiedade;
     private boolean QAEMedo;
     private boolean QAECulpa;
@@ -73,11 +74,19 @@ public class Anamnese {
         this.QAERaiva = false;
         this.QAELuto = false;
         this.QAEDesanimo = false;
-
+        this.QAEHumor = false;
         this.Psicomotricidade = "Normal";
 
         this.consulta = new Consulta();
 
+    }
+
+    public boolean isQAEHumor() {
+        return QAEHumor;
+    }
+
+    public void setQAEHumor(boolean QAEHumor) {
+        this.QAEHumor = QAEHumor;
     }
 
     public int getCodAnamnese() {

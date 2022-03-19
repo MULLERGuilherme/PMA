@@ -1545,6 +1545,7 @@ public class AlterarConsulta extends javax.swing.JFrame {
             CheckBoxCulpa1.setSelected(a.isQAECulpa());
             CheckBoxRaiva1.setSelected(a.isQAERaiva());
             CheckBoxLuto1.setSelected(a.isQAELuto());
+            CheckBoxHumor1.setSelected(a.isQAEHumor());
             CheckBoxDesanimo1.setSelected(a.isQAEDesanimo());
 
             JCBPsicomotricidade2.setSelectedItem(a.getPsicomotricidade());
@@ -1622,6 +1623,7 @@ public class AlterarConsulta extends javax.swing.JFrame {
                 a.setQAEMedo(CheckBoxMedo1.isSelected());
                 a.setQAECulpa(CheckBoxCulpa1.isSelected());
                 a.setQAERaiva(CheckBoxRaiva1.isSelected());
+                a.setQAEHumor(CheckBoxHumor1.isSelected());
                 a.setQAELuto(CheckBoxLuto1.isSelected());
                 a.setQAEDesanimo(CheckBoxDesanimo1.isSelected());
 
@@ -1670,6 +1672,7 @@ public class AlterarConsulta extends javax.swing.JFrame {
             a.setQAEAfeto(CheckBoxAfeto1.isSelected());
             a.setQAEAnsiedade(CheckBoxAnsiedade1.isSelected());
             a.setQAEMedo(CheckBoxMedo1.isSelected());
+            a.setQAEHumor(CheckBoxHumor1.isSelected());
             a.setQAECulpa(CheckBoxCulpa1.isSelected());
             a.setQAERaiva(CheckBoxRaiva1.isSelected());
             a.setQAELuto(CheckBoxLuto1.isSelected());
@@ -1742,7 +1745,7 @@ public class AlterarConsulta extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnCancelar6ActionPerformed
 
     private void BtnCancelar7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCancelar7ActionPerformed
-        ModalAnamnese2.dispose();
+        ModalAnamnese3.dispose();
     }//GEN-LAST:event_BtnCancelar7ActionPerformed
 
     private void BtnSalvarAlteracoes7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalvarAlteracoes7ActionPerformed
