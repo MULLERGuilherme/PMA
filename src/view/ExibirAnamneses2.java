@@ -1287,7 +1287,7 @@ public class ExibirAnamneses2 extends javax.swing.JFrame {
             getCount();
             SpinnerNumPaginas.setValue(currentPage);
             LabelQtdePaginas.setText("de " + totalPages);
-            getPageDataBusca(currentPage, txtBusca.getText());
+            getPageData(currentPage);
         }
     }//GEN-LAST:event_btnExcluirActionPerformed
 

@@ -2487,7 +2487,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             int value = (Integer) JTPacientes.getModel().getValueAt(modelRow, 0);
             ExibirConsultasManterPaciente.codpaciente = value;
 
-            ExibirConsultasManterPaciente cp = new ExibirConsultasManterPaciente();
+            ExibirConsultasManterPaciente cp = new ExibirConsultasManterPaciente(value);
             Util.SizeJanela(cp);
             cp.setVisible(true);
             this.dispose();

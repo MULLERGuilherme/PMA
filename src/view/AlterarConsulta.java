@@ -42,6 +42,7 @@ public class AlterarConsulta extends javax.swing.JFrame {
 
     private WindowAdapter windowAdapter = null;
     public static int codconsulta;
+    public static int codpaciente;
     public static boolean existe;
     public static JFrame jfpai = null;
     /**
@@ -51,6 +52,7 @@ public class AlterarConsulta extends javax.swing.JFrame {
         initComponents();
        
         jfpai = pai;
+        
         pai.setEnabled(false);
         this.windowAdapter = new WindowAdapter() {
             // WINDOW_CLOSING event handler
@@ -1724,7 +1726,7 @@ public class AlterarConsulta extends javax.swing.JFrame {
 
     private void BtnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVoltarActionPerformed
         // TODO add your handling code here:
-        ExibirConsultasManterPaciente tp = new ExibirConsultasManterPaciente();
+        ExibirConsultasManterPaciente tp = new ExibirConsultasManterPaciente(this.codpaciente);
         Util.SizeJanela(tp);
         tp.setVisible(true);
 
