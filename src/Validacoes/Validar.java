@@ -311,6 +311,24 @@ public class Validar {
         return vazio;
 
     }
+     public static boolean vCamposVaziosSenha(JFrame jframe, JTextField Senha, JTextField ConfirmarSenha) {
+        boolean vazio = false;
+        String msg = "Existem Campos Obrigatórios em branco.\nFavor verificar os seguintes campos:\n";
+
+        if (Senha.getText().isEmpty()) {
+            msg += "\nSenha";
+            vazio = true;
+        }
+        if (ConfirmarSenha.getText().isEmpty()) {
+            msg += "\nCRP";
+            vazio = true;
+        }
+        if (vazio) {
+            JOptionPane.showMessageDialog(jframe, msg, "ERRO!", JOptionPane.ERROR_MESSAGE);
+        }
+        return vazio;
+
+    }
 
     public static boolean vCamposVaziosPSI(JFrame jframe, JTextField Usuario, JTextField Senha, JTextField ConfirmarSenha) {
         boolean vazio = false;

@@ -153,6 +153,29 @@ public class PsicologoDAO {
         }
         return status;
     }
+    
+     public boolean UpdateSenha(Psicologo p) {
+        boolean status = true;
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        try {
+            stmt = con.prepareStatement("Update  psicologo SET Senha = MD5(?) WHERE CodPsicologo =? ");
+
+         
+    
+            stmt.setString(1, p.getSenha());
+            stmt.setInt(2, p.getCodPsicologo());
+
+            stmt.executeUpdate();
+
+        } catch (SQLException ex) {
+            status = false;
+            JOptionPane.showMessageDialog(null, "Erro ao alterar :" + ex);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt);
+        }
+        return status;
+    }
 
     public boolean Delete(Psicologo p) {
         boolean status = true;
