@@ -132,7 +132,7 @@ public class ViewsDAO {
         ResultSet rs = null;
         List<Vw_TelefonesPacientes> vw = new ArrayList<>();
         try {
-            stmt = con.prepareStatement("SELECT CodigoPaciente, Paciente, Email, GROUP_CONCAT(numero) as Numero FROM vw_TelefonesPacientes Group By CodigoPaciente");
+            stmt = con.prepareStatement("SELECT CodigoPaciente, Paciente, Email, GROUP_CONCAT(numero) as Numero FROM vw_TelefonesPacientes  WHERE PacienteDeletado = false Group By CodigoPaciente");
             rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -162,7 +162,7 @@ public class ViewsDAO {
         ResultSet rs = null;
         List<Vw_TelefonesPacientes> vw = new ArrayList<>();
         try {
-            stmt = con.prepareStatement("SELECT CodigoPaciente, Paciente, Email, GROUP_CONCAT(numero) as Numero, PacienteDeletado FROM vw_TelefonesPacientes Group By CodigoPaciente");
+            stmt = con.prepareStatement("SELECT CodigoPaciente, Paciente, Email, GROUP_CONCAT(numero) as Numero, PacienteDeletado FROM vw_TelefonesPacientes   Group By CodigoPaciente");
             rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -192,7 +192,7 @@ public class ViewsDAO {
         ResultSet rs = null;
         List<Vw_TelefonesPacientes> vw = new ArrayList<>();
         try {
-            stmt = con.prepareStatement("SELECT CodigoPaciente, Paciente, Email, GROUP_CONCAT(numero) as Numero FROM vw_TelefonesPacientes Group By Paciente Limit " + start + "," + size);
+            stmt = con.prepareStatement("SELECT CodigoPaciente, Paciente, Email, GROUP_CONCAT(numero) as Numero FROM vw_TelefonesPacientes WHERE PacienteDeletado = false Group By Paciente Limit " + start + "," + size);
             rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -222,7 +222,7 @@ public class ViewsDAO {
         ResultSet rs = null;
         List<Vw_TelefonesPacientes> vw = new ArrayList<>();
         try {
-            stmt = con.prepareStatement("SELECT CodigoPaciente, Paciente, Email, GROUP_CONCAT(numero) as Numero FROM vw_TelefonesPacientes WHERE (Paciente Like '%" + Busca + "%') OR (Email Like '%" + Busca + "%') OR (Numero Like '%" + Busca + "%') Group By Paciente Limit " + size + " OFFSET " + start);
+            stmt = con.prepareStatement("SELECT CodigoPaciente, Paciente, Email, GROUP_CONCAT(numero) as Numero FROM vw_TelefonesPacientes WHERE ((Paciente Like '%" + Busca + "%') OR (Email Like '%" + Busca + "%') OR (Numero Like '%" + Busca + "%')) AND PacienteDeletado = false  Group By Paciente Limit " + size + " OFFSET " + start);
             rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -252,7 +252,7 @@ public class ViewsDAO {
         ResultSet rs = null;
         long count = 0;
         try {
-            stmt = con.prepareStatement("SELECT count(Distinct CodigoPaciente) from vw_TelefonesPacientes");
+            stmt = con.prepareStatement("SELECT count(Distinct CodigoPaciente) from vw_TelefonesPacientes  WHERE PacienteDeletado = false ");
             rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -275,7 +275,7 @@ public class ViewsDAO {
         ResultSet rs = null;
         long count = 0;
         try {
-            stmt = con.prepareStatement("SELECT count(Distinct CodigoPaciente) from vw_TelefonesPacientes WHERE (Paciente Like '%" + Busca + "%') OR (Email Like '%" + Busca + "%') OR (numero Like '%" + Busca + "%')");
+            stmt = con.prepareStatement("SELECT count(Distinct CodigoPaciente) from vw_TelefonesPacientes WHERE ((Paciente Like '%" + Busca + "%') OR (Email Like '%" + Busca + "%') OR (numero Like '%" + Busca + "%')) and PacienteDeletado = false ");
 
             rs = stmt.executeQuery();
 
@@ -790,7 +790,7 @@ public class ViewsDAO {
         ResultSet rs = null;
         long count = 0;
         try {
-            stmt = con.prepareStatement("SELECT count(Distinct CodAnamnese) FROM vw_Anamnese_Paciente Where CodigoPsicologo = ?");
+            stmt = con.prepareStatement("SELECT count(Distinct CodAnamnese) FROM vw_Anamnese_Paciente Where CodigoPsicologo = ? AND PacienteDeletado = false");
             stmt.setInt(1, codPsicologo);
             rs = stmt.executeQuery();
 
@@ -814,7 +814,7 @@ public class ViewsDAO {
         ResultSet rs = null;
         long count = 0;
         try {
-            stmt = con.prepareStatement("SELECT count(Distinct CodAnamnese) FROM vw_Anamnese_Paciente WHERE CodigoPsicologo = ? AND ((Paciente Like '%" + Busca + "%') OR (Diagnostico Like '%" + Busca + "%') OR (DataConsulta Like '%" + Busca + "%'))");
+            stmt = con.prepareStatement("SELECT count(Distinct CodAnamnese) FROM vw_Anamnese_Paciente WHERE CodigoPsicologo = ? AND PacienteDeletado = false AND ((Paciente Like '%" + Busca + "%') OR (Diagnostico Like '%" + Busca + "%') OR (DataConsulta Like '%" + Busca + "%'))");
             stmt.setInt(1, codPsicologo);
             rs = stmt.executeQuery();
 
@@ -838,7 +838,7 @@ public class ViewsDAO {
         ResultSet rs = null;
         List<Vw_Anamnese_Paciente> vw = new ArrayList<>();
         try {
-            stmt = con.prepareStatement("SELECT * FROM vw_Anamnese_Paciente Where CodigoPsicologo = ? Group By CodAnamnese Limit " + size + " OFFSET " + start);
+            stmt = con.prepareStatement("SELECT * FROM vw_Anamnese_Paciente Where CodigoPsicologo = ? AND PacienteDeletado = false  Group By CodAnamnese Limit " + size + " OFFSET " + start);
             stmt.setInt(1, codPsicologo);
             rs = stmt.executeQuery();
 
@@ -870,7 +870,7 @@ public class ViewsDAO {
         ResultSet rs = null;
         List<Vw_Anamnese_Paciente> vw = new ArrayList<>();
         try {
-            stmt = con.prepareStatement("SELECT * FROM vw_Anamnese_Paciente Where CodigoPsicologo = ? And ((Paciente Like '%" + Busca + "%') OR (Diagnostico Like '%" + Busca + "%') OR (DataConsulta Like '%" + Busca + "%')) Group By CodAnamnese Limit " + size + " OFFSET " + start);
+            stmt = con.prepareStatement("SELECT * FROM vw_Anamnese_Paciente Where CodigoPsicologo = ? AND PacienteDeletado = false And ((Paciente Like '%" + Busca + "%') OR (Diagnostico Like '%" + Busca + "%') OR (DataConsulta Like '%" + Busca + "%')) Group By CodAnamnese Limit " + size + " OFFSET " + start);
             stmt.setInt(1, codPsicologo);
             rs = stmt.executeQuery();
 
@@ -903,7 +903,7 @@ public class ViewsDAO {
         ResultSet rs = null;
         long count = 0;
         try {
-            stmt = con.prepareStatement("SELECT count(Distinct CodAnotacao) FROM vw_Anotacoes_Paciente Where CodigoPsicologo = ?");
+            stmt = con.prepareStatement("SELECT count(Distinct CodAnotacao) FROM vw_Anotacoes_Paciente Where CodigoPsicologo = ? AND PacienteDeletado = false ");
             stmt.setInt(1, codPsicologo);
             rs = stmt.executeQuery();
 
@@ -927,7 +927,7 @@ public class ViewsDAO {
         ResultSet rs = null;
         long count = 0;
         try {
-            stmt = con.prepareStatement("SELECT count(Distinct CodAnotacao) FROM vw_Anotacoes_Paciente WHERE CodigoPsicologo = ? AND ((Paciente Like '%" + Busca + "%') OR (Assunto Like '%" + Busca + "%') OR (DataAnotacao Like '%" + Busca + "%'))");
+            stmt = con.prepareStatement("SELECT count(Distinct CodAnotacao) FROM vw_Anotacoes_Paciente WHERE CodigoPsicologo = ? AND PacienteDeletado = false  AND ((Paciente Like '%" + Busca + "%') OR (Assunto Like '%" + Busca + "%') OR (DataAnotacao Like '%" + Busca + "%'))");
             stmt.setInt(1, codPsicologo);
             rs = stmt.executeQuery();
 
@@ -951,7 +951,7 @@ public class ViewsDAO {
         ResultSet rs = null;
         List<Vw_Anotacoes_Paciente> vw = new ArrayList<>();
         try {
-            stmt = con.prepareStatement("SELECT * FROM vw_Anotacoes_Paciente Where CodigoPsicologo = ? Group By CodAnotacao Limit " + size + " OFFSET " + start);
+            stmt = con.prepareStatement("SELECT * FROM vw_Anotacoes_Paciente Where CodigoPsicologo = ? AND PacienteDeletado = false  Group By CodAnotacao Limit " + size + " OFFSET " + start);
             stmt.setInt(1, codPsicologo);
             rs = stmt.executeQuery();
 
@@ -984,7 +984,7 @@ public class ViewsDAO {
         ResultSet rs = null;
         List<Vw_Anotacoes_Paciente> vw = new ArrayList<>();
         try {
-            stmt = con.prepareStatement("SELECT * FROM vw_Anotacoes_Paciente Where CodigoPsicologo = ? AND ((Paciente Like '%" + Busca + "%') OR (Assunto Like '%" + Busca + "%') OR (DataAnotacao Like '%" + Busca + "%')) Group By CodAnotacao Limit " + size + " OFFSET " + start);
+            stmt = con.prepareStatement("SELECT * FROM vw_Anotacoes_Paciente Where CodigoPsicologo = ? AND PacienteDeletado = false  AND ((Paciente Like '%" + Busca + "%') OR (Assunto Like '%" + Busca + "%') OR (DataAnotacao Like '%" + Busca + "%')) Group By CodAnotacao Limit " + size + " OFFSET " + start);
             stmt.setInt(1, codPsicologo);
             rs = stmt.executeQuery();
 
