@@ -7,6 +7,7 @@ package view_adm.MenuPrincipal;
 
 import view.*;
 import Validacoes.Deletar;
+import Validacoes.Restaurar;
 import Validacoes.Validar;
 import connection.ConnectionFactory;
 import java.awt.Color;
@@ -119,6 +120,8 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
         BtnCancelar6 = new javax.swing.JButton();
         TxtTelefone7 = new javax.swing.JTextField();
         LabelEsqueciSenha = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        JCBDeletado = new javax.swing.JComboBox<>();
         ModalAlterarSenha = new javax.swing.JDialog();
         jPanel6 = new JPanel();
         jLabel29 = new javax.swing.JLabel();
@@ -153,10 +156,10 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
         jPanel2.setForeground(new java.awt.Color(59, 131, 117));
         jPanel2.setPreferredSize(new java.awt.Dimension(1080, 89));
 
-        LableCadstrarNovoPsicologo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        LableCadstrarNovoPsicologo.setText("Cadastrar Novo Psicólogo");
         LableCadstrarNovoPsicologo.setFont(new java.awt.Font("Tahoma", 1, 33)); // NOI18N
         LableCadstrarNovoPsicologo.setForeground(new java.awt.Color(255, 255, 255));
+        LableCadstrarNovoPsicologo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        LableCadstrarNovoPsicologo.setText("Cadastrar Novo Psicólogo");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -169,8 +172,8 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
             .addComponent(LableCadstrarNovoPsicologo, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
         );
 
-        jLabel2.setText("Nome");
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel2.setText("Nome");
 
         txtNome1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -183,11 +186,11 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setText("Email");
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel3.setText("Email");
 
-        jLabel4.setText("CRP");
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel4.setText("CRP");
 
         txtCRP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -200,14 +203,14 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.setText("Usuário");
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel5.setText("Usuário");
 
-        jLabel15.setText("Senha");
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel15.setText("Senha");
 
-        LabelConfirmarSenha.setText("Confirmar Senha");
         LabelConfirmarSenha.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        LabelConfirmarSenha.setText("Confirmar Senha");
 
         chckMostrarSenha.setText("Mostar Senha");
         chckMostrarSenha.addActionListener(new java.awt.event.ActionListener() {
@@ -216,8 +219,8 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
             }
         });
 
-        labeltelefone.setText("Telefone");
         labeltelefone.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        labeltelefone.setText("Telefone");
 
         TxtTelefone1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -225,23 +228,23 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
             }
         });
 
-        LabelTelefone2.setText("Telefone (2)");
         LabelTelefone2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        LabelTelefone2.setText("Telefone (2)");
 
-        BtnCadastrarPsicologo.setText("Cadastrar");
         BtnCadastrarPsicologo.setBackground(new java.awt.Color(0, 112, 186));
         BtnCadastrarPsicologo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnCadastrarPsicologo.setForeground(new java.awt.Color(255, 255, 255));
+        BtnCadastrarPsicologo.setText("Cadastrar");
         BtnCadastrarPsicologo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnCadastrarPsicologoActionPerformed(evt);
             }
         });
 
-        BtnCancelar5.setText("Cancelar");
         BtnCancelar5.setBackground(new java.awt.Color(255, 153, 153));
         BtnCancelar5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnCancelar5.setForeground(new java.awt.Color(255, 255, 255));
+        BtnCancelar5.setText("Cancelar");
         BtnCancelar5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnCancelar5ActionPerformed(evt);
@@ -356,10 +359,10 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
         jPanel4.setForeground(new java.awt.Color(59, 131, 117));
         jPanel4.setPreferredSize(new java.awt.Dimension(1080, 89));
 
-        LableCadstrarNovoPsicologo1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        LableCadstrarNovoPsicologo1.setText("Alterar Dados de Psicólogo");
         LableCadstrarNovoPsicologo1.setFont(new java.awt.Font("Tahoma", 1, 33)); // NOI18N
         LableCadstrarNovoPsicologo1.setForeground(new java.awt.Color(255, 255, 255));
+        LableCadstrarNovoPsicologo1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        LableCadstrarNovoPsicologo1.setText("Alterar Dados de Psicólogo");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -374,8 +377,8 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
 
         ModalAlterarPsicologo.getContentPane().add(jPanel4, java.awt.BorderLayout.NORTH);
 
-        jLabel21.setText("Nome");
         jLabel21.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel21.setText("Nome");
 
         txtNome3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -388,11 +391,11 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
             }
         });
 
-        jLabel22.setText("Email");
         jLabel22.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel22.setText("Email");
 
-        jLabel23.setText("CRP");
         jLabel23.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel23.setText("CRP");
 
         txtCRP1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -405,8 +408,8 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
             }
         });
 
-        labeltelefone1.setText("Telefone");
         labeltelefone1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        labeltelefone1.setText("Telefone");
 
         TxtTelefone6.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -414,23 +417,23 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
             }
         });
 
-        LabelTelefone3.setText("Telefone (2)");
         LabelTelefone3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        LabelTelefone3.setText("Telefone (2)");
 
-        BtnCadastrarPsicologo1.setText("Alterar Dados");
         BtnCadastrarPsicologo1.setBackground(new java.awt.Color(0, 112, 186));
         BtnCadastrarPsicologo1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnCadastrarPsicologo1.setForeground(new java.awt.Color(255, 255, 255));
+        BtnCadastrarPsicologo1.setText("Alterar Dados");
         BtnCadastrarPsicologo1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnCadastrarPsicologo1ActionPerformed(evt);
             }
         });
 
-        BtnCancelar6.setText("Cancelar");
         BtnCancelar6.setBackground(new java.awt.Color(255, 153, 153));
         BtnCancelar6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnCancelar6.setForeground(new java.awt.Color(255, 255, 255));
+        BtnCancelar6.setText("Cancelar");
         BtnCancelar6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnCancelar6ActionPerformed(evt);
@@ -464,6 +467,10 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setText("Psicologo Deletado?");
+
+        JCBDeletado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sim", "Não" }));
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -488,8 +495,12 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
                         .addComponent(TxtTelefone6, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(LabelTelefone3)
                         .addComponent(TxtTelefone7, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(BtnCadastrarPsicologo1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(BtnCadastrarPsicologo1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel5Layout.createSequentialGroup()
+                            .addGap(125, 125, 125)
+                            .addComponent(JCBDeletado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(730, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -514,7 +525,11 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
                 .addComponent(LabelTelefone3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(TxtTelefone7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(JCBDeletado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addGap(3, 3, 3)
                 .addComponent(LabelEsqueciSenha)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(BtnCadastrarPsicologo1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -529,10 +544,10 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
         jPanel6.setForeground(new java.awt.Color(59, 131, 117));
         jPanel6.setPreferredSize(new java.awt.Dimension(1080, 89));
 
-        jLabel29.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel29.setText("Alterar Senha");
         jLabel29.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel29.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel29.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel29.setText("Alterar Senha");
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -545,13 +560,13 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
             .addComponent(jLabel29, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
         );
 
-        jLabel24.setText("Nova Senha");
         jLabel24.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel24.setText("Nova Senha");
 
         txtSenha1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
-        jLabel26.setText("Confirme a Nova Senha");
         jLabel26.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel26.setText("Confirme a Nova Senha");
 
         txtConfirmarSenha1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
@@ -562,20 +577,20 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
             }
         });
 
-        BtnAlterar.setText("Alterar");
         BtnAlterar.setBackground(new java.awt.Color(0, 112, 186));
         BtnAlterar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnAlterar.setForeground(new java.awt.Color(255, 255, 255));
+        BtnAlterar.setText("Alterar");
         BtnAlterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnAlterarActionPerformed(evt);
             }
         });
 
-        BtnCancelar7.setText("Cancelar");
         BtnCancelar7.setBackground(new java.awt.Color(255, 153, 153));
         BtnCancelar7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnCancelar7.setForeground(new java.awt.Color(255, 255, 255));
+        BtnCancelar7.setText("Cancelar");
         BtnCancelar7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnCancelar7ActionPerformed(evt);
@@ -659,8 +674,8 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
 
         jEImagePanel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/spring-floral-watercolor-background-vector-green-with-leaf-illustration_53876-126350.jpg"))); // NOI18N
 
-        jLabel6.setText("Buscar Psicologo");
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel6.setText("Buscar Psicologo");
 
         txtBusca.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -675,8 +690,8 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
             }
         });
 
-        BtnVisuAlterarDados.setText("Visualizar/ Alterar Dados");
         BtnVisuAlterarDados.setBackground(new java.awt.Color(204, 204, 204));
+        BtnVisuAlterarDados.setText("Visualizar/ Alterar Dados");
         BtnVisuAlterarDados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnVisuAlterarDadosActionPerformed(evt);
@@ -688,11 +703,11 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Nome Completo", "CRP", "Email", "Telefone 1", "Telefone 2"
+                "ID", "Nome Completo", "CRP", "Email", "Telefone 1", "Telefone 2", "Deletado"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -776,70 +791,70 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
         PainelMenu.setBackground(new java.awt.Color(102, 102, 102));
         PainelMenu.setForeground(new java.awt.Color(102, 102, 102));
 
-        BtnInicio.setText("Início");
         BtnInicio.setBackground(new java.awt.Color(102, 102, 102));
         BtnInicio.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnInicio.setForeground(new java.awt.Color(255, 255, 255));
+        BtnInicio.setText("Início");
         BtnInicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnInicioActionPerformed(evt);
             }
         });
 
-        BtnManterPaciente.setText("Pacientes");
         BtnManterPaciente.setBackground(new java.awt.Color(102, 102, 102));
         BtnManterPaciente.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnManterPaciente.setForeground(new java.awt.Color(255, 255, 255));
+        BtnManterPaciente.setText("Pacientes");
         BtnManterPaciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnManterPacienteActionPerformed(evt);
             }
         });
 
-        BtnManterConsulta.setText("Cadastrar Consulta");
         BtnManterConsulta.setBackground(new java.awt.Color(102, 102, 102));
         BtnManterConsulta.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnManterConsulta.setForeground(new java.awt.Color(255, 255, 255));
+        BtnManterConsulta.setText("Cadastrar Consulta");
         BtnManterConsulta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnManterConsultaActionPerformed(evt);
             }
         });
 
-        BtnManterPsicologo.setText("Psicólogos");
         BtnManterPsicologo.setBackground(new java.awt.Color(102, 102, 102));
         BtnManterPsicologo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnManterPsicologo.setForeground(new java.awt.Color(255, 255, 255));
+        BtnManterPsicologo.setText("Psicólogos");
         BtnManterPsicologo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnManterPsicologoActionPerformed(evt);
             }
         });
 
-        BtnExibirTodasAnamneses.setText("Exibir Todas as Anamneses");
         BtnExibirTodasAnamneses.setBackground(new java.awt.Color(102, 102, 102));
         BtnExibirTodasAnamneses.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnExibirTodasAnamneses.setForeground(new java.awt.Color(255, 255, 255));
+        BtnExibirTodasAnamneses.setText("Exibir Todas as Anamneses");
         BtnExibirTodasAnamneses.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnExibirTodasAnamnesesActionPerformed(evt);
             }
         });
 
-        BtnExibirTodasAnotacoes.setText("Exibir Todas as Anotações");
         BtnExibirTodasAnotacoes.setBackground(new java.awt.Color(102, 102, 102));
         BtnExibirTodasAnotacoes.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnExibirTodasAnotacoes.setForeground(new java.awt.Color(255, 255, 255));
+        BtnExibirTodasAnotacoes.setText("Exibir Todas as Anotações");
         BtnExibirTodasAnotacoes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnExibirTodasAnotacoesActionPerformed(evt);
             }
         });
 
-        BtnSair.setText("Sair");
         BtnSair.setBackground(new java.awt.Color(102, 102, 102));
         BtnSair.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnSair.setForeground(new java.awt.Color(255, 255, 255));
+        BtnSair.setText("Sair");
         BtnSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnSairActionPerformed(evt);
@@ -902,7 +917,8 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
                     vw.getPsicologo().getCRP(),
                     vw.getPsicologo().getEmail(),
                     fones2[0],
-                    fones2[1]
+                    fones2[1],
+                    vw.getPsicologo().isDeletado()
                 };
             } else {
                 linha = new Object[]{
@@ -911,7 +927,8 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
                     vw.getPsicologo().getCRP(),
                     vw.getPsicologo().getEmail(),
                     vw.getTelefone().getNumero(),
-                    null
+                    null,
+                    vw.getPsicologo().isDeletado()
                 };
 
             }
@@ -943,7 +960,8 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
                     vw.getPsicologo().getCRP(),
                     vw.getPsicologo().getEmail(),
                     fones2[0],
-                    fones2[1]
+                    fones2[1],
+                    vw.getPsicologo().isDeletado()
                 };
             } else {
                 linha = new Object[]{
@@ -952,7 +970,8 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
                     vw.getPsicologo().getCRP(),
                     vw.getPsicologo().getEmail(),
                     vw.getTelefone().getNumero(),
-                    null
+                    null,
+                    vw.getPsicologo().isDeletado()
                 };
 
             }
@@ -1120,7 +1139,11 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
         TelefoneDAO tdao = new TelefoneDAO();
         t = tdao.ReadTPsicologo(p.getCodPsicologo());
         txtNome3.setText(p.getNome_completo());
-
+        if (p.isDeletado()) {
+            JCBDeletado.setSelectedIndex(0);
+        } else {
+            JCBDeletado.setSelectedIndex(1);
+        }
         txtCRP1.setText(p.getCRP());
         txtEmail2.setText(p.getEmail());
         if (t.size() == 2) {
@@ -1195,19 +1218,16 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
                             p = dao.ReadPsicologo(p.getCRP());
                             tf.setPsicologo(p);
 
-                            
                             if (tfdao.CreatePsi(tf)) {
                                 if (!TxtTelefone5.getText().isEmpty()) {
                                     tf2.setPsicologo(p);
                                     tfdao.CreatePsi(tf2);
                                 }
-                                 ReadJTable();
-                                 ModalCadastrarPsicologo.dispose();
+                                ReadJTable();
+                                ModalCadastrarPsicologo.dispose();
                             } else {
                                 dao.Delete(p);
                             }
-
-                          
 
                         }
                     }
@@ -1248,7 +1268,7 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
     private void BtnCadastrarPsicologo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCadastrarPsicologo1ActionPerformed
         // TODO add your handling code here:
         boolean dadosvalidos = true;
-
+        String oldJCB = (String) JCBDeletado.getSelectedItem();
         Psicologo p = new Psicologo();
         PsicologoDAO dao = new PsicologoDAO();
         Telefone tf = new Telefone();
@@ -1278,8 +1298,6 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
                 msg += "\nCPF Invalido: " + txtCRP1.getText();
             }
 
-            
-
             p.setCodPsicologo(this.codigopsicologo);
 
             if (Validar.vTelefone(TxtTelefone6.getText())) {
@@ -1306,6 +1324,11 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
                 }
             }
             if (dadosvalidos) {
+                if (JCBDeletado.getSelectedIndex() == 0) {
+                    p.setDeletado(true);
+                } else {
+                    p.setDeletado(false);
+                }
                 if (dao.UpdatePsicologSemLogin(p)) {
 
                     p = dao.ReadPsicologo(p.getCRP());
@@ -1320,6 +1343,9 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
 
                         }
                         JOptionPane.showMessageDialog(this, "Psicologo: " + p.getNome_completo() + " Salvo com sucesso");
+                        if (oldJCB != JCBDeletado.getSelectedItem()) {
+                            Restaurar.RestaurarTelefonesPsicologos(p.getCodPsicologo());
+                        }
                         ReadJTable();
                         ModalAlterarPsicologo.dispose();
                         // this.clear();
@@ -1643,6 +1669,7 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
     private javax.swing.JButton BtnNovoPsicologo;
     private javax.swing.JButton BtnSair;
     private javax.swing.JButton BtnVisuAlterarDados;
+    private javax.swing.JComboBox<String> JCBDeletado;
     private javax.swing.JTable JTPsicologos;
     private javax.swing.JLabel LabelConfirmarSenha;
     private javax.swing.JLabel LabelEsqueciSenha;
@@ -1661,6 +1688,7 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
     private javax.swing.JCheckBox chckMostrarSenha;
     private javax.swing.JCheckBox chckMostrarSenha1;
     private LIB.JEImagePanel jEImagePanel1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel21;

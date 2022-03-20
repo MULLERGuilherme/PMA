@@ -31,7 +31,7 @@ public class ADMDAO {
         ResultSet rs = null;
         List<Vw_TelefonesPsicologos> vw = new ArrayList<>();
         try {
-            stmt = con.prepareStatement("SELECT CodigoPsicologo, Psicologo, Email,CRP, GROUP_CONCAT(numero) as Telefone FROM vw_TelefonePsicologos Group By CodigoPsicologo");
+            stmt = con.prepareStatement("SELECT CodigoPsicologo, Psicologo, Email,CRP, GROUP_CONCAT(numero) as Telefone, PsicologoDeletado FROM vw_TelefonePsicologos Group By CodigoPsicologo");
             rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -42,7 +42,7 @@ public class ADMDAO {
                 v.getPsicologo().setEmail(rs.getString("Email"));
                 v.getPsicologo().setCRP(rs.getString("CRP"));
                 v.getTelefone().setNumero(rs.getString("Telefone"));
-
+                v.getPsicologo().setDeletado(rs.getBoolean("PsicologoDeletado"));
                 vw.add(v);
 
             }
@@ -62,7 +62,7 @@ public class ADMDAO {
         ResultSet rs = null;
         List<Vw_TelefonesPsicologos> vw = new ArrayList<>();
         try {
-            String sql = "SELECT CodigoPsicologo, Psicologo, Email,CRP, GROUP_CONCAT(numero) as Telefone FROM vw_TelefonePsicologos WHERE ((Psicologo Like '%" + Busca + "%') OR (Email Like '%" + Busca + "%') OR (Telefone Like '%" + Busca + "%')) Group By CodigoPsicologo;";
+            String sql = "SELECT CodigoPsicologo, Psicologo, Email,CRP, GROUP_CONCAT(numero) as Telefone, PsicologoDeletado FROM vw_TelefonePsicologos WHERE ((Psicologo Like '%" + Busca + "%') OR (Email Like '%" + Busca + "%') OR (Telefone Like '%" + Busca + "%')) Group By CodigoPsicologo;";
             stmt = con.prepareStatement(sql);
 
             rs = stmt.executeQuery();
@@ -74,6 +74,7 @@ public class ADMDAO {
                 v.getPsicologo().setEmail(rs.getString("Email"));
                 v.getPsicologo().setCRP(rs.getString("CRP"));
                 v.getTelefone().setNumero(rs.getString("Telefone"));
+                v.getPsicologo().setDeletado(rs.getBoolean("PsicologoDeletado"));
 
                 vw.add(v);
             }

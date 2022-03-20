@@ -135,15 +135,15 @@ public class PsicologoDAO {
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         try {
-            stmt = con.prepareStatement("Update  psicologo SET CRP = ?, Nome_completo=?, Email=? WHERE CodPsicologo =? ");
+            stmt = con.prepareStatement("Update  psicologo SET CRP = ?, Nome_completo=?, Email=?, Deletado = ? WHERE CodPsicologo =? ");
 
             //sem CPF pq nao faz sentido
             stmt.setString(1,  p.getCRP());
             stmt.setString(2, p.getNome_completo());
             stmt.setString(3, p.getEmail());
-            
+            stmt.setBoolean(4, p.isDeletado());
            
-            stmt.setInt(4, p.getCodPsicologo());
+            stmt.setInt(5, p.getCodPsicologo());
 
             stmt.executeUpdate();
 
@@ -224,7 +224,28 @@ public class PsicologoDAO {
         }
         return status;
     }
+    
+     public boolean softDelete(Psicologo p) {
+        boolean status = true;
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
 
+        try {
+            stmt = con.prepareStatement("Update psicologo set Deletado = true WHERE CodPsicologo =? ");
+
+            stmt.setInt(1, p.getCodPsicologo());
+
+            stmt.executeUpdate();
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao Excluir :" + ex);
+            status = false;
+
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt);
+        }
+        return status;
+    }
     public boolean ValidarLogin(Psicologo p, JFrame jframe) {
 
         Connection con = ConnectionFactory.getConnection(jframe);
@@ -334,6 +355,7 @@ public class PsicologoDAO {
                     p.setCRP(rs.getString("CRP"));
                     p.setEmail(rs.getString("Email"));
                     p.setLogin(rs.getString("Login"));
+                    p.setDeletado(rs.getBoolean("Deletado"));
                    
                 } 
             } 

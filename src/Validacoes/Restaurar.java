@@ -21,4 +21,11 @@ public class Restaurar {
          boolean status = tdao.RestaurarTPaciente(codpaciente);
          return status;
      }
+     
+       public static boolean RestaurarTelefonesPsicologos(int codpsicologo) {
+         TelefoneDAO tdao = new TelefoneDAO();
+         
+         boolean status = tdao.RestaurarTPsicologo(codpsicologo);
+         return status;
+     }
 }

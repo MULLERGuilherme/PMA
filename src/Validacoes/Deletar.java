@@ -51,6 +51,7 @@ public class Deletar {
     }
     
      public static boolean DPsicologo(Psicologo p) {
+        
         boolean status;
         
         PsicologoDAO dao = new PsicologoDAO();
@@ -60,7 +61,7 @@ public class Deletar {
         AnotacaoDAO antdao = new AnotacaoDAO();
         
         
-        status = tdao.DeleteTPsicologo(p);
+        status = tdao.SoftDeleteTPsicologo(p);
        
         if (status) {
             
@@ -71,7 +72,7 @@ public class Deletar {
                 
         }
             cdao.DeleteConsultas(p);
-            status = dao.Delete(p);
+            status = dao.softDelete(p);
             
         }
         return status;

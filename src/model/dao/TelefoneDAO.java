@@ -256,7 +256,28 @@ public class TelefoneDAO {
         return status;
      }
       
-     
+      public boolean SoftDeleteTPsicologo(Psicologo p){
+        boolean status = true;
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+
+        try {
+            stmt = con.prepareStatement("Update telefone set Deletado = true WHERE CodPsicologo =? ");
+
+            stmt.setInt(1, p.getCodPsicologo());
+
+            stmt.executeUpdate();
+
+          
+        } catch (SQLException ex) {
+          status = false;
+
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt);
+        }
+        return status;
+     }
+      
       public boolean RestaurarTPaciente(int codPaciente ){
         boolean status = true;
         Connection con = ConnectionFactory.getConnection();
@@ -278,7 +299,28 @@ public class TelefoneDAO {
         }
         return status;
      }
-       
+      
+      public boolean RestaurarTPsicologo(int codPsicologo ){
+        boolean status = true;
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+
+        try {
+            stmt = con.prepareStatement("Update telefone SET Deletado = false WHERE CodPsicologo =? ");
+
+            stmt.setInt(1, codPsicologo);
+
+            stmt.executeUpdate();
+
+          
+        } catch (SQLException ex) {
+          status = false;
+
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt);
+        }
+        return status;
+     }
     
     
 }
