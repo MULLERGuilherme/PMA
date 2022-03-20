@@ -56,6 +56,7 @@ public class ManterConsultasAdm extends javax.swing.JFrame {
 
     public ManterConsultasAdm() {
         initComponents();
+        BtnManterConsulta.setEnabled(false);
         DefaultTableModel dtmConsultas = (DefaultTableModel) JTConsultas.getModel();
         TableColumnModel cmod = JTConsultas.getColumnModel();
         cmod.removeColumn(cmod.getColumn(0));

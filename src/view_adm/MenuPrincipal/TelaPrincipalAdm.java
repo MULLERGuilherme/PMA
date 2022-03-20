@@ -51,6 +51,7 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
      
     public TelaPrincipalAdm() {
         initComponents();
+        BtnInicio.setEnabled(false);
         btnAlterar.setEnabled(false);
         BtnExcluir.setEnabled(false);
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();

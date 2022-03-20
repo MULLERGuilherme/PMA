@@ -57,6 +57,7 @@ public class ManterPacienteAdm extends javax.swing.JFrame {
 
     public ManterPacienteAdm() {
         initComponents();
+        BtnManterPaciente.setEnabled(false);
         BtnVisuAlterarDados.setEnabled(false);
         BtnExcluirPaciente.setEnabled(false);
         DefaultTableModel dtmPacientes = (DefaultTableModel) JTPacientes.getModel();

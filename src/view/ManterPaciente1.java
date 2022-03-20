@@ -117,6 +117,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         this.getCount();
 
         initComponents();
+        BtnPacientes.setEnabled(false);
         DefaultTableModel dtmPacientes = (DefaultTableModel) JTPacientes.getModel();
         BtnVisuAlterarDados.setEnabled(false);
         btnVisuAnamneses.setEnabled(false);

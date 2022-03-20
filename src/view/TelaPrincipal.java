@@ -47,6 +47,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     
     public TelaPrincipal() {
         initComponents();
+        BtnVoltar.setEnabled(false);
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         btnAlterar.setEnabled(false);
         BtnExcluir.setEnabled(false);

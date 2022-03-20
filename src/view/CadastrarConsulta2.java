@@ -41,6 +41,7 @@ public class CadastrarConsulta2 extends javax.swing.JFrame {
      */
     public CadastrarConsulta2() {
         initComponents();
+         BtnConsultas.setEnabled(false);
         BtnCadastrarConsulta.setEnabled(false);
          DefaultTableModel dtmPacientes = (DefaultTableModel) JTPacienteSimples.getModel();
          TableColumnModel cmod = JTPacienteSimples.getColumnModel();
