@@ -2695,6 +2695,7 @@
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton2MouseClicked"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
@@ -2887,26 +2888,16 @@
                           </Group>
                       </Group>
                   </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
-                              <Component id="BtnNovo" min="-2" pref="153" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="btnVisuConsultas" min="-2" pref="153" max="-2" attributes="0"/>
-                                  <Component id="btnVisuAnotacoes" min="-2" pref="153" max="-2" attributes="0"/>
-                                  <Component id="btnVisuAnamneses" alignment="1" min="-2" pref="153" max="-2" attributes="0"/>
-                                  <Component id="BtnVisuAlterarDados" alignment="1" min="-2" pref="153" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
+                          <Component id="BtnNovo" min="-2" pref="153" max="-2" attributes="0"/>
+                          <Component id="btnVisuConsultas" alignment="1" min="-2" pref="153" max="-2" attributes="0"/>
+                          <Component id="btnVisuAnotacoes" alignment="1" min="-2" pref="153" max="-2" attributes="0"/>
+                          <Component id="btnVisuAnamneses" alignment="1" min="-2" pref="153" max="-2" attributes="0"/>
+                          <Component id="BtnVisuAlterarDados" alignment="1" min="-2" pref="153" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="BtnHelp" min="-2" pref="24" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="BtnHelp" alignment="1" min="-2" pref="24" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>

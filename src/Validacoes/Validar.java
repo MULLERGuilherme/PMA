@@ -386,6 +386,37 @@ public class Validar {
         return vazio;
 
     }
+    
+    public static boolean vCamposVaziosManterPSI(JFrame jframe, JTextField Nome, JTextField Email, JTextField CRP, JTextField Telefone) {
+        boolean vazio = false;
+        String msg = "Existem Campos Obrigatórios em branco.\nFavor verificar os seguintes campos:\n";
+        if (Nome.getText().isEmpty()) {
+            msg += "Nome Completo";
+            vazio = true;
+        }
+        if (Email.getText().isEmpty()) {
+            msg += "\nEmail";
+            vazio = true;
+        }
+        if (CRP.getText().isEmpty()) {
+            msg += "\nCRP";
+            vazio = true;
+        }
+        if (Telefone.getText().isEmpty()) {
+            msg += "\nTelefone";
+            vazio = true;
+        }
+        
+        if (Telefone.getText().isEmpty()) {
+            msg += "\nTelefone 1";
+            vazio = true;
+        }
+        if (vazio) {
+            JOptionPane.showMessageDialog(jframe, msg, "ERRO!", JOptionPane.ERROR_MESSAGE);
+        }
+        return vazio;
+
+    }
 
     public static boolean vCamposVazios(JFrame jframe, JTextField Nome, JTextField Email, String CPF, DatePicker DataNasc, JTextField Telefone) {
         boolean vazio = false;
