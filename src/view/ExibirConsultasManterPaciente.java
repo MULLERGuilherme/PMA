@@ -36,8 +36,7 @@ public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
 
     public static int codpaciente;
     private int codigoconsulta = -1;
-    
-    
+
     //Paginacao
     int PAGE_SIZE = 1;
     double tableRowCount;
@@ -51,8 +50,7 @@ public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
 //        System.out.println("linhas");
 //        System.out.println(tableRowCount);
         if (tableRowCount > 0) {
-            totalPages  = (int) Math.ceil(tableRowCount / PAGE_SIZE);
-            
+            totalPages = (int) Math.ceil(tableRowCount / PAGE_SIZE);
 
         }
         currentPage = 1;
@@ -92,7 +90,6 @@ public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
 //        startRow = PAGE_SIZE * (pageNo - 1);
 //
 //        ReadJTableBuscaPag(Busca, startRow, PAGE_SIZE);
-
     }
 
     /**
@@ -108,12 +105,12 @@ public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
         Paciente p;
         p = pdao.ReadPaciente(codpaciente);
         lNome.setText(p.getNome_Completo());
-        
+
         DefaultTableModel dtmPacientes = (DefaultTableModel) JTConsultas.getModel();
         TableColumnModel cmod = JTConsultas.getColumnModel();
         cmod.removeColumn(cmod.getColumn(0));
         JTConsultas.setRowSorter(new TableRowSorter(dtmPacientes));
-        
+
         SpinnerNumPaginas.setValue((int) currentPage);
         LabelQtdePaginas.setText("de " + totalPages);
         SpinnerLimite.setValue((int) PAGE_SIZE);
@@ -135,7 +132,6 @@ public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
 //                c.getStatus(),});
 //        }
 //    }
-    
     private void ReadJTablePag(int start, int size) {
         DefaultTableModel model = (DefaultTableModel) JTConsultas.getModel();
         model.setNumRows(0);
@@ -943,8 +939,8 @@ public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
 
         PainelPaginacao.setOpaque(false);
 
-        LabelLimite.setBackground(new java.awt.Color(204, 204, 204));
         LabelLimite.setText("Limite");
+        LabelLimite.setBackground(new java.awt.Color(204, 204, 204));
 
         SpinnerLimite.setModel(new javax.swing.SpinnerNumberModel(1, 1, 15, 1));
         SpinnerLimite.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -967,8 +963,8 @@ public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
             }
         });
 
-        LabelPagina.setBackground(new java.awt.Color(204, 204, 204));
         LabelPagina.setText("Página");
+        LabelPagina.setBackground(new java.awt.Color(204, 204, 204));
 
         SpinnerNumPaginas.setModel(new javax.swing.SpinnerNumberModel(1, 1, totalPages, 1));
         SpinnerNumPaginas.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -977,8 +973,8 @@ public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
             }
         });
 
-        LabelQtdePaginas.setBackground(new java.awt.Color(204, 204, 204));
         LabelQtdePaginas.setText("de X");
+        LabelQtdePaginas.setBackground(new java.awt.Color(204, 204, 204));
 
         BtnAvancarPouco.setText(">");
         BtnAvancarPouco.addActionListener(new java.awt.event.ActionListener() {
@@ -1178,11 +1174,10 @@ public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
     private void btnalterarconsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnalterarconsultaActionPerformed
         // TODO add your handling code here:
         if (JTConsultas.getSelectedRow() != -1) {
-            
+
             int modelRow = JTConsultas.convertRowIndexToModel(JTConsultas.getSelectedRow());
             int value = (Integer) JTConsultas.getModel().getValueAt(modelRow, 0);
-            
-            
+
             AlterarConsulta.codconsulta = value;
             AlterarConsulta.codpaciente = this.codpaciente;
             AlterarConsulta cp = new AlterarConsulta(this);
@@ -1201,11 +1196,10 @@ public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
         if (JTConsultas.getSelectedRow() != -1) {
 
             Consulta c = new Consulta();
-            
-            
+
             int modelRow = JTConsultas.convertRowIndexToModel(JTConsultas.getSelectedRow());
             int value = (Integer) JTConsultas.getModel().getValueAt(modelRow, 0);
-            
+
             c.setCodConsulta(value);
             boolean sucesso = Deletar.DConsulta(c);
 
@@ -1223,10 +1217,10 @@ public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
 //            LabelQtdePaginas.setText("de " + totalPages);
 //            getPageDataBusca(currentPage, txtBusca.getText());
 //        } else {
-            getCount();
-            SpinnerNumPaginas.setValue(currentPage);
-            LabelQtdePaginas.setText("de " + totalPages);
-            getPageData(currentPage);
+        getCount();
+        SpinnerNumPaginas.setValue(currentPage);
+        LabelQtdePaginas.setText("de " + totalPages);
+        getPageData(currentPage);
 //        }
     }//GEN-LAST:event_BtnExcluirActionPerformed
 
@@ -1236,7 +1230,11 @@ public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
         if (evt.getClickCount() == 2) {
             if (JTConsultas.getSelectedRow() != -1) {
 
-                AlterarConsulta.codconsulta = ((int) JTConsultas.getValueAt(JTConsultas.getSelectedRow(), 0));
+                int modelRow = JTConsultas.convertRowIndexToModel(JTConsultas.getSelectedRow());
+                int value = (Integer) JTConsultas.getModel().getValueAt(modelRow, 0);
+
+                AlterarConsulta.codconsulta = value;
+                AlterarConsulta.codpaciente = this.codpaciente;
                 AlterarConsulta cp = new AlterarConsulta(this);
                 cp.setLocationRelativeTo(null);
                 cp.setResizable(false);
@@ -1277,42 +1275,6 @@ public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
 
     }//GEN-LAST:event_BtnSalvarAlteracoes4ActionPerformed
 
-    private void BtnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVoltarActionPerformed
-        TelaPrincipal mp1 = new TelaPrincipal();
-        Util.SizeJanela(mp1);
-        this.dispose();
-    }//GEN-LAST:event_BtnVoltarActionPerformed
-
-    private void BtnPacientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnPacientesActionPerformed
-        ManterPaciente1 mp1 = new ManterPaciente1();
-        Util.SizeJanela(mp1);
-        this.dispose();
-    }//GEN-LAST:event_BtnPacientesActionPerformed
-
-    private void BtnConsultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnConsultasActionPerformed
-        CadastrarConsulta2 mc = new CadastrarConsulta2();
-        Util.SizeJanela(mc);
-        this.dispose();
-    }//GEN-LAST:event_BtnConsultasActionPerformed
-
-    private void BtnExibirAnamnesesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExibirAnamnesesActionPerformed
-        ExibirAnamneses ma = new ExibirAnamneses();
-        Util.SizeJanela(ma);
-        this.dispose();
-    }//GEN-LAST:event_BtnExibirAnamnesesActionPerformed
-
-    private void BtnExibirAnotacoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExibirAnotacoesActionPerformed
-        ExibirAnotacoes ea = new ExibirAnotacoes();
-        Util.SizeJanela(ea);
-        this.dispose();
-    }//GEN-LAST:event_BtnExibirAnotacoesActionPerformed
-
-    private void BtnExibirAnotacoes1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExibirAnotacoes1ActionPerformed
-        TelaLogin tl = new TelaLogin();
-        tl.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_BtnExibirAnotacoes1ActionPerformed
-
     private void SpinnerLimiteStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_SpinnerLimiteStateChanged
         // TODO add your handling code here:
 //        if (txtBusca.getText() != "") {
@@ -1324,26 +1286,25 @@ public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
 //            LabelQtdePaginas.setText("de " + totalPages);
 //            getPageDataBusca(1, txtBusca.getText());
 //        } else {
-            PAGE_SIZE = (int) SpinnerLimite.getValue();
-            getCount();
+        PAGE_SIZE = (int) SpinnerLimite.getValue();
+        getCount();
 
-            SpinnerNumPaginas.setModel(new javax.swing.SpinnerNumberModel(1, 1, totalPages, 1));
-            SpinnerNumPaginas.setValue((int) currentPage);
+        SpinnerNumPaginas.setModel(new javax.swing.SpinnerNumberModel(1, 1, totalPages, 1));
+        SpinnerNumPaginas.setValue((int) currentPage);
 
-            LabelQtdePaginas.setText("de " + totalPages);
-            getPageData(1);
+        LabelQtdePaginas.setText("de " + totalPages);
+        getPageData(1);
 //        }
     }//GEN-LAST:event_SpinnerLimiteStateChanged
 
     private void BtnVoltarBastanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVoltarBastanteActionPerformed
         if (currentPage != 1) {
-         
-                if (currentPage - 5 < 1) {
-                    getPageData(1);
-                } else {
-                    getPageData(currentPage - 5);
-                }
-            
+
+            if (currentPage - 5 < 1) {
+                getPageData(1);
+            } else {
+                getPageData(currentPage - 5);
+            }
 
         }
         SpinnerNumPaginas.setValue((int) currentPage);
@@ -1352,9 +1313,8 @@ public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
     private void BtnVoltarPoucoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVoltarPoucoActionPerformed
         // TODO add your handling code here:
         if (currentPage != 1) { //diferente da 1 pagina
-           
-                getPageData(currentPage - 1);
-            
+
+            getPageData(currentPage - 1);
 
         }
         SpinnerNumPaginas.setValue((int) currentPage);
@@ -1362,18 +1322,16 @@ public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
 
     private void SpinnerNumPaginasStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_SpinnerNumPaginasStateChanged
         // TODO add your handling code here:
-        
 
-            getPageData((int) SpinnerNumPaginas.getValue());
-        
+        getPageData((int) SpinnerNumPaginas.getValue());
+
         //
     }//GEN-LAST:event_SpinnerNumPaginasStateChanged
 
     private void BtnAvancarPoucoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAvancarPoucoActionPerformed
         if (currentPage < totalPages) {
-            
-                getPageData(currentPage + 1);
-            
+
+            getPageData(currentPage + 1);
 
         }
         SpinnerNumPaginas.setValue((int) currentPage);
@@ -1382,17 +1340,52 @@ public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
     private void BtnAvancarBastanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAvancarBastanteActionPerformed
         // TODO add your handling code here:
         if (currentPage < totalPages) { //se tem pagina e é menor que a ultima
-            
-                if (currentPage + 5 > totalPages) {
-                    getPageData(totalPages);
-                } else {
-                    getPageData(currentPage + 5);
-                }
-            
+
+            if (currentPage + 5 > totalPages) {
+                getPageData(totalPages);
+            } else {
+                getPageData(currentPage + 5);
+            }
 
         }
         SpinnerNumPaginas.setValue((int) currentPage);
     }//GEN-LAST:event_BtnAvancarBastanteActionPerformed
+
+    private void BtnExibirAnotacoes1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExibirAnotacoes1ActionPerformed
+        TelaLogin tl = new TelaLogin();
+        tl.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_BtnExibirAnotacoes1ActionPerformed
+
+    private void BtnExibirAnotacoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExibirAnotacoesActionPerformed
+        ExibirAnotacoes ea = new ExibirAnotacoes();
+        Util.SizeJanela(ea);
+        this.dispose();
+    }//GEN-LAST:event_BtnExibirAnotacoesActionPerformed
+
+    private void BtnExibirAnamnesesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExibirAnamnesesActionPerformed
+        ExibirAnamneses ma = new ExibirAnamneses();
+        Util.SizeJanela(ma);
+        this.dispose();
+    }//GEN-LAST:event_BtnExibirAnamnesesActionPerformed
+
+    private void BtnConsultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnConsultasActionPerformed
+        CadastrarConsulta2 mc = new CadastrarConsulta2();
+        Util.SizeJanela(mc);
+        this.dispose();
+    }//GEN-LAST:event_BtnConsultasActionPerformed
+
+    private void BtnPacientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnPacientesActionPerformed
+        ManterPaciente1 mp1 = new ManterPaciente1();
+        Util.SizeJanela(mp1);
+        this.dispose();
+    }//GEN-LAST:event_BtnPacientesActionPerformed
+
+    private void BtnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVoltarActionPerformed
+        TelaPrincipal mp1 = new TelaPrincipal();
+        Util.SizeJanela(mp1);
+        this.dispose();
+    }//GEN-LAST:event_BtnVoltarActionPerformed
 
     /**
      * @param args the command line arguments
