@@ -1468,6 +1468,7 @@ public void readatributos() {
          CadastrarAnotacaoPaciente tp = new CadastrarAnotacaoPaciente(codconsulta);
         CadastrarAnotacaoPaciente.codconsulta = codconsulta;
         ModalAnotacao.setSize(890, 600);
+        jScrollPane4.getVerticalScrollBar().setUnitIncrement(15);
         ModalAnotacao.setModal(true);
         ModalAnotacao.setLocationRelativeTo(null);
         ModalAnotacao.setVisible(true);
