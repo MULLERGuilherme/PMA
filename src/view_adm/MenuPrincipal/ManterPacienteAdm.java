@@ -7,6 +7,7 @@ package view_adm.MenuPrincipal;
 
 import view.*;
 import Validacoes.Deletar;
+import Validacoes.Restaurar;
 import Validacoes.Validar;
 import connection.ConnectionFactory;
 import java.awt.Color;
@@ -1122,7 +1123,7 @@ public class ManterPacienteAdm extends javax.swing.JFrame {
 
     private void BtnSalvarAlteracoesNovo3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalvarAlteracoesNovo3ActionPerformed
         boolean dadosvalidos = true;
-
+        String oldJCB = (String) JCBDeletado.getSelectedItem();
         Paciente p = new Paciente();
         PacienteDAO dao = new PacienteDAO();
         Telefone tf = new Telefone();
@@ -1197,7 +1198,7 @@ public class ManterPacienteAdm extends javax.swing.JFrame {
                     p.setDeletado(false);
                 }
                 if (dao.Update(p)) {
-
+                    
                     p = dao.ReadPaciente(p.getCPF());
 
                     tf.setPaciente(p);
@@ -1218,6 +1219,9 @@ public class ManterPacienteAdm extends javax.swing.JFrame {
                         //JOptionPane.showMessageDialog(this, "Paciente " + p.getNome_Completo() + " Atualizado com sucesso");
                         //this.clear();
                         String str = "Paciente " + p.getNome_Completo() + " Atualizado com sucesso";
+                        if(oldJCB != JCBDeletado.getSelectedItem()){
+                            Restaurar.RestaurarTelefonesPaciente(p.getCodPaciente());
+                        }
                         clearAlterarR();
                         ModalAlterarResolucaoMenor.dispose();
                     }

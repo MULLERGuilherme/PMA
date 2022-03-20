@@ -255,7 +255,30 @@ public class TelefoneDAO {
         }
         return status;
      }
-            
+      
+     
+      public boolean RestaurarTPaciente(int codPaciente ){
+        boolean status = true;
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+
+        try {
+            stmt = con.prepareStatement("Update telefone SET Deletado = false WHERE CodPaciente =? ");
+
+            stmt.setInt(1, codPaciente);
+
+            stmt.executeUpdate();
+
+          
+        } catch (SQLException ex) {
+          status = false;
+
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt);
+        }
+        return status;
+     }
+       
     
     
 }
