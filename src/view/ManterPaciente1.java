@@ -2485,7 +2485,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             //ExibirAnotacoesPaciente.codpaciente = ((int) JTPacientes.getModel().getValueAt(JTPacientes.getSelectedRow(),0));
             int modelRow = JTPacientes.convertRowIndexToModel(JTPacientes.getSelectedRow());
             int value = (Integer) JTPacientes.getModel().getValueAt(modelRow, 0);
-            ExibirAnotacoesManterPaciente ea = new ExibirAnotacoesManterPaciente(value);
+            VisualizarAnotacoes ea = new VisualizarAnotacoes(value);
             ea.setVisible(true);
             this.dispose();
 

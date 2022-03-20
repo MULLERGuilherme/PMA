@@ -102,7 +102,7 @@ public class ExibirAnamneses extends javax.swing.JFrame {
         SpinnerNumPaginas.setValue((int) currentPage);
         LabelQtdePaginas.setText("de " + totalPages);
         SpinnerLimite.setValue((int) PAGE_SIZE);
-        System.out.println(totalPages);
+        //System.out.println(totalPages);
 
         //ReadJTable();
     }
