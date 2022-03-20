@@ -1196,17 +1196,19 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
 
                             p = dao.ReadPsicologo(p.getCRP());
                             tf.setPsicologo(p);
-                            ModalCadastrarPsicologo.dispose();
+
+                            
                             if (tfdao.CreatePsi(tf)) {
-                                if (fone2) {
+                                if (!TxtTelefone5.getText().isEmpty()) {
                                     tf2.setPsicologo(p);
                                     tfdao.CreatePsi(tf2);
                                 }
-                                JOptionPane.showMessageDialog(this, "Psicologo: " + p.getNome_completo() + " Salvo com sucesso");
-
+                                 ModalCadastrarPsicologo.dispose();
                             } else {
                                 dao.Delete(p);
                             }
+
+                          
 
                         }
                     }
