@@ -260,8 +260,6 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
         BtnAlterar = new javax.swing.JButton();
-        txtLogin = new javax.swing.JTextField();
-        jLabel36 = new javax.swing.JLabel();
         ModalAlterarResolucaoMenor = new javax.swing.JDialog();
         jPanel3 = new javax.swing.JPanel();
         txtNome5 = new javax.swing.JTextField();
@@ -1324,9 +1322,6 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             }
         });
 
-        jLabel36.setText("Login");
-        jLabel36.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-
         javax.swing.GroupLayout ModalMeusDadosLayout = new javax.swing.GroupLayout(ModalMeusDados.getContentPane());
         ModalMeusDados.getContentPane().setLayout(ModalMeusDadosLayout);
         ModalMeusDadosLayout.setHorizontalGroup(
@@ -1338,20 +1333,17 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                 .addGap(190, 190, 190))
             .addGroup(ModalMeusDadosLayout.createSequentialGroup()
                 .addGap(45, 45, 45)
-                .addGroup(ModalMeusDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel36)
-                    .addGroup(ModalMeusDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel4)
-                        .addComponent(jLabel5)
-                        .addComponent(labeltelefone)
-                        .addComponent(labeltelefone2)
-                        .addComponent(jLabel3)
-                        .addComponent(txtLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 441, Short.MAX_VALUE)
-                        .addComponent(TxtTelefone6)
-                        .addComponent(TxtTelefone7)
-                        .addComponent(txtEmail2)
-                        .addComponent(txtCRP)
-                        .addComponent(txtNome3)))
+                .addGroup(ModalMeusDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5)
+                    .addComponent(labeltelefone)
+                    .addComponent(labeltelefone2)
+                    .addComponent(jLabel3)
+                    .addComponent(TxtTelefone6, javax.swing.GroupLayout.DEFAULT_SIZE, 441, Short.MAX_VALUE)
+                    .addComponent(TxtTelefone7)
+                    .addComponent(txtEmail2)
+                    .addComponent(txtCRP)
+                    .addComponent(txtNome3))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         ModalMeusDadosLayout.setVerticalGroup(
@@ -1370,11 +1362,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                 .addComponent(jLabel5)
                 .addGap(24, 24, 24)
                 .addComponent(txtEmail2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
-                .addComponent(jLabel36)
-                .addGap(18, 18, 18)
-                .addComponent(txtLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(24, 24, 24)
                 .addComponent(labeltelefone)
                 .addGap(18, 18, 18)
                 .addComponent(TxtTelefone6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1382,7 +1370,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                 .addComponent(labeltelefone2)
                 .addGap(18, 18, 18)
                 .addComponent(TxtTelefone7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 133, Short.MAX_VALUE)
                 .addComponent(BtnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -2796,7 +2784,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         t = tdao.ReadTPsicologo(p.getCodPsicologo());
         txtNome3.setText(p.getNome_completo());
         jLabel35.setText(p.getNome_completo());
-        txtLogin.setText(p.getLogin());
+        
         txtCRP.setText(p.getCRP());
         txtEmail2.setText(p.getEmail());
         TxtTelefone6.setText(t.get(0).getNumero());
@@ -2886,7 +2874,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         TelefoneDAO tfdao = new TelefoneDAO();
         String msg = "Existem campos com formatos Inválidos\n\nFavor Verificar os campos:";
 
-        if (!Validar.vCamposVaziosManterPSI(this, txtNome3, txtEmail2, txtCRP, txtLogin, TxtTelefone6)) {
+        if (!Validar.vCamposVaziosManterPSI(this, txtNome3, txtEmail2, txtCRP, TxtTelefone6)) {
             if (Validar.vNome(txtNome3.getText())) {
                 p.setNome_completo(txtNome3.getText());
             } else {
@@ -2908,7 +2896,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                 msg += "\nCPF Invalido: " + txtCRP.getText();
             }
 
-            p.setLogin(txtLogin.getText());
+            
 
             p.setCodPsicologo(codpsicologo);
 
@@ -2936,7 +2924,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                 }
             }
             if (dadosvalidos) {
-                if (dao.UpdateMP(p)) {
+                if (dao.UpdatePsicologSemLogin(p)) {
 
                     p = dao.ReadPsicologo(p.getCRP());
 
@@ -3295,7 +3283,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
-
+    
     private void Alterar(int cod) {
         Anamnese a = new Anamnese();
         AnamneseDAO dao = new AnamneseDAO();
@@ -3513,7 +3501,6 @@ public class ManterPaciente1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
-    private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -3571,7 +3558,6 @@ public class ManterPaciente1 extends javax.swing.JFrame {
     private javax.swing.JTextField txtEmail4;
     private javax.swing.JTextField txtEncaminhamento1;
     private javax.swing.JTextField txtHistoricoFamiliar1;
-    private javax.swing.JTextField txtLogin;
     private javax.swing.JTextField txtMedicamentosUtilizados1;
     private javax.swing.JTextField txtNome1;
     private javax.swing.JTextField txtNome3;
