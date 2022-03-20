@@ -120,37 +120,37 @@
         </Container>
         <Component class="javax.swing.JLabel" name="jLabel7">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Anota&#xe7;&#xf5;es da Consulta"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="48" style="0"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="75" green="83" red="3b" type="rgb"/>
             </Property>
+            <Property name="text" type="java.lang.String" value="Anota&#xe7;&#xf5;es da Consulta"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="LabelNomePaciente">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Nome do Paciente :"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="18" style="1"/>
             </Property>
+            <Property name="text" type="java.lang.String" value="Nome do Paciente :"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="LabelNome5">
           <Properties>
-            <Property name="text" type="java.lang.String" value=" Vari&#xe1;vel Nome do Paciente"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="18" style="1"/>
             </Property>
+            <Property name="text" type="java.lang.String" value=" Vari&#xe1;vel Nome do Paciente"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="LabelAssunto">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Assunto:"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="18" style="1"/>
             </Property>
+            <Property name="text" type="java.lang.String" value="Assunto:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtAssunto">
@@ -162,10 +162,10 @@
         </Component>
         <Component class="javax.swing.JLabel" name="LabelAssunto1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Texto:"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="18" style="1"/>
             </Property>
+            <Property name="text" type="java.lang.String" value="Texto:"/>
           </Properties>
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane2">
@@ -181,14 +181,15 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
+                <Property name="lineWrap" type="boolean" value="true"/>
                 <Property name="rows" type="int" value="5"/>
+                <Property name="wrapStyleWord" type="boolean" value="true"/>
               </Properties>
             </Component>
           </SubComponents>
         </Container>
         <Component class="javax.swing.JButton" name="BtnCancelarAnotacao">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Cancelar"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="99" green="99" red="ff" type="rgb"/>
             </Property>
@@ -198,6 +199,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
+            <Property name="text" type="java.lang.String" value="Cancelar"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnCancelarAnotacaoActionPerformed"/>
@@ -205,7 +207,6 @@
         </Component>
         <Component class="javax.swing.JButton" name="BtnSalvarAlteracoesAnotacao">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Salvar Altera&#xe7;&#xf5;es"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ba" green="70" red="0" type="rgb"/>
             </Property>
@@ -215,6 +216,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
+            <Property name="text" type="java.lang.String" value="Salvar Altera&#xe7;&#xf5;es"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnSalvarAlteracoesAnotacaoActionPerformed"/>
@@ -517,10 +519,10 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="LabelLimite">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Limite"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="cc" green="cc" red="cc" type="rgb"/>
                 </Property>
+                <Property name="text" type="java.lang.String" value="Limite"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JSpinner" name="SpinnerLimite">
@@ -551,10 +553,10 @@
             </Component>
             <Component class="javax.swing.JLabel" name="LabelPagina">
               <Properties>
-                <Property name="text" type="java.lang.String" value="P&#xe1;gina"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="cc" green="cc" red="cc" type="rgb"/>
                 </Property>
+                <Property name="text" type="java.lang.String" value="P&#xe1;gina"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JSpinner" name="SpinnerNumPaginas">
@@ -569,10 +571,10 @@
             </Component>
             <Component class="javax.swing.JLabel" name="LabelQtdePaginas">
               <Properties>
-                <Property name="text" type="java.lang.String" value="de X"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="cc" green="cc" red="cc" type="rgb"/>
                 </Property>
+                <Property name="text" type="java.lang.String" value="de X"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="BtnAvancarPouco">
@@ -672,7 +674,6 @@
       <SubComponents>
         <Component class="javax.swing.JButton" name="BtnVoltar">
           <Properties>
-            <Property name="text" type="java.lang.String" value="In&#xed;cio"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="66" red="66" type="rgb"/>
             </Property>
@@ -682,6 +683,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
+            <Property name="text" type="java.lang.String" value="In&#xed;cio"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnVoltarActionPerformed"/>
@@ -689,7 +691,6 @@
         </Component>
         <Component class="javax.swing.JButton" name="BtnPacientes">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Pacientes"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="66" red="66" type="rgb"/>
             </Property>
@@ -699,6 +700,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
+            <Property name="text" type="java.lang.String" value="Pacientes"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnPacientesActionPerformed"/>
@@ -706,7 +708,6 @@
         </Component>
         <Component class="javax.swing.JButton" name="BtnConsultas">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Cadastrar Consultas"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="66" red="66" type="rgb"/>
             </Property>
@@ -716,6 +717,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
+            <Property name="text" type="java.lang.String" value="Cadastrar Consultas"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnConsultasActionPerformed"/>
@@ -723,7 +725,6 @@
         </Component>
         <Component class="javax.swing.JButton" name="BtnExibirAnamneses">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Exibir Anamneses"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="66" red="66" type="rgb"/>
             </Property>
@@ -733,6 +734,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
+            <Property name="text" type="java.lang.String" value="Exibir Anamneses"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnExibirAnamnesesActionPerformed"/>
@@ -740,7 +742,6 @@
         </Component>
         <Component class="javax.swing.JButton" name="BtnExibirAnotacoes">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Exibir Anota&#xe7;&#xf5;es"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="66" red="66" type="rgb"/>
             </Property>
@@ -750,6 +751,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
+            <Property name="text" type="java.lang.String" value="Exibir Anota&#xe7;&#xf5;es"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnExibirAnotacoesActionPerformed"/>
@@ -757,7 +759,6 @@
         </Component>
         <Component class="javax.swing.JButton" name="BtnExibirAnotacoes1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Sair"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="66" red="66" type="rgb"/>
             </Property>
@@ -767,6 +768,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
+            <Property name="text" type="java.lang.String" value="Sair"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnExibirAnotacoes1ActionPerformed"/>

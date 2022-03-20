@@ -301,7 +301,9 @@ public class AlterarConsulta extends javax.swing.JFrame {
         LabelAssunto1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         txtTexto.setColumns(20);
+        txtTexto.setLineWrap(true);
         txtTexto.setRows(5);
+        txtTexto.setWrapStyleWord(true);
         txtTexto.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jScrollPane1.setViewportView(txtTexto);
 
