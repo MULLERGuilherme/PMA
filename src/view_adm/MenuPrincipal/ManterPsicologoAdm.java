@@ -61,6 +61,7 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
 
     public ManterPsicologoAdm() {
         initComponents();
+        BtnManterPsicologo.setEnabled(false);
         BtnVisuAlterarDados.setEnabled(false);
         BtnExcluirPsicologo.setEnabled(false);
         DefaultTableModel dtmPacientes = (DefaultTableModel) JTPsicologos.getModel();
