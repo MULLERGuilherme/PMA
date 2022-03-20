@@ -10,20 +10,30 @@ package model.bean;
  * @author User
  */
 public class Paciente {
-  private Integer codPaciente;
-  private String CPF;
-  private String Nome_Completo;
-  private String Email;
-  private String  EstadoCivil;
+
+    private Integer codPaciente;
+    private String CPF;
+    private String Nome_Completo;
+    private String Email;
+    private String EstadoCivil;
 //  Mudanças
-  private Object DataNasc;
-  private String Sexo;
-  private String Profissao;
-  private String Religiao;
-  private String Escolaridade;
-  private String Endereco;
-  private String Cidade;
-  private boolean Deletado = false;
+    private Object DataNasc;
+    private String Sexo;
+    private String Profissao;
+    private String Religiao;
+    private String Escolaridade;
+    private String Endereco;
+    private String Cidade;
+    private String UF;
+    private boolean Deletado = false;
+
+    public String getUF() {
+        return UF;
+    }
+
+    public void setUF(String UF) {
+        this.UF = UF;
+    }
 
     public boolean isDeletado() {
         return Deletado;
@@ -32,8 +42,7 @@ public class Paciente {
     public void setDeletado(boolean Deletado) {
         this.Deletado = Deletado;
     }
-    
-  
+
     public int getCodPaciente() {
         return codPaciente;
     }
@@ -153,8 +162,5 @@ public class Paciente {
     public void setProfissao(int NULL) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-  
-  
-  
-  
+
 }

@@ -167,10 +167,8 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         DataNasc2 = new com.github.lgooddatepicker.components.DatePicker();
         LabelCidade4 = new javax.swing.JLabel();
         TxtCidade1 = new javax.swing.JTextField();
-        jLabel31 = new javax.swing.JLabel();
         TxtEndereco1 = new javax.swing.JTextField();
         jLabel32 = new javax.swing.JLabel();
-        LabelProfissao1 = new javax.swing.JLabel();
         TxtProfissao1 = new javax.swing.JTextField();
         LabelReligiao1 = new javax.swing.JLabel();
         TxtReligiao1 = new javax.swing.JTextField();
@@ -185,6 +183,10 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         jLabel34 = new javax.swing.JLabel();
         PainelIdentificacaoPessoal2 = new javax.swing.JPanel();
         txtCPF1 = new javax.swing.JFormattedTextField();
+        jLabel1 = new javax.swing.JLabel();
+        JCBUF = new javax.swing.JComboBox<>();
+        jLabel6 = new javax.swing.JLabel();
+        Profissão = new javax.swing.JLabel();
         ModalAnamnese2 = new javax.swing.JDialog();
         PainelDadosPaciente4 = new javax.swing.JPanel();
         PainelIdentificacaoPessoal4 = new javax.swing.JPanel();
@@ -477,17 +479,16 @@ public class ManterPaciente1 extends javax.swing.JFrame {
 
         TxtCidade1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        jLabel31.setText("Endereço:");
-        jLabel31.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-
         TxtEndereco1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        TxtEndereco1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtEndereco1ActionPerformed(evt);
+            }
+        });
 
         jLabel32.setText("Cadastrar Paciente");
         jLabel32.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         jLabel32.setForeground(new java.awt.Color(59, 131, 117));
-
-        LabelProfissao1.setText("Profissão:");
-        LabelProfissao1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         TxtProfissao1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
@@ -569,6 +570,17 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setText("UF");
+
+        JCBUF.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AC","AL", "AM", "AP","BA","CE","DF", "ES", "GO", "MA","MT","MS", "MG","PA","PB","PR","PE","PI","RJ","RN","RS","RO","RR","SC","SP","SE","TO", "Outro"}));
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel6.setText("Endereço:");
+
+        Profissão.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        Profissão.setText("Profissão:");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -596,6 +608,15 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                                     .addComponent(jLabel33))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                                            .addComponent(jLabel29)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(DataNasc2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addGroup(jPanel2Layout.createSequentialGroup()
+                                            .addComponent(LabelCidade4)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(TxtCidade1, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(LabelEmail1)
@@ -612,8 +633,12 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                                                     .addComponent(LabelCPF2))
                                                 .addGap(27, 27, 27)
                                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                    .addComponent(Sexo1, 0, 247, Short.MAX_VALUE)
-                                                    .addComponent(txtCPF1)))
+                                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                                        .addComponent(jLabel1)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                        .addComponent(JCBUF, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                    .addComponent(Sexo1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                    .addComponent(txtCPF1, javax.swing.GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE)))
                                             .addComponent(txtNome1)))
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addComponent(LabelEstadoCivil2)
@@ -622,10 +647,12 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                         .addGroup(jPanel2Layout.createSequentialGroup()
                                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(LabelProfissao1)
-                                                .addComponent(jLabel31))
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(TxtProfissao1, javax.swing.GroupLayout.PREFERRED_SIZE, 590, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(jLabel6)
+                                                .addComponent(Profissão))
+                                            .addGap(18, 18, 18)
+                                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(TxtProfissao1)
+                                                .addComponent(TxtEndereco1)))
                                         .addGroup(jPanel2Layout.createSequentialGroup()
                                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addComponent(LabelEscolaridade1)
@@ -639,20 +666,10 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                                                 .addComponent(LabelCidade6)
                                                 .addComponent(LabelReligiao1))
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(TxtReligiao1)
-                                                .addComponent(TxtTelefone5))))
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(TxtEndereco1, javax.swing.GroupLayout.PREFERRED_SIZE, 590, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                                            .addComponent(jLabel29)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(DataNasc2, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(LabelCidade4)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(TxtCidade1, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                        .addGap(0, 48, Short.MAX_VALUE)))
+                                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(TxtReligiao1, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE)
+                                                .addComponent(TxtTelefone5)))))))
+                        .addGap(0, 26, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(PainelIdentificacaoPessoal2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -662,7 +679,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap(23, Short.MAX_VALUE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(81, 81, 81))
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -692,17 +709,21 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel29)
                     .addComponent(jLabel30)
-                    .addComponent(DataNasc2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(DataNasc2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(JCBUF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1)
                     .addComponent(LabelCidade4)
                     .addComponent(TxtCidade1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel31)
-                    .addComponent(TxtEndereco1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TxtEndereco1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LabelProfissao1)
-                    .addComponent(TxtProfissao1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TxtProfissao1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Profissão))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LabelReligiao1)
@@ -726,7 +747,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addGap(168, 168, 168)
                     .addComponent(PainelIdentificacaoPessoal2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(392, Short.MAX_VALUE)))
+                    .addContainerGap(411, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout ModalNovoResolucaoMenorLayout = new javax.swing.GroupLayout(ModalNovoResolucaoMenor.getContentPane());
@@ -2379,8 +2400,10 @@ public class ManterPaciente1 extends javax.swing.JFrame {
 //        }
 //        
 //        txtCPF1.setFormatterFactory(new DefaultFormatterFactory(formatter));
-        ModalNovoResolucaoMenor.setSize(826, 660);
+        ModalNovoResolucaoMenor.setSize(840, 660);
         DataNasc2.setFont(new Font("Tahoma", Font.BOLD, 18));
+        ModalNovoResolucaoMenor.setResizable(false);
+        JCBUF.setSelectedItem("PR");
         ModalNovoResolucaoMenor.setModal(true);
         ModalNovoResolucaoMenor.setLocationRelativeTo(null);
         ModalNovoResolucaoMenor.setVisible(true);
@@ -3284,6 +3307,10 @@ public class ManterPaciente1 extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void TxtEndereco1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtEndereco1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtEndereco1ActionPerformed
     
     private void Alterar(int cod) {
         Anamnese a = new Anamnese();
@@ -3412,6 +3439,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
     private com.github.lgooddatepicker.components.DatePicker DataNasc2;
     private com.github.lgooddatepicker.components.DatePicker DataNasc4;
     private javax.swing.JComboBox<String> JCBPsicomotricidade1;
+    private javax.swing.JComboBox<String> JCBUF;
     private javax.swing.JTable JTPacientes;
     private javax.swing.JLabel LabelCPF2;
     private javax.swing.JLabel LabelCPF4;
@@ -3434,7 +3462,6 @@ public class ManterPaciente1 extends javax.swing.JFrame {
     private javax.swing.JLabel LabelNome3;
     private javax.swing.JLabel LabelNome5;
     private javax.swing.JLabel LabelPagina;
-    private javax.swing.JLabel LabelProfissao1;
     private javax.swing.JLabel LabelProfissao4;
     private javax.swing.JLabel LabelQtdePaginas;
     private javax.swing.JLabel LabelReligiao1;
@@ -3454,6 +3481,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
     private javax.swing.JPanel PainelMenu;
     private javax.swing.JPanel PainelMeusDados;
     private javax.swing.JPanel PainelPaginacao;
+    private javax.swing.JLabel Profissão;
     private javax.swing.JComboBox<String> Sexo1;
     private javax.swing.JComboBox<String> Sexo4;
     private javax.swing.JSpinner SpinnerLimite;
@@ -3486,6 +3514,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
     private LIB.JEImagePanel jEImagePanel3;
     private LIB.JEImagePanel jEImagePanel6;
     private LIB.JEImagePanel jEImagePanel8;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
@@ -3497,7 +3526,6 @@ public class ManterPaciente1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
@@ -3505,6 +3533,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel60;
     private javax.swing.JLabel jLabel61;
     private javax.swing.JLabel jLabel62;
