@@ -29,7 +29,7 @@ public class PacienteDAO {
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         try {
-            stmt = con.prepareStatement("INSERT INTO paciente (CPF, Nome_Completo, Email, EstadoCivil,DataNasc, Sexo, Profissao, Religiao, Escolaridade, Endereco, Cidade) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ");
+            stmt = con.prepareStatement("INSERT INTO paciente (CPF, Nome_Completo, Email, EstadoCivil,DataNasc, Sexo, Profissao, Religiao, Escolaridade, Endereco, Cidade, UF) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?) ");
             if (p.getCPF().isEmpty()) {
                 stmt.setNull(1, Types.NULL);
             } else {
@@ -70,6 +70,11 @@ public class PacienteDAO {
                 stmt.setString(11, "Ponta Grossa");
             } else {
                 stmt.setString(11, p.getCidade());
+            }
+            if (p.getUF().isEmpty()) {
+                stmt.setString(12, "PR");
+            } else {
+                stmt.setString(12, p.getUF());
             }
 
             stmt.executeUpdate();

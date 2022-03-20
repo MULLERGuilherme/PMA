@@ -2649,6 +2649,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             p.setEscolaridade(TxtEscolaridade1.getText());
             p.setEndereco(TxtEndereco1.getText());
             p.setCidade(TxtCidade1.getText());
+            p.setUF((String) JCBUF.getSelectedItem());
 
             if (Validar.vTelefone(TxtTelefone1.getText())) {
                 tf.setNumero(TxtTelefone1.getText());
