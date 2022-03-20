@@ -221,25 +221,34 @@ public class TelaLogin extends javax.swing.JFrame {
         boolean valido = dao.ValidarLogin(p, this);
 
         if (valido && p.getLogin().equals("Admin")) {
-             Main.cod = p.getCodPsicologo();
+            Main.cod = p.getCodPsicologo();
             TelaPrincipalAdm mp1 = new TelaPrincipalAdm();
             Util.SizeJanela(mp1);
-            
+
             this.dispose();
         } else if (valido) {
             p = dao.ReadPsicologoLS(p.getLogin(), p.getSenha());
-            Main.cod = p.getCodPsicologo();
-            msg = "Olá " + p.getNome_completo() + ", Seja Bem Vindo(a)!";
-            //optionPane.setMessage(msg);
-            //optionPane.setMessageType(JOptionPane.INFORMATION_MESSAGE); 
-            //JDialog dialog = optionPane.createDialog(this, "Bem Vindo(a)!");
-            //dialog.setVisible(true);
+            if (p.isDeletado()) {
+                msg = "Você está tentando acessar o sistema com um Psicólogo deletado, por favor entre em contato com o Admin para reativar sua conta!";
+                optionPane.setMessage(msg);
+                optionPane.setMessageType(JOptionPane.ERROR_MESSAGE);
+                JDialog dialog = optionPane.createDialog(this, "Falha no Login");
+                dialog.setVisible(true);
+            } else {
+                Main.cod = p.getCodPsicologo();
+                msg = "Olá " + p.getNome_completo() + ", Seja Bem Vindo(a)!";
+                //optionPane.setMessage(msg);
+                //optionPane.setMessageType(JOptionPane.INFORMATION_MESSAGE); 
+                //JDialog dialog = optionPane.createDialog(this, "Bem Vindo(a)!");
+                //dialog.setVisible(true);
 
-            TelaPrincipal tp = new TelaPrincipal();
-            Util.SizeJanela(tp);
-            tp.setVisible(true);
-            tp.setVisible(true);
-            this.dispose();
+                TelaPrincipal tp = new TelaPrincipal();
+                Util.SizeJanela(tp);
+                tp.setVisible(true);
+                tp.setVisible(true);
+                this.dispose();
+            }
+
         } else {
             msg = "Usuário ou Senha Inválidos! Por Favor Verifique os campos e tente novamente!";
             optionPane.setMessage(msg);
@@ -259,7 +268,7 @@ public class TelaLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
         ValidarUsuario vu = new ValidarUsuario();
         vu.setVisible(true);
-        
+
         this.dispose();
     }//GEN-LAST:event_LabelEsqueciSenhaMouseClicked
 
@@ -295,22 +304,32 @@ public class TelaLogin extends javax.swing.JFrame {
             p.setSenha(senha);
             boolean valido = dao.ValidarLogin(p, this);
             if (valido && p.getLogin().equals("Admin")) {
-                 Main.cod = p.getCodPsicologo();
+                Main.cod = p.getCodPsicologo();
                 TelaPrincipalAdm mp1 = new TelaPrincipalAdm();
                 Util.SizeJanela(mp1);
                 this.dispose();
             } else if (valido) {
                 p = dao.ReadPsicologoLS(p.getLogin(), p.getSenha());
-                Main.cod = p.getCodPsicologo();
-//             msg = "Olá "+p.getNome_completo()+", Seja Bem Vindo(a)!";
-//             optionPane.setMessage(msg);
-//             optionPane.setMessageType(JOptionPane.INFORMATION_MESSAGE); 
-//             JDialog dialog = optionPane.createDialog(this, "Bem Vindo(a)!");
-//             dialog.setVisible(true);
+                if (p.isDeletado()) {
+                    msg = "Você está tentando acessar o sistema com um Psicólogo deletado, por favor entre em contato com o Admin para reativar sua conta!";
+                    optionPane.setMessage(msg);
+                    optionPane.setMessageType(JOptionPane.ERROR_MESSAGE);
+                    JDialog dialog = optionPane.createDialog(this, "Falha no Login");
+                    dialog.setVisible(true);
+                } else {
+                    Main.cod = p.getCodPsicologo();
+                    msg = "Olá " + p.getNome_completo() + ", Seja Bem Vindo(a)!";
+                    //optionPane.setMessage(msg);
+                    //optionPane.setMessageType(JOptionPane.INFORMATION_MESSAGE); 
+                    //JDialog dialog = optionPane.createDialog(this, "Bem Vindo(a)!");
+                    //dialog.setVisible(true);
 
-                TelaPrincipal tp = new TelaPrincipal();
-                Util.SizeJanela(tp);
-                this.dispose();
+                    TelaPrincipal tp = new TelaPrincipal();
+                    Util.SizeJanela(tp);
+                    tp.setVisible(true);
+                    tp.setVisible(true);
+                    this.dispose();
+                }
 
             } else {
                 msg = "Usuário ou Senha Inválidos! Por Favor Verifique os campos e tente novamente!";
@@ -335,24 +354,32 @@ public class TelaLogin extends javax.swing.JFrame {
             p.setSenha(senha);
             boolean valido = dao.ValidarLogin(p, this);
             if (valido && p.getLogin().equals("Admin")) {
-                 Main.cod = p.getCodPsicologo();
+                Main.cod = p.getCodPsicologo();
                 TelaPrincipalAdm mp1 = new TelaPrincipalAdm();
                 Util.SizeJanela(mp1);
                 this.dispose();
             } else if (valido) {
                 p = dao.ReadPsicologoLS(p.getLogin(), p.getSenha());
-                Main.cod = p.getCodPsicologo();
-//             msg = "Olá "+p.getNome_completo()+", Seja Bem Vindo(a)!";
-//             optionPane.setMessage(msg);
-//             optionPane.setMessageType(JOptionPane.INFORMATION_MESSAGE); 
-//             JDialog dialog = optionPane.createDialog(this, "Bem Vindo(a)!");
-//             dialog.setVisible(true);
+                if (p.isDeletado()) {
+                    msg = "Você está tentando acessar o sistema com um Psicólogo deletado, por favor entre em contato com o Admin para reativar sua conta!";
+                    optionPane.setMessage(msg);
+                    optionPane.setMessageType(JOptionPane.ERROR_MESSAGE);
+                    JDialog dialog = optionPane.createDialog(this, "Falha no Login");
+                    dialog.setVisible(true);
+                } else {
+                    Main.cod = p.getCodPsicologo();
+                    msg = "Olá " + p.getNome_completo() + ", Seja Bem Vindo(a)!";
+                    //optionPane.setMessage(msg);
+                    //optionPane.setMessageType(JOptionPane.INFORMATION_MESSAGE); 
+                    //JDialog dialog = optionPane.createDialog(this, "Bem Vindo(a)!");
+                    //dialog.setVisible(true);
 
-                TelaPrincipal tp = new TelaPrincipal();
-                Util.SizeJanela(tp);
-                tp.setVisible(true);
-                this.dispose();
-
+                    TelaPrincipal tp = new TelaPrincipal();
+                    Util.SizeJanela(tp);
+                    tp.setVisible(true);
+                    tp.setVisible(true);
+                    this.dispose();
+                }
             } else {
                 msg = "Usuário ou Senha Inválidos! Por Favor Verifique os campos e tente novamente!";
                 optionPane.setMessage(msg);

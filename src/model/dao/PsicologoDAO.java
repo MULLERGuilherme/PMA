@@ -293,6 +293,7 @@ public class PsicologoDAO {
                     p.setCodPsicologo(rs.getInt("CodPsicologo"));
                     p.setLogin(Login);
                     p.setSenha(Senha);
+                    p.setDeletado(rs.getBoolean("Deletado"));
 
                 }
             }
