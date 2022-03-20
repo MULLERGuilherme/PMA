@@ -92,6 +92,7 @@ public class ExibirAnamneses extends javax.swing.JFrame {
     public ExibirAnamneses() {
         this.getCount();
         initComponents();
+        BtnExibirAnamneses.setEnabled(false);
         btnalterar.setEnabled(false);
         btnExcluir.setEnabled(false);
         DefaultTableModel dtmPacientes = (DefaultTableModel) JTAnamneses.getModel();

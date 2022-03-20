@@ -102,6 +102,7 @@ public class ExibirAnamneses2 extends javax.swing.JFrame {
         this.getCount();
 
         initComponents();
+         BtnPacientes.setEnabled(false);
         btnalterar.setEnabled(false);
         btnExcluir.setEnabled(false);
 
@@ -212,6 +213,7 @@ public class ExibirAnamneses2 extends javax.swing.JFrame {
         LabelQtdePaginas = new javax.swing.JLabel();
         BtnAvancarPouco = new javax.swing.JButton();
         BtnAvancarBastante = new javax.swing.JButton();
+        BtnVoltarPaciente = new javax.swing.JButton();
         PainelMenu = new javax.swing.JPanel();
         BtnVoltar = new javax.swing.JButton();
         BtnPacientes = new javax.swing.JButton();
@@ -907,12 +909,21 @@ public class ExibirAnamneses2 extends javax.swing.JFrame {
                     .addComponent(LabelLimite, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
+        BtnVoltarPaciente.setText("Voltar");
+        BtnVoltarPaciente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnVoltarPacienteActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jEImagePanel1Layout = new javax.swing.GroupLayout(jEImagePanel1);
         jEImagePanel1.setLayout(jEImagePanel1Layout);
         jEImagePanel1Layout.setHorizontalGroup(
             jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jEImagePanel1Layout.createSequentialGroup()
-                .addGap(111, 111, 111)
+                .addContainerGap()
+                .addComponent(BtnVoltarPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jEImagePanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
@@ -930,7 +941,7 @@ public class ExibirAnamneses2 extends javax.swing.JFrame {
                             .addComponent(PainelPaginacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnalterar, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
+                            .addComponent(btnalterar, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
                             .addComponent(btnExcluir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
@@ -940,14 +951,15 @@ public class ExibirAnamneses2 extends javax.swing.JFrame {
                 .addGap(6, 6, 6)
                 .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(lNome))
+                    .addComponent(lNome)
+                    .addComponent(BtnVoltarPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, 0)
                 .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnBuscar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel14)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jEImagePanel1Layout.createSequentialGroup()
@@ -956,7 +968,7 @@ public class ExibirAnamneses2 extends javax.swing.JFrame {
                         .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(PainelPaginacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
 
         getContentPane().add(jEImagePanel1, java.awt.BorderLayout.CENTER);
@@ -1488,6 +1500,12 @@ public class ExibirAnamneses2 extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_JTAnamnesesMousePressed
 
+    private void BtnVoltarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVoltarPacienteActionPerformed
+        ManterPaciente1 mp1 = new ManterPaciente1();
+        Util.SizeJanela(mp1);
+        this.dispose();
+    }//GEN-LAST:event_BtnVoltarPacienteActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1537,6 +1555,7 @@ public class ExibirAnamneses2 extends javax.swing.JFrame {
     private javax.swing.JButton BtnSalvarAlteracoes7;
     private javax.swing.JButton BtnVoltar;
     private javax.swing.JButton BtnVoltarBastante;
+    private javax.swing.JButton BtnVoltarPaciente;
     private javax.swing.JButton BtnVoltarPouco;
     private javax.swing.JCheckBox CheckBoxAfeto1;
     private javax.swing.JCheckBox CheckBoxAnsiedade1;

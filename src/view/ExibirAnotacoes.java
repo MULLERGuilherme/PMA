@@ -124,6 +124,7 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
     public ExibirAnotacoes() {
         this.getCount();
         initComponents();
+        BtnExibirAnotacoes.setEnabled(false);
         BtnAlterarAnotacao.setEnabled(false);
         BtnExcluirAnotacao.setEnabled(false);
         DefaultTableModel dtmPacientes = (DefaultTableModel) JTAnotacoes.getModel();
