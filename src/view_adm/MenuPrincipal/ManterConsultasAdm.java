@@ -42,6 +42,7 @@ import model.bean.Paciente;
 import model.bean.Telefone;
 import model.bean.Vw_Consultas;
 import model.bean.Vw_TelefonesPacientes;
+import model.dao.ADMDAO;
 import model.dao.PacienteDAO;
 import model.dao.TelefoneDAO;
 import model.dao.ViewsDAO;
@@ -53,18 +54,72 @@ import util.Util;
  */
 public class ManterConsultasAdm extends javax.swing.JFrame {
 
+    //Paginacao
+    int PAGE_SIZE = 5;
+    double tableRowCount;
+    int totalPages = 1;
+    int currentPage = 1;
+    int startRow = 0;
 
+    public void getCount() {
+        ADMDAO dao = new ADMDAO();
+        tableRowCount = dao.getRowCountConsultasADM();
+        if (tableRowCount > 0) {
+            totalPages = (int) Math.ceil(tableRowCount / PAGE_SIZE);
+
+        }
+        currentPage = 1;
+
+    }
+
+    public void getCountBusca(String Busca) {
+        ADMDAO dao = new ADMDAO();
+
+        tableRowCount = dao.getRowCountTableConsultasADMBusca(Busca);
+        //System.out.println(tableRowCount);
+        if (tableRowCount > 0) {
+            totalPages = (int) Math.ceil(tableRowCount / PAGE_SIZE);
+
+        }
+        currentPage = 1;
+    }
+
+    public void getPageData(int pageNo) {
+
+        currentPage = pageNo;
+        ViewsDAO dao = new ViewsDAO();
+        //calculate starting row for pagination
+        startRow = PAGE_SIZE * (pageNo - 1);
+
+        ReadJTablePag(startRow, PAGE_SIZE);
+
+    }
+
+    public void getPageDataBusca(int pageNo, String Busca) {
+
+        currentPage = pageNo;
+
+        //calculate starting row for pagination
+        startRow = PAGE_SIZE * (pageNo - 1);
+
+        ReadJTablePagBusca(startRow, PAGE_SIZE, Busca);
+
+    }
 
     public ManterConsultasAdm() {
+        this.getCount();
         initComponents();
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
-        BtnManterConsulta.setEnabled(false);
+
         DefaultTableModel dtmConsultas = (DefaultTableModel) JTConsultas.getModel();
         TableColumnModel cmod = JTConsultas.getColumnModel();
         cmod.removeColumn(cmod.getColumn(0));
         JTConsultas.setRowSorter(new TableRowSorter(dtmConsultas));
 
-        ReadJTable();
+        this.getPageData(1);
+        SpinnerNumPaginas.setValue((int) currentPage);
+        LabelQtdePaginas.setText("de " + totalPages);
+        SpinnerLimite.setValue((int) PAGE_SIZE);
     }
 
     /**
@@ -76,14 +131,27 @@ public class ManterConsultasAdm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        ModalHelp = new javax.swing.JDialog();
+        jPanel4 = new JPanel();
+        jPanel5 = new javax.swing.JPanel();
         jPanel1 = new JPanel();
         jEImagePanel1 = new LIB.JEImagePanel();
         jLabel6 = new javax.swing.JLabel();
-        JCBAtributo = new javax.swing.JComboBox<>();
-        txtBusca = new javax.swing.JTextField();
-        BtnBuscar = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
         JTConsultas = new javax.swing.JTable();
+        txtBusca = new javax.swing.JTextField();
+        btnBuscar = new javax.swing.JButton();
+        PainelPaginacao = new javax.swing.JPanel();
+        LabelLimite = new javax.swing.JLabel();
+        SpinnerLimite = new javax.swing.JSpinner();
+        BtnVoltarBastante = new javax.swing.JButton();
+        BtnVoltarPouco = new javax.swing.JButton();
+        LabelPagina = new javax.swing.JLabel();
+        SpinnerNumPaginas = new javax.swing.JSpinner();
+        LabelQtdePaginas = new javax.swing.JLabel();
+        BtnAvancarPouco = new javax.swing.JButton();
+        BtnAvancarBastante = new javax.swing.JButton();
+        BtnHelp = new javax.swing.JButton();
         PainelMenu = new javax.swing.JPanel();
         BtnInicio = new javax.swing.JButton();
         BtnManterPaciente = new javax.swing.JButton();
@@ -92,6 +160,36 @@ public class ManterConsultasAdm extends javax.swing.JFrame {
         BtnExibirTodasAnamneses = new javax.swing.JButton();
         BtnExibirTodasAnotacoes = new javax.swing.JButton();
         BtnSair = new javax.swing.JButton();
+
+        jPanel4.setBackground(new java.awt.Color(59, 131, 117));
+        jPanel4.setForeground(new java.awt.Color(59, 131, 117));
+        jPanel4.setPreferredSize(new java.awt.Dimension(1080, 89));
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 89, Short.MAX_VALUE)
+        );
+
+        ModalHelp.getContentPane().add(jPanel4, java.awt.BorderLayout.NORTH);
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 439, Short.MAX_VALUE)
+        );
+
+        ModalHelp.getContentPane().add(jPanel5, java.awt.BorderLayout.CENTER);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -115,15 +213,6 @@ public class ManterConsultasAdm extends javax.swing.JFrame {
         jEImagePanel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/spring-floral-watercolor-background-vector-green-with-leaf-illustration_53876-126350.jpg"))); // NOI18N
 
         jLabel6.setText("Buscar Consulta  por");
-
-        JCBAtributo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Paciente", "Psicologo", "Data/Hora Consulta", "Status" }));
-
-        BtnBuscar.setText("Buscar");
-        BtnBuscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnBuscarActionPerformed(evt);
-            }
-        });
 
         JTConsultas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -153,38 +242,161 @@ public class ManterConsultasAdm extends javax.swing.JFrame {
         });
         jScrollPane4.setViewportView(JTConsultas);
 
+        txtBusca.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtBuscaKeyPressed(evt);
+            }
+        });
+
+        btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
+
+        PainelPaginacao.setOpaque(false);
+
+        LabelLimite.setBackground(new java.awt.Color(204, 204, 204));
+        LabelLimite.setText("Limite");
+
+        SpinnerLimite.setModel(new javax.swing.SpinnerNumberModel(1, 1, 15, 1));
+        SpinnerLimite.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                SpinnerLimiteStateChanged(evt);
+            }
+        });
+
+        BtnVoltarBastante.setText("<<");
+        BtnVoltarBastante.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnVoltarBastanteActionPerformed(evt);
+            }
+        });
+
+        BtnVoltarPouco.setText("<");
+        BtnVoltarPouco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnVoltarPoucoActionPerformed(evt);
+            }
+        });
+
+        LabelPagina.setBackground(new java.awt.Color(204, 204, 204));
+        LabelPagina.setText("Página");
+
+        SpinnerNumPaginas.setModel(new javax.swing.SpinnerNumberModel(1, 1, totalPages, 1));
+        SpinnerNumPaginas.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                SpinnerNumPaginasStateChanged(evt);
+            }
+        });
+
+        LabelQtdePaginas.setBackground(new java.awt.Color(204, 204, 204));
+        LabelQtdePaginas.setText("de X");
+
+        BtnAvancarPouco.setText(">");
+        BtnAvancarPouco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAvancarPoucoActionPerformed(evt);
+            }
+        });
+
+        BtnAvancarBastante.setText(">>");
+        BtnAvancarBastante.setOpaque(false);
+        BtnAvancarBastante.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAvancarBastanteActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout PainelPaginacaoLayout = new javax.swing.GroupLayout(PainelPaginacao);
+        PainelPaginacao.setLayout(PainelPaginacaoLayout);
+        PainelPaginacaoLayout.setHorizontalGroup(
+            PainelPaginacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PainelPaginacaoLayout.createSequentialGroup()
+                .addContainerGap(67, Short.MAX_VALUE)
+                .addComponent(LabelLimite)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(SpinnerLimite, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(BtnVoltarBastante)
+                .addGap(18, 18, 18)
+                .addComponent(BtnVoltarPouco)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(LabelPagina)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(SpinnerNumPaginas, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(LabelQtdePaginas)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(BtnAvancarPouco)
+                .addGap(18, 18, 18)
+                .addComponent(BtnAvancarBastante)
+                .addGap(8, 8, 8))
+        );
+        PainelPaginacaoLayout.setVerticalGroup(
+            PainelPaginacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelPaginacaoLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(PainelPaginacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(SpinnerNumPaginas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LabelPagina, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LabelQtdePaginas, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BtnAvancarPouco)
+                    .addComponent(BtnAvancarBastante)
+                    .addComponent(BtnVoltarPouco)
+                    .addComponent(BtnVoltarBastante)
+                    .addComponent(SpinnerLimite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LabelLimite, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+
+        BtnHelp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/SimboloHelp.png"))); // NOI18N
+        BtnHelp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnHelpActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jEImagePanel1Layout = new javax.swing.GroupLayout(jEImagePanel1);
         jEImagePanel1.setLayout(jEImagePanel1Layout);
         jEImagePanel1Layout.setHorizontalGroup(
             jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jEImagePanel1Layout.createSequentialGroup()
-                .addGap(134, 134, 134)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(BtnHelp, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addGroup(jEImagePanel1Layout.createSequentialGroup()
+                .addGap(111, 111, 111)
                 .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(PainelPaginacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jEImagePanel1Layout.createSequentialGroup()
                         .addComponent(jLabel6)
-                        .addGap(18, 18, 18)
-                        .addComponent(JCBAtributo, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(BtnBuscar)
-                        .addContainerGap(393, Short.MAX_VALUE))
-                    .addGroup(jEImagePanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 859, Short.MAX_VALUE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(94, Short.MAX_VALUE))
         );
         jEImagePanel1Layout.setVerticalGroup(
             jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jEImagePanel1Layout.createSequentialGroup()
-                .addGap(74, 74, 74)
-                .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(JCBAtributo, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BtnBuscar))
+                .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jEImagePanel1Layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel6)
+                                .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jEImagePanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(BtnHelp, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 488, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(84, Short.MAX_VALUE))
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(PainelPaginacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(99, Short.MAX_VALUE))
         );
 
         getContentPane().add(jEImagePanel1, java.awt.BorderLayout.CENTER);
@@ -298,60 +510,103 @@ public class ManterConsultasAdm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public void ReadJTable() {
+//    public void ReadJTable() {
+//
+//        DefaultTableModel model = (DefaultTableModel) JTConsultas.getModel();
+//
+//        model.setNumRows(0);
+//        ViewsDAO vwdao = new ViewsDAO();
+//
+//        for (Vw_Consultas c : vwdao.ReadALLConsultas()) {
+//            //p = pdao.ReadPaciente(c.getPaciente().getCodPaciente());
+//            model.addRow(new Object[]{
+//                c.getCodConsulta(),
+//                c.getPaciente().getNome_Completo(),
+//                c.getPsicologo().getNome_completo(),
+//                Validar.fDatetime((Timestamp) c.getDataConsulta()),
+//                c.getStatus(),});
+//        }
+//    }
+//    public void ReadJTable() {
+//
+//        DefaultTableModel model = (DefaultTableModel) JTConsultas.getModel();
+//
+//        model.setNumRows(0);
+//        ViewsDAO vwdao = new ViewsDAO();
+//
+//        for (Vw_Consultas c : vwdao.ReadALLConsultas()) {
+//            //p = pdao.ReadPaciente(c.getPaciente().getCodPaciente());
+//            model.addRow(new Object[]{
+//                c.getCodConsulta(),
+//                c.getPaciente().getNome_Completo(),
+//                c.getPsicologo().getNome_completo(),
+//                Validar.fDatetime((Timestamp) c.getDataConsulta()),
+//                c.getStatus(),});
+//        }
+//    }
+    public void ReadJTablePag(int start, int size) {
 
         DefaultTableModel model = (DefaultTableModel) JTConsultas.getModel();
 
         model.setNumRows(0);
-        ViewsDAO vwdao = new ViewsDAO();
-     
-  for (Vw_Consultas c : vwdao.ReadALLConsultas()) {
+        ADMDAO vwdao = new ADMDAO();
+
+        for (Vw_Consultas c : vwdao.fetchBySizeConsultasADM(start, size)) {
             //p = pdao.ReadPaciente(c.getPaciente().getCodPaciente());
             model.addRow(new Object[]{
-               c.getCodConsulta(),
-               c.getPaciente().getNome_Completo(),
-               c.getPsicologo().getNome_completo(),
-               Validar.fDatetime((Timestamp) c.getDataConsulta()),
-               c.getStatus(),
-            });
+                c.getCodConsulta(),
+                c.getPaciente().getNome_Completo(),
+                c.getPsicologo().getNome_completo(),
+                Validar.fDatetime((Timestamp) c.getDataConsulta()),
+                c.getStatus(),});
         }
     }
 
-    public void ReadJTableBusca(String Atributo, String Busca) {
+//    public void ReadJTableBusca(String Atributo, String Busca) {
+//
+//        DefaultTableModel model = (DefaultTableModel) JTConsultas.getModel();
+//
+//        model.setNumRows(0);
+//        if (Atributo.equals("Data/Hora Consulta")) {
+//            Atributo = "DataConsulta";
+//        }
+//        ViewsDAO vwdao = new ViewsDAO();
+//        for (Vw_Consultas c : vwdao.BuscaALLConsultas(Atributo, Busca)) {
+//            //p = pdao.ReadPaciente(c.getPaciente().getCodPaciente());
+//            model.addRow(new Object[]{
+//                c.getCodConsulta(),
+//                c.getPaciente().getNome_Completo(),
+//                c.getPsicologo().getNome_completo(),
+//                Validar.fDatetime((Timestamp) c.getDataConsulta()),
+//                c.getStatus(),});
+//        }
+//
+//    }
+    public void ReadJTablePagBusca(int start, int size, String Busca) {
 
         DefaultTableModel model = (DefaultTableModel) JTConsultas.getModel();
 
         model.setNumRows(0);
-         if (Atributo.equals("Data/Hora Consulta")) {
-            Atributo = "DataConsulta";
-        }
-        ViewsDAO vwdao = new ViewsDAO();
-          for (Vw_Consultas c : vwdao.BuscaALLConsultas(Atributo, Busca)) {
+
+        ADMDAO vwdao = new ADMDAO();
+        for (Vw_Consultas c : vwdao.fetchBySizeConsultasAdmBusca(start, size, Busca)) {
             //p = pdao.ReadPaciente(c.getPaciente().getCodPaciente());
             model.addRow(new Object[]{
-               c.getCodConsulta(),
-               c.getPaciente().getNome_Completo(),
-               c.getPsicologo().getNome_completo(),
-               Validar.fDatetime((Timestamp) c.getDataConsulta()),
-               c.getStatus(),
-            });
+                c.getCodConsulta(),
+                c.getPaciente().getNome_Completo(),
+                c.getPsicologo().getNome_completo(),
+                Validar.fDatetime((Timestamp) c.getDataConsulta()),
+                c.getStatus(),});
         }
-    
-    }
 
-    private void BtnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBuscarActionPerformed
-        // TODO add your handling code here:
-        //System.out.println(JCBAtributo.getSelectedIndex());
-     
-        this.ReadJTableBusca((String) JCBAtributo.getSelectedItem(), txtBusca.getText());
-    }//GEN-LAST:event_BtnBuscarActionPerformed
+    }
 
     private void JTConsultasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTConsultasMouseClicked
         // TODO add your handling code here:
         if (JTConsultas.getSelectedRow() != -1) {
             int modelRow = JTConsultas.convertRowIndexToModel(JTConsultas.getSelectedRow());
             int value = (Integer) JTConsultas.getModel().getValueAt(modelRow, 0);
-            
+
         }
     }//GEN-LAST:event_JTConsultasMouseClicked
 
@@ -360,13 +615,12 @@ public class ManterConsultasAdm extends javax.swing.JFrame {
         if (JTConsultas.getSelectedRow() != -1) {
             int modelRow = JTConsultas.convertRowIndexToModel(JTConsultas.getSelectedRow());
             int value = (Integer) JTConsultas.getModel().getValueAt(modelRow, 0);
-         
 
         }
     }//GEN-LAST:event_JTConsultasKeyReleased
 
     private void BtnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnInicioActionPerformed
-         TelaPrincipalAdm mp1 = new TelaPrincipalAdm();
+        TelaPrincipalAdm mp1 = new TelaPrincipalAdm();
         Util.SizeJanela(mp1);
         this.dispose();
     }//GEN-LAST:event_BtnInicioActionPerformed
@@ -391,7 +645,7 @@ public class ManterConsultasAdm extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnManterPsicologoActionPerformed
 
     private void BtnExibirTodasAnamnesesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExibirTodasAnamnesesActionPerformed
-        ExibirAnamnesesAdm  ma = new ExibirAnamnesesAdm();
+        ExibirAnamnesesAdm ma = new ExibirAnamnesesAdm();
         Util.SizeJanela(ma);
         this.dispose();
     }//GEN-LAST:event_BtnExibirTodasAnamnesesActionPerformed
@@ -403,14 +657,140 @@ public class ManterConsultasAdm extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnExibirTodasAnotacoesActionPerformed
 
     private void BtnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSairActionPerformed
-        TelaLogin  tl = new TelaLogin();
+        TelaLogin tl = new TelaLogin();
         tl.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BtnSairActionPerformed
 
+    private void txtBuscaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscaKeyPressed
+        //        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+        //            this.ReadJTableBusca(txtBusca.getText());
+        //        }
+    }//GEN-LAST:event_txtBuscaKeyPressed
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        // TODO add your handling code here:
+
+        //System.out.println(JCBAtributo.getSelectedIndex());
+        getCountBusca(txtBusca.getText());
+        SpinnerNumPaginas.setValue(1);
+        LabelQtdePaginas.setText("de " + totalPages);
+        getPageDataBusca(1, txtBusca.getText());
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void SpinnerLimiteStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_SpinnerLimiteStateChanged
+        // TODO add your handling code here:
+        if (txtBusca.getText() != "") {
+            PAGE_SIZE = (int) SpinnerLimite.getValue();
+            getCountBusca(txtBusca.getText());
+            SpinnerNumPaginas.setModel(new javax.swing.SpinnerNumberModel(1, 1, totalPages, 1));
+            SpinnerNumPaginas.setValue((int) currentPage);
+
+            LabelQtdePaginas.setText("de " + totalPages);
+            getPageDataBusca(1, txtBusca.getText());
+        } else {
+            PAGE_SIZE = (int) SpinnerLimite.getValue();
+            getCount();
+
+            SpinnerNumPaginas.setModel(new javax.swing.SpinnerNumberModel(1, 1, totalPages, 1));
+            SpinnerNumPaginas.setValue((int) currentPage);
+
+            LabelQtdePaginas.setText("de " + totalPages);
+            getPageData(1);
+        }
+    }//GEN-LAST:event_SpinnerLimiteStateChanged
+
+    private void BtnVoltarBastanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVoltarBastanteActionPerformed
+        if (currentPage != 1) {
+            if (txtBusca.getText() != "") {
+                if (currentPage - 5 < 1) {
+                    getPageDataBusca(1, txtBusca.getText());
+                } else {
+                    getPageDataBusca(currentPage - 5, txtBusca.getText());
+                }
+
+            } else {
+                if (currentPage - 5 < 1) {
+                    getPageData(1);
+                } else {
+                    getPageData(currentPage - 5);
+                }
+            }
+
+        }
+        SpinnerNumPaginas.setValue((int) currentPage);
+    }//GEN-LAST:event_BtnVoltarBastanteActionPerformed
+
+    private void BtnVoltarPoucoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVoltarPoucoActionPerformed
+        // TODO add your handling code here:
+        if (currentPage != 1) { //diferente da 1 pagina
+            if (txtBusca.getText() != "") {
+                getPageDataBusca(currentPage - 1, txtBusca.getText());
+            } else {
+                getPageData(currentPage - 1);
+            }
+
+        }
+        SpinnerNumPaginas.setValue((int) currentPage);
+    }//GEN-LAST:event_BtnVoltarPoucoActionPerformed
+
+    private void SpinnerNumPaginasStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_SpinnerNumPaginasStateChanged
+        // TODO add your handling code here:
+        if (txtBusca.getText() != "") {
+            getPageDataBusca((int) SpinnerNumPaginas.getValue(), txtBusca.getText());
+
+        } else {
+
+            getPageData((int) SpinnerNumPaginas.getValue());
+        }
+        //
+    }//GEN-LAST:event_SpinnerNumPaginasStateChanged
+
+    private void BtnAvancarPoucoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAvancarPoucoActionPerformed
+        if (currentPage < totalPages) {
+            if (txtBusca.getText() != "") {
+                getPageDataBusca(currentPage + 1, txtBusca.getText());
+            } else {
+                getPageData(currentPage + 1);
+            }
+
+        }
+        SpinnerNumPaginas.setValue((int) currentPage);
+    }//GEN-LAST:event_BtnAvancarPoucoActionPerformed
+
+    private void BtnAvancarBastanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAvancarBastanteActionPerformed
+        // TODO add your handling code here:
+        if (currentPage < totalPages) { //se tem pagina e é menor que a ultima
+            if (txtBusca.getText() != "") {
+                if (currentPage + 5 > totalPages) {
+                    getPageDataBusca(totalPages, txtBusca.getText());
+                } else {
+                    getPageDataBusca(currentPage + 5, txtBusca.getText());
+                }
+            } else {
+                if (currentPage + 5 > totalPages) {
+                    getPageData(totalPages);
+                } else {
+                    getPageData(currentPage + 5);
+                }
+            }
+
+        }
+        SpinnerNumPaginas.setValue((int) currentPage);
+    }//GEN-LAST:event_BtnAvancarBastanteActionPerformed
+
+    private void BtnHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnHelpActionPerformed
+        ModalHelp.setSize(540, 620);
+        ModalHelp.setModal(true);
+        ModalHelp.setVisible(false);
+        ModalHelp.setVisible(false);
+        ModalHelp.setLocationRelativeTo(null);
+        ModalHelp.setVisible(true);
+    }//GEN-LAST:event_BtnHelpActionPerformed
+
     public void clear() {
         //limpar a tela
-  
+
     }
 
     /**
@@ -480,20 +860,33 @@ public class ManterConsultasAdm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BtnBuscar;
+    private javax.swing.JButton BtnAvancarBastante;
+    private javax.swing.JButton BtnAvancarPouco;
     private javax.swing.JButton BtnExibirTodasAnamneses;
     private javax.swing.JButton BtnExibirTodasAnotacoes;
+    private javax.swing.JButton BtnHelp;
     private javax.swing.JButton BtnInicio;
     private javax.swing.JButton BtnManterConsulta;
     private javax.swing.JButton BtnManterPaciente;
     private javax.swing.JButton BtnManterPsicologo;
     private javax.swing.JButton BtnSair;
-    private javax.swing.JComboBox<String> JCBAtributo;
+    private javax.swing.JButton BtnVoltarBastante;
+    private javax.swing.JButton BtnVoltarPouco;
     private javax.swing.JTable JTConsultas;
+    private javax.swing.JLabel LabelLimite;
+    private javax.swing.JLabel LabelPagina;
+    private javax.swing.JLabel LabelQtdePaginas;
+    private javax.swing.JDialog ModalHelp;
     private javax.swing.JPanel PainelMenu;
+    private javax.swing.JPanel PainelPaginacao;
+    private javax.swing.JSpinner SpinnerLimite;
+    private javax.swing.JSpinner SpinnerNumPaginas;
+    private javax.swing.JButton btnBuscar;
     private LIB.JEImagePanel jEImagePanel1;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTextField txtBusca;
     // End of variables declaration//GEN-END:variables

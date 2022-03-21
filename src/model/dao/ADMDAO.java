@@ -515,4 +515,121 @@ public class ADMDAO {
 
         return count;
     }
+    
+    
+    
+    //Paginacao Consultas ADM
+    
+     public List<Vw_Consultas> fetchBySizeConsultasADM(int start, int size) {
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        List<Vw_Consultas> vw = new ArrayList<>();
+        try {
+            stmt = con.prepareStatement("SELECT * FROM vw_Consultas ORDER BY DataConsulta Limit " + start + "," + size);
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                Vw_Consultas c = new Vw_Consultas();
+
+                c.setCodConsulta(rs.getInt("CodigoConsulta"));
+                c.getPaciente().setNome_Completo(rs.getString("Paciente"));
+                //c.getPsicologo().setCodPsicologo(rs.getInt("CodPsicologo"));
+                c.getPsicologo().setNome_completo(rs.getString("Psicologo"));
+                c.setDataConsulta(rs.getObject("DataConsulta"));
+                c.setStatus(rs.getString("Status"));
+                //c.setPagamento(rs.getString("Pagamento"));
+
+                vw.add(c);
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ConsultaDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt, rs);
+        }
+
+        return vw;
+    }
+
+    public List<Vw_Consultas> fetchBySizeConsultasAdmBusca(int start, int size, String Busca) {
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        List<Vw_Consultas> vw = new ArrayList<>();
+        try {
+            stmt = con.prepareStatement("SELECT * FROM vw_Consultas WHERE ((Paciente Like '%" + Busca + "%') OR (Psicologo Like '%" + Busca + "%')  OR (DataConsulta Like '%" + Busca + "%') OR (Status Like '%" + Busca + "%')) Order By DataConsulta Limit " + size + " OFFSET " + start);
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                Vw_Consultas c = new Vw_Consultas();
+
+                c.setCodConsulta(rs.getInt("CodigoConsulta"));
+                c.getPaciente().setNome_Completo(rs.getString("Paciente"));
+                //c.getPsicologo().setCodPsicologo(rs.getInt("CodPsicologo"));
+                c.getPsicologo().setNome_completo(rs.getString("Psicologo"));
+                c.setDataConsulta(rs.getObject("DataConsulta"));
+                c.setStatus(rs.getString("Status"));
+                //c.setPagamento(rs.getString("Pagamento"));
+
+                vw.add(c);
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ConsultaDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt, rs);
+        }
+
+        return vw;
+    }
+
+    public double getRowCountConsultasADM() {
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        long count = 0;
+        try {
+            stmt = con.prepareStatement("SELECT count(Distinct CodigoConsulta) FROM vw_Consultas ");
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                count = rs.getLong("count(Distinct CodigoConsulta)");
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ViewsDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt, rs);
+        }
+
+        return count;
+    }
+
+    public double getRowCountTableConsultasADMBusca(String Busca) {
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        long count = 0;
+        try {
+            stmt = con.prepareStatement("SELECT count(Distinct CodigoConsulta) from vw_Consultas WHERE ((Paciente Like '%" + Busca + "%') OR (DataConsulta Like '%" + Busca + "%') OR (Psicologo Like '%" + Busca + "%') OR (Status Like '%" + Busca + "%')) ");
+
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                count = rs.getLong("count(Distinct CodigoConsulta)");
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ViewsDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt, rs);
+        }
+
+        return count;
+    }
 }
