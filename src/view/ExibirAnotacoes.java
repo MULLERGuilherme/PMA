@@ -863,14 +863,19 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
             if (txtBusca.getText() != "") {
                 if (currentPage + 5 > totalPages) {
                     getPageDataBusca(totalPages, txtBusca.getText());
+                  
                 } else {
                     getPageDataBusca(currentPage + 5, txtBusca.getText());
+                    BtnAlterarAnotacao.setEnabled(false);
+                    BtnExcluirAnotacao.setEnabled(false);
                 }
             } else {
                 if (currentPage + 5 > totalPages) {
                     getPageData(totalPages);
                 } else {
                     getPageData(currentPage + 5);
+                        BtnAlterarAnotacao.setEnabled(false);
+                        BtnExcluirAnotacao.setEnabled(false);
                 }
             }
 
@@ -882,6 +887,8 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
         if (currentPage < totalPages) {
             if (txtBusca.getText() != "") {
                 getPageDataBusca(currentPage + 1, txtBusca.getText());
+                 BtnAlterarAnotacao.setEnabled(false);
+                 BtnExcluirAnotacao.setEnabled(false);
             } else {
                 getPageData(currentPage + 1);
             }
@@ -894,6 +901,8 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (txtBusca.getText() != "") {
             getPageDataBusca((int) SpinnerNumPaginas.getValue(), txtBusca.getText());
+             BtnAlterarAnotacao.setEnabled(false);
+             BtnExcluirAnotacao.setEnabled(false);
 
         } else {
 
@@ -907,6 +916,8 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
         if (currentPage != 1) { //diferente da 1 pagina
             if (txtBusca.getText() != "") {
                 getPageDataBusca(currentPage - 1, txtBusca.getText());
+                 BtnAlterarAnotacao.setEnabled(false);
+                 BtnExcluirAnotacao.setEnabled(false);
             } else {
                 getPageData(currentPage - 1);
             }
@@ -920,8 +931,11 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
             if (txtBusca.getText() != "") {
                 if (currentPage - 5 < 1) {
                     getPageDataBusca(1, txtBusca.getText());
+                    
                 } else {
                     getPageDataBusca(currentPage - 5, txtBusca.getText());
+                     BtnAlterarAnotacao.setEnabled(false);
+                        BtnExcluirAnotacao.setEnabled(false);
                 }
 
             } else {
@@ -929,6 +943,8 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
                     getPageData(1);
                 } else {
                     getPageData(currentPage - 5);
+                     BtnAlterarAnotacao.setEnabled(false);
+                        BtnExcluirAnotacao.setEnabled(false);
                 }
             }
 
