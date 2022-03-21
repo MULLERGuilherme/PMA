@@ -323,14 +323,14 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         tps.use24HourClockFormat();
         tps.generatePotentialMenuTimes(TimeIncrement.OneHour,  LocalTime.of(8,0),  LocalTime.of(20,0));
         data = new com.github.lgooddatepicker.components.DateTimePicker(null,tps);
-        status = new javax.swing.JComboBox<>();
         BtnCadastrarConsulta = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
         jPanel7 = new JPanel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        ComboPagamento = new javax.swing.JComboBox<>();
         jPanel1 = new JPanel();
         PainelMeusDados = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
@@ -1874,8 +1874,6 @@ public class ManterPaciente1 extends javax.swing.JFrame {
 
         ModalAlterarConsulta.setResizable(false);
 
-        status.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A Confirmar","Confirmada","Cancelada", "Realizada" }));
-
         BtnCadastrarConsulta.setText("Cadastrar");
         BtnCadastrarConsulta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1883,9 +1881,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             }
         });
 
-        jLabel10.setText("Data");
-
-        jLabel11.setText("Status");
+        jLabel10.setText("Data:");
 
         jPanel7.setBackground(new java.awt.Color(59, 131, 117));
         jPanel7.setForeground(new java.awt.Color(59, 131, 117));
@@ -1911,11 +1907,15 @@ public class ManterPaciente1 extends javax.swing.JFrame {
 
         jLabel16.setText("Nome do Paciente");
 
+        jLabel17.setText("Pagamento:");
+
+        ComboPagamento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pendente", "Pago" }));
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, 452, Short.MAX_VALUE)
+            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, 429, Short.MAX_VALUE)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
@@ -1925,18 +1925,19 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                         .addGap(60, 60, 60)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel11)
-                                .addGap(18, 18, 18)
-                                .addComponent(status, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel10)
-                                .addGap(18, 18, 18)
-                                .addComponent(data, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(jLabel13)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel16)))))
-                .addContainerGap(83, Short.MAX_VALUE))
+                                .addComponent(jLabel16))
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
+                                    .addComponent(jLabel17)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(ComboPagamento, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
+                                    .addComponent(jLabel10)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(data, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1952,8 +1953,8 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                     .addComponent(data, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11)
-                    .addComponent(status, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel17)
+                    .addComponent(ComboPagamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
                 .addComponent(BtnCadastrarConsulta)
                 .addGap(26, 26, 26))
@@ -2297,8 +2298,8 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             }
         });
 
-        BtnCadastro.setBackground(new java.awt.Color(204, 204, 204));
         BtnCadastro.setText("Cadastrar Consulta");
+        BtnCadastro.setBackground(new java.awt.Color(204, 204, 204));
         BtnCadastro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnCadastroActionPerformed(evt);
@@ -3482,7 +3483,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             LocalDateTime dateTime = (data.getDateTimePermissive());
             //  System.out.println("Data formatada"+param);
             c.setDataConsulta(dateTime);
-            c.setStatus((String) status.getSelectedItem());
+            c.setStatus("A confirmar");
             boolean sucesso = cdao.Create(c);
             if(sucesso) JOptionPane.showMessageDialog(this, "Consulta Salva com sucesso");
         }else {
@@ -3623,6 +3624,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
     private javax.swing.JCheckBox CheckBoxPercepcao;
     private javax.swing.JCheckBox CheckBoxRaiva;
     private javax.swing.JCheckBox CheckBoxVolicao;
+    private javax.swing.JComboBox<String> ComboPagamento;
     private com.github.lgooddatepicker.components.DatePicker DataInicio1;
     private com.github.lgooddatepicker.components.DatePicker DataNasc2;
     private com.github.lgooddatepicker.components.DatePicker DataNasc3;
@@ -3707,12 +3709,12 @@ public class ManterPaciente1 extends javax.swing.JFrame {
     private LIB.JEImagePanel jEImagePanel7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
@@ -3775,7 +3777,6 @@ public class ManterPaciente1 extends javax.swing.JFrame {
     private javax.swing.JLabel labelInicioQueixa3;
     private javax.swing.JLabel labeltelefone;
     private javax.swing.JLabel labeltelefone2;
-    private javax.swing.JComboBox<String> status;
     private javax.swing.JTextField txtBusca;
     private javax.swing.JFormattedTextField txtCPF1;
     private javax.swing.JFormattedTextField txtCPF2;

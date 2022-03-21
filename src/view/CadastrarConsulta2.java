@@ -71,7 +71,6 @@ public class CadastrarConsulta2 extends javax.swing.JFrame {
         tps.use24HourClockFormat();
         tps.generatePotentialMenuTimes(TimeIncrement.OneHour,  LocalTime.of(8,0),  LocalTime.of(20,0));
         data = new com.github.lgooddatepicker.components.DateTimePicker(null,tps);
-        status = new javax.swing.JComboBox<>();
         BtnCadastrarConsulta = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -79,6 +78,7 @@ public class CadastrarConsulta2 extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        ComboPagamento = new javax.swing.JComboBox<>();
         jPanel1 = new JPanel();
         jEImagePanel1 = new LIB.JEImagePanel();
         jLabel3 = new javax.swing.JLabel();
@@ -130,8 +130,6 @@ public class CadastrarConsulta2 extends javax.swing.JFrame {
 
         ModalAlterarConsulta.setResizable(false);
 
-        status.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A Confirmar","Confirmada","Cancelada", "Realizada" }));
-
         BtnCadastrarConsulta.setText("Cadastrar");
         BtnCadastrarConsulta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -139,18 +137,18 @@ public class CadastrarConsulta2 extends javax.swing.JFrame {
             }
         });
 
-        jLabel7.setText("Data");
+        jLabel7.setText("Data:");
 
-        jLabel6.setText("Status");
+        jLabel6.setText("Pagamento:");
 
         jPanel2.setBackground(new java.awt.Color(59, 131, 117));
         jPanel2.setForeground(new java.awt.Color(59, 131, 117));
         jPanel2.setPreferredSize(new java.awt.Dimension(1080, 89));
 
-        jLabel4.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Cadastrar Consulta");
+        jLabel4.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -167,11 +165,13 @@ public class CadastrarConsulta2 extends javax.swing.JFrame {
 
         jLabel8.setText("Nome do Paciente");
 
+        ComboPagamento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pendente", "Pago" }));
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 452, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 434, Short.MAX_VALUE)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
@@ -181,18 +181,19 @@ public class CadastrarConsulta2 extends javax.swing.JFrame {
                         .addGap(60, 60, 60)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addGap(18, 18, 18)
-                                .addComponent(status, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addGap(18, 18, 18)
-                                .addComponent(data, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(jLabel5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel8)))))
-                .addContainerGap(83, Short.MAX_VALUE))
+                                .addComponent(jLabel8))
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
+                                    .addComponent(jLabel6)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(ComboPagamento, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(jPanel3Layout.createSequentialGroup()
+                                    .addComponent(jLabel7)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(data, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -209,7 +210,7 @@ public class CadastrarConsulta2 extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(status, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ComboPagamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
                 .addComponent(BtnCadastrarConsulta)
                 .addGap(26, 26, 26))
@@ -545,7 +546,7 @@ public class CadastrarConsulta2 extends javax.swing.JFrame {
             LocalDateTime dateTime = (data.getDateTimePermissive());
             //  System.out.println("Data formatada"+param);
             c.setDataConsulta(dateTime);
-            c.setStatus((String) status.getSelectedItem());
+            c.setStatus("A confirmar");
             boolean sucesso = cdao.Create(c);
             if(sucesso) JOptionPane.showMessageDialog(this, "Consulta Salva com sucesso");
         }else {
@@ -663,6 +664,7 @@ public class CadastrarConsulta2 extends javax.swing.JFrame {
     private javax.swing.JButton BtnHelp;
     private javax.swing.JButton BtnPacientes;
     private javax.swing.JButton BtnVoltar;
+    private javax.swing.JComboBox<String> ComboPagamento;
     private javax.swing.JTable JTPacienteSimples;
     private javax.swing.JDialog ModalAlterarConsulta;
     private javax.swing.JDialog ModalHelp;
@@ -684,7 +686,6 @@ public class CadastrarConsulta2 extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JComboBox<String> status;
     private javax.swing.JTextField txtBusca;
     // End of variables declaration//GEN-END:variables
 }
