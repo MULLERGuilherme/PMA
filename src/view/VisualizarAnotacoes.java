@@ -45,6 +45,7 @@ import model.dao.TelefoneDAO;
 import model.dao.ViewsDAO;
 import util.Util;
 import Validacoes.Validar;
+import java.awt.Toolkit;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
@@ -126,6 +127,7 @@ public class VisualizarAnotacoes extends javax.swing.JFrame {
         this.codpaciente = cod;
         this.getCount();
         initComponents();
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
         BtnPacientes.setEnabled(false);
         BtnAlterarAnotacao.setEnabled(false);
         BtnExcluirAnotacao.setEnabled(false);

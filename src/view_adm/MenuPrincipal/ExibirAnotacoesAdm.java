@@ -46,6 +46,7 @@ import model.dao.TelefoneDAO;
 import model.dao.ViewsDAO;
 import util.Util;
 import Validacoes.Validar;
+import java.awt.Toolkit;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
@@ -74,6 +75,7 @@ public class ExibirAnotacoesAdm extends javax.swing.JFrame {
 
     public ExibirAnotacoesAdm() {
         initComponents();
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
         BtnExibirTodasAnotacoes.setEnabled(false);
         BtnAlterarAnotacao.setEnabled(false);
         BtnExcluirAnotacao.setEnabled(false);

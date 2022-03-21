@@ -15,6 +15,7 @@ import java.awt.Font;
 import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Toolkit;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -61,6 +62,7 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
 
     public ManterPsicologoAdm() {
         initComponents();
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
         BtnManterPsicologo.setEnabled(false);
         BtnVisuAlterarDados.setEnabled(false);
         BtnExcluirPsicologo.setEnabled(false);

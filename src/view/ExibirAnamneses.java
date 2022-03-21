@@ -7,6 +7,7 @@ package view;
 
 import util.Util;
 import Validacoes.Validar;
+import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.sql.Date;
 import java.sql.Timestamp;
@@ -92,6 +93,7 @@ public class ExibirAnamneses extends javax.swing.JFrame {
     public ExibirAnamneses() {
         this.getCount();
         initComponents();
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
         BtnExibirAnamneses.setEnabled(false);
         btnalterar.setEnabled(false);
         btnExcluir.setEnabled(false);

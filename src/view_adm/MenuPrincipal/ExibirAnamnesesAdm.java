@@ -8,6 +8,7 @@ package view_adm.MenuPrincipal;
 import view.*;
 import util.Util;
 import Validacoes.Validar;
+import java.awt.Toolkit;
 import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -40,6 +41,7 @@ public class ExibirAnamnesesAdm extends javax.swing.JFrame {
 
     public ExibirAnamnesesAdm() {
         initComponents();
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
         BtnExibirTodasAnamneses.setEnabled(false);
         btnalterar.setEnabled(false);
         btnExcluir.setEnabled(false);

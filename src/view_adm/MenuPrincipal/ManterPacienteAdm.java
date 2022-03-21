@@ -15,6 +15,7 @@ import java.awt.Font;
 import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Toolkit;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -57,6 +58,7 @@ public class ManterPacienteAdm extends javax.swing.JFrame {
 
     public ManterPacienteAdm() {
         initComponents();
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
         BtnManterPaciente.setEnabled(false);
         BtnVisuAlterarDados.setEnabled(false);
         BtnExcluirPaciente.setEnabled(false);

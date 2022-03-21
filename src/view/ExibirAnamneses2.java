@@ -6,6 +6,7 @@
 package view;
 
 import Validacoes.Validar;
+import java.awt.Toolkit;
 import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -102,6 +103,7 @@ public class ExibirAnamneses2 extends javax.swing.JFrame {
         this.getCount();
 
         initComponents();
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
          BtnPacientes.setEnabled(false);
         btnalterar.setEnabled(false);
         btnExcluir.setEnabled(false);

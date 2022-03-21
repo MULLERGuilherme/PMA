@@ -7,6 +7,7 @@ package view;
 import Validacoes.Validar;
 import com.github.lgooddatepicker.components.TimePickerSettings;
 import com.github.lgooddatepicker.components.TimePickerSettings.TimeIncrement;
+import java.awt.Toolkit;
 import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -41,6 +42,7 @@ public class CadastrarConsulta2 extends javax.swing.JFrame {
      */
     public CadastrarConsulta2() {
         initComponents();
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
          BtnConsultas.setEnabled(false);
         BtnCadastrarConsulta.setEnabled(false);
         BtnCadastro.setEnabled(false);

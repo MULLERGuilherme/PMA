@@ -9,6 +9,7 @@ import Validacoes.Deletar;
 import Validacoes.Validar;
 import com.github.lgooddatepicker.components.TimePickerSettings;
 import com.github.lgooddatepicker.components.TimePickerSettings.TimeIncrement;
+import java.awt.Toolkit;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
@@ -107,6 +108,7 @@ public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
         this.codpaciente = cod;
         this.getCount();
         initComponents();
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
          BtnPacientes.setEnabled(false);
         btnalterarconsulta.setEnabled(false);
         BtnExcluir.setEnabled(false);

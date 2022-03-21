@@ -5,6 +5,7 @@
  */
 package view;
 import Validacoes.Validar;
+import java.awt.Toolkit;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +37,7 @@ public class ExibirAnotacoesManterPaciente extends javax.swing.JFrame {
     public boolean existe;
     public ExibirAnotacoesManterPaciente(int cod) {
         initComponents();
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
         BtnAlterarAnotacao.setEnabled(false);
         BtnExcluirAnotacao.setEnabled(false);
         this.codpaciente = cod;

@@ -9,6 +9,7 @@ import Validacoes.Deletar;
 import Validacoes.Validar;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -16,6 +17,7 @@ import java.awt.Toolkit;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import javax.swing.ImageIcon;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
@@ -44,6 +46,7 @@ import static view.AlterarConsulta.codconsulta;
 import static view.AlterarConsulta.existe;
 import static view.AlterarConsultapelomenu.codconsulta;
 
+
 public class TelaPrincipalAdm extends javax.swing.JFrame {
 
      public static int codconsulta;
@@ -51,6 +54,7 @@ public class TelaPrincipalAdm extends javax.swing.JFrame {
      
     public TelaPrincipalAdm() {
         initComponents();
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
         BtnInicio.setEnabled(false);
         btnAlterar.setEnabled(false);
         BtnExcluir.setEnabled(false);
