@@ -2971,6 +2971,11 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         if (currentPage != 1) { //diferente da 1 pagina
             if (txtBusca.getText() != "") {
                 getPageDataBusca(currentPage - 1, txtBusca.getText());
+                BtnVisuAlterarDados.setEnabled(false);
+                BtnCadastro.setEnabled(false);
+                btnVisuAnamneses.setEnabled(false);
+                btnVisuConsultas.setEnabled(false);
+                btnVisuAnotacoes.setEnabled(false);
             } else {
                 getPageData(currentPage - 1);
             }
@@ -3005,8 +3010,18 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             if (txtBusca.getText() != "") {
                 if (currentPage - 5 < 1) {
                     getPageDataBusca(1, txtBusca.getText());
+                    BtnVisuAlterarDados.setEnabled(false);
+                    BtnCadastro.setEnabled(false);
+                    btnVisuAnamneses.setEnabled(false);
+                     btnVisuConsultas.setEnabled(false);
+                    btnVisuAnotacoes.setEnabled(false);
                 } else {
                     getPageDataBusca(currentPage - 5, txtBusca.getText());
+                    BtnVisuAlterarDados.setEnabled(false);
+                    BtnCadastro.setEnabled(false);
+                    btnVisuAnamneses.setEnabled(false);
+                    btnVisuConsultas.setEnabled(false);
+                    btnVisuAnotacoes.setEnabled(false);
                 }
 
             } else {
@@ -3025,6 +3040,11 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         if (currentPage < totalPages) {
             if (txtBusca.getText() != "") {
                 getPageDataBusca(currentPage + 1, txtBusca.getText());
+                BtnVisuAlterarDados.setEnabled(false);
+                 BtnCadastro.setEnabled(false);
+                btnVisuAnamneses.setEnabled(false);
+                btnVisuConsultas.setEnabled(false);
+                 btnVisuAnotacoes.setEnabled(false);
             } else {
                 getPageData(currentPage + 1);
             }
@@ -3157,7 +3177,11 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (txtBusca.getText() != "") {
             getPageDataBusca((int) SpinnerNumPaginas.getValue(), txtBusca.getText());
-
+            BtnVisuAlterarDados.setEnabled(false);
+             BtnCadastro.setEnabled(false);
+            btnVisuAnamneses.setEnabled(false);
+            btnVisuConsultas.setEnabled(false);
+            btnVisuAnotacoes.setEnabled(false);
         } else {
 
             getPageData((int) SpinnerNumPaginas.getValue());
