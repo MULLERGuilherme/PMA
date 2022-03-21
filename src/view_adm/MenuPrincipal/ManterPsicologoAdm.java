@@ -1511,7 +1511,7 @@ public class ManterPsicologoAdm extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnInicioActionPerformed
 
     private void BtnManterPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnManterPacienteActionPerformed
-        ManterPacienteAdm mp1 = new ManterPacienteAdm();
+         M mp1 = new M();
         Util.SizeJanela(mp1);
         this.dispose();
     }//GEN-LAST:event_BtnManterPacienteActionPerformed
