@@ -234,6 +234,28 @@ public class PacienteDAO {
         }
         return status;
     }
+    public boolean SoftUpdate(Paciente p) {
+        boolean status = true;
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        try {
+//            mudança
+            stmt = con.prepareStatement("Update  paciente set Deletado=?  WHERE CodPaciente =? ");
+
+          
+            stmt.setBoolean(1, p.isDeletado());
+            stmt.setInt(2, p.getCodPaciente());
+            stmt.executeUpdate();
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao alterar :" +ex.getMessage());
+            status = false;
+
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt);
+        }
+        return status;
+    }
 
     public List<Paciente> Read() {
         Connection con = ConnectionFactory.getConnection();

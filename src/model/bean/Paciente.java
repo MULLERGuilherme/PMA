@@ -19,10 +19,10 @@ public class Paciente {
 //  Mudanças
     private Object DataNasc;
     private String Sexo;
-    private String Profissao;
-    private String Religiao;
-    private String Escolaridade;
-    private String Endereco;
+    private String Profissao =null;
+    private String Religiao=null;
+    private String Escolaridade=null;
+    private String Endereco=null;
     private String Cidade;
     private String UF;
     private boolean Deletado = false;
