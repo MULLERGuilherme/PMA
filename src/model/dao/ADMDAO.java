@@ -538,7 +538,7 @@ public class ADMDAO {
                 c.getPsicologo().setNome_completo(rs.getString("Psicologo"));
                 c.setDataConsulta(rs.getObject("DataConsulta"));
                 c.setStatus(rs.getString("Status"));
-                //c.setPagamento(rs.getString("Pagamento"));
+                c.setPagamento(rs.getString("Pagamento"));
 
                 vw.add(c);
 
@@ -571,7 +571,7 @@ public class ADMDAO {
                 c.getPsicologo().setNome_completo(rs.getString("Psicologo"));
                 c.setDataConsulta(rs.getObject("DataConsulta"));
                 c.setStatus(rs.getString("Status"));
-                //c.setPagamento(rs.getString("Pagamento"));
+                c.setPagamento(rs.getString("Pagamento"));
 
                 vw.add(c);
 

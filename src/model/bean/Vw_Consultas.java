@@ -14,9 +14,18 @@ public class Vw_Consultas {
     private int CodConsulta;
     private Object DataConsulta;
     private String Status;
+    private String Pagamento;
     private Paciente paciente;
     private Psicologo psicologo;
 
+    public String getPagamento() {
+        return Pagamento;
+    }
+
+    public void setPagamento(String Pagamento) {
+        this.Pagamento = Pagamento;
+    }
+    
     public Vw_Consultas() {
         this.paciente = new Paciente();
         this.psicologo = new Psicologo();

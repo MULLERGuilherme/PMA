@@ -150,6 +150,10 @@ public boolean readcampos() {
         BtnAlterarConsulta = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        JCBPagamento = new javax.swing.JComboBox<>();
+        jLabel8 = new javax.swing.JLabel();
+        labelpaciente = new javax.swing.JLabel();
         ModalAnamnese3 = new javax.swing.JDialog();
         jScrollPane3 = new javax.swing.JScrollPane();
         jPanel6 = new javax.swing.JPanel();
@@ -309,7 +313,7 @@ public boolean readcampos() {
 
         jLabel5.setText("Data");
 
-        jLabel6.setText("Status");
+        jLabel6.setText("Status da Consulta:");
 
         status.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A Confirmar","Confirmada","Cancelada", "Realizada" }));
 
@@ -334,39 +338,65 @@ public boolean readcampos() {
             }
         });
 
+        jLabel9.setText("Situação do Pagamento:");
+
+        JCBPagamento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pendente", "Efetuado"}));
+
+        jLabel8.setText("Paciente:");
+
+        labelpaciente.setText("jLabel10");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel5)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(datepicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel5)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel6))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(datepicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(status, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jButton1)
+                                .addGap(30, 30, 30)
+                                .addComponent(BtnAlterarConsulta)
+                                .addGap(30, 30, 30)
+                                .addComponent(jButton2))))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addGap(18, 18, 18)
-                        .addComponent(BtnAlterarConsulta)))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(status, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2))
-                .addContainerGap(538, Short.MAX_VALUE))
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(JCBPagamento, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(labelpaciente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(526, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(53, 53, 53)
+                .addGap(21, 21, 21)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(labelpaciente))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(datepicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5)
                     .addComponent(jLabel6)
                     .addComponent(status, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(60, 60, 60)
+                .addGap(24, 24, 24)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(JCBPagamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(16, 16, 16)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
                     .addComponent(BtnAlterarConsulta)
@@ -1264,8 +1294,9 @@ public boolean readcampos() {
             int value = (Integer)JTConsultas.getModel().getValueAt(modelRow,0);
             codconsulta = value;
             readatributos();
-
-            ModalAlterarConsulta.setSize(586, 320);
+            String nome = (String)JTConsultas.getModel().getValueAt(modelRow,1);
+            labelpaciente.setText(nome);
+            ModalAlterarConsulta.setSize(620, 320);
             ModalAlterarConsulta.setModal(true);
             ModalAlterarConsulta.setLocationRelativeTo(null);
             ModalAlterarConsulta.setVisible(true);
@@ -1458,6 +1489,7 @@ public void readatributos() {
             boolean sucesso = false;
             c.setCodConsulta(codconsulta);
             c.setDataConsulta(datepicker.getDateTimePermissive());
+            c.setPagamento((String) JCBPagamento.getSelectedItem());
             c.setStatus((String) status.getSelectedItem());
             sucesso = cdao.Update(c);
             if (sucesso) {
@@ -1607,6 +1639,7 @@ public void readatributos() {
     private javax.swing.JCheckBox CheckBoxVolicao1;
     private com.toedter.calendar.JDateChooser DataChooser;
     private com.github.lgooddatepicker.components.DatePicker DataInicio2;
+    private javax.swing.JComboBox<String> JCBPagamento;
     private javax.swing.JComboBox<String> JCBPsicomotricidade2;
     private javax.swing.JTable JTConsultas;
     private javax.swing.JLabel LabelAssunto;
@@ -1659,6 +1692,8 @@ public void readatributos() {
     private javax.swing.JLabel jLabel57;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -1672,6 +1707,7 @@ public void readatributos() {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JLabel labelInicioQueixa4;
     private javax.swing.JLabel labelInicioQueixa5;
+    private javax.swing.JLabel labelpaciente;
     private javax.swing.JComboBox<String> status;
     private javax.swing.JTextField txtAssunto;
     private javax.swing.JTextField txtComoComecou2;

@@ -30,11 +30,12 @@ public class ConsultaDAO {
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         try {
-            stmt = con.prepareStatement("INSERT INTO consulta (DataConsulta, Status, CodPaciente, CodPsicologo) VALUES (?, ?, ?, ?) ");
+            stmt = con.prepareStatement("INSERT INTO consulta (DataConsulta, Status, CodPaciente, CodPsicologo, Pagamento) VALUES (?, ?, ?, ?,?) ");
             stmt.setObject(1, c.getDataConsulta());
             stmt.setString(2, c.getStatus());
             stmt.setInt(3, c.getPaciente().getCodPaciente());
             stmt.setInt(4, c.getPsicologo().getCodPsicologo());
+            stmt.setString(2, c.getPagamento());
 
             stmt.executeUpdate();
 
@@ -244,13 +245,14 @@ public class ConsultaDAO {
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         try {
-            stmt = con.prepareStatement("Update  consulta SET DataConsulta=?, Status=? WHERE CodConsulta =? ");
+            stmt = con.prepareStatement("Update  consulta SET DataConsulta=?, Status=?, Pagamento=? WHERE CodConsulta =? ");
 
             //sem CPF pq nao faz sentido
             //stmt.setString(1,  p.getCPF());
             stmt.setObject(1, c.getDataConsulta());
             stmt.setString(2, c.getStatus());
-            stmt.setInt(3, c.getCodConsulta());
+            stmt.setString(3, c.getPagamento());
+            stmt.setInt(4, c.getCodConsulta());
             stmt.executeUpdate();
 
         } catch (SQLException ex) {

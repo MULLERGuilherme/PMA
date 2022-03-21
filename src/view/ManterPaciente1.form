@@ -2677,13 +2677,13 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
+                                      <Component id="labelpaciente" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="ComboPagamento" max="32767" attributes="0"/>
+                                          <Component id="JCBPagamento" max="32767" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
@@ -2705,7 +2705,7 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelpaciente" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -2715,7 +2715,7 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="ComboPagamento" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="JCBPagamento" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="65" max="32767" attributes="0"/>
                       <Component id="BtnCadastrarConsulta" min="-2" max="-2" attributes="0"/>
@@ -2792,7 +2792,7 @@
                 <Property name="text" type="java.lang.String" value="Paciente:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel16">
+            <Component class="javax.swing.JLabel" name="labelpaciente">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Nome do Paciente"/>
               </Properties>
@@ -2802,13 +2802,10 @@
                 <Property name="text" type="java.lang.String" value="Pagamento:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="ComboPagamento">
+            <Component class="javax.swing.JComboBox" name="JCBPagamento">
               <Properties>
-                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="2">
-                    <StringItem index="0" value="Pendente"/>
-                    <StringItem index="1" value="Pago"/>
-                  </StringArray>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[] { &quot;Pendente&quot;, &quot;Efetuado&quot; })" type="code"/>
                 </Property>
               </Properties>
               <AuxValues>

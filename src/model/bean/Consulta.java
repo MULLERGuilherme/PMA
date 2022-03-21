@@ -18,6 +18,16 @@ public class Consulta {
     private String Status;
     private Paciente paciente;
     private Psicologo psicologo;
+    private String Pagamento;
+
+    public String getPagamento() {
+        return Pagamento;
+    }
+
+    public void setPagamento(String Pagamento) {
+        this.Pagamento = Pagamento;
+    }
+    
     
     public Consulta(){
     

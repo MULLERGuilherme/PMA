@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package view;
+
 import Validacoes.Validar;
 import com.github.lgooddatepicker.components.TimePickerSettings;
 import com.github.lgooddatepicker.components.TimePickerSettings.TimeIncrement;
@@ -31,6 +32,7 @@ import model.dao.PacienteDAO;
 import model.dao.TelefoneDAO;
 import model.dao.ViewsDAO;
 import util.Util;
+
 /**
  *
  * @author guimu
@@ -43,11 +45,11 @@ public class CadastrarConsulta2 extends javax.swing.JFrame {
     public CadastrarConsulta2() {
         initComponents();
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
-         BtnConsultas.setEnabled(false);
+        BtnConsultas.setEnabled(false);
         BtnCadastrarConsulta.setEnabled(false);
         BtnCadastro.setEnabled(false);
-         DefaultTableModel dtmPacientes = (DefaultTableModel) JTPacienteSimples.getModel();
-         TableColumnModel cmod = JTPacienteSimples.getColumnModel();
+        DefaultTableModel dtmPacientes = (DefaultTableModel) JTPacienteSimples.getModel();
+        TableColumnModel cmod = JTPacienteSimples.getColumnModel();
         cmod.removeColumn(cmod.getColumn(0));
         JTPacienteSimples.setRowSorter(new TableRowSorter(dtmPacientes));
         ReadJTable();
@@ -77,8 +79,8 @@ public class CadastrarConsulta2 extends javax.swing.JFrame {
         jPanel2 = new JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        ComboPagamento = new javax.swing.JComboBox<>();
+        labelpaciente = new javax.swing.JLabel();
+        JCBPagamento = new javax.swing.JComboBox<>();
         jPanel1 = new JPanel();
         jEImagePanel1 = new LIB.JEImagePanel();
         jLabel3 = new javax.swing.JLabel();
@@ -163,9 +165,9 @@ public class CadastrarConsulta2 extends javax.swing.JFrame {
 
         jLabel5.setText("Paciente:");
 
-        jLabel8.setText("Nome do Paciente");
+        labelpaciente.setText("Nome do Paciente");
 
-        ComboPagamento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pendente", "Pago" }));
+        JCBPagamento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pendente", "Efetuado" }));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -183,12 +185,12 @@ public class CadastrarConsulta2 extends javax.swing.JFrame {
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(jLabel5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel8))
+                                .addComponent(labelpaciente))
                             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
                                     .addComponent(jLabel6)
                                     .addGap(18, 18, 18)
-                                    .addComponent(ComboPagamento, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(JCBPagamento, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGroup(jPanel3Layout.createSequentialGroup()
                                     .addComponent(jLabel7)
                                     .addGap(18, 18, 18)
@@ -202,7 +204,7 @@ public class CadastrarConsulta2 extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jLabel8))
+                    .addComponent(labelpaciente))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
@@ -210,7 +212,7 @@ public class CadastrarConsulta2 extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(ComboPagamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(JCBPagamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
                 .addComponent(BtnCadastrarConsulta)
                 .addGap(26, 26, 26))
@@ -449,7 +451,7 @@ public class CadastrarConsulta2 extends javax.swing.JFrame {
     public void ReadJTable() {
 
         DefaultTableModel model = (DefaultTableModel) JTPacienteSimples.getModel();
-        
+
         model.setNumRows(0);
         ViewsDAO vwdao = new ViewsDAO();
         Object[] linha = null;
@@ -484,17 +486,17 @@ public class CadastrarConsulta2 extends javax.swing.JFrame {
         }
     }
 
-    public void ReadJTableBusca( String Busca) {
+    public void ReadJTableBusca(String Busca) {
 
         DefaultTableModel model = (DefaultTableModel) JTPacienteSimples.getModel();
-        
+
         model.setNumRows(0);
-       
+
         ViewsDAO vwdao = new ViewsDAO();
         Object[] linha = null;
         String fones = null;
         String[] fones2 = null;
-        for (Vw_TelefonesPacientes vw : vwdao.BuscaManterPacienteOA( Busca)) {
+        for (Vw_TelefonesPacientes vw : vwdao.BuscaManterPacienteOA(Busca)) {
             fones = vw.getTelefone().getNumero();
             if (fones.contains(",")) {
 
@@ -526,8 +528,8 @@ public class CadastrarConsulta2 extends javax.swing.JFrame {
         // TODO add your handling code here:
         Paciente p = new Paciente();
         PacienteDAO dao = new PacienteDAO();
-       
-        this.ReadJTableBusca( txtBusca.getText());
+
+        this.ReadJTableBusca(txtBusca.getText());
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void BtnCadastrarConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCadastrarConsultaActionPerformed
@@ -537,7 +539,7 @@ public class CadastrarConsulta2 extends javax.swing.JFrame {
             ConsultaDAO cdao = new ConsultaDAO();
             Paciente p = new Paciente();
             int modelRow = JTPacienteSimples.convertRowIndexToModel(JTPacienteSimples.getSelectedRow());
-            int value = (Integer)JTPacienteSimples.getModel().getValueAt(modelRow,0);
+            int value = (Integer) JTPacienteSimples.getModel().getValueAt(modelRow, 0);
             c.getPaciente().setCodPaciente(value);
             c.getPsicologo().setCodPsicologo(Main.cod);
 
@@ -547,24 +549,27 @@ public class CadastrarConsulta2 extends javax.swing.JFrame {
             //  System.out.println("Data formatada"+param);
             c.setDataConsulta(dateTime);
             c.setStatus("A confirmar");
+            c.setPagamento((String) JCBPagamento.getSelectedItem());
             boolean sucesso = cdao.Create(c);
-            if(sucesso) JOptionPane.showMessageDialog(this, "Consulta Salva com sucesso");
-        }else {
+            if (sucesso) {
+                JOptionPane.showMessageDialog(this, "Consulta Salva com sucesso");
+            }
+        } else {
             JOptionPane.showMessageDialog(this, "Selecione um paciente para cadastrar uma consulta");
         }
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnCadastrarConsultaActionPerformed
 
     private void txtBuscaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscaKeyTyped
-       Paciente p = new Paciente();
+        Paciente p = new Paciente();
         PacienteDAO dao = new PacienteDAO();
-       
-        this.ReadJTableBusca( txtBusca.getText());
+
+        this.ReadJTableBusca(txtBusca.getText());
     }//GEN-LAST:event_txtBuscaKeyTyped
 
     private void JTPacienteSimplesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTPacienteSimplesMouseClicked
-          BtnCadastrarConsulta.setEnabled(true);
-          BtnCadastro.setEnabled(true);
+        BtnCadastrarConsulta.setEnabled(true);
+        BtnCadastro.setEnabled(true);
     }//GEN-LAST:event_JTPacienteSimplesMouseClicked
 
     private void BtnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVoltarActionPerformed
@@ -613,10 +618,13 @@ public class CadastrarConsulta2 extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnHelpActionPerformed
 
     private void BtnCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCadastroActionPerformed
-            ModalAlterarConsulta.setSize(462, 320);
-            ModalAlterarConsulta.setModal(true);
-            ModalAlterarConsulta.setLocationRelativeTo(null);
-            ModalAlterarConsulta.setVisible(true);
+        int modelRow = JTPacienteSimples.convertRowIndexToModel(JTPacienteSimples.getSelectedRow());
+        String text = (String) JTPacienteSimples.getModel().getValueAt(modelRow, 1);
+        labelpaciente.setText(text);
+        ModalAlterarConsulta.setSize(462, 320);
+        ModalAlterarConsulta.setModal(true);
+        ModalAlterarConsulta.setLocationRelativeTo(null);
+        ModalAlterarConsulta.setVisible(true);
     }//GEN-LAST:event_BtnCadastroActionPerformed
 
     /**
@@ -664,7 +672,7 @@ public class CadastrarConsulta2 extends javax.swing.JFrame {
     private javax.swing.JButton BtnHelp;
     private javax.swing.JButton BtnPacientes;
     private javax.swing.JButton BtnVoltar;
-    private javax.swing.JComboBox<String> ComboPagamento;
+    private javax.swing.JComboBox<String> JCBPagamento;
     private javax.swing.JTable JTPacienteSimples;
     private javax.swing.JDialog ModalAlterarConsulta;
     private javax.swing.JDialog ModalHelp;
@@ -679,13 +687,13 @@ public class CadastrarConsulta2 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel labelpaciente;
     private javax.swing.JTextField txtBusca;
     // End of variables declaration//GEN-END:variables
 }

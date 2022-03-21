@@ -219,11 +219,11 @@ public class ManterConsultasAdm extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Paciente", "Psicologo", "Data da Consulta", "Status"
+                "ID", "Paciente", "Psicologo", "Data da Consulta", "Status", "Pagamento"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -558,7 +558,9 @@ public class ManterConsultasAdm extends javax.swing.JFrame {
                 c.getPaciente().getNome_Completo(),
                 c.getPsicologo().getNome_completo(),
                 Validar.fDatetime((Timestamp) c.getDataConsulta()),
-                c.getStatus(),});
+                c.getStatus(),
+                c.getPagamento()
+            });
         }
     }
 
@@ -596,7 +598,9 @@ public class ManterConsultasAdm extends javax.swing.JFrame {
                 c.getPaciente().getNome_Completo(),
                 c.getPsicologo().getNome_completo(),
                 Validar.fDatetime((Timestamp) c.getDataConsulta()),
-                c.getStatus(),});
+                c.getStatus(),
+                c.getPagamento()
+            });
         }
 
     }
