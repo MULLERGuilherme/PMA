@@ -1389,7 +1389,7 @@ public boolean readcampos() {
     }//GEN-LAST:event_BtnManterConsultaActionPerformed
 
     private void BtnManterPsicologoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnManterPsicologoActionPerformed
-       ManterPsicologoAdm mp = new ManterPsicologoAdm();
+       ManterPsiAdm mp = new ManterPsiAdm();
         //Util.SizeJanela(mp);
         mp.setVisible(true);
         this.dispose();

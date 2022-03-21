@@ -291,4 +291,228 @@ public class ADMDAO {
 
         return vw;
     }
+    
+    
+    
+      //Paginacao ManterPsicologos ADM deletados
+     public List<Vw_TelefonesPsicologos> fetchBySizeMPsiAdm(int start, int size) {
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        List<Vw_TelefonesPsicologos> vw = new ArrayList<>();
+        try {
+            stmt = con.prepareStatement("SELECT CodigoPsicologo, Psicologo, CRP, Email, GROUP_CONCAT(numero) as Numero FROM vw_TelefonePsicologos WHERE PsicologoDeletado = true Group By Psicologo Limit " + start + "," + size);
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                Vw_TelefonesPsicologos v = new Vw_TelefonesPsicologos();
+
+                v.getPsicologo().setCodPsicologo(rs.getInt("CodigoPsicologo"));
+                v.getPsicologo().setNome_completo(rs.getString("Psicologo"));
+                v.getPsicologo().setEmail(rs.getString("Email"));
+                v.getPsicologo().setCRP(rs.getString("CRP"));
+                v.getTelefone().setNumero(rs.getString("Numero"));
+
+                vw.add(v);
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ConsultaDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt, rs);
+        }
+
+        return vw;
+    }
+
+    public List<Vw_TelefonesPsicologos> fetchBySizeBuscaMPsiAdm(int start, int size, String Busca) {
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        List<Vw_TelefonesPsicologos> vw = new ArrayList<>();
+        try {
+            stmt = con.prepareStatement("SELECT CodigoPsicologo, Psicologo, CRP, Email, GROUP_CONCAT(numero) as Numero FROM vw_TelefonePsicologos WHERE ((Psicologo Like '%" + Busca + "%') OR (CRP Like '%" + Busca + "%') OR (Email Like '%" + Busca + "%') OR (Numero Like '%" + Busca + "%')) AND PsicologoDeletado = true  Group By Psicologo Limit " + size + " OFFSET " + start);
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                Vw_TelefonesPsicologos v = new Vw_TelefonesPsicologos();
+
+                v.getPsicologo().setCodPsicologo(rs.getInt("CodigoPsicologo"));
+                v.getPsicologo().setNome_completo(rs.getString("Psicologo"));
+                v.getPsicologo().setEmail(rs.getString("Email"));
+                v.getPsicologo().setCRP(rs.getString("CRP"));
+                v.getTelefone().setNumero(rs.getString("Numero"));
+
+                vw.add(v);
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ConsultaDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt, rs);
+        }
+
+        return vw;
+    }
+
+    public double getRowCountTableManterPsiAdm() {
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        long count = 0;
+        try {
+            stmt = con.prepareStatement("SELECT count(Distinct CodigoPsicologo) from vw_TelefonePsicologos  WHERE PsicologoDeletado = true ");
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                count = rs.getLong("count(Distinct CodigoPsicologo)");
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ViewsDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt, rs);
+        }
+
+        return count;
+    }
+
+    public double getRowCountTableManterPsiAdmBusca(String Busca) {
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        long count = 0;
+        try {
+            stmt = con.prepareStatement("SELECT count(Distinct CodigoPsicologo) from vw_TelefonePsicologos WHERE ((Psicologo Like '%" + Busca + "%') OR (CRP Like '%" + Busca + "%') OR (Email Like '%" + Busca + "%') OR (numero Like '%" + Busca + "%')) and PsicologoDeletado = true ");
+
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                count = rs.getLong("count(Distinct CodigoPsicologo)");
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ViewsDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt, rs);
+        }
+
+        return count;
+    }
+    
+    
+    
+          //Paginacao ManterPsicologos ADM ativos
+     public List<Vw_TelefonesPsicologos> fetchBySizeMPsi(int start, int size) {
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        List<Vw_TelefonesPsicologos> vw = new ArrayList<>();
+        try {
+            stmt = con.prepareStatement("SELECT CodigoPsicologo, Psicologo, CRP, Email, GROUP_CONCAT(numero) as Numero FROM vw_TelefonePsicologos WHERE PsicologoDeletado = false Group By Psicologo Limit " + start + "," + size);
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                Vw_TelefonesPsicologos v = new Vw_TelefonesPsicologos();
+
+                v.getPsicologo().setCodPsicologo(rs.getInt("CodigoPsicologo"));
+                v.getPsicologo().setNome_completo(rs.getString("Psicologo"));
+                v.getPsicologo().setEmail(rs.getString("Email"));
+                v.getPsicologo().setCRP(rs.getString("CRP"));
+                v.getTelefone().setNumero(rs.getString("Numero"));
+
+                vw.add(v);
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ConsultaDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt, rs);
+        }
+
+        return vw;
+    }
+
+    public List<Vw_TelefonesPsicologos> fetchBySizeBuscaMPsi(int start, int size, String Busca) {
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        List<Vw_TelefonesPsicologos> vw = new ArrayList<>();
+        try {
+            stmt = con.prepareStatement("SELECT CodigoPsicologo, Psicologo, CRP, Email, GROUP_CONCAT(numero) as Numero FROM vw_TelefonePsicologos WHERE ((Psicologo Like '%" + Busca + "%') OR (CRP Like '%" + Busca + "%') OR (Email Like '%" + Busca + "%') OR (Numero Like '%" + Busca + "%')) AND PsicologoDeletado = false  Group By Psicologo Limit " + size + " OFFSET " + start);
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                Vw_TelefonesPsicologos v = new Vw_TelefonesPsicologos();
+
+                v.getPsicologo().setCodPsicologo(rs.getInt("CodigoPsicologo"));
+                v.getPsicologo().setNome_completo(rs.getString("Psicologo"));
+                v.getPsicologo().setEmail(rs.getString("Email"));
+                v.getPsicologo().setCRP(rs.getString("CRP"));
+                v.getTelefone().setNumero(rs.getString("Numero"));
+
+                vw.add(v);
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ConsultaDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt, rs);
+        }
+
+        return vw;
+    }
+
+    public double getRowCountTableManterPsi() {
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        long count = 0;
+        try {
+            stmt = con.prepareStatement("SELECT count(Distinct CodigoPsicologo) from vw_TelefonePsicologos  WHERE PsicologoDeletado = false ");
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                count = rs.getLong("count(Distinct CodigoPsicologo)");
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ViewsDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt, rs);
+        }
+
+        return count;
+    }
+
+    public double getRowCountTableManterPsiAdm(String Busca) {
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        long count = 0;
+        try {
+            stmt = con.prepareStatement("SELECT count(Distinct CodigoPsicologo) from vw_TelefonePsicologos WHERE ((Psicologo Like '%" + Busca + "%') OR (CRP Like '%" + Busca + "%') OR (Email Like '%" + Busca + "%') OR (numero Like '%" + Busca + "%')) and PsicologoDeletado = false ");
+
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                count = rs.getLong("count(Distinct CodigoPsicologo)");
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ViewsDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt, rs);
+        }
+
+        return count;
+    }
 }

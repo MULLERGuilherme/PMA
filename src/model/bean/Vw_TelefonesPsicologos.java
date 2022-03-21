@@ -12,6 +12,11 @@ package model.bean;
 public class Vw_TelefonesPsicologos {
     private Psicologo psicologo;
     private Telefone telefone;
+
+    @Override
+    public String toString() {
+        return "Vw_TelefonesPsicologos{" + "psicologo=" + psicologo.getEmail() + ", telefone=" + telefone + '}';
+    }
  
     
     
