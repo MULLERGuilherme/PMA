@@ -136,6 +136,8 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         BtnPacientes.setEnabled(false);
         DefaultTableModel dtmPacientes = (DefaultTableModel) JTPacientes.getModel();
         BtnVisuAlterarDados.setEnabled(false);
+        BtnVoltarPouco.setEnabled(false);
+        BtnVoltarBastante.setEnabled(false);
         BtnCadastro.setEnabled(false);
         btnVisuAnamneses.setEnabled(false);
         btnVisuConsultas.setEnabled(false);
@@ -2993,6 +2995,12 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                 btnVisuAnamneses.setEnabled(false);
                 btnVisuConsultas.setEnabled(false);
                 btnVisuAnotacoes.setEnabled(false);
+                BtnAvancarPouco.setEnabled(true);
+                BtnAvancarBastante.setEnabled(true);
+                if (currentPage == 1) {
+                  BtnVoltarPouco.setEnabled(false);
+                  BtnVoltarBastante.setEnabled(false);  
+                }
             } else {
                 getPageData(currentPage - 1);
             }
@@ -3007,14 +3015,39 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             if (txtBusca.getText() != "") {
                 if (currentPage + 5 > totalPages) {
                     getPageDataBusca(totalPages, txtBusca.getText());
+                     BtnVoltarPouco.setEnabled(true);
+                BtnVoltarBastante.setEnabled(true);
+                if (currentPage == totalPages) {
+                  BtnAvancarPouco.setEnabled(false);
+                  BtnAvancarBastante.setEnabled(false);  
+                }
                 } else {
                     getPageDataBusca(currentPage + 5, txtBusca.getText());
+                     BtnVoltarPouco.setEnabled(true);
+                BtnVoltarBastante.setEnabled(true);
+                if (currentPage == totalPages) {
+                  BtnAvancarPouco.setEnabled(false);
+                  BtnAvancarBastante.setEnabled(false);  
                 }
+                }
+                
             } else {
                 if (currentPage + 5 > totalPages) {
                     getPageData(totalPages);
+                     BtnVoltarPouco.setEnabled(true);
+                BtnVoltarBastante.setEnabled(true);
+                if (currentPage == totalPages) {
+                  BtnAvancarPouco.setEnabled(false);
+                  BtnAvancarBastante.setEnabled(false);  
+                }
                 } else {
                     getPageData(currentPage + 5);
+                     BtnVoltarPouco.setEnabled(true);
+                     BtnVoltarBastante.setEnabled(true);
+                    if (currentPage == totalPages) {
+                  BtnAvancarPouco.setEnabled(false);
+                  BtnAvancarBastante.setEnabled(false);  
+                }
                 }
             }
 
@@ -3032,6 +3065,12 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                     btnVisuAnamneses.setEnabled(false);
                     btnVisuConsultas.setEnabled(false);
                     btnVisuAnotacoes.setEnabled(false);
+                    BtnAvancarPouco.setEnabled(true);
+                    BtnAvancarBastante.setEnabled(true);
+                    if (currentPage == 1) {
+                         BtnVoltarPouco.setEnabled(false);
+                    BtnVoltarBastante.setEnabled(false);  
+                }
                 } else {
                     getPageDataBusca(currentPage - 5, txtBusca.getText());
                     BtnVisuAlterarDados.setEnabled(false);
@@ -3039,13 +3078,31 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                     btnVisuAnamneses.setEnabled(false);
                     btnVisuConsultas.setEnabled(false);
                     btnVisuAnotacoes.setEnabled(false);
+                    BtnAvancarPouco.setEnabled(true);
+                    BtnAvancarBastante.setEnabled(true);
+                    if (currentPage == 1) {
+                         BtnVoltarPouco.setEnabled(false);
+                     BtnVoltarBastante.setEnabled(false);  
+                }
                 }
 
             } else {
                 if (currentPage - 5 < 1) {
                     getPageData(1);
+                    BtnAvancarPouco.setEnabled(true);
+                    BtnAvancarBastante.setEnabled(true);
+                    if (currentPage == 1) {
+                        BtnVoltarPouco.setEnabled(false);
+                    BtnVoltarBastante.setEnabled(false);  
+                }
                 } else {
                     getPageData(currentPage - 5);
+                    BtnAvancarPouco.setEnabled(true);
+                    BtnAvancarBastante.setEnabled(true);
+                     if (currentPage == 1) {
+                        BtnVoltarPouco.setEnabled(false);
+                        BtnVoltarBastante.setEnabled(false);  
+                }
                 }
             }
 
@@ -3062,6 +3119,12 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                 btnVisuAnamneses.setEnabled(false);
                 btnVisuConsultas.setEnabled(false);
                 btnVisuAnotacoes.setEnabled(false);
+                BtnVoltarPouco.setEnabled(true);
+                BtnVoltarBastante.setEnabled(true);
+                if (currentPage == totalPages) {
+                  BtnAvancarPouco.setEnabled(false);
+                  BtnAvancarBastante.setEnabled(false);  
+                }
             } else {
                 getPageData(currentPage + 1);
             }
