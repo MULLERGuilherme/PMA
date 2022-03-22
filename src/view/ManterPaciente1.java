@@ -3143,7 +3143,13 @@ public class ManterPaciente1 extends javax.swing.JFrame {
 
                         }
                         JOptionPane.showMessageDialog(this, "Psicologo: " + p.getNome_completo() + " Salvo com sucesso");
+                        jLabel11.setText(p.getNome_completo());
+                        String str= getFirstWord(jLabel11.getText());
+                        jLabel11.setText(str);
+                        p = dao.ReadPsicologo(Main.cod);
+                        
                         ModalMeusDados.dispose();
+                        
                         // this.clear();
                     }
 
