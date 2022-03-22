@@ -3142,7 +3142,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                             tfdao.UpdateTPsicologo(t.get(1));
 
                         }
-                        JOptionPane.showMessageDialog(this, "Psicologo: " + p.getNome_completo() + " Salvo com sucesso");
+//                        JOptionPane.showMessageDialog(this, "Psicologo: " + p.getNome_completo() + " Salvo com sucesso");
                         jLabel11.setText(p.getNome_completo());
                         String str= getFirstWord(jLabel11.getText());
                         jLabel11.setText(str);
