@@ -3531,6 +3531,26 @@ public class M extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnRestaurarActionPerformed
 
+    private void BtnSalvarAlteracoes4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalvarAlteracoes4ActionPerformed
+
+        if (codigoconsulta != -1) {
+            Alterar(codigoconsulta);
+        }
+        //LabelModalAnamnese.setText("Lendo dados da Anamnese Cadastrada na consulta");
+    }//GEN-LAST:event_BtnSalvarAlteracoes4ActionPerformed
+
+    private void BtnCancelar5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCancelar5ActionPerformed
+        ModalAnamnese2.dispose();
+    }//GEN-LAST:event_BtnCancelar5ActionPerformed
+
+    private void BtnCancelar6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCancelar6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnCancelar6ActionPerformed
+
+    private void BtnSalvarAlteracoes5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalvarAlteracoes5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnSalvarAlteracoes5ActionPerformed
+
     private void BtnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnInicioActionPerformed
         TelaPrincipalAdm mp1 = new TelaPrincipalAdm();
         Util.SizeJanela(mp1);
@@ -3551,8 +3571,8 @@ public class M extends javax.swing.JFrame {
 
     private void BtnManterPsicologoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnManterPsicologoActionPerformed
         ManterPsiAdm mp = new ManterPsiAdm();
-        //Util.SizeJanela(mp);
         mp.setVisible(true);
+        Util.SizeJanela(mp);
         this.dispose();
     }//GEN-LAST:event_BtnManterPsicologoActionPerformed
 
@@ -3561,26 +3581,6 @@ public class M extends javax.swing.JFrame {
         tl.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BtnSairActionPerformed
-
-    private void BtnSalvarAlteracoes4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalvarAlteracoes4ActionPerformed
-
-        if (codigoconsulta != -1) {
-            Alterar(codigoconsulta);
-        }
-        //LabelModalAnamnese.setText("Lendo dados da Anamnese Cadastrada na consulta");
-    }//GEN-LAST:event_BtnSalvarAlteracoes4ActionPerformed
-
-    private void BtnCancelar5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCancelar5ActionPerformed
-        ModalAnamnese2.dispose();
-    }//GEN-LAST:event_BtnCancelar5ActionPerformed
-
-    private void BtnCancelar6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCancelar6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BtnCancelar6ActionPerformed
-
-    private void BtnSalvarAlteracoes5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalvarAlteracoes5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BtnSalvarAlteracoes5ActionPerformed
 
     private void Alterar(int cod) {
         Anamnese a = new Anamnese();

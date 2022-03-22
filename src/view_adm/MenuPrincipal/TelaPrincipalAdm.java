@@ -1418,8 +1418,8 @@ public void readatributos() {
 
     private void BtnManterPsicologoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnManterPsicologoActionPerformed
         ManterPsiAdm mp = new ManterPsiAdm();
-        //Util.SizeJanela(mp);
         mp.setVisible(true);
+        Util.SizeJanela(mp);
         this.dispose();
     }//GEN-LAST:event_BtnManterPsicologoActionPerformed
 
