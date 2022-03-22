@@ -35,7 +35,7 @@ public class ConsultaDAO {
             stmt.setString(2, c.getStatus());
             stmt.setInt(3, c.getPaciente().getCodPaciente());
             stmt.setInt(4, c.getPsicologo().getCodPsicologo());
-            stmt.setString(2, c.getPagamento());
+            stmt.setString(5, c.getPagamento());
 
             stmt.executeUpdate();
 
