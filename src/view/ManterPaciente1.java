@@ -124,6 +124,14 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         this.getCount();
 
         initComponents();
+        
+        Psicologo p = new Psicologo();
+        PsicologoDAO dao = new PsicologoDAO();
+        p = dao.ReadPsicologo(Main.cod);
+        jLabel11.setText(p.getNome_completo());
+        String str= getFirstWord(jLabel11.getText());
+        jLabel11.setText(str);
+        
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
         BtnPacientes.setEnabled(false);
         DefaultTableModel dtmPacientes = (DefaultTableModel) JTPacientes.getModel();
@@ -166,7 +174,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         jLabel23 = new javax.swing.JLabel();
         LabelEstadoCivil2 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
-        estadocivil1 = new javax.swing.JComboBox<>();
+        estadocivil1 = new javax.swing.JComboBox<String>();
         jLabel26 = new javax.swing.JLabel();
         Sexo1 = new javax.swing.JComboBox<>();
         jEImagePanel6 = new LIB.JEImagePanel();
@@ -192,7 +200,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         PainelIdentificacaoPessoal2 = new javax.swing.JPanel();
         txtCPF1 = new javax.swing.JFormattedTextField();
         jLabel1 = new javax.swing.JLabel();
-        JCBUF = new javax.swing.JComboBox<>();
+        JCBUF = new javax.swing.JComboBox<String>();
         jLabel6 = new javax.swing.JLabel();
         Profissão = new javax.swing.JLabel();
         ModalAnamnese2 = new javax.swing.JDialog();
@@ -202,9 +210,9 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         BtnSalvarAlteracoes5 = new javax.swing.JButton();
         BtnCancelar6 = new javax.swing.JButton();
         jLabel38 = new javax.swing.JLabel();
-        SubitaOuProgressiva1 = new javax.swing.JComboBox<>();
+        SubitaOuProgressiva1 = new javax.swing.JComboBox<String>();
         labelInicioQueixa2 = new javax.swing.JLabel();
-        JCBPsicomotricidade1 = new javax.swing.JComboBox<>();
+        JCBPsicomotricidade1 = new javax.swing.JComboBox<String>();
         labelInicioQueixa3 = new javax.swing.JLabel();
         jLabel64 = new javax.swing.JLabel();
         LabelEmail4 = new javax.swing.JLabel();
@@ -288,7 +296,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         jLabel28 = new javax.swing.JLabel();
         LabelEstadoCivil3 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
-        estadocivil2 = new javax.swing.JComboBox<>();
+        estadocivil2 = new javax.swing.JComboBox<String>();
         jLabel36 = new javax.swing.JLabel();
         Sexo2 = new javax.swing.JComboBox<>();
         jEImagePanel7 = new LIB.JEImagePanel();
@@ -314,7 +322,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         PainelIdentificacaoPessoal6 = new javax.swing.JPanel();
         txtCPF2 = new javax.swing.JFormattedTextField();
         jLabel8 = new javax.swing.JLabel();
-        JCBUF1 = new javax.swing.JComboBox<>();
+        JCBUF1 = new javax.swing.JComboBox<String>();
         jLabel9 = new javax.swing.JLabel();
         Profissão1 = new javax.swing.JLabel();
         ModalAlterarConsulta = new javax.swing.JDialog();
@@ -330,10 +338,11 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         labelpaciente = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        JCBPagamento = new javax.swing.JComboBox<>();
+        JCBPagamento = new javax.swing.JComboBox<String>();
         jPanel1 = new JPanel();
         PainelMeusDados = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
         PainelMenu = new javax.swing.JPanel();
         BtnVoltar = new javax.swing.JButton();
         BtnPacientes = new javax.swing.JButton();
@@ -1983,12 +1992,18 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             }
         });
 
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
         javax.swing.GroupLayout PainelMeusDadosLayout = new javax.swing.GroupLayout(PainelMeusDados);
         PainelMeusDados.setLayout(PainelMeusDadosLayout);
         PainelMeusDadosLayout.setHorizontalGroup(
             PainelMeusDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelMeusDadosLayout.createSequentialGroup()
-                .addGap(0, 270, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         PainelMeusDadosLayout.setVerticalGroup(
@@ -1996,6 +2011,10 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelMeusDadosLayout.createSequentialGroup()
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(PainelMeusDadosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -3528,7 +3547,19 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         ModalAlterarConsulta.setLocationRelativeTo(null);
         ModalAlterarConsulta.setVisible(true);
     }//GEN-LAST:event_BtnCadastroActionPerformed
+private String getFirstWord(String text) {
 
+  int index = text.indexOf(' ');
+
+  if (index > -1) { // Check if there is more than one word.
+
+    return text.substring(0, index).trim(); // Extract first word.
+
+  } else {
+
+    return text; // Text is the first word itself.
+  }
+}
     private void Alterar(int cod) {
         Anamnese a = new Anamnese();
         AnamneseDAO dao = new AnamneseDAO();
@@ -3739,6 +3770,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
     private LIB.JEImagePanel jEImagePanel7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
