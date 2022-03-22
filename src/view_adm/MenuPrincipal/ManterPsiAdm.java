@@ -1853,6 +1853,7 @@ public void ReadJTablePag(int start, int size) {
     }//GEN-LAST:event_BtnCadastrarPsicologo1ActionPerformed
 
     private void BtnCancelar6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCancelar6ActionPerformed
+        this.clearAlterar();
         ModalAlterarPsicologo.dispose();
     }//GEN-LAST:event_BtnCancelar6ActionPerformed
 
@@ -2038,6 +2039,7 @@ public void ReadJTablePag(int start, int size) {
     }//GEN-LAST:event_BtnCadastrarPsicologoActionPerformed
 
     private void BtnCancelar5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCancelar5ActionPerformed
+        this.clearNovo();
         ModalCadastrarPsicologo.dispose();
     }//GEN-LAST:event_BtnCancelar5ActionPerformed
 
@@ -2213,37 +2215,7 @@ public void ReadJTablePag(int start, int size) {
             java.util.logging.Logger.getLogger(ManterPsiAdm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
+      
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
