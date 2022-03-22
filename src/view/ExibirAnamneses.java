@@ -1852,8 +1852,11 @@ public class ExibirAnamneses extends javax.swing.JFrame {
                             tfdao.UpdateTPsicologo(t.get(1));
 
                         }
-                        JOptionPane.showMessageDialog(this, "Psicologo: " + p.getNome_completo() + " Salvo com sucesso");
+//                        JOptionPane.showMessageDialog(this, "Psicologo: " + p.getNome_completo() + " Salvo com sucesso");
                         ModalMeusDados.dispose();
+                        jLabel32.setText(p.getNome_completo());
+                        String str= getFirstWord(jLabel32.getText());
+                        jLabel32.setText(str);
                         // this.clear();
                     }
 

@@ -2163,8 +2163,11 @@ private void Cadastrar() {
                             tfdao.UpdateTPsicologo(t.get(1));
 
                         }
-                        JOptionPane.showMessageDialog(this, "Psicologo: " + p.getNome_completo() + " Salvo com sucesso");
+//                        JOptionPane.showMessageDialog(this, "Psicologo: " + p.getNome_completo() + " Salvo com sucesso");
                         ModalMeusDados.dispose();
+                        jLabel11.setText(p.getNome_completo());
+                        String str= getFirstWord(jLabel11.getText());
+                        jLabel11.setText(str);
                         // this.clear();
                     }
 
