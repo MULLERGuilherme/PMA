@@ -123,7 +123,7 @@ public class ManterPsiAdm extends javax.swing.JFrame {
 
         initComponents();
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
-        BtnManterPaciente.setEnabled(false);
+//        BtnManterPaciente.setEnabled(false);
         DefaultTableModel dtmPacientes = (DefaultTableModel) JTPsicologos.getModel();
         BtnManterPsicologo.setEnabled(false);
         BtnVisuAlterarDados.setEnabled(false);
@@ -222,7 +222,7 @@ public class ManterPsiAdm extends javax.swing.JFrame {
         txtBusca = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         btnBuscar = new javax.swing.JButton();
-        JCBdeletados = new javax.swing.JComboBox<>();
+        JCBdeletados = new javax.swing.JComboBox<String>();
         btnRestaurar = new javax.swing.JButton();
         BtnNovoPsicologo = new javax.swing.JButton();
         BtnVisuAlterarDados = new javax.swing.JButton();
@@ -232,8 +232,6 @@ public class ManterPsiAdm extends javax.swing.JFrame {
         BtnManterPaciente = new javax.swing.JButton();
         BtnManterConsulta = new javax.swing.JButton();
         BtnManterPsicologo = new javax.swing.JButton();
-        BtnExibirTodasAnamneses = new javax.swing.JButton();
-        BtnExibirTodasAnotacoes = new javax.swing.JButton();
         BtnSair = new javax.swing.JButton();
 
         jPanel4.setBackground(new java.awt.Color(59, 131, 117));
@@ -1002,16 +1000,16 @@ public class ManterPsiAdm extends javax.swing.JFrame {
                 .addGap(111, 111, 111)
                 .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jEImagePanel1Layout.createSequentialGroup()
-                        .addComponent(JCBdeletados, 0, 158, Short.MAX_VALUE)
+                        .addComponent(JCBdeletados, 0, 146, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel14)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 715, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 714, Short.MAX_VALUE)
                     .addGroup(jEImagePanel1Layout.createSequentialGroup()
-                        .addGap(0, 190, Short.MAX_VALUE)
+                        .addGap(0, 159, Short.MAX_VALUE)
                         .addComponent(PainelPaginacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1023,7 +1021,7 @@ public class ManterPsiAdm extends javax.swing.JFrame {
                         .addComponent(BtnExcluirPsicologo, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(BtnVisuAlterarDados, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(BtnNovoPsicologo, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(11, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jEImagePanel1Layout.setVerticalGroup(
             jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1081,7 +1079,7 @@ public class ManterPsiAdm extends javax.swing.JFrame {
             }
         });
 
-        BtnManterConsulta.setText("Cadastrar Consulta");
+        BtnManterConsulta.setText("Consultas");
         BtnManterConsulta.setBackground(new java.awt.Color(102, 102, 102));
         BtnManterConsulta.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnManterConsulta.setForeground(new java.awt.Color(255, 255, 255));
@@ -1098,26 +1096,6 @@ public class ManterPsiAdm extends javax.swing.JFrame {
         BtnManterPsicologo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnManterPsicologoActionPerformed(evt);
-            }
-        });
-
-        BtnExibirTodasAnamneses.setText("Exibir Todas as Anamneses");
-        BtnExibirTodasAnamneses.setBackground(new java.awt.Color(102, 102, 102));
-        BtnExibirTodasAnamneses.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        BtnExibirTodasAnamneses.setForeground(new java.awt.Color(255, 255, 255));
-        BtnExibirTodasAnamneses.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnExibirTodasAnamnesesActionPerformed(evt);
-            }
-        });
-
-        BtnExibirTodasAnotacoes.setText("Exibir Todas as Anotações");
-        BtnExibirTodasAnotacoes.setBackground(new java.awt.Color(102, 102, 102));
-        BtnExibirTodasAnotacoes.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        BtnExibirTodasAnotacoes.setForeground(new java.awt.Color(255, 255, 255));
-        BtnExibirTodasAnotacoes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnExibirTodasAnotacoesActionPerformed(evt);
             }
         });
 
@@ -1139,8 +1117,6 @@ public class ManterPsiAdm extends javax.swing.JFrame {
             .addComponent(BtnManterPaciente, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
             .addComponent(BtnManterConsulta, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
             .addComponent(BtnManterPsicologo, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
-            .addComponent(BtnExibirTodasAnamneses, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
-            .addComponent(BtnExibirTodasAnotacoes, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
             .addComponent(BtnSair, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
         );
         PainelMenuLayout.setVerticalGroup(
@@ -1154,12 +1130,8 @@ public class ManterPsiAdm extends javax.swing.JFrame {
                 .addGap(0, 0, 0)
                 .addComponent(BtnManterPsicologo, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(BtnExibirTodasAnamneses, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(BtnExibirTodasAnotacoes, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
                 .addComponent(BtnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 226, Short.MAX_VALUE))
+                .addGap(0, 368, Short.MAX_VALUE))
         );
 
         getContentPane().add(PainelMenu, java.awt.BorderLayout.LINE_START);
@@ -1666,49 +1638,6 @@ public void ReadJTablePag(int start, int size) {
 
     }//GEN-LAST:event_btnRestaurarActionPerformed
 
-    private void BtnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnInicioActionPerformed
-        TelaPrincipalAdm mp1 = new TelaPrincipalAdm();
-        Util.SizeJanela(mp1);
-        this.dispose();
-    }//GEN-LAST:event_BtnInicioActionPerformed
-
-    private void BtnManterPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnManterPacienteActionPerformed
-        ManterPsiAdm mp1 = new ManterPsiAdm();
-        Util.SizeJanela(mp1);
-        this.dispose();
-    }//GEN-LAST:event_BtnManterPacienteActionPerformed
-
-    private void BtnManterConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnManterConsultaActionPerformed
-        ManterConsultasAdm mc = new ManterConsultasAdm();
-        Util.SizeJanela(mc);
-        this.dispose();
-    }//GEN-LAST:event_BtnManterConsultaActionPerformed
-
-    private void BtnManterPsicologoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnManterPsicologoActionPerformed
-        ManterPsicologoAdm mp = new ManterPsicologoAdm();
-        //Util.SizeJanela(mp);
-        mp.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_BtnManterPsicologoActionPerformed
-
-    private void BtnExibirTodasAnamnesesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExibirTodasAnamnesesActionPerformed
-        ExibirAnamnesesAdm ma = new ExibirAnamnesesAdm();
-        Util.SizeJanela(ma);
-        this.dispose();
-    }//GEN-LAST:event_BtnExibirTodasAnamnesesActionPerformed
-
-    private void BtnExibirTodasAnotacoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExibirTodasAnotacoesActionPerformed
-        ExibirAnotacoesAdm ea = new ExibirAnotacoesAdm();
-        Util.SizeJanela(ea);
-        this.dispose();
-    }//GEN-LAST:event_BtnExibirTodasAnotacoesActionPerformed
-
-    private void BtnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSairActionPerformed
-        TelaLogin tl = new TelaLogin();
-        tl.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_BtnSairActionPerformed
-
     private void chckMostrarSenha1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chckMostrarSenha1MouseClicked
         if (chckMostrarSenha1.isSelected()) {
             txtSenha1.setEchoChar((char) 0);
@@ -2205,6 +2134,37 @@ public void ReadJTablePag(int start, int size) {
         }
     }//GEN-LAST:event_BtnExcluirPsicologoActionPerformed
 
+    private void BtnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnInicioActionPerformed
+        TelaPrincipalAdm mp1 = new TelaPrincipalAdm();
+        Util.SizeJanela(mp1);
+        this.dispose();
+    }//GEN-LAST:event_BtnInicioActionPerformed
+
+    private void BtnManterPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnManterPacienteActionPerformed
+        M mp1 = new M();
+        Util.SizeJanela(mp1);
+        this.dispose();
+    }//GEN-LAST:event_BtnManterPacienteActionPerformed
+
+    private void BtnManterConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnManterConsultaActionPerformed
+        ManterConsultasAdm mc = new ManterConsultasAdm();
+        Util.SizeJanela(mc);
+        this.dispose();
+    }//GEN-LAST:event_BtnManterConsultaActionPerformed
+
+    private void BtnManterPsicologoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnManterPsicologoActionPerformed
+        ManterPsiAdm mp = new ManterPsiAdm();
+        //Util.SizeJanela(mp);
+        mp.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_BtnManterPsicologoActionPerformed
+
+    private void BtnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSairActionPerformed
+        TelaLogin  tl = new TelaLogin();
+        tl.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_BtnSairActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2281,8 +2241,6 @@ public void ReadJTablePag(int start, int size) {
     private javax.swing.JButton BtnCancelar6;
     private javax.swing.JButton BtnCancelar7;
     private javax.swing.JButton BtnExcluirPsicologo;
-    private javax.swing.JButton BtnExibirTodasAnamneses;
-    private javax.swing.JButton BtnExibirTodasAnotacoes;
     private javax.swing.JButton BtnHelp;
     private javax.swing.JButton BtnInicio;
     private javax.swing.JButton BtnManterConsulta;
