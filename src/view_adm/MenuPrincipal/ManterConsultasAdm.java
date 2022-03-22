@@ -109,6 +109,7 @@ public class ManterConsultasAdm extends javax.swing.JFrame {
     public ManterConsultasAdm() {
         this.getCount();
         initComponents();
+        BtnManterConsulta.setEnabled(false);
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
 
         DefaultTableModel dtmConsultas = (DefaultTableModel) JTConsultas.getModel();
@@ -741,8 +742,8 @@ public class ManterConsultasAdm extends javax.swing.JFrame {
 
     private void BtnManterPsicologoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnManterPsicologoActionPerformed
         ManterPsiAdm mp = new ManterPsiAdm();
-        //Util.SizeJanela(mp);
         mp.setVisible(true);
+        Util.SizeJanela(mp);
         this.dispose();
     }//GEN-LAST:event_BtnManterPsicologoActionPerformed
 
