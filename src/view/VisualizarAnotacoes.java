@@ -269,7 +269,6 @@ public class VisualizarAnotacoes extends javax.swing.JFrame {
         PainelMenu = new javax.swing.JPanel();
         BtnVoltar = new javax.swing.JButton();
         BtnPacientes = new javax.swing.JButton();
-        BtnConsultas = new javax.swing.JButton();
         BtnExibirAnamneses = new javax.swing.JButton();
         BtnExibirAnotacoes = new javax.swing.JButton();
         BtnExibirAnotacoes1 = new javax.swing.JButton();
@@ -659,8 +658,8 @@ public class VisualizarAnotacoes extends javax.swing.JFrame {
                                 .addComponent(jLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(lNome, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 143, Short.MAX_VALUE))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 791, Short.MAX_VALUE)
+                                .addGap(0, 150, Short.MAX_VALUE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 796, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jEImagePanel1Layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(PainelPaginacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
@@ -706,60 +705,50 @@ public class VisualizarAnotacoes extends javax.swing.JFrame {
         PainelMenu.setBackground(new java.awt.Color(102, 102, 102));
         PainelMenu.setForeground(new java.awt.Color(102, 102, 102));
 
+        BtnVoltar.setText("Início");
         BtnVoltar.setBackground(new java.awt.Color(102, 102, 102));
         BtnVoltar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnVoltar.setForeground(new java.awt.Color(255, 255, 255));
-        BtnVoltar.setText("Início");
         BtnVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnVoltarActionPerformed(evt);
             }
         });
 
+        BtnPacientes.setText("Pacientes");
         BtnPacientes.setBackground(new java.awt.Color(102, 102, 102));
         BtnPacientes.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnPacientes.setForeground(new java.awt.Color(255, 255, 255));
-        BtnPacientes.setText("Pacientes");
         BtnPacientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnPacientesActionPerformed(evt);
             }
         });
 
-        BtnConsultas.setBackground(new java.awt.Color(102, 102, 102));
-        BtnConsultas.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        BtnConsultas.setForeground(new java.awt.Color(255, 255, 255));
-        BtnConsultas.setText("Cadastrar Consultas");
-        BtnConsultas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnConsultasActionPerformed(evt);
-            }
-        });
-
+        BtnExibirAnamneses.setText("Exibir Anamneses");
         BtnExibirAnamneses.setBackground(new java.awt.Color(102, 102, 102));
         BtnExibirAnamneses.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnExibirAnamneses.setForeground(new java.awt.Color(255, 255, 255));
-        BtnExibirAnamneses.setText("Exibir Anamneses");
         BtnExibirAnamneses.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnExibirAnamnesesActionPerformed(evt);
             }
         });
 
+        BtnExibirAnotacoes.setText("Exibir Anotações");
         BtnExibirAnotacoes.setBackground(new java.awt.Color(102, 102, 102));
         BtnExibirAnotacoes.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnExibirAnotacoes.setForeground(new java.awt.Color(255, 255, 255));
-        BtnExibirAnotacoes.setText("Exibir Anotações");
         BtnExibirAnotacoes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnExibirAnotacoesActionPerformed(evt);
             }
         });
 
+        BtnExibirAnotacoes1.setText("Sair");
         BtnExibirAnotacoes1.setBackground(new java.awt.Color(102, 102, 102));
         BtnExibirAnotacoes1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnExibirAnotacoes1.setForeground(new java.awt.Color(255, 255, 255));
-        BtnExibirAnotacoes1.setText("Sair");
         BtnExibirAnotacoes1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnExibirAnotacoes1ActionPerformed(evt);
@@ -770,12 +759,11 @@ public class VisualizarAnotacoes extends javax.swing.JFrame {
         PainelMenu.setLayout(PainelMenuLayout);
         PainelMenuLayout.setHorizontalGroup(
             PainelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(BtnVoltar, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
-            .addComponent(BtnPacientes, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
-            .addComponent(BtnConsultas, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
+            .addComponent(BtnVoltar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(BtnPacientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(BtnExibirAnamneses, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
-            .addComponent(BtnExibirAnotacoes, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
-            .addComponent(BtnExibirAnotacoes1, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
+            .addComponent(BtnExibirAnotacoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(BtnExibirAnotacoes1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         PainelMenuLayout.setVerticalGroup(
             PainelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -784,14 +772,12 @@ public class VisualizarAnotacoes extends javax.swing.JFrame {
                 .addGap(0, 0, 0)
                 .addComponent(BtnPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(BtnConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
                 .addComponent(BtnExibirAnamneses, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(BtnExibirAnotacoes, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(BtnExibirAnotacoes1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(205, Short.MAX_VALUE))
+                .addContainerGap(276, Short.MAX_VALUE))
         );
 
         getContentPane().add(PainelMenu, java.awt.BorderLayout.LINE_START);
@@ -828,42 +814,6 @@ public class VisualizarAnotacoes extends javax.swing.JFrame {
             getPageDataBusca(currentPage, txtBusca.getText());
         }
     }//GEN-LAST:event_BtnSalvarAlteracoesAnotacaoActionPerformed
-
-    private void BtnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVoltarActionPerformed
-        TelaPrincipal mp1 = new TelaPrincipal();
-        Util.SizeJanela(mp1);
-        this.dispose();
-    }//GEN-LAST:event_BtnVoltarActionPerformed
-
-    private void BtnPacientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnPacientesActionPerformed
-        ManterPaciente1 mp1 = new ManterPaciente1();
-        Util.SizeJanela(mp1);
-        this.dispose();
-    }//GEN-LAST:event_BtnPacientesActionPerformed
-
-    private void BtnConsultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnConsultasActionPerformed
-        CadastrarConsulta2 mc = new CadastrarConsulta2();
-        Util.SizeJanela(mc);
-        this.dispose();
-    }//GEN-LAST:event_BtnConsultasActionPerformed
-
-    private void BtnExibirAnamnesesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExibirAnamnesesActionPerformed
-        ExibirAnamneses ma = new ExibirAnamneses();
-        Util.SizeJanela(ma);
-        this.dispose();
-    }//GEN-LAST:event_BtnExibirAnamnesesActionPerformed
-
-    private void BtnExibirAnotacoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExibirAnotacoesActionPerformed
-        ExibirAnotacoes ea = new ExibirAnotacoes();
-        Util.SizeJanela(ea);
-        this.dispose();
-    }//GEN-LAST:event_BtnExibirAnotacoesActionPerformed
-
-    private void BtnExibirAnotacoes1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExibirAnotacoes1ActionPerformed
-        TelaLogin tl = new TelaLogin();
-        tl.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_BtnExibirAnotacoes1ActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
@@ -1088,6 +1038,36 @@ public class VisualizarAnotacoes extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_BtnVoltarPacienteActionPerformed
 
+    private void BtnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVoltarActionPerformed
+        TelaPrincipal mp1 = new TelaPrincipal();
+        Util.SizeJanela(mp1);
+        this.dispose();
+    }//GEN-LAST:event_BtnVoltarActionPerformed
+
+    private void BtnPacientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnPacientesActionPerformed
+        ManterPaciente1 mp1 = new ManterPaciente1();
+        Util.SizeJanela(mp1);
+        this.dispose();
+    }//GEN-LAST:event_BtnPacientesActionPerformed
+
+    private void BtnExibirAnamnesesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExibirAnamnesesActionPerformed
+        ExibirAnamneses ma = new ExibirAnamneses();
+        Util.SizeJanela(ma);
+        this.dispose();
+    }//GEN-LAST:event_BtnExibirAnamnesesActionPerformed
+
+    private void BtnExibirAnotacoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExibirAnotacoesActionPerformed
+        ExibirAnotacoes ea = new ExibirAnotacoes();
+        Util.SizeJanela(ea);
+        this.dispose();
+    }//GEN-LAST:event_BtnExibirAnotacoesActionPerformed
+
+    private void BtnExibirAnotacoes1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExibirAnotacoes1ActionPerformed
+        TelaLogin tl = new TelaLogin();
+        tl.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_BtnExibirAnotacoes1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1131,7 +1111,6 @@ public class VisualizarAnotacoes extends javax.swing.JFrame {
     private javax.swing.JButton BtnAvancarBastante;
     private javax.swing.JButton BtnAvancarPouco;
     private javax.swing.JButton BtnCancelarAnotacao;
-    private javax.swing.JButton BtnConsultas;
     private javax.swing.JButton BtnExcluirAnotacao;
     private javax.swing.JButton BtnExibirAnamneses;
     private javax.swing.JButton BtnExibirAnotacoes;

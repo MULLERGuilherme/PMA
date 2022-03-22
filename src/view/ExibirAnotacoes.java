@@ -301,6 +301,7 @@ public void readpsicologo() {
         PainelMeusDados = new javax.swing.JPanel();
         jButton3 = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jEImagePanel1 = new LIB.JEImagePanel();
         BtnAlterarAnotacao = new javax.swing.JButton();
         BtnExcluirAnotacao = new javax.swing.JButton();
@@ -323,7 +324,6 @@ public void readpsicologo() {
         PainelMenu = new javax.swing.JPanel();
         BtnVoltar = new javax.swing.JButton();
         BtnPacientes = new javax.swing.JButton();
-        BtnConsultas = new javax.swing.JButton();
         BtnExibirAnamneses = new javax.swing.JButton();
         BtnExibirAnotacoes = new javax.swing.JButton();
         BtnExibirAnotacoes1 = new javax.swing.JButton();
@@ -354,23 +354,23 @@ public void readpsicologo() {
             .addGap(0, 50, Short.MAX_VALUE)
         );
 
+        jLabel7.setText("Anotações da Consulta");
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(59, 131, 117));
-        jLabel7.setText("Anotações da Consulta");
 
-        LabelNomePaciente.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         LabelNomePaciente.setText("Nome do Paciente :");
+        LabelNomePaciente.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        LabelNome5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         LabelNome5.setText(" Variável Nome do Paciente");
+        LabelNome5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        LabelAssunto.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         LabelAssunto.setText("Assunto:");
+        LabelAssunto.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         txtAssunto.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        LabelAssunto1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         LabelAssunto1.setText("Texto:");
+        LabelAssunto1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         txtTexto.setColumns(20);
         txtTexto.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -379,20 +379,20 @@ public void readpsicologo() {
         txtTexto.setWrapStyleWord(true);
         jScrollPane2.setViewportView(txtTexto);
 
+        BtnCancelarAnotacao.setText("Cancelar");
         BtnCancelarAnotacao.setBackground(new java.awt.Color(255, 153, 153));
         BtnCancelarAnotacao.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnCancelarAnotacao.setForeground(new java.awt.Color(255, 255, 255));
-        BtnCancelarAnotacao.setText("Cancelar");
         BtnCancelarAnotacao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnCancelarAnotacaoActionPerformed(evt);
             }
         });
 
+        BtnSalvarAlteracoesAnotacao.setText("Salvar Alterações");
         BtnSalvarAlteracoesAnotacao.setBackground(new java.awt.Color(0, 112, 186));
         BtnSalvarAlteracoesAnotacao.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnSalvarAlteracoesAnotacao.setForeground(new java.awt.Color(255, 255, 255));
-        BtnSalvarAlteracoesAnotacao.setText("Salvar Alterações");
         BtnSalvarAlteracoesAnotacao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnSalvarAlteracoesAnotacaoActionPerformed(evt);
@@ -503,8 +503,8 @@ public void readpsicologo() {
 
         ModalHelp.getContentPane().add(jPanel5, java.awt.BorderLayout.CENTER);
 
-        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel10.setText("Nome:");
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         txtNome3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -517,8 +517,8 @@ public void readpsicologo() {
             }
         });
 
-        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel12.setText("CRP:");
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         txtCRP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -531,11 +531,11 @@ public void readpsicologo() {
             }
         });
 
-        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel13.setText("E-mail:");
+        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        labeltelefone.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         labeltelefone.setText("Telefone:");
+        labeltelefone.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         TxtTelefone6.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -543,8 +543,8 @@ public void readpsicologo() {
             }
         });
 
-        labeltelefone2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         labeltelefone2.setText("Telefone 2:");
+        labeltelefone2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         TxtTelefone7.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -554,13 +554,13 @@ public void readpsicologo() {
 
         PainelIdentificacaoPessoal6.setBackground(new java.awt.Color(59, 131, 117));
 
+        jLabel15.setText("DADOS DO PSICÓLOGO");
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel15.setText("DADOS DO PSICÓLOGO");
 
+        jLabel35.setText("NOME");
         jLabel35.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel35.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel35.setText("NOME");
 
         javax.swing.GroupLayout PainelIdentificacaoPessoal6Layout = new javax.swing.GroupLayout(PainelIdentificacaoPessoal6);
         PainelIdentificacaoPessoal6.setLayout(PainelIdentificacaoPessoal6Layout);
@@ -579,9 +579,9 @@ public void readpsicologo() {
             .addComponent(jLabel35, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        BtnAlterar.setText("Alterar");
         BtnAlterar.setBackground(new java.awt.Color(59, 131, 117));
         BtnAlterar.setForeground(new java.awt.Color(255, 255, 255));
-        BtnAlterar.setText("Alterar");
         BtnAlterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnAlterarActionPerformed(evt);
@@ -649,8 +649,8 @@ public void readpsicologo() {
 
         PainelMeusDados.setBackground(new java.awt.Color(102, 102, 102));
 
-        jButton3.setBackground(new java.awt.Color(102, 102, 102));
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/UserIconBranco90x90.png"))); // NOI18N
+        jButton3.setBackground(new java.awt.Color(102, 102, 102));
         jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton3MouseClicked(evt);
@@ -662,9 +662,9 @@ public void readpsicologo() {
             }
         });
 
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout PainelMeusDadosLayout = new javax.swing.GroupLayout(PainelMeusDados);
         PainelMeusDados.setLayout(PainelMeusDadosLayout);
@@ -687,19 +687,30 @@ public void readpsicologo() {
                 .addContainerGap())
         );
 
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("EXIBIR ANOTAÇÕES");
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(PainelMeusDados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 1087, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1061, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(PainelMeusDados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.NORTH);
@@ -745,8 +756,8 @@ public void readpsicologo() {
 
         PainelPaginacao.setOpaque(false);
 
-        LabelLimite.setBackground(new java.awt.Color(204, 204, 204));
         LabelLimite.setText("Limite");
+        LabelLimite.setBackground(new java.awt.Color(204, 204, 204));
 
         SpinnerLimite.setModel(new javax.swing.SpinnerNumberModel(1, 1, 15, 1));
         SpinnerLimite.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -769,8 +780,8 @@ public void readpsicologo() {
             }
         });
 
-        LabelPagina.setBackground(new java.awt.Color(204, 204, 204));
         LabelPagina.setText("Página");
+        LabelPagina.setBackground(new java.awt.Color(204, 204, 204));
 
         SpinnerNumPaginas.setModel(new javax.swing.SpinnerNumberModel(1, 1, totalPages, 1));
         SpinnerNumPaginas.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -779,8 +790,8 @@ public void readpsicologo() {
             }
         });
 
-        LabelQtdePaginas.setBackground(new java.awt.Color(204, 204, 204));
         LabelQtdePaginas.setText("de X");
+        LabelQtdePaginas.setBackground(new java.awt.Color(204, 204, 204));
 
         BtnAvancarPouco.setText(">");
         BtnAvancarPouco.addActionListener(new java.awt.event.ActionListener() {
@@ -918,60 +929,50 @@ public void readpsicologo() {
         PainelMenu.setBackground(new java.awt.Color(102, 102, 102));
         PainelMenu.setForeground(new java.awt.Color(102, 102, 102));
 
+        BtnVoltar.setText("Início");
         BtnVoltar.setBackground(new java.awt.Color(102, 102, 102));
         BtnVoltar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnVoltar.setForeground(new java.awt.Color(255, 255, 255));
-        BtnVoltar.setText("Início");
         BtnVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnVoltarActionPerformed(evt);
             }
         });
 
+        BtnPacientes.setText("Pacientes");
         BtnPacientes.setBackground(new java.awt.Color(102, 102, 102));
         BtnPacientes.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnPacientes.setForeground(new java.awt.Color(255, 255, 255));
-        BtnPacientes.setText("Pacientes");
         BtnPacientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnPacientesActionPerformed(evt);
             }
         });
 
-        BtnConsultas.setBackground(new java.awt.Color(102, 102, 102));
-        BtnConsultas.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        BtnConsultas.setForeground(new java.awt.Color(255, 255, 255));
-        BtnConsultas.setText("Cadastrar Consultas");
-        BtnConsultas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnConsultasActionPerformed(evt);
-            }
-        });
-
+        BtnExibirAnamneses.setText("Exibir Anamneses");
         BtnExibirAnamneses.setBackground(new java.awt.Color(102, 102, 102));
         BtnExibirAnamneses.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnExibirAnamneses.setForeground(new java.awt.Color(255, 255, 255));
-        BtnExibirAnamneses.setText("Exibir Anamneses");
         BtnExibirAnamneses.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnExibirAnamnesesActionPerformed(evt);
             }
         });
 
+        BtnExibirAnotacoes.setText("Exibir Anotações");
         BtnExibirAnotacoes.setBackground(new java.awt.Color(102, 102, 102));
         BtnExibirAnotacoes.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnExibirAnotacoes.setForeground(new java.awt.Color(255, 255, 255));
-        BtnExibirAnotacoes.setText("Exibir Anotações");
         BtnExibirAnotacoes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnExibirAnotacoesActionPerformed(evt);
             }
         });
 
+        BtnExibirAnotacoes1.setText("Sair");
         BtnExibirAnotacoes1.setBackground(new java.awt.Color(102, 102, 102));
         BtnExibirAnotacoes1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnExibirAnotacoes1.setForeground(new java.awt.Color(255, 255, 255));
-        BtnExibirAnotacoes1.setText("Sair");
         BtnExibirAnotacoes1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnExibirAnotacoes1ActionPerformed(evt);
@@ -982,12 +983,11 @@ public void readpsicologo() {
         PainelMenu.setLayout(PainelMenuLayout);
         PainelMenuLayout.setHorizontalGroup(
             PainelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(BtnVoltar, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
-            .addComponent(BtnPacientes, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
-            .addComponent(BtnConsultas, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
+            .addComponent(BtnVoltar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(BtnPacientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(BtnExibirAnamneses, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
-            .addComponent(BtnExibirAnotacoes, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
-            .addComponent(BtnExibirAnotacoes1, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
+            .addComponent(BtnExibirAnotacoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(BtnExibirAnotacoes1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         PainelMenuLayout.setVerticalGroup(
             PainelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -996,14 +996,12 @@ public void readpsicologo() {
                 .addGap(0, 0, 0)
                 .addComponent(BtnPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(BtnConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
                 .addComponent(BtnExibirAnamneses, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(BtnExibirAnotacoes, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(BtnExibirAnotacoes1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(205, Short.MAX_VALUE))
+                .addContainerGap(276, Short.MAX_VALUE))
         );
 
         getContentPane().add(PainelMenu, java.awt.BorderLayout.LINE_START);
@@ -1040,42 +1038,6 @@ public void readpsicologo() {
             getPageDataBusca(currentPage, txtBusca.getText());
         }
     }//GEN-LAST:event_BtnSalvarAlteracoesAnotacaoActionPerformed
-
-    private void BtnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVoltarActionPerformed
-        TelaPrincipal mp1 = new TelaPrincipal();
-        Util.SizeJanela(mp1);
-        this.dispose();
-    }//GEN-LAST:event_BtnVoltarActionPerformed
-
-    private void BtnPacientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnPacientesActionPerformed
-        ManterPaciente1 mp1 = new ManterPaciente1();
-        Util.SizeJanela(mp1);
-        this.dispose();
-    }//GEN-LAST:event_BtnPacientesActionPerformed
-
-    private void BtnConsultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnConsultasActionPerformed
-        CadastrarConsulta2 mc = new CadastrarConsulta2();
-        Util.SizeJanela(mc);
-        this.dispose();
-    }//GEN-LAST:event_BtnConsultasActionPerformed
-
-    private void BtnExibirAnamnesesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExibirAnamnesesActionPerformed
-        ExibirAnamneses ma = new ExibirAnamneses();
-        Util.SizeJanela(ma);
-        this.dispose();
-    }//GEN-LAST:event_BtnExibirAnamnesesActionPerformed
-
-    private void BtnExibirAnotacoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExibirAnotacoesActionPerformed
-        ExibirAnotacoes ea = new ExibirAnotacoes();
-        Util.SizeJanela(ea);
-        this.dispose();
-    }//GEN-LAST:event_BtnExibirAnotacoesActionPerformed
-
-    private void BtnExibirAnotacoes1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExibirAnotacoes1ActionPerformed
-        TelaLogin tl = new TelaLogin();
-        tl.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_BtnExibirAnotacoes1ActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
@@ -1457,6 +1419,36 @@ public void readpsicologo() {
         }
     }//GEN-LAST:event_BtnAlterarActionPerformed
 
+    private void BtnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVoltarActionPerformed
+        TelaPrincipal mp1 = new TelaPrincipal();
+        Util.SizeJanela(mp1);
+        this.dispose();
+    }//GEN-LAST:event_BtnVoltarActionPerformed
+
+    private void BtnPacientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnPacientesActionPerformed
+        ManterPaciente1 mp1 = new ManterPaciente1();
+        Util.SizeJanela(mp1);
+        this.dispose();
+    }//GEN-LAST:event_BtnPacientesActionPerformed
+
+    private void BtnExibirAnamnesesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExibirAnamnesesActionPerformed
+        ExibirAnamneses ma = new ExibirAnamneses();
+        Util.SizeJanela(ma);
+        this.dispose();
+    }//GEN-LAST:event_BtnExibirAnamnesesActionPerformed
+
+    private void BtnExibirAnotacoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExibirAnotacoesActionPerformed
+        ExibirAnotacoes ea = new ExibirAnotacoes();
+        Util.SizeJanela(ea);
+        this.dispose();
+    }//GEN-LAST:event_BtnExibirAnotacoesActionPerformed
+
+    private void BtnExibirAnotacoes1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExibirAnotacoes1ActionPerformed
+        TelaLogin tl = new TelaLogin();
+        tl.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_BtnExibirAnotacoes1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1499,7 +1491,6 @@ public void readpsicologo() {
     private javax.swing.JButton BtnAvancarBastante;
     private javax.swing.JButton BtnAvancarPouco;
     private javax.swing.JButton BtnCancelarAnotacao;
-    private javax.swing.JButton BtnConsultas;
     private javax.swing.JButton BtnExcluirAnotacao;
     private javax.swing.JButton BtnExibirAnamneses;
     private javax.swing.JButton BtnExibirAnotacoes;
@@ -1534,6 +1525,7 @@ public void readpsicologo() {
     private javax.swing.JButton jButton3;
     private LIB.JEImagePanel jEImagePanel1;
     private LIB.JEImagePanel jEImagePanel4;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;

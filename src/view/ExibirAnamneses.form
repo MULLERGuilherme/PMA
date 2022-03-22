@@ -1080,10 +1080,10 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="jLabel10">
           <Properties>
+            <Property name="text" type="java.lang.String" value="Nome:"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="18" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Nome:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtNome3">
@@ -1094,10 +1094,10 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel12">
           <Properties>
+            <Property name="text" type="java.lang.String" value="CRP:"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="18" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="CRP:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtCRP">
@@ -1108,20 +1108,20 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel13">
           <Properties>
+            <Property name="text" type="java.lang.String" value="E-mail:"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="18" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="E-mail:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtEmail2">
         </Component>
         <Component class="javax.swing.JLabel" name="labeltelefone">
           <Properties>
+            <Property name="text" type="java.lang.String" value="Telefone:"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="18" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Telefone:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="TxtTelefone6">
@@ -1131,10 +1131,10 @@
         </Component>
         <Component class="javax.swing.JLabel" name="labeltelefone2">
           <Properties>
+            <Property name="text" type="java.lang.String" value="Telefone 2:"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="18" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Telefone 2:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="TxtTelefone7">
@@ -1171,37 +1171,37 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jLabel15">
               <Properties>
+                <Property name="text" type="java.lang.String" value="DADOS DO PSIC&#xd3;LOGO"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="24" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="DADOS DO PSIC&#xd3;LOGO"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel35">
               <Properties>
+                <Property name="text" type="java.lang.String" value="NOME"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="24" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="NOME"/>
               </Properties>
             </Component>
           </SubComponents>
         </Container>
         <Component class="javax.swing.JButton" name="BtnAlterar">
           <Properties>
+            <Property name="text" type="java.lang.String" value="Alterar"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="75" green="83" red="3b" type="rgb"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Alterar"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnAlterarActionPerformed"/>
@@ -1321,11 +1321,11 @@
           <SubComponents>
             <Component class="javax.swing.JButton" name="jButton9">
               <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="66" green="66" red="66" type="rgb"/>
-                </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/view/UserIconBranco90x90.png"/>
+                </Property>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="66" green="66" red="66" type="rgb"/>
                 </Property>
               </Properties>
               <Events>
@@ -1335,13 +1335,13 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel32">
               <Properties>
+                <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="24" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="horizontalAlignment" type="int" value="0"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -1375,7 +1375,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="btnBuscar" min="-2" pref="153" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jScrollPane2" pref="720" max="32767" attributes="0"/>
+                          <Component id="jScrollPane2" pref="722" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -1669,12 +1669,11 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="BtnVoltar" alignment="0" pref="360" max="32767" attributes="0"/>
-              <Component id="BtnPacientes" alignment="0" pref="360" max="32767" attributes="0"/>
-              <Component id="BtnConsultas" alignment="0" pref="360" max="32767" attributes="0"/>
+              <Component id="BtnVoltar" alignment="0" max="32767" attributes="0"/>
+              <Component id="BtnPacientes" alignment="0" max="32767" attributes="0"/>
               <Component id="BtnExibirAnamneses" alignment="0" pref="360" max="32767" attributes="0"/>
-              <Component id="BtnExibirAnotacoes" alignment="0" pref="360" max="32767" attributes="0"/>
-              <Component id="BtnExibirAnotacoes1" alignment="0" pref="360" max="32767" attributes="0"/>
+              <Component id="BtnExibirAnotacoes" alignment="0" max="32767" attributes="0"/>
+              <Component id="BtnExibirAnotacoes1" alignment="0" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -1684,14 +1683,12 @@
                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                   <Component id="BtnPacientes" min="-2" pref="71" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                  <Component id="BtnConsultas" min="-2" pref="71" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                   <Component id="BtnExibirAnamneses" min="-2" pref="71" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                   <Component id="BtnExibirAnotacoes" min="-2" pref="71" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                   <Component id="BtnExibirAnotacoes1" min="-2" pref="71" max="-2" attributes="0"/>
-                  <EmptySpace pref="212" max="32767" attributes="0"/>
+                  <EmptySpace pref="283" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -1699,7 +1696,6 @@
       <SubComponents>
         <Component class="javax.swing.JButton" name="BtnVoltar">
           <Properties>
-            <Property name="text" type="java.lang.String" value="In&#xed;cio"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="66" red="66" type="rgb"/>
             </Property>
@@ -1709,6 +1705,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
+            <Property name="text" type="java.lang.String" value="In&#xed;cio"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnVoltarActionPerformed"/>
@@ -1716,7 +1713,6 @@
         </Component>
         <Component class="javax.swing.JButton" name="BtnPacientes">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Pacientes"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="66" red="66" type="rgb"/>
             </Property>
@@ -1726,31 +1722,14 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
+            <Property name="text" type="java.lang.String" value="Pacientes"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnPacientesActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="BtnConsultas">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Cadastrar Consultas"/>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="66" green="66" red="66" type="rgb"/>
-            </Property>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="18" style="0"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-            </Property>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnConsultasActionPerformed"/>
-          </Events>
-        </Component>
         <Component class="javax.swing.JButton" name="BtnExibirAnamneses">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Exibir Anamneses"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="66" red="66" type="rgb"/>
             </Property>
@@ -1760,6 +1739,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
+            <Property name="text" type="java.lang.String" value="Exibir Anamneses"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnExibirAnamnesesActionPerformed"/>
@@ -1767,7 +1747,6 @@
         </Component>
         <Component class="javax.swing.JButton" name="BtnExibirAnotacoes">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Exibir Anota&#xe7;&#xf5;es"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="66" red="66" type="rgb"/>
             </Property>
@@ -1777,6 +1756,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
+            <Property name="text" type="java.lang.String" value="Exibir Anota&#xe7;&#xf5;es"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnExibirAnotacoesActionPerformed"/>
@@ -1784,7 +1764,6 @@
         </Component>
         <Component class="javax.swing.JButton" name="BtnExibirAnotacoes1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Sair"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="66" red="66" type="rgb"/>
             </Property>
@@ -1794,6 +1773,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
+            <Property name="text" type="java.lang.String" value="Sair"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnExibirAnotacoes1ActionPerformed"/>

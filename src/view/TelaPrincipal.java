@@ -164,12 +164,12 @@ public boolean readcampos() {
         datepicker = new com.github.lgooddatepicker.components.DateTimePicker();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        status = new javax.swing.JComboBox<String>();
+        status = new javax.swing.JComboBox<>();
         BtnAlterarConsulta = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
-        JCBPagamento = new javax.swing.JComboBox<String>();
+        JCBPagamento = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
         labelpaciente = new javax.swing.JLabel();
         ModalAnamnese3 = new javax.swing.JDialog();
@@ -181,9 +181,9 @@ public boolean readcampos() {
         BtnSalvarAlteracoes6 = new javax.swing.JButton();
         BtnCancelar6 = new javax.swing.JButton();
         jLabel39 = new javax.swing.JLabel();
-        SubitaOuProgressiva2 = new javax.swing.JComboBox<String>();
+        SubitaOuProgressiva2 = new javax.swing.JComboBox<>();
         labelInicioQueixa4 = new javax.swing.JLabel();
-        JCBPsicomotricidade2 = new javax.swing.JComboBox<String>();
+        JCBPsicomotricidade2 = new javax.swing.JComboBox<>();
         labelInicioQueixa5 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
         LabelEmail3 = new javax.swing.JLabel();
@@ -280,7 +280,6 @@ public boolean readcampos() {
         PainelMenu = new javax.swing.JPanel();
         BtnVoltar = new javax.swing.JButton();
         BtnPacientes = new javax.swing.JButton();
-        BtnConsultas = new javax.swing.JButton();
         BtnExibirAnamneses = new javax.swing.JButton();
         BtnExibirAnotacoes = new javax.swing.JButton();
         BtnExibirAnotacoes1 = new javax.swing.JButton();
@@ -1089,8 +1088,8 @@ public boolean readcampos() {
             .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
-        jLabel10.setText("Nome:");
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel10.setText("Nome:");
 
         txtNome3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1103,8 +1102,8 @@ public boolean readcampos() {
             }
         });
 
-        jLabel12.setText("CRP:");
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel12.setText("CRP:");
 
         txtCRP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1117,11 +1116,11 @@ public boolean readcampos() {
             }
         });
 
-        jLabel13.setText("E-mail:");
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel13.setText("E-mail:");
 
-        labeltelefone.setText("Telefone:");
         labeltelefone.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        labeltelefone.setText("Telefone:");
 
         TxtTelefone6.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -1129,8 +1128,8 @@ public boolean readcampos() {
             }
         });
 
-        labeltelefone2.setText("Telefone 2:");
         labeltelefone2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        labeltelefone2.setText("Telefone 2:");
 
         TxtTelefone7.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -1140,13 +1139,13 @@ public boolean readcampos() {
 
         PainelIdentificacaoPessoal6.setBackground(new java.awt.Color(59, 131, 117));
 
-        jLabel15.setText("DADOS DO PSICÓLOGO");
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel15.setText("DADOS DO PSICÓLOGO");
 
-        jLabel35.setText("NOME");
         jLabel35.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel35.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel35.setText("NOME");
 
         javax.swing.GroupLayout PainelIdentificacaoPessoal6Layout = new javax.swing.GroupLayout(PainelIdentificacaoPessoal6);
         PainelIdentificacaoPessoal6.setLayout(PainelIdentificacaoPessoal6Layout);
@@ -1165,9 +1164,9 @@ public boolean readcampos() {
             .addComponent(jLabel35, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        BtnAlterar.setText("Alterar");
         BtnAlterar.setBackground(new java.awt.Color(59, 131, 117));
         BtnAlterar.setForeground(new java.awt.Color(255, 255, 255));
+        BtnAlterar.setText("Alterar");
         BtnAlterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnAlterarActionPerformed(evt);
@@ -1248,9 +1247,9 @@ public boolean readcampos() {
             }
         });
 
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout PainelMeusDadosLayout = new javax.swing.GroupLayout(PainelMeusDados);
         PainelMeusDados.setLayout(PainelMeusDadosLayout);
@@ -1371,7 +1370,7 @@ public boolean readcampos() {
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel2)))
-                .addContainerGap(258, Short.MAX_VALUE))
+                .addContainerGap(259, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jEImagePanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(BtnHelp, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1432,16 +1431,6 @@ public boolean readcampos() {
             }
         });
 
-        BtnConsultas.setText("Cadastrar Consultas");
-        BtnConsultas.setBackground(new java.awt.Color(102, 102, 102));
-        BtnConsultas.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        BtnConsultas.setForeground(new java.awt.Color(255, 255, 255));
-        BtnConsultas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnConsultasActionPerformed(evt);
-            }
-        });
-
         BtnExibirAnamneses.setText("Exibir Anamneses");
         BtnExibirAnamneses.setBackground(new java.awt.Color(102, 102, 102));
         BtnExibirAnamneses.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -1476,12 +1465,11 @@ public boolean readcampos() {
         PainelMenu.setLayout(PainelMenuLayout);
         PainelMenuLayout.setHorizontalGroup(
             PainelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(BtnVoltar, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
-            .addComponent(BtnPacientes, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
-            .addComponent(BtnConsultas, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
+            .addComponent(BtnVoltar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(BtnPacientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(BtnExibirAnamneses, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
-            .addComponent(BtnExibirAnotacoes, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
-            .addComponent(BtnExibirAnotacoes1, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
+            .addComponent(BtnExibirAnotacoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(BtnExibirAnotacoes1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         PainelMenuLayout.setVerticalGroup(
             PainelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1490,14 +1478,12 @@ public boolean readcampos() {
                 .addGap(0, 0, 0)
                 .addComponent(BtnPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(BtnConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
                 .addComponent(BtnExibirAnamneses, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(BtnExibirAnotacoes, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(BtnExibirAnotacoes1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(213, Short.MAX_VALUE))
+                .addContainerGap(284, Short.MAX_VALUE))
         );
 
         getContentPane().add(PainelMenu, java.awt.BorderLayout.LINE_START);
@@ -1665,42 +1651,6 @@ public void readatributos() {
             jLabel2.setText(dtf.format(localDate));
         }      
     }//GEN-LAST:event_DataChooserPropertyChange
-
-    private void BtnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVoltarActionPerformed
-        TelaPrincipal mp1 = new TelaPrincipal();
-        Util.SizeJanela(mp1);
-        this.dispose();
-    }//GEN-LAST:event_BtnVoltarActionPerformed
-
-    private void BtnPacientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnPacientesActionPerformed
-        ManterPaciente1 mp1 = new ManterPaciente1();
-        Util.SizeJanela(mp1);
-        this.dispose();
-    }//GEN-LAST:event_BtnPacientesActionPerformed
-
-    private void BtnConsultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnConsultasActionPerformed
-        CadastrarConsulta2 mc = new CadastrarConsulta2();
-        Util.SizeJanela(mc);
-        this.dispose();
-    }//GEN-LAST:event_BtnConsultasActionPerformed
-
-    private void BtnExibirAnamnesesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExibirAnamnesesActionPerformed
-       ExibirAnamneses ma = new ExibirAnamneses();
-        Util.SizeJanela(ma);
-        this.dispose();
-    }//GEN-LAST:event_BtnExibirAnamnesesActionPerformed
-
-    private void BtnExibirAnotacoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExibirAnotacoesActionPerformed
-        ExibirAnotacoes ea = new ExibirAnotacoes();
-        Util.SizeJanela(ea);
-        this.dispose();
-    }//GEN-LAST:event_BtnExibirAnotacoesActionPerformed
-
-    private void BtnExibirAnotacoes1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExibirAnotacoes1ActionPerformed
-        TelaLogin tl = new TelaLogin();
-        tl.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_BtnExibirAnotacoes1ActionPerformed
 
     private void BtnHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnHelpActionPerformed
         ModalHelp.setSize(540, 620);
@@ -1972,6 +1922,36 @@ public void readpsicologo() {
         }
     }//GEN-LAST:event_BtnAlterarActionPerformed
 
+    private void BtnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVoltarActionPerformed
+        TelaPrincipal mp1 = new TelaPrincipal();
+        Util.SizeJanela(mp1);
+        this.dispose();
+    }//GEN-LAST:event_BtnVoltarActionPerformed
+
+    private void BtnPacientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnPacientesActionPerformed
+        ManterPaciente1 mp1 = new ManterPaciente1();
+        Util.SizeJanela(mp1);
+        this.dispose();
+    }//GEN-LAST:event_BtnPacientesActionPerformed
+
+    private void BtnExibirAnamnesesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExibirAnamnesesActionPerformed
+        ExibirAnamneses ma = new ExibirAnamneses();
+        Util.SizeJanela(ma);
+        this.dispose();
+    }//GEN-LAST:event_BtnExibirAnamnesesActionPerformed
+
+    private void BtnExibirAnotacoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExibirAnotacoesActionPerformed
+        ExibirAnotacoes ea = new ExibirAnotacoes();
+        Util.SizeJanela(ea);
+        this.dispose();
+    }//GEN-LAST:event_BtnExibirAnotacoesActionPerformed
+
+    private void BtnExibirAnotacoes1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExibirAnotacoes1ActionPerformed
+        TelaLogin tl = new TelaLogin();
+        tl.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_BtnExibirAnotacoes1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2014,7 +1994,6 @@ public void readpsicologo() {
     private javax.swing.JButton BtnCancelar6;
     private javax.swing.JButton BtnCancelar7;
     private javax.swing.JButton BtnCancelarAnotacao;
-    private javax.swing.JButton BtnConsultas;
     private javax.swing.JButton BtnExcluir;
     private javax.swing.JButton BtnExibirAnamneses;
     private javax.swing.JButton BtnExibirAnotacoes;

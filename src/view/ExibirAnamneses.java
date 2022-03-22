@@ -340,9 +340,9 @@ public class ExibirAnamneses extends javax.swing.JFrame {
         BtnSalvarAlteracoes5 = new javax.swing.JButton();
         BtnCancelar5 = new javax.swing.JButton();
         jLabel39 = new javax.swing.JLabel();
-        SubitaOuProgressiva2 = new javax.swing.JComboBox<String>();
+        SubitaOuProgressiva2 = new javax.swing.JComboBox<>();
         labelInicioQueixa4 = new javax.swing.JLabel();
-        JCBPsicomotricidade2 = new javax.swing.JComboBox<String>();
+        JCBPsicomotricidade2 = new javax.swing.JComboBox<>();
         labelInicioQueixa5 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
         LabelEmail3 = new javax.swing.JLabel();
@@ -437,7 +437,6 @@ public class ExibirAnamneses extends javax.swing.JFrame {
         PainelMenu = new javax.swing.JPanel();
         BtnVoltar = new javax.swing.JButton();
         BtnPacientes = new javax.swing.JButton();
-        BtnConsultas = new javax.swing.JButton();
         BtnExibirAnamneses = new javax.swing.JButton();
         BtnExibirAnotacoes = new javax.swing.JButton();
         BtnExibirAnotacoes1 = new javax.swing.JButton();
@@ -1364,7 +1363,7 @@ public class ExibirAnamneses extends javax.swing.JFrame {
                             .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 720, Short.MAX_VALUE)))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 722, Short.MAX_VALUE)))
                 .addGap(18, 18, 18)
                 .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -1424,16 +1423,6 @@ public class ExibirAnamneses extends javax.swing.JFrame {
             }
         });
 
-        BtnConsultas.setText("Cadastrar Consultas");
-        BtnConsultas.setBackground(new java.awt.Color(102, 102, 102));
-        BtnConsultas.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        BtnConsultas.setForeground(new java.awt.Color(255, 255, 255));
-        BtnConsultas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnConsultasActionPerformed(evt);
-            }
-        });
-
         BtnExibirAnamneses.setText("Exibir Anamneses");
         BtnExibirAnamneses.setBackground(new java.awt.Color(102, 102, 102));
         BtnExibirAnamneses.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -1468,12 +1457,11 @@ public class ExibirAnamneses extends javax.swing.JFrame {
         PainelMenu.setLayout(PainelMenuLayout);
         PainelMenuLayout.setHorizontalGroup(
             PainelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(BtnVoltar, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
-            .addComponent(BtnPacientes, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
-            .addComponent(BtnConsultas, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
+            .addComponent(BtnVoltar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(BtnPacientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(BtnExibirAnamneses, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
-            .addComponent(BtnExibirAnotacoes, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
-            .addComponent(BtnExibirAnotacoes1, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
+            .addComponent(BtnExibirAnotacoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(BtnExibirAnotacoes1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         PainelMenuLayout.setVerticalGroup(
             PainelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1482,14 +1470,12 @@ public class ExibirAnamneses extends javax.swing.JFrame {
                 .addGap(0, 0, 0)
                 .addComponent(BtnPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(BtnConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
                 .addComponent(BtnExibirAnamneses, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(BtnExibirAnotacoes, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(BtnExibirAnotacoes1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(212, Short.MAX_VALUE))
+                .addContainerGap(283, Short.MAX_VALUE))
         );
 
         getContentPane().add(PainelMenu, java.awt.BorderLayout.LINE_START);
@@ -1632,42 +1618,6 @@ public class ExibirAnamneses extends javax.swing.JFrame {
         btnalterar.setEnabled(true);
         btnExcluir.setEnabled(true);
     }//GEN-LAST:event_JTAnamnesesMouseClicked
-
-    private void BtnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVoltarActionPerformed
-        TelaPrincipal mp1 = new TelaPrincipal();
-        Util.SizeJanela(mp1);
-        this.dispose();
-    }//GEN-LAST:event_BtnVoltarActionPerformed
-
-    private void BtnPacientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnPacientesActionPerformed
-        ManterPaciente1 mp1 = new ManterPaciente1();
-        Util.SizeJanela(mp1);
-        this.dispose();
-    }//GEN-LAST:event_BtnPacientesActionPerformed
-
-    private void BtnConsultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnConsultasActionPerformed
-        CadastrarConsulta2 mc = new CadastrarConsulta2();
-        Util.SizeJanela(mc);
-        this.dispose();
-    }//GEN-LAST:event_BtnConsultasActionPerformed
-
-    private void BtnExibirAnamnesesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExibirAnamnesesActionPerformed
-        ExibirAnamneses ma = new ExibirAnamneses();
-        Util.SizeJanela(ma);
-        this.dispose();
-    }//GEN-LAST:event_BtnExibirAnamnesesActionPerformed
-
-    private void BtnExibirAnotacoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExibirAnotacoesActionPerformed
-        ExibirAnotacoes ea = new ExibirAnotacoes();
-        Util.SizeJanela(ea);
-        this.dispose();
-    }//GEN-LAST:event_BtnExibirAnotacoesActionPerformed
-
-    private void BtnExibirAnotacoes1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExibirAnotacoes1ActionPerformed
-        TelaLogin tl = new TelaLogin();
-        tl.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_BtnExibirAnotacoes1ActionPerformed
 
     private void SpinnerLimiteStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_SpinnerLimiteStateChanged
         // TODO add your handling code here:
@@ -1941,6 +1891,36 @@ public class ExibirAnamneses extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton9ActionPerformed
 
+    private void BtnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVoltarActionPerformed
+        TelaPrincipal mp1 = new TelaPrincipal();
+        Util.SizeJanela(mp1);
+        this.dispose();
+    }//GEN-LAST:event_BtnVoltarActionPerformed
+
+    private void BtnPacientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnPacientesActionPerformed
+        ManterPaciente1 mp1 = new ManterPaciente1();
+        Util.SizeJanela(mp1);
+        this.dispose();
+    }//GEN-LAST:event_BtnPacientesActionPerformed
+
+    private void BtnExibirAnamnesesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExibirAnamnesesActionPerformed
+        ExibirAnamneses ma = new ExibirAnamneses();
+        Util.SizeJanela(ma);
+        this.dispose();
+    }//GEN-LAST:event_BtnExibirAnamnesesActionPerformed
+
+    private void BtnExibirAnotacoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExibirAnotacoesActionPerformed
+        ExibirAnotacoes ea = new ExibirAnotacoes();
+        Util.SizeJanela(ea);
+        this.dispose();
+    }//GEN-LAST:event_BtnExibirAnotacoesActionPerformed
+
+    private void BtnExibirAnotacoes1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExibirAnotacoes1ActionPerformed
+        TelaLogin tl = new TelaLogin();
+        tl.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_BtnExibirAnotacoes1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1985,7 +1965,6 @@ public class ExibirAnamneses extends javax.swing.JFrame {
     private javax.swing.JButton BtnAvancarPouco;
     private javax.swing.JButton BtnCancelar5;
     private javax.swing.JButton BtnCancelar7;
-    private javax.swing.JButton BtnConsultas;
     private javax.swing.JButton BtnExibirAnamneses;
     private javax.swing.JButton BtnExibirAnotacoes;
     private javax.swing.JButton BtnExibirAnotacoes1;
@@ -2024,12 +2003,6 @@ public class ExibirAnamneses extends javax.swing.JFrame {
     private javax.swing.JPanel PainelIdentificacaoPessoal4;
     private javax.swing.JPanel PainelIdentificacaoPessoal6;
     private javax.swing.JPanel PainelMenu;
-    private javax.swing.JPanel PainelMeusDados;
-    private javax.swing.JPanel PainelMeusDados1;
-    private javax.swing.JPanel PainelMeusDados2;
-    private javax.swing.JPanel PainelMeusDados3;
-    private javax.swing.JPanel PainelMeusDados4;
-    private javax.swing.JPanel PainelMeusDados5;
     private javax.swing.JPanel PainelMeusDados6;
     private javax.swing.JPanel PainelPaginacao;
     private javax.swing.JSpinner SpinnerLimite;
@@ -2040,26 +2013,16 @@ public class ExibirAnamneses extends javax.swing.JFrame {
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnalterar;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private LIB.JEImagePanel jEImagePanel1;
     private LIB.JEImagePanel jEImagePanel4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
@@ -2067,11 +2030,9 @@ public class ExibirAnamneses extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel39;

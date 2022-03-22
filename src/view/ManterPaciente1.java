@@ -174,7 +174,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         jLabel23 = new javax.swing.JLabel();
         LabelEstadoCivil2 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
-        estadocivil1 = new javax.swing.JComboBox<String>();
+        estadocivil1 = new javax.swing.JComboBox<>();
         jLabel26 = new javax.swing.JLabel();
         Sexo1 = new javax.swing.JComboBox<>();
         jEImagePanel6 = new LIB.JEImagePanel();
@@ -200,7 +200,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         PainelIdentificacaoPessoal2 = new javax.swing.JPanel();
         txtCPF1 = new javax.swing.JFormattedTextField();
         jLabel1 = new javax.swing.JLabel();
-        JCBUF = new javax.swing.JComboBox<String>();
+        JCBUF = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
         Profissão = new javax.swing.JLabel();
         ModalAnamnese2 = new javax.swing.JDialog();
@@ -210,9 +210,9 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         BtnSalvarAlteracoes5 = new javax.swing.JButton();
         BtnCancelar6 = new javax.swing.JButton();
         jLabel38 = new javax.swing.JLabel();
-        SubitaOuProgressiva1 = new javax.swing.JComboBox<String>();
+        SubitaOuProgressiva1 = new javax.swing.JComboBox<>();
         labelInicioQueixa2 = new javax.swing.JLabel();
-        JCBPsicomotricidade1 = new javax.swing.JComboBox<String>();
+        JCBPsicomotricidade1 = new javax.swing.JComboBox<>();
         labelInicioQueixa3 = new javax.swing.JLabel();
         jLabel64 = new javax.swing.JLabel();
         LabelEmail4 = new javax.swing.JLabel();
@@ -296,7 +296,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         jLabel28 = new javax.swing.JLabel();
         LabelEstadoCivil3 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
-        estadocivil2 = new javax.swing.JComboBox<String>();
+        estadocivil2 = new javax.swing.JComboBox<>();
         jLabel36 = new javax.swing.JLabel();
         Sexo2 = new javax.swing.JComboBox<>();
         jEImagePanel7 = new LIB.JEImagePanel();
@@ -322,7 +322,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         PainelIdentificacaoPessoal6 = new javax.swing.JPanel();
         txtCPF2 = new javax.swing.JFormattedTextField();
         jLabel8 = new javax.swing.JLabel();
-        JCBUF1 = new javax.swing.JComboBox<String>();
+        JCBUF1 = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
         Profissão1 = new javax.swing.JLabel();
         ModalAlterarConsulta = new javax.swing.JDialog();
@@ -338,15 +338,15 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         labelpaciente = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        JCBPagamento = new javax.swing.JComboBox<String>();
+        JCBPagamento = new javax.swing.JComboBox<>();
         jPanel1 = new JPanel();
         PainelMeusDados = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
         PainelMenu = new javax.swing.JPanel();
         BtnVoltar = new javax.swing.JButton();
         BtnPacientes = new javax.swing.JButton();
-        BtnConsultas = new javax.swing.JButton();
         BtnExibirAnamneses = new javax.swing.JButton();
         BtnExibirAnotacoes = new javax.swing.JButton();
         BtnExibirAnotacoes1 = new javax.swing.JButton();
@@ -1992,9 +1992,9 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             }
         });
 
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout PainelMeusDadosLayout = new javax.swing.GroupLayout(PainelMeusDados);
         PainelMeusDados.setLayout(PainelMeusDadosLayout);
@@ -2017,19 +2017,30 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel16.setText("PACIENTES");
+        jLabel16.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(PainelMeusDados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 1008, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, 982, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(PainelMeusDados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.NORTH);
@@ -2054,16 +2065,6 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         BtnPacientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnPacientesActionPerformed(evt);
-            }
-        });
-
-        BtnConsultas.setText("Cadastrar Consultas");
-        BtnConsultas.setBackground(new java.awt.Color(102, 102, 102));
-        BtnConsultas.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        BtnConsultas.setForeground(new java.awt.Color(255, 255, 255));
-        BtnConsultas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnConsultasActionPerformed(evt);
             }
         });
 
@@ -2103,8 +2104,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             PainelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(BtnVoltar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(BtnPacientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(BtnConsultas, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
-            .addComponent(BtnExibirAnamneses, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(BtnExibirAnamneses, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
             .addComponent(BtnExibirAnotacoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(BtnExibirAnotacoes1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -2115,14 +2115,12 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                 .addGap(0, 0, 0)
                 .addComponent(BtnPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(BtnConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
                 .addComponent(BtnExibirAnamneses, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(BtnExibirAnotacoes, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(BtnExibirAnotacoes1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(297, Short.MAX_VALUE))
+                .addContainerGap(368, Short.MAX_VALUE))
         );
 
         getContentPane().add(PainelMenu, java.awt.BorderLayout.LINE_START);
@@ -3279,12 +3277,6 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_BtnPacientesActionPerformed
 
-    private void BtnConsultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnConsultasActionPerformed
-        CadastrarConsulta2 mc = new CadastrarConsulta2();
-        Util.SizeJanela(mc);
-        this.dispose();
-    }//GEN-LAST:event_BtnConsultasActionPerformed
-
     private void BtnExibirAnamnesesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExibirAnamnesesActionPerformed
         ExibirAnamneses ma = new ExibirAnamneses();
         Util.SizeJanela(ma);
@@ -3657,7 +3649,6 @@ private String getFirstWord(String text) {
     private javax.swing.JButton BtnCancelar2;
     private javax.swing.JButton BtnCancelar5;
     private javax.swing.JButton BtnCancelar6;
-    private javax.swing.JButton BtnConsultas;
     private javax.swing.JButton BtnExibirAnamneses;
     private javax.swing.JButton BtnExibirAnotacoes;
     private javax.swing.JButton BtnExibirAnotacoes1;
@@ -3775,6 +3766,7 @@ private String getFirstWord(String text) {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel21;
