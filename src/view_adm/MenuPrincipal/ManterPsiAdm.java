@@ -1211,6 +1211,26 @@ public void ReadJTablePag(int start, int size) {
         }
 
     }
+    public void clearNovo(){
+        txtNome1.setText("");
+        txtEmail1.setText("");
+        txtCRP.setText("");
+        txtLogin.setText("");
+        txtSenha.setText("");
+        txtConfirmarSenha.setText("");
+        TxtTelefone1.setText("");
+        TxtTelefone5.setText("");
+        
+    }
+        public void clearAlterar(){
+        txtNome3.setText("");
+        txtEmail2.setText("");
+        txtCRP1.setText("");
+       
+        TxtTelefone6.setText("");
+        TxtTelefone7.setText("");
+        
+    }
 
 //    public void ReadJTableBusca(String Busca) {
 //
@@ -1797,8 +1817,9 @@ public void ReadJTablePag(int start, int size) {
                             LabelQtdePaginas.setText("de " + totalPages);
                             getPageData(currentPage);
                         }
+                        this.clearAlterar();
                         ModalAlterarPsicologo.dispose();
-                        // this.clear();
+                        
                     }
 
                 }
@@ -1986,6 +2007,7 @@ public void ReadJTablePag(int start, int size) {
                                     LabelQtdePaginas.setText("de " + totalPages);
                                     getPageData(currentPage);
                                 }
+                                this.clearNovo();
                                 ModalCadastrarPsicologo.dispose();
                             } else {
                                 dao.Delete(p);
