@@ -162,6 +162,8 @@ private String getFirstWord(String text) {
         this.codpaciente = cod;
         this.getCount();
         initComponents();
+        BtnVoltarPouco.setEnabled(false);
+        BtnVoltarBastante.setEnabled(false);
         Psicologo psi = new Psicologo();
         PsicologoDAO dao = new PsicologoDAO();
         psi = dao.ReadPsicologo(Main.cod);
@@ -806,7 +808,6 @@ private String getFirstWord(String text) {
         });
 
         BtnAvancarBastante.setText(">>");
-        BtnAvancarBastante.setOpaque(false);
         BtnAvancarBastante.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnAvancarBastanteActionPerformed(evt);
@@ -1099,14 +1100,38 @@ private String getFirstWord(String text) {
             if (txtBusca.getText() != "") {
                 if (currentPage + 5 > totalPages) {
                     getPageDataBusca(totalPages, txtBusca.getText());
+                    BtnVoltarPouco.setEnabled(true);
+                    BtnVoltarBastante.setEnabled(true);
+                    if (currentPage == totalPages) {
+                        BtnAvancarPouco.setEnabled(false);
+                        BtnAvancarBastante.setEnabled(false);  
+                }
                 } else {
                     getPageDataBusca(currentPage + 5, txtBusca.getText());
+                    BtnVoltarPouco.setEnabled(true);
+                    BtnVoltarBastante.setEnabled(true);
+                    if (currentPage == totalPages) {
+                        BtnAvancarPouco.setEnabled(false);
+                        BtnAvancarBastante.setEnabled(false);  
+                }
                 }
             } else {
                 if (currentPage + 5 > totalPages) {
                     getPageData(totalPages);
+                    BtnVoltarPouco.setEnabled(true);
+                    BtnVoltarBastante.setEnabled(true);
+                    if (currentPage == totalPages) {
+                        BtnAvancarPouco.setEnabled(false);
+                        BtnAvancarBastante.setEnabled(false);  
+                }
                 } else {
                     getPageData(currentPage + 5);
+                    BtnVoltarPouco.setEnabled(true);
+                    BtnVoltarBastante.setEnabled(true);
+                    if (currentPage == totalPages) {
+                        BtnAvancarPouco.setEnabled(false);
+                        BtnAvancarBastante.setEnabled(false);  
+                }
                 }
             }
 
@@ -1118,8 +1143,20 @@ private String getFirstWord(String text) {
         if (currentPage < totalPages) {
             if (txtBusca.getText() != "") {
                 getPageDataBusca(currentPage + 1, txtBusca.getText());
+                BtnVoltarPouco.setEnabled(true);
+                    BtnVoltarBastante.setEnabled(true);
+                    if (currentPage == totalPages) {
+                        BtnAvancarPouco.setEnabled(false);
+                        BtnAvancarBastante.setEnabled(false);  
+                }
             } else {
                 getPageData(currentPage + 1);
+                BtnVoltarPouco.setEnabled(true);
+                    BtnVoltarBastante.setEnabled(true);
+                    if (currentPage == totalPages) {
+                        BtnAvancarPouco.setEnabled(false);
+                        BtnAvancarBastante.setEnabled(false);  
+                }
             }
 
         }
@@ -1143,8 +1180,20 @@ private String getFirstWord(String text) {
         if (currentPage != 1) { //diferente da 1 pagina
             if (txtBusca.getText() != "") {
                 getPageDataBusca(currentPage - 1, txtBusca.getText());
+                BtnAvancarPouco.setEnabled(true);
+                    BtnAvancarBastante.setEnabled(true);
+                    if (currentPage == 1) {
+                        BtnVoltarPouco.setEnabled(false);
+                        BtnVoltarBastante.setEnabled(false);  
+                }
             } else {
                 getPageData(currentPage - 1);
+                BtnAvancarPouco.setEnabled(true);
+                    BtnAvancarBastante.setEnabled(true);
+                    if (currentPage == 1) {
+                        BtnVoltarPouco.setEnabled(false);
+                        BtnVoltarBastante.setEnabled(false);  
+                }
             }
 
         }
@@ -1156,15 +1205,39 @@ private String getFirstWord(String text) {
             if (txtBusca.getText() != "") {
                 if (currentPage - 5 < 1) {
                     getPageDataBusca(1, txtBusca.getText());
+                    BtnAvancarPouco.setEnabled(true);
+                    BtnAvancarBastante.setEnabled(true);
+                    if (currentPage == 1) {
+                        BtnVoltarPouco.setEnabled(false);
+                        BtnVoltarBastante.setEnabled(false);  
+                }
                 } else {
                     getPageDataBusca(currentPage - 5, txtBusca.getText());
+                    BtnAvancarPouco.setEnabled(true);
+                    BtnAvancarBastante.setEnabled(true);
+                    if (currentPage == 1) {
+                        BtnVoltarPouco.setEnabled(false);
+                        BtnVoltarBastante.setEnabled(false);  
+                }
                 }
 
             } else {
                 if (currentPage - 5 < 1) {
                     getPageData(1);
+                    BtnAvancarPouco.setEnabled(true);
+                    BtnAvancarBastante.setEnabled(true);
+                    if (currentPage == 1) {
+                        BtnVoltarPouco.setEnabled(false);
+                        BtnVoltarBastante.setEnabled(false);  
+                }
                 } else {
                     getPageData(currentPage - 5);
+                    BtnAvancarPouco.setEnabled(true);
+                    BtnAvancarBastante.setEnabled(true);
+                    if (currentPage == 1) {
+                        BtnVoltarPouco.setEnabled(false);
+                        BtnVoltarBastante.setEnabled(false);  
+                }
                 }
             }
 
