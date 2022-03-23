@@ -175,6 +175,8 @@ public class ConsultaDAO {
 
         return consultas;
     }
+    
+    
 
     public List<Consulta> Read(int CodPaciente) {
         Connection con = ConnectionFactory.getConnection();
@@ -307,6 +309,28 @@ public class ConsultaDAO {
         }
         return status;
     }
+    
+     public boolean SoftDeleteConsultas(Paciente p) {
+        boolean status = true;
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+
+        try {
+            stmt = con.prepareStatement("Update consulta set Deletada = true WHERE CodPaciente =? ");
+
+            stmt.setInt(1, p.getCodPaciente());
+
+            stmt.executeUpdate();
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao Excluir :" + ex);
+            status = false;
+
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt);
+        }
+        return status;
+    }
 
     public boolean DeleteConsultas(Psicologo p) {
         boolean status = true;
@@ -360,6 +384,28 @@ public class ConsultaDAO {
             stmt = con.prepareStatement("Update consulta set Deletada = false WHERE CodPsicologo =? ");
 
             stmt.setInt(1, CodPsicologo);
+
+            stmt.executeUpdate();
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao Excluir :" + ex);
+            status = false;
+
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt);
+        }
+        return status;
+    }
+    
+    public boolean RestaurarConsultasPaciente(int CodPaciente) {
+        boolean status = true;
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+
+        try {
+            stmt = con.prepareStatement("Update consulta set Deletada = false WHERE CodPaciente =? ");
+
+            stmt.setInt(1, CodPaciente);
 
             stmt.executeUpdate();
 

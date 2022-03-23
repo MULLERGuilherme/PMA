@@ -1,9 +1,13 @@
 package Validacoes;
 
 import javax.swing.JOptionPane;
+import model.bean.Consulta;
+import model.bean.Paciente;
+import model.bean.Psicologo;
 import model.dao.AnamneseDAO;
 import model.dao.AnotacaoDAO;
 import model.dao.ConsultaDAO;
+import model.dao.PacienteDAO;
 import model.dao.PsicologoDAO;
 import model.dao.TelefoneDAO;
 
@@ -18,11 +22,40 @@ import model.dao.TelefoneDAO;
  */
 public class Restaurar {
 
-    public static boolean RestaurarTelefonesPaciente(int codpaciente) {
+    public static boolean RestaurarPaciente(int codpaciente) {
         TelefoneDAO tdao = new TelefoneDAO();
+        PacienteDAO dao = new PacienteDAO();
+        ConsultaDAO cdao = new ConsultaDAO();
+        AnamneseDAO adao = new AnamneseDAO();
+        AnotacaoDAO antdao = new AnotacaoDAO();
+        Paciente p = new Paciente();
+        p.setCodPaciente(codpaciente);
 
         boolean status = tdao.RestaurarTPaciente(codpaciente);
+        if (status) {
+            status = cdao.RestaurarConsultasPaciente(codpaciente);
+            if (status) {
+                for (Consulta c : cdao.Read(p)) {
+                    if (status) {
+                        status = adao.RestaurarAnamneses(c);
+                        if (status) {
+                            status = antdao.RestaurarAnotacoes(c);
+                        }
+
+                    } else {
+                        return status;
+                    }
+                }
+
+                status = dao.RestaurarPaciente(codpaciente);
+
+            } else {
+                return status;
+            }
+
+        }
         return status;
+
     }
 
     public static boolean RestaurarPsicologos(int codpsicologo) {
@@ -31,12 +64,33 @@ public class Restaurar {
         ConsultaDAO cdao = new ConsultaDAO();
         AnamneseDAO adao = new AnamneseDAO();
         AnotacaoDAO antdao = new AnotacaoDAO();
+        Psicologo p = new Psicologo();
+        p.setCodPsicologo(codpsicologo);
         //;
         boolean status = tdao.RestaurarTPsicologo(codpsicologo);
-        status = cdao.RestaurarConsultas(codpsicologo);
-        status = adao.RestaurarAnamneses(codpsicologo);
-        status = antdao.RestaurarAnotacoes(codpsicologo);
-        status = dao.RestaurarPsicologo(codpsicologo);
+        if (status) {
+            status = cdao.RestaurarConsultas(codpsicologo);
+            if (status) {
+                for (Consulta c : cdao.Read(p)) {
+                    if (status) {
+                        status = adao.RestaurarAnamneses(c);
+                        if (status) {
+                            status = antdao.RestaurarAnotacoes(c);
+                        }
+
+                    } else {
+                        return status;
+                    }
+                }
+
+                status = dao.RestaurarPsicologo(codpsicologo);
+
+            } else {
+                return status;
+            }
+
+        }
         return status;
+
     }
 }

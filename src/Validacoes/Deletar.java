@@ -37,12 +37,22 @@ public class Deletar {
         if (status) {
 
             for (Consulta c : cdao.Read(p)) {
-                status = adao.Delete(c);
-                status = antdao.Delete(c);
+                if (status) {
+                    status = adao.SoftDelete(c);
+                    if (status) {
+                        status = antdao.SoftDelete(c);
+                    }
+                } else {
+                    return status;
+                }
 
             }
-            cdao.DeleteConsultas(p);
-            status = dao.Delete(p);
+            if (status) {
+                cdao.SoftDeleteConsultas(p);
+                if (status) {
+                    status = dao.SoftDelete(p);
+                }
+            }
 
         }
         return status;
@@ -59,15 +69,27 @@ public class Deletar {
         AnotacaoDAO antdao = new AnotacaoDAO();
 
         status = tdao.SoftDeleteTPsicologo(p);
-        
+
         if (status) {
+            for (Consulta c : cdao.Read(p)) {
+                if (status) {
+                    status = adao.SoftDelete(c);
+                    if (status) {
+                        status = antdao.SoftDelete(c);
+                    }
+                } else {
+                    return status;
+                }
 
-            status = adao.SoftDelete(p);
-            status = antdao.SoftDelete(p);
+            }
+            if (status) {
+                cdao.SoftDeleteConsultas(p);
+                if (status) {
+                    status = dao.softDelete(p);
+                }
 
-            cdao.SoftDeleteConsultas(p);
-            status = dao.softDelete(p);
-            return status;
+            }
+
         }
         return status;
     }

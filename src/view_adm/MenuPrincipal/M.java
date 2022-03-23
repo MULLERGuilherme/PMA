@@ -3547,6 +3547,7 @@ public class M extends javax.swing.JFrame {
             boolean status = Deletar.DPaciente(p);
             //limpar a tela
             if (!status) {
+                Restaurar.RestaurarPaciente(p.getCodPaciente());
                 JOptionPane.showMessageDialog(this, "Houve um problema ao Excluir o Paciente, tente novamente!", "ERRO!", JOptionPane.ERROR_MESSAGE);
 
             }
@@ -3608,10 +3609,10 @@ public class M extends javax.swing.JFrame {
             if (JCBdeletados.getSelectedIndex() == 1) {
                 p.setDeletado(false);
             }
-            boolean status = dao.SoftUpdate(p);
+            boolean status =  Restaurar.RestaurarPaciente(p.getCodPaciente());
             if (status) {
 
-                Restaurar.RestaurarTelefonesPaciente(p.getCodPaciente());
+                
                 if (txtBusca.getText() != "") {
 
                     getCountBusca(txtBusca.getText());
@@ -3625,6 +3626,7 @@ public class M extends javax.swing.JFrame {
                     getPageData(currentPage);
                 }
             }else{
+                Deletar.DPaciente(p);
                 JOptionPane.showMessageDialog(this, "Ocorreu um erro ao restaurar o Paciente, tente novamente!", "ERRO!", JOptionPane.ERROR_MESSAGE);
             } 
         }

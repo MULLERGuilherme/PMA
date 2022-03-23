@@ -208,6 +208,29 @@ public class AnotacaoDAO {
         }
         return status;
     }    
+      
+      public boolean SoftDelete(Consulta c){
+        boolean status = true;
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+                
+        try {
+            stmt = con.prepareStatement("Update anotacao set Deletada = true WHERE CodConsulta =? ");
+           
+            stmt.setInt(1, c.getCodConsulta());
+            
+            stmt.executeUpdate();
+            
+            
+        } catch (SQLException ex) {
+            status = false;
+            
+        } finally{
+            ConnectionFactory.closeConnection(con, stmt);
+        }
+        return status;
+    }    
+      
     public boolean SoftDelete(Psicologo p){
         boolean status = true;
         Connection con = ConnectionFactory.getConnection();
@@ -239,6 +262,28 @@ public class AnotacaoDAO {
             stmt = con.prepareStatement("Update anotacao set Deletada = false WHERE CodPsicologo =? ");
            
             stmt.setInt(1, CodPsicologo);
+            
+            stmt.executeUpdate();
+            
+            
+        } catch (SQLException ex) {
+            status = false;
+            
+        } finally{
+            ConnectionFactory.closeConnection(con, stmt);
+        }
+        return status;
+    }    
+    
+    public boolean RestaurarAnotacoes(Consulta c){
+        boolean status = true;
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+                
+        try {
+            stmt = con.prepareStatement("Update anotacao set Deletada = false WHERE CodConsulta =? ");
+           
+            stmt.setInt(1, c.getCodConsulta());
             
             stmt.executeUpdate();
             

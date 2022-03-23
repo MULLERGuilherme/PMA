@@ -25,7 +25,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import model.bean.Paciente;
-import view_adm.MenuPrincipal.ManterPacienteAdm;
+
 
 /**
  *

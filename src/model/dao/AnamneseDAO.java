@@ -277,15 +277,17 @@ public class AnamneseDAO {
         }
         return status;
     }
-    public boolean SoftDelete(Psicologo p) {
+   
+    
+     public boolean SoftDelete(Consulta c) {
         boolean status = true;
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("Update anamnese set Deletada = true WHERE CodPsicologo =? ");
+            stmt = con.prepareStatement("Update anamnese set Deletada = true WHERE CodConsulta =? ");
 
-            stmt.setInt(1, p.getCodPsicologo());
+            stmt.setInt(1, c.getCodConsulta());
 
             stmt.executeUpdate();
 
@@ -298,6 +300,8 @@ public class AnamneseDAO {
         }
         return status;
     }
+     
+     
     
     public boolean RestaurarAnamneses(int CodPsicologo) {
         boolean status = true;
@@ -320,6 +324,29 @@ public class AnamneseDAO {
         }
         return status;
     }
+    
+    public boolean RestaurarAnamneses(Consulta c) {
+        boolean status = true;
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+
+        try {
+            stmt = con.prepareStatement("Update anamnese set Deletada = false WHERE CodConsulta =? ");
+
+            stmt.setInt(1, c.getCodConsulta());
+
+            stmt.executeUpdate();
+
+        } catch (SQLException ex) {
+
+            status = false;
+
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt);
+        }
+        return status;
+    }
+    
     public Anamnese ReadAnamneseConsulta(int CodConsulta) {
 
         Connection con = ConnectionFactory.getConnection();

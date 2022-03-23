@@ -256,6 +256,30 @@ public class PacienteDAO {
         }
         return status;
     }
+    
+    
+    public boolean RestaurarPaciente(int CodPaciente) {
+        boolean status = true;
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        try {
+//            mudança
+            stmt = con.prepareStatement("Update  paciente set Deletado= false  WHERE CodPaciente =? ");
+
+          
+           
+            stmt.setInt(1, CodPaciente);
+            stmt.executeUpdate();
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao alterar :" +ex.getMessage());
+            status = false;
+
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt);
+        }
+        return status;
+    }
 
     public List<Paciente> Read() {
         Connection con = ConnectionFactory.getConnection();
@@ -333,6 +357,27 @@ public class PacienteDAO {
     }
 
     public boolean Delete(Paciente p) {
+        boolean status = true;
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+
+        try {
+            stmt = con.prepareStatement("Update paciente set Deletado = true WHERE CodPaciente =? ");
+
+            stmt.setInt(1, p.getCodPaciente());
+
+            stmt.executeUpdate();
+
+        } catch (SQLException ex) {
+            status = false;
+                  JOptionPane.showMessageDialog(null, "Erro ao Excluir :" +ex);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt);
+        }
+        return status;
+    }
+    
+    public boolean SoftDelete(Paciente p) {
         boolean status = true;
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
