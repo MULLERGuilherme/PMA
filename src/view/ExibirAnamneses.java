@@ -1648,6 +1648,7 @@ public class ExibirAnamneses extends javax.swing.JFrame {
             if (txtBusca.getText() != "") {
                 if (currentPage - 5 < 1) {
                     getPageDataBusca(1, txtBusca.getText()); BtnAvancarPouco.setEnabled(true);
+                    BtnAvancarPouco.setEnabled(true);
                     BtnAvancarBastante.setEnabled(true);
                     if (currentPage == 1) {
                          BtnVoltarPouco.setEnabled(false);

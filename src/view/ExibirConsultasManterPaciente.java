@@ -124,6 +124,8 @@ public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
          BtnPacientes.setEnabled(false);
         btnalterarconsulta.setEnabled(false);
+        BtnVoltarPouco.setEnabled(false);
+        BtnVoltarBastante.setEnabled(false);
         BtnExcluir.setEnabled(false);
         PacienteDAO pdao = new PacienteDAO();
         Paciente p;
@@ -1215,9 +1217,9 @@ public void readpsicologo() {
             .addComponent(jLabel35, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        BtnAlterar.setText("Alterar");
         BtnAlterar.setBackground(new java.awt.Color(59, 131, 117));
         BtnAlterar.setForeground(new java.awt.Color(255, 255, 255));
-        BtnAlterar.setText("Alterar");
         BtnAlterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnAlterarActionPerformed(evt);
@@ -1435,7 +1437,6 @@ public void readpsicologo() {
         });
 
         BtnAvancarBastante.setText(">>");
-        BtnAvancarBastante.setOpaque(false);
         BtnAvancarBastante.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnAvancarBastanteActionPerformed(evt);
@@ -1734,8 +1735,20 @@ public void readatributos() {
 
             if (currentPage - 5 < 1) {
                 getPageData(1);
+                BtnAvancarPouco.setEnabled(true);
+                    BtnAvancarBastante.setEnabled(true);
+                    if (currentPage == 1) {
+                        BtnVoltarPouco.setEnabled(false);
+                        BtnVoltarBastante.setEnabled(false);  
+                }
             } else {
                 getPageData(currentPage - 5);
+                BtnAvancarPouco.setEnabled(true);
+                    BtnAvancarBastante.setEnabled(true);
+                    if (currentPage == 1) {
+                        BtnVoltarPouco.setEnabled(false);
+                        BtnVoltarBastante.setEnabled(false);  
+                }
             }
 
         }
@@ -1747,6 +1760,12 @@ public void readatributos() {
         if (currentPage != 1) { //diferente da 1 pagina
 
             getPageData(currentPage - 1);
+            BtnAvancarPouco.setEnabled(true);
+                    BtnAvancarBastante.setEnabled(true);
+                    if (currentPage == 1) {
+                        BtnVoltarPouco.setEnabled(false);
+                        BtnVoltarBastante.setEnabled(false);  
+                }
 
         }
         SpinnerNumPaginas.setValue((int) currentPage);
@@ -1764,6 +1783,12 @@ public void readatributos() {
         if (currentPage < totalPages) {
 
             getPageData(currentPage + 1);
+             BtnVoltarPouco.setEnabled(true);
+                    BtnVoltarBastante.setEnabled(true);
+                    if (currentPage == totalPages) {
+                        BtnAvancarPouco.setEnabled(false);
+                        BtnAvancarBastante.setEnabled(false);  
+                }
 
         }
         SpinnerNumPaginas.setValue((int) currentPage);
@@ -1775,8 +1800,20 @@ public void readatributos() {
 
             if (currentPage + 5 > totalPages) {
                 getPageData(totalPages);
+                 BtnVoltarPouco.setEnabled(true);
+                    BtnVoltarBastante.setEnabled(true);
+                    if (currentPage == totalPages) {
+                        BtnAvancarPouco.setEnabled(false);
+                        BtnAvancarBastante.setEnabled(false);  
+                }
             } else {
                 getPageData(currentPage + 5);
+                 BtnVoltarPouco.setEnabled(true);
+                    BtnVoltarBastante.setEnabled(true);
+                    if (currentPage == totalPages) {
+                        BtnAvancarPouco.setEnabled(false);
+                        BtnAvancarBastante.setEnabled(false);  
+                }
             }
 
         }
