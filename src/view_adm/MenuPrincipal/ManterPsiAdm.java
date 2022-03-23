@@ -1139,7 +1139,7 @@ public class ManterPsiAdm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-public void ReadJTablePag(int start, int size) {
+    public void ReadJTablePag(int start, int size) {
 
         DefaultTableModel model = (DefaultTableModel) JTPsicologos.getModel();
 
@@ -1164,7 +1164,7 @@ public void ReadJTablePag(int start, int size) {
                     };
                 } else {
                     linha = new Object[]{
-                       vw.getPsicologo().getCodPsicologo(),
+                        vw.getPsicologo().getCodPsicologo(),
                         vw.getPsicologo().getNome_completo(),
                         vw.getPsicologo().getCRP(),
                         vw.getPsicologo().getEmail(),
@@ -1185,7 +1185,7 @@ public void ReadJTablePag(int start, int size) {
 
                     fones2 = fones.split(",");
                     linha = new Object[]{
-                       vw.getPsicologo().getCodPsicologo(),
+                        vw.getPsicologo().getCodPsicologo(),
                         vw.getPsicologo().getNome_completo(),
                         vw.getPsicologo().getCRP(),
                         vw.getPsicologo().getEmail(),
@@ -1211,7 +1211,8 @@ public void ReadJTablePag(int start, int size) {
         }
 
     }
-    public void clearNovo(){
+
+    public void clearNovo() {
         txtNome1.setText("");
         txtEmail1.setText("");
         txtCRP.setText("");
@@ -1220,16 +1221,17 @@ public void ReadJTablePag(int start, int size) {
         txtConfirmarSenha.setText("");
         TxtTelefone1.setText("");
         TxtTelefone5.setText("");
-        
+
     }
-        public void clearAlterar(){
+
+    public void clearAlterar() {
         txtNome3.setText("");
         txtEmail2.setText("");
         txtCRP1.setText("");
-       
+
         TxtTelefone6.setText("");
         TxtTelefone7.setText("");
-        
+
     }
 
 //    public void ReadJTableBusca(String Busca) {
@@ -1343,7 +1345,7 @@ public void ReadJTablePag(int start, int size) {
         }
 
     }
-   
+
     private void JTPsicologosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTPsicologosMouseClicked
         // TODO add your handling code here:
         if (JTPsicologos.getSelectedRow() != -1) {
@@ -1446,7 +1448,7 @@ public void ReadJTablePag(int start, int size) {
         TelefoneDAO tdao = new TelefoneDAO();
         t = tdao.ReadTPsicologo(p.getCodPsicologo());
         txtNome3.setText(p.getNome_completo());
-       
+
         txtCRP1.setText(p.getCRP());
         txtEmail2.setText(p.getEmail());
         if (t.size() == 2) {
@@ -1734,7 +1736,7 @@ public void ReadJTablePag(int start, int size) {
     private void BtnCadastrarPsicologo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCadastrarPsicologo1ActionPerformed
         // TODO add your handling code here:
         boolean dadosvalidos = true;
-        
+
         Psicologo p = new Psicologo();
         PsicologoDAO dao = new PsicologoDAO();
         Telefone tf = new Telefone();
@@ -1790,7 +1792,7 @@ public void ReadJTablePag(int start, int size) {
                 }
             }
             if (dadosvalidos) {
-               
+
                 if (dao.UpdatePsicologSemLogin(p)) {
 
                     p = dao.ReadPsicologo(p.getCRP());
@@ -1805,7 +1807,7 @@ public void ReadJTablePag(int start, int size) {
 
                         }
                         JOptionPane.showMessageDialog(this, "Psicologo: " + p.getNome_completo() + " Salvo com sucesso");
-                        
+
                         if (txtBusca.getText() != "") {
                             getCountBusca(txtBusca.getText());
                             SpinnerNumPaginas.setValue(currentPage);
@@ -1819,7 +1821,7 @@ public void ReadJTablePag(int start, int size) {
                         }
                         this.clearAlterar();
                         ModalAlterarPsicologo.dispose();
-                        
+
                     }
 
                 }
@@ -1984,38 +1986,35 @@ public void ReadJTablePag(int start, int size) {
                     UIManager.put("OptionPane.yesButtonText", "Sim");
                     UIManager.put("OptionPane.noButtonText", "Não");
 
-                    int result = JOptionPane.showConfirmDialog(this, "Confirmar Cadastro?", "Confirmar", JOptionPane.YES_NO_OPTION);
+                    if (dao.Create(p)) {
 
-                    if (result == 0) {
-                        if (dao.Create(p)) {
+                        p = dao.ReadPsicologo(p.getCRP());
+                        tf.setPsicologo(p);
 
-                            p = dao.ReadPsicologo(p.getCRP());
-                            tf.setPsicologo(p);
-
-                            if (tfdao.CreatePsi(tf)) {
-                                if (!TxtTelefone5.getText().isEmpty()) {
-                                    tf2.setPsicologo(p);
-                                    tfdao.CreatePsi(tf2);
-                                }
-                                if (txtBusca.getText() != "") {
-                                    getCountBusca(txtBusca.getText());
-                                    SpinnerNumPaginas.setValue(currentPage);
-                                    LabelQtdePaginas.setText("de " + totalPages);
-                                    getPageDataBusca(currentPage, txtBusca.getText());
-                                } else {
-                                    getCount();
-                                    SpinnerNumPaginas.setValue(currentPage);
-                                    LabelQtdePaginas.setText("de " + totalPages);
-                                    getPageData(currentPage);
-                                }
-                                this.clearNovo();
-                                ModalCadastrarPsicologo.dispose();
-                            } else {
-                                dao.Delete(p);
+                        if (tfdao.CreatePsi(tf)) {
+                            if (!TxtTelefone5.getText().isEmpty()) {
+                                tf2.setPsicologo(p);
+                                tfdao.CreatePsi(tf2);
                             }
-
+                            if (txtBusca.getText() != "") {
+                                getCountBusca(txtBusca.getText());
+                                SpinnerNumPaginas.setValue(currentPage);
+                                LabelQtdePaginas.setText("de " + totalPages);
+                                getPageDataBusca(currentPage, txtBusca.getText());
+                            } else {
+                                getCount();
+                                SpinnerNumPaginas.setValue(currentPage);
+                                LabelQtdePaginas.setText("de " + totalPages);
+                                getPageData(currentPage);
+                            }
+                            this.clearNovo();
+                            ModalCadastrarPsicologo.dispose();
+                        } else {
+                            dao.Delete(p);
                         }
+
                     }
+
 
                     /*   if(telefones){
                         Telefone tf = new Telefone();
@@ -2131,27 +2130,31 @@ public void ReadJTablePag(int start, int size) {
             Psicologo p = new Psicologo();
 
             p.setCodPsicologo(value);
-            boolean status = Deletar.DPsicologo(p);
-            //limpar a tela
-            if (!status) {
-                JOptionPane.showMessageDialog(this, "Houve um problema ao Excluir o Psicologo, tente novamente!", "ERRO!", JOptionPane.ERROR_MESSAGE);
+            int result = JOptionPane.showConfirmDialog(this, "Você tem certeza que deseja excluir este Psicólogo?\nO Acesso ao sistema será revogado, Prosseguir?", "Confirmar Exclusão?", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+
+            if (result == 0) {
+                boolean status = Deletar.DPsicologo(p);
+                //limpar a tela
+                if (!status) {
+                    JOptionPane.showMessageDialog(this, "Houve um problema ao Excluir o Psicologo, tente novamente!", "ERRO!", JOptionPane.ERROR_MESSAGE);
+
+                }
+
+                //mostrar mensagem de sucesso
+                // JOptionPane.showMessageDialog(null,"Paciente Cadastrado com Sucesso!");
+                if (txtBusca.getText() != "") {
+                    getCountBusca(txtBusca.getText());
+                    SpinnerNumPaginas.setValue(currentPage);
+                    LabelQtdePaginas.setText("de " + totalPages);
+                    getPageDataBusca(currentPage, txtBusca.getText());
+                } else {
+                    getCount();
+                    SpinnerNumPaginas.setValue(currentPage);
+                    LabelQtdePaginas.setText("de " + totalPages);
+                    getPageData(currentPage);
+                }
 
             }
-
-            //mostrar mensagem de sucesso
-            // JOptionPane.showMessageDialog(null,"Paciente Cadastrado com Sucesso!");
-            if (txtBusca.getText() != "") {
-                getCountBusca(txtBusca.getText());
-                SpinnerNumPaginas.setValue(currentPage);
-                LabelQtdePaginas.setText("de " + totalPages);
-                getPageDataBusca(currentPage, txtBusca.getText());
-            } else {
-                getCount();
-                SpinnerNumPaginas.setValue(currentPage);
-                LabelQtdePaginas.setText("de " + totalPages);
-                getPageData(currentPage);
-            }
-
         } else {
             JOptionPane.showMessageDialog(this, "Selecione um Psicologo para alterar", "ERRO!", JOptionPane.ERROR_MESSAGE);
 
@@ -2184,7 +2187,7 @@ public void ReadJTablePag(int start, int size) {
     }//GEN-LAST:event_BtnManterPsicologoActionPerformed
 
     private void BtnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSairActionPerformed
-        TelaLogin  tl = new TelaLogin();
+        TelaLogin tl = new TelaLogin();
         tl.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BtnSairActionPerformed
@@ -2215,7 +2218,7 @@ public void ReadJTablePag(int start, int size) {
             java.util.logging.Logger.getLogger(ManterPsiAdm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-      
+
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
