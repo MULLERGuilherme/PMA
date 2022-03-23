@@ -1773,10 +1773,28 @@ public void readatributos() {
 
     private void SpinnerNumPaginasStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_SpinnerNumPaginasStateChanged
         // TODO add your handling code here:
-
+        int pag1 = currentPage;
         getPageData((int) SpinnerNumPaginas.getValue());
-
-        //
+        int pag2 = currentPage;
+            if(pag2<pag1){
+                BtnAvancarPouco.setEnabled(true);
+                BtnAvancarBastante.setEnabled(true);
+                    if (currentPage == 1) {
+                        BtnVoltarPouco.setEnabled(false);
+                        BtnVoltarBastante.setEnabled(false);  
+                }
+                    }
+                    else{
+                    {
+                        BtnVoltarPouco.setEnabled(true);
+                        BtnVoltarBastante.setEnabled(true);
+                        if (currentPage == totalPages) {
+                            BtnAvancarPouco.setEnabled(false);
+                            BtnAvancarBastante.setEnabled(false);  
+                }
+                    }       
+            }
+            BtnAlterar.setEnabled(false);
     }//GEN-LAST:event_SpinnerNumPaginasStateChanged
 
     private void BtnAvancarPoucoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAvancarPoucoActionPerformed

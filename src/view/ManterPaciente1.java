@@ -3298,6 +3298,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         } else {
 
             getPageData((int) SpinnerNumPaginas.getValue());
+            
         }
 //        
     }//GEN-LAST:event_SpinnerNumPaginasStateChanged
