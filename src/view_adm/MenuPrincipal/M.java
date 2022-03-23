@@ -3543,12 +3543,16 @@ public class M extends javax.swing.JFrame {
             Paciente p = new Paciente();
 
             p.setCodPaciente(value);
-            boolean status = Deletar.DPaciente(p);
-            //limpar a tela
-            if (!status) {
-                Restaurar.RestaurarPaciente(p.getCodPaciente());
-                JOptionPane.showMessageDialog(this, "Houve um problema ao Excluir o Paciente, tente novamente!", "ERRO!", JOptionPane.ERROR_MESSAGE);
+            int result = JOptionPane.showConfirmDialog(this, "Você tem certeza que deseja excluir este Paciente?\nNão será mais possível o cadastro de consultas, anotações e anamneses para este paciente. Prosseguir?", "Confirmar Exclusão?", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
 
+            if (result == 0) {
+                boolean status = Deletar.DPaciente(p);
+                //limpar a tela
+                if (!status) {
+                    Restaurar.RestaurarPaciente(p.getCodPaciente());
+                    JOptionPane.showMessageDialog(this, "Houve um problema ao Excluir o Paciente, tente novamente!", "ERRO!", JOptionPane.ERROR_MESSAGE);
+
+                }
             }
 
             //mostrar mensagem de sucesso

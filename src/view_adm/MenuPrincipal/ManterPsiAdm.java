@@ -2263,7 +2263,7 @@ public class ManterPsiAdm extends javax.swing.JFrame {
             Psicologo p = new Psicologo();
 
             p.setCodPsicologo(value);
-            int result = JOptionPane.showConfirmDialog(this, "Você tem certeza que deseja excluir este Psicólogo?\nO Acesso ao sistema será revogado, Prosseguir?", "Confirmar Exclusão?", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+            int result = JOptionPane.showConfirmDialog(this, "Você tem certeza que deseja excluir este Psicólogo?\nO Acesso ao sistema será revogado. Prosseguir?", "Confirmar Exclusão?", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
 
             if (result == 0) {
                 boolean status = Deletar.DPsicologo(p);
@@ -2276,18 +2276,17 @@ public class ManterPsiAdm extends javax.swing.JFrame {
 
                 //mostrar mensagem de sucesso
                 // JOptionPane.showMessageDialog(null,"Paciente Cadastrado com Sucesso!");
-                if (txtBusca.getText() != "") {
-                    getCountBusca(txtBusca.getText());
-                    SpinnerNumPaginas.setValue(currentPage);
-                    LabelQtdePaginas.setText("de " + totalPages);
-                    getPageDataBusca(currentPage, txtBusca.getText());
-                } else {
-                    getCount();
-                    SpinnerNumPaginas.setValue(currentPage);
-                    LabelQtdePaginas.setText("de " + totalPages);
-                    getPageData(currentPage);
-                }
-
+            }
+            if (txtBusca.getText() != "") {
+                getCountBusca(txtBusca.getText());
+                SpinnerNumPaginas.setValue(currentPage);
+                LabelQtdePaginas.setText("de " + totalPages);
+                getPageDataBusca(currentPage, txtBusca.getText());
+            } else {
+                getCount();
+                SpinnerNumPaginas.setValue(currentPage);
+                LabelQtdePaginas.setText("de " + totalPages);
+                getPageData(currentPage);
             }
         } else {
             JOptionPane.showMessageDialog(this, "Selecione um Psicologo para alterar", "ERRO!", JOptionPane.ERROR_MESSAGE);
