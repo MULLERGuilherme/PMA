@@ -1611,6 +1611,8 @@ public class ManterPsiAdm extends javax.swing.JFrame {
              BtnVisuAlterarDados.setEnabled(false);
             BtnVisuAlterarDados.setEnabled(false);
             BtnExcluirPsicologo.setEnabled(false);
+            BtnVoltarPouco.setEnabled(false);
+            BtnVoltarBastante.setEnabled(false);
           
 
             LabelQtdePaginas.setText("de " + totalPages);
@@ -1619,13 +1621,17 @@ public class ManterPsiAdm extends javax.swing.JFrame {
             if(totalPages==1){
             BtnAvancarPouco.setEnabled(false);
             BtnAvancarBastante.setEnabled(false);
-            BtnVoltarPouco.setEnabled(false);
-            BtnVoltarBastante.setEnabled(false);
+            
         }
             if(npag1<npag2){
             BtnAvancarPouco.setEnabled(true);
             BtnAvancarBastante.setEnabled(true);
             
+            
+        }
+             if(npag1>npag2){
+            BtnVoltarPouco.setEnabled(true);
+            BtnVoltarBastante.setEnabled(true);
             
         }
         } else {
@@ -1641,13 +1647,17 @@ public class ManterPsiAdm extends javax.swing.JFrame {
             if(totalPages==1){
             BtnAvancarPouco.setEnabled(false);
             BtnAvancarBastante.setEnabled(false);
-            BtnVoltarPouco.setEnabled(false);
-            BtnVoltarBastante.setEnabled(false);
+            
         }
             if(npag1<npag2){
             BtnAvancarPouco.setEnabled(true);
             BtnAvancarBastante.setEnabled(true);
             
+            
+        }
+             if(npag1>npag2){
+            BtnVoltarPouco.setEnabled(true);
+            BtnVoltarBastante.setEnabled(true);
             
         }
         }
