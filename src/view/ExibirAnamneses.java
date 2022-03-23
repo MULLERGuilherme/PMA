@@ -108,6 +108,8 @@ public class ExibirAnamneses extends javax.swing.JFrame {
         
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
         BtnExibirAnamneses.setEnabled(false);
+        BtnVoltarPouco.setEnabled(false);
+        BtnVoltarBastante.setEnabled(false);
         btnalterar.setEnabled(false);
         btnExcluir.setEnabled(false);
         DefaultTableModel dtmPacientes = (DefaultTableModel) JTAnamneses.getModel();
@@ -975,8 +977,8 @@ public class ExibirAnamneses extends javax.swing.JFrame {
 
         ModalHelp.getContentPane().add(jPanel5, java.awt.BorderLayout.CENTER);
 
-        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel10.setText("Nome:");
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         txtNome3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -989,8 +991,8 @@ public class ExibirAnamneses extends javax.swing.JFrame {
             }
         });
 
-        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel12.setText("CRP:");
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         txtCRP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1003,11 +1005,11 @@ public class ExibirAnamneses extends javax.swing.JFrame {
             }
         });
 
-        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel13.setText("E-mail:");
+        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        labeltelefone.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         labeltelefone.setText("Telefone:");
+        labeltelefone.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         TxtTelefone6.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -1015,8 +1017,8 @@ public class ExibirAnamneses extends javax.swing.JFrame {
             }
         });
 
-        labeltelefone2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         labeltelefone2.setText("Telefone 2:");
+        labeltelefone2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         TxtTelefone7.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -1026,13 +1028,13 @@ public class ExibirAnamneses extends javax.swing.JFrame {
 
         PainelIdentificacaoPessoal6.setBackground(new java.awt.Color(59, 131, 117));
 
+        jLabel15.setText("DADOS DO PSICÓLOGO");
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel15.setText("DADOS DO PSICÓLOGO");
 
+        jLabel35.setText("NOME");
         jLabel35.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel35.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel35.setText("NOME");
 
         javax.swing.GroupLayout PainelIdentificacaoPessoal6Layout = new javax.swing.GroupLayout(PainelIdentificacaoPessoal6);
         PainelIdentificacaoPessoal6.setLayout(PainelIdentificacaoPessoal6Layout);
@@ -1051,9 +1053,9 @@ public class ExibirAnamneses extends javax.swing.JFrame {
             .addComponent(jLabel35, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        BtnAlterar.setText("Alterar");
         BtnAlterar.setBackground(new java.awt.Color(59, 131, 117));
         BtnAlterar.setForeground(new java.awt.Color(255, 255, 255));
-        BtnAlterar.setText("Alterar");
         BtnAlterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnAlterarActionPerformed(evt);
@@ -1126,8 +1128,8 @@ public class ExibirAnamneses extends javax.swing.JFrame {
 
         PainelMeusDados6.setBackground(new java.awt.Color(102, 102, 102));
 
-        jButton9.setBackground(new java.awt.Color(102, 102, 102));
         jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/UserIconBranco90x90.png"))); // NOI18N
+        jButton9.setBackground(new java.awt.Color(102, 102, 102));
         jButton9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton9MouseClicked(evt);
@@ -1139,9 +1141,9 @@ public class ExibirAnamneses extends javax.swing.JFrame {
             }
         });
 
+        jLabel32.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel32.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel32.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel32.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout PainelMeusDados6Layout = new javax.swing.GroupLayout(PainelMeusDados6);
         PainelMeusDados6.setLayout(PainelMeusDados6Layout);
@@ -1170,8 +1172,9 @@ public class ExibirAnamneses extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addComponent(PainelMeusDados6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1009, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 996, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1293,7 +1296,6 @@ public class ExibirAnamneses extends javax.swing.JFrame {
         });
 
         BtnAvancarBastante.setText(">>");
-        BtnAvancarBastante.setOpaque(false);
         BtnAvancarBastante.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnAvancarBastanteActionPerformed(evt);
@@ -1645,21 +1647,44 @@ public class ExibirAnamneses extends javax.swing.JFrame {
         if (currentPage != 1) {
             if (txtBusca.getText() != "") {
                 if (currentPage - 5 < 1) {
-                    getPageDataBusca(1, txtBusca.getText());
+                    getPageDataBusca(1, txtBusca.getText()); BtnAvancarPouco.setEnabled(true);
+                    BtnAvancarBastante.setEnabled(true);
+                    if (currentPage == 1) {
+                         BtnVoltarPouco.setEnabled(false);
+                    BtnVoltarBastante.setEnabled(false);  
+                }
                     
                 } else {
                     getPageDataBusca(currentPage - 5, txtBusca.getText());
                     btnalterar.setEnabled(false);
                  btnExcluir.setEnabled(false);
+                  BtnAvancarPouco.setEnabled(true);
+                    BtnAvancarBastante.setEnabled(true);
+                    if (currentPage == 1) {
+                         BtnVoltarPouco.setEnabled(false);
+                    BtnVoltarBastante.setEnabled(false);  
+                }
                 }
 
             } else {
                 if (currentPage - 5 < 1) {
                     getPageData(1);
+                     BtnAvancarPouco.setEnabled(true);
+                    BtnAvancarBastante.setEnabled(true);
+                    if (currentPage == 1) {
+                         BtnVoltarPouco.setEnabled(false);
+                    BtnVoltarBastante.setEnabled(false);  
+                }
                 } else {
                     getPageData(currentPage - 5);
                     btnalterar.setEnabled(false);
                  btnExcluir.setEnabled(false);
+                  BtnAvancarPouco.setEnabled(true);
+                    BtnAvancarBastante.setEnabled(true);
+                    if (currentPage == 1) {
+                         BtnVoltarPouco.setEnabled(false);
+                    BtnVoltarBastante.setEnabled(false);  
+                }
                 }
             }
 
@@ -1674,8 +1699,20 @@ public class ExibirAnamneses extends javax.swing.JFrame {
                 getPageDataBusca(currentPage - 1, txtBusca.getText());
                  btnalterar.setEnabled(false);
                  btnExcluir.setEnabled(false);
+                 BtnAvancarPouco.setEnabled(true);
+                 BtnAvancarBastante.setEnabled(true);
+                 if (currentPage == 1) {
+                    BtnVoltarPouco.setEnabled(false);
+                    BtnVoltarBastante.setEnabled(false);  
+                }
             } else {
                 getPageData(currentPage - 1);
+                 BtnAvancarPouco.setEnabled(true);
+                 BtnAvancarBastante.setEnabled(true);
+                 if (currentPage == 1) {
+                    BtnVoltarPouco.setEnabled(false);
+                    BtnVoltarBastante.setEnabled(false);  
+                }
             }
 
         }
@@ -1701,9 +1738,21 @@ public class ExibirAnamneses extends javax.swing.JFrame {
             if (txtBusca.getText() != "") {
                 getPageDataBusca(currentPage + 1, txtBusca.getText());
                  btnalterar.setEnabled(false);
-                btnExcluir.setEnabled(false);
+                 btnExcluir.setEnabled(false);
+                 BtnVoltarPouco.setEnabled(true);
+                 BtnVoltarBastante.setEnabled(true);
+                    if (currentPage == totalPages) {
+                        BtnAvancarPouco.setEnabled(false);
+                        BtnAvancarBastante.setEnabled(false);  
+                }
             } else {
                 getPageData(currentPage + 1);
+                 BtnVoltarPouco.setEnabled(true);
+                 BtnVoltarBastante.setEnabled(true);
+                 if (currentPage == totalPages) {
+                    BtnAvancarPouco.setEnabled(false);
+                    BtnAvancarBastante.setEnabled(false);  
+                }
             }
 
         }
@@ -1718,16 +1767,41 @@ public class ExibirAnamneses extends javax.swing.JFrame {
                     getPageDataBusca(totalPages, txtBusca.getText());
                      btnalterar.setEnabled(false);
                      btnExcluir.setEnabled(false);
+                        BtnVoltarPouco.setEnabled(true);
+                        BtnVoltarBastante.setEnabled(true);
+                        if (currentPage == totalPages) {
+                        BtnAvancarPouco.setEnabled(false);
+                        BtnAvancarBastante.setEnabled(false);  
+                }
                 } else {
                     getPageDataBusca(currentPage + 5, txtBusca.getText());
                      btnalterar.setEnabled(false);
                      btnExcluir.setEnabled(false);
+                      BtnVoltarPouco.setEnabled(true);
+                      BtnVoltarBastante.setEnabled(true);
+                      if (currentPage == totalPages) {
+                        BtnAvancarPouco.setEnabled(false);
+                        BtnAvancarBastante.setEnabled(false);  
+                }
+                     
                 }
             } else {
                 if (currentPage + 5 > totalPages) {
                     getPageData(totalPages);
+                     BtnVoltarPouco.setEnabled(true);
+                     BtnVoltarBastante.setEnabled(true);
+                     if (currentPage == totalPages) {
+                        BtnAvancarPouco.setEnabled(false);
+                        BtnAvancarBastante.setEnabled(false);  
+                }
                 } else {
                     getPageData(currentPage + 5);
+                     BtnVoltarPouco.setEnabled(true);
+                     BtnVoltarBastante.setEnabled(true);
+                     if (currentPage == totalPages) {
+                         BtnAvancarPouco.setEnabled(false);
+                         BtnAvancarBastante.setEnabled(false);  
+                }
                 }
             }
 
