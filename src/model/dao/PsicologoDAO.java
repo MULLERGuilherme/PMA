@@ -128,6 +128,29 @@ public class PsicologoDAO {
         return status;
     }
     
+     public boolean RestaurarPsicologo(int CodPsicologo) {
+        boolean status = true;
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        try {
+            stmt = con.prepareStatement("Update  psicologo SET Deletado = false WHERE CodPsicologo =? ");
+
+            //sem CPF pq nao faz sentido
+            //stmt.setString(1,  p.getCPF());
+           
+            stmt.setInt(1, CodPsicologo);
+
+            stmt.executeUpdate();
+
+        } catch (SQLException ex) {
+            status = false;
+            JOptionPane.showMessageDialog(null, "Erro ao alterar :" + ex);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt);
+        }
+        return status;
+    }
+    
     public boolean UpdateMP(Psicologo p) {
         boolean status = true;
         Connection con = ConnectionFactory.getConnection();

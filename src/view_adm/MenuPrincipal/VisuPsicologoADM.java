@@ -541,7 +541,7 @@ public class VisuPsicologoADM extends javax.swing.JFrame {
 
     private void BtnManterPsicologoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnManterPsicologoActionPerformed
         // TODO add your handling code here:
-        ManterPsicologoAdm mp = new ManterPsicologoAdm();
+        ManterPsiAdm mp = new ManterPsiAdm();
         Util.SizeJanela(mp);
         this.dispose();
 

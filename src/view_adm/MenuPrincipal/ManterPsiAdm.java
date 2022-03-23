@@ -1764,10 +1764,10 @@ public class ManterPsiAdm extends javax.swing.JFrame {
             if (JCBdeletados.getSelectedIndex() == 1) {
                 p.setDeletado(false);
             }
-            boolean status = dao.SoftUpdate(p);
+            boolean status = Restaurar.RestaurarPsicologos(p.getCodPsicologo());
             if (status) {
 
-                Restaurar.RestaurarTelefonesPsicologos(p.getCodPsicologo());
+                
                 if (txtBusca.getText() != "") {
 
                     getCountBusca(txtBusca.getText());
@@ -1781,6 +1781,7 @@ public class ManterPsiAdm extends javax.swing.JFrame {
                     getPageData(currentPage);
                 }
             } else {
+                Deletar.DPsicologo(p);
                 JOptionPane.showMessageDialog(this, "Ocorreu um erro ao restaurar o Psicologo, tente novamente!", "ERRO!", JOptionPane.ERROR_MESSAGE);
             }
         }
@@ -2263,6 +2264,7 @@ public class ManterPsiAdm extends javax.swing.JFrame {
                 boolean status = Deletar.DPsicologo(p);
                 //limpar a tela
                 if (!status) {
+                    Restaurar.RestaurarPsicologos(p.getCodPsicologo());
                     JOptionPane.showMessageDialog(this, "Houve um problema ao Excluir o Psicologo, tente novamente!", "ERRO!", JOptionPane.ERROR_MESSAGE);
 
                 }

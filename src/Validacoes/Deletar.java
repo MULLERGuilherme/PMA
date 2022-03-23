@@ -22,85 +22,69 @@ import model.dao.TelefoneDAO;
 public class Deletar {
 
     public static boolean DPaciente(Paciente p) {
-        
+
         boolean status;
-        
+
         PacienteDAO dao = new PacienteDAO();
         TelefoneDAO tdao = new TelefoneDAO();
         ConsultaDAO cdao = new ConsultaDAO();
         AnamneseDAO adao = new AnamneseDAO();
         AnotacaoDAO antdao = new AnotacaoDAO();
-        
-        
+
         status = tdao.DeleteTPaciente(p);
         //System.out.println("telefone excluido com sucesso");
-        
+
         if (status) {
-            
-        
-            for(Consulta c : cdao.Read(p)){
+
+            for (Consulta c : cdao.Read(p)) {
                 status = adao.Delete(c);
                 status = antdao.Delete(c);
-                
-        }
+
+            }
             cdao.DeleteConsultas(p);
             status = dao.Delete(p);
-            
+
         }
         return status;
     }
-    
-     public static boolean DPsicologo(Psicologo p) {
-        
+
+    public static boolean DPsicologo(Psicologo p) {
+
         boolean status;
-        
+
         PsicologoDAO dao = new PsicologoDAO();
         TelefoneDAO tdao = new TelefoneDAO();
         ConsultaDAO cdao = new ConsultaDAO();
         AnamneseDAO adao = new AnamneseDAO();
         AnotacaoDAO antdao = new AnotacaoDAO();
-        
-        
+
         status = tdao.SoftDeleteTPsicologo(p);
-       
-        if (status) {
-            
         
-            for(Consulta c : cdao.Read(p)){
-                status = adao.Delete(c);
-                status = antdao.Delete(c);
-                
-        }
-            cdao.DeleteConsultas(p);
+        if (status) {
+
+            status = adao.SoftDelete(p);
+            status = antdao.SoftDelete(p);
+
+            cdao.SoftDeleteConsultas(p);
             status = dao.softDelete(p);
-            
+            return status;
         }
         return status;
     }
-     
-      public static boolean DConsulta(Consulta c) {
+
+    public static boolean DConsulta(Consulta c) {
         boolean status;
-        
-        
+
         ConsultaDAO cdao = new ConsultaDAO();
         AnamneseDAO adao = new AnamneseDAO();
         AnotacaoDAO antdao = new AnotacaoDAO();
-        
-        
-        
-            
-        
-           
-                status = adao.Delete(c);
-                status = antdao.Delete(c);
-                
-        
-           status =  cdao.Delete(c);
-            
-            
-       
+
+        status = adao.Delete(c);
+        status = antdao.Delete(c);
+
+        status = cdao.Delete(c);
+
         return status;
     }
-     
-}
 
+}

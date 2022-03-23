@@ -19,7 +19,16 @@ public class Consulta {
     private Paciente paciente;
     private Psicologo psicologo;
     private String Pagamento;
+    private Boolean Deletada = false;
 
+    public Boolean getDeletada() {
+        return Deletada;
+    }
+
+    public void setDeletada(Boolean Deletada) {
+        this.Deletada = Deletada;
+    }
+    
     public String getPagamento() {
         return Pagamento;
     }

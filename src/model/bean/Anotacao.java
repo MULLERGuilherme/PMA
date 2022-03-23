@@ -15,6 +15,15 @@ private String Assunto;
 private String Texto;
 private Object DataAnotacao;
 private Consulta consulta;
+private Boolean Deletada = false;
+
+    public Boolean getDeletada() {
+        return Deletada;
+    }
+
+    public void setDeletada(Boolean Deletada) {
+        this.Deletada = Deletada;
+    }
 
     public Anotacao(){
     this.consulta = new Consulta();

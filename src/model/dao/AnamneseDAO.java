@@ -17,6 +17,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import model.bean.Anamnese;
 import model.bean.Consulta;
+import model.bean.Psicologo;
 
 /**
  *
@@ -276,7 +277,49 @@ public class AnamneseDAO {
         }
         return status;
     }
+    public boolean SoftDelete(Psicologo p) {
+        boolean status = true;
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
 
+        try {
+            stmt = con.prepareStatement("Update anamnese set Deletada = true WHERE CodPsicologo =? ");
+
+            stmt.setInt(1, p.getCodPsicologo());
+
+            stmt.executeUpdate();
+
+        } catch (SQLException ex) {
+
+            status = false;
+
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt);
+        }
+        return status;
+    }
+    
+    public boolean RestaurarAnamneses(int CodPsicologo) {
+        boolean status = true;
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+
+        try {
+            stmt = con.prepareStatement("Update anamnese set Deletada = false WHERE CodPsicologo =? ");
+
+            stmt.setInt(1, CodPsicologo);
+
+            stmt.executeUpdate();
+
+        } catch (SQLException ex) {
+
+            status = false;
+
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt);
+        }
+        return status;
+    }
     public Anamnese ReadAnamneseConsulta(int CodConsulta) {
 
         Connection con = ConnectionFactory.getConnection();

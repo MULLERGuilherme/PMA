@@ -29,7 +29,16 @@ public class Anamnese {
     private String Sintomas;
     private String ComoComecou;
     private String Psicomotricidade;
+    private Boolean Deletada = false;
 
+    public Boolean getDeletada() {
+        return Deletada;
+    }
+
+    public void setDeletada(Boolean Deletada) {
+        this.Deletada = Deletada;
+    }
+    
 //Mudancas 2.0
 //private String QueixasCognitivas;
     public void setQAEDesanimo(boolean QAEDesanimo) {

@@ -42,7 +42,7 @@ public class ExibirAnamneses extends javax.swing.JFrame {
     public static int codigoanamnese;
 
     //Paginacao
-    int PAGE_SIZE = 1;
+    int PAGE_SIZE = 5;
     double tableRowCount;
     int totalPages = 1;
     int currentPage = 1;

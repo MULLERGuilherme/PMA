@@ -329,5 +329,47 @@ public class ConsultaDAO {
         }
         return status;
     }
+    public boolean SoftDeleteConsultas(Psicologo p) {
+        boolean status = true;
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
 
+        try {
+            stmt = con.prepareStatement("Update consulta set Deletada = true WHERE CodPsicologo =? ");
+
+            stmt.setInt(1, p.getCodPsicologo());
+
+            stmt.executeUpdate();
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao Excluir :" + ex);
+            status = false;
+
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt);
+        }
+        return status;
+    }
+    
+    public boolean RestaurarConsultas(int CodPsicologo) {
+        boolean status = true;
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+
+        try {
+            stmt = con.prepareStatement("Update consulta set Deletada = false WHERE CodPsicologo =? ");
+
+            stmt.setInt(1, CodPsicologo);
+
+            stmt.executeUpdate();
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao Excluir :" + ex);
+            status = false;
+
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt);
+        }
+        return status;
+    }
 }
