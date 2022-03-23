@@ -148,14 +148,14 @@ public class M extends javax.swing.JFrame {
         this.getCountInit();
 
         initComponents();
-         BtnVoltarPouco.setEnabled(false);
+        BtnVoltarPouco.setEnabled(false);
         BtnVoltarBastante.setEnabled(false);
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
         BtnManterPaciente.setEnabled(false);
         DefaultTableModel dtmPacientes = (DefaultTableModel) JTPacientes.getModel();
         BtnVisuAlterarDados.setEnabled(false);
         BtnExcluirPaciente.setEnabled(false);
-       
+
         btnRestaurar.setVisible(false);
         TableColumnModel cmod = JTPacientes.getColumnModel();
         cmod.removeColumn(cmod.getColumn(0));
@@ -2847,7 +2847,7 @@ public class M extends javax.swing.JFrame {
     private void JTPacientesMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTPacientesMousePressed
         BtnVisuAlterarDados.setEnabled(true);
         BtnExcluirPaciente.setEnabled(true);
-       
+
         if (JCBdeletados.getSelectedIndex() == 1) {
             btnRestaurar.setEnabled(true);
         }
@@ -2947,18 +2947,18 @@ public class M extends javax.swing.JFrame {
             if (txtBusca.getText() != "") {
                 getPageDataBusca(currentPage - 1, txtBusca.getText());
                 BtnAvancarPouco.setEnabled(true);
-                    BtnAvancarBastante.setEnabled(true);
-                    if (currentPage == 1) {
-                        BtnVoltarPouco.setEnabled(false);
-                        BtnVoltarBastante.setEnabled(false);  
+                BtnAvancarBastante.setEnabled(true);
+                if (currentPage == 1) {
+                    BtnVoltarPouco.setEnabled(false);
+                    BtnVoltarBastante.setEnabled(false);
                 }
             } else {
                 getPageData(currentPage - 1);
                 BtnAvancarPouco.setEnabled(true);
-                    BtnAvancarBastante.setEnabled(true);
-                    if (currentPage == 1) {
-                        BtnVoltarPouco.setEnabled(false);
-                        BtnVoltarBastante.setEnabled(false);  
+                BtnAvancarBastante.setEnabled(true);
+                if (currentPage == 1) {
+                    BtnVoltarPouco.setEnabled(false);
+                    BtnVoltarBastante.setEnabled(false);
                 }
             }
 
@@ -2976,16 +2976,16 @@ public class M extends javax.swing.JFrame {
                     BtnVoltarBastante.setEnabled(true);
                     if (currentPage == totalPages) {
                         BtnAvancarPouco.setEnabled(false);
-                        BtnAvancarBastante.setEnabled(false);  
-                }
+                        BtnAvancarBastante.setEnabled(false);
+                    }
                 } else {
                     getPageDataBusca(currentPage + 5, txtBusca.getText());
                     BtnVoltarPouco.setEnabled(true);
                     BtnVoltarBastante.setEnabled(true);
                     if (currentPage == totalPages) {
                         BtnAvancarPouco.setEnabled(false);
-                        BtnAvancarBastante.setEnabled(false);  
-                }
+                        BtnAvancarBastante.setEnabled(false);
+                    }
                 }
             } else {
                 if (currentPage + 5 > totalPages) {
@@ -2994,16 +2994,16 @@ public class M extends javax.swing.JFrame {
                     BtnVoltarBastante.setEnabled(true);
                     if (currentPage == totalPages) {
                         BtnAvancarPouco.setEnabled(false);
-                        BtnAvancarBastante.setEnabled(false);  
-                }
+                        BtnAvancarBastante.setEnabled(false);
+                    }
                 } else {
                     getPageData(currentPage + 5);
                     BtnVoltarPouco.setEnabled(true);
                     BtnVoltarBastante.setEnabled(true);
                     if (currentPage == totalPages) {
                         BtnAvancarPouco.setEnabled(false);
-                        BtnAvancarBastante.setEnabled(false);  
-                }
+                        BtnAvancarBastante.setEnabled(false);
+                    }
                 }
             }
 
@@ -3020,16 +3020,16 @@ public class M extends javax.swing.JFrame {
                     BtnAvancarBastante.setEnabled(true);
                     if (currentPage == 1) {
                         BtnVoltarPouco.setEnabled(false);
-                        BtnVoltarBastante.setEnabled(false);  
-                }
+                        BtnVoltarBastante.setEnabled(false);
+                    }
                 } else {
                     getPageDataBusca(currentPage - 5, txtBusca.getText());
                     BtnAvancarPouco.setEnabled(true);
                     BtnAvancarBastante.setEnabled(true);
                     if (currentPage == 1) {
                         BtnVoltarPouco.setEnabled(false);
-                        BtnVoltarBastante.setEnabled(false);  
-                }
+                        BtnVoltarBastante.setEnabled(false);
+                    }
                 }
 
             } else {
@@ -3039,16 +3039,16 @@ public class M extends javax.swing.JFrame {
                     BtnAvancarBastante.setEnabled(true);
                     if (currentPage == 1) {
                         BtnVoltarPouco.setEnabled(false);
-                        BtnVoltarBastante.setEnabled(false);  
-                }
+                        BtnVoltarBastante.setEnabled(false);
+                    }
                 } else {
                     getPageData(currentPage - 5);
                     BtnAvancarPouco.setEnabled(true);
                     BtnAvancarBastante.setEnabled(true);
                     if (currentPage == 1) {
                         BtnVoltarPouco.setEnabled(false);
-                        BtnVoltarBastante.setEnabled(false);  
-                }
+                        BtnVoltarBastante.setEnabled(false);
+                    }
                 }
             }
 
@@ -3061,18 +3061,18 @@ public class M extends javax.swing.JFrame {
             if (txtBusca.getText() != "") {
                 getPageDataBusca(currentPage + 1, txtBusca.getText());
                 BtnVoltarPouco.setEnabled(true);
-                    BtnVoltarBastante.setEnabled(true);
-                    if (currentPage == totalPages) {
-                        BtnAvancarPouco.setEnabled(false);
-                        BtnAvancarBastante.setEnabled(false);  
+                BtnVoltarBastante.setEnabled(true);
+                if (currentPage == totalPages) {
+                    BtnAvancarPouco.setEnabled(false);
+                    BtnAvancarBastante.setEnabled(false);
                 }
             } else {
                 getPageData(currentPage + 1);
                 BtnVoltarPouco.setEnabled(true);
-                    BtnVoltarBastante.setEnabled(true);
-                    if (currentPage == totalPages) {
-                        BtnAvancarPouco.setEnabled(false);
-                        BtnAvancarBastante.setEnabled(false);  
+                BtnVoltarBastante.setEnabled(true);
+                if (currentPage == totalPages) {
+                    BtnAvancarPouco.setEnabled(false);
+                    BtnAvancarBastante.setEnabled(false);
                 }
             }
 
@@ -3206,27 +3206,26 @@ public class M extends javax.swing.JFrame {
             int pag1 = currentPage;
             getPageDataBusca((int) SpinnerNumPaginas.getValue(), txtBusca.getText());
             int pag2 = currentPage;
-            if(pag2<pag1){
+            if (pag2 < pag1) {
                 BtnAvancarPouco.setEnabled(true);
                 BtnAvancarBastante.setEnabled(true);
-                    if (currentPage == 1) {
-                        BtnVoltarPouco.setEnabled(false);
-                        BtnVoltarBastante.setEnabled(false);  
+                if (currentPage == 1) {
+                    BtnVoltarPouco.setEnabled(false);
+                    BtnVoltarBastante.setEnabled(false);
                 }
+            } else {
+                {
+                    BtnVoltarPouco.setEnabled(true);
+                    BtnVoltarBastante.setEnabled(true);
+                    if (currentPage == totalPages) {
+                        BtnAvancarPouco.setEnabled(false);
+                        BtnAvancarBastante.setEnabled(false);
                     }
-                    else{
-                    {
-                        BtnVoltarPouco.setEnabled(true);
-                        BtnVoltarBastante.setEnabled(true);
-                        if (currentPage == totalPages) {
-                            BtnAvancarPouco.setEnabled(false);
-                            BtnAvancarBastante.setEnabled(false);  
                 }
-                    }
-                   
+
             }
-             BtnVisuAlterarDados.setEnabled(false);
-                    BtnExcluirPaciente.setEnabled(false);
+            BtnVisuAlterarDados.setEnabled(false);
+            BtnExcluirPaciente.setEnabled(false);
 
         } else {
 
@@ -3609,26 +3608,25 @@ public class M extends javax.swing.JFrame {
             if (JCBdeletados.getSelectedIndex() == 1) {
                 p.setDeletado(false);
             }
-            boolean status =  Restaurar.RestaurarPaciente(p.getCodPaciente());
-            if (status) {
-
-                
-                if (txtBusca.getText() != "") {
-
-                    getCountBusca(txtBusca.getText());
-                    SpinnerNumPaginas.setValue(currentPage);
-                    LabelQtdePaginas.setText("de " + totalPages);
-                    getPageDataBusca(currentPage, txtBusca.getText());
-                } else {
-                    getCount();
-                    SpinnerNumPaginas.setValue(currentPage);
-                    LabelQtdePaginas.setText("de " + totalPages);
-                    getPageData(currentPage);
-                }
-            }else{
+            boolean status = Restaurar.RestaurarPaciente(p.getCodPaciente());
+            if (!status) {
                 Deletar.DPaciente(p);
                 JOptionPane.showMessageDialog(this, "Ocorreu um erro ao restaurar o Paciente, tente novamente!", "ERRO!", JOptionPane.ERROR_MESSAGE);
-            } 
+            }
+
+            if (txtBusca.getText() != "") {
+
+                getCountBusca(txtBusca.getText());
+                SpinnerNumPaginas.setValue(currentPage);
+                LabelQtdePaginas.setText("de " + totalPages);
+                getPageDataBusca(currentPage, txtBusca.getText());
+            } else {
+                getCount();
+                SpinnerNumPaginas.setValue(currentPage);
+                LabelQtdePaginas.setText("de " + totalPages);
+                getPageData(currentPage);
+            }
+
         }
 
     }//GEN-LAST:event_btnRestaurarActionPerformed
@@ -3679,7 +3677,7 @@ public class M extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnManterPsicologoActionPerformed
 
     private void BtnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSairActionPerformed
-        TelaLogin  tl = new TelaLogin();
+        TelaLogin tl = new TelaLogin();
         tl.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BtnSairActionPerformed
