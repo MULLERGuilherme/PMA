@@ -301,7 +301,7 @@ public class ADMDAO {
         ResultSet rs = null;
         List<Vw_TelefonesPsicologos> vw = new ArrayList<>();
         try {
-            stmt = con.prepareStatement("SELECT CodigoPsicologo, Psicologo, CRP, Email, GROUP_CONCAT(numero) as Numero FROM vw_TelefonePsicologos WHERE PsicologoDeletado = true Group By Psicologo Limit " + start + "," + size);
+            stmt = con.prepareStatement("SELECT CodigoPsicologo, Psicologo, CRP, Email, GROUP_CONCAT(numero) as Numero FROM vw_TelefonePsicologos WHERE PsicologoDeletado = true Group By CodigoPsicologo order by Psicologo Limit " + start + "," + size);
             rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -332,7 +332,7 @@ public class ADMDAO {
         ResultSet rs = null;
         List<Vw_TelefonesPsicologos> vw = new ArrayList<>();
         try {
-            stmt = con.prepareStatement("SELECT CodigoPsicologo, Psicologo, CRP, Email, GROUP_CONCAT(numero) as Numero FROM vw_TelefonePsicologos WHERE ((Psicologo Like '%" + Busca + "%') OR (CRP Like '%" + Busca + "%') OR (Email Like '%" + Busca + "%') OR (Numero Like '%" + Busca + "%')) AND PsicologoDeletado = true  Group By Psicologo Limit " + size + " OFFSET " + start);
+            stmt = con.prepareStatement("SELECT CodigoPsicologo, Psicologo, CRP, Email, GROUP_CONCAT(numero) as Numero FROM vw_TelefonePsicologos WHERE ((Psicologo Like '%" + Busca + "%') OR (CRP Like '%" + Busca + "%') OR (Email Like '%" + Busca + "%') OR (Numero Like '%" + Busca + "%')) AND PsicologoDeletado = true  Group By CodigoPsicologo order by Psicologo Limit " + size + " OFFSET " + start);
             rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -413,7 +413,7 @@ public class ADMDAO {
         ResultSet rs = null;
         List<Vw_TelefonesPsicologos> vw = new ArrayList<>();
         try {
-            stmt = con.prepareStatement("SELECT CodigoPsicologo, Psicologo, CRP, Email, GROUP_CONCAT(numero) as Numero FROM vw_TelefonePsicologos WHERE PsicologoDeletado = false Group By Psicologo Limit " + start + "," + size);
+            stmt = con.prepareStatement("SELECT CodigoPsicologo, Psicologo, CRP, Email, GROUP_CONCAT(numero) as Numero FROM vw_TelefonePsicologos WHERE PsicologoDeletado = false Group By CodigoPsicologo order by Psicologo Limit " + start + "," + size);
             rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -444,7 +444,7 @@ public class ADMDAO {
         ResultSet rs = null;
         List<Vw_TelefonesPsicologos> vw = new ArrayList<>();
         try {
-            stmt = con.prepareStatement("SELECT CodigoPsicologo, Psicologo, CRP, Email, GROUP_CONCAT(numero) as Numero FROM vw_TelefonePsicologos WHERE ((Psicologo Like '%" + Busca + "%') OR (CRP Like '%" + Busca + "%') OR (Email Like '%" + Busca + "%') OR (Numero Like '%" + Busca + "%')) AND PsicologoDeletado = false  Group By Psicologo Limit " + size + " OFFSET " + start);
+            stmt = con.prepareStatement("SELECT CodigoPsicologo, Psicologo, CRP, Email, GROUP_CONCAT(numero) as Numero FROM vw_TelefonePsicologos WHERE ((Psicologo Like '%" + Busca + "%') OR (CRP Like '%" + Busca + "%') OR (Email Like '%" + Busca + "%') OR (Numero Like '%" + Busca + "%')) AND PsicologoDeletado = false  Group By CodigoPsicologo order by Psicologo Limit " + size + " OFFSET " + start);
             rs = stmt.executeQuery();
 
             while (rs.next()) {
