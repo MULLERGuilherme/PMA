@@ -116,7 +116,9 @@ public class ExibirAnamneses2 extends javax.swing.JFrame {
         jLabel11.setText(str);
         
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
-         BtnPacientes.setEnabled(false);
+        BtnPacientes.setEnabled(false);
+        BtnVoltarPouco.setEnabled(false);
+        BtnVoltarBastante.setEnabled(false);
         btnalterar.setEnabled(false);
         btnExcluir.setEnabled(false);
 
@@ -869,9 +871,9 @@ public void readpsicologo() {
             .addComponent(jLabel35, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        BtnAlterar.setText("Alterar");
         BtnAlterar.setBackground(new java.awt.Color(59, 131, 117));
         BtnAlterar.setForeground(new java.awt.Color(255, 255, 255));
-        BtnAlterar.setText("Alterar");
         BtnAlterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnAlterarActionPerformed(evt);
@@ -1121,7 +1123,6 @@ public void readpsicologo() {
         });
 
         BtnAvancarBastante.setText(">>");
-        BtnAvancarBastante.setOpaque(false);
         BtnAvancarBastante.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnAvancarBastanteActionPerformed(evt);
@@ -1610,15 +1611,39 @@ public void readpsicologo() {
             if (txtBusca.getText() != "") {
                 if (currentPage - 5 < 1) {
                     getPageDataBusca(1, txtBusca.getText());
+                    BtnAvancarPouco.setEnabled(true);
+                    BtnAvancarBastante.setEnabled(true);
+                    if (currentPage == 1) {
+                         BtnVoltarPouco.setEnabled(false);
+                    BtnVoltarBastante.setEnabled(false);  
+                }
                 } else {
                     getPageDataBusca(currentPage - 5, txtBusca.getText());
+                    BtnAvancarPouco.setEnabled(true);
+                    BtnAvancarBastante.setEnabled(true);
+                    if (currentPage == 1) {
+                         BtnVoltarPouco.setEnabled(false);
+                    BtnVoltarBastante.setEnabled(false);  
+                }
                 }
 
             } else {
                 if (currentPage - 5 < 1) {
                     getPageData(1);
+                    BtnAvancarPouco.setEnabled(true);
+                    BtnAvancarBastante.setEnabled(true);
+                    if (currentPage == 1) {
+                         BtnVoltarPouco.setEnabled(false);
+                    BtnVoltarBastante.setEnabled(false);  
+                }
                 } else {
                     getPageData(currentPage - 5);
+                    BtnAvancarPouco.setEnabled(true);
+                    BtnAvancarBastante.setEnabled(true);
+                    if (currentPage == 1) {
+                         BtnVoltarPouco.setEnabled(false);
+                    BtnVoltarBastante.setEnabled(false);  
+                }
                 }
             }
 
@@ -1631,8 +1656,20 @@ public void readpsicologo() {
         if (currentPage != 1) { //diferente da 1 pagina
             if (txtBusca.getText() != "") {
                 getPageDataBusca(currentPage - 1, txtBusca.getText());
+                BtnAvancarPouco.setEnabled(true);
+                    BtnAvancarBastante.setEnabled(true);
+                    if (currentPage == 1) {
+                         BtnVoltarPouco.setEnabled(false);
+                    BtnVoltarBastante.setEnabled(false);  
+                }
             } else {
                 getPageData(currentPage - 1);
+                BtnAvancarPouco.setEnabled(true);
+                    BtnAvancarBastante.setEnabled(true);
+                    if (currentPage == 1) {
+                         BtnVoltarPouco.setEnabled(false);
+                    BtnVoltarBastante.setEnabled(false);  
+                }
             }
 
         }
@@ -1655,8 +1692,20 @@ public void readpsicologo() {
         if (currentPage < totalPages) {
             if (txtBusca.getText() != "") {
                 getPageDataBusca(currentPage + 1, txtBusca.getText());
+                 BtnVoltarPouco.setEnabled(true);
+                 BtnVoltarBastante.setEnabled(true);
+                    if (currentPage == totalPages) {
+                        BtnAvancarPouco.setEnabled(false);
+                        BtnAvancarBastante.setEnabled(false);  
+                }
             } else {
                 getPageData(currentPage + 1);
+                 BtnVoltarPouco.setEnabled(true);
+                 BtnVoltarBastante.setEnabled(true);
+                    if (currentPage == totalPages) {
+                        BtnAvancarPouco.setEnabled(false);
+                        BtnAvancarBastante.setEnabled(false);  
+                }
             }
 
         }
@@ -1669,14 +1718,38 @@ public void readpsicologo() {
             if (txtBusca.getText() != "") {
                 if (currentPage + 5 > totalPages) {
                     getPageDataBusca(totalPages, txtBusca.getText());
+                     BtnVoltarPouco.setEnabled(true);
+                 BtnVoltarBastante.setEnabled(true);
+                    if (currentPage == totalPages) {
+                        BtnAvancarPouco.setEnabled(false);
+                        BtnAvancarBastante.setEnabled(false);  
+                }
                 } else {
                     getPageDataBusca(currentPage + 5, txtBusca.getText());
+                     BtnVoltarPouco.setEnabled(true);
+                 BtnVoltarBastante.setEnabled(true);
+                    if (currentPage == totalPages) {
+                        BtnAvancarPouco.setEnabled(false);
+                        BtnAvancarBastante.setEnabled(false);  
+                }
                 }
             } else {
                 if (currentPage + 5 > totalPages) {
                     getPageData(totalPages);
+                     BtnVoltarPouco.setEnabled(true);
+                 BtnVoltarBastante.setEnabled(true);
+                    if (currentPage == totalPages) {
+                        BtnAvancarPouco.setEnabled(false);
+                        BtnAvancarBastante.setEnabled(false);  
+                }
                 } else {
                     getPageData(currentPage + 5);
+                     BtnVoltarPouco.setEnabled(true);
+                 BtnVoltarBastante.setEnabled(true);
+                    if (currentPage == totalPages) {
+                        BtnAvancarPouco.setEnabled(false);
+                        BtnAvancarBastante.setEnabled(false);  
+                }
                 }
             }
 
