@@ -3127,6 +3127,12 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                 }
             } else {
                 getPageData(currentPage + 1);
+                BtnVoltarPouco.setEnabled(true);
+                BtnVoltarBastante.setEnabled(true);
+                if (currentPage == totalPages) {
+                  BtnAvancarPouco.setEnabled(false);
+                  BtnAvancarBastante.setEnabled(false);  
+                }
             }
 
         }
@@ -3268,6 +3274,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             btnVisuAnamneses.setEnabled(false);
             btnVisuConsultas.setEnabled(false);
             btnVisuAnotacoes.setEnabled(false);
+            
         } else {
 
             getPageData((int) SpinnerNumPaginas.getValue());
