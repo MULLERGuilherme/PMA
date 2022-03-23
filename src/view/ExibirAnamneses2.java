@@ -119,6 +119,10 @@ public class ExibirAnamneses2 extends javax.swing.JFrame {
         BtnPacientes.setEnabled(false);
         BtnVoltarPouco.setEnabled(false);
         BtnVoltarBastante.setEnabled(false);
+         if(totalPages==1){
+            BtnAvancarPouco.setEnabled(false);
+            BtnAvancarBastante.setEnabled(false);
+        }
         btnalterar.setEnabled(false);
         btnExcluir.setEnabled(false);
 
@@ -1587,15 +1591,26 @@ public void readpsicologo() {
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void SpinnerLimiteStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_SpinnerLimiteStateChanged
-        // TODO add your handling code here:
+        int npag1=totalPages;
         if (txtBusca.getText() != "") {
             PAGE_SIZE = (int) SpinnerLimite.getValue();
             getCountBusca(txtBusca.getText());
             SpinnerNumPaginas.setModel(new javax.swing.SpinnerNumberModel(1, 1, totalPages, 1));
             SpinnerNumPaginas.setValue((int) currentPage);
-
+             btnalterar.setEnabled(false);
+             btnExcluir.setEnabled(false);
             LabelQtdePaginas.setText("de " + totalPages);
             getPageDataBusca(1, txtBusca.getText());
+            int npag2=totalPages;
+            if(totalPages==1){
+            BtnAvancarPouco.setEnabled(false);
+            BtnAvancarBastante.setEnabled(false);
+        }
+            if(npag1<npag2){
+            BtnAvancarPouco.setEnabled(true);
+            BtnAvancarBastante.setEnabled(true);
+            
+        }
         } else {
             PAGE_SIZE = (int) SpinnerLimite.getValue();
             getCount();
@@ -1605,6 +1620,19 @@ public void readpsicologo() {
 
             LabelQtdePaginas.setText("de " + totalPages);
             getPageData(1);
+            int npag2=totalPages;
+            if(totalPages==1){
+            BtnAvancarPouco.setEnabled(false);
+            BtnAvancarBastante.setEnabled(false);
+            BtnVoltarPouco.setEnabled(false);
+            BtnVoltarBastante.setEnabled(false);
+        }
+            if(npag1<npag2){
+            BtnAvancarPouco.setEnabled(true);
+            BtnAvancarBastante.setEnabled(true);
+            
+            
+        }
         }
     }//GEN-LAST:event_SpinnerLimiteStateChanged
 

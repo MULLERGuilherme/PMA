@@ -1620,7 +1620,7 @@ public class M extends javax.swing.JFrame {
             }
         });
 
-        jLabel40.setText("Cadastrar Paciente");
+        jLabel40.setText("Dados do Paciente");
         jLabel40.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         jLabel40.setForeground(new java.awt.Color(59, 131, 117));
 
@@ -1724,7 +1724,7 @@ public class M extends javax.swing.JFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(jEImagePanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 138, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 142, Short.MAX_VALUE)
                         .addComponent(jLabel40))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGap(44, 44, 44)

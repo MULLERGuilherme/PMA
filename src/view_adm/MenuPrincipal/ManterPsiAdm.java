@@ -1619,10 +1619,13 @@ public class ManterPsiAdm extends javax.swing.JFrame {
             if(totalPages==1){
             BtnAvancarPouco.setEnabled(false);
             BtnAvancarBastante.setEnabled(false);
+            BtnVoltarPouco.setEnabled(false);
+            BtnVoltarBastante.setEnabled(false);
         }
             if(npag1<npag2){
             BtnAvancarPouco.setEnabled(true);
             BtnAvancarBastante.setEnabled(true);
+            
             
         }
         } else {
@@ -1638,10 +1641,13 @@ public class ManterPsiAdm extends javax.swing.JFrame {
             if(totalPages==1){
             BtnAvancarPouco.setEnabled(false);
             BtnAvancarBastante.setEnabled(false);
+            BtnVoltarPouco.setEnabled(false);
+            BtnVoltarBastante.setEnabled(false);
         }
             if(npag1<npag2){
             BtnAvancarPouco.setEnabled(true);
             BtnAvancarBastante.setEnabled(true);
+            
             
         }
         }
