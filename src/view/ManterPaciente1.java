@@ -74,6 +74,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
     int totalPages = 1;
     int currentPage = 1;
     int startRow = 0;
+    
 
     public void getCount() {
         ViewsDAO dao = new ViewsDAO();
@@ -138,6 +139,10 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         BtnVisuAlterarDados.setEnabled(false);
         BtnVoltarPouco.setEnabled(false);
         BtnVoltarBastante.setEnabled(false);
+        if(totalPages==1){
+            BtnAvancarPouco.setEnabled(false);
+            BtnAvancarBastante.setEnabled(false);
+        }
         BtnCadastro.setEnabled(false);
         btnVisuAnamneses.setEnabled(false);
         btnVisuConsultas.setEnabled(false);
@@ -3243,15 +3248,33 @@ public class ManterPaciente1 extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnAlterarActionPerformed
 
     private void SpinnerLimiteStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_SpinnerLimiteStateChanged
-        // TODO add your handling code here:
+        int npag1=totalPages;
         if (txtBusca.getText() != "") {
+            
             PAGE_SIZE = (int) SpinnerLimite.getValue();
+           
             getCountBusca(txtBusca.getText());
             SpinnerNumPaginas.setModel(new javax.swing.SpinnerNumberModel(1, 1, totalPages, 1));
             SpinnerNumPaginas.setValue((int) currentPage);
+            BtnVisuAlterarDados.setEnabled(false);
+            btnVisuAnamneses.setEnabled(false);
+            btnVisuConsultas.setEnabled(false);
+            btnVisuAnotacoes.setEnabled(false);
+            BtnCadastro.setEnabled(false);
 
             LabelQtdePaginas.setText("de " + totalPages);
             getPageDataBusca(1, txtBusca.getText());
+             int npag2=totalPages;
+            if(totalPages==1){
+            BtnAvancarPouco.setEnabled(false);
+            BtnAvancarBastante.setEnabled(false);
+        }
+            if(npag1<npag2){
+            BtnAvancarPouco.setEnabled(true);
+            BtnAvancarBastante.setEnabled(true);
+            
+        }
+          
         } else {
             PAGE_SIZE = (int) SpinnerLimite.getValue();
             getCount();
@@ -3261,6 +3284,15 @@ public class ManterPaciente1 extends javax.swing.JFrame {
 
             LabelQtdePaginas.setText("de " + totalPages);
             getPageData(1);
+             int npag2=totalPages;
+            if(totalPages==1){
+            BtnAvancarPouco.setEnabled(false);
+            BtnAvancarBastante.setEnabled(false);
+        }
+            if(npag1<npag2){
+            BtnAvancarPouco.setEnabled(true);
+            BtnAvancarBastante.setEnabled(true);
+        }
         }
 
     }//GEN-LAST:event_SpinnerLimiteStateChanged
