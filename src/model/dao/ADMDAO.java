@@ -520,13 +520,15 @@ public class ADMDAO {
     
     //Paginacao Consultas ADM
     
-     public List<Vw_Consultas> fetchBySizeConsultasADM(int start, int size) {
+     public List<Vw_Consultas> fetchBySizeConsultasADM(int start, int size, boolean deletada) {
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;
         List<Vw_Consultas> vw = new ArrayList<>();
         try {
-            stmt = con.prepareStatement("SELECT * FROM vw_Consultas ORDER BY DataConsulta Limit " + start + "," + size);
+            stmt = con.prepareStatement("SELECT * FROM vw_Consultas WHERE Deletada = ? ORDER BY DataConsulta Limit " + start + "," + size);
+            stmt.setBoolean(1, deletada);
+            
             rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -553,13 +555,14 @@ public class ADMDAO {
         return vw;
     }
 
-    public List<Vw_Consultas> fetchBySizeConsultasAdmBusca(int start, int size, String Busca) {
+    public List<Vw_Consultas> fetchBySizeConsultasAdmBusca(int start, int size, String Busca, boolean deletada) {
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;
         List<Vw_Consultas> vw = new ArrayList<>();
         try {
-            stmt = con.prepareStatement("SELECT * FROM vw_Consultas WHERE ((Paciente Like '%" + Busca + "%') OR (Psicologo Like '%" + Busca + "%')  OR (DataConsulta Like '%" + Busca + "%') OR (Status Like '%" + Busca + "%')) Order By DataConsulta Limit " + size + " OFFSET " + start);
+            stmt = con.prepareStatement("SELECT * FROM vw_Consultas WHERE Deletada =? AND ((Paciente Like '%" + Busca + "%') OR (Psicologo Like '%" + Busca + "%')  OR (DataConsulta Like '%" + Busca + "%') OR (Status Like '%" + Busca + "%')) Order By DataConsulta Limit " + size + " OFFSET " + start);
+            stmt.setBoolean(1, deletada);
             rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -586,13 +589,15 @@ public class ADMDAO {
         return vw;
     }
 
-    public double getRowCountConsultasADM() {
+    public double getRowCountConsultasADM(boolean deletada) {
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;
         long count = 0;
         try {
-            stmt = con.prepareStatement("SELECT count(Distinct CodigoConsulta) FROM vw_Consultas ");
+            stmt = con.prepareStatement("SELECT count(Distinct CodigoConsulta) FROM vw_Consultas  WHERE Deletada = ?");
+            stmt.setBoolean(1, deletada);
+            
             rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -609,14 +614,15 @@ public class ADMDAO {
         return count;
     }
 
-    public double getRowCountTableConsultasADMBusca(String Busca) {
+    public double getRowCountTableConsultasADMBusca(String Busca, boolean deletada) {
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;
         long count = 0;
         try {
-            stmt = con.prepareStatement("SELECT count(Distinct CodigoConsulta) from vw_Consultas WHERE ((Paciente Like '%" + Busca + "%') OR (DataConsulta Like '%" + Busca + "%') OR (Psicologo Like '%" + Busca + "%') OR (Status Like '%" + Busca + "%')) ");
-
+            stmt = con.prepareStatement("SELECT count(Distinct CodigoConsulta) from vw_Consultas WHERE Deletada = ? AND ((Paciente Like '%" + Busca + "%') OR (DataConsulta Like '%" + Busca + "%') OR (Psicologo Like '%" + Busca + "%') OR (Status Like '%" + Busca + "%')) ");
+            stmt.setBoolean(1, deletada);
+           
             rs = stmt.executeQuery();
 
             while (rs.next()) {

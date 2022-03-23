@@ -268,6 +268,8 @@ public class ViewsDAO {
 
         return count;
     }
+    
+    
 
     public double getRowCountTableManterPacientesBusca(String Busca) {
         Connection con = ConnectionFactory.getConnection();
