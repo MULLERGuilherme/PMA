@@ -1189,6 +1189,7 @@ public class ExibirAnamneses extends javax.swing.JFrame {
         jEImagePanel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/spring-floral-watercolor-background-vector-green-with-leaf-illustration_53876-126350.jpg"))); // NOI18N
 
         btnalterar.setText("Alterar");
+        btnalterar.setBackground(new java.awt.Color(204, 204, 204));
         btnalterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnalterarActionPerformed(evt);
@@ -1196,6 +1197,7 @@ public class ExibirAnamneses extends javax.swing.JFrame {
         });
 
         btnExcluir.setText("Excluir");
+        btnExcluir.setBackground(new java.awt.Color(204, 204, 204));
         btnExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnExcluirActionPerformed(evt);
@@ -1723,8 +1725,29 @@ public class ExibirAnamneses extends javax.swing.JFrame {
     private void SpinnerNumPaginasStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_SpinnerNumPaginasStateChanged
         // TODO add your handling code here:
         if (txtBusca.getText() != "") {
+             int pag1 = currentPage;
             getPageDataBusca((int) SpinnerNumPaginas.getValue(), txtBusca.getText());
-             btnalterar.setEnabled(false);
+            int pag2 = currentPage;
+            if(pag2<pag1){
+                BtnAvancarPouco.setEnabled(true);
+                BtnAvancarBastante.setEnabled(true);
+                    if (currentPage == 1) {
+                        BtnVoltarPouco.setEnabled(false);
+                        BtnVoltarBastante.setEnabled(false);  
+                }
+                    }
+                    else{
+                    {
+                        BtnVoltarPouco.setEnabled(true);
+                        BtnVoltarBastante.setEnabled(true);
+                        if (currentPage == totalPages) {
+                            BtnAvancarPouco.setEnabled(false);
+                            BtnAvancarBastante.setEnabled(false);  
+                }
+                    }       
+            }
+            
+            btnalterar.setEnabled(false);
              btnExcluir.setEnabled(false);
 
         } else {

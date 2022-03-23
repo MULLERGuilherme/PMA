@@ -717,8 +717,27 @@ public class ManterConsultasAdm extends javax.swing.JFrame {
     private void SpinnerNumPaginasStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_SpinnerNumPaginasStateChanged
         // TODO add your handling code here:
         if (txtBusca.getText() != "") {
+            int pag1 = currentPage;
             getPageDataBusca((int) SpinnerNumPaginas.getValue(), txtBusca.getText());
-
+            int pag2 = currentPage;
+            if(pag2<pag1){
+                BtnAvancarPouco.setEnabled(true);
+                BtnAvancarBastante.setEnabled(true);
+                    if (currentPage == 1) {
+                        BtnVoltarPouco.setEnabled(false);
+                        BtnVoltarBastante.setEnabled(false);  
+                }
+                    }
+                    else{
+                    {
+                        BtnVoltarPouco.setEnabled(true);
+                        BtnVoltarBastante.setEnabled(true);
+                        if (currentPage == totalPages) {
+                            BtnAvancarPouco.setEnabled(false);
+                            BtnAvancarBastante.setEnabled(false);  
+                }
+                    }       
+            }
         } else {
 
             getPageData((int) SpinnerNumPaginas.getValue());
