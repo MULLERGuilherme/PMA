@@ -3185,6 +3185,7 @@
             <Component class="javax.swing.JButton" name="BtnAvancarBastante">
               <Properties>
                 <Property name="text" type="java.lang.String" value="&gt;&gt;"/>
+                <Property name="opaque" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnAvancarBastanteActionPerformed"/>
@@ -3236,6 +3237,9 @@
         <Component class="javax.swing.JButton" name="BtnExcluirPaciente">
           <Properties>
             <Property name="text" type="java.lang.String" value="Excluir"/>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="cc" green="cc" red="cc" type="rgb"/>
+            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnExcluirPacienteActionPerformed"/>

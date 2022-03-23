@@ -1794,7 +1794,8 @@ public void readatributos() {
                 }
                     }       
             }
-            BtnAlterar.setEnabled(false);
+            btnalterarconsulta.setEnabled(false);
+            BtnExcluir.setEnabled(false);
     }//GEN-LAST:event_SpinnerNumPaginasStateChanged
 
     private void BtnAvancarPoucoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAvancarPoucoActionPerformed
