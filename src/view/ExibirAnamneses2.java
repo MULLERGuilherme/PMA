@@ -1599,16 +1599,24 @@ public void readpsicologo() {
             SpinnerNumPaginas.setValue((int) currentPage);
              btnalterar.setEnabled(false);
              btnExcluir.setEnabled(false);
+             BtnVoltarPouco.setEnabled(false);
+             BtnVoltarBastante.setEnabled(false);
             LabelQtdePaginas.setText("de " + totalPages);
             getPageDataBusca(1, txtBusca.getText());
             int npag2=totalPages;
             if(totalPages==1){
             BtnAvancarPouco.setEnabled(false);
             BtnAvancarBastante.setEnabled(false);
+            
         }
             if(npag1<npag2){
             BtnAvancarPouco.setEnabled(true);
             BtnAvancarBastante.setEnabled(true);
+            
+        }
+             if(npag1>npag2){
+            BtnVoltarPouco.setEnabled(true);
+            BtnVoltarBastante.setEnabled(true);
             
         }
         } else {
@@ -1624,13 +1632,17 @@ public void readpsicologo() {
             if(totalPages==1){
             BtnAvancarPouco.setEnabled(false);
             BtnAvancarBastante.setEnabled(false);
-            BtnVoltarPouco.setEnabled(false);
-            BtnVoltarBastante.setEnabled(false);
+            
         }
             if(npag1<npag2){
             BtnAvancarPouco.setEnabled(true);
             BtnAvancarBastante.setEnabled(true);
             
+            
+        }
+             if(npag1>npag2){
+            BtnVoltarPouco.setEnabled(true);
+            BtnVoltarBastante.setEnabled(true);
             
         }
         }

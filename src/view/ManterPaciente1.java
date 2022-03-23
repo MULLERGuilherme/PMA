@@ -3261,6 +3261,8 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             btnVisuConsultas.setEnabled(false);
             btnVisuAnotacoes.setEnabled(false);
             BtnCadastro.setEnabled(false);
+            BtnVoltarPouco.setEnabled(false);
+            BtnVoltarBastante.setEnabled(false);
 
             LabelQtdePaginas.setText("de " + totalPages);
             getPageDataBusca(1, txtBusca.getText());
@@ -3268,13 +3270,17 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             if(totalPages==1){
             BtnAvancarPouco.setEnabled(false);
             BtnAvancarBastante.setEnabled(false);
-            BtnVoltarPouco.setEnabled(false);
-            BtnVoltarBastante.setEnabled(false);
+            
         }
             if(npag1<npag2){
             BtnAvancarPouco.setEnabled(true);
             BtnAvancarBastante.setEnabled(true);
             
+            
+        }
+             if(npag1>npag2){
+            BtnVoltarPouco.setEnabled(true);
+            BtnVoltarBastante.setEnabled(true);
             
         }
           
@@ -3291,13 +3297,17 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             if(totalPages==1){
             BtnAvancarPouco.setEnabled(false);
             BtnAvancarBastante.setEnabled(false);
-            BtnVoltarPouco.setEnabled(false);
-            BtnVoltarBastante.setEnabled(false);
+            
         }
             if(npag1<npag2){
             BtnAvancarPouco.setEnabled(true);
             BtnAvancarBastante.setEnabled(true);
        
+        }
+             if(npag1>npag2){
+            BtnVoltarPouco.setEnabled(true);
+            BtnVoltarBastante.setEnabled(true);
+            
         }
         }
 
