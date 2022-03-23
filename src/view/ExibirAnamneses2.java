@@ -795,8 +795,8 @@ public void readpsicologo() {
             .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 1081, Short.MAX_VALUE)
         );
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel3.setText("Nome:");
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         txtNome3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -809,8 +809,8 @@ public void readpsicologo() {
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel4.setText("CRP:");
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         txtCRP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -823,11 +823,11 @@ public void readpsicologo() {
             }
         });
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel5.setText("E-mail:");
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        labeltelefone.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         labeltelefone.setText("Telefone:");
+        labeltelefone.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         TxtTelefone6.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -835,8 +835,8 @@ public void readpsicologo() {
             }
         });
 
-        labeltelefone2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         labeltelefone2.setText("Telefone 2:");
+        labeltelefone2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         TxtTelefone7.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -846,13 +846,13 @@ public void readpsicologo() {
 
         PainelIdentificacaoPessoal5.setBackground(new java.awt.Color(59, 131, 117));
 
+        jLabel15.setText("DADOS DO PSICÓLOGO");
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel15.setText("DADOS DO PSICÓLOGO");
 
+        jLabel35.setText("NOME");
         jLabel35.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel35.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel35.setText("NOME");
 
         javax.swing.GroupLayout PainelIdentificacaoPessoal5Layout = new javax.swing.GroupLayout(PainelIdentificacaoPessoal5);
         PainelIdentificacaoPessoal5.setLayout(PainelIdentificacaoPessoal5Layout);
@@ -941,8 +941,8 @@ public void readpsicologo() {
 
         PainelMeusDados.setBackground(new java.awt.Color(102, 102, 102));
 
-        jButton2.setBackground(new java.awt.Color(102, 102, 102));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/UserIconBranco90x90.png"))); // NOI18N
+        jButton2.setBackground(new java.awt.Color(102, 102, 102));
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton2MouseClicked(evt);
@@ -954,9 +954,9 @@ public void readpsicologo() {
             }
         });
 
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout PainelMeusDadosLayout = new javax.swing.GroupLayout(PainelMeusDados);
         PainelMeusDados.setLayout(PainelMeusDadosLayout);
@@ -979,10 +979,10 @@ public void readpsicologo() {
                 .addContainerGap())
         );
 
-        jLabel2.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("EXIBIR ANAMNESES");
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -1010,6 +1010,7 @@ public void readpsicologo() {
         jEImagePanel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/spring-floral-watercolor-background-vector-green-with-leaf-illustration_53876-126350.jpg"))); // NOI18N
 
         btnalterar.setText("Alterar");
+        btnalterar.setBackground(new java.awt.Color(204, 204, 204));
         btnalterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnalterarActionPerformed(evt);
@@ -1017,6 +1018,7 @@ public void readpsicologo() {
         });
 
         btnExcluir.setText("Excluir");
+        btnExcluir.setBackground(new java.awt.Color(204, 204, 204));
         btnExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnExcluirActionPerformed(evt);
@@ -1679,8 +1681,31 @@ public void readpsicologo() {
     private void SpinnerNumPaginasStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_SpinnerNumPaginasStateChanged
         // TODO add your handling code here:
         if (txtBusca.getText() != "") {
+            int pag1 = currentPage;
             getPageDataBusca((int) SpinnerNumPaginas.getValue(), txtBusca.getText());
-
+            int pag2 = currentPage;
+            if(pag2<pag1){
+                BtnAvancarPouco.setEnabled(true);
+                BtnAvancarBastante.setEnabled(true);
+                    if (currentPage == 1) {
+                        BtnVoltarPouco.setEnabled(false);
+                        BtnVoltarBastante.setEnabled(false);  
+                }
+                    }
+                    else{
+                    {
+                        BtnVoltarPouco.setEnabled(true);
+                        BtnVoltarBastante.setEnabled(true);
+                        if (currentPage == totalPages) {
+                            BtnAvancarPouco.setEnabled(false);
+                            BtnAvancarBastante.setEnabled(false);  
+                }
+                    }       
+            }
+            btnalterar.setEnabled(false);
+            btnExcluir.setEnabled(false);
+           
+            
         } else {
 
             getPageData((int) SpinnerNumPaginas.getValue());

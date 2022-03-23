@@ -1608,7 +1608,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             }
         });
 
-        jLabel40.setText("Cadastrar Paciente");
+        jLabel40.setText("Dados do Paciente");
         jLabel40.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         jLabel40.setForeground(new java.awt.Color(59, 131, 117));
 
@@ -1712,7 +1712,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(jEImagePanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 138, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 140, Short.MAX_VALUE)
                         .addComponent(jLabel40))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGap(44, 44, 44)
@@ -2137,7 +2137,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             }
         });
 
-        BtnVisuAlterarDados.setText("Visualizar/ Alterar Dados");
+        BtnVisuAlterarDados.setText(" Dados");
         BtnVisuAlterarDados.setBackground(new java.awt.Color(204, 204, 204));
         BtnVisuAlterarDados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2145,7 +2145,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             }
         });
 
-        btnVisuAnamneses.setText("Visualizar Anamneses");
+        btnVisuAnamneses.setText("Anamneses");
         btnVisuAnamneses.setBackground(new java.awt.Color(204, 204, 204));
         btnVisuAnamneses.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2153,7 +2153,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             }
         });
 
-        btnVisuConsultas.setText("Visualizar Consultas");
+        btnVisuConsultas.setText("Consultas");
         btnVisuConsultas.setBackground(new java.awt.Color(204, 204, 204));
         btnVisuConsultas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2161,7 +2161,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             }
         });
 
-        btnVisuAnotacoes.setText("Visualizar Anotaçoes");
+        btnVisuAnotacoes.setText("Anotaçoes");
         btnVisuAnotacoes.setBackground(new java.awt.Color(204, 204, 204));
         btnVisuAnotacoes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
