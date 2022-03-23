@@ -148,6 +148,8 @@ public class M extends javax.swing.JFrame {
         this.getCountInit();
 
         initComponents();
+         BtnVoltarPouco.setEnabled(false);
+        BtnVoltarBastante.setEnabled(false);
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
         BtnManterPaciente.setEnabled(false);
         DefaultTableModel dtmPacientes = (DefaultTableModel) JTPacientes.getModel();
@@ -188,7 +190,7 @@ public class M extends javax.swing.JFrame {
         jLabel23 = new javax.swing.JLabel();
         LabelEstadoCivil2 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
-        estadocivil1 = new javax.swing.JComboBox<String>();
+        estadocivil1 = new javax.swing.JComboBox<>();
         jLabel26 = new javax.swing.JLabel();
         Sexo1 = new javax.swing.JComboBox<>();
         jEImagePanel6 = new LIB.JEImagePanel();
@@ -214,7 +216,7 @@ public class M extends javax.swing.JFrame {
         PainelIdentificacaoPessoal2 = new javax.swing.JPanel();
         txtCPF1 = new javax.swing.JFormattedTextField();
         jLabel1 = new javax.swing.JLabel();
-        JCBUF = new javax.swing.JComboBox<String>();
+        JCBUF = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
         Profissão = new javax.swing.JLabel();
         ModalAnamnese2 = new javax.swing.JDialog();
@@ -224,9 +226,9 @@ public class M extends javax.swing.JFrame {
         BtnSalvarAlteracoes5 = new javax.swing.JButton();
         BtnCancelar6 = new javax.swing.JButton();
         jLabel38 = new javax.swing.JLabel();
-        SubitaOuProgressiva1 = new javax.swing.JComboBox<String>();
+        SubitaOuProgressiva1 = new javax.swing.JComboBox<>();
         labelInicioQueixa2 = new javax.swing.JLabel();
-        JCBPsicomotricidade1 = new javax.swing.JComboBox<String>();
+        JCBPsicomotricidade1 = new javax.swing.JComboBox<>();
         labelInicioQueixa3 = new javax.swing.JLabel();
         jLabel64 = new javax.swing.JLabel();
         LabelEmail4 = new javax.swing.JLabel();
@@ -310,7 +312,7 @@ public class M extends javax.swing.JFrame {
         jLabel28 = new javax.swing.JLabel();
         LabelEstadoCivil3 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
-        estadocivil2 = new javax.swing.JComboBox<String>();
+        estadocivil2 = new javax.swing.JComboBox<>();
         jLabel36 = new javax.swing.JLabel();
         Sexo2 = new javax.swing.JComboBox<>();
         jEImagePanel7 = new LIB.JEImagePanel();
@@ -336,7 +338,7 @@ public class M extends javax.swing.JFrame {
         PainelIdentificacaoPessoal6 = new javax.swing.JPanel();
         txtCPF2 = new javax.swing.JFormattedTextField();
         jLabel8 = new javax.swing.JLabel();
-        JCBUF1 = new javax.swing.JComboBox<String>();
+        JCBUF1 = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
         Profissão1 = new javax.swing.JLabel();
         ModalAlterarConsulta = new javax.swing.JDialog();
@@ -345,7 +347,7 @@ public class M extends javax.swing.JFrame {
         tps.use24HourClockFormat();
         tps.generatePotentialMenuTimes(TimeIncrement.OneHour,  LocalTime.of(8,0),  LocalTime.of(20,0));
         data = new com.github.lgooddatepicker.components.DateTimePicker(null,tps);
-        status = new javax.swing.JComboBox<String>();
+        status = new javax.swing.JComboBox<>();
         BtnCadastrarConsulta = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -375,7 +377,7 @@ public class M extends javax.swing.JFrame {
         txtBusca = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         btnBuscar = new javax.swing.JButton();
-        JCBdeletados = new javax.swing.JComboBox<String>();
+        JCBdeletados = new javax.swing.JComboBox<>();
         BtnExcluirPaciente = new javax.swing.JButton();
         btnRestaurar = new javax.swing.JButton();
         PainelMenu = new javax.swing.JPanel();
@@ -2130,7 +2132,6 @@ public class M extends javax.swing.JFrame {
         });
 
         BtnAvancarBastante.setText(">>");
-        BtnAvancarBastante.setOpaque(false);
         BtnAvancarBastante.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnAvancarBastanteActionPerformed(evt);
@@ -2289,50 +2290,50 @@ public class M extends javax.swing.JFrame {
         PainelMenu.setBackground(new java.awt.Color(102, 102, 102));
         PainelMenu.setForeground(new java.awt.Color(102, 102, 102));
 
-        BtnInicio.setText("Início");
         BtnInicio.setBackground(new java.awt.Color(102, 102, 102));
         BtnInicio.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnInicio.setForeground(new java.awt.Color(255, 255, 255));
+        BtnInicio.setText("Início");
         BtnInicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnInicioActionPerformed(evt);
             }
         });
 
-        BtnManterPaciente.setText("Pacientes");
         BtnManterPaciente.setBackground(new java.awt.Color(102, 102, 102));
         BtnManterPaciente.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnManterPaciente.setForeground(new java.awt.Color(255, 255, 255));
+        BtnManterPaciente.setText("Pacientes");
         BtnManterPaciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnManterPacienteActionPerformed(evt);
             }
         });
 
-        BtnManterConsulta.setText("Consultas");
         BtnManterConsulta.setBackground(new java.awt.Color(102, 102, 102));
         BtnManterConsulta.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnManterConsulta.setForeground(new java.awt.Color(255, 255, 255));
+        BtnManterConsulta.setText("Consultas");
         BtnManterConsulta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnManterConsultaActionPerformed(evt);
             }
         });
 
-        BtnManterPsicologo.setText("Psicólogos");
         BtnManterPsicologo.setBackground(new java.awt.Color(102, 102, 102));
         BtnManterPsicologo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnManterPsicologo.setForeground(new java.awt.Color(255, 255, 255));
+        BtnManterPsicologo.setText("Psicólogos");
         BtnManterPsicologo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnManterPsicologoActionPerformed(evt);
             }
         });
 
-        BtnSair.setText("Sair");
         BtnSair.setBackground(new java.awt.Color(102, 102, 102));
         BtnSair.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnSair.setForeground(new java.awt.Color(255, 255, 255));
+        BtnSair.setText("Sair");
         BtnSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnSairActionPerformed(evt);
@@ -2941,8 +2942,20 @@ public class M extends javax.swing.JFrame {
         if (currentPage != 1) { //diferente da 1 pagina
             if (txtBusca.getText() != "") {
                 getPageDataBusca(currentPage - 1, txtBusca.getText());
+                BtnAvancarPouco.setEnabled(true);
+                    BtnAvancarBastante.setEnabled(true);
+                    if (currentPage == 1) {
+                        BtnVoltarPouco.setEnabled(false);
+                        BtnVoltarBastante.setEnabled(false);  
+                }
             } else {
                 getPageData(currentPage - 1);
+                BtnAvancarPouco.setEnabled(true);
+                    BtnAvancarBastante.setEnabled(true);
+                    if (currentPage == 1) {
+                        BtnVoltarPouco.setEnabled(false);
+                        BtnVoltarBastante.setEnabled(false);  
+                }
             }
 
         }
@@ -2955,14 +2968,38 @@ public class M extends javax.swing.JFrame {
             if (txtBusca.getText() != "") {
                 if (currentPage + 5 > totalPages) {
                     getPageDataBusca(totalPages, txtBusca.getText());
+                    BtnVoltarPouco.setEnabled(true);
+                    BtnVoltarBastante.setEnabled(true);
+                    if (currentPage == totalPages) {
+                        BtnAvancarPouco.setEnabled(false);
+                        BtnAvancarBastante.setEnabled(false);  
+                }
                 } else {
                     getPageDataBusca(currentPage + 5, txtBusca.getText());
+                    BtnVoltarPouco.setEnabled(true);
+                    BtnVoltarBastante.setEnabled(true);
+                    if (currentPage == totalPages) {
+                        BtnAvancarPouco.setEnabled(false);
+                        BtnAvancarBastante.setEnabled(false);  
+                }
                 }
             } else {
                 if (currentPage + 5 > totalPages) {
                     getPageData(totalPages);
+                    BtnVoltarPouco.setEnabled(true);
+                    BtnVoltarBastante.setEnabled(true);
+                    if (currentPage == totalPages) {
+                        BtnAvancarPouco.setEnabled(false);
+                        BtnAvancarBastante.setEnabled(false);  
+                }
                 } else {
                     getPageData(currentPage + 5);
+                    BtnVoltarPouco.setEnabled(true);
+                    BtnVoltarBastante.setEnabled(true);
+                    if (currentPage == totalPages) {
+                        BtnAvancarPouco.setEnabled(false);
+                        BtnAvancarBastante.setEnabled(false);  
+                }
                 }
             }
 
@@ -2975,15 +3012,39 @@ public class M extends javax.swing.JFrame {
             if (txtBusca.getText() != "") {
                 if (currentPage - 5 < 1) {
                     getPageDataBusca(1, txtBusca.getText());
+                    BtnAvancarPouco.setEnabled(true);
+                    BtnAvancarBastante.setEnabled(true);
+                    if (currentPage == 1) {
+                        BtnVoltarPouco.setEnabled(false);
+                        BtnVoltarBastante.setEnabled(false);  
+                }
                 } else {
                     getPageDataBusca(currentPage - 5, txtBusca.getText());
+                    BtnAvancarPouco.setEnabled(true);
+                    BtnAvancarBastante.setEnabled(true);
+                    if (currentPage == 1) {
+                        BtnVoltarPouco.setEnabled(false);
+                        BtnVoltarBastante.setEnabled(false);  
+                }
                 }
 
             } else {
                 if (currentPage - 5 < 1) {
                     getPageData(1);
+                    BtnAvancarPouco.setEnabled(true);
+                    BtnAvancarBastante.setEnabled(true);
+                    if (currentPage == 1) {
+                        BtnVoltarPouco.setEnabled(false);
+                        BtnVoltarBastante.setEnabled(false);  
+                }
                 } else {
                     getPageData(currentPage - 5);
+                    BtnAvancarPouco.setEnabled(true);
+                    BtnAvancarBastante.setEnabled(true);
+                    if (currentPage == 1) {
+                        BtnVoltarPouco.setEnabled(false);
+                        BtnVoltarBastante.setEnabled(false);  
+                }
                 }
             }
 
@@ -2995,8 +3056,20 @@ public class M extends javax.swing.JFrame {
         if (currentPage < totalPages) {
             if (txtBusca.getText() != "") {
                 getPageDataBusca(currentPage + 1, txtBusca.getText());
+                BtnVoltarPouco.setEnabled(true);
+                    BtnVoltarBastante.setEnabled(true);
+                    if (currentPage == totalPages) {
+                        BtnAvancarPouco.setEnabled(false);
+                        BtnAvancarBastante.setEnabled(false);  
+                }
             } else {
                 getPageData(currentPage + 1);
+                BtnVoltarPouco.setEnabled(true);
+                    BtnVoltarBastante.setEnabled(true);
+                    if (currentPage == totalPages) {
+                        BtnAvancarPouco.setEnabled(false);
+                        BtnAvancarBastante.setEnabled(false);  
+                }
             }
 
         }
