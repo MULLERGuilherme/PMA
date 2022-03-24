@@ -1699,6 +1699,8 @@ public void readatributos() {
 //            LabelQtdePaginas.setText("de " + totalPages);
 //            getPageDataBusca(1, txtBusca.getText());
 //        } else {
+         BtnVoltarPouco.setEnabled(false);
+        BtnVoltarBastante.setEnabled(false);
         PAGE_SIZE = (int) SpinnerLimite.getValue();
         getCount();
 
@@ -1707,6 +1709,15 @@ public void readatributos() {
 
         LabelQtdePaginas.setText("de " + totalPages);
         getPageData(1);
+         if(totalPages==1){
+            BtnAvancarPouco.setEnabled(false);
+            BtnAvancarBastante.setEnabled(false);
+            
+        }
+             else{
+                 BtnAvancarPouco.setEnabled(true);
+                BtnAvancarBastante.setEnabled(true);
+             }
 //        }
     }//GEN-LAST:event_SpinnerLimiteStateChanged
 
