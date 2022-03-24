@@ -1602,7 +1602,8 @@ public class ManterPsiAdm extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnAvancarPoucoActionPerformed
 
     private void SpinnerLimiteStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_SpinnerLimiteStateChanged
-        int npag1 = totalPages;
+        BtnVoltarPouco.setEnabled(false);
+        BtnVoltarBastante.setEnabled(false);
         if (txtBusca.getText() != "") {
             PAGE_SIZE = (int) SpinnerLimite.getValue();
             getCountBusca(txtBusca.getText());
@@ -1616,22 +1617,15 @@ public class ManterPsiAdm extends javax.swing.JFrame {
 
             LabelQtdePaginas.setText("de " + totalPages);
             getPageDataBusca(1, txtBusca.getText());
-            int npag2 = totalPages;
-            if (totalPages == 1) {
-                BtnAvancarPouco.setEnabled(false);
-                BtnAvancarBastante.setEnabled(false);
-
-            }
-            if (npag1 < npag2) {
-                BtnAvancarPouco.setEnabled(true);
+            if(totalPages==1){
+            BtnAvancarPouco.setEnabled(false);
+            BtnAvancarBastante.setEnabled(false);
+            
+        }
+             else{
+                 BtnAvancarPouco.setEnabled(true);
                 BtnAvancarBastante.setEnabled(true);
-
-            }
-            if (npag1 > npag2) {
-                BtnVoltarPouco.setEnabled(true);
-                BtnVoltarBastante.setEnabled(true);
-
-            }
+             }
         } else {
             PAGE_SIZE = (int) SpinnerLimite.getValue();
             getCount();
@@ -1641,22 +1635,15 @@ public class ManterPsiAdm extends javax.swing.JFrame {
 
             LabelQtdePaginas.setText("de " + totalPages);
             getPageData(1);
-            int npag2 = totalPages;
-            if (totalPages == 1) {
-                BtnAvancarPouco.setEnabled(false);
-                BtnAvancarBastante.setEnabled(false);
-
-            }
-            if (npag1 < npag2) {
-                BtnAvancarPouco.setEnabled(true);
+             if(totalPages==1){
+            BtnAvancarPouco.setEnabled(false);
+            BtnAvancarBastante.setEnabled(false);
+            
+        }
+             else{
+                 BtnAvancarPouco.setEnabled(true);
                 BtnAvancarBastante.setEnabled(true);
-
-            }
-            if (npag1 > npag2) {
-                BtnVoltarPouco.setEnabled(true);
-                BtnVoltarBastante.setEnabled(true);
-
-            }
+             }
         }
 
     }//GEN-LAST:event_SpinnerLimiteStateChanged

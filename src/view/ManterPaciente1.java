@@ -3267,7 +3267,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
 
             LabelQtdePaginas.setText("de " + totalPages);
             getPageData(1);
- 
+             
            if(totalPages==1){
             BtnAvancarPouco.setEnabled(false);
             BtnAvancarBastante.setEnabled(false);
