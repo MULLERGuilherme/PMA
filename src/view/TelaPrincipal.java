@@ -1666,6 +1666,8 @@ public void readatributos() {
             ReadJTable(localDate);
               DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
             jLabel2.setText(dtf.format(localDate));
+            btnAlterar.setEnabled(false);
+            BtnExcluir.setEnabled(false);
         }      
     }//GEN-LAST:event_DataChooserPropertyChange
 
