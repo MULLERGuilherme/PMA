@@ -74,7 +74,6 @@ public class ManterPaciente1 extends javax.swing.JFrame {
     int totalPages = 1;
     int currentPage = 1;
     int startRow = 0;
-    
 
     public void getCount() {
         ViewsDAO dao = new ViewsDAO();
@@ -125,21 +124,21 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         this.getCount();
 
         initComponents();
-        
+
         Psicologo p = new Psicologo();
         PsicologoDAO dao = new PsicologoDAO();
         p = dao.ReadPsicologo(Main.cod);
         jLabel11.setText(p.getNome_completo());
-        String str= getFirstWord(jLabel11.getText());
+        String str = getFirstWord(jLabel11.getText());
         jLabel11.setText(str);
-        
+
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
         BtnPacientes.setEnabled(false);
         DefaultTableModel dtmPacientes = (DefaultTableModel) JTPacientes.getModel();
         BtnVisuAlterarDados.setEnabled(false);
         BtnVoltarPouco.setEnabled(false);
         BtnVoltarBastante.setEnabled(false);
-        if(totalPages==1){
+        if (totalPages == 1) {
             BtnAvancarPouco.setEnabled(false);
             BtnAvancarBastante.setEnabled(false);
         }
@@ -2817,11 +2816,22 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                     if (tfdao.CreatePc(tf)) {
                         if (!TxtTelefone5.getText().isEmpty()) {
                             tf2.setPaciente(p);
-                            tfdao.CreatePc(tf2);
-                        }
-                        JOptionPane.showMessageDialog(ModalNovoResolucaoMenor, "Paciente " + p.getNome_Completo() + " Salvo com sucesso");
+                            if (tfdao.CreatePc(tf2)) {
+                                //System.out.println("cai aki");
+                                //JOptionPane.showMessageDialog(ModalNovoResolucaoMenor, "Paciente " + p.getNome_Completo() + " Salvo com sucesso");
+                                this.clearNovoR();
+                                ModalNovoResolucaoMenor.dispose();
+                            } else {
+                                //System.out.println("cai no else");
+                                tfdao.HardDeleteTelefone(p);
+                                dao.HardDelete(p);
+                            }
+                        }else{
+                        //JOptionPane.showMessageDialog(ModalNovoResolucaoMenor, "Paciente " + p.getNome_Completo() + " Salvo com sucesso");
                         this.clearNovoR();
                         ModalNovoResolucaoMenor.dispose();
+                        }
+                        
                     } else {
                         dao.HardDelete(p);
                     }
@@ -2978,7 +2988,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                 btnVisuAnotacoes.setEnabled(false);
                 BtnAvancarPouco.setEnabled(true);
                 BtnAvancarBastante.setEnabled(true);
-                
+
             } else {
                 getPageData(currentPage - 1);
                 BtnVisuAlterarDados.setEnabled(false);
@@ -2993,9 +3003,9 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         }
         SpinnerNumPaginas.setValue((int) currentPage);
         if (currentPage == 1) {
-                  BtnVoltarPouco.setEnabled(false);
-                  BtnVoltarBastante.setEnabled(false);  
-                }
+            BtnVoltarPouco.setEnabled(false);
+            BtnVoltarBastante.setEnabled(false);
+        }
     }//GEN-LAST:event_BtnVoltarPoucoActionPerformed
 
     private void BtnAvancarBastanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAvancarBastanteActionPerformed
@@ -3004,39 +3014,39 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             if (txtBusca.getText() != "") {
                 if (currentPage + 5 > totalPages) {
                     getPageDataBusca(totalPages, txtBusca.getText());
-                     BtnVoltarPouco.setEnabled(true);
-                BtnVoltarBastante.setEnabled(true);
-                if (currentPage == totalPages) {
-                  BtnAvancarPouco.setEnabled(false);
-                  BtnAvancarBastante.setEnabled(false);  
-                }
+                    BtnVoltarPouco.setEnabled(true);
+                    BtnVoltarBastante.setEnabled(true);
+                    if (currentPage == totalPages) {
+                        BtnAvancarPouco.setEnabled(false);
+                        BtnAvancarBastante.setEnabled(false);
+                    }
                 } else {
                     getPageDataBusca(currentPage + 5, txtBusca.getText());
-                     BtnVoltarPouco.setEnabled(true);
-                BtnVoltarBastante.setEnabled(true);
-                if (currentPage == totalPages) {
-                  BtnAvancarPouco.setEnabled(false);
-                  BtnAvancarBastante.setEnabled(false);  
+                    BtnVoltarPouco.setEnabled(true);
+                    BtnVoltarBastante.setEnabled(true);
+                    if (currentPage == totalPages) {
+                        BtnAvancarPouco.setEnabled(false);
+                        BtnAvancarBastante.setEnabled(false);
+                    }
                 }
-                }
-                
+
             } else {
                 if (currentPage + 5 > totalPages) {
                     getPageData(totalPages);
-                     BtnVoltarPouco.setEnabled(true);
-                BtnVoltarBastante.setEnabled(true);
-                if (currentPage == totalPages) {
-                  BtnAvancarPouco.setEnabled(false);
-                  BtnAvancarBastante.setEnabled(false);  
-                }
+                    BtnVoltarPouco.setEnabled(true);
+                    BtnVoltarBastante.setEnabled(true);
+                    if (currentPage == totalPages) {
+                        BtnAvancarPouco.setEnabled(false);
+                        BtnAvancarBastante.setEnabled(false);
+                    }
                 } else {
                     getPageData(currentPage + 5);
-                     BtnVoltarPouco.setEnabled(true);
-                     BtnVoltarBastante.setEnabled(true);
+                    BtnVoltarPouco.setEnabled(true);
+                    BtnVoltarBastante.setEnabled(true);
                     if (currentPage == totalPages) {
-                  BtnAvancarPouco.setEnabled(false);
-                  BtnAvancarBastante.setEnabled(false);  
-                }
+                        BtnAvancarPouco.setEnabled(false);
+                        BtnAvancarBastante.setEnabled(false);
+                    }
                 }
             }
 
@@ -3056,7 +3066,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                     btnVisuAnotacoes.setEnabled(false);
                     BtnAvancarPouco.setEnabled(true);
                     BtnAvancarBastante.setEnabled(true);
-                    
+
                 } else {
                     getPageDataBusca(currentPage - 5, txtBusca.getText());
                     BtnVisuAlterarDados.setEnabled(false);
@@ -3067,9 +3077,9 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                     BtnAvancarPouco.setEnabled(true);
                     BtnAvancarBastante.setEnabled(true);
                     if (currentPage == 1) {
-                         BtnVoltarPouco.setEnabled(false);
-                     BtnVoltarBastante.setEnabled(false);  
-                }
+                        BtnVoltarPouco.setEnabled(false);
+                        BtnVoltarBastante.setEnabled(false);
+                    }
                 }
 
             } else {
@@ -3079,26 +3089,26 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                     BtnAvancarBastante.setEnabled(true);
                     if (currentPage == 1) {
                         BtnVoltarPouco.setEnabled(false);
-                    BtnVoltarBastante.setEnabled(false);  
-                }
+                        BtnVoltarBastante.setEnabled(false);
+                    }
                 } else {
                     getPageData(currentPage - 5);
                     BtnAvancarPouco.setEnabled(true);
                     BtnAvancarBastante.setEnabled(true);
-                     if (currentPage == 1) {
+                    if (currentPage == 1) {
                         BtnVoltarPouco.setEnabled(false);
-                        BtnVoltarBastante.setEnabled(false);  
-                }
+                        BtnVoltarBastante.setEnabled(false);
+                    }
                 }
             }
 
         }
-        
+
         SpinnerNumPaginas.setValue((int) currentPage);
         if (currentPage == 1) {
-                         BtnVoltarPouco.setEnabled(false);
-                    BtnVoltarBastante.setEnabled(false);  
-                }
+            BtnVoltarPouco.setEnabled(false);
+            BtnVoltarBastante.setEnabled(false);
+        }
     }//GEN-LAST:event_BtnVoltarBastanteActionPerformed
 
     private void BtnAvancarPoucoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAvancarPoucoActionPerformed
@@ -3113,16 +3123,16 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                 BtnVoltarPouco.setEnabled(true);
                 BtnVoltarBastante.setEnabled(true);
                 if (currentPage == totalPages) {
-                  BtnAvancarPouco.setEnabled(false);
-                  BtnAvancarBastante.setEnabled(false);  
+                    BtnAvancarPouco.setEnabled(false);
+                    BtnAvancarBastante.setEnabled(false);
                 }
             } else {
                 getPageData(currentPage + 1);
                 BtnVoltarPouco.setEnabled(true);
                 BtnVoltarBastante.setEnabled(true);
                 if (currentPage == totalPages) {
-                  BtnAvancarPouco.setEnabled(false);
-                  BtnAvancarBastante.setEnabled(false);  
+                    BtnAvancarPouco.setEnabled(false);
+                    BtnAvancarBastante.setEnabled(false);
                 }
             }
 
@@ -3204,12 +3214,12 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                         }
 //                        JOptionPane.showMessageDialog(this, "Psicologo: " + p.getNome_completo() + " Salvo com sucesso");
                         jLabel11.setText(p.getNome_completo());
-                        String str= getFirstWord(jLabel11.getText());
+                        String str = getFirstWord(jLabel11.getText());
                         jLabel11.setText(str);
                         p = dao.ReadPsicologo(Main.cod);
-                        
+
                         ModalMeusDados.dispose();
-                        
+
                         // this.clear();
                     }
 
@@ -3237,9 +3247,9 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         BtnVoltarPouco.setEnabled(false);
         BtnVoltarBastante.setEnabled(false);
         if (txtBusca.getText() != "") {
-            
+
             PAGE_SIZE = (int) SpinnerLimite.getValue();
-           
+
             getCountBusca(txtBusca.getText());
             SpinnerNumPaginas.setModel(new javax.swing.SpinnerNumberModel(1, 1, totalPages, 1));
             SpinnerNumPaginas.setValue((int) currentPage);
@@ -3248,22 +3258,19 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             btnVisuConsultas.setEnabled(false);
             btnVisuAnotacoes.setEnabled(false);
             BtnCadastro.setEnabled(false);
-            
 
             LabelQtdePaginas.setText("de " + totalPages);
             getPageDataBusca(1, txtBusca.getText());
-             
-            
-             if(totalPages==1){
-            BtnAvancarPouco.setEnabled(false);
-            BtnAvancarBastante.setEnabled(false);
-            
-        }
-             else{
-                 BtnAvancarPouco.setEnabled(true);
+
+            if (totalPages == 1) {
+                BtnAvancarPouco.setEnabled(false);
+                BtnAvancarBastante.setEnabled(false);
+
+            } else {
+                BtnAvancarPouco.setEnabled(true);
                 BtnAvancarBastante.setEnabled(true);
-             }
-          
+            }
+
         } else {
             PAGE_SIZE = (int) SpinnerLimite.getValue();
             getCount();
@@ -3273,16 +3280,15 @@ public class ManterPaciente1 extends javax.swing.JFrame {
 
             LabelQtdePaginas.setText("de " + totalPages);
             getPageData(1);
-             
-           if(totalPages==1){
-            BtnAvancarPouco.setEnabled(false);
-            BtnAvancarBastante.setEnabled(false);
-            
-        }
-             else{
-                 BtnAvancarPouco.setEnabled(true);
+
+            if (totalPages == 1) {
+                BtnAvancarPouco.setEnabled(false);
+                BtnAvancarBastante.setEnabled(false);
+
+            } else {
+                BtnAvancarPouco.setEnabled(true);
                 BtnAvancarBastante.setEnabled(true);
-             }
+            }
         }
 
     }//GEN-LAST:event_SpinnerLimiteStateChanged
@@ -3293,34 +3299,33 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             int pag1 = currentPage;
             getPageDataBusca((int) SpinnerNumPaginas.getValue(), txtBusca.getText());
             int pag2 = currentPage;
-            if(pag2<pag1){
+            if (pag2 < pag1) {
                 BtnAvancarPouco.setEnabled(true);
                 BtnAvancarBastante.setEnabled(true);
-                    if (currentPage == 1) {
-                        BtnVoltarPouco.setEnabled(false);
-                        BtnVoltarBastante.setEnabled(false);  
+                if (currentPage == 1) {
+                    BtnVoltarPouco.setEnabled(false);
+                    BtnVoltarBastante.setEnabled(false);
                 }
+            } else {
+                {
+                    BtnVoltarPouco.setEnabled(true);
+                    BtnVoltarBastante.setEnabled(true);
+                    if (currentPage == totalPages) {
+                        BtnAvancarPouco.setEnabled(false);
+                        BtnAvancarBastante.setEnabled(false);
                     }
-                    else{
-                    {
-                        BtnVoltarPouco.setEnabled(true);
-                        BtnVoltarBastante.setEnabled(true);
-                        if (currentPage == totalPages) {
-                            BtnAvancarPouco.setEnabled(false);
-                            BtnAvancarBastante.setEnabled(false);  
                 }
-                    }       
             }
             BtnVisuAlterarDados.setEnabled(false);
             BtnCadastro.setEnabled(false);
             btnVisuAnamneses.setEnabled(false);
             btnVisuConsultas.setEnabled(false);
             btnVisuAnotacoes.setEnabled(false);
-            
+
         } else {
 
             getPageData((int) SpinnerNumPaginas.getValue());
-            
+
         }
 //        
     }//GEN-LAST:event_SpinnerNumPaginasStateChanged
@@ -3344,7 +3349,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         if (!Character.isDigit(c)) {
             evt.consume();
         }
-        if (TxtTelefone1.getText().length()==11) {
+        if (TxtTelefone1.getText().length() == 11) {
             evt.consume();
         }
     }//GEN-LAST:event_TxtTelefone1KeyTyped
@@ -3354,7 +3359,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         if (!Character.isDigit(c)) {
             evt.consume();
         }
-        if (TxtTelefone5.getText().length()==11) {
+        if (TxtTelefone5.getText().length() == 11) {
             evt.consume();
         }
     }//GEN-LAST:event_TxtTelefone5KeyTyped
@@ -3378,7 +3383,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         if (!Character.isDigit(c)) {
             evt.consume();
         }
-        if (TxtTelefone6.getText().length()==11) {
+        if (TxtTelefone6.getText().length() == 11) {
             evt.consume();
         }
     }//GEN-LAST:event_TxtTelefone6KeyTyped
@@ -3388,7 +3393,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         if (!Character.isDigit(c)) {
             evt.consume();
         }
-        if (TxtTelefone7.getText().length()==11) {
+        if (TxtTelefone7.getText().length() == 11) {
             evt.consume();
         }
     }//GEN-LAST:event_TxtTelefone7KeyTyped
@@ -3547,11 +3552,11 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                         if (t.size() == 2) {
                             if (TxtTelefone8.getText().isEmpty()) {
                                 tfdao.HardDeleteTelefone(t.get(1));
-                            }else{
+                            } else {
                                 t.get(1).setNumero(TxtTelefone8.getText());
-                            tfdao.UpdateTPaciente(t.get(1));
+                                tfdao.UpdateTPaciente(t.get(1));
                             }
-                            
+
                         }
                         if (!TxtTelefone8.getText().isEmpty() && t.size() == 1) {
                             tf2.setPaciente(p);
@@ -3620,7 +3625,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         if (!Character.isDigit(c)) {
             evt.consume();
         }
-        if (TxtTelefone2.getText().length()==11) {
+        if (TxtTelefone2.getText().length() == 11) {
             evt.consume();
         }
     }//GEN-LAST:event_TxtTelefone2KeyTyped
@@ -3631,7 +3636,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         if (!Character.isDigit(c)) {
             evt.consume();
         }
-        if (TxtTelefone8.getText().length()==11) {
+        if (TxtTelefone8.getText().length() == 11) {
             evt.consume();
         }
     }//GEN-LAST:event_TxtTelefone8KeyTyped
@@ -3681,19 +3686,20 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         ModalAlterarConsulta.setLocationRelativeTo(null);
         ModalAlterarConsulta.setVisible(true);
     }//GEN-LAST:event_BtnCadastroActionPerformed
-private String getFirstWord(String text) {
+    private String getFirstWord(String text) {
 
-  int index = text.indexOf(' ');
+        int index = text.indexOf(' ');
 
-  if (index > -1) { // Check if there is more than one word.
+        if (index > -1) { // Check if there is more than one word.
 
-    return text.substring(0, index).trim(); // Extract first word.
+            return text.substring(0, index).trim(); // Extract first word.
 
-  } else {
+        } else {
 
-    return text; // Text is the first word itself.
-  }
-}
+            return text; // Text is the first word itself.
+        }
+    }
+
     private void Alterar(int cod) {
         Anamnese a = new Anamnese();
         AnamneseDAO dao = new AnamneseDAO();
