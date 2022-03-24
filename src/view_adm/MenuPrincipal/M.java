@@ -2817,12 +2817,24 @@ public class M extends javax.swing.JFrame {
                     if (tfdao.CreatePc(tf)) {
                         if (!TxtTelefone5.getText().isEmpty()) {
                             tf2.setPaciente(p);
-                            tfdao.CreatePc(tf2);
+                            if (tfdao.CreatePc(tf2)) {
+                                //System.out.println("cai aki");
+                                JOptionPane.showMessageDialog(ModalNovoResolucaoMenor, "Paciente " + p.getNome_Completo() + " Salvo com sucesso");
+                                this.clearNovoR();
+                                ModalNovoResolucaoMenor.dispose();
+                            } else {
+                                //System.out.println("cai no else");
+                                tfdao.HardDeleteTelefone(p);
+                                dao.HardDelete(p);
+                            }
+                        } else {
+                            JOptionPane.showMessageDialog(ModalNovoResolucaoMenor, "Paciente " + p.getNome_Completo() + " Salvo com sucesso");
+                            this.clearNovoR();
+                            ModalNovoResolucaoMenor.dispose();
                         }
-                        JOptionPane.showMessageDialog(ModalNovoResolucaoMenor, "Paciente " + p.getNome_Completo() + " Salvo com sucesso");
-                        this.clearNovoR();
-                        ModalNovoResolucaoMenor.dispose();
+
                     } else {
+
                         dao.HardDelete(p);
                     }
 
