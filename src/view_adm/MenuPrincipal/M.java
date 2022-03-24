@@ -2015,10 +2015,10 @@ public class M extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jLabel18.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
-        jLabel18.setForeground(new java.awt.Color(255, 255, 255));
         jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel18.setText("PACIENTES");
+        jLabel18.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -2053,8 +2053,8 @@ public class M extends javax.swing.JFrame {
             }
         });
 
-        BtnVisuAlterarDados.setText("Visualizar/ Alterar Dados");
         BtnVisuAlterarDados.setBackground(new java.awt.Color(204, 204, 204));
+        BtnVisuAlterarDados.setText("Dados");
         BtnVisuAlterarDados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnVisuAlterarDadosActionPerformed(evt);
@@ -3265,11 +3265,17 @@ public class M extends javax.swing.JFrame {
         if (!Character.isDigit(c)) {
             evt.consume();
         }
+         if (TxtTelefone1.getText().length()==11) {
+            evt.consume();
+        }
     }//GEN-LAST:event_TxtTelefone1KeyTyped
 
     private void TxtTelefone5KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtTelefone5KeyTyped
         char c = evt.getKeyChar();
         if (!Character.isDigit(c)) {
+            evt.consume();
+        }
+         if (TxtTelefone5.getText().length()==11) {
             evt.consume();
         }
     }//GEN-LAST:event_TxtTelefone5KeyTyped
@@ -3506,12 +3512,18 @@ public class M extends javax.swing.JFrame {
         if (!Character.isDigit(c)) {
             evt.consume();
         }
+         if (TxtTelefone2.getText().length()==11) {
+            evt.consume();
+        }
     }//GEN-LAST:event_TxtTelefone2KeyTyped
 
     private void TxtTelefone8KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtTelefone8KeyTyped
         // TODO add your handling code here:
         char c = evt.getKeyChar();
         if (!Character.isDigit(c)) {
+            evt.consume();
+        }
+         if (TxtTelefone8.getText().length()==11) {
             evt.consume();
         }
     }//GEN-LAST:event_TxtTelefone8KeyTyped

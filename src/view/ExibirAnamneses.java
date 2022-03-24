@@ -1858,11 +1858,17 @@ public class ExibirAnamneses extends javax.swing.JFrame {
         if (!Character.isDigit(c)) {
             evt.consume();
         }
+         if (TxtTelefone6.getText().length()==11) {
+            evt.consume();
+        }
     }//GEN-LAST:event_TxtTelefone6KeyTyped
 
     private void TxtTelefone7KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtTelefone7KeyTyped
         char c = evt.getKeyChar();
         if (!Character.isDigit(c)) {
+            evt.consume();
+        }
+         if (TxtTelefone7.getText().length()==11) {
             evt.consume();
         }
     }//GEN-LAST:event_TxtTelefone7KeyTyped
