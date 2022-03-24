@@ -25,7 +25,7 @@ import model.bean.Psicologo;
  * @author User
  */
 public class PsicologoDAO {
-    
+
     public boolean Create(Psicologo p) {
         boolean status = true;
         Connection con = ConnectionFactory.getConnection();
@@ -41,7 +41,7 @@ public class PsicologoDAO {
             stmt.executeUpdate();
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao inserir :" + ex);
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
             status = false;
         } finally {
             ConnectionFactory.closeConnection(con, stmt);
@@ -71,7 +71,8 @@ public class PsicologoDAO {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(PsicologoDAO.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
@@ -98,13 +99,14 @@ public class PsicologoDAO {
 
         } catch (SQLException ex) {
             status = false;
-            JOptionPane.showMessageDialog(null, "Erro ao alterar :" + ex);
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+
         } finally {
             ConnectionFactory.closeConnection(con, stmt);
         }
         return status;
     }
-    
+
     public boolean SoftUpdate(Psicologo p) {
         boolean status = true;
         Connection con = ConnectionFactory.getConnection();
@@ -121,14 +123,15 @@ public class PsicologoDAO {
 
         } catch (SQLException ex) {
             status = false;
-            JOptionPane.showMessageDialog(null, "Erro ao alterar :" + ex);
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+
         } finally {
             ConnectionFactory.closeConnection(con, stmt);
         }
         return status;
     }
-    
-     public boolean RestaurarPsicologo(int CodPsicologo) {
+
+    public boolean RestaurarPsicologo(int CodPsicologo) {
         boolean status = true;
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
@@ -137,20 +140,20 @@ public class PsicologoDAO {
 
             //sem CPF pq nao faz sentido
             //stmt.setString(1,  p.getCPF());
-           
             stmt.setInt(1, CodPsicologo);
 
             stmt.executeUpdate();
 
         } catch (SQLException ex) {
             status = false;
-            JOptionPane.showMessageDialog(null, "Erro ao alterar :" + ex);
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+
         } finally {
             ConnectionFactory.closeConnection(con, stmt);
         }
         return status;
     }
-    
+
     public boolean UpdateMP(Psicologo p) {
         boolean status = true;
         Connection con = ConnectionFactory.getConnection();
@@ -159,24 +162,25 @@ public class PsicologoDAO {
             stmt = con.prepareStatement("Update  psicologo SET CRP = ?, Nome_completo=?, Email=?, Login=? WHERE CodPsicologo =? ");
 
             //sem CPF pq nao faz sentido
-            stmt.setString(1,  p.getCRP());
+            stmt.setString(1, p.getCRP());
             stmt.setString(2, p.getNome_completo());
             stmt.setString(3, p.getEmail());
             stmt.setString(4, p.getLogin());
-           
+
             stmt.setInt(5, p.getCodPsicologo());
 
             stmt.executeUpdate();
 
         } catch (SQLException ex) {
             status = false;
-            JOptionPane.showMessageDialog(null, "Erro ao alterar :" + ex);
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+
         } finally {
             ConnectionFactory.closeConnection(con, stmt);
         }
         return status;
     }
-    
+
     public boolean UpdatePsicologSemLogin(Psicologo p) {
         boolean status = true;
         Connection con = ConnectionFactory.getConnection();
@@ -185,23 +189,24 @@ public class PsicologoDAO {
             stmt = con.prepareStatement("Update  psicologo SET CRP = ?, Nome_completo=?, Email=?, Deletado = ? WHERE CodPsicologo =? ");
 
             //sem CPF pq nao faz sentido
-            stmt.setString(1,  p.getCRP());
+            stmt.setString(1, p.getCRP());
             stmt.setString(2, p.getNome_completo());
             stmt.setString(3, p.getEmail());
             stmt.setBoolean(4, p.isDeletado());
-           
+
             stmt.setInt(5, p.getCodPsicologo());
 
             stmt.executeUpdate();
 
         } catch (SQLException ex) {
             status = false;
-            JOptionPane.showMessageDialog(null, "Erro ao alterar :" + ex);
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         } finally {
             ConnectionFactory.closeConnection(con, stmt);
         }
         return status;
     }
+
     public boolean UpdateUserSenha(Psicologo p) {
         boolean status = true;
         Connection con = ConnectionFactory.getConnection();
@@ -211,7 +216,6 @@ public class PsicologoDAO {
 
             //sem CPF pq nao faz sentido
             //stmt.setString(1,  p.getCPF());
-       
             stmt.setString(1, p.getLogin());
             stmt.setString(2, p.getSenha());
             stmt.setInt(3, p.getCodPsicologo());
@@ -220,22 +224,20 @@ public class PsicologoDAO {
 
         } catch (SQLException ex) {
             status = false;
-            JOptionPane.showMessageDialog(null, "Erro ao alterar :" + ex);
+           JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         } finally {
             ConnectionFactory.closeConnection(con, stmt);
         }
         return status;
     }
-    
-     public boolean UpdateSenha(Psicologo p) {
+
+    public boolean UpdateSenha(Psicologo p) {
         boolean status = true;
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         try {
             stmt = con.prepareStatement("Update  psicologo SET Senha = MD5(?) WHERE CodPsicologo =? ");
 
-         
-    
             stmt.setString(1, p.getSenha());
             stmt.setInt(2, p.getCodPsicologo());
 
@@ -243,7 +245,7 @@ public class PsicologoDAO {
 
         } catch (SQLException ex) {
             status = false;
-            JOptionPane.showMessageDialog(null, "Erro ao alterar :" + ex);
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         } finally {
             ConnectionFactory.closeConnection(con, stmt);
         }
@@ -263,7 +265,7 @@ public class PsicologoDAO {
             stmt.executeUpdate();
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao Excluir :" + ex);
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
             status = false;
 
         } finally {
@@ -271,8 +273,8 @@ public class PsicologoDAO {
         }
         return status;
     }
-    
-     public boolean softDelete(Psicologo p) {
+
+    public boolean softDelete(Psicologo p) {
         boolean status = true;
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
@@ -285,7 +287,7 @@ public class PsicologoDAO {
             stmt.executeUpdate();
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao Excluir :" + ex);
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
             status = false;
 
         } finally {
@@ -293,6 +295,7 @@ public class PsicologoDAO {
         }
         return status;
     }
+
     public boolean ValidarLogin(Psicologo p, JFrame jframe) {
 
         Connection con = ConnectionFactory.getConnection(jframe);
@@ -311,7 +314,7 @@ public class PsicologoDAO {
             valido = cstmt.getBoolean(1);
 
         } catch (SQLException ex) {
-            Logger.getLogger(PsicologoDAO.class.getName()).log(Level.SEVERE, null, ex);
+           JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         } finally {
 
             ConnectionFactory.closeConnection(con, cstmt, rs);
@@ -345,7 +348,7 @@ public class PsicologoDAO {
                 }
             }
         } catch (SQLException ex) {
-            Logger.getLogger(PsicologoDAO.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
@@ -375,16 +378,15 @@ public class PsicologoDAO {
                 }
             }
         } catch (SQLException ex) {
-            Logger.getLogger(PsicologoDAO.class.getName()).log(Level.SEVERE, null, ex);
+           JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
 
         return p;
     }
-    
-     
-    public Psicologo ReadPsicologo(int codpsicologo  ) {
+
+    public Psicologo ReadPsicologo(int codpsicologo) {
 
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
@@ -394,7 +396,7 @@ public class PsicologoDAO {
         try {
             stmt = con.prepareStatement("SELECT * FROM psicologo WHERE CodPsicologo = ?");
             stmt.setInt(1, codpsicologo);
-            
+
             rs = stmt.executeQuery();
             if (rs != null) {
                 while (rs.next()) {
@@ -404,19 +406,20 @@ public class PsicologoDAO {
                     p.setEmail(rs.getString("Email"));
                     p.setLogin(rs.getString("Login"));
                     p.setDeletado(rs.getBoolean("Deletado"));
-                   
-                } 
-            } 
-            
+
+                }
+            }
+
         } catch (SQLException ex) {
-            Logger.getLogger(PsicologoDAO.class.getName()).log(Level.SEVERE, null, ex);
+           JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
 
         return p;
     }
-public Psicologo ReadPsicologo(String CRP, String Email) {
+
+    public Psicologo ReadPsicologo(String CRP, String Email) {
 
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
@@ -436,11 +439,11 @@ public Psicologo ReadPsicologo(String CRP, String Email) {
                     p.setEmail(rs.getString("Email"));
                     p.setLogin(rs.getString("Login"));
                     p.setSenha(rs.getString("Senha"));
-                } 
-            } 
-            
+                }
+            }
+
         } catch (SQLException ex) {
-            Logger.getLogger(PsicologoDAO.class.getName()).log(Level.SEVERE, null, ex);
+           JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
