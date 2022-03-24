@@ -80,7 +80,7 @@ public class PacienteDAO {
             stmt.executeUpdate();
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, ex.getMessage());
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
             status = false;
 
         } finally {
@@ -118,7 +118,7 @@ public class PacienteDAO {
                 }
             }
         } catch (SQLException ex) {
-            Logger.getLogger(PacienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
@@ -156,7 +156,7 @@ public class PacienteDAO {
                 }
             }
         } catch (SQLException ex) {
-            Logger.getLogger(PacienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
@@ -226,7 +226,7 @@ public class PacienteDAO {
             stmt.executeUpdate();
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao alterar :" +ex.getMessage());
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
             status = false;
 
         } finally {
@@ -248,7 +248,7 @@ public class PacienteDAO {
             stmt.executeUpdate();
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao alterar :" +ex.getMessage());
+           JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
             status = false;
 
         } finally {
@@ -272,7 +272,7 @@ public class PacienteDAO {
             stmt.executeUpdate();
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao alterar :" +ex.getMessage());
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
             status = false;
 
         } finally {
@@ -309,7 +309,7 @@ public class PacienteDAO {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(PacienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
@@ -348,7 +348,7 @@ public class PacienteDAO {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(PacienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
@@ -370,7 +370,7 @@ public class PacienteDAO {
 
         } catch (SQLException ex) {
             status = false;
-                  JOptionPane.showMessageDialog(null, "Erro ao Excluir :" +ex);
+                 JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         } finally {
             ConnectionFactory.closeConnection(con, stmt);
         }
@@ -391,7 +391,7 @@ public class PacienteDAO {
 
         } catch (SQLException ex) {
             status = false;
-                  JOptionPane.showMessageDialog(null, "Erro ao Excluir :" +ex);
+                  JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         } finally {
             ConnectionFactory.closeConnection(con, stmt);
         }
