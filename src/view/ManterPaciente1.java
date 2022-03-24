@@ -3513,7 +3513,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             p.setEscolaridade(TxtEscolaridade2.getText());
             p.setEndereco(TxtEndereco2.getText());
             p.setCidade(TxtCidade2.getText());
-
+            
             //java.util.Date date = new java.util.Date();
             Object param = DataNasc3.getDate();
 

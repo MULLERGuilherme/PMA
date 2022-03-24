@@ -2756,7 +2756,7 @@ public class M extends javax.swing.JFrame {
             cpf = (String) txtCPF1.getValue();
             cpf = cpf.replace(".", "").replace("-", "");
         }
-        if (!Validar.vCamposVazios(this, txtNome1, txtEmail1, cpf, DataNasc2, TxtTelefone1)) {
+        if (!Validar.vCamposVazios(null, txtNome1, txtEmail1, cpf, DataNasc2, TxtTelefone1)) {
             if (Validar.vNome(txtNome1.getText())) {
                 p.setNome_Completo(txtNome1.getText());
             } else {
@@ -2839,7 +2839,7 @@ public class M extends javax.swing.JFrame {
                     getPageData(currentPage);
                 }
             } else {
-                JOptionPane.showMessageDialog(this, msg, "ERRO!", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, msg, "ERRO!", JOptionPane.ERROR_MESSAGE);
             }
         }
 
@@ -3352,7 +3352,7 @@ public class M extends javax.swing.JFrame {
             cpf = (String) txtCPF2.getValue();
             cpf = cpf.replace(".", "").replace("-", "");
         }
-        if (!Validar.vCamposVazios(this, txtNome2, txtEmail3, cpf, DataNasc3, TxtTelefone2)) {
+        if (!Validar.vCamposVazios(null, txtNome2, txtEmail3, cpf, DataNasc3, TxtTelefone2)) {
             p.setCodPaciente(codigopaciente);
             if (Validar.vNome(txtNome2.getText())) {
                 p.setNome_Completo(txtNome2.getText());
@@ -3382,7 +3382,11 @@ public class M extends javax.swing.JFrame {
             p.setEscolaridade(TxtEscolaridade2.getText());
             p.setEndereco(TxtEndereco2.getText());
             p.setCidade(TxtCidade2.getText());
-
+            if (JCBdeletados.getSelectedIndex() == 1) {
+                p.setDeletado(true);
+            } else {
+                p.setDeletado(false);
+            }
             //java.util.Date date = new java.util.Date();
             Object param = DataNasc3.getDate();
 
@@ -3417,11 +3421,11 @@ public class M extends javax.swing.JFrame {
                         if (t.size() == 2) {
                             if (TxtTelefone8.getText().isEmpty()) {
                                 tfdao.HardDeleteTelefone(t.get(1));
-                            }else{
-                               t.get(1).setNumero(TxtTelefone8.getText());
-                               tfdao.UpdateTPaciente(t.get(1)); 
+                            } else {
+                                t.get(1).setNumero(TxtTelefone8.getText());
+                                tfdao.UpdateTPaciente(t.get(1));
                             }
-                            
+
                         }
                         if (!TxtTelefone8.getText().isEmpty() && t.size() == 1) {
                             tf2.setPaciente(p);
@@ -3453,7 +3457,7 @@ public class M extends javax.swing.JFrame {
                 }
 
             } else {
-                JOptionPane.showMessageDialog(this, msg, "ERRO!", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, msg, "ERRO!", JOptionPane.ERROR_MESSAGE);
             }
         }
 
