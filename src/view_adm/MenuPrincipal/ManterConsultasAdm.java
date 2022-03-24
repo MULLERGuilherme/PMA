@@ -27,6 +27,7 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -53,7 +54,8 @@ import util.Util;
  * @author guimu
  */
 public class ManterConsultasAdm extends javax.swing.JFrame {
-
+    LocalDate dfim;
+    LocalDate dinicio;
     //Paginacao
     int PAGE_SIZE = 5;
     double tableRowCount;
@@ -69,7 +71,7 @@ public class ManterConsultasAdm extends javax.swing.JFrame {
         } else {
             deletada = true;
         }
-        tableRowCount = dao.getRowCountConsultasADM(deletada);
+        tableRowCount = dao.getRowCountConsultasADM(deletada, dinicio, dfim);
         if (tableRowCount > 0) {
             totalPages = (int) Math.ceil(tableRowCount / PAGE_SIZE);
 
@@ -81,7 +83,7 @@ public class ManterConsultasAdm extends javax.swing.JFrame {
     public void getCountInit() {
         ADMDAO dao = new ADMDAO();
 
-        tableRowCount = dao.getRowCountConsultasADM(false);
+        tableRowCount = dao.getRowCountConsultasADM(false, dinicio, dfim);
 
         if (tableRowCount > 0) {
             totalPages = (int) Math.ceil(tableRowCount / PAGE_SIZE);
@@ -99,7 +101,7 @@ public class ManterConsultasAdm extends javax.swing.JFrame {
         } else {
             deletada = true;
         }
-        tableRowCount = dao.getRowCountTableConsultasADMBusca(Busca, deletada);
+        tableRowCount = dao.getRowCountTableConsultasADMBusca(Busca, deletada, dinicio, dfim);
         //System.out.println(tableRowCount);
         if (tableRowCount > 0) {
             totalPages = (int) Math.ceil(tableRowCount / PAGE_SIZE);
@@ -131,8 +133,25 @@ public class ManterConsultasAdm extends javax.swing.JFrame {
     }
 
     public ManterConsultasAdm() {
+        
+        LocalDate agora = LocalDate.now();
+        java.util.Date date1 = java.util.Date.from(agora.atStartOfDay(ZoneId.systemDefault()).toInstant());
+        Calendar cal = Calendar.getInstance();
+        Calendar cal2 = Calendar.getInstance();
+        cal.setTime(date1);
+        cal.set(Calendar.MONTH, (cal.get(Calendar.MONTH) - 6));
+        dinicio = cal.getTime().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        cal2.setTime(date1);
+        cal2.set(Calendar.MONTH, (cal2.get(Calendar.MONTH) +6));
+        dfim = cal2.getTime().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
         this.getCountInit();
         initComponents();
+
+        //System.out.println(localDate);  
+        DataFim.setDate(cal2.getTime());
+
+        DataInicio.setDate(cal.getTime());
+
         BtnVoltarPouco.setEnabled(false);
         BtnVoltarBastante.setEnabled(false);
         if (totalPages == 1) {
@@ -185,6 +204,11 @@ public class ManterConsultasAdm extends javax.swing.JFrame {
         BtnAvancarBastante = new javax.swing.JButton();
         BtnHelp = new javax.swing.JButton();
         JCBdeletadas = new javax.swing.JComboBox<>();
+        DataInicio = new com.toedter.calendar.JDateChooser();
+        DataFim = new com.toedter.calendar.JDateChooser();
+        jLabel3 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
         PainelMenu = new javax.swing.JPanel();
         BtnInicio = new javax.swing.JButton();
         BtnManterPaciente = new javax.swing.JButton();
@@ -251,7 +275,7 @@ public class ManterConsultasAdm extends javax.swing.JFrame {
 
         jEImagePanel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/spring-floral-watercolor-background-vector-green-with-leaf-illustration_53876-126350.jpg"))); // NOI18N
 
-        jLabel6.setText("Buscar Consulta  por");
+        jLabel6.setText("Buscar");
 
         JTConsultas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -402,29 +426,66 @@ public class ManterConsultasAdm extends javax.swing.JFrame {
             }
         });
 
+        DataInicio.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                DataInicioPropertyChange(evt);
+            }
+        });
+
+        DataFim.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                DataFimPropertyChange(evt);
+            }
+        });
+
+        jLabel3.setText("Até");
+
+        jButton1.setText("OK");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("Filtrar de");
+
         javax.swing.GroupLayout jEImagePanel1Layout = new javax.swing.GroupLayout(jEImagePanel1);
         jEImagePanel1.setLayout(jEImagePanel1Layout);
         jEImagePanel1Layout.setHorizontalGroup(
             jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jEImagePanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(BtnHelp, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jEImagePanel1Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(BtnHelp, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jEImagePanel1Layout.createSequentialGroup()
+                        .addGap(111, 111, 111)
+                        .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(PainelPaginacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jEImagePanel1Layout.createSequentialGroup()
+                                    .addComponent(JCBdeletadas, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addGroup(jEImagePanel1Layout.createSequentialGroup()
+                                            .addComponent(jLabel6)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(jEImagePanel1Layout.createSequentialGroup()
+                                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(DataInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(jLabel3)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(DataFim, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jButton1)))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 84, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(jEImagePanel1Layout.createSequentialGroup()
-                .addGap(111, 111, 111)
-                .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(PainelPaginacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(jEImagePanel1Layout.createSequentialGroup()
-                            .addComponent(JCBdeletadas, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jLabel6)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(94, Short.MAX_VALUE))
         );
         jEImagePanel1Layout.setVerticalGroup(
             jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -432,20 +493,29 @@ public class ManterConsultasAdm extends javax.swing.JFrame {
                 .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jEImagePanel1Layout.createSequentialGroup()
                         .addGap(30, 30, 30)
-                        .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel6)
-                                .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(JCBdeletadas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jEImagePanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(BtnHelp, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(BtnHelp, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jEImagePanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(DataFim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(DataInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel2)
+                                .addComponent(jLabel3)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(JCBdeletadas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(PainelPaginacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(99, Short.MAX_VALUE))
+                .addContainerGap(94, Short.MAX_VALUE))
         );
 
         getContentPane().add(jEImagePanel1, java.awt.BorderLayout.CENTER);
@@ -579,7 +649,7 @@ public class ManterConsultasAdm extends javax.swing.JFrame {
         model.setNumRows(0);
         ADMDAO vwdao = new ADMDAO();
 
-        for (Vw_Consultas c : vwdao.fetchBySizeConsultasADM(start, size, deletada)) {
+        for (Vw_Consultas c : vwdao.fetchBySizeConsultasADM(start, size, deletada, dinicio, dfim)) {
             //p = pdao.ReadPaciente(c.getPaciente().getCodPaciente());
             model.addRow(new Object[]{
                 c.getCodConsulta(),
@@ -624,7 +694,7 @@ public class ManterConsultasAdm extends javax.swing.JFrame {
             deletada = true;
         }
         ADMDAO vwdao = new ADMDAO();
-        for (Vw_Consultas c : vwdao.fetchBySizeConsultasAdmBusca(start, size, Busca, deletada)) {
+        for (Vw_Consultas c : vwdao.fetchBySizeConsultasAdmBusca(start, size, Busca, deletada, dinicio, dfim)) {
             //p = pdao.ReadPaciente(c.getPaciente().getCodPaciente());
             model.addRow(new Object[]{
                 c.getCodConsulta(),
@@ -939,7 +1009,7 @@ public class ManterConsultasAdm extends javax.swing.JFrame {
 
     private void JCBdeletadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCBdeletadasActionPerformed
         // TODO add your handling code here:
-        
+
         if (txtBusca.getText() != "") {
 
             getCountBusca(txtBusca.getText());
@@ -953,6 +1023,77 @@ public class ManterConsultasAdm extends javax.swing.JFrame {
             getPageData(currentPage);
         }
     }//GEN-LAST:event_JCBdeletadasActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        int npag1 = totalPages;
+        if (txtBusca.getText() != "") {
+            PAGE_SIZE = (int) SpinnerLimite.getValue();
+            getCountBusca(txtBusca.getText());
+            SpinnerNumPaginas.setModel(new javax.swing.SpinnerNumberModel(1, 1, totalPages, 1));
+            SpinnerNumPaginas.setValue((int) currentPage);
+
+            LabelQtdePaginas.setText("de " + totalPages);
+            getPageDataBusca(1, txtBusca.getText());
+            int npag2 = totalPages;
+            if (totalPages == 1) {
+                BtnAvancarPouco.setEnabled(false);
+                BtnAvancarBastante.setEnabled(false);
+
+            }
+            if (npag1 < npag2) {
+                BtnAvancarPouco.setEnabled(true);
+                BtnAvancarBastante.setEnabled(true);
+
+            }
+            if (npag1 > npag2) {
+                BtnVoltarPouco.setEnabled(true);
+                BtnVoltarBastante.setEnabled(true);
+
+            }
+        } else {
+            PAGE_SIZE = (int) SpinnerLimite.getValue();
+            getCount();
+
+            SpinnerNumPaginas.setModel(new javax.swing.SpinnerNumberModel(1, 1, totalPages, 1));
+            SpinnerNumPaginas.setValue((int) currentPage);
+
+            LabelQtdePaginas.setText("de " + totalPages);
+            getPageData(1);
+            int npag2 = totalPages;
+            if (totalPages == 1) {
+                BtnAvancarPouco.setEnabled(false);
+                BtnAvancarBastante.setEnabled(false);
+
+            }
+            if (npag1 < npag2) {
+                BtnAvancarPouco.setEnabled(true);
+                BtnAvancarBastante.setEnabled(true);
+
+            }
+            if (npag1 > npag2) {
+                BtnVoltarPouco.setEnabled(true);
+                BtnVoltarBastante.setEnabled(true);
+
+            }
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void DataInicioPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_DataInicioPropertyChange
+        // TODO add your handling code here:
+         if(DataInicio.getDate() != null){
+            java.util.Date date = DataInicio.getDate();
+            dinicio = date.toInstant().atZone( ZoneId.systemDefault() ).toLocalDate();
+         }
+    }//GEN-LAST:event_DataInicioPropertyChange
+
+    private void DataFimPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_DataFimPropertyChange
+        // TODO add your handling code here:
+         if(DataFim.getDate() != null){
+            java.util.Date date = DataFim.getDate();
+            dfim = date.toInstant().atZone( ZoneId.systemDefault() ).toLocalDate();
+         }
+    }//GEN-LAST:event_DataFimPropertyChange
 
     public void clear() {
         //limpar a tela
@@ -1036,6 +1177,8 @@ public class ManterConsultasAdm extends javax.swing.JFrame {
     private javax.swing.JButton BtnSair;
     private javax.swing.JButton BtnVoltarBastante;
     private javax.swing.JButton BtnVoltarPouco;
+    private com.toedter.calendar.JDateChooser DataFim;
+    private com.toedter.calendar.JDateChooser DataInicio;
     private javax.swing.JComboBox<String> JCBdeletadas;
     private javax.swing.JTable JTConsultas;
     private javax.swing.JLabel LabelLimite;
@@ -1047,8 +1190,11 @@ public class ManterConsultasAdm extends javax.swing.JFrame {
     private javax.swing.JSpinner SpinnerLimite;
     private javax.swing.JSpinner SpinnerNumPaginas;
     private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton jButton1;
     private LIB.JEImagePanel jEImagePanel1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel4;
