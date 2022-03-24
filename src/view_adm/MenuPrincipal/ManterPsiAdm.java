@@ -1837,6 +1837,9 @@ public class ManterPsiAdm extends javax.swing.JFrame {
         if (!Character.isDigit(c)) {
             evt.consume();
         }
+        if (TxtTelefone6.getText().length() == 11) {
+            evt.consume();
+        }
     }//GEN-LAST:event_TxtTelefone6KeyTyped
 
     private void BtnCadastrarPsicologo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCadastrarPsicologo1ActionPerformed
@@ -1970,6 +1973,9 @@ public class ManterPsiAdm extends javax.swing.JFrame {
         if (!Character.isDigit(c)) {
             evt.consume();
         }
+        if (TxtTelefone7.getText().length() == 11) {
+            evt.consume();
+        }
     }//GEN-LAST:event_TxtTelefone7KeyTyped
 
     private void LabelEsqueciSenhaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LabelEsqueciSenhaMouseClicked
@@ -2032,6 +2038,9 @@ public class ManterPsiAdm extends javax.swing.JFrame {
     private void TxtTelefone1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtTelefone1KeyTyped
         char c = evt.getKeyChar();
         if (!Character.isDigit(c)) {
+            evt.consume();
+        }
+        if (TxtTelefone1.getText().length() == 11) {
             evt.consume();
         }
     }//GEN-LAST:event_TxtTelefone1KeyTyped
@@ -2174,6 +2183,9 @@ public class ManterPsiAdm extends javax.swing.JFrame {
     private void TxtTelefone5KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtTelefone5KeyTyped
         char c = evt.getKeyChar();
         if (!Character.isDigit(c)) {
+            evt.consume();
+        }
+        if (TxtTelefone5.getText().length() == 11) {
             evt.consume();
         }
     }//GEN-LAST:event_TxtTelefone5KeyTyped
