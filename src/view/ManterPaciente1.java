@@ -3344,11 +3344,17 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         if (!Character.isDigit(c)) {
             evt.consume();
         }
+        if (TxtTelefone1.getText().length()==11) {
+            evt.consume();
+        }
     }//GEN-LAST:event_TxtTelefone1KeyTyped
 
     private void TxtTelefone5KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtTelefone5KeyTyped
         char c = evt.getKeyChar();
         if (!Character.isDigit(c)) {
+            evt.consume();
+        }
+        if (TxtTelefone5.getText().length()==11) {
             evt.consume();
         }
     }//GEN-LAST:event_TxtTelefone5KeyTyped
@@ -3372,11 +3378,17 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         if (!Character.isDigit(c)) {
             evt.consume();
         }
+        if (TxtTelefone6.getText().length()==11) {
+            evt.consume();
+        }
     }//GEN-LAST:event_TxtTelefone6KeyTyped
 
     private void TxtTelefone7KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtTelefone7KeyTyped
         char c = evt.getKeyChar();
         if (!Character.isDigit(c)) {
+            evt.consume();
+        }
+        if (TxtTelefone7.getText().length()==11) {
             evt.consume();
         }
     }//GEN-LAST:event_TxtTelefone7KeyTyped
@@ -3603,12 +3615,18 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         if (!Character.isDigit(c)) {
             evt.consume();
         }
+        if (TxtTelefone2.getText().length()==11) {
+            evt.consume();
+        }
     }//GEN-LAST:event_TxtTelefone2KeyTyped
 
     private void TxtTelefone8KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtTelefone8KeyTyped
         // TODO add your handling code here:
         char c = evt.getKeyChar();
         if (!Character.isDigit(c)) {
+            evt.consume();
+        }
+        if (TxtTelefone8.getText().length()==11) {
             evt.consume();
         }
     }//GEN-LAST:event_TxtTelefone8KeyTyped
