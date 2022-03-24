@@ -1651,10 +1651,7 @@ public class ExibirAnamneses extends javax.swing.JFrame {
                     getPageDataBusca(1, txtBusca.getText()); BtnAvancarPouco.setEnabled(true);
                     BtnAvancarPouco.setEnabled(true);
                     BtnAvancarBastante.setEnabled(true);
-                    if (currentPage == 1) {
-                         BtnVoltarPouco.setEnabled(false);
-                    BtnVoltarBastante.setEnabled(false);  
-                }
+                    
                     
                 } else {
                     getPageDataBusca(currentPage - 5, txtBusca.getText());
@@ -1662,10 +1659,7 @@ public class ExibirAnamneses extends javax.swing.JFrame {
                  btnExcluir.setEnabled(false);
                   BtnAvancarPouco.setEnabled(true);
                     BtnAvancarBastante.setEnabled(true);
-                    if (currentPage == 1) {
-                         BtnVoltarPouco.setEnabled(false);
-                    BtnVoltarBastante.setEnabled(false);  
-                }
+                   
                 }
 
             } else {
@@ -1673,25 +1667,23 @@ public class ExibirAnamneses extends javax.swing.JFrame {
                     getPageData(1);
                      BtnAvancarPouco.setEnabled(true);
                     BtnAvancarBastante.setEnabled(true);
-                    if (currentPage == 1) {
-                         BtnVoltarPouco.setEnabled(false);
-                    BtnVoltarBastante.setEnabled(false);  
-                }
+                   
                 } else {
                     getPageData(currentPage - 5);
                     btnalterar.setEnabled(false);
                  btnExcluir.setEnabled(false);
                   BtnAvancarPouco.setEnabled(true);
                     BtnAvancarBastante.setEnabled(true);
-                    if (currentPage == 1) {
-                         BtnVoltarPouco.setEnabled(false);
-                    BtnVoltarBastante.setEnabled(false);  
-                }
+                   
                 }
             }
 
         }
         SpinnerNumPaginas.setValue((int) currentPage);
+        if (currentPage == 1) {
+                         BtnVoltarPouco.setEnabled(false);
+                    BtnVoltarBastante.setEnabled(false);  
+                }
     }//GEN-LAST:event_BtnVoltarBastanteActionPerformed
 
     private void BtnVoltarPoucoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVoltarPoucoActionPerformed
@@ -1703,22 +1695,20 @@ public class ExibirAnamneses extends javax.swing.JFrame {
                  btnExcluir.setEnabled(false);
                  BtnAvancarPouco.setEnabled(true);
                  BtnAvancarBastante.setEnabled(true);
-                 if (currentPage == 1) {
-                    BtnVoltarPouco.setEnabled(false);
-                    BtnVoltarBastante.setEnabled(false);  
-                }
+                
             } else {
                 getPageData(currentPage - 1);
                  BtnAvancarPouco.setEnabled(true);
                  BtnAvancarBastante.setEnabled(true);
-                 if (currentPage == 1) {
-                    BtnVoltarPouco.setEnabled(false);
-                    BtnVoltarBastante.setEnabled(false);  
-                }
+                 
             }
 
         }
         SpinnerNumPaginas.setValue((int) currentPage);
+         if (currentPage == 1) {
+                    BtnVoltarPouco.setEnabled(false);
+                    BtnVoltarBastante.setEnabled(false);  
+                }
     }//GEN-LAST:event_BtnVoltarPoucoActionPerformed
 
     private void SpinnerNumPaginasStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_SpinnerNumPaginasStateChanged

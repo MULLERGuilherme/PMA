@@ -2982,16 +2982,24 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                 btnVisuAnotacoes.setEnabled(false);
                 BtnAvancarPouco.setEnabled(true);
                 BtnAvancarBastante.setEnabled(true);
-                if (currentPage == 1) {
-                  BtnVoltarPouco.setEnabled(false);
-                  BtnVoltarBastante.setEnabled(false);  
-                }
+                
             } else {
                 getPageData(currentPage - 1);
+                BtnVisuAlterarDados.setEnabled(false);
+                BtnCadastro.setEnabled(false);
+                btnVisuAnamneses.setEnabled(false);
+                btnVisuConsultas.setEnabled(false);
+                btnVisuAnotacoes.setEnabled(false);
+                BtnAvancarPouco.setEnabled(true);
+                BtnAvancarBastante.setEnabled(true);
             }
 
         }
         SpinnerNumPaginas.setValue((int) currentPage);
+        if (currentPage == 1) {
+                  BtnVoltarPouco.setEnabled(false);
+                  BtnVoltarBastante.setEnabled(false);  
+                }
     }//GEN-LAST:event_BtnVoltarPoucoActionPerformed
 
     private void BtnAvancarBastanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAvancarBastanteActionPerformed
@@ -3052,10 +3060,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                     btnVisuAnotacoes.setEnabled(false);
                     BtnAvancarPouco.setEnabled(true);
                     BtnAvancarBastante.setEnabled(true);
-                    if (currentPage == 1) {
-                         BtnVoltarPouco.setEnabled(false);
-                    BtnVoltarBastante.setEnabled(false);  
-                }
+                    
                 } else {
                     getPageDataBusca(currentPage - 5, txtBusca.getText());
                     BtnVisuAlterarDados.setEnabled(false);
@@ -3092,7 +3097,12 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             }
 
         }
+        
         SpinnerNumPaginas.setValue((int) currentPage);
+        if (currentPage == 1) {
+                         BtnVoltarPouco.setEnabled(false);
+                    BtnVoltarBastante.setEnabled(false);  
+                }
     }//GEN-LAST:event_BtnVoltarBastanteActionPerformed
 
     private void BtnAvancarPoucoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAvancarPoucoActionPerformed
