@@ -24,192 +24,190 @@ import model.bean.Telefone;
  * @author User
  */
 public class TelefoneDAO {
-    
-    public boolean CreatePc(Telefone t){
+
+    public boolean CreatePc(Telefone t) {
         boolean status = true;
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         try {
             stmt = con.prepareStatement("INSERT INTO telefone  (Numero, CodPaciente) VALUES (?, ?) ");
-            stmt.setString(1,  t.getNumero());
-            stmt.setInt(2,  t.getPaciente().getCodPaciente());
-           
-            
-            
+            stmt.setString(1, t.getNumero());
+            stmt.setInt(2, t.getPaciente().getCodPaciente());
+
             stmt.executeUpdate();
-            
-           
+
         } catch (SQLException ex) {
             status = false;
-             JOptionPane.showMessageDialog(null, "Erro ao inserir :" +ex);
-        } finally{
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+        } finally {
             ConnectionFactory.closeConnection(con, stmt);
         }
         return status;
     }
-    
-       public boolean CreatePsi(Telefone t){
+
+    public boolean CreatePsi(Telefone t) {
         boolean status = true;
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         try {
             stmt = con.prepareStatement("INSERT INTO telefone  (Numero, CodPsicologo) VALUES (?, ?) ");
-            stmt.setString(1,  t.getNumero());
-            stmt.setInt(2,  t.getPsicologo().getCodPsicologo());
-           
-            
-            
+            stmt.setString(1, t.getNumero());
+            stmt.setInt(2, t.getPsicologo().getCodPsicologo());
+
             stmt.executeUpdate();
-            
-          
+
         } catch (SQLException ex) {
-            
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
             status = false;
-            
-        } finally{
+
+        } finally {
             ConnectionFactory.closeConnection(con, stmt);
         }
         return status;
     }
-    
-    
-     public boolean UpdateTPsicologo(Telefone t){
+
+    public boolean UpdateTPsicologo(Telefone t) {
         boolean status = true;
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         try {
             stmt = con.prepareStatement("Update  telefone SET Numero=? WHERE CodTelefone =? ");
-            
+
             //sem CPF pq nao faz sentido
             //stmt.setString(1,  p.getCPF());
-            stmt.setString(1,  t.getNumero());
+            stmt.setString(1, t.getNumero());
             stmt.setInt(2, t.getCodTelefone());
-            
+
             stmt.executeUpdate();
-            
-          
+
         } catch (SQLException ex) {
-          status = false;
-            
-        } finally{
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+            status = false;
+
+        } finally {
             ConnectionFactory.closeConnection(con, stmt);
         }
         return status;
     }
-     
-       public boolean UpdateTPaciente(Telefone t){
-        
-         boolean status = true; 
+
+    public boolean UpdateTPaciente(Telefone t) {
+
+        boolean status = true;
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         try {
             stmt = con.prepareStatement("Update  telefone SET Numero=? WHERE CodTelefone =? ");
-            
+
             //sem CPF pq nao faz sentido
             //stmt.setString(1,  p.getCPF());
-            stmt.setString(1,  t.getNumero());
+            stmt.setString(1, t.getNumero());
             stmt.setInt(2, t.getCodTelefone());
-            
+
             stmt.executeUpdate();
-            
+
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao alterar :" +ex);
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
             status = false;
-        } finally{
+        } finally {
             ConnectionFactory.closeConnection(con, stmt);
         }
         return status;
     }
-     public List<Telefone> Read(int CodPaciente){
+
+    public List<Telefone> Read(int CodPaciente) {
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;
         List<Telefone> telefones = new ArrayList<>();
-        try { 
-            stmt  = con.prepareStatement("SELECT * FROM telefone WHERE CodPaciente =?");
+        try {
+            stmt = con.prepareStatement("SELECT * FROM telefone WHERE CodPaciente =?");
             stmt.setInt(1, CodPaciente);
             rs = stmt.executeQuery();
-            
-            while(rs.next()){
-                   Telefone t = new Telefone();
-                   t.setNumero(rs.getString("Numero"));
-                   t.setCodTelefone(rs.getInt("CodTelefone"));
-                   t.getPaciente().setCodPaciente(rs.getInt("CodTelefone"));
-                   telefones.add(t);
-                   
+
+            while (rs.next()) {
+                Telefone t = new Telefone();
+                t.setNumero(rs.getString("Numero"));
+                t.setCodTelefone(rs.getInt("CodTelefone"));
+                t.getPaciente().setCodPaciente(rs.getInt("CodTelefone"));
+                telefones.add(t);
+
             }
-            
+
         } catch (SQLException ex) {
-            Logger.getLogger(TelefoneDAO.class.getName()).log(Level.SEVERE, null, ex);
-            
-        }finally{
-             ConnectionFactory.closeConnection(con,stmt,rs);
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt, rs);
         }
-       
+
         return telefones;
     }
-     public List<Telefone> ReadTPsicologo(int CodPsicologo){
+
+    public List<Telefone> ReadTPsicologo(int CodPsicologo) {
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;
         List<Telefone> telefones = new ArrayList<>();
-        try { 
-            stmt  = con.prepareStatement("SELECT * FROM telefone WHERE CodPsicologo =?");
+        try {
+            stmt = con.prepareStatement("SELECT * FROM telefone WHERE CodPsicologo =?");
             stmt.setInt(1, CodPsicologo);
             rs = stmt.executeQuery();
-            
-            while(rs.next()){
-                   Telefone t = new Telefone();
-                   t.setCodTelefone(rs.getInt("CodTelefone"));
-                   t.setNumero(rs.getString("Numero"));
-                   t.getPsicologo().setCodPsicologo(rs.getInt("CodPsicologo"));
-                   
-                   telefones.add(t);
-                   
+
+            while (rs.next()) {
+                Telefone t = new Telefone();
+                t.setCodTelefone(rs.getInt("CodTelefone"));
+                t.setNumero(rs.getString("Numero"));
+                t.getPsicologo().setCodPsicologo(rs.getInt("CodPsicologo"));
+
+                telefones.add(t);
+
             }
-            
+
         } catch (SQLException ex) {
-            Logger.getLogger(TelefoneDAO.class.getName()).log(Level.SEVERE, null, ex);
-            
-        }finally{
-             ConnectionFactory.closeConnection(con,stmt,rs);
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt, rs);
         }
-       
+
         return telefones;
     }
-      
-     public Paciente ReadCodPaciente(String CPF) throws SQLException{
-     
+
+    public Paciente ReadCodPaciente(String CPF) throws SQLException {
+
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        
+
         Paciente pc = new Paciente();
-        stmt  = con.prepareStatement("SELECT * From paciente where CPF = ?");
-        stmt.setString(1, CPF);
-        System.out.println("ate aki foi");
-        rs = stmt.executeQuery();
-        System.out.println("ate aki foi 2");
-        pc.setCodPaciente(rs.getInt("CodPaciente"));
-              ConnectionFactory.closeConnection(con,stmt,rs);
-            return pc;
-            
-           
-                   
-            }
-     
-     public boolean DeleteTPaciente(Paciente p){
+        try {
+            stmt = con.prepareStatement("SELECT * From paciente where CPF = ?");
+            stmt.setString(1, CPF);
+
+            rs = stmt.executeQuery();
+
+            pc.setCodPaciente(rs.getInt("CodPaciente"));
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt, rs);
+        }
+        return pc;
+
+    }
+
+    public boolean DeleteTPaciente(Paciente p) {
         boolean status = true;
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
-        try{
+        try {
             stmt = con.prepareStatement("Update telefone set Deletado = true WHERE CodPaciente =? ");
             stmt.setInt(1, p.getCodPaciente());
 
             stmt.executeUpdate();
-        }catch (SQLException ex) {
-          Logger.getLogger(TelefoneDAO.class.getName()).log(Level.SEVERE, null, ex);
-          status = false;
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+            status = false;
 
         } finally {
             ConnectionFactory.closeConnection(con, stmt);
@@ -231,10 +229,9 @@ public class TelefoneDAO {
 //            ConnectionFactory.closeConnection(con, stmt);
 //        }
 //        return status;
-     }
-     
-     
-     public boolean DeleteTPsicologo(Psicologo p){
+    }
+
+    public boolean DeleteTPsicologo(Psicologo p) {
         boolean status = true;
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
@@ -246,17 +243,17 @@ public class TelefoneDAO {
 
             stmt.executeUpdate();
 
-          
         } catch (SQLException ex) {
-          status = false;
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+            status = false;
 
         } finally {
             ConnectionFactory.closeConnection(con, stmt);
         }
         return status;
-     }
-      
-      public boolean SoftDeleteTPsicologo(Psicologo p){
+    }
+
+    public boolean SoftDeleteTPsicologo(Psicologo p) {
         boolean status = true;
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
@@ -268,17 +265,17 @@ public class TelefoneDAO {
 
             stmt.executeUpdate();
 
-          
         } catch (SQLException ex) {
-          status = false;
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+            status = false;
 
         } finally {
             ConnectionFactory.closeConnection(con, stmt);
         }
         return status;
-     }
-      
-      public boolean RestaurarTPaciente(int codPaciente ){
+    }
+
+    public boolean RestaurarTPaciente(int codPaciente) {
         boolean status = true;
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
@@ -290,17 +287,17 @@ public class TelefoneDAO {
 
             stmt.executeUpdate();
 
-          
         } catch (SQLException ex) {
-          status = false;
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+            status = false;
 
         } finally {
             ConnectionFactory.closeConnection(con, stmt);
         }
         return status;
-     }
-      
-      public boolean RestaurarTPsicologo(int codPsicologo ){
+    }
+
+    public boolean RestaurarTPsicologo(int codPsicologo) {
         boolean status = true;
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
@@ -312,15 +309,14 @@ public class TelefoneDAO {
 
             stmt.executeUpdate();
 
-          
         } catch (SQLException ex) {
-          status = false;
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+            status = false;
 
         } finally {
             ConnectionFactory.closeConnection(con, stmt);
         }
         return status;
-     }
-    
-    
+    }
+
 }
