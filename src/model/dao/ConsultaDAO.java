@@ -40,7 +40,7 @@ public class ConsultaDAO {
             stmt.executeUpdate();
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao inserir :" + ex);
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
             status = false;
 
         } finally {
@@ -72,7 +72,7 @@ public class ConsultaDAO {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(ConsultaDAO.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
@@ -104,7 +104,7 @@ public class ConsultaDAO {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(ConsultaDAO.class.getName()).log(Level.SEVERE, null, ex);
+           JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
@@ -136,7 +136,7 @@ public class ConsultaDAO {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(ConsultaDAO.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
@@ -168,7 +168,7 @@ public class ConsultaDAO {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(ConsultaDAO.class.getName()).log(Level.SEVERE, null, ex);
+           JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
@@ -202,7 +202,7 @@ public class ConsultaDAO {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(ConsultaDAO.class.getName()).log(Level.SEVERE, null, ex);
+           JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
@@ -234,7 +234,7 @@ public class ConsultaDAO {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(ConsultaDAO.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
@@ -258,7 +258,7 @@ public class ConsultaDAO {
             stmt.executeUpdate();
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao alterar :" + ex);
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
             status = false;
         } finally {
             ConnectionFactory.closeConnection(con, stmt);
@@ -279,7 +279,7 @@ public class ConsultaDAO {
             stmt.executeUpdate();
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao Excluir :" + ex);
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
             status = false;
 
         } finally {
@@ -301,7 +301,7 @@ public class ConsultaDAO {
             stmt.executeUpdate();
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao Excluir :" + ex);
+           JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
             status = false;
 
         } finally {
@@ -323,7 +323,7 @@ public class ConsultaDAO {
             stmt.executeUpdate();
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao Excluir :" + ex);
+           JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
             status = false;
 
         } finally {
@@ -345,7 +345,7 @@ public class ConsultaDAO {
             stmt.executeUpdate();
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao Excluir :" + ex);
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
             status = false;
 
         } finally {
@@ -366,7 +366,7 @@ public class ConsultaDAO {
             stmt.executeUpdate();
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao Excluir :" + ex);
+           JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
             status = false;
 
         } finally {
@@ -388,7 +388,7 @@ public class ConsultaDAO {
             stmt.executeUpdate();
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao Excluir :" + ex);
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
             status = false;
 
         } finally {
@@ -410,7 +410,7 @@ public class ConsultaDAO {
             stmt.executeUpdate();
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao Excluir :" + ex);
+           JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
             status = false;
 
         } finally {
