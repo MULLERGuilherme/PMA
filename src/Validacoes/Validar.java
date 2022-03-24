@@ -263,7 +263,7 @@ public class Validar {
         boolean vazio = false;
         String msg = "Existem Campos Obrigatórios em branco.\nFavor verificar os seguintes campos:\n";
         if (Nome.getText().isEmpty()) {
-            msg += "Nome Completo";
+            msg += "Nome";
             vazio = true;
         }
         if (Email.getText().isEmpty()) {
@@ -279,7 +279,7 @@ public class Validar {
             vazio = true;
         }
         if (Login.getText().isEmpty()) {
-            msg += "\nLogin";
+            msg += "\nUsuário";
             vazio = true;
         }
         if (Senha.getText().isEmpty()) {

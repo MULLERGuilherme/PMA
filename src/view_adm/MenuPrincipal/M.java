@@ -2821,6 +2821,17 @@ public class M extends javax.swing.JFrame {
                             if (tfdao.CreatePc(tf2)) {
                                 //System.out.println("cai aki");
                                 //JOptionPane.showMessageDialog(ModalNovoResolucaoMenor, "Paciente " + p.getNome_Completo() + " Salvo com sucesso");
+                                if (txtBusca.getText() != "") {
+                                    getCountBusca(txtBusca.getText());
+                                    SpinnerNumPaginas.setValue(currentPage);
+                                    LabelQtdePaginas.setText("de " + totalPages);
+                                    getPageDataBusca(currentPage, txtBusca.getText());
+                                } else {
+                                    getCount();
+                                    SpinnerNumPaginas.setValue(currentPage);
+                                    LabelQtdePaginas.setText("de " + totalPages);
+                                    getPageData(currentPage);
+                                }
                                 this.clearNovoR();
                                 ModalNovoResolucaoMenor.dispose();
                             } else {
@@ -2830,6 +2841,17 @@ public class M extends javax.swing.JFrame {
                             }
                         } else {
                             //JOptionPane.showMessageDialog(ModalNovoResolucaoMenor, "Paciente " + p.getNome_Completo() + " Salvo com sucesso");
+                            if (txtBusca.getText() != "") {
+                                getCountBusca(txtBusca.getText());
+                                SpinnerNumPaginas.setValue(currentPage);
+                                LabelQtdePaginas.setText("de " + totalPages);
+                                getPageDataBusca(currentPage, txtBusca.getText());
+                            } else {
+                                getCount();
+                                SpinnerNumPaginas.setValue(currentPage);
+                                LabelQtdePaginas.setText("de " + totalPages);
+                                getPageData(currentPage);
+                            }
                             this.clearNovoR();
                             ModalNovoResolucaoMenor.dispose();
                         }
@@ -2840,17 +2862,7 @@ public class M extends javax.swing.JFrame {
                     }
 
                 }
-                if (txtBusca.getText() != "") {
-                    getCountBusca(txtBusca.getText());
-                    SpinnerNumPaginas.setValue(currentPage);
-                    LabelQtdePaginas.setText("de " + totalPages);
-                    getPageDataBusca(currentPage, txtBusca.getText());
-                } else {
-                    getCount();
-                    SpinnerNumPaginas.setValue(currentPage);
-                    LabelQtdePaginas.setText("de " + totalPages);
-                    getPageData(currentPage);
-                }
+
             } else {
                 JOptionPane.showMessageDialog(null, msg, "ERRO!", JOptionPane.ERROR_MESSAGE);
             }
@@ -3266,7 +3278,7 @@ public class M extends javax.swing.JFrame {
         if (!Character.isDigit(c)) {
             evt.consume();
         }
-         if (TxtTelefone1.getText().length()==11) {
+        if (TxtTelefone1.getText().length() == 11) {
             evt.consume();
         }
     }//GEN-LAST:event_TxtTelefone1KeyTyped
@@ -3276,7 +3288,7 @@ public class M extends javax.swing.JFrame {
         if (!Character.isDigit(c)) {
             evt.consume();
         }
-         if (TxtTelefone5.getText().length()==11) {
+        if (TxtTelefone5.getText().length() == 11) {
             evt.consume();
         }
     }//GEN-LAST:event_TxtTelefone5KeyTyped
@@ -3513,7 +3525,7 @@ public class M extends javax.swing.JFrame {
         if (!Character.isDigit(c)) {
             evt.consume();
         }
-         if (TxtTelefone2.getText().length()==11) {
+        if (TxtTelefone2.getText().length() == 11) {
             evt.consume();
         }
     }//GEN-LAST:event_TxtTelefone2KeyTyped
@@ -3524,7 +3536,7 @@ public class M extends javax.swing.JFrame {
         if (!Character.isDigit(c)) {
             evt.consume();
         }
-         if (TxtTelefone8.getText().length()==11) {
+        if (TxtTelefone8.getText().length() == 11) {
             evt.consume();
         }
     }//GEN-LAST:event_TxtTelefone8KeyTyped
@@ -3611,11 +3623,11 @@ public class M extends javax.swing.JFrame {
         BtnVisuAlterarDados.setEnabled(false);
         if (JCBdeletados.getSelectedIndex() == 0) {
             btnRestaurar.setVisible(false);
-            
+
         } else {
             btnRestaurar.setVisible(true);
             btnRestaurar.setEnabled(false);
-            
+
         }
         if (txtBusca.getText() != "") {
 
