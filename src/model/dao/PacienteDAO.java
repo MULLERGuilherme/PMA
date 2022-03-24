@@ -376,6 +376,28 @@ public class PacienteDAO {
         }
         return status;
     }
+       public boolean HardDelete(Paciente p) {
+        boolean status = true;
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+
+        try {
+            stmt = con.prepareStatement("Delete from paciente WHERE CodPaciente =? ");
+
+            stmt.setInt(1, p.getCodPaciente());
+
+            stmt.executeUpdate();
+
+        } catch (SQLException ex) {
+            status = false;
+                 JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt);
+        }
+        return status;
+    }
+    
+    
     
     public boolean SoftDelete(Paciente p) {
         boolean status = true;

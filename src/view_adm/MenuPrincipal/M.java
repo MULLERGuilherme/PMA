@@ -2823,7 +2823,7 @@ public class M extends javax.swing.JFrame {
                         this.clearNovoR();
                         ModalNovoResolucaoMenor.dispose();
                     } else {
-                        dao.Delete(p);
+                        dao.HardDelete(p);
                     }
 
                 }
@@ -2944,20 +2944,20 @@ public class M extends javax.swing.JFrame {
                 getPageDataBusca(currentPage - 1, txtBusca.getText());
                 BtnAvancarPouco.setEnabled(true);
                 BtnAvancarBastante.setEnabled(true);
-                
+
             } else {
                 getPageData(currentPage - 1);
                 BtnAvancarPouco.setEnabled(true);
                 BtnAvancarBastante.setEnabled(true);
-               
+
             }
 
         }
         SpinnerNumPaginas.setValue((int) currentPage);
         if (currentPage == 1) {
-                    BtnVoltarPouco.setEnabled(false);
-                    BtnVoltarBastante.setEnabled(false);
-                }
+            BtnVoltarPouco.setEnabled(false);
+            BtnVoltarBastante.setEnabled(false);
+        }
     }//GEN-LAST:event_BtnVoltarPoucoActionPerformed
 
     private void BtnAvancarBastanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAvancarBastanteActionPerformed
@@ -3012,38 +3012,38 @@ public class M extends javax.swing.JFrame {
                     getPageDataBusca(1, txtBusca.getText());
                     BtnAvancarPouco.setEnabled(true);
                     BtnAvancarBastante.setEnabled(true);
-                   
-                    }
-                } else {
-                    getPageDataBusca(currentPage - 5, txtBusca.getText());
-                    BtnAvancarPouco.setEnabled(true);
-                    BtnAvancarBastante.setEnabled(true);
-                    
+
                 }
-                 if (currentPage == 1) {
-                        BtnVoltarPouco.setEnabled(false);
-                        BtnVoltarBastante.setEnabled(false);
-                        
+            } else {
+                getPageDataBusca(currentPage - 5, txtBusca.getText());
+                BtnAvancarPouco.setEnabled(true);
+                BtnAvancarBastante.setEnabled(true);
+
+            }
+            if (currentPage == 1) {
+                BtnVoltarPouco.setEnabled(false);
+                BtnVoltarBastante.setEnabled(false);
+
             } else {
                 if (currentPage - 5 < 1) {
                     getPageData(1);
                     BtnAvancarPouco.setEnabled(true);
                     BtnAvancarBastante.setEnabled(true);
-                   
+
                 } else {
                     getPageData(currentPage - 5);
                     BtnAvancarPouco.setEnabled(true);
                     BtnAvancarBastante.setEnabled(true);
-                    
+
                 }
             }
 
         }
         SpinnerNumPaginas.setValue((int) currentPage);
         if (currentPage == 1) {
-                        BtnVoltarPouco.setEnabled(false);
-                        BtnVoltarBastante.setEnabled(false);
-                    }
+            BtnVoltarPouco.setEnabled(false);
+            BtnVoltarBastante.setEnabled(false);
+        }
     }//GEN-LAST:event_BtnVoltarBastanteActionPerformed
 
     private void BtnAvancarPoucoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAvancarPoucoActionPerformed
@@ -3178,15 +3178,14 @@ public class M extends javax.swing.JFrame {
 
             LabelQtdePaginas.setText("de " + totalPages);
             getPageDataBusca(1, txtBusca.getText());
-             if(totalPages==1){
-            BtnAvancarPouco.setEnabled(false);
-            BtnAvancarBastante.setEnabled(false);
-            
-        }
-             else{
-                 BtnAvancarPouco.setEnabled(true);
+            if (totalPages == 1) {
+                BtnAvancarPouco.setEnabled(false);
+                BtnAvancarBastante.setEnabled(false);
+
+            } else {
+                BtnAvancarPouco.setEnabled(true);
                 BtnAvancarBastante.setEnabled(true);
-             }
+            }
         } else {
             PAGE_SIZE = (int) SpinnerLimite.getValue();
             getCount();
@@ -3196,7 +3195,7 @@ public class M extends javax.swing.JFrame {
 
             LabelQtdePaginas.setText("de " + totalPages);
             getPageData(1);
-            
+
         }
 
     }//GEN-LAST:event_SpinnerLimiteStateChanged
@@ -3413,10 +3412,16 @@ public class M extends javax.swing.JFrame {
                     List<Telefone> t = new ArrayList<>();
                     t = tfdao.Read(p.getCodPaciente());
                     t.get(0).setNumero(TxtTelefone2.getText());
+
                     if (tfdao.UpdateTPaciente(t.get(0))) {
                         if (t.size() == 2) {
-                            t.get(1).setNumero(TxtTelefone8.getText());
-                            tfdao.UpdateTPaciente(t.get(1));
+                            if (TxtTelefone8.getText().isEmpty()) {
+                                tfdao.HardDeleteTelefone(t.get(1));
+                            }else{
+                               t.get(1).setNumero(TxtTelefone8.getText());
+                               tfdao.UpdateTPaciente(t.get(1)); 
+                            }
+                            
                         }
                         if (!TxtTelefone8.getText().isEmpty() && t.size() == 1) {
                             tf2.setPaciente(p);

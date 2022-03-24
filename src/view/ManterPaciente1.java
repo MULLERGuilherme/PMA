@@ -2823,7 +2823,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                         this.clearNovoR();
                         ModalNovoResolucaoMenor.dispose();
                     } else {
-                        dao.Delete(p);
+                        dao.HardDelete(p);
                     }
 
                 }
@@ -3533,8 +3533,13 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                     t.get(0).setNumero(TxtTelefone2.getText());
                     if (tfdao.UpdateTPaciente(t.get(0))) {
                         if (t.size() == 2) {
-                            t.get(1).setNumero(TxtTelefone8.getText());
+                            if (TxtTelefone8.getText().isEmpty()) {
+                                tfdao.HardDeleteTelefone(t.get(1));
+                            }else{
+                                t.get(1).setNumero(TxtTelefone8.getText());
                             tfdao.UpdateTPaciente(t.get(1));
+                            }
+                            
                         }
                         if (!TxtTelefone8.getText().isEmpty() && t.size() == 1) {
                             tf2.setPaciente(p);

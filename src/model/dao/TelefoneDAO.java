@@ -230,6 +230,41 @@ public class TelefoneDAO {
 //        }
 //        return status;
     }
+    
+      public boolean HardDeleteTelefone(Telefone t) {
+        boolean status = true;
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        try {
+            stmt = con.prepareStatement("Delete from telefone WHERE CodTelefone =? ");
+            stmt.setInt(1, t.getCodTelefone());
+
+            stmt.executeUpdate();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+            status = false;
+
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt);
+        }
+        return status;
+//        try {
+//            stmt = con.prepareStatement("Delete FROM telefone WHERE CodPaciente =? ");
+//
+//            stmt.setInt(1, p.getCodPaciente());
+//
+//            stmt.executeUpdate();
+//
+//          
+//        } catch (SQLException ex) {
+//          Logger.getLogger(TelefoneDAO.class.getName()).log(Level.SEVERE, null, ex);
+//          status = false;
+//
+//        } finally {
+//            ConnectionFactory.closeConnection(con, stmt);
+//        }
+//        return status;
+    }
 
     public boolean DeleteTPsicologo(Psicologo p) {
         boolean status = true;
