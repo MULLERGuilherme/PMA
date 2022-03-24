@@ -2818,7 +2818,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                             tf2.setPaciente(p);
                             if (tfdao.CreatePc(tf2)) {
                                 //System.out.println("cai aki");
-                                //JOptionPane.showMessageDialog(ModalNovoResolucaoMenor, "Paciente " + p.getNome_Completo() + " Salvo com sucesso");
+                                
                                 this.clearNovoR();
                                 ModalNovoResolucaoMenor.dispose();
                             } else {
@@ -2827,7 +2827,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                                 dao.HardDelete(p);
                             }
                         }else{
-                        //JOptionPane.showMessageDialog(ModalNovoResolucaoMenor, "Paciente " + p.getNome_Completo() + " Salvo com sucesso");
+                       
                         this.clearNovoR();
                         ModalNovoResolucaoMenor.dispose();
                         }
