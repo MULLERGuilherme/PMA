@@ -826,16 +826,11 @@
                                       <Component id="BtnSalvarAlteracoes4" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
-                                      <Component id="jLabel78" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                                       <Component id="jLabel64" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel77" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel79" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      </Group>
+                                      <Component id="jLabel79" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="LabelModalAnamnese" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -950,10 +945,7 @@
                           <Component id="txtQueixaSecundaria1" alignment="3" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="labelInicioQueixa3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel77" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="labelInicioQueixa3" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="CheckBoxVolicao" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -967,10 +959,7 @@
                           <Component id="CheckBoxDesanimo" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel64" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel78" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="jLabel64" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="CheckBoxIntegridadeSensorial" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -1561,34 +1550,6 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel76">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="*"/>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="0" green="0" red="ff" type="rgb"/>
-                </Property>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="18" style="1"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="0" green="0" red="ff" type="rgb"/>
-                </Property>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel77">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="*"/>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="0" green="0" red="ff" type="rgb"/>
-                </Property>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="18" style="1"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="0" green="0" red="ff" type="rgb"/>
-                </Property>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel78">
               <Properties>
                 <Property name="text" type="java.lang.String" value="*"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">

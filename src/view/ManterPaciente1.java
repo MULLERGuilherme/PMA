@@ -263,8 +263,6 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         CheckBoxAtencao = new javax.swing.JCheckBox();
         CheckBoxMemoria = new javax.swing.JCheckBox();
         jLabel76 = new javax.swing.JLabel();
-        jLabel77 = new javax.swing.JLabel();
-        jLabel78 = new javax.swing.JLabel();
         jLabel79 = new javax.swing.JLabel();
         jLabel80 = new javax.swing.JLabel();
         jLabel81 = new javax.swing.JLabel();
@@ -1014,16 +1012,6 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         jLabel76.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel76.setForeground(new java.awt.Color(255, 0, 0));
 
-        jLabel77.setText("*");
-        jLabel77.setBackground(new java.awt.Color(255, 0, 0));
-        jLabel77.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel77.setForeground(new java.awt.Color(255, 0, 0));
-
-        jLabel78.setText("*");
-        jLabel78.setBackground(new java.awt.Color(255, 0, 0));
-        jLabel78.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel78.setForeground(new java.awt.Color(255, 0, 0));
-
         jLabel79.setText("*");
         jLabel79.setBackground(new java.awt.Color(255, 0, 0));
         jLabel79.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -1094,14 +1082,10 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(BtnSalvarAlteracoes4))
                             .addGroup(PainelDadosPaciente4Layout.createSequentialGroup()
-                                .addGap(1, 1, 1)
-                                .addComponent(jLabel78)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGap(19, 19, 19)
                                 .addComponent(jLabel64))
                             .addGroup(PainelDadosPaciente4Layout.createSequentialGroup()
-                                .addGroup(PainelDadosPaciente4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel77)
-                                    .addComponent(jLabel79, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addComponent(jLabel79)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(PainelDadosPaciente4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(LabelModalAnamnese)
@@ -1196,9 +1180,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                     .addComponent(LabelEmail4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtQueixaSecundaria1))
                 .addGap(18, 18, 18)
-                .addGroup(PainelDadosPaciente4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelInicioQueixa3)
-                    .addComponent(jLabel77))
+                .addComponent(labelInicioQueixa3)
                 .addGap(18, 18, 18)
                 .addGroup(PainelDadosPaciente4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CheckBoxVolicao)
@@ -1211,9 +1193,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                     .addComponent(CheckBoxLuto)
                     .addComponent(CheckBoxDesanimo))
                 .addGap(18, 18, 18)
-                .addGroup(PainelDadosPaciente4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel64)
-                    .addComponent(jLabel78))
+                .addComponent(jLabel64)
                 .addGap(18, 18, 18)
                 .addGroup(PainelDadosPaciente4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CheckBoxIntegridadeSensorial)
@@ -3249,6 +3229,8 @@ public class ManterPaciente1 extends javax.swing.JFrame {
 
     private void SpinnerLimiteStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_SpinnerLimiteStateChanged
         int npag1=totalPages;
+        BtnVoltarPouco.setEnabled(false);
+        BtnVoltarBastante.setEnabled(false);
         if (txtBusca.getText() != "") {
             
             PAGE_SIZE = (int) SpinnerLimite.getValue();
@@ -3261,8 +3243,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             btnVisuConsultas.setEnabled(false);
             btnVisuAnotacoes.setEnabled(false);
             BtnCadastro.setEnabled(false);
-            BtnVoltarPouco.setEnabled(false);
-            BtnVoltarBastante.setEnabled(false);
+            
 
             LabelQtdePaginas.setText("de " + totalPages);
             getPageDataBusca(1, txtBusca.getText());
@@ -3955,8 +3936,6 @@ private String getFirstWord(String text) {
     private javax.swing.JLabel jLabel74;
     private javax.swing.JLabel jLabel75;
     private javax.swing.JLabel jLabel76;
-    private javax.swing.JLabel jLabel77;
-    private javax.swing.JLabel jLabel78;
     private javax.swing.JLabel jLabel79;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel80;
