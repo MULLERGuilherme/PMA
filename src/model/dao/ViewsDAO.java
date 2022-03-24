@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import model.bean.Consulta;
 import model.bean.Vw_Anamnese_Paciente;
 import model.bean.Vw_Anotacoes_Paciente;
@@ -51,7 +52,7 @@ public class ViewsDAO {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(ConsultaDAO.class.getName()).log(Level.SEVERE, null, ex);
+           JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
@@ -84,7 +85,7 @@ public class ViewsDAO {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(ConsultaDAO.class.getName()).log(Level.SEVERE, null, ex);
+           JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
@@ -118,7 +119,7 @@ public class ViewsDAO {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(ConsultaDAO.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
@@ -148,7 +149,7 @@ public class ViewsDAO {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(ConsultaDAO.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
@@ -178,7 +179,7 @@ public class ViewsDAO {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(ConsultaDAO.class.getName()).log(Level.SEVERE, null, ex);
+           JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
@@ -208,7 +209,7 @@ public class ViewsDAO {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(ConsultaDAO.class.getName()).log(Level.SEVERE, null, ex);
+           JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
@@ -238,7 +239,7 @@ public class ViewsDAO {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(ConsultaDAO.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
@@ -261,7 +262,7 @@ public class ViewsDAO {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(ViewsDAO.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
@@ -287,7 +288,7 @@ public class ViewsDAO {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(ViewsDAO.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
@@ -318,7 +319,7 @@ public class ViewsDAO {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(ConsultaDAO.class.getName()).log(Level.SEVERE, null, ex);
+           JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
@@ -348,7 +349,7 @@ public class ViewsDAO {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(ConsultaDAO.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
@@ -371,7 +372,7 @@ public class ViewsDAO {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(ViewsDAO.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
@@ -395,7 +396,7 @@ public class ViewsDAO {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(ViewsDAO.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
@@ -423,7 +424,7 @@ public class ViewsDAO {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(ConsultaDAO.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
@@ -455,7 +456,7 @@ public class ViewsDAO {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(ConsultaDAO.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
@@ -488,7 +489,7 @@ public class ViewsDAO {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(ConsultaDAO.class.getName()).log(Level.SEVERE, null, ex);
+           JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
@@ -521,7 +522,7 @@ public class ViewsDAO {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(ConsultaDAO.class.getName()).log(Level.SEVERE, null, ex);
+          JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
@@ -555,7 +556,7 @@ public class ViewsDAO {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(ConsultaDAO.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
@@ -585,7 +586,7 @@ public class ViewsDAO {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(PacienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
@@ -615,7 +616,7 @@ public class ViewsDAO {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(PacienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+           JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
@@ -644,7 +645,7 @@ public class ViewsDAO {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(PacienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
@@ -678,7 +679,7 @@ public class ViewsDAO {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(PacienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+           JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
@@ -712,7 +713,7 @@ public class ViewsDAO {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(PacienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
@@ -746,7 +747,7 @@ public class ViewsDAO {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(PacienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+           JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
@@ -780,7 +781,7 @@ public class ViewsDAO {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(PacienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+           JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
@@ -815,7 +816,7 @@ public class ViewsDAO {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(PacienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
@@ -850,7 +851,7 @@ public class ViewsDAO {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(PacienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
@@ -885,7 +886,7 @@ public class ViewsDAO {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(PacienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
@@ -910,7 +911,7 @@ public class ViewsDAO {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(ViewsDAO.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
@@ -934,7 +935,7 @@ public class ViewsDAO {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(ViewsDAO.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
@@ -966,7 +967,7 @@ public class ViewsDAO {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(ConsultaDAO.class.getName()).log(Level.SEVERE, null, ex);
+           JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
@@ -998,7 +999,7 @@ public class ViewsDAO {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(ConsultaDAO.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
@@ -1023,7 +1024,7 @@ public class ViewsDAO {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(ViewsDAO.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
@@ -1047,7 +1048,7 @@ public class ViewsDAO {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(ViewsDAO.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
@@ -1080,7 +1081,7 @@ public class ViewsDAO {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(ConsultaDAO.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
@@ -1113,7 +1114,7 @@ public class ViewsDAO {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(ConsultaDAO.class.getName()).log(Level.SEVERE, null, ex);
+           JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
@@ -1139,7 +1140,7 @@ public class ViewsDAO {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(ViewsDAO.class.getName()).log(Level.SEVERE, null, ex);
+           JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
@@ -1164,7 +1165,7 @@ public class ViewsDAO {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(ViewsDAO.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
@@ -1197,7 +1198,7 @@ public class ViewsDAO {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(ConsultaDAO.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
@@ -1230,7 +1231,7 @@ public class ViewsDAO {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(ConsultaDAO.class.getName()).log(Level.SEVERE, null, ex);
+           JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
@@ -1257,7 +1258,7 @@ public class ViewsDAO {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(ViewsDAO.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
@@ -1291,7 +1292,7 @@ public class ViewsDAO {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(ConsultaDAO.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
@@ -1318,7 +1319,7 @@ public class ViewsDAO {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(ViewsDAO.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
@@ -1343,7 +1344,7 @@ public class ViewsDAO {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(ViewsDAO.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
@@ -1377,7 +1378,7 @@ public class ViewsDAO {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(ConsultaDAO.class.getName()).log(Level.SEVERE, null, ex);
+           JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
@@ -1411,7 +1412,7 @@ public class ViewsDAO {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(ConsultaDAO.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         } finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
