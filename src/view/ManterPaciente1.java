@@ -2755,7 +2755,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             cpf = (String) txtCPF1.getValue();
             cpf = cpf.replace(".", "").replace("-", "");
         }
-        if (!Validar.vCamposVazios(this, txtNome1, txtEmail1, cpf, DataNasc2, TxtTelefone1)) {
+        if (!Validar.vCamposVazios(null, txtNome1, txtEmail1, cpf, DataNasc2, TxtTelefone1)) {
             if (Validar.vNome(txtNome1.getText())) {
                 p.setNome_Completo(txtNome1.getText());
             } else {
@@ -2818,7 +2818,17 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                             tf2.setPaciente(p);
                             if (tfdao.CreatePc(tf2)) {
                                 //System.out.println("cai aki");
-                                
+                                if (txtBusca.getText() != "") {
+                                    getCountBusca(txtBusca.getText());
+                                    SpinnerNumPaginas.setValue(currentPage);
+                                    LabelQtdePaginas.setText("de " + totalPages);
+                                    getPageDataBusca(currentPage, txtBusca.getText());
+                                } else {
+                                    getCount();
+                                    SpinnerNumPaginas.setValue(currentPage);
+                                    LabelQtdePaginas.setText("de " + totalPages);
+                                    getPageData(currentPage);
+                                }
                                 this.clearNovoR();
                                 ModalNovoResolucaoMenor.dispose();
                             } else {
@@ -2826,30 +2836,30 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                                 tfdao.HardDeleteTelefone(p);
                                 dao.HardDelete(p);
                             }
-                        }else{
-                       
-                        this.clearNovoR();
-                        ModalNovoResolucaoMenor.dispose();
+                        } else {
+                            if (txtBusca.getText() != "") {
+                                getCountBusca(txtBusca.getText());
+                                SpinnerNumPaginas.setValue(currentPage);
+                                LabelQtdePaginas.setText("de " + totalPages);
+                                getPageDataBusca(currentPage, txtBusca.getText());
+                            } else {
+                                getCount();
+                                SpinnerNumPaginas.setValue(currentPage);
+                                LabelQtdePaginas.setText("de " + totalPages);
+                                getPageData(currentPage);
+                            }
+                            this.clearNovoR();
+                            ModalNovoResolucaoMenor.dispose();
                         }
-                        
+
                     } else {
                         dao.HardDelete(p);
                     }
 
                 }
-                if (txtBusca.getText() == "") {
-                    getCountBusca(txtBusca.getText());
-                    SpinnerNumPaginas.setValue(currentPage);
-                    LabelQtdePaginas.setText("de " + totalPages);
-                    getPageDataBusca(currentPage, txtBusca.getText());
-                } else {
-                    getCount();
-                    SpinnerNumPaginas.setValue(currentPage);
-                    LabelQtdePaginas.setText("de " + totalPages);
-                    getPageDataBusca(currentPage, txtBusca.getText());
-                }
+
             } else {
-                JOptionPane.showMessageDialog(this, msg, "ERRO!", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, msg, "ERRO!", JOptionPane.ERROR_MESSAGE);
             }
         }
 
