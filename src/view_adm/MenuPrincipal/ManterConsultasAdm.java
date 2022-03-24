@@ -1039,7 +1039,8 @@ public class ManterConsultasAdm extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        int npag1 = totalPages;
+        BtnVoltarPouco.setEnabled(false);
+        BtnVoltarBastante.setEnabled(false);
         if (txtBusca.getText() != "") {
             PAGE_SIZE = (int) SpinnerLimite.getValue();
             getCountBusca(txtBusca.getText());
@@ -1048,22 +1049,16 @@ public class ManterConsultasAdm extends javax.swing.JFrame {
 
             LabelQtdePaginas.setText("de " + totalPages);
             getPageDataBusca(1, txtBusca.getText());
-            int npag2 = totalPages;
-            if (totalPages == 1) {
-                BtnAvancarPouco.setEnabled(false);
-                BtnAvancarBastante.setEnabled(false);
-
-            }
-            if (npag1 < npag2) {
-                BtnAvancarPouco.setEnabled(true);
+            
+            if(totalPages==1){
+            BtnAvancarPouco.setEnabled(false);
+            BtnAvancarBastante.setEnabled(false);
+            
+        }
+             else{
+                 BtnAvancarPouco.setEnabled(true);
                 BtnAvancarBastante.setEnabled(true);
-
-            }
-            if (npag1 > npag2) {
-                BtnVoltarPouco.setEnabled(true);
-                BtnVoltarBastante.setEnabled(true);
-
-            }
+             }
         } else {
             PAGE_SIZE = (int) SpinnerLimite.getValue();
             getCount();
@@ -1073,22 +1068,15 @@ public class ManterConsultasAdm extends javax.swing.JFrame {
 
             LabelQtdePaginas.setText("de " + totalPages);
             getPageData(1);
-            int npag2 = totalPages;
-            if (totalPages == 1) {
-                BtnAvancarPouco.setEnabled(false);
-                BtnAvancarBastante.setEnabled(false);
-
-            }
-            if (npag1 < npag2) {
-                BtnAvancarPouco.setEnabled(true);
+            if(totalPages==1){
+            BtnAvancarPouco.setEnabled(false);
+            BtnAvancarBastante.setEnabled(false);
+            
+        }
+             else{
+                 BtnAvancarPouco.setEnabled(true);
                 BtnAvancarBastante.setEnabled(true);
-
-            }
-            if (npag1 > npag2) {
-                BtnVoltarPouco.setEnabled(true);
-                BtnVoltarBastante.setEnabled(true);
-
-            }
+             }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -1097,6 +1085,45 @@ public class ManterConsultasAdm extends javax.swing.JFrame {
          if(DataInicio.getDate() != null){
             java.util.Date date = DataInicio.getDate();
             dinicio = date.toInstant().atZone( ZoneId.systemDefault() ).toLocalDate();
+            BtnVoltarPouco.setEnabled(false);
+        BtnVoltarBastante.setEnabled(false);
+        if (txtBusca.getText() != "") {
+            PAGE_SIZE = (int) SpinnerLimite.getValue();
+            getCountBusca(txtBusca.getText());
+            SpinnerNumPaginas.setModel(new javax.swing.SpinnerNumberModel(1, 1, totalPages, 1));
+            SpinnerNumPaginas.setValue((int) currentPage);
+
+            LabelQtdePaginas.setText("de " + totalPages);
+            getPageDataBusca(1, txtBusca.getText());
+            
+            if(totalPages==1){
+            BtnAvancarPouco.setEnabled(false);
+            BtnAvancarBastante.setEnabled(false);
+            
+        }
+             else{
+                 BtnAvancarPouco.setEnabled(true);
+                BtnAvancarBastante.setEnabled(true);
+             }
+        } else {
+            PAGE_SIZE = (int) SpinnerLimite.getValue();
+            getCount();
+
+            SpinnerNumPaginas.setModel(new javax.swing.SpinnerNumberModel(1, 1, totalPages, 1));
+            SpinnerNumPaginas.setValue((int) currentPage);
+
+            LabelQtdePaginas.setText("de " + totalPages);
+            getPageData(1);
+            if(totalPages==1){
+            BtnAvancarPouco.setEnabled(false);
+            BtnAvancarBastante.setEnabled(false);
+            
+        }
+             else{
+                 BtnAvancarPouco.setEnabled(true);
+                BtnAvancarBastante.setEnabled(true);
+             }
+        }
          }
     }//GEN-LAST:event_DataInicioPropertyChange
 
@@ -1105,6 +1132,45 @@ public class ManterConsultasAdm extends javax.swing.JFrame {
          if(DataFim.getDate() != null){
             java.util.Date date = DataFim.getDate();
             dfim = date.toInstant().atZone( ZoneId.systemDefault() ).toLocalDate();
+            BtnVoltarPouco.setEnabled(false);
+        BtnVoltarBastante.setEnabled(false);
+        if (txtBusca.getText() != "") {
+            PAGE_SIZE = (int) SpinnerLimite.getValue();
+            getCountBusca(txtBusca.getText());
+            SpinnerNumPaginas.setModel(new javax.swing.SpinnerNumberModel(1, 1, totalPages, 1));
+            SpinnerNumPaginas.setValue((int) currentPage);
+
+            LabelQtdePaginas.setText("de " + totalPages);
+            getPageDataBusca(1, txtBusca.getText());
+            
+            if(totalPages==1){
+            BtnAvancarPouco.setEnabled(false);
+            BtnAvancarBastante.setEnabled(false);
+            
+        }
+             else{
+                 BtnAvancarPouco.setEnabled(true);
+                BtnAvancarBastante.setEnabled(true);
+             }
+        } else {
+            PAGE_SIZE = (int) SpinnerLimite.getValue();
+            getCount();
+
+            SpinnerNumPaginas.setModel(new javax.swing.SpinnerNumberModel(1, 1, totalPages, 1));
+            SpinnerNumPaginas.setValue((int) currentPage);
+
+            LabelQtdePaginas.setText("de " + totalPages);
+            getPageData(1);
+            if(totalPages==1){
+            BtnAvancarPouco.setEnabled(false);
+            BtnAvancarBastante.setEnabled(false);
+            
+        }
+             else{
+                 BtnAvancarPouco.setEnabled(true);
+                BtnAvancarBastante.setEnabled(true);
+             }
+        }
          }
     }//GEN-LAST:event_DataFimPropertyChange
 
