@@ -107,22 +107,22 @@ public class ExibirAnamneses2 extends javax.swing.JFrame {
         this.getCount();
 
         initComponents();
-        
+
         ModalAnamnese2.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
         ModalMeusDados.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
-        
+
         Psicologo ps = new Psicologo();
         PsicologoDAO dao = new PsicologoDAO();
         ps = dao.ReadPsicologo(Main.cod);
         jLabel11.setText(ps.getNome_completo());
-        String str= getFirstWord(jLabel11.getText());
+        String str = getFirstWord(jLabel11.getText());
         jLabel11.setText(str);
-        
+
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
         BtnPacientes.setEnabled(false);
         BtnVoltarPouco.setEnabled(false);
         BtnVoltarBastante.setEnabled(false);
-         if(totalPages==1){
+        if (totalPages == 1) {
             BtnAvancarPouco.setEnabled(false);
             BtnAvancarBastante.setEnabled(false);
         }
@@ -136,6 +136,7 @@ public class ExibirAnamneses2 extends javax.swing.JFrame {
         DefaultTableModel dtmPacientes = (DefaultTableModel) JTAnamneses.getModel();
         TableColumnModel cmod = JTAnamneses.getColumnModel();
         cmod.removeColumn(cmod.getColumn(0));
+        cmod.removeColumn(cmod.getColumn(0));
         JTAnamneses.setRowSorter(new TableRowSorter(dtmPacientes));
 
         SpinnerNumPaginas.setValue((int) currentPage);
@@ -144,21 +145,22 @@ public class ExibirAnamneses2 extends javax.swing.JFrame {
         System.out.println(totalPages);
         this.getPageData(1);
     }
-private String getFirstWord(String text) {
 
-  int index = text.indexOf(' ');
+    private String getFirstWord(String text) {
 
-  if (index > -1) { // Check if there is more than one word.
+        int index = text.indexOf(' ');
 
-    return text.substring(0, index).trim(); // Extract first word.
+        if (index > -1) { // Check if there is more than one word.
 
-  } else {
+            return text.substring(0, index).trim(); // Extract first word.
 
-    return text; // Text is the first word itself.
-  }
-}
+        } else {
 
-public void readpsicologo() {
+            return text; // Text is the first word itself.
+        }
+    }
+
+    public void readpsicologo() {
         Psicologo p = new Psicologo();
         PsicologoDAO dao = new PsicologoDAO();
         p = dao.ReadPsicologo(Main.cod);
@@ -180,6 +182,7 @@ public void readpsicologo() {
 
         }
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -248,6 +251,8 @@ public void readpsicologo() {
         jLabel26 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
+        LabelNomePaciente = new javax.swing.JLabel();
+        labelnomepaciente = new javax.swing.JLabel();
         ModalMeusDados = new javax.swing.JDialog();
         jLabel3 = new javax.swing.JLabel();
         txtNome3 = new javax.swing.JTextField();
@@ -311,7 +316,7 @@ public void readpsicologo() {
         PainelIdentificacaoPessoal4.setLayout(PainelIdentificacaoPessoal4Layout);
         PainelIdentificacaoPessoal4Layout.setHorizontalGroup(
             PainelIdentificacaoPessoal4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 917, Short.MAX_VALUE)
         );
         PainelIdentificacaoPessoal4Layout.setVerticalGroup(
             PainelIdentificacaoPessoal4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -532,6 +537,12 @@ public void readpsicologo() {
         jLabel30.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel30.setForeground(new java.awt.Color(255, 0, 0));
 
+        LabelNomePaciente.setText("Nome do Paciente :");
+        LabelNomePaciente.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+
+        labelnomepaciente.setText(" Variável Nome do Paciente");
+        labelnomepaciente.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+
         javax.swing.GroupLayout PainelDadosPaciente4Layout = new javax.swing.GroupLayout(PainelDadosPaciente4);
         PainelDadosPaciente4.setLayout(PainelDadosPaciente4Layout);
         PainelDadosPaciente4Layout.setHorizontalGroup(
@@ -562,14 +573,20 @@ public void readpsicologo() {
                                     .addComponent(jLabel22))
                                 .addGap(19, 19, 19)
                                 .addGroup(PainelDadosPaciente4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(LabelNome5)
-                                    .addComponent(jLabel57))
-                                .addGap(34, 34, 34)
-                                .addGroup(PainelDadosPaciente4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(PainelDadosPaciente4Layout.createSequentialGroup()
-                                        .addComponent(DataInicio2, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 393, Short.MAX_VALUE))
-                                    .addComponent(txtQueixaPrincipal2)))
+                                        .addGroup(PainelDadosPaciente4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(LabelNome5)
+                                            .addComponent(jLabel57))
+                                        .addGap(34, 34, 34)
+                                        .addGroup(PainelDadosPaciente4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addGroup(PainelDadosPaciente4Layout.createSequentialGroup()
+                                                .addComponent(DataInicio2, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(0, 393, Short.MAX_VALUE))
+                                            .addComponent(txtQueixaPrincipal2)))
+                                    .addGroup(PainelDadosPaciente4Layout.createSequentialGroup()
+                                        .addComponent(LabelNomePaciente)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(labelnomepaciente))))
                             .addGroup(PainelDadosPaciente4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addGroup(PainelDadosPaciente4Layout.createSequentialGroup()
                                     .addComponent(jLabel30)
@@ -659,7 +676,11 @@ public void readpsicologo() {
                     .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE))
                 .addGap(0, 0, 0)
                 .addComponent(PainelIdentificacaoPessoal4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(71, 71, 71)
+                .addGap(18, 18, 18)
+                .addGroup(PainelDadosPaciente4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LabelNomePaciente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(labelnomepaciente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(31, 31, 31)
                 .addGroup(PainelDadosPaciente4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtQueixaPrincipal2)
                     .addComponent(LabelNome5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1343,7 +1364,7 @@ public void readpsicologo() {
             CheckBoxLuto1.setSelected(a.isQAELuto());
             CheckBoxHumor1.setSelected(a.isQAEHumor());
             CheckBoxDesanimo1.setSelected(a.isQAEDesanimo());
-            
+
             JCBPsicomotricidade2.setSelectedItem(a.getPsicomotricidade());
             return true;
         }
@@ -1357,41 +1378,54 @@ public void readpsicologo() {
         AnamneseDAO dao2 = new AnamneseDAO();
         a2 = dao2.ReadAnamnese(cod);
         a.setCodAnamnese(a2.getCodAnamnese());
-        if (a.getCodAnamnese() != 0) {
-            a.setQueixaPrincipal(txtQueixaPrincipal2.getText());
-            a.setSubitaOuProgressiva((String) SubitaOuProgressiva2.getSelectedItem());
+        if (!Validar.vCamposVaziosAnm(null, txtQueixaPrincipal2, DataInicio2)) {
+            if (a.getCodAnamnese() != 0) {
+                a.setQueixaPrincipal(txtQueixaPrincipal2.getText());
+                a.setSubitaOuProgressiva((String) SubitaOuProgressiva2.getSelectedItem());
 
-            //java.util.Date date = new java.util.Date();
-            Object param = DataInicio2.getDate();
-            a.setInicioDaQueixa(param);
-            a.setQueixasSecundarias(txtQueixaSecundaria2.getText());
-            a.setHistoricoFamiliar(txtHistoricoFamiliar2.getText());
-            a.setDiagnostico(txtDiagnostico2.getText());
-            a.setEncaminhamento(txtEncaminhamento2.getText());
-            a.setDoencasConhecidas(txtDoencasConhecidas2.getText());
-            a.setMedicamentosUtilizados(txtMedicamentosUtilizados2.getText());
-            a.getConsulta().setCodConsulta(a2.getConsulta().getCodConsulta());
-            a.setOqueMudou(txtOqueMudou2.getText());
-            a.setSintomas(txtSintomas2.getText());
-            a.setComoComecou(txtComoComecou2.getText());
-            a.setQCIntegridadeSensorial(CheckBoxIntegridadeSensorial1.isSelected());
-            a.setQCPercepcao(CheckBoxPercepcao1.isSelected());
-            a.setQCAtencao(CheckBoxAtencao1.isSelected());
-            a.setQCMemoria(CheckBoxMemoria1.isSelected());
-            a.setQAEVolicao(CheckBoxVolicao1.isSelected());
-            a.setQAEAfeto(CheckBoxAfeto1.isSelected());
-            a.setQAEAnsiedade(CheckBoxAnsiedade1.isSelected());
-            a.setQAEMedo(CheckBoxMedo1.isSelected());
-            a.setQAEHumor(CheckBoxHumor1.isSelected());
-            a.setQAECulpa(CheckBoxCulpa1.isSelected());
-            a.setQAERaiva(CheckBoxRaiva1.isSelected());
-            a.setQAELuto(CheckBoxLuto1.isSelected());
-            a.setQAEDesanimo(CheckBoxDesanimo1.isSelected());
-            a.setPsicomotricidade((String) JCBPsicomotricidade2.getSelectedItem());
+                //java.util.Date date = new java.util.Date();
+                Object param = DataInicio2.getDate();
+                a.setInicioDaQueixa(param);
+                a.setQueixasSecundarias(txtQueixaSecundaria2.getText());
+                a.setHistoricoFamiliar(txtHistoricoFamiliar2.getText());
+                a.setDiagnostico(txtDiagnostico2.getText());
+                a.setEncaminhamento(txtEncaminhamento2.getText());
+                a.setDoencasConhecidas(txtDoencasConhecidas2.getText());
+                a.setMedicamentosUtilizados(txtMedicamentosUtilizados2.getText());
+                a.getConsulta().setCodConsulta(a2.getConsulta().getCodConsulta());
+                a.setOqueMudou(txtOqueMudou2.getText());
+                a.setSintomas(txtSintomas2.getText());
+                a.setComoComecou(txtComoComecou2.getText());
+                a.setQCIntegridadeSensorial(CheckBoxIntegridadeSensorial1.isSelected());
+                a.setQCPercepcao(CheckBoxPercepcao1.isSelected());
+                a.setQCAtencao(CheckBoxAtencao1.isSelected());
+                a.setQCMemoria(CheckBoxMemoria1.isSelected());
+                a.setQAEVolicao(CheckBoxVolicao1.isSelected());
+                a.setQAEAfeto(CheckBoxAfeto1.isSelected());
+                a.setQAEAnsiedade(CheckBoxAnsiedade1.isSelected());
+                a.setQAEMedo(CheckBoxMedo1.isSelected());
+                a.setQAEHumor(CheckBoxHumor1.isSelected());
+                a.setQAECulpa(CheckBoxCulpa1.isSelected());
+                a.setQAERaiva(CheckBoxRaiva1.isSelected());
+                a.setQAELuto(CheckBoxLuto1.isSelected());
+                a.setQAEDesanimo(CheckBoxDesanimo1.isSelected());
+                a.setPsicomotricidade((String) JCBPsicomotricidade2.getSelectedItem());
 
-            boolean sucesso = dao.Update(a);
-            if (sucesso) {
-                JOptionPane.showMessageDialog(this, "Anamnese Alterada Com Sucesso");
+                boolean sucesso = dao.Update(a);
+                if (sucesso) {
+                    if (txtBusca.getText() != "") {
+                        getCountBusca(txtBusca.getText());
+                        SpinnerNumPaginas.setValue(currentPage);
+                        LabelQtdePaginas.setText("de " + totalPages);
+                        getPageDataBusca(currentPage, txtBusca.getText());
+                    } else {
+                        getCount();
+                        SpinnerNumPaginas.setValue(currentPage);
+                        LabelQtdePaginas.setText("de " + totalPages);
+                        getPageData(currentPage);
+                    }
+                    ModalAnamnese2.dispose();
+                }
             }
         }
     }
@@ -1503,17 +1537,19 @@ public void readpsicologo() {
             int modelRow = JTAnamneses.convertRowIndexToModel(JTAnamneses.getSelectedRow());
             int value = (Integer) JTAnamneses.getModel().getValueAt(modelRow, 0);
             a.setCodAnamnese(value);
-            boolean sucesso = adao.Delete(a);
+            int result = JOptionPane.showConfirmDialog(null, "Você tem certeza que deseja excluir esta Anamnese?\nA exclusão é permanente e não poderá ser recuperada. Prosseguir?", "Confirmar Exclusão?", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
 
-            if (sucesso) {
-                JOptionPane.showMessageDialog(this, "Anamnese Apagada com Sucesso");
+            if (result == 0) {
+                boolean sucesso = adao.Delete(a);
 
+           
             }
+            
 
         } else {
             JOptionPane.showMessageDialog(this, "Selecione uma anamnese para excluir");
         }
-        if (txtBusca.getText() == "") {
+        if (txtBusca.getText() != "") {
             getCountBusca(txtBusca.getText());
             SpinnerNumPaginas.setValue(currentPage);
             LabelQtdePaginas.setText("de " + totalPages);
@@ -1544,6 +1580,7 @@ public void readpsicologo() {
             int modelRow = JTAnamneses.convertRowIndexToModel(JTAnamneses.getSelectedRow());
             int value = (Integer) JTAnamneses.getModel().getValueAt(modelRow, 0);
             this.codigoanamnese = value;
+            labelnomepaciente.setText((String) JTAnamneses.getModel().getValueAt(modelRow, 1));
             //a2 = dao2.ReadAnamneseConsulta(codconsulta);
             //codanamnese = a2.getCodAnamnese();
             existe = readcampos(codigoanamnese);
@@ -1552,13 +1589,15 @@ public void readpsicologo() {
                 ModalAnamnese2.setSize(1039, 600);
                 jScrollPane3.getVerticalScrollBar().setUnitIncrement(15);
                 ModalAnamnese2.setModal(true);
+                ModalAnamnese2.setResizable(false);
                 ModalAnamnese2.setLocationRelativeTo(null);
                 ModalAnamnese2.setVisible(true);
+                
             } else {
                 JOptionPane.showMessageDialog(this, "Houve um problema ao ler a anamnese selecionada", "ERRO", JOptionPane.ERROR_MESSAGE);
             }
         } else {
-            JOptionPane.showMessageDialog(this, "Selecione uma anamnese para alterar");
+            JOptionPane.showMessageDialog(this, "Selecione uma anamnese para alterar", "ERRO", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnalterarActionPerformed
 
@@ -1579,29 +1618,28 @@ public void readpsicologo() {
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void SpinnerLimiteStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_SpinnerLimiteStateChanged
-         BtnVoltarPouco.setEnabled(false);
+        BtnVoltarPouco.setEnabled(false);
         BtnVoltarBastante.setEnabled(false);
         if (txtBusca.getText() != "") {
             PAGE_SIZE = (int) SpinnerLimite.getValue();
             getCountBusca(txtBusca.getText());
             SpinnerNumPaginas.setModel(new javax.swing.SpinnerNumberModel(1, 1, totalPages, 1));
             SpinnerNumPaginas.setValue((int) currentPage);
-             btnalterar.setEnabled(false);
-             btnExcluir.setEnabled(false);
-             BtnVoltarPouco.setEnabled(false);
-             BtnVoltarBastante.setEnabled(false);
+            btnalterar.setEnabled(false);
+            btnExcluir.setEnabled(false);
+            BtnVoltarPouco.setEnabled(false);
+            BtnVoltarBastante.setEnabled(false);
             LabelQtdePaginas.setText("de " + totalPages);
             getPageDataBusca(1, txtBusca.getText());
-            
-             if(totalPages==1){
-            BtnAvancarPouco.setEnabled(false);
-            BtnAvancarBastante.setEnabled(false);
-            
-        }
-             else{
-                 BtnAvancarPouco.setEnabled(true);
+
+            if (totalPages == 1) {
+                BtnAvancarPouco.setEnabled(false);
+                BtnAvancarBastante.setEnabled(false);
+
+            } else {
+                BtnAvancarPouco.setEnabled(true);
                 BtnAvancarBastante.setEnabled(true);
-             }
+            }
         } else {
             PAGE_SIZE = (int) SpinnerLimite.getValue();
             getCount();
@@ -1611,15 +1649,14 @@ public void readpsicologo() {
 
             LabelQtdePaginas.setText("de " + totalPages);
             getPageData(1);
-             if(totalPages==1){
-            BtnAvancarPouco.setEnabled(false);
-            BtnAvancarBastante.setEnabled(false);
-            
-        }
-             else{
-                 BtnAvancarPouco.setEnabled(true);
+            if (totalPages == 1) {
+                BtnAvancarPouco.setEnabled(false);
+                BtnAvancarBastante.setEnabled(false);
+
+            } else {
+                BtnAvancarPouco.setEnabled(true);
                 BtnAvancarBastante.setEnabled(true);
-             }
+            }
         }
     }//GEN-LAST:event_SpinnerLimiteStateChanged
 
@@ -1630,12 +1667,12 @@ public void readpsicologo() {
                     getPageDataBusca(1, txtBusca.getText());
                     BtnAvancarPouco.setEnabled(true);
                     BtnAvancarBastante.setEnabled(true);
-                    
+
                 } else {
                     getPageDataBusca(currentPage - 5, txtBusca.getText());
                     BtnAvancarPouco.setEnabled(true);
                     BtnAvancarBastante.setEnabled(true);
-                    
+
                 }
 
             } else {
@@ -1643,21 +1680,21 @@ public void readpsicologo() {
                     getPageData(1);
                     BtnAvancarPouco.setEnabled(true);
                     BtnAvancarBastante.setEnabled(true);
-                    
+
                 } else {
                     getPageData(currentPage - 5);
                     BtnAvancarPouco.setEnabled(true);
                     BtnAvancarBastante.setEnabled(true);
-                   
+
                 }
             }
 
         }
         SpinnerNumPaginas.setValue((int) currentPage);
         if (currentPage == 1) {
-                         BtnVoltarPouco.setEnabled(false);
-                    BtnVoltarBastante.setEnabled(false);  
-                }
+            BtnVoltarPouco.setEnabled(false);
+            BtnVoltarBastante.setEnabled(false);
+        }
     }//GEN-LAST:event_BtnVoltarBastanteActionPerformed
 
     private void BtnVoltarPoucoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVoltarPoucoActionPerformed
@@ -1666,21 +1703,21 @@ public void readpsicologo() {
             if (txtBusca.getText() != "") {
                 getPageDataBusca(currentPage - 1, txtBusca.getText());
                 BtnAvancarPouco.setEnabled(true);
-                    BtnAvancarBastante.setEnabled(true);
-                    
+                BtnAvancarBastante.setEnabled(true);
+
             } else {
                 getPageData(currentPage - 1);
                 BtnAvancarPouco.setEnabled(true);
-                    BtnAvancarBastante.setEnabled(true);
-                    
+                BtnAvancarBastante.setEnabled(true);
+
             }
 
         }
         SpinnerNumPaginas.setValue((int) currentPage);
         if (currentPage == 1) {
-                         BtnVoltarPouco.setEnabled(false);
-                    BtnVoltarBastante.setEnabled(false);  
-                }
+            BtnVoltarPouco.setEnabled(false);
+            BtnVoltarBastante.setEnabled(false);
+        }
     }//GEN-LAST:event_BtnVoltarPoucoActionPerformed
 
     private void SpinnerNumPaginasStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_SpinnerNumPaginasStateChanged
@@ -1689,28 +1726,26 @@ public void readpsicologo() {
             int pag1 = currentPage;
             getPageDataBusca((int) SpinnerNumPaginas.getValue(), txtBusca.getText());
             int pag2 = currentPage;
-            if(pag2<pag1){
+            if (pag2 < pag1) {
                 BtnAvancarPouco.setEnabled(true);
                 BtnAvancarBastante.setEnabled(true);
-                    if (currentPage == 1) {
-                        BtnVoltarPouco.setEnabled(false);
-                        BtnVoltarBastante.setEnabled(false);  
+                if (currentPage == 1) {
+                    BtnVoltarPouco.setEnabled(false);
+                    BtnVoltarBastante.setEnabled(false);
                 }
+            } else {
+                {
+                    BtnVoltarPouco.setEnabled(true);
+                    BtnVoltarBastante.setEnabled(true);
+                    if (currentPage == totalPages) {
+                        BtnAvancarPouco.setEnabled(false);
+                        BtnAvancarBastante.setEnabled(false);
                     }
-                    else{
-                    {
-                        BtnVoltarPouco.setEnabled(true);
-                        BtnVoltarBastante.setEnabled(true);
-                        if (currentPage == totalPages) {
-                            BtnAvancarPouco.setEnabled(false);
-                            BtnAvancarBastante.setEnabled(false);  
                 }
-                    }       
             }
             btnalterar.setEnabled(false);
             btnExcluir.setEnabled(false);
-           
-            
+
         } else {
 
             getPageData((int) SpinnerNumPaginas.getValue());
@@ -1722,19 +1757,19 @@ public void readpsicologo() {
         if (currentPage < totalPages) {
             if (txtBusca.getText() != "") {
                 getPageDataBusca(currentPage + 1, txtBusca.getText());
-                 BtnVoltarPouco.setEnabled(true);
-                 BtnVoltarBastante.setEnabled(true);
-                    if (currentPage == totalPages) {
-                        BtnAvancarPouco.setEnabled(false);
-                        BtnAvancarBastante.setEnabled(false);  
+                BtnVoltarPouco.setEnabled(true);
+                BtnVoltarBastante.setEnabled(true);
+                if (currentPage == totalPages) {
+                    BtnAvancarPouco.setEnabled(false);
+                    BtnAvancarBastante.setEnabled(false);
                 }
             } else {
                 getPageData(currentPage + 1);
-                 BtnVoltarPouco.setEnabled(true);
-                 BtnVoltarBastante.setEnabled(true);
-                    if (currentPage == totalPages) {
-                        BtnAvancarPouco.setEnabled(false);
-                        BtnAvancarBastante.setEnabled(false);  
+                BtnVoltarPouco.setEnabled(true);
+                BtnVoltarBastante.setEnabled(true);
+                if (currentPage == totalPages) {
+                    BtnAvancarPouco.setEnabled(false);
+                    BtnAvancarBastante.setEnabled(false);
                 }
             }
 
@@ -1748,38 +1783,38 @@ public void readpsicologo() {
             if (txtBusca.getText() != "") {
                 if (currentPage + 5 > totalPages) {
                     getPageDataBusca(totalPages, txtBusca.getText());
-                     BtnVoltarPouco.setEnabled(true);
-                 BtnVoltarBastante.setEnabled(true);
+                    BtnVoltarPouco.setEnabled(true);
+                    BtnVoltarBastante.setEnabled(true);
                     if (currentPage == totalPages) {
                         BtnAvancarPouco.setEnabled(false);
-                        BtnAvancarBastante.setEnabled(false);  
-                }
+                        BtnAvancarBastante.setEnabled(false);
+                    }
                 } else {
                     getPageDataBusca(currentPage + 5, txtBusca.getText());
-                     BtnVoltarPouco.setEnabled(true);
-                 BtnVoltarBastante.setEnabled(true);
+                    BtnVoltarPouco.setEnabled(true);
+                    BtnVoltarBastante.setEnabled(true);
                     if (currentPage == totalPages) {
                         BtnAvancarPouco.setEnabled(false);
-                        BtnAvancarBastante.setEnabled(false);  
-                }
+                        BtnAvancarBastante.setEnabled(false);
+                    }
                 }
             } else {
                 if (currentPage + 5 > totalPages) {
                     getPageData(totalPages);
-                     BtnVoltarPouco.setEnabled(true);
-                 BtnVoltarBastante.setEnabled(true);
+                    BtnVoltarPouco.setEnabled(true);
+                    BtnVoltarBastante.setEnabled(true);
                     if (currentPage == totalPages) {
                         BtnAvancarPouco.setEnabled(false);
-                        BtnAvancarBastante.setEnabled(false);  
-                }
+                        BtnAvancarBastante.setEnabled(false);
+                    }
                 } else {
                     getPageData(currentPage + 5);
-                     BtnVoltarPouco.setEnabled(true);
-                 BtnVoltarBastante.setEnabled(true);
+                    BtnVoltarPouco.setEnabled(true);
+                    BtnVoltarBastante.setEnabled(true);
                     if (currentPage == totalPages) {
                         BtnAvancarPouco.setEnabled(false);
-                        BtnAvancarBastante.setEnabled(false);  
-                }
+                        BtnAvancarBastante.setEnabled(false);
+                    }
                 }
             }
 
@@ -1798,7 +1833,7 @@ public void readpsicologo() {
                 //a2 = dao2.ReadAnamneseConsulta(codconsulta);
                 //codanamnese = a2.getCodAnamnese();
                 existe = readcampos(codigoanamnese);
-
+                labelnomepaciente.setText((String) JTAnamneses.getModel().getValueAt(modelRow, 1));
                 if (existe) {
                     ModalAnamnese2.setSize(1039, 600);
                     jScrollPane3.getVerticalScrollBar().setUnitIncrement(15);
@@ -1891,7 +1926,7 @@ public void readpsicologo() {
         if (!Character.isDigit(c)) {
             evt.consume();
         }
-         if (TxtTelefone6.getText().length()==11) {
+        if (TxtTelefone6.getText().length() == 11) {
             evt.consume();
         }
     }//GEN-LAST:event_TxtTelefone6KeyTyped
@@ -1901,7 +1936,7 @@ public void readpsicologo() {
         if (!Character.isDigit(c)) {
             evt.consume();
         }
-         if (TxtTelefone7.getText().length()==11) {
+        if (TxtTelefone7.getText().length() == 11) {
             evt.consume();
         }
     }//GEN-LAST:event_TxtTelefone7KeyTyped
@@ -1981,7 +2016,7 @@ public void readpsicologo() {
 //                        JOptionPane.showMessageDialog(this, "Psicologo: " + p.getNome_completo() + " Salvo com sucesso");
                         ModalMeusDados.dispose();
                         jLabel11.setText(p.getNome_completo());
-                        String str= getFirstWord(jLabel11.getText());
+                        String str = getFirstWord(jLabel11.getText());
                         jLabel11.setText(str);
                         // this.clear();
                     }
@@ -1996,7 +2031,7 @@ public void readpsicologo() {
                     tf.setPaciente(p);
                     tfdao.CreatePc(tf);
                 }
-                */
+                 */
                 //mostrar mensagem de sucesso
                 // JOptionPane.showMessageDialog(null,"Paciente Cadastrado com Sucesso!");
                 // ReadJTable();
@@ -2076,6 +2111,7 @@ public void readpsicologo() {
     private javax.swing.JLabel LabelEmail3;
     private javax.swing.JLabel LabelLimite;
     private javax.swing.JLabel LabelNome5;
+    private javax.swing.JLabel LabelNomePaciente;
     private javax.swing.JLabel LabelPagina;
     private javax.swing.JLabel LabelQtdePaginas;
     private javax.swing.JDialog ModalAnamnese2;
@@ -2132,6 +2168,7 @@ public void readpsicologo() {
     private javax.swing.JLabel lNome;
     private javax.swing.JLabel labelInicioQueixa4;
     private javax.swing.JLabel labelInicioQueixa5;
+    private javax.swing.JLabel labelnomepaciente;
     private javax.swing.JLabel labeltelefone;
     private javax.swing.JLabel labeltelefone2;
     private javax.swing.JTextField txtBusca;
