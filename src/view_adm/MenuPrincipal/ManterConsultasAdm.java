@@ -54,10 +54,11 @@ import util.Util;
  * @author guimu
  */
 public class ManterConsultasAdm extends javax.swing.JFrame {
+
     LocalDate dfim;
     LocalDate dinicio;
     //Paginacao
-    int PAGE_SIZE = 5;
+    int PAGE_SIZE = 15;
     double tableRowCount;
     int totalPages = 1;
     int currentPage = 1;
@@ -133,7 +134,7 @@ public class ManterConsultasAdm extends javax.swing.JFrame {
     }
 
     public ManterConsultasAdm() {
-        
+
         LocalDate agora = LocalDate.now();
         java.util.Date date1 = java.util.Date.from(agora.atStartOfDay(ZoneId.systemDefault()).toInstant());
         Calendar cal = Calendar.getInstance();
@@ -142,7 +143,7 @@ public class ManterConsultasAdm extends javax.swing.JFrame {
         cal.set(Calendar.MONTH, (cal.get(Calendar.MONTH) - 6));
         dinicio = cal.getTime().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
         cal2.setTime(date1);
-        cal2.set(Calendar.MONTH, (cal2.get(Calendar.MONTH) +6));
+        cal2.set(Calendar.MONTH, (cal2.get(Calendar.MONTH) + 6));
         dfim = cal2.getTime().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
         this.getCountInit();
         initComponents();
@@ -780,7 +781,7 @@ public class ManterConsultasAdm extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void SpinnerLimiteStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_SpinnerLimiteStateChanged
-         BtnVoltarPouco.setEnabled(false);
+        BtnVoltarPouco.setEnabled(false);
         BtnVoltarBastante.setEnabled(false);
         if (txtBusca.getText() != "") {
             PAGE_SIZE = (int) SpinnerLimite.getValue();
@@ -791,15 +792,14 @@ public class ManterConsultasAdm extends javax.swing.JFrame {
             LabelQtdePaginas.setText("de " + totalPages);
             getPageDataBusca(1, txtBusca.getText());
             int npag2 = totalPages;
-            if(totalPages==1){
-            BtnAvancarPouco.setEnabled(false);
-            BtnAvancarBastante.setEnabled(false);
-            
-        }
-             else{
-                 BtnAvancarPouco.setEnabled(true);
+            if (totalPages == 1) {
+                BtnAvancarPouco.setEnabled(false);
+                BtnAvancarBastante.setEnabled(false);
+
+            } else {
+                BtnAvancarPouco.setEnabled(true);
                 BtnAvancarBastante.setEnabled(true);
-             }
+            }
         } else {
             PAGE_SIZE = (int) SpinnerLimite.getValue();
             getCount();
@@ -809,15 +809,14 @@ public class ManterConsultasAdm extends javax.swing.JFrame {
 
             LabelQtdePaginas.setText("de " + totalPages);
             getPageData(1);
-             if(totalPages==1){
-            BtnAvancarPouco.setEnabled(false);
-            BtnAvancarBastante.setEnabled(false);
-            
-        }
-             else{
-                 BtnAvancarPouco.setEnabled(true);
+            if (totalPages == 1) {
+                BtnAvancarPouco.setEnabled(false);
+                BtnAvancarBastante.setEnabled(false);
+
+            } else {
+                BtnAvancarPouco.setEnabled(true);
                 BtnAvancarBastante.setEnabled(true);
-             }
+            }
         }
     }//GEN-LAST:event_SpinnerLimiteStateChanged
 
@@ -828,12 +827,12 @@ public class ManterConsultasAdm extends javax.swing.JFrame {
                     getPageDataBusca(1, txtBusca.getText());
                     BtnAvancarPouco.setEnabled(true);
                     BtnAvancarBastante.setEnabled(true);
-                    
+
                 } else {
                     getPageDataBusca(currentPage - 5, txtBusca.getText());
                     BtnAvancarPouco.setEnabled(true);
                     BtnAvancarBastante.setEnabled(true);
-                  
+
                 }
 
             } else {
@@ -841,21 +840,21 @@ public class ManterConsultasAdm extends javax.swing.JFrame {
                     getPageData(1);
                     BtnAvancarPouco.setEnabled(true);
                     BtnAvancarBastante.setEnabled(true);
-                  
+
                 } else {
                     getPageData(currentPage - 5);
                     BtnAvancarPouco.setEnabled(true);
                     BtnAvancarBastante.setEnabled(true);
-                    
+
                 }
             }
 
         }
         SpinnerNumPaginas.setValue((int) currentPage);
         if (currentPage == 1) {
-                        BtnVoltarPouco.setEnabled(false);
-                        BtnVoltarBastante.setEnabled(false);
-                    }
+            BtnVoltarPouco.setEnabled(false);
+            BtnVoltarBastante.setEnabled(false);
+        }
     }//GEN-LAST:event_BtnVoltarBastanteActionPerformed
 
     private void BtnVoltarPoucoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVoltarPoucoActionPerformed
@@ -865,20 +864,20 @@ public class ManterConsultasAdm extends javax.swing.JFrame {
                 getPageDataBusca(currentPage - 1, txtBusca.getText());
                 BtnAvancarPouco.setEnabled(true);
                 BtnAvancarBastante.setEnabled(true);
-                
+
             } else {
                 getPageData(currentPage - 1);
                 BtnAvancarPouco.setEnabled(true);
                 BtnAvancarBastante.setEnabled(true);
-              
+
             }
 
         }
         SpinnerNumPaginas.setValue((int) currentPage);
         if (currentPage == 1) {
-                    BtnVoltarPouco.setEnabled(false);
-                    BtnVoltarBastante.setEnabled(false);
-                }
+            BtnVoltarPouco.setEnabled(false);
+            BtnVoltarBastante.setEnabled(false);
+        }
     }//GEN-LAST:event_BtnVoltarPoucoActionPerformed
 
     private void SpinnerNumPaginasStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_SpinnerNumPaginasStateChanged
@@ -1049,16 +1048,15 @@ public class ManterConsultasAdm extends javax.swing.JFrame {
 
             LabelQtdePaginas.setText("de " + totalPages);
             getPageDataBusca(1, txtBusca.getText());
-            
-            if(totalPages==1){
-            BtnAvancarPouco.setEnabled(false);
-            BtnAvancarBastante.setEnabled(false);
-            
-        }
-             else{
-                 BtnAvancarPouco.setEnabled(true);
+
+            if (totalPages == 1) {
+                BtnAvancarPouco.setEnabled(false);
+                BtnAvancarBastante.setEnabled(false);
+
+            } else {
+                BtnAvancarPouco.setEnabled(true);
                 BtnAvancarBastante.setEnabled(true);
-             }
+            }
         } else {
             PAGE_SIZE = (int) SpinnerLimite.getValue();
             getCount();
@@ -1068,110 +1066,105 @@ public class ManterConsultasAdm extends javax.swing.JFrame {
 
             LabelQtdePaginas.setText("de " + totalPages);
             getPageData(1);
-            if(totalPages==1){
-            BtnAvancarPouco.setEnabled(false);
-            BtnAvancarBastante.setEnabled(false);
-            
-        }
-             else{
-                 BtnAvancarPouco.setEnabled(true);
+            if (totalPages == 1) {
+                BtnAvancarPouco.setEnabled(false);
+                BtnAvancarBastante.setEnabled(false);
+
+            } else {
+                BtnAvancarPouco.setEnabled(true);
                 BtnAvancarBastante.setEnabled(true);
-             }
+            }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void DataInicioPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_DataInicioPropertyChange
         // TODO add your handling code here:
-         if(DataInicio.getDate() != null){
+        if (DataInicio.getDate() != null) {
             java.util.Date date = DataInicio.getDate();
-            dinicio = date.toInstant().atZone( ZoneId.systemDefault() ).toLocalDate();
+            dinicio = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
             BtnVoltarPouco.setEnabled(false);
-        BtnVoltarBastante.setEnabled(false);
-        if (txtBusca.getText() != "") {
-            PAGE_SIZE = (int) SpinnerLimite.getValue();
-            getCountBusca(txtBusca.getText());
-            SpinnerNumPaginas.setModel(new javax.swing.SpinnerNumberModel(1, 1, totalPages, 1));
-            SpinnerNumPaginas.setValue((int) currentPage);
+            BtnVoltarBastante.setEnabled(false);
+            if (txtBusca.getText() != "") {
+                //PAGE_SIZE = (int) SpinnerLimite.getValue();
+                getCountBusca(txtBusca.getText());
+                SpinnerNumPaginas.setModel(new javax.swing.SpinnerNumberModel(1, 1, totalPages, 1));
+                SpinnerNumPaginas.setValue((int) currentPage);
 
-            LabelQtdePaginas.setText("de " + totalPages);
-            getPageDataBusca(1, txtBusca.getText());
-            
-            if(totalPages==1){
-            BtnAvancarPouco.setEnabled(false);
-            BtnAvancarBastante.setEnabled(false);
-            
-        }
-             else{
-                 BtnAvancarPouco.setEnabled(true);
-                BtnAvancarBastante.setEnabled(true);
-             }
-        } else {
-            PAGE_SIZE = (int) SpinnerLimite.getValue();
-            getCount();
+                LabelQtdePaginas.setText("de " + totalPages);
+                getPageDataBusca(1, txtBusca.getText());
 
-            SpinnerNumPaginas.setModel(new javax.swing.SpinnerNumberModel(1, 1, totalPages, 1));
-            SpinnerNumPaginas.setValue((int) currentPage);
+                if (totalPages == 1) {
+                    BtnAvancarPouco.setEnabled(false);
+                    BtnAvancarBastante.setEnabled(false);
 
-            LabelQtdePaginas.setText("de " + totalPages);
-            getPageData(1);
-            if(totalPages==1){
-            BtnAvancarPouco.setEnabled(false);
-            BtnAvancarBastante.setEnabled(false);
-            
+                } else {
+                    BtnAvancarPouco.setEnabled(true);
+                    BtnAvancarBastante.setEnabled(true);
+                }
+            } else {
+                //PAGE_SIZE = (int) SpinnerLimite.getValue();
+                getCount();
+
+                SpinnerNumPaginas.setModel(new javax.swing.SpinnerNumberModel(1, 1, totalPages, 1));
+                SpinnerNumPaginas.setValue((int) currentPage);
+
+                LabelQtdePaginas.setText("de " + totalPages);
+                getPageData(1);
+                if (totalPages == 1) {
+                    BtnAvancarPouco.setEnabled(false);
+                    BtnAvancarBastante.setEnabled(false);
+
+                } else {
+                    BtnAvancarPouco.setEnabled(true);
+                    BtnAvancarBastante.setEnabled(true);
+                }
+            }
         }
-             else{
-                 BtnAvancarPouco.setEnabled(true);
-                BtnAvancarBastante.setEnabled(true);
-             }
-        }
-         }
     }//GEN-LAST:event_DataInicioPropertyChange
 
     private void DataFimPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_DataFimPropertyChange
         // TODO add your handling code here:
-         if(DataFim.getDate() != null){
+        if (DataFim.getDate() != null) {
             java.util.Date date = DataFim.getDate();
-            dfim = date.toInstant().atZone( ZoneId.systemDefault() ).toLocalDate();
+            dfim = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
             BtnVoltarPouco.setEnabled(false);
-        BtnVoltarBastante.setEnabled(false);
-        if (txtBusca.getText() != "") {
-            PAGE_SIZE = (int) SpinnerLimite.getValue();
-            getCountBusca(txtBusca.getText());
-            SpinnerNumPaginas.setModel(new javax.swing.SpinnerNumberModel(1, 1, totalPages, 1));
-            SpinnerNumPaginas.setValue((int) currentPage);
+            BtnVoltarBastante.setEnabled(false);
+            if (txtBusca.getText() != "") {
+                //PAGE_SIZE = (int) SpinnerLimite.getValue();
+                getCountBusca(txtBusca.getText());
+                SpinnerNumPaginas.setModel(new javax.swing.SpinnerNumberModel(1, 1, totalPages, 1));
+                SpinnerNumPaginas.setValue((int) currentPage);
 
-            LabelQtdePaginas.setText("de " + totalPages);
-            getPageDataBusca(1, txtBusca.getText());
-            
-            if(totalPages==1){
-            BtnAvancarPouco.setEnabled(false);
-            BtnAvancarBastante.setEnabled(false);
-            
-        }
-             else{
-                 BtnAvancarPouco.setEnabled(true);
-                BtnAvancarBastante.setEnabled(true);
-             }
-        } else {
-            PAGE_SIZE = (int) SpinnerLimite.getValue();
-            getCount();
+                LabelQtdePaginas.setText("de " + totalPages);
+                getPageDataBusca(1, txtBusca.getText());
 
-            SpinnerNumPaginas.setModel(new javax.swing.SpinnerNumberModel(1, 1, totalPages, 1));
-            SpinnerNumPaginas.setValue((int) currentPage);
+                if (totalPages == 1) {
+                    BtnAvancarPouco.setEnabled(false);
+                    BtnAvancarBastante.setEnabled(false);
 
-            LabelQtdePaginas.setText("de " + totalPages);
-            getPageData(1);
-            if(totalPages==1){
-            BtnAvancarPouco.setEnabled(false);
-            BtnAvancarBastante.setEnabled(false);
-            
+                } else {
+                    BtnAvancarPouco.setEnabled(true);
+                    BtnAvancarBastante.setEnabled(true);
+                }
+            } else {
+                //PAGE_SIZE = (int) SpinnerLimite.getValue();
+                getCount();
+
+                SpinnerNumPaginas.setModel(new javax.swing.SpinnerNumberModel(1, 1, totalPages, 1));
+                SpinnerNumPaginas.setValue((int) currentPage);
+
+                LabelQtdePaginas.setText("de " + totalPages);
+                getPageData(1);
+                if (totalPages == 1) {
+                    BtnAvancarPouco.setEnabled(false);
+                    BtnAvancarBastante.setEnabled(false);
+
+                } else {
+                    BtnAvancarPouco.setEnabled(true);
+                    BtnAvancarBastante.setEnabled(true);
+                }
+            }
         }
-             else{
-                 BtnAvancarPouco.setEnabled(true);
-                BtnAvancarBastante.setEnabled(true);
-             }
-        }
-         }
     }//GEN-LAST:event_DataFimPropertyChange
 
     public void clear() {

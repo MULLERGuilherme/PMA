@@ -46,7 +46,7 @@ public class ManterPsiAdm extends javax.swing.JFrame {
     private int codigopsicologo = -1;
 
     //Paginacao
-    int PAGE_SIZE = 5;
+    int PAGE_SIZE = 15;
     double tableRowCount;
     int totalPages = 1;
     int currentPage = 1;

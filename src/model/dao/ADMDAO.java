@@ -528,7 +528,7 @@ public class ADMDAO {
         ResultSet rs = null;
         List<Vw_Consultas> vw = new ArrayList<>();
         try {
-            stmt = con.prepareStatement("SELECT * FROM vw_Consultas WHERE Deletada = ? AND (DataConsulta Between ? AND ?) ORDER BY DataConsulta Limit " + start + "," + size);
+            stmt = con.prepareStatement("SELECT * FROM vw_Consultas WHERE Deletada = ? AND (DataConsulta Between ? AND ?) ORDER BY DataConsulta DESC Limit " + start + "," + size);
             stmt.setBoolean(1, deletada);
             stmt.setObject(2, dinicio);
             stmt.setObject(3, dfim);
@@ -564,7 +564,7 @@ public class ADMDAO {
         ResultSet rs = null;
         List<Vw_Consultas> vw = new ArrayList<>();
         try {
-            stmt = con.prepareStatement("SELECT * FROM vw_Consultas WHERE Deletada =? AND (DataConsulta Between ? AND ?) AND ((Paciente Like '%" + Busca + "%') OR (Psicologo Like '%" + Busca + "%')  OR (DataConsulta Like '%" + Busca + "%') OR (Status Like '%" + Busca + "%')) Order By DataConsulta Limit " + size + " OFFSET " + start);
+            stmt = con.prepareStatement("SELECT * FROM vw_Consultas WHERE Deletada =? AND (DataConsulta Between ? AND ?) AND ((Paciente Like '%" + Busca + "%') OR (Psicologo Like '%" + Busca + "%')  OR (DataConsulta Like '%" + Busca + "%') OR (Status Like '%" + Busca + "%')) Order By DataConsulta DESC Limit " + size + " OFFSET " + start);
             stmt.setBoolean(1, deletada);
              stmt.setObject(2, dinicio);
             stmt.setObject(3, dfim);

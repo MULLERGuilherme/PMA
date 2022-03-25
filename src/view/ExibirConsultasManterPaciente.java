@@ -57,7 +57,7 @@ public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
     public static boolean existe;
 
     //Paginacao
-    int PAGE_SIZE = 12;
+    int PAGE_SIZE = 15;
     double tableRowCount;
     int totalPages = 1;
     int currentPage = 1;
@@ -76,19 +76,7 @@ public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
 
     }
 
-    public void getCountBusca(String Busca) {
-//        ViewsDAO dao = new ViewsDAO();
-//
-//        tableRowCount = dao.getRowCountTableExibirAPacienteBusca(Main.cod, this.codpaciente, Busca);
-//        //System.out.println(tableRowCount);
-//        if (tableRowCount > 0) {
-//            totalPages = (int) Math.ceil(tableRowCount / PAGE_SIZE);
-//            
-//
-//        }
-//         currentPage = 1;
-
-    }
+  
 
     public void getPageData(int pageNo) {
 
@@ -101,15 +89,7 @@ public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
 
     }
 
-    public void getPageDataBusca(int pageNo, String Busca) {
 
-//        currentPage = pageNo;
-//
-//        //calculate starting row for pagination
-//        startRow = PAGE_SIZE * (pageNo - 1);
-//
-//        ReadJTableBuscaPag(Busca, startRow, PAGE_SIZE);
-    }
 
     /**
      * Creates new form ExibirConsultasManterPaciente
@@ -2398,7 +2378,7 @@ public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
             BtnVoltarPouco.setEnabled(false);
             BtnVoltarBastante.setEnabled(false);
 
-            PAGE_SIZE = (int) SpinnerLimite.getValue();
+            //PAGE_SIZE = (int) SpinnerLimite.getValue();
             getCount();
 
             SpinnerNumPaginas.setModel(new javax.swing.SpinnerNumberModel(1, 1, totalPages, 1));
@@ -2426,7 +2406,7 @@ public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
             BtnVoltarPouco.setEnabled(false);
             BtnVoltarBastante.setEnabled(false);
 
-            PAGE_SIZE = (int) SpinnerLimite.getValue();
+            //PAGE_SIZE = (int) SpinnerLimite.getValue();
             getCount();
 
             SpinnerNumPaginas.setModel(new javax.swing.SpinnerNumberModel(1, 1, totalPages, 1));
