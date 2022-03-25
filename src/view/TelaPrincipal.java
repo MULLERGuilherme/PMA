@@ -1549,7 +1549,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         AnamneseDAO dao = new AnamneseDAO();
         a = dao.ReadAnamneseConsulta(codconsulta);
         int codanamnese = a.getCodAnamnese();
-        if (!Validar.vCamposVaziosAnm(this, txtQueixaPrincipal2, DataInicio2)) {
+        if (!Validar.vCamposVaziosAnm(null, txtQueixaPrincipal2, DataInicio2)) {
             if (codanamnese == 0) {
 
                 a.setQueixaPrincipal(txtQueixaPrincipal2.getText());
@@ -1616,41 +1616,43 @@ public class TelaPrincipal extends javax.swing.JFrame {
         AnamneseDAO dao2 = new AnamneseDAO();
         a2 = dao2.ReadAnamneseConsulta(codconsulta);
         a.setCodAnamnese(a2.getCodAnamnese());
-        if (a.getCodAnamnese() != 0) {
-            a.setQueixaPrincipal(txtQueixaPrincipal2.getText());
-            a.setSubitaOuProgressiva((String) SubitaOuProgressiva2.getSelectedItem());
+        if (!Validar.vCamposVaziosAnm(null, txtQueixaPrincipal2, DataInicio2)) {
+            if (a.getCodAnamnese() != 0) {
+                a.setQueixaPrincipal(txtQueixaPrincipal2.getText());
+                a.setSubitaOuProgressiva((String) SubitaOuProgressiva2.getSelectedItem());
 
-            //java.util.Date date = new java.util.Date();
-            Object param = DataInicio2.getDate();
-            a.setInicioDaQueixa(param);
-            a.setQueixasSecundarias(txtQueixaSecundaria2.getText());
-            a.setHistoricoFamiliar(txtHistoricoFamiliar2.getText());
-            a.setDiagnostico(txtDiagnostico2.getText());
-            a.setEncaminhamento(txtEncaminhamento2.getText());
-            a.setDoencasConhecidas(txtDoencasConhecidas2.getText());
-            a.setMedicamentosUtilizados(txtMedicamentosUtilizados2.getText());
-            a.getConsulta().setCodConsulta(codconsulta);
-            a.setOqueMudou(txtOqueMudou2.getText());
-            a.setSintomas(txtSintomas2.getText());
-            a.setComoComecou(txtComoComecou2.getText());
-            a.setQCIntegridadeSensorial(CheckBoxIntegridadeSensorial1.isSelected());
-            a.setQCPercepcao(CheckBoxPercepcao1.isSelected());
-            a.setQCAtencao(CheckBoxAtencao1.isSelected());
-            a.setQCMemoria(CheckBoxMemoria1.isSelected());
-            a.setQAEVolicao(CheckBoxVolicao1.isSelected());
-            a.setQAEAfeto(CheckBoxAfeto1.isSelected());
-            a.setQAEAnsiedade(CheckBoxAnsiedade1.isSelected());
-            a.setQAEMedo(CheckBoxMedo1.isSelected());
-            a.setQAECulpa(CheckBoxCulpa1.isSelected());
-            a.setQAERaiva(CheckBoxRaiva1.isSelected());
-            a.setQAELuto(CheckBoxLuto1.isSelected());
-            a.setQAEDesanimo(CheckBoxDesanimo1.isSelected());
-            a.setPsicomotricidade((String) JCBPsicomotricidade2.getSelectedItem());
+                //java.util.Date date = new java.util.Date();
+                Object param = DataInicio2.getDate();
+                a.setInicioDaQueixa(param);
+                a.setQueixasSecundarias(txtQueixaSecundaria2.getText());
+                a.setHistoricoFamiliar(txtHistoricoFamiliar2.getText());
+                a.setDiagnostico(txtDiagnostico2.getText());
+                a.setEncaminhamento(txtEncaminhamento2.getText());
+                a.setDoencasConhecidas(txtDoencasConhecidas2.getText());
+                a.setMedicamentosUtilizados(txtMedicamentosUtilizados2.getText());
+                a.getConsulta().setCodConsulta(codconsulta);
+                a.setOqueMudou(txtOqueMudou2.getText());
+                a.setSintomas(txtSintomas2.getText());
+                a.setComoComecou(txtComoComecou2.getText());
+                a.setQCIntegridadeSensorial(CheckBoxIntegridadeSensorial1.isSelected());
+                a.setQCPercepcao(CheckBoxPercepcao1.isSelected());
+                a.setQCAtencao(CheckBoxAtencao1.isSelected());
+                a.setQCMemoria(CheckBoxMemoria1.isSelected());
+                a.setQAEVolicao(CheckBoxVolicao1.isSelected());
+                a.setQAEAfeto(CheckBoxAfeto1.isSelected());
+                a.setQAEAnsiedade(CheckBoxAnsiedade1.isSelected());
+                a.setQAEMedo(CheckBoxMedo1.isSelected());
+                a.setQAECulpa(CheckBoxCulpa1.isSelected());
+                a.setQAERaiva(CheckBoxRaiva1.isSelected());
+                a.setQAELuto(CheckBoxLuto1.isSelected());
+                a.setQAEDesanimo(CheckBoxDesanimo1.isSelected());
+                a.setPsicomotricidade((String) JCBPsicomotricidade2.getSelectedItem());
 
-            boolean sucesso = dao.Update(a);
-            if (sucesso) {
-                //JOptionPane.showMessageDialog(this, "Anamnese Alterada Com Sucesso");
-                ModalAnamnese3.dispose();
+                boolean sucesso = dao.Update(a);
+                if (sucesso) {
+                    //JOptionPane.showMessageDialog(this, "Anamnese Alterada Com Sucesso");
+                    ModalAnamnese3.dispose();
+                }
             }
         }
     }
@@ -1754,10 +1756,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnHelpActionPerformed
 
     private void BtnAlterarConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAlterarConsultaActionPerformed
-      
+
         if (datepicker.getDateTimeStrict() == null) {
-            
-            JOptionPane.showMessageDialog(this, "Por favor Insira Data e Horário Válidos", "ERRO", JOptionPane.ERROR_MESSAGE);
+
+            JOptionPane.showMessageDialog(null, "Por favor Insira Data e Horário Válidos", "ERRO", JOptionPane.ERROR_MESSAGE);
         } else {
             Consulta c = new Consulta();
             ConsultaDAO cdao = new ConsultaDAO();
@@ -1838,7 +1840,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void BtnSalvarAlteracoesAnotacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalvarAlteracoesAnotacaoActionPerformed
         AnotacaoDAO dao = new AnotacaoDAO();
         Anotacao a = new Anotacao();
-        if (!Validar.vCamposVaziosAnt(this, txtAssunto, txtTexto)) {
+        if (!Validar.vCamposVaziosAnt(null, txtAssunto, txtTexto)) {
             a.setAssunto(txtAssunto.getText());
             a.setTexto(txtTexto.getText());
 

@@ -225,11 +225,11 @@ public class Validar {
         boolean vazio = false;
         String msg = "Existem Campos Obrigatórios em branco.\nFavor verificar os seguintes campos:\n";
         if (QueixaPrincipal.getText().isEmpty()) {
-            msg += "QueixaPrincipal";
+            msg += "Queixa Principal";
             vazio = true;
         }
         if (data.getDate() == null) {
-            msg += "\n InicioDaQueixa";
+            msg += "\nData de Início";
             vazio = true;
         }
 
@@ -248,7 +248,7 @@ public class Validar {
             vazio = true;
         }
         if (Texto.getText().isEmpty()) {
-            msg += "\n Texto";
+            msg += "\nTexto";
             vazio = true;
         }
 

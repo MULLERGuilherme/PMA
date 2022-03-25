@@ -3698,7 +3698,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         if (JTPacientes.getSelectedRow() != -1) {
             if (data.getDateTimeStrict() == null) {
 
-                JOptionPane.showMessageDialog(this, "Por favor Insira Data e Horário Válidos", "ERRO", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Por favor Insira Data e Horário Válidos", "ERRO", JOptionPane.ERROR_MESSAGE);
             } else {
                 Consulta c = new Consulta();
                 ConsultaDAO cdao = new ConsultaDAO();
@@ -3725,7 +3725,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             }
 
         } else {
-            JOptionPane.showMessageDialog(this, "Selecione um paciente para cadastrar uma consulta", "ERRO", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Selecione um paciente para cadastrar uma consulta", "ERRO", JOptionPane.ERROR_MESSAGE);
         }
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnCadastrarConsultaActionPerformed
