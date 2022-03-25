@@ -1648,6 +1648,37 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
     private void BtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExcluirActionPerformed
         // TODO add your handling code here:
+        if (JTConsultas.getSelectedRow() != -1) {
+
+            Consulta c = new Consulta();
+
+            int modelRow = JTConsultas.convertRowIndexToModel(JTConsultas.getSelectedRow());
+            int value = (Integer) JTConsultas.getModel().getValueAt(modelRow, 0);
+            int result = JOptionPane.showConfirmDialog(this, "Você tem certeza que deseja excluir esta Consulta?\nA exclusão é permanente e não poderá ser recuperada. Prosseguir?", "Confirmar Exclusão?", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+
+            if (result == 0) {
+                c.setCodConsulta(value);
+                boolean sucesso = Deletar.DConsulta(c);
+
+                if (!sucesso) {
+                    JOptionPane.showMessageDialog(this, "Falha ao apagar a Consulta, tente novamente!", "ERRO", JOptionPane.ERROR_MESSAGE);
+
+                }
+            }
+
+        } else {
+            JOptionPane.showMessageDialog(this, "Selecione uma consulta para apagar");
+        }
+//        if (txtBusca.getText() == "") {
+//            getCountBusca(txtBusca.getText());
+//            SpinnerNumPaginas.setValue(currentPage);
+//            LabelQtdePaginas.setText("de " + totalPages);
+//            getPageDataBusca(currentPage, txtBusca.getText());
+//        } else {
+        Date date = DataChooser.getDate();
+        LocalDate localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        //JOptionPane.showMessageDialog(this, "Consulta Salva com sucesso");
+        ReadJTable(localDate);
     }//GEN-LAST:event_BtnExcluirActionPerformed
     public void readatributos() {
         Consulta c = new Consulta();
@@ -1732,6 +1763,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 LocalDate localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
                 //JOptionPane.showMessageDialog(this, "Consulta Salva com sucesso");
                 ReadJTable(localDate);
+                ModalAlterarConsulta.dispose();
             }
 
         }
@@ -1745,7 +1777,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         //a2 = dao2.ReadAnamneseConsulta(codconsulta);
         //codanamnese = a2.getCodAnamnese();
         existe = readcampos();
-        
 
         ModalAnamnese3.setSize(1039, 600);
         ModalAnamnese3.setResizable(false);
@@ -1757,7 +1788,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-       
+
         ModalAnotacao.setSize(890, 600);
         jScrollPane4.getVerticalScrollBar().setUnitIncrement(15);
         ModalAnotacao.setModal(true);

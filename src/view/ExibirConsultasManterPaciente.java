@@ -1736,7 +1736,7 @@ public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
             int value = (Integer) JTConsultas.getModel().getValueAt(modelRow, 0);
             codconsulta = value;
             readatributos();
-            
+
             ModalAlterarConsulta.setSize(586, 320);
             ModalAlterarConsulta.setModal(true);
             ModalAlterarConsulta.setResizable(false);
@@ -1776,13 +1776,16 @@ public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
 
             int modelRow = JTConsultas.convertRowIndexToModel(JTConsultas.getSelectedRow());
             int value = (Integer) JTConsultas.getModel().getValueAt(modelRow, 0);
+            int result = JOptionPane.showConfirmDialog(this, "Você tem certeza que deseja excluir esta Consulta?\nA exclusão é permanente e não poderá ser recuperada. Prosseguir?", "Confirmar Exclusão?", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
 
-            c.setCodConsulta(value);
-            boolean sucesso = Deletar.DConsulta(c);
+            if (result == 0) {
+                c.setCodConsulta(value);
+                boolean sucesso = Deletar.DConsulta(c);
 
-            if (sucesso) {
-                JOptionPane.showMessageDialog(this, "Consulta Apagada com Sucesso");
+                if (!sucesso) {
+                    JOptionPane.showMessageDialog(this, "Falha ao apagar a Consulta, tente novamente!", "ERRO", JOptionPane.ERROR_MESSAGE);
 
+                }
             }
 
         } else {
@@ -2063,7 +2066,7 @@ public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
                     a = dao.ReadAnamneseConsulta(codconsulta);
                     codanamnese = a.getCodAnamnese();
                     ModalAnamnese3.dispose();
-                    
+
                 }
             }
 
@@ -2342,6 +2345,10 @@ public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
             c.setStatus((String) status.getSelectedItem());
             sucesso = cdao.Update(c);
             if (sucesso) {
+                this.getCount();
+                SpinnerNumPaginas.setValue(currentPage);
+                LabelQtdePaginas.setText("de " + totalPages);
+                this.getPageData(1);
                 ModalAlterarConsulta.dispose();
                 //JOptionPane.showMessageDialog(this, "Consulta Salva com sucesso");
             }
