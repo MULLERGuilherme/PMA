@@ -267,17 +267,6 @@ public void readpsicologo() {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        ModalAlterarConsulta = new javax.swing.JDialog();
-        jPanel4 = new JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
-        datepicker = new com.github.lgooddatepicker.components.DateTimePicker();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        status = new javax.swing.JComboBox<>();
-        BtnAlterarConsulta1 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
         ModalAnamnese3 = new javax.swing.JDialog();
         jScrollPane3 = new javax.swing.JScrollPane();
         jPanel6 = new javax.swing.JPanel();
@@ -367,6 +356,21 @@ public void readpsicologo() {
         jLabel15 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
         BtnAlterar = new javax.swing.JButton();
+        ModalAlterarConsulta = new javax.swing.JDialog();
+        jPanel3 = new javax.swing.JPanel();
+        datepicker = new com.github.lgooddatepicker.components.DateTimePicker();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        status = new javax.swing.JComboBox<>();
+        BtnAlterarConsulta = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        JCBPagamento = new javax.swing.JComboBox<>();
+        jLabel12 = new javax.swing.JLabel();
+        labelpaciente = new javax.swing.JLabel();
+        jPanel2 = new JPanel();
+        jLabel4 = new javax.swing.JLabel();
         jPanel1 = new JPanel();
         PainelMeusDados = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
@@ -396,107 +400,6 @@ public void readpsicologo() {
         BtnExibirAnamneses = new javax.swing.JButton();
         BtnExibirAnotacoes = new javax.swing.JButton();
         BtnExibirAnotacoes1 = new javax.swing.JButton();
-
-        ModalAlterarConsulta.setResizable(false);
-
-        jPanel4.setBackground(new java.awt.Color(59, 131, 117));
-        jPanel4.setForeground(new java.awt.Color(59, 131, 117));
-        jPanel4.setPreferredSize(new java.awt.Dimension(1080, 89));
-
-        jLabel4.setText("Alterar Consulta");
-        jLabel4.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1080, Short.MAX_VALUE)
-            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel4Layout.createSequentialGroup()
-                    .addGap(188, 188, 188)
-                    .addComponent(jLabel4)
-                    .addContainerGap(706, Short.MAX_VALUE)))
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 89, Short.MAX_VALUE)
-            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel4Layout.createSequentialGroup()
-                    .addGap(30, 30, 30)
-                    .addComponent(jLabel4)
-                    .addContainerGap(30, Short.MAX_VALUE)))
-        );
-
-        ModalAlterarConsulta.getContentPane().add(jPanel4, java.awt.BorderLayout.NORTH);
-
-        jLabel5.setText("Data");
-
-        jLabel7.setText("Status");
-
-        status.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A Confirmar","Confirmada","Cancelada", "Realizada" }));
-
-        BtnAlterarConsulta1.setText("Salvar Alterações");
-        BtnAlterarConsulta1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnAlterarConsulta1ActionPerformed(evt);
-            }
-        });
-
-        jButton1.setText("Visualizar Anamnese");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        jButton4.setText("Visualizar Anotação");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel5)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(datepicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel7))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addGap(18, 18, 18)
-                        .addComponent(BtnAlterarConsulta1)))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(status, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4))
-                .addContainerGap(538, Short.MAX_VALUE))
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(datepicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel7)
-                    .addComponent(status, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(60, 60, 60)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton4)
-                    .addComponent(BtnAlterarConsulta1)
-                    .addComponent(jButton1))
-                .addContainerGap(70, Short.MAX_VALUE))
-        );
-
-        ModalAlterarConsulta.getContentPane().add(jPanel5, java.awt.BorderLayout.CENTER);
 
         jScrollPane3.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -1265,6 +1168,130 @@ public void readpsicologo() {
                 .addContainerGap())
         );
 
+        ModalAlterarConsulta.setResizable(false);
+
+        jLabel5.setText("Data");
+
+        jLabel9.setText("Status da Consulta:");
+
+        status.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A Confirmar","Confirmada","Cancelada", "Realizada" }));
+
+        BtnAlterarConsulta.setText("Salvar Alterações");
+        BtnAlterarConsulta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAlterarConsultaActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Editar Anamnese");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton3.setText("Editar Anotação");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jLabel10.setText("Situação do Pagamento:");
+
+        JCBPagamento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pendente", "Efetuado"}));
+
+        jLabel12.setText("Paciente:");
+
+        labelpaciente.setText("jLabel10");
+
+        jPanel2.setBackground(new java.awt.Color(59, 131, 117));
+        jPanel2.setForeground(new java.awt.Color(59, 131, 117));
+        jPanel2.setPreferredSize(new java.awt.Dimension(1080, 89));
+
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("Alterar Consulta");
+        jLabel4.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 63, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 510, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel12)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(labelpaciente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addGap(18, 18, 18)
+                                .addComponent(datepicker, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel10)
+                                    .addComponent(jLabel9))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(JCBPagamento, 0, 154, Short.MAX_VALUE)
+                                    .addComponent(status, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(BtnAlterarConsulta))))
+                .addContainerGap())
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(labelpaciente))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(datepicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5)
+                    .addComponent(jButton1))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(JCBPagamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton3))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(status, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BtnAlterarConsulta))
+                .addContainerGap(44, Short.MAX_VALUE))
+        );
+
+        ModalAlterarConsulta.getContentPane().add(jPanel3, java.awt.BorderLayout.CENTER);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(59, 131, 117));
@@ -1841,46 +1868,6 @@ public void readatributos() {
         }
         SpinnerNumPaginas.setValue((int) currentPage);
     }//GEN-LAST:event_BtnAvancarBastanteActionPerformed
-
-    private void BtnAlterarConsulta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAlterarConsulta1ActionPerformed
-        if (datepicker.getDateTimePermissive() == null) {
-            JOptionPane.showMessageDialog(this, "Por favor Insira uma data válida");
-        } else {
-            Consulta c = new Consulta();
-            ConsultaDAO cdao = new ConsultaDAO();
-
-            boolean sucesso = false;
-            c.setCodConsulta(codconsulta);
-            c.setDataConsulta(datepicker.getDateTimePermissive());
-            c.setStatus((String) status.getSelectedItem());
-            sucesso = cdao.Update(c);
-            if (sucesso) {
-                JOptionPane.showMessageDialog(this, "Consulta Salva com sucesso");
-            }
-
-        }
-
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BtnAlterarConsulta1ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Anamnese a2 = new Anamnese();
-        AnamneseDAO dao2 = new AnamneseDAO();
-        //a2 = dao2.ReadAnamneseConsulta(codconsulta);
-        //codanamnese = a2.getCodAnamnese();
-        existe = readcampos();
-        if (existe) {
-
-        } else {
-
-        }
-
-        ModalAnamnese3.setSize(1039, 600);
-        jScrollPane3.getVerticalScrollBar().setUnitIncrement(15);
-        ModalAnamnese3.setModal(true);
-        ModalAnamnese3.setLocationRelativeTo(null);
-        ModalAnamnese3.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
 public boolean readcampos() {
         Anamnese a = new Anamnese();
         AnamneseDAO dao = new AnamneseDAO();
@@ -1919,17 +1906,6 @@ public boolean readcampos() {
         }
         return false;
     }
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-        CadastrarAnotacaoPaciente tp = new CadastrarAnotacaoPaciente(codconsulta);
-        CadastrarAnotacaoPaciente.codconsulta = codconsulta;
-        ModalAnotacao.setSize(890, 600);
-        jScrollPane4.getVerticalScrollBar().setUnitIncrement(15);
-        ModalAnotacao.setModal(true);
-        ModalAnotacao.setLocationRelativeTo(null);
-        ModalAnotacao.setVisible(true);
-    }//GEN-LAST:event_jButton4ActionPerformed
-
     private void BtnSalvarAlteracoes6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalvarAlteracoes6ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnSalvarAlteracoes6ActionPerformed
@@ -2258,6 +2234,58 @@ private void Cadastrar() {
         }
     }//GEN-LAST:event_BtnAlterarActionPerformed
 
+    private void BtnAlterarConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAlterarConsultaActionPerformed
+        if (datepicker.getDateTimePermissive() == null) {
+            JOptionPane.showMessageDialog(this, "Por favor Insira uma data válida");
+        } else {
+            Consulta c = new Consulta();
+            ConsultaDAO cdao = new ConsultaDAO();
+
+            boolean sucesso = false;
+            c.setCodConsulta(codconsulta);
+            c.setDataConsulta(datepicker.getDateTimePermissive());
+            c.setPagamento((String) JCBPagamento.getSelectedItem());
+            c.setStatus((String) status.getSelectedItem());
+            sucesso = cdao.Update(c);
+            if (sucesso) {
+                JOptionPane.showMessageDialog(this, "Consulta Salva com sucesso");
+            }
+
+        }
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnAlterarConsultaActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Anamnese a2 = new Anamnese();
+        AnamneseDAO dao2 = new AnamneseDAO();
+        //a2 = dao2.ReadAnamneseConsulta(codconsulta);
+        //codanamnese = a2.getCodAnamnese();
+        existe = readcampos();
+        if (existe) {
+
+        } else {
+
+        }
+
+        ModalAnamnese3.setSize(1039, 600);
+        jScrollPane3.getVerticalScrollBar().setUnitIncrement(15);
+        ModalAnamnese3.setModal(true);
+        ModalAnamnese3.setLocationRelativeTo(null);
+        ModalAnamnese3.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        CadastrarAnotacaoPaciente tp = new CadastrarAnotacaoPaciente(codconsulta);
+        CadastrarAnotacaoPaciente.codconsulta = codconsulta;
+        ModalAnotacao.setSize(890, 600);
+        jScrollPane4.getVerticalScrollBar().setUnitIncrement(15);
+        ModalAnotacao.setModal(true);
+        ModalAnotacao.setLocationRelativeTo(null);
+        ModalAnotacao.setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2295,7 +2323,7 @@ private void Cadastrar() {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnAlterar;
-    private javax.swing.JButton BtnAlterarConsulta1;
+    private javax.swing.JButton BtnAlterarConsulta;
     private javax.swing.JButton BtnAvancarBastante;
     private javax.swing.JButton BtnAvancarPouco;
     private javax.swing.JButton BtnCancelar6;
@@ -2327,6 +2355,7 @@ private void Cadastrar() {
     private javax.swing.JCheckBox CheckBoxRaiva1;
     private javax.swing.JCheckBox CheckBoxVolicao1;
     private com.github.lgooddatepicker.components.DatePicker DataInicio2;
+    private javax.swing.JComboBox<String> JCBPagamento;
     private javax.swing.JComboBox<String> JCBPsicomotricidade2;
     private javax.swing.JTable JTConsultas;
     private javax.swing.JLabel LabelAssunto;
@@ -2358,12 +2387,14 @@ private void Cadastrar() {
     private com.github.lgooddatepicker.components.DateTimePicker datepicker;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton3;
     private LIB.JEImagePanel jEImagePanel1;
     private LIB.JEImagePanel jEImagePanel4;
     private LIB.JEImagePanel jEImagePanel5;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
@@ -2391,11 +2422,11 @@ private void Cadastrar() {
     private javax.swing.JLabel jLabel56;
     private javax.swing.JLabel jLabel57;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
@@ -2405,6 +2436,7 @@ private void Cadastrar() {
     private javax.swing.JLabel lNome;
     private javax.swing.JLabel labelInicioQueixa4;
     private javax.swing.JLabel labelInicioQueixa5;
+    private javax.swing.JLabel labelpaciente;
     private javax.swing.JLabel labeltelefone;
     private javax.swing.JLabel labeltelefone2;
     private javax.swing.JComboBox<String> status;
