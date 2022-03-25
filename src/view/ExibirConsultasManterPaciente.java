@@ -235,7 +235,8 @@ public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
             model.addRow(new Object[]{
                 v.getCodConsulta(),
                 Validar.fDatetime((Timestamp) v.getDataConsulta()),
-                v.getStatus(),});
+                v.getStatus(),
+                v.getPagamento()});
         }
     }
 
@@ -1439,14 +1440,14 @@ public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
 
         JTConsultas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null}
+                {null, null, null, null}
             },
             new String [] {
-                "CodConsulta", "Horário", "Status"
+                "CodConsulta", "Horário", "Status", "Pagamento"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -2058,9 +2059,11 @@ public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
                 a.setPsicomotricidade((String) JCBPsicomotricidade2.getSelectedItem());
                 boolean sucesso = dao.Create(a);
                 if (sucesso) {
-                    JOptionPane.showMessageDialog(ModalAnamnese3, "Anamnese Inserida Com Sucesso");
+                    //JOptionPane.showMessageDialog(ModalAnamnese3, "Anamnese Inserida Com Sucesso");
                     a = dao.ReadAnamneseConsulta(codconsulta);
                     codanamnese = a.getCodAnamnese();
+                    ModalAnamnese3.dispose();
+                    
                 }
             }
 
@@ -2108,7 +2111,8 @@ public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
 
             boolean sucesso = dao.Update(a);
             if (sucesso) {
-                JOptionPane.showMessageDialog(this, "Anamnese Alterada Com Sucesso");
+                //JOptionPane.showMessageDialog(this, "Anamnese Alterada Com Sucesso");
+                ModalAnamnese3.dispose();
             }
         }
     }
@@ -2338,7 +2342,8 @@ public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
             c.setStatus((String) status.getSelectedItem());
             sucesso = cdao.Update(c);
             if (sucesso) {
-                JOptionPane.showMessageDialog(this, "Consulta Salva com sucesso");
+                ModalAlterarConsulta.dispose();
+                //JOptionPane.showMessageDialog(this, "Consulta Salva com sucesso");
             }
 
         }

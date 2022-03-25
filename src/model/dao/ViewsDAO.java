@@ -46,7 +46,7 @@ public class ViewsDAO {
                 //c.getPsicologo().setCodPsicologo(rs.getInt("CodPsicologo"));
                 c.setDataConsulta(rs.getObject("DataConsulta"));
                 c.setStatus(rs.getString("Status"));
-
+                c.setPagamento(rs.getString("Pagamento"));
                 vw.add(c);
 
             }
@@ -1348,6 +1348,7 @@ public class ViewsDAO {
                 //c.getPsicologo().setCodPsicologo(rs.getInt("CodPsicologo"));
                 c.setDataConsulta(rs.getObject("DataConsulta"));
                 c.setStatus(rs.getString("Status"));
+                c.setPagamento(rs.getString("Pagamento"));
 
                 vw.add(c);
 

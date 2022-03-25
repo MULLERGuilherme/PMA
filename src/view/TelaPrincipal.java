@@ -109,7 +109,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 c.getCodConsulta(),
                 c.getPaciente().getNome_Completo(),
                 Validar.ftime((Timestamp) c.getDataConsulta()),
-                c.getStatus(),});
+                c.getStatus(),
+                c.getPagamento()
+            });
         }
     }
 
@@ -1331,11 +1333,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Codconsulta", "Paciente", "Horário", "Status"
+                "Codconsulta", "Paciente", "Horário", "Status", "Pagamento"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
