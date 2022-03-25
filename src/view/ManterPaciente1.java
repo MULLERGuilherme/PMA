@@ -3689,7 +3689,10 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             c.setPagamento((String) JCBPagamento.getSelectedItem());
             boolean sucesso = cdao.Create(c);
             if (sucesso) {
-                JOptionPane.showMessageDialog(this, "Consulta Salva com sucesso");
+//                JOptionPane.showMessageDialog(this, "Consulta Salva com sucesso");
+                   JCBPagamento.setSelectedIndex(0) ;
+                   ModalAlterarConsulta.dispose();
+                   data.clear();
             }
         } else {
             JOptionPane.showMessageDialog(this, "Selecione um paciente para cadastrar uma consulta");
