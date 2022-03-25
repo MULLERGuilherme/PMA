@@ -338,7 +338,7 @@ public void readpsicologo() {
         PainelIdentificacaoPessoal3 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
         LabelNomePaciente = new javax.swing.JLabel();
-        LabelNome5 = new javax.swing.JLabel();
+        labelnomeanotacao = new javax.swing.JLabel();
         LabelAssunto = new javax.swing.JLabel();
         txtAssunto = new javax.swing.JTextField();
         LabelAssunto1 = new javax.swing.JLabel();
@@ -925,8 +925,8 @@ public void readpsicologo() {
         LabelNomePaciente.setText("Nome do Paciente :");
         LabelNomePaciente.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        LabelNome5.setText(" Variável Nome do Paciente");
-        LabelNome5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        labelnomeanotacao.setText(" Variável Nome do Paciente");
+        labelnomeanotacao.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         LabelAssunto.setText("Assunto:");
         LabelAssunto.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -976,7 +976,7 @@ public void readpsicologo() {
                                     .addComponent(LabelNomePaciente)
                                     .addComponent(LabelAssunto))
                                 .addGap(18, 18, 18)
-                                .addComponent(LabelNome5))
+                                .addComponent(labelnomeanotacao))
                             .addComponent(txtAssunto, javax.swing.GroupLayout.PREFERRED_SIZE, 762, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addGroup(jPanel7Layout.createSequentialGroup()
@@ -1006,7 +1006,7 @@ public void readpsicologo() {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LabelNomePaciente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(LabelNome5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(labelnomeanotacao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(LabelAssunto)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1028,7 +1028,7 @@ public void readpsicologo() {
         ModalAnotacao.getContentPane().setLayout(ModalAnotacaoLayout);
         ModalAnotacaoLayout.setHorizontalGroup(
             ModalAnotacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 853, Short.MAX_VALUE)
+            .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         ModalAnotacaoLayout.setVerticalGroup(
             ModalAnotacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1214,10 +1214,10 @@ public void readpsicologo() {
         jPanel2.setForeground(new java.awt.Color(59, 131, 117));
         jPanel2.setPreferredSize(new java.awt.Dimension(1080, 89));
 
-        jLabel4.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Alterar Consulta");
+        jLabel4.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -2369,7 +2369,6 @@ private void Cadastrar() {
     private javax.swing.JLabel LabelAssunto1;
     private javax.swing.JLabel LabelEmail3;
     private javax.swing.JLabel LabelLimite;
-    private javax.swing.JLabel LabelNome5;
     private javax.swing.JLabel LabelNome6;
     private javax.swing.JLabel LabelNomePaciente;
     private javax.swing.JLabel LabelPagina;
@@ -2443,6 +2442,7 @@ private void Cadastrar() {
     private javax.swing.JLabel lNome;
     private javax.swing.JLabel labelInicioQueixa4;
     private javax.swing.JLabel labelInicioQueixa5;
+    private javax.swing.JLabel labelnomeanotacao;
     private javax.swing.JLabel labelpaciente;
     private javax.swing.JLabel labeltelefone;
     private javax.swing.JLabel labeltelefone2;

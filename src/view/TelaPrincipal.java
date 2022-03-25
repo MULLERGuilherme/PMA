@@ -236,6 +236,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel22 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
+        LabelNomePaciente1 = new javax.swing.JLabel();
+        labelnomeanamnese = new javax.swing.JLabel();
         ModalAnotacao = new javax.swing.JDialog();
         jScrollPane4 = new javax.swing.JScrollPane();
         jPanel7 = new javax.swing.JPanel();
@@ -243,7 +245,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         PainelIdentificacaoPessoal3 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         LabelNomePaciente = new javax.swing.JLabel();
-        LabelNome5 = new javax.swing.JLabel();
+        labelnomeanotacao = new javax.swing.JLabel();
         LabelAssunto = new javax.swing.JLabel();
         txtAssunto = new javax.swing.JTextField();
         LabelAssunto1 = new javax.swing.JLabel();
@@ -456,7 +458,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         PainelIdentificacaoPessoal5.setLayout(PainelIdentificacaoPessoal5Layout);
         PainelIdentificacaoPessoal5Layout.setHorizontalGroup(
             PainelIdentificacaoPessoal5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 917, Short.MAX_VALUE)
         );
         PainelIdentificacaoPessoal5Layout.setVerticalGroup(
             PainelIdentificacaoPessoal5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -667,6 +669,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel30.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel30.setForeground(new java.awt.Color(255, 0, 0));
 
+        LabelNomePaciente1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        LabelNomePaciente1.setText("Nome do Paciente :");
+
+        labelnomeanamnese.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        labelnomeanamnese.setText(" Variável Nome do Paciente");
+
         javax.swing.GroupLayout PainelDadosPaciente5Layout = new javax.swing.GroupLayout(PainelDadosPaciente5);
         PainelDadosPaciente5.setLayout(PainelDadosPaciente5Layout);
         PainelDadosPaciente5Layout.setHorizontalGroup(
@@ -697,14 +705,20 @@ public class TelaPrincipal extends javax.swing.JFrame {
                                     .addComponent(jLabel22))
                                 .addGap(19, 19, 19)
                                 .addGroup(PainelDadosPaciente5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(LabelNome6)
-                                    .addComponent(jLabel57))
-                                .addGap(34, 34, 34)
-                                .addGroup(PainelDadosPaciente5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(PainelDadosPaciente5Layout.createSequentialGroup()
-                                        .addComponent(DataInicio2, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 393, Short.MAX_VALUE))
-                                    .addComponent(txtQueixaPrincipal2)))
+                                        .addGroup(PainelDadosPaciente5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(LabelNome6)
+                                            .addComponent(jLabel57))
+                                        .addGap(34, 34, 34)
+                                        .addGroup(PainelDadosPaciente5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addGroup(PainelDadosPaciente5Layout.createSequentialGroup()
+                                                .addComponent(DataInicio2, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(0, 393, Short.MAX_VALUE))
+                                            .addComponent(txtQueixaPrincipal2)))
+                                    .addGroup(PainelDadosPaciente5Layout.createSequentialGroup()
+                                        .addComponent(LabelNomePaciente1)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(labelnomeanamnese))))
                             .addGroup(PainelDadosPaciente5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addGroup(PainelDadosPaciente5Layout.createSequentialGroup()
                                     .addComponent(jLabel30)
@@ -791,7 +805,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
                     .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE))
                 .addGap(0, 0, 0)
                 .addComponent(PainelIdentificacaoPessoal5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(71, 71, 71)
+                .addGap(18, 18, 18)
+                .addGroup(PainelDadosPaciente5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LabelNomePaciente1)
+                    .addComponent(labelnomeanamnese))
+                .addGap(31, 31, 31)
                 .addGroup(PainelDadosPaciente5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtQueixaPrincipal2)
                     .addComponent(LabelNome6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -947,8 +965,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         LabelNomePaciente.setText("Nome do Paciente :");
         LabelNomePaciente.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        LabelNome5.setText(" Variável Nome do Paciente");
-        LabelNome5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        labelnomeanotacao.setText(" Variável Nome do Paciente");
+        labelnomeanotacao.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         LabelAssunto.setText("Assunto:");
         LabelAssunto.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -998,7 +1016,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                                     .addComponent(LabelNomePaciente)
                                     .addComponent(LabelAssunto))
                                 .addGap(18, 18, 18)
-                                .addComponent(LabelNome5))
+                                .addComponent(labelnomeanotacao))
                             .addComponent(txtAssunto, javax.swing.GroupLayout.PREFERRED_SIZE, 762, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addGroup(jPanel7Layout.createSequentialGroup()
@@ -1028,7 +1046,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LabelNomePaciente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(LabelNome5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(labelnomeanotacao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(LabelAssunto)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1050,7 +1068,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         ModalAnotacao.getContentPane().setLayout(ModalAnotacaoLayout);
         ModalAnotacaoLayout.setHorizontalGroup(
             ModalAnotacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 853, Short.MAX_VALUE)
+            .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         ModalAnotacaoLayout.setVerticalGroup(
             ModalAnotacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1630,7 +1648,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     public void readatributos() {
         Consulta c = new Consulta();
         ConsultaDAO cdao = new ConsultaDAO();
-
+        PacienteDAO dao = new PacienteDAO();
         c = cdao.ReadConsulta(codconsulta);
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String string;
@@ -1643,6 +1661,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         status.setSelectedItem(c.getStatus());
         JCBPagamento.setSelectedItem(c.getPagamento());
+        Paciente p = dao.ReadPaciente(c.getPaciente().getCodPaciente());
+        labelnomeanotacao.setText(p.getNome_Completo());
+        labelnomeanamnese.setText(p.getNome_Completo());
     }
     private void JTConsultasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTConsultasMouseClicked
         btnAlterar.setEnabled(true);
@@ -1720,11 +1741,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         //a2 = dao2.ReadAnamneseConsulta(codconsulta);
         //codanamnese = a2.getCodAnamnese();
         existe = readcampos();
-        if (existe) {
-
-        } else {
-
-        }
+       
 
         ModalAnamnese3.setSize(1039, 600);
         jScrollPane3.getVerticalScrollBar().setUnitIncrement(15);
@@ -1735,8 +1752,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        CadastrarAnotacaoPaciente tp = new CadastrarAnotacaoPaciente(codconsulta);
-        CadastrarAnotacaoPaciente.codconsulta = codconsulta;
+       
         ModalAnotacao.setSize(890, 600);
         jScrollPane4.getVerticalScrollBar().setUnitIncrement(15);
         ModalAnotacao.setModal(true);
@@ -2087,9 +2103,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel LabelAssunto;
     private javax.swing.JLabel LabelAssunto1;
     private javax.swing.JLabel LabelEmail3;
-    private javax.swing.JLabel LabelNome5;
     private javax.swing.JLabel LabelNome6;
     private javax.swing.JLabel LabelNomePaciente;
+    private javax.swing.JLabel LabelNomePaciente1;
     private javax.swing.JDialog ModalAlterarConsulta;
     private javax.swing.JDialog ModalAnamnese3;
     private javax.swing.JDialog ModalAnotacao;
@@ -2158,6 +2174,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JLabel labelInicioQueixa4;
     private javax.swing.JLabel labelInicioQueixa5;
+    private javax.swing.JLabel labelnomeanamnese;
+    private javax.swing.JLabel labelnomeanotacao;
     private javax.swing.JLabel labelpaciente;
     private javax.swing.JLabel labeltelefone;
     private javax.swing.JLabel labeltelefone2;
