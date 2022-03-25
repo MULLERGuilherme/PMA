@@ -1339,7 +1339,7 @@ public void readpsicologo() {
             CheckBoxLuto1.setSelected(a.isQAELuto());
             CheckBoxHumor1.setSelected(a.isQAEHumor());
             CheckBoxDesanimo1.setSelected(a.isQAEDesanimo());
-
+            
             JCBPsicomotricidade2.setSelectedItem(a.getPsicomotricidade());
             return true;
         }

@@ -1994,7 +1994,7 @@ public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
             CheckBoxRaiva1.setSelected(a.isQAERaiva());
             CheckBoxLuto1.setSelected(a.isQAELuto());
             CheckBoxDesanimo1.setSelected(a.isQAEDesanimo());
-
+            CheckBoxHumor1.setSelected(a.isQAEHumor());
             JCBPsicomotricidade2.setSelectedItem(a.getPsicomotricidade());
             return true;
         }
