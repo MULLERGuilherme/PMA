@@ -75,7 +75,7 @@ public class VisualizarAnotacoes extends javax.swing.JFrame {
     public boolean existe;
 
     //Paginacao
-    int PAGE_SIZE = 1;
+    int PAGE_SIZE = 15;
     double tableRowCount;
     int totalPages = 1;
     int currentPage = 1;
@@ -1058,14 +1058,14 @@ private String getFirstWord(String text) {
     private void BtnSalvarAlteracoesAnotacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalvarAlteracoesAnotacaoActionPerformed
         AnotacaoDAO dao = new AnotacaoDAO();
         Anotacao a = new Anotacao();
-        if (!Validar.vCamposVaziosAnt(this, txtAssunto, txtTexto)) {
+        if (!Validar.vCamposVaziosAnt(null, txtAssunto, txtTexto)) {
             a.setAssunto(txtAssunto.getText());
             a.setTexto(txtTexto.getText());
 
             a.setCodAnotacao(codigoanotacao);
             boolean sucesso = dao.Update(a);
-            if (sucesso) {
-                JOptionPane.showMessageDialog(null, "Anotação Atualizada  com Sucesso!");
+            if (!sucesso) {
+                JOptionPane.showMessageDialog(null, "Falha ao Atualizar a Anotação!", "ERRO", JOptionPane.ERROR_MESSAGE);
             }
         }
         if (txtBusca.getText() == "") {
@@ -1079,6 +1079,7 @@ private String getFirstWord(String text) {
             LabelQtdePaginas.setText("de " + totalPages);
             getPageDataBusca(currentPage, txtBusca.getText());
         }
+         ModalAnotacao.dispose();
     }//GEN-LAST:event_BtnSalvarAlteracoesAnotacaoActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
@@ -1346,12 +1347,21 @@ private String getFirstWord(String text) {
             int modelRow = JTAnotacoes.convertRowIndexToModel(JTAnotacoes.getSelectedRow());
             int value = (Integer) JTAnotacoes.getModel().getValueAt(modelRow, 0);
             a.setCodAnotacao(value);
-            dao.Delete(a);
+            int result = JOptionPane.showConfirmDialog(null, "Você tem certeza que deseja excluir esta Anotação?\nA exclusão é permanente e não poderá ser recuperada. Prosseguir?", "Confirmar Exclusão?", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+
+            if (result == 0) {
+                boolean sucesso = dao.Delete(a);
+                if (!sucesso) {
+                    JOptionPane.showMessageDialog(null, "Falha ao apagar a Anotação, tente novamente!", "ERRO", JOptionPane.ERROR_MESSAGE);
+
+                }
+            }
+            
             //limpar a tela
 
             //mostrar mensagem de sucesso
             // JOptionPane.showMessageDialog(null,"Paciente Cadastrado com Sucesso!");
-            if (txtBusca.getText() == "") {
+            if (txtBusca.getText() != "") {
                 getCountBusca(txtBusca.getText());
                 SpinnerNumPaginas.setValue(currentPage);
                 LabelQtdePaginas.setText("de " + totalPages);
@@ -1360,11 +1370,11 @@ private String getFirstWord(String text) {
                 getCount();
                 SpinnerNumPaginas.setValue(currentPage);
                 LabelQtdePaginas.setText("de " + totalPages);
-                getPageDataBusca(currentPage, txtBusca.getText());
+                getPageData(currentPage);
             }
 
         } else {
-            JOptionPane.showMessageDialog(null, "Selecione um paciente para excluir");
+             JOptionPane.showMessageDialog(null, "Selecione um paciente para excluir", "ERRO", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_BtnExcluirAnotacaoActionPerformed
 

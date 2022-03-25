@@ -645,7 +645,7 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
         ModalAnotacao.getContentPane().setLayout(ModalAnotacaoLayout);
         ModalAnotacaoLayout.setHorizontalGroup(
             ModalAnotacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 853, Short.MAX_VALUE)
+            .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         ModalAnotacaoLayout.setVerticalGroup(
             ModalAnotacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -892,7 +892,7 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
                     .addGroup(jEImagePanel1Layout.createSequentialGroup()
                         .addGap(111, 111, 111)
                         .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 795, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 807, Short.MAX_VALUE)
                             .addGroup(jEImagePanel1Layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(PainelPaginacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -903,11 +903,12 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
                         .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(BtnExcluirAnotacao, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BtnAlterarAnotacao, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BtnHelp, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(BtnExcluirAnotacao, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(BtnHelp, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(BtnAlterarAnotacao, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         jEImagePanel1Layout.setVerticalGroup(
@@ -1323,7 +1324,7 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
             }
 
         } else {
-            JOptionPane.showMessageDialog(null, "Selecione um paciente para excluir");
+            JOptionPane.showMessageDialog(null, "Selecione uma anotação para excluir", "ERRO", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_BtnExcluirAnotacaoActionPerformed
 
@@ -1357,7 +1358,7 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
             ModalAnotacao.setLocationRelativeTo(null);
             ModalAnotacao.setVisible(true);
         } else {
-            JOptionPane.showMessageDialog(this, "Selecione uma anotacao para alterar");
+            JOptionPane.showMessageDialog(null, "Selecione uma anotacao para alterar", "ERRO", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_BtnAlterarAnotacaoActionPerformed
 
@@ -1558,7 +1559,7 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
     private void BtnSalvarAlteracoesAnotacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalvarAlteracoesAnotacaoActionPerformed
         AnotacaoDAO dao = new AnotacaoDAO();
         Anotacao a = new Anotacao();
-        if (!Validar.vCamposVaziosAnt(this, txtAssunto, txtTexto)) {
+        if (!Validar.vCamposVaziosAnt(null, txtAssunto, txtTexto)) {
             a.setAssunto(txtAssunto.getText());
             a.setTexto(txtTexto.getText());
 
