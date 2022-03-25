@@ -69,7 +69,7 @@ import static view.ManterPsicologo.codpsicologo;
  * @author guimu
  */
 public class VisualizarAnotacoes extends javax.swing.JFrame {
-    
+
     public static int codpaciente;
     public static int codigoanotacao;
     public boolean existe;
@@ -86,23 +86,22 @@ public class VisualizarAnotacoes extends javax.swing.JFrame {
         tableRowCount = dao.getRowCountTableVisualizarAnotacoes(Main.cod, this.codpaciente);
         if (tableRowCount > 0) {
             totalPages = (int) Math.ceil(tableRowCount / PAGE_SIZE);
-          
 
         }
-          currentPage = 1;
+        currentPage = 1;
     }
 
     public void getCountBusca(String Busca) {
         ViewsDAO dao = new ViewsDAO();
 
-        tableRowCount = dao.getRowCountTableVisualizarAnotacoesBusca(Main.cod, Busca, this.codpaciente );
+        tableRowCount = dao.getRowCountTableVisualizarAnotacoesBusca(Main.cod, Busca, this.codpaciente);
         //System.out.println(tableRowCount);
         if (tableRowCount > 0) {
             totalPages = (int) Math.ceil(tableRowCount / PAGE_SIZE);
             currentPage = 1;
 
         }
-          currentPage = 1;
+        currentPage = 1;
     }
 
     public void getPageData(int pageNo) {
@@ -114,7 +113,8 @@ public class VisualizarAnotacoes extends javax.swing.JFrame {
 
         ReadJTablePag(startRow, PAGE_SIZE);
     }
-public void readpsicologo() {
+
+    public void readpsicologo() {
         Psicologo p = new Psicologo();
         PsicologoDAO dao = new PsicologoDAO();
         p = dao.ReadPsicologo(Main.cod);
@@ -136,6 +136,7 @@ public void readpsicologo() {
 
         }
     }
+
     public void getPageDataBusca(int pageNo, String Busca) {
 
         currentPage = pageNo;
@@ -145,35 +146,37 @@ public void readpsicologo() {
 
         ReadJTableBuscaPag(Busca, startRow, PAGE_SIZE);
     }
-private String getFirstWord(String text) {
 
-  int index = text.indexOf(' ');
+    private String getFirstWord(String text) {
 
-  if (index > -1) { // Check if there is more than one word.
+        int index = text.indexOf(' ');
 
-    return text.substring(0, index).trim(); // Extract first word.
+        if (index > -1) { // Check if there is more than one word.
 
-  } else {
+            return text.substring(0, index).trim(); // Extract first word.
 
-    return text; // Text is the first word itself.
-  }
-}
+        } else {
+
+            return text; // Text is the first word itself.
+        }
+    }
+
     public VisualizarAnotacoes(int cod) {
         this.codpaciente = cod;
         this.getCount();
         initComponents();
-        
-       ModalAnotacao.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
+
+        ModalAnotacao.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
         ModalHelp.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
         ModalMeusDados.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
-        
+
         BtnVoltarPouco.setEnabled(false);
         BtnVoltarBastante.setEnabled(false);
         Psicologo psi = new Psicologo();
         PsicologoDAO dao = new PsicologoDAO();
         psi = dao.ReadPsicologo(Main.cod);
         jLabel11.setText(psi.getNome_completo());
-        String str= getFirstWord(jLabel11.getText());
+        String str = getFirstWord(jLabel11.getText());
         jLabel11.setText(str);
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
         BtnPacientes.setEnabled(false);
@@ -185,6 +188,7 @@ private String getFirstWord(String text) {
         lNome.setText(p.getNome_Completo());
         DefaultTableModel dtmPacientes = (DefaultTableModel) JTAnotacoes.getModel();
         TableColumnModel cmod = JTAnotacoes.getColumnModel();
+        cmod.removeColumn(cmod.getColumn(0));
         cmod.removeColumn(cmod.getColumn(0));
         JTAnotacoes.setRowSorter(new TableRowSorter(dtmPacientes));
         this.getPageData(1);
@@ -1067,19 +1071,20 @@ private String getFirstWord(String text) {
             if (!sucesso) {
                 JOptionPane.showMessageDialog(null, "Falha ao Atualizar a Anotação!", "ERRO", JOptionPane.ERROR_MESSAGE);
             }
+            if (txtBusca.getText() != "") {
+                getCountBusca(txtBusca.getText());
+                SpinnerNumPaginas.setValue(currentPage);
+                LabelQtdePaginas.setText("de " + totalPages);
+                getPageDataBusca(currentPage, txtBusca.getText());
+            } else {
+                getCount();
+                SpinnerNumPaginas.setValue(currentPage);
+                LabelQtdePaginas.setText("de " + totalPages);
+                getPageData(currentPage);
+            }
+            ModalAnotacao.dispose();
         }
-        if (txtBusca.getText() == "") {
-            getCountBusca(txtBusca.getText());
-            SpinnerNumPaginas.setValue(currentPage);
-            LabelQtdePaginas.setText("de " + totalPages);
-            getPageDataBusca(currentPage, txtBusca.getText());
-        } else {
-            getCount();
-            SpinnerNumPaginas.setValue(currentPage);
-            LabelQtdePaginas.setText("de " + totalPages);
-            getPageDataBusca(currentPage, txtBusca.getText());
-        }
-         ModalAnotacao.dispose();
+
     }//GEN-LAST:event_BtnSalvarAlteracoesAnotacaoActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
@@ -1094,8 +1099,8 @@ private String getFirstWord(String text) {
 
     private void txtBuscaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscaKeyPressed
         //        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            //            this.ReadJTableBusca(txtBusca.getText());
-            //        }
+        //            this.ReadJTableBusca(txtBusca.getText());
+        //        }
     }//GEN-LAST:event_txtBuscaKeyPressed
 
     private void BtnHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnHelpActionPerformed
@@ -1117,16 +1122,16 @@ private String getFirstWord(String text) {
                     BtnVoltarBastante.setEnabled(true);
                     if (currentPage == totalPages) {
                         BtnAvancarPouco.setEnabled(false);
-                        BtnAvancarBastante.setEnabled(false);  
-                }
+                        BtnAvancarBastante.setEnabled(false);
+                    }
                 } else {
                     getPageDataBusca(currentPage + 5, txtBusca.getText());
                     BtnVoltarPouco.setEnabled(true);
                     BtnVoltarBastante.setEnabled(true);
                     if (currentPage == totalPages) {
                         BtnAvancarPouco.setEnabled(false);
-                        BtnAvancarBastante.setEnabled(false);  
-                }
+                        BtnAvancarBastante.setEnabled(false);
+                    }
                 }
             } else {
                 if (currentPage + 5 > totalPages) {
@@ -1135,16 +1140,16 @@ private String getFirstWord(String text) {
                     BtnVoltarBastante.setEnabled(true);
                     if (currentPage == totalPages) {
                         BtnAvancarPouco.setEnabled(false);
-                        BtnAvancarBastante.setEnabled(false);  
-                }
+                        BtnAvancarBastante.setEnabled(false);
+                    }
                 } else {
                     getPageData(currentPage + 5);
                     BtnVoltarPouco.setEnabled(true);
                     BtnVoltarBastante.setEnabled(true);
                     if (currentPage == totalPages) {
                         BtnAvancarPouco.setEnabled(false);
-                        BtnAvancarBastante.setEnabled(false);  
-                }
+                        BtnAvancarBastante.setEnabled(false);
+                    }
                 }
             }
 
@@ -1157,18 +1162,18 @@ private String getFirstWord(String text) {
             if (txtBusca.getText() != "") {
                 getPageDataBusca(currentPage + 1, txtBusca.getText());
                 BtnVoltarPouco.setEnabled(true);
-                    BtnVoltarBastante.setEnabled(true);
-                    if (currentPage == totalPages) {
-                        BtnAvancarPouco.setEnabled(false);
-                        BtnAvancarBastante.setEnabled(false);  
+                BtnVoltarBastante.setEnabled(true);
+                if (currentPage == totalPages) {
+                    BtnAvancarPouco.setEnabled(false);
+                    BtnAvancarBastante.setEnabled(false);
                 }
             } else {
                 getPageData(currentPage + 1);
                 BtnVoltarPouco.setEnabled(true);
-                    BtnVoltarBastante.setEnabled(true);
-                    if (currentPage == totalPages) {
-                        BtnAvancarPouco.setEnabled(false);
-                        BtnAvancarBastante.setEnabled(false);  
+                BtnVoltarBastante.setEnabled(true);
+                if (currentPage == totalPages) {
+                    BtnAvancarPouco.setEnabled(false);
+                    BtnAvancarBastante.setEnabled(false);
                 }
             }
 
@@ -1182,23 +1187,22 @@ private String getFirstWord(String text) {
             int pag1 = currentPage;
             getPageDataBusca((int) SpinnerNumPaginas.getValue(), txtBusca.getText());
             int pag2 = currentPage;
-            if(pag2<pag1){
+            if (pag2 < pag1) {
                 BtnAvancarPouco.setEnabled(true);
                 BtnAvancarBastante.setEnabled(true);
-                    if (currentPage == 1) {
-                        BtnVoltarPouco.setEnabled(false);
-                        BtnVoltarBastante.setEnabled(false);  
+                if (currentPage == 1) {
+                    BtnVoltarPouco.setEnabled(false);
+                    BtnVoltarBastante.setEnabled(false);
                 }
+            } else {
+                {
+                    BtnVoltarPouco.setEnabled(true);
+                    BtnVoltarBastante.setEnabled(true);
+                    if (currentPage == totalPages) {
+                        BtnAvancarPouco.setEnabled(false);
+                        BtnAvancarBastante.setEnabled(false);
                     }
-                    else{
-                    {
-                        BtnVoltarPouco.setEnabled(true);
-                        BtnVoltarBastante.setEnabled(true);
-                        if (currentPage == totalPages) {
-                            BtnAvancarPouco.setEnabled(false);
-                            BtnAvancarBastante.setEnabled(false);  
                 }
-                    }       
             }
             BtnAlterarAnotacao.setEnabled(false);
             BtnExcluirAnotacao.setEnabled(false);
@@ -1215,18 +1219,18 @@ private String getFirstWord(String text) {
             if (txtBusca.getText() != "") {
                 getPageDataBusca(currentPage - 1, txtBusca.getText());
                 BtnAvancarPouco.setEnabled(true);
-                    BtnAvancarBastante.setEnabled(true);
-                    if (currentPage == 1) {
-                        BtnVoltarPouco.setEnabled(false);
-                        BtnVoltarBastante.setEnabled(false);  
+                BtnAvancarBastante.setEnabled(true);
+                if (currentPage == 1) {
+                    BtnVoltarPouco.setEnabled(false);
+                    BtnVoltarBastante.setEnabled(false);
                 }
             } else {
                 getPageData(currentPage - 1);
                 BtnAvancarPouco.setEnabled(true);
-                    BtnAvancarBastante.setEnabled(true);
-                    if (currentPage == 1) {
-                        BtnVoltarPouco.setEnabled(false);
-                        BtnVoltarBastante.setEnabled(false);  
+                BtnAvancarBastante.setEnabled(true);
+                if (currentPage == 1) {
+                    BtnVoltarPouco.setEnabled(false);
+                    BtnVoltarBastante.setEnabled(false);
                 }
             }
 
@@ -1241,12 +1245,12 @@ private String getFirstWord(String text) {
                     getPageDataBusca(1, txtBusca.getText());
                     BtnAvancarPouco.setEnabled(true);
                     BtnAvancarBastante.setEnabled(true);
-                   
+
                 } else {
                     getPageDataBusca(currentPage - 5, txtBusca.getText());
                     BtnAvancarPouco.setEnabled(true);
                     BtnAvancarBastante.setEnabled(true);
-                  
+
                 }
 
             } else {
@@ -1254,26 +1258,26 @@ private String getFirstWord(String text) {
                     getPageData(1);
                     BtnAvancarPouco.setEnabled(true);
                     BtnAvancarBastante.setEnabled(true);
-                   
+
                 } else {
                     getPageData(currentPage - 5);
                     BtnAvancarPouco.setEnabled(true);
                     BtnAvancarBastante.setEnabled(true);
-                    
+
                 }
             }
 
         }
         SpinnerNumPaginas.setValue((int) currentPage);
-         if (currentPage == 1) {
-                        BtnVoltarPouco.setEnabled(false);
-                        BtnVoltarBastante.setEnabled(false);  
-                }
+        if (currentPage == 1) {
+            BtnVoltarPouco.setEnabled(false);
+            BtnVoltarBastante.setEnabled(false);
+        }
     }//GEN-LAST:event_BtnVoltarBastanteActionPerformed
 
     private void SpinnerLimiteStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_SpinnerLimiteStateChanged
-         BtnVoltarPouco.setEnabled(false);
-         BtnVoltarBastante.setEnabled(false);
+        BtnVoltarPouco.setEnabled(false);
+        BtnVoltarBastante.setEnabled(false);
         if (txtBusca.getText() != "") {
             PAGE_SIZE = (int) SpinnerLimite.getValue();
             getCountBusca(txtBusca.getText());
@@ -1282,15 +1286,14 @@ private String getFirstWord(String text) {
 
             LabelQtdePaginas.setText("de " + totalPages);
             getPageDataBusca(1, txtBusca.getText());
-             if(totalPages==1){
-            BtnAvancarPouco.setEnabled(false);
-            BtnAvancarBastante.setEnabled(false);
-            
-        }
-             else{
-                 BtnAvancarPouco.setEnabled(true);
+            if (totalPages == 1) {
+                BtnAvancarPouco.setEnabled(false);
+                BtnAvancarBastante.setEnabled(false);
+
+            } else {
+                BtnAvancarPouco.setEnabled(true);
                 BtnAvancarBastante.setEnabled(true);
-             }
+            }
         } else {
             PAGE_SIZE = (int) SpinnerLimite.getValue();
             getCount();
@@ -1300,15 +1303,14 @@ private String getFirstWord(String text) {
 
             LabelQtdePaginas.setText("de " + totalPages);
             getPageData(1);
-             if(totalPages==1){
-            BtnAvancarPouco.setEnabled(false);
-            BtnAvancarBastante.setEnabled(false);
-            
-        }
-             else{
-                 BtnAvancarPouco.setEnabled(true);
+            if (totalPages == 1) {
+                BtnAvancarPouco.setEnabled(false);
+                BtnAvancarBastante.setEnabled(false);
+
+            } else {
+                BtnAvancarPouco.setEnabled(true);
                 BtnAvancarBastante.setEnabled(true);
-             }
+            }
         }
     }//GEN-LAST:event_SpinnerLimiteStateChanged
 
@@ -1356,9 +1358,8 @@ private String getFirstWord(String text) {
 
                 }
             }
-            
-            //limpar a tela
 
+            //limpar a tela
             //mostrar mensagem de sucesso
             // JOptionPane.showMessageDialog(null,"Paciente Cadastrado com Sucesso!");
             if (txtBusca.getText() != "") {
@@ -1374,23 +1375,23 @@ private String getFirstWord(String text) {
             }
 
         } else {
-             JOptionPane.showMessageDialog(null, "Selecione um paciente para excluir", "ERRO", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Selecione um paciente para excluir", "ERRO", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_BtnExcluirAnotacaoActionPerformed
 
     private void BtnAlterarAnotacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAlterarAnotacaoActionPerformed
         // TODO add your handling code here:
         //      if (JTAnotacoes.getSelectedRow() != -1) {
-            //             int modelRow = JTAnotacoes.convertRowIndexToModel(JTAnotacoes.getSelectedRow());
-            //            int value = (Integer)JTAnotacoes.getModel().getValueAt(modelRow,0);
-            //            AlterarAnotacaoPacienteMenu.codanotacao = value;
-            //            AlterarAnotacaoPacienteMenu cp = new AlterarAnotacaoPacienteMenu();
-            //            cp.setVisible(true);
-            //            this.dispose();
-            //
-            //        } else {
-            //            JOptionPane.showMessageDialog(this, "Selecione uma anotacao para alterar");
-            //        }
+        //             int modelRow = JTAnotacoes.convertRowIndexToModel(JTAnotacoes.getSelectedRow());
+        //            int value = (Integer)JTAnotacoes.getModel().getValueAt(modelRow,0);
+        //            AlterarAnotacaoPacienteMenu.codanotacao = value;
+        //            AlterarAnotacaoPacienteMenu cp = new AlterarAnotacaoPacienteMenu();
+        //            cp.setVisible(true);
+        //            this.dispose();
+        //
+        //        } else {
+        //            JOptionPane.showMessageDialog(this, "Selecione uma anotacao para alterar");
+        //        }
         if (JTAnotacoes.getSelectedRow() != -1) {
             Anotacao a = new Anotacao();
             AnotacaoDAO dao = new AnotacaoDAO();
@@ -1489,7 +1490,7 @@ private String getFirstWord(String text) {
         if (!Character.isDigit(c)) {
             evt.consume();
         }
-         if (TxtTelefone6.getText().length()==11) {
+        if (TxtTelefone6.getText().length() == 11) {
             evt.consume();
         }
     }//GEN-LAST:event_TxtTelefone6KeyTyped
@@ -1499,7 +1500,7 @@ private String getFirstWord(String text) {
         if (!Character.isDigit(c)) {
             evt.consume();
         }
-         if (TxtTelefone7.getText().length()==11) {
+        if (TxtTelefone7.getText().length() == 11) {
             evt.consume();
         }
     }//GEN-LAST:event_TxtTelefone7KeyTyped
@@ -1578,7 +1579,7 @@ private String getFirstWord(String text) {
                         }
 //                        JOptionPane.showMessageDialog(this, "Psicologo: " + p.getNome_completo() + " Salvo com sucesso");
                         jLabel11.setText(p.getNome_completo());
-                        String str= getFirstWord(jLabel11.getText());
+                        String str = getFirstWord(jLabel11.getText());
                         jLabel11.setText(str);
                         ModalMeusDados.dispose();
                         // this.clear();
@@ -1594,7 +1595,7 @@ private String getFirstWord(String text) {
                     tf.setPaciente(p);
                     tfdao.CreatePc(tf);
                 }
-                */
+                 */
                 //mostrar mensagem de sucesso
                 // JOptionPane.showMessageDialog(null,"Paciente Cadastrado com Sucesso!");
                 // ReadJTable();
