@@ -62,6 +62,7 @@ import model.dao.AnotacaoDAO;
 import model.dao.ConsultaDAO;
 import model.dao.PsicologoDAO;
 import model.dao.ViewsDAO;
+import static view.VisualizarAnotacoes.codigoanotacao;
 import static view_adm.MenuPrincipal.VisuPsicologoADM.codpsicologo;
 
 /**
@@ -127,6 +128,11 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
     public ExibirAnotacoes() {
         this.getCount();
         initComponents();
+        
+        ModalAnotacao.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
+        ModalHelp.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
+        ModalMeusDados.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
+        
         Psicologo p = new Psicologo();
         PsicologoDAO dao = new PsicologoDAO();
         p = dao.ReadPsicologo(Main.cod);
@@ -266,21 +272,6 @@ public void readpsicologo() {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        ModalAnotacao = new javax.swing.JDialog();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jPanel2 = new javax.swing.JPanel();
-        jEImagePanel4 = new LIB.JEImagePanel();
-        PainelIdentificacaoPessoal3 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
-        LabelNomePaciente = new javax.swing.JLabel();
-        LabelNome5 = new javax.swing.JLabel();
-        LabelAssunto = new javax.swing.JLabel();
-        txtAssunto = new javax.swing.JTextField();
-        LabelAssunto1 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        txtTexto = new javax.swing.JTextArea();
-        BtnCancelarAnotacao = new javax.swing.JButton();
-        BtnSalvarAlteracoesAnotacao = new javax.swing.JButton();
         ModalHelp = new javax.swing.JDialog();
         jPanel4 = new JPanel();
         jPanel5 = new javax.swing.JPanel();
@@ -299,6 +290,21 @@ public void readpsicologo() {
         jLabel15 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
         BtnAlterar = new javax.swing.JButton();
+        ModalAnotacao = new javax.swing.JDialog();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jPanel7 = new javax.swing.JPanel();
+        jEImagePanel4 = new LIB.JEImagePanel();
+        PainelIdentificacaoPessoal3 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        LabelNomePaciente = new javax.swing.JLabel();
+        LabelNome5 = new javax.swing.JLabel();
+        LabelAssunto = new javax.swing.JLabel();
+        txtAssunto = new javax.swing.JTextField();
+        LabelAssunto1 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txtTexto = new javax.swing.JTextArea();
+        BtnCancelarAnotacao = new javax.swing.JButton();
+        BtnSalvarAlteracoesAnotacao = new javax.swing.JButton();
         jPanel1 = new JPanel();
         PainelMeusDados = new javax.swing.JPanel();
         jButton3 = new javax.swing.JButton();
@@ -330,151 +336,6 @@ public void readpsicologo() {
         BtnExibirAnotacoes = new javax.swing.JButton();
         BtnExibirAnotacoes1 = new javax.swing.JButton();
 
-        jEImagePanel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/simboloma.png"))); // NOI18N
-
-        javax.swing.GroupLayout jEImagePanel4Layout = new javax.swing.GroupLayout(jEImagePanel4);
-        jEImagePanel4.setLayout(jEImagePanel4Layout);
-        jEImagePanel4Layout.setHorizontalGroup(
-            jEImagePanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 272, Short.MAX_VALUE)
-        );
-        jEImagePanel4Layout.setVerticalGroup(
-            jEImagePanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 150, Short.MAX_VALUE)
-        );
-
-        PainelIdentificacaoPessoal3.setBackground(new java.awt.Color(59, 131, 117));
-
-        javax.swing.GroupLayout PainelIdentificacaoPessoal3Layout = new javax.swing.GroupLayout(PainelIdentificacaoPessoal3);
-        PainelIdentificacaoPessoal3.setLayout(PainelIdentificacaoPessoal3Layout);
-        PainelIdentificacaoPessoal3Layout.setHorizontalGroup(
-            PainelIdentificacaoPessoal3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        PainelIdentificacaoPessoal3Layout.setVerticalGroup(
-            PainelIdentificacaoPessoal3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 50, Short.MAX_VALUE)
-        );
-
-        jLabel7.setText("Anotações da Consulta");
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(59, 131, 117));
-
-        LabelNomePaciente.setText("Nome do Paciente :");
-        LabelNomePaciente.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-
-        LabelNome5.setText(" Variável Nome do Paciente");
-        LabelNome5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-
-        LabelAssunto.setText("Assunto:");
-        LabelAssunto.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-
-        txtAssunto.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-
-        LabelAssunto1.setText("Texto:");
-        LabelAssunto1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-
-        txtTexto.setColumns(20);
-        txtTexto.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        txtTexto.setLineWrap(true);
-        txtTexto.setRows(5);
-        txtTexto.setWrapStyleWord(true);
-        jScrollPane2.setViewportView(txtTexto);
-
-        BtnCancelarAnotacao.setText("Cancelar");
-        BtnCancelarAnotacao.setBackground(new java.awt.Color(255, 153, 153));
-        BtnCancelarAnotacao.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        BtnCancelarAnotacao.setForeground(new java.awt.Color(255, 255, 255));
-        BtnCancelarAnotacao.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnCancelarAnotacaoActionPerformed(evt);
-            }
-        });
-
-        BtnSalvarAlteracoesAnotacao.setText("Salvar Alterações");
-        BtnSalvarAlteracoesAnotacao.setBackground(new java.awt.Color(0, 112, 186));
-        BtnSalvarAlteracoesAnotacao.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        BtnSalvarAlteracoesAnotacao.setForeground(new java.awt.Color(255, 255, 255));
-        BtnSalvarAlteracoesAnotacao.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnSalvarAlteracoesAnotacaoActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(LabelNomePaciente)
-                                    .addComponent(LabelAssunto))
-                                .addGap(18, 18, 18)
-                                .addComponent(LabelNome5))
-                            .addComponent(txtAssunto, javax.swing.GroupLayout.PREFERRED_SIZE, 762, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addComponent(BtnCancelarAnotacao)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(BtnSalvarAlteracoesAnotacao, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(LabelAssunto1)
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 762, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addContainerGap(36, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jEImagePanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 485, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26))))
-            .addComponent(PainelIdentificacaoPessoal3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jEImagePanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, 0)
-                .addComponent(PainelIdentificacaoPessoal3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LabelNomePaciente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(LabelNome5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(LabelAssunto)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtAssunto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(LabelAssunto1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(BtnCancelarAnotacao, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BtnSalvarAlteracoesAnotacao, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
-        );
-
-        jScrollPane3.setViewportView(jPanel2);
-
-        javax.swing.GroupLayout ModalAnotacaoLayout = new javax.swing.GroupLayout(ModalAnotacao.getContentPane());
-        ModalAnotacao.getContentPane().setLayout(ModalAnotacaoLayout);
-        ModalAnotacaoLayout.setHorizontalGroup(
-            ModalAnotacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 853, Short.MAX_VALUE)
-        );
-        ModalAnotacaoLayout.setVerticalGroup(
-            ModalAnotacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING)
-        );
-
         jPanel4.setBackground(new java.awt.Color(59, 131, 117));
         jPanel4.setForeground(new java.awt.Color(59, 131, 117));
         jPanel4.setPreferredSize(new java.awt.Dimension(1080, 89));
@@ -505,8 +366,8 @@ public void readpsicologo() {
 
         ModalHelp.getContentPane().add(jPanel5, java.awt.BorderLayout.CENTER);
 
-        jLabel10.setText("Nome:");
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel10.setText("Nome:");
 
         txtNome3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -519,8 +380,8 @@ public void readpsicologo() {
             }
         });
 
-        jLabel12.setText("CRP:");
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel12.setText("CRP:");
 
         txtCRP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -533,11 +394,11 @@ public void readpsicologo() {
             }
         });
 
-        jLabel13.setText("E-mail:");
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel13.setText("E-mail:");
 
-        labeltelefone.setText("Telefone:");
         labeltelefone.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        labeltelefone.setText("Telefone:");
 
         TxtTelefone6.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -545,8 +406,8 @@ public void readpsicologo() {
             }
         });
 
-        labeltelefone2.setText("Telefone 2:");
         labeltelefone2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        labeltelefone2.setText("Telefone 2:");
 
         TxtTelefone7.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -556,13 +417,13 @@ public void readpsicologo() {
 
         PainelIdentificacaoPessoal6.setBackground(new java.awt.Color(59, 131, 117));
 
-        jLabel15.setText("DADOS DO PSICÓLOGO");
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel15.setText("DADOS DO PSICÓLOGO");
 
-        jLabel35.setText("NOME");
         jLabel35.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel35.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel35.setText("NOME");
 
         javax.swing.GroupLayout PainelIdentificacaoPessoal6Layout = new javax.swing.GroupLayout(PainelIdentificacaoPessoal6);
         PainelIdentificacaoPessoal6.setLayout(PainelIdentificacaoPessoal6Layout);
@@ -643,6 +504,149 @@ public void readpsicologo() {
                 .addContainerGap())
         );
 
+        jEImagePanel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/simboloma.png"))); // NOI18N
+
+        javax.swing.GroupLayout jEImagePanel4Layout = new javax.swing.GroupLayout(jEImagePanel4);
+        jEImagePanel4.setLayout(jEImagePanel4Layout);
+        jEImagePanel4Layout.setHorizontalGroup(
+            jEImagePanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 272, Short.MAX_VALUE)
+        );
+        jEImagePanel4Layout.setVerticalGroup(
+            jEImagePanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 150, Short.MAX_VALUE)
+        );
+
+        PainelIdentificacaoPessoal3.setBackground(new java.awt.Color(59, 131, 117));
+
+        javax.swing.GroupLayout PainelIdentificacaoPessoal3Layout = new javax.swing.GroupLayout(PainelIdentificacaoPessoal3);
+        PainelIdentificacaoPessoal3.setLayout(PainelIdentificacaoPessoal3Layout);
+        PainelIdentificacaoPessoal3Layout.setHorizontalGroup(
+            PainelIdentificacaoPessoal3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        PainelIdentificacaoPessoal3Layout.setVerticalGroup(
+            PainelIdentificacaoPessoal3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 50, Short.MAX_VALUE)
+        );
+
+        jLabel7.setText("Anotações da Consulta");
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(59, 131, 117));
+
+        LabelNomePaciente.setText("Nome do Paciente :");
+        LabelNomePaciente.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+
+        LabelNome5.setText(" Variável Nome do Paciente");
+        LabelNome5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+
+        LabelAssunto.setText("Assunto:");
+        LabelAssunto.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+
+        txtAssunto.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+
+        LabelAssunto1.setText("Texto:");
+        LabelAssunto1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+
+        txtTexto.setColumns(20);
+        txtTexto.setRows(5);
+        txtTexto.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jScrollPane2.setViewportView(txtTexto);
+
+        BtnCancelarAnotacao.setText("Cancelar");
+        BtnCancelarAnotacao.setBackground(new java.awt.Color(255, 153, 153));
+        BtnCancelarAnotacao.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        BtnCancelarAnotacao.setForeground(new java.awt.Color(255, 255, 255));
+        BtnCancelarAnotacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnCancelarAnotacaoActionPerformed(evt);
+            }
+        });
+
+        BtnSalvarAlteracoesAnotacao.setText("Salvar Alterações");
+        BtnSalvarAlteracoesAnotacao.setBackground(new java.awt.Color(0, 112, 186));
+        BtnSalvarAlteracoesAnotacao.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        BtnSalvarAlteracoesAnotacao.setForeground(new java.awt.Color(255, 255, 255));
+        BtnSalvarAlteracoesAnotacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnSalvarAlteracoesAnotacaoActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(LabelNomePaciente)
+                                    .addComponent(LabelAssunto))
+                                .addGap(18, 18, 18)
+                                .addComponent(LabelNome5))
+                            .addComponent(txtAssunto, javax.swing.GroupLayout.PREFERRED_SIZE, 762, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(jPanel7Layout.createSequentialGroup()
+                                    .addComponent(BtnCancelarAnotacao)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(BtnSalvarAlteracoesAnotacao, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(LabelAssunto1)
+                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 762, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addContainerGap(36, Short.MAX_VALUE))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(jEImagePanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 485, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26))))
+            .addComponent(PainelIdentificacaoPessoal3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jEImagePanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, 0)
+                .addComponent(PainelIdentificacaoPessoal3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LabelNomePaciente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(LabelNome5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(LabelAssunto)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtAssunto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(LabelAssunto1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(BtnCancelarAnotacao, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BtnSalvarAlteracoesAnotacao, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+
+        jScrollPane4.setViewportView(jPanel7);
+
+        javax.swing.GroupLayout ModalAnotacaoLayout = new javax.swing.GroupLayout(ModalAnotacao.getContentPane());
+        ModalAnotacao.getContentPane().setLayout(ModalAnotacaoLayout);
+        ModalAnotacaoLayout.setHorizontalGroup(
+            ModalAnotacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 853, Short.MAX_VALUE)
+        );
+        ModalAnotacaoLayout.setVerticalGroup(
+            ModalAnotacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(59, 131, 117));
@@ -651,8 +655,8 @@ public void readpsicologo() {
 
         PainelMeusDados.setBackground(new java.awt.Color(102, 102, 102));
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/UserIconBranco90x90.png"))); // NOI18N
         jButton3.setBackground(new java.awt.Color(102, 102, 102));
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/UserIconBranco90x90.png"))); // NOI18N
         jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton3MouseClicked(evt);
@@ -664,9 +668,9 @@ public void readpsicologo() {
             }
         });
 
-        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout PainelMeusDadosLayout = new javax.swing.GroupLayout(PainelMeusDados);
         PainelMeusDados.setLayout(PainelMeusDadosLayout);
@@ -689,10 +693,10 @@ public void readpsicologo() {
                 .addContainerGap())
         );
 
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("EXIBIR ANOTAÇÕES");
         jLabel1.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("EXIBIR ANOTAÇÕES");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -758,8 +762,8 @@ public void readpsicologo() {
 
         PainelPaginacao.setOpaque(false);
 
-        LabelLimite.setText("Limite");
         LabelLimite.setBackground(new java.awt.Color(204, 204, 204));
+        LabelLimite.setText("Limite");
 
         SpinnerLimite.setModel(new javax.swing.SpinnerNumberModel(1, 1, 15, 1));
         SpinnerLimite.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -782,8 +786,8 @@ public void readpsicologo() {
             }
         });
 
-        LabelPagina.setText("Página");
         LabelPagina.setBackground(new java.awt.Color(204, 204, 204));
+        LabelPagina.setText("Página");
 
         SpinnerNumPaginas.setModel(new javax.swing.SpinnerNumberModel(1, 1, totalPages, 1));
         SpinnerNumPaginas.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -792,8 +796,8 @@ public void readpsicologo() {
             }
         });
 
-        LabelQtdePaginas.setText("de X");
         LabelQtdePaginas.setBackground(new java.awt.Color(204, 204, 204));
+        LabelQtdePaginas.setText("de X");
 
         BtnAvancarPouco.setText(">");
         BtnAvancarPouco.addActionListener(new java.awt.event.ActionListener() {
@@ -1010,36 +1014,6 @@ public void readpsicologo() {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void BtnCancelarAnotacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCancelarAnotacaoActionPerformed
-        ModalAnotacao.dispose();
-    }//GEN-LAST:event_BtnCancelarAnotacaoActionPerformed
-
-    private void BtnSalvarAlteracoesAnotacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalvarAlteracoesAnotacaoActionPerformed
-        AnotacaoDAO dao = new AnotacaoDAO();
-        Anotacao a = new Anotacao();
-        if (!Validar.vCamposVaziosAnt(this, txtAssunto, txtTexto)) {
-            a.setAssunto(txtAssunto.getText());
-            a.setTexto(txtTexto.getText());
-
-            a.setCodAnotacao(codigoanotacao);
-            boolean sucesso = dao.Update(a);
-            if (sucesso) {
-                JOptionPane.showMessageDialog(null, "Anotação Atualizada  com Sucesso!");
-            }
-        }
-        if (txtBusca.getText() == "") {
-            getCountBusca(txtBusca.getText());
-            SpinnerNumPaginas.setValue(currentPage);
-            LabelQtdePaginas.setText("de " + totalPages);
-            getPageDataBusca(currentPage, txtBusca.getText());
-        } else {
-            getCount();
-            SpinnerNumPaginas.setValue(currentPage);
-            LabelQtdePaginas.setText("de " + totalPages);
-            getPageDataBusca(currentPage, txtBusca.getText());
-        }
-    }//GEN-LAST:event_BtnSalvarAlteracoesAnotacaoActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
@@ -1366,7 +1340,7 @@ public void readpsicologo() {
             //codanamnese = a2.getCodAnamnese();
             existe = readcampos(codigoanotacao);
             ModalAnotacao.setSize(890, 600);
-            jScrollPane3.getVerticalScrollBar().setUnitIncrement(15);
+            jScrollPane4.getVerticalScrollBar().setUnitIncrement(15);
             LabelNome5.setText(nome);
             ModalAnotacao.setModal(true);
             ModalAnotacao.setLocationRelativeTo(null);
@@ -1561,6 +1535,40 @@ public void readpsicologo() {
         tl.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BtnExibirAnotacoes1ActionPerformed
+public void clearAnotacao() {
+        txtAssunto.setText(null);
+        txtTexto.setText(null);
+    }
+    private void BtnCancelarAnotacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCancelarAnotacaoActionPerformed
+        clearAnotacao();
+        ModalAnotacao.dispose();
+    }//GEN-LAST:event_BtnCancelarAnotacaoActionPerformed
+
+    private void BtnSalvarAlteracoesAnotacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalvarAlteracoesAnotacaoActionPerformed
+        AnotacaoDAO dao = new AnotacaoDAO();
+        Anotacao a = new Anotacao();
+        if (!Validar.vCamposVaziosAnt(this, txtAssunto, txtTexto)) {
+            a.setAssunto(txtAssunto.getText());
+            a.setTexto(txtTexto.getText());
+
+            a.setCodAnotacao(codigoanotacao);
+            boolean sucesso = dao.Update(a);
+            if (sucesso) {
+                JOptionPane.showMessageDialog(null, "Anotação Atualizada  com Sucesso!");
+            }
+        }
+        if (txtBusca.getText() == "") {
+            getCountBusca(txtBusca.getText());
+            SpinnerNumPaginas.setValue(currentPage);
+            LabelQtdePaginas.setText("de " + totalPages);
+            getPageDataBusca(currentPage, txtBusca.getText());
+        } else {
+            getCount();
+            SpinnerNumPaginas.setValue(currentPage);
+            LabelQtdePaginas.setText("de " + totalPages);
+            getPageDataBusca(currentPage, txtBusca.getText());
+        }
+    }//GEN-LAST:event_BtnSalvarAlteracoesAnotacaoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1648,12 +1656,12 @@ public void readpsicologo() {
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JLabel labeltelefone;
     private javax.swing.JLabel labeltelefone2;
     private javax.swing.JTextField txtAssunto;

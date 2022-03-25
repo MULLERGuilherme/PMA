@@ -133,6 +133,11 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         jLabel11.setText(str);
 
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
+        ModalNovoResolucaoMenor.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
+        ModalMeusDados.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
+        ModalAlterarResolucaoMenor.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
+        ModalHelp.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
+        ModalAlterarConsulta.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
         BtnPacientes.setEnabled(false);
         DefaultTableModel dtmPacientes = (DefaultTableModel) JTPacientes.getModel();
         BtnVisuAlterarDados.setEnabled(false);

@@ -122,6 +122,12 @@ public class ManterPsiAdm extends javax.swing.JFrame {
         this.getCountInit();
 
         initComponents();
+        
+        ModalCadastrarPsicologo.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
+        ModalAlterarPsicologo.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
+        ModalAlterarSenha.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
+        ModalHelp.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
+        
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
         BtnVoltarPouco.setEnabled(false);
         BtnVoltarBastante.setEnabled(false);

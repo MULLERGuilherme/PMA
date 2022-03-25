@@ -148,6 +148,10 @@ public class M extends javax.swing.JFrame {
         this.getCountInit();
 
         initComponents();
+        
+        ModalNovoResolucaoMenor.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
+        ModalHelp.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
+        ModalAlterarResolucaoMenor.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
         BtnVoltarPouco.setEnabled(false);
         BtnVoltarBastante.setEnabled(false);
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));

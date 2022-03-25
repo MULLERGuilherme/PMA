@@ -114,6 +114,11 @@ public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
         this.getCount();
         initComponents();
         
+        ModalAlterarConsulta.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
+        ModalMeusDados.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
+        ModalAnotacao.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
+        ModalAnamnese3.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
+        
         Psicologo psi = new Psicologo();
         PsicologoDAO dao = new PsicologoDAO();
         psi = dao.ReadPsicologo(Main.cod);

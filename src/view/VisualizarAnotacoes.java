@@ -162,6 +162,11 @@ private String getFirstWord(String text) {
         this.codpaciente = cod;
         this.getCount();
         initComponents();
+        
+       ModalAnotacao.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
+        ModalHelp.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
+        ModalMeusDados.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
+        
         BtnVoltarPouco.setEnabled(false);
         BtnVoltarBastante.setEnabled(false);
         Psicologo psi = new Psicologo();

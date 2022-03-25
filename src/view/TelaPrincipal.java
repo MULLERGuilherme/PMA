@@ -59,6 +59,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
     public TelaPrincipal() {
         initComponents();
         
+        ModalHelp.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
+        ModalAlterarConsulta.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
+        ModalMeusDados.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
+        ModalAnamnese3.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
+        ModalAnotacao.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
+        
          Psicologo p = new Psicologo();
         PsicologoDAO dao = new PsicologoDAO();
         p = dao.ReadPsicologo(Main.cod);
@@ -1328,6 +1334,14 @@ public boolean readcampos() {
             }
         });
         jScrollPane1.setViewportView(JTConsultas);
+        if (JTConsultas.getColumnModel().getColumnCount() > 0) {
+            JTConsultas.getColumnModel().getColumn(1).setMinWidth(100);
+            JTConsultas.getColumnModel().getColumn(1).setPreferredWidth(100);
+            JTConsultas.getColumnModel().getColumn(2).setMinWidth(1);
+            JTConsultas.getColumnModel().getColumn(2).setPreferredWidth(1);
+            JTConsultas.getColumnModel().getColumn(3).setMinWidth(1);
+            JTConsultas.getColumnModel().getColumn(3).setPreferredWidth(1);
+        }
 
         BtnHelp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/SimboloHelp.png"))); // NOI18N
         BtnHelp.addActionListener(new java.awt.event.ActionListener() {

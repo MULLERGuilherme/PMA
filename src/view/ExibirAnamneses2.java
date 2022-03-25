@@ -108,6 +108,9 @@ public class ExibirAnamneses2 extends javax.swing.JFrame {
 
         initComponents();
         
+        ModalAnamnese2.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
+        ModalMeusDados.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
+        
         Psicologo ps = new Psicologo();
         PsicologoDAO dao = new PsicologoDAO();
         ps = dao.ReadPsicologo(Main.cod);
