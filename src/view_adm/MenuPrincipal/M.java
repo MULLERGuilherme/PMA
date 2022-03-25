@@ -2869,7 +2869,7 @@ public class M extends javax.swing.JFrame {
             }
         }
         if(totalPages>1){
-            if(currentPage==1){
+            if(currentPage<totalPages){
                 BtnAvancarPouco.setEnabled(true);
                 BtnAvancarBastante.setEnabled(true);
                 }
