@@ -12,10 +12,13 @@ import com.github.lgooddatepicker.components.TimePickerSettings.TimeIncrement;
 import java.awt.Toolkit;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -46,9 +49,11 @@ import static view.TelaPrincipal.codconsulta;
  */
 public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
 
+    LocalDate dfim;
+    LocalDate dinicio;
     public static int codpaciente;
     private int codigoconsulta = -1;
-     public static int codconsulta;
+    public static int codconsulta;
     public static boolean existe;
 
     //Paginacao
@@ -60,7 +65,7 @@ public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
 
     public void getCount() {
         ViewsDAO dao = new ViewsDAO();
-        tableRowCount = dao.getRowCountTableExibirConsultasPaciente(Main.cod, this.codpaciente);
+        tableRowCount = dao.getRowCountTableExibirConsultasPaciente(Main.cod, this.codpaciente, dinicio, dfim);
 //        System.out.println("linhas");
 //        System.out.println(tableRowCount);
         if (tableRowCount > 0) {
@@ -110,24 +115,38 @@ public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
      * Creates new form ExibirConsultasManterPaciente
      */
     public ExibirConsultasManterPaciente(int cod) {
+        LocalDate agora = LocalDate.now();
+        java.util.Date date1 = java.util.Date.from(agora.atStartOfDay(ZoneId.systemDefault()).toInstant());
+        Calendar cal = Calendar.getInstance();
+        Calendar cal2 = Calendar.getInstance();
+        cal.setTime(date1);
+        cal.set(Calendar.MONTH, (cal.get(Calendar.MONTH) - 6));
+        dinicio = cal.getTime().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        cal2.setTime(date1);
+        cal2.set(Calendar.MONTH, (cal2.get(Calendar.MONTH) + 6));
+        dfim = cal2.getTime().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+
         this.codpaciente = cod;
         this.getCount();
         initComponents();
-        
+
+        DataFim.setDate(cal2.getTime());
+        DataInicio.setDate(cal.getTime());
+
         ModalAlterarConsulta.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
         ModalMeusDados.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
         ModalAnotacao.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
         ModalAnamnese3.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
-        
+
         Psicologo psi = new Psicologo();
         PsicologoDAO dao = new PsicologoDAO();
         psi = dao.ReadPsicologo(Main.cod);
         jLabel11.setText(psi.getNome_completo());
-        String str= getFirstWord(jLabel11.getText());
+        String str = getFirstWord(jLabel11.getText());
         jLabel11.setText(str);
-        
+
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
-         BtnPacientes.setEnabled(false);
+        BtnPacientes.setEnabled(false);
         btnalterarconsulta.setEnabled(false);
         BtnVoltarPouco.setEnabled(false);
         BtnVoltarBastante.setEnabled(false);
@@ -148,26 +167,27 @@ public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
         //System.out.println(totalPages);
         this.getPageData(1);
     }
-    
+
     public void clearAnotacao() {
         txtAssunto.setText(null);
         txtTexto.setText(null);
     }
-    
-private String getFirstWord(String text) {
 
-  int index = text.indexOf(' ');
+    private String getFirstWord(String text) {
 
-  if (index > -1) { // Check if there is more than one word.
+        int index = text.indexOf(' ');
 
-    return text.substring(0, index).trim(); // Extract first word.
+        if (index > -1) { // Check if there is more than one word.
 
-  } else {
+            return text.substring(0, index).trim(); // Extract first word.
 
-    return text; // Text is the first word itself.
-  }
-}
-public void readpsicologo() {
+        } else {
+
+            return text; // Text is the first word itself.
+        }
+    }
+
+    public void readpsicologo() {
         Psicologo p = new Psicologo();
         PsicologoDAO dao = new PsicologoDAO();
         p = dao.ReadPsicologo(Main.cod);
@@ -203,13 +223,14 @@ public void readpsicologo() {
 //                c.getStatus(),});
 //        }
 //    }
+
     private void ReadJTablePag(int start, int size) {
         DefaultTableModel model = (DefaultTableModel) JTConsultas.getModel();
         model.setNumRows(0);
 
         ViewsDAO vw = new ViewsDAO();
 
-        for (Vw_Consultas v : vw.fetchBySizeExibirConsultasPaciente(codpaciente, Main.cod, start, size)) {
+        for (Vw_Consultas v : vw.fetchBySizeExibirConsultasPaciente(codpaciente, Main.cod, start, size, dinicio, dfim)) {
 
             model.addRow(new Object[]{
                 v.getCodConsulta(),
@@ -399,6 +420,10 @@ public void readpsicologo() {
         BtnAvancarPouco = new javax.swing.JButton();
         BtnAvancarBastante = new javax.swing.JButton();
         BtnVoltarPaciente = new javax.swing.JButton();
+        DataInicio = new com.toedter.calendar.JDateChooser();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        DataFim = new com.toedter.calendar.JDateChooser();
         PainelMenu = new javax.swing.JPanel();
         BtnVoltar = new javax.swing.JButton();
         BtnPacientes = new javax.swing.JButton();
@@ -1519,6 +1544,22 @@ public void readpsicologo() {
             }
         });
 
+        DataInicio.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                DataInicioPropertyChange(evt);
+            }
+        });
+
+        jLabel7.setText("Mostrar Consultas de");
+
+        jLabel13.setText("até");
+
+        DataFim.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                DataFimPropertyChange(evt);
+            }
+        });
+
         javax.swing.GroupLayout jEImagePanel1Layout = new javax.swing.GroupLayout(jEImagePanel1);
         jEImagePanel1.setLayout(jEImagePanel1Layout);
         jEImagePanel1Layout.setHorizontalGroup(
@@ -1535,7 +1576,15 @@ public void readpsicologo() {
                     .addGroup(jEImagePanel1Layout.createSequentialGroup()
                         .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 716, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(PainelPaginacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(PainelPaginacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jEImagePanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(DataInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(DataFim, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
                         .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnalterarconsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1550,7 +1599,20 @@ public void readpsicologo() {
                     .addComponent(jLabel1)
                     .addComponent(lNome)
                     .addComponent(BtnVoltarPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(46, 46, 46)
+                .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jEImagePanel1Layout.createSequentialGroup()
+                            .addGap(12, 12, 12)
+                            .addComponent(DataFim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jEImagePanel1Layout.createSequentialGroup()
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jLabel13)))
+                    .addGroup(jEImagePanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(DataInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7))))
+                .addGap(14, 14, 14)
                 .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jEImagePanel1Layout.createSequentialGroup()
@@ -1559,7 +1621,7 @@ public void readpsicologo() {
                         .addComponent(BtnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(PainelPaginacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(87, Short.MAX_VALUE))
+                .addContainerGap(88, Short.MAX_VALUE))
         );
 
         getContentPane().add(jEImagePanel1, java.awt.BorderLayout.CENTER);
@@ -1652,7 +1714,7 @@ public void readpsicologo() {
         // TODO add your handling code here:
         if (JTConsultas.getSelectedRow() != -1) {
             int modelRow = JTConsultas.convertRowIndexToModel(JTConsultas.getSelectedRow());
-            int value = (Integer)JTConsultas.getModel().getValueAt(modelRow,0);
+            int value = (Integer) JTConsultas.getModel().getValueAt(modelRow, 0);
             codconsulta = value;
             readatributos();
 
@@ -1665,7 +1727,7 @@ public void readpsicologo() {
             JOptionPane.showMessageDialog(this, "Selecione uma consulta para alterar");
         }
     }//GEN-LAST:event_btnalterarconsultaActionPerformed
-public void readatributos() {
+    public void readatributos() {
         Consulta c = new Consulta();
         ConsultaDAO cdao = new ConsultaDAO();
 
@@ -1719,19 +1781,19 @@ public void readatributos() {
         BtnExcluir.setEnabled(true);
         if (evt.getClickCount() == 2) {
             if (JTConsultas.getSelectedRow() != -1) {
-            int modelRow = JTConsultas.convertRowIndexToModel(JTConsultas.getSelectedRow());
-            int value = (Integer)JTConsultas.getModel().getValueAt(modelRow,0);
-            codconsulta = value;
-            readatributos();
+                int modelRow = JTConsultas.convertRowIndexToModel(JTConsultas.getSelectedRow());
+                int value = (Integer) JTConsultas.getModel().getValueAt(modelRow, 0);
+                codconsulta = value;
+                readatributos();
 
-            ModalAlterarConsulta.setSize(586, 320);
-            ModalAlterarConsulta.setModal(true);
-            ModalAlterarConsulta.setLocationRelativeTo(null);
-            ModalAlterarConsulta.setVisible(true);
+                ModalAlterarConsulta.setSize(586, 320);
+                ModalAlterarConsulta.setModal(true);
+                ModalAlterarConsulta.setLocationRelativeTo(null);
+                ModalAlterarConsulta.setVisible(true);
 
-        } else {
-            JOptionPane.showMessageDialog(this, "Selecione uma consulta para alterar");
-        }
+            } else {
+                JOptionPane.showMessageDialog(this, "Selecione uma consulta para alterar");
+            }
         }
     }//GEN-LAST:event_JTConsultasMousePressed
 
@@ -1746,7 +1808,7 @@ public void readatributos() {
 //            LabelQtdePaginas.setText("de " + totalPages);
 //            getPageDataBusca(1, txtBusca.getText());
 //        } else {
-         BtnVoltarPouco.setEnabled(false);
+        BtnVoltarPouco.setEnabled(false);
         BtnVoltarBastante.setEnabled(false);
         PAGE_SIZE = (int) SpinnerLimite.getValue();
         getCount();
@@ -1756,15 +1818,14 @@ public void readatributos() {
 
         LabelQtdePaginas.setText("de " + totalPages);
         getPageData(1);
-         if(totalPages==1){
+        if (totalPages == 1) {
             BtnAvancarPouco.setEnabled(false);
             BtnAvancarBastante.setEnabled(false);
-            
+
+        } else {
+            BtnAvancarPouco.setEnabled(true);
+            BtnAvancarBastante.setEnabled(true);
         }
-             else{
-                 BtnAvancarPouco.setEnabled(true);
-                BtnAvancarBastante.setEnabled(true);
-             }
 //        }
     }//GEN-LAST:event_SpinnerLimiteStateChanged
 
@@ -1774,21 +1835,21 @@ public void readatributos() {
             if (currentPage - 5 < 1) {
                 getPageData(1);
                 BtnAvancarPouco.setEnabled(true);
-                    BtnAvancarBastante.setEnabled(true);
-                   
+                BtnAvancarBastante.setEnabled(true);
+
             } else {
                 getPageData(currentPage - 5);
                 BtnAvancarPouco.setEnabled(true);
-                    BtnAvancarBastante.setEnabled(true);
-                   
+                BtnAvancarBastante.setEnabled(true);
+
             }
 
         }
         SpinnerNumPaginas.setValue((int) currentPage);
-         if (currentPage == 1) {
-                        BtnVoltarPouco.setEnabled(false);
-                        BtnVoltarBastante.setEnabled(false);  
-                }
+        if (currentPage == 1) {
+            BtnVoltarPouco.setEnabled(false);
+            BtnVoltarBastante.setEnabled(false);
+        }
     }//GEN-LAST:event_BtnVoltarBastanteActionPerformed
 
     private void BtnVoltarPoucoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVoltarPoucoActionPerformed
@@ -1797,15 +1858,14 @@ public void readatributos() {
 
             getPageData(currentPage - 1);
             BtnAvancarPouco.setEnabled(true);
-                    BtnAvancarBastante.setEnabled(true);
-                   
+            BtnAvancarBastante.setEnabled(true);
 
         }
         SpinnerNumPaginas.setValue((int) currentPage);
-         if (currentPage == 1) {
-                        BtnVoltarPouco.setEnabled(false);
-                        BtnVoltarBastante.setEnabled(false);  
-                }
+        if (currentPage == 1) {
+            BtnVoltarPouco.setEnabled(false);
+            BtnVoltarBastante.setEnabled(false);
+        }
     }//GEN-LAST:event_BtnVoltarPoucoActionPerformed
 
     private void SpinnerNumPaginasStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_SpinnerNumPaginasStateChanged
@@ -1813,38 +1873,37 @@ public void readatributos() {
         int pag1 = currentPage;
         getPageData((int) SpinnerNumPaginas.getValue());
         int pag2 = currentPage;
-            if(pag2<pag1){
-                BtnAvancarPouco.setEnabled(true);
-                BtnAvancarBastante.setEnabled(true);
-                    if (currentPage == 1) {
-                        BtnVoltarPouco.setEnabled(false);
-                        BtnVoltarBastante.setEnabled(false);  
-                }
-                    }
-                    else{
-                    {
-                        BtnVoltarPouco.setEnabled(true);
-                        BtnVoltarBastante.setEnabled(true);
-                        if (currentPage == totalPages) {
-                            BtnAvancarPouco.setEnabled(false);
-                            BtnAvancarBastante.setEnabled(false);  
-                }
-                    }       
+        if (pag2 < pag1) {
+            BtnAvancarPouco.setEnabled(true);
+            BtnAvancarBastante.setEnabled(true);
+            if (currentPage == 1) {
+                BtnVoltarPouco.setEnabled(false);
+                BtnVoltarBastante.setEnabled(false);
             }
-            btnalterarconsulta.setEnabled(false);
-            BtnExcluir.setEnabled(false);
+        } else {
+            {
+                BtnVoltarPouco.setEnabled(true);
+                BtnVoltarBastante.setEnabled(true);
+                if (currentPage == totalPages) {
+                    BtnAvancarPouco.setEnabled(false);
+                    BtnAvancarBastante.setEnabled(false);
+                }
+            }
+        }
+        btnalterarconsulta.setEnabled(false);
+        BtnExcluir.setEnabled(false);
     }//GEN-LAST:event_SpinnerNumPaginasStateChanged
 
     private void BtnAvancarPoucoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAvancarPoucoActionPerformed
         if (currentPage < totalPages) {
 
             getPageData(currentPage + 1);
-             BtnVoltarPouco.setEnabled(true);
-                    BtnVoltarBastante.setEnabled(true);
-                    if (currentPage == totalPages) {
-                        BtnAvancarPouco.setEnabled(false);
-                        BtnAvancarBastante.setEnabled(false);  
-                }
+            BtnVoltarPouco.setEnabled(true);
+            BtnVoltarBastante.setEnabled(true);
+            if (currentPage == totalPages) {
+                BtnAvancarPouco.setEnabled(false);
+                BtnAvancarBastante.setEnabled(false);
+            }
 
         }
         SpinnerNumPaginas.setValue((int) currentPage);
@@ -1856,26 +1915,26 @@ public void readatributos() {
 
             if (currentPage + 5 > totalPages) {
                 getPageData(totalPages);
-                 BtnVoltarPouco.setEnabled(true);
-                    BtnVoltarBastante.setEnabled(true);
-                    if (currentPage == totalPages) {
-                        BtnAvancarPouco.setEnabled(false);
-                        BtnAvancarBastante.setEnabled(false);  
+                BtnVoltarPouco.setEnabled(true);
+                BtnVoltarBastante.setEnabled(true);
+                if (currentPage == totalPages) {
+                    BtnAvancarPouco.setEnabled(false);
+                    BtnAvancarBastante.setEnabled(false);
                 }
             } else {
                 getPageData(currentPage + 5);
-                 BtnVoltarPouco.setEnabled(true);
-                    BtnVoltarBastante.setEnabled(true);
-                    if (currentPage == totalPages) {
-                        BtnAvancarPouco.setEnabled(false);
-                        BtnAvancarBastante.setEnabled(false);  
+                BtnVoltarPouco.setEnabled(true);
+                BtnVoltarBastante.setEnabled(true);
+                if (currentPage == totalPages) {
+                    BtnAvancarPouco.setEnabled(false);
+                    BtnAvancarBastante.setEnabled(false);
                 }
             }
 
         }
         SpinnerNumPaginas.setValue((int) currentPage);
     }//GEN-LAST:event_BtnAvancarBastanteActionPerformed
-public boolean readcampos() {
+    public boolean readcampos() {
         Anamnese a = new Anamnese();
         AnamneseDAO dao = new AnamneseDAO();
         a = dao.ReadAnamneseConsulta(codconsulta);
@@ -1935,7 +1994,7 @@ public boolean readcampos() {
             //            LabelModalAnamnese.setText(" Cadastrar anamnese na consulta");
         }
     }//GEN-LAST:event_BtnSalvarAlteracoes7ActionPerformed
-private void Cadastrar() {
+    private void Cadastrar() {
         Anamnese a = new Anamnese();
         AnamneseDAO dao = new AnamneseDAO();
         a = dao.ReadAnamneseConsulta(codconsulta);
@@ -2126,7 +2185,7 @@ private void Cadastrar() {
         if (!Character.isDigit(c)) {
             evt.consume();
         }
-         if (TxtTelefone6.getText().length()==11) {
+        if (TxtTelefone6.getText().length() == 11) {
             evt.consume();
         }
     }//GEN-LAST:event_TxtTelefone6KeyTyped
@@ -2136,7 +2195,7 @@ private void Cadastrar() {
         if (!Character.isDigit(c)) {
             evt.consume();
         }
-         if (TxtTelefone7.getText().length()==11) {
+        if (TxtTelefone7.getText().length() == 11) {
             evt.consume();
         }
     }//GEN-LAST:event_TxtTelefone7KeyTyped
@@ -2216,7 +2275,7 @@ private void Cadastrar() {
 //                        JOptionPane.showMessageDialog(this, "Psicologo: " + p.getNome_completo() + " Salvo com sucesso");
                         ModalMeusDados.dispose();
                         jLabel11.setText(p.getNome_completo());
-                        String str= getFirstWord(jLabel11.getText());
+                        String str = getFirstWord(jLabel11.getText());
                         jLabel11.setText(str);
                         // this.clear();
                     }
@@ -2231,7 +2290,7 @@ private void Cadastrar() {
                     tf.setPaciente(p);
                     tfdao.CreatePc(tf);
                 }
-                */
+                 */
                 //mostrar mensagem de sucesso
                 // JOptionPane.showMessageDialog(null,"Paciente Cadastrado com Sucesso!");
                 // ReadJTable();
@@ -2292,6 +2351,62 @@ private void Cadastrar() {
         ModalAnotacao.setLocationRelativeTo(null);
         ModalAnotacao.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void DataInicioPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_DataInicioPropertyChange
+        // TODO add your handling code here:
+        if (DataInicio.getDate() != null) {
+            java.util.Date date = DataInicio.getDate();
+            dinicio = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            BtnVoltarPouco.setEnabled(false);
+            BtnVoltarBastante.setEnabled(false);
+
+            PAGE_SIZE = (int) SpinnerLimite.getValue();
+            getCount();
+
+            SpinnerNumPaginas.setModel(new javax.swing.SpinnerNumberModel(1, 1, totalPages, 1));
+            SpinnerNumPaginas.setValue((int) currentPage);
+
+            LabelQtdePaginas.setText("de " + totalPages);
+            getPageData(1);
+            if (totalPages == 1) {
+                BtnAvancarPouco.setEnabled(false);
+                BtnAvancarBastante.setEnabled(false);
+
+            } else {
+                BtnAvancarPouco.setEnabled(true);
+                BtnAvancarBastante.setEnabled(true);
+            }
+
+        }
+    }//GEN-LAST:event_DataInicioPropertyChange
+
+    private void DataFimPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_DataFimPropertyChange
+        // TODO add your handling code here:
+        if (DataFim.getDate() != null) {
+            java.util.Date date = DataFim.getDate();
+            dfim = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            BtnVoltarPouco.setEnabled(false);
+            BtnVoltarBastante.setEnabled(false);
+
+            PAGE_SIZE = (int) SpinnerLimite.getValue();
+            getCount();
+
+            SpinnerNumPaginas.setModel(new javax.swing.SpinnerNumberModel(1, 1, totalPages, 1));
+            SpinnerNumPaginas.setValue((int) currentPage);
+
+            LabelQtdePaginas.setText("de " + totalPages);
+            getPageData(1);
+            if (totalPages == 1) {
+                BtnAvancarPouco.setEnabled(false);
+                BtnAvancarBastante.setEnabled(false);
+
+            } else {
+                BtnAvancarPouco.setEnabled(true);
+                BtnAvancarBastante.setEnabled(true);
+            }
+
+        }
+    }//GEN-LAST:event_DataFimPropertyChange
 
     /**
      * @param args the command line arguments
@@ -2361,6 +2476,8 @@ private void Cadastrar() {
     private javax.swing.JCheckBox CheckBoxPercepcao1;
     private javax.swing.JCheckBox CheckBoxRaiva1;
     private javax.swing.JCheckBox CheckBoxVolicao1;
+    private com.toedter.calendar.JDateChooser DataFim;
+    private com.toedter.calendar.JDateChooser DataInicio;
     private com.github.lgooddatepicker.components.DatePicker DataInicio2;
     private javax.swing.JComboBox<String> JCBPagamento;
     private javax.swing.JComboBox<String> JCBPsicomotricidade2;
@@ -2401,6 +2518,7 @@ private void Cadastrar() {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
@@ -2428,6 +2546,7 @@ private void Cadastrar() {
     private javax.swing.JLabel jLabel56;
     private javax.swing.JLabel jLabel57;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;

@@ -1265,6 +1265,33 @@ public class ViewsDAO {
 
         return count;
     }
+    
+     public double getRowCountTableExibirConsultasPaciente(int codPsicologo, int codPaciente, Object dinicio, Object dfim) {
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        long count = 0;
+        try {
+            stmt = con.prepareStatement("SELECT count(Distinct CodigoConsulta) FROM vw_Consultas Where CodigoPsicologo = ? AND CodigoPaciente=? And (DataConsulta between ? and ?) ");
+            stmt.setInt(1, codPsicologo);
+            stmt.setInt(2, codPaciente);
+            stmt.setObject(3, dinicio);
+            stmt.setObject(4, dfim);
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                count = rs.getLong("count(Distinct CodigoConsulta)");
+
+            }
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt, rs);
+        }
+
+        return count;
+    }
 
    
     public List<Vw_Consultas> fetchBySizeExibirConsultasPaciente(int codpaciente, int codpsicologo, int start, int size) {
@@ -1300,6 +1327,40 @@ public class ViewsDAO {
         return vw;
     }
     
+       public List<Vw_Consultas> fetchBySizeExibirConsultasPaciente(int codpaciente, int codpsicologo, int start, int size, Object dinicio,Object dfim) {
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        List<Vw_Consultas> vw = new ArrayList<>();
+        try {
+            stmt = con.prepareStatement("SELECT * FROM vw_Consultas where CodigoPsicologo = ? and CodigoPaciente = ? AND (DataConsulta between ? and ?) ORDER BY DataConsulta Desc LIMIT "+size+" OFFSET "+start );
+            stmt.setInt(1, codpsicologo);
+            stmt.setInt(2, codpaciente);
+             stmt.setObject(3, dinicio);
+            stmt.setObject(4, dfim);
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                Vw_Consultas c = new Vw_Consultas();
+
+                c.setCodConsulta(rs.getInt("CodigoConsulta"));
+                c.getPaciente().setNome_Completo(rs.getString("Paciente"));
+                //c.getPsicologo().setCodPsicologo(rs.getInt("CodPsicologo"));
+                c.setDataConsulta(rs.getObject("DataConsulta"));
+                c.setStatus(rs.getString("Status"));
+
+                vw.add(c);
+
+            }
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt, rs);
+        }
+
+        return vw;
+    }
     
     
     public double getRowCountTableVisualizarAnotacoes(int codPsicologo, int codPaciente) {
