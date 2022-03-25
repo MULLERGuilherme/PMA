@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package view;
+
 import Validacoes.Deletar;
 import Validacoes.Validar;
 import java.awt.Color;
@@ -50,71 +51,69 @@ import static view_adm.MenuPrincipal.VisuPsicologoADM.codpsicologo;
 public class TelaPrincipal extends javax.swing.JFrame {
 
     public static int codconsulta;
-    public static boolean existe;   private boolean telefones = false;
+    public static boolean existe;
+    private boolean telefones = false;
     private boolean fone2 = false;
     private int codigopaciente = -1;
     private int codigoconsulta = -1;
-    
-    
+
     public TelaPrincipal() {
         initComponents();
-        
+
         ModalHelp.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
         ModalAlterarConsulta.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
         ModalMeusDados.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
         ModalAnamnese3.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
         ModalAnotacao.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
-        
-         Psicologo p = new Psicologo();
+
+        Psicologo p = new Psicologo();
         PsicologoDAO dao = new PsicologoDAO();
         p = dao.ReadPsicologo(Main.cod);
         jLabel11.setText(p.getNome_completo());
-        String str= getFirstWord(jLabel11.getText());
+        String str = getFirstWord(jLabel11.getText());
         jLabel11.setText(str);
-        
+
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
         BtnVoltar.setEnabled(false);
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         btnAlterar.setEnabled(false);
         BtnExcluir.setEnabled(false);
-       
+
         DefaultTableModel dtmPacientes = (DefaultTableModel) JTConsultas.getModel();
         TableColumnModel cmod = JTConsultas.getColumnModel();
         cmod.removeColumn(cmod.getColumn(0));
         JTConsultas.setRowSorter(new TableRowSorter(dtmPacientes));
-        
+
         LocalDate localDate = LocalDate.now();
         //System.out.println(localDate);  
         ReadJTable(localDate);
         Date date1 = Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
         DataChooser.setDate(date1);
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-          
 
         jLabel2.setText(dtf.format(localDate));
     }
-private void ReadJTable(LocalDate data) {
+
+    private void ReadJTable(LocalDate data) {
         DefaultTableModel model = (DefaultTableModel) JTConsultas.getModel();
-       
+
         model.setNumRows(0);
         ViewsDAO vwdao = new ViewsDAO();
         //ConsultaDAO cdao = new ConsultaDAO();
         //PacienteDAO pdao = new PacienteDAO();
         //Paciente p = new Paciente();
-        
-        
+
         for (Vw_Consultas c : vwdao.ReadConsultas(data, Main.cod)) {
             //p = pdao.ReadPaciente(c.getPaciente().getCodPaciente());
             model.addRow(new Object[]{
-               c.getCodConsulta(),
-               c.getPaciente().getNome_Completo(),
-               Validar.ftime((Timestamp) c.getDataConsulta()),
-               c.getStatus(),
-            });
+                c.getCodConsulta(),
+                c.getPaciente().getNome_Completo(),
+                Validar.ftime((Timestamp) c.getDataConsulta()),
+                c.getStatus(),});
         }
     }
 
-public boolean readcampos() {
+    public boolean readcampos() {
         Anamnese a = new Anamnese();
         AnamneseDAO dao = new AnamneseDAO();
         a = dao.ReadAnamneseConsulta(codconsulta);
@@ -152,6 +151,7 @@ public boolean readcampos() {
         }
         return false;
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -340,7 +340,7 @@ public boolean readcampos() {
             }
         });
 
-        jButton2.setText("Editar Anotação");
+        jButton2.setText("Nova Anotação");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -377,7 +377,7 @@ public boolean readcampos() {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 63, Short.MAX_VALUE)
+                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 67, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -398,7 +398,7 @@ public boolean readcampos() {
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(jLabel5)
                                 .addGap(18, 18, 18)
-                                .addComponent(datepicker, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
+                                .addComponent(datepicker, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel9)
@@ -407,11 +407,12 @@ public boolean readcampos() {
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(JCBPagamento, 0, 154, Short.MAX_VALUE)
                                     .addComponent(status, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(BtnAlterarConsulta))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE))
+                            .addComponent(BtnAlterarConsulta, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -426,18 +427,18 @@ public boolean readcampos() {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(datepicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5)
-                    .addComponent(jButton1))
+                    .addComponent(BtnAlterarConsulta))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(JCBPagamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2))
+                    .addComponent(jButton1))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(status, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BtnAlterarConsulta))
-                .addContainerGap(44, Short.MAX_VALUE))
+                    .addComponent(jButton2))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
 
         ModalAlterarConsulta.getContentPane().add(jPanel3, java.awt.BorderLayout.CENTER);
@@ -1499,12 +1500,12 @@ public boolean readcampos() {
 
     private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
         // TODO add your handling code here:
-     if (JTConsultas.getSelectedRow() != -1) {
+        if (JTConsultas.getSelectedRow() != -1) {
             int modelRow = JTConsultas.convertRowIndexToModel(JTConsultas.getSelectedRow());
-            int value = (Integer)JTConsultas.getModel().getValueAt(modelRow,0);
+            int value = (Integer) JTConsultas.getModel().getValueAt(modelRow, 0);
             codconsulta = value;
             readatributos();
-            String nome = (String)JTConsultas.getModel().getValueAt(modelRow,1);
+            String nome = (String) JTConsultas.getModel().getValueAt(modelRow, 1);
             labelpaciente.setText(nome);
             ModalAlterarConsulta.setSize(520, 305);
             ModalAlterarConsulta.setModal(true);
@@ -1515,7 +1516,7 @@ public boolean readcampos() {
             JOptionPane.showMessageDialog(this, "Selecione uma consulta para alterar");
         }
     }//GEN-LAST:event_btnAlterarActionPerformed
-private void Cadastrar() {
+    private void Cadastrar() {
         Anamnese a = new Anamnese();
         AnamneseDAO dao = new AnamneseDAO();
         a = dao.ReadAnamneseConsulta(codconsulta);
@@ -1565,19 +1566,19 @@ private void Cadastrar() {
 
     }
 
-private String getFirstWord(String text) {
+    private String getFirstWord(String text) {
 
-  int index = text.indexOf(' ');
+        int index = text.indexOf(' ');
 
-  if (index > -1) { // Check if there is more than one word.
+        if (index > -1) { // Check if there is more than one word.
 
-    return text.substring(0, index).trim(); // Extract first word.
+            return text.substring(0, index).trim(); // Extract first word.
 
-  } else {
+        } else {
 
-    return text; // Text is the first word itself.
-  }
-}
+            return text; // Text is the first word itself.
+        }
+    }
 
     private void Alterar() {
         Anamnese a = new Anamnese();
@@ -1626,7 +1627,7 @@ private String getFirstWord(String text) {
     private void BtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExcluirActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnExcluirActionPerformed
-public void readatributos() {
+    public void readatributos() {
         Consulta c = new Consulta();
         ConsultaDAO cdao = new ConsultaDAO();
 
@@ -1641,6 +1642,7 @@ public void readatributos() {
         datepicker.setDateTimePermissive(dateTime);
 
         status.setSelectedItem(c.getStatus());
+        JCBPagamento.setSelectedItem(c.getPagamento());
     }
     private void JTConsultasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTConsultasMouseClicked
         btnAlterar.setEnabled(true);
@@ -1648,23 +1650,23 @@ public void readatributos() {
     }//GEN-LAST:event_JTConsultasMouseClicked
 
     private void DataChooserPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_DataChooserPropertyChange
-         if(DataChooser.getDate() != null){
+        if (DataChooser.getDate() != null) {
             Date date = DataChooser.getDate();
-            LocalDate localDate = date.toInstant().atZone( ZoneId.systemDefault() ).toLocalDate();
-           
+            LocalDate localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+
             ReadJTable(localDate);
-              DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
             jLabel2.setText(dtf.format(localDate));
             btnAlterar.setEnabled(false);
             BtnExcluir.setEnabled(false);
-        }      
+        }
     }//GEN-LAST:event_DataChooserPropertyChange
-public void clearAnotacao() {
+    public void clearAnotacao() {
         txtAssunto.setText(null);
         txtTexto.setText(null);
     }
 
-public void clearAnamnese() {
+    public void clearAnamnese() {
         txtQueixaPrincipal2.setText(null);
         txtQueixaSecundaria2.setText(null);
         txtComoComecou2.setText(null);
@@ -1675,7 +1677,7 @@ public void clearAnamnese() {
         txtSintomas2.setText(null);
         txtMedicamentosUtilizados2.setText(null);
         txtOqueMudou2.setText(null);
-       
+
     }
 
     private void BtnHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnHelpActionPerformed
@@ -1701,7 +1703,10 @@ public void clearAnamnese() {
             c.setStatus((String) status.getSelectedItem());
             sucesso = cdao.Update(c);
             if (sucesso) {
-                JOptionPane.showMessageDialog(this, "Consulta Salva com sucesso");
+                Date date = DataChooser.getDate();
+                LocalDate localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+                //JOptionPane.showMessageDialog(this, "Consulta Salva com sucesso");
+                ReadJTable(localDate);
             }
 
         }
@@ -1791,7 +1796,7 @@ public void clearAnamnese() {
         ModalMeusDados.setLocationRelativeTo(null);
         ModalMeusDados.setVisible(true);
     }//GEN-LAST:event_jButton3MouseClicked
-public void readpsicologo() {
+    public void readpsicologo() {
         Psicologo p = new Psicologo();
         PsicologoDAO dao = new PsicologoDAO();
         p = dao.ReadPsicologo(Main.cod);
@@ -1844,7 +1849,7 @@ public void readpsicologo() {
         if (!Character.isDigit(c)) {
             evt.consume();
         }
-         if (TxtTelefone6.getText().length()==11) {
+        if (TxtTelefone6.getText().length() == 11) {
             evt.consume();
         }
     }//GEN-LAST:event_TxtTelefone6KeyTyped
@@ -1854,7 +1859,7 @@ public void readpsicologo() {
         if (!Character.isDigit(c)) {
             evt.consume();
         }
-         if (TxtTelefone7.getText().length()==11) {
+        if (TxtTelefone7.getText().length() == 11) {
             evt.consume();
         }
     }//GEN-LAST:event_TxtTelefone7KeyTyped
@@ -1933,7 +1938,7 @@ public void readpsicologo() {
                         }
 //                        JOptionPane.showMessageDialog(this, "Psicologo: " + p.getNome_completo() + " Salvo com sucesso");
                         jLabel11.setText(p.getNome_completo());
-                        String str= getFirstWord(jLabel11.getText());
+                        String str = getFirstWord(jLabel11.getText());
                         jLabel11.setText(str);
                         ModalMeusDados.dispose();
                         // this.clear();
@@ -1949,7 +1954,7 @@ public void readpsicologo() {
                     tf.setPaciente(p);
                     tfdao.CreatePc(tf);
                 }
-                */
+                 */
                 //mostrar mensagem de sucesso
                 // JOptionPane.showMessageDialog(null,"Paciente Cadastrado com Sucesso!");
                 // ReadJTable();
@@ -1990,23 +1995,23 @@ public void readpsicologo() {
     }//GEN-LAST:event_BtnExibirAnotacoes1ActionPerformed
 
     private void JTConsultasMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTConsultasMousePressed
-       if (evt.getClickCount() == 2) {
+        if (evt.getClickCount() == 2) {
             if (JTConsultas.getSelectedRow() != -1) {
-            int modelRow = JTConsultas.convertRowIndexToModel(JTConsultas.getSelectedRow());
-            int value = (Integer)JTConsultas.getModel().getValueAt(modelRow,0);
-            codconsulta = value;
-            readatributos();
-            String nome = (String)JTConsultas.getModel().getValueAt(modelRow,1);
-            labelpaciente.setText(nome);
-            ModalAlterarConsulta.setSize(520, 305);
-            ModalAlterarConsulta.setModal(true);
-            ModalAlterarConsulta.setLocationRelativeTo(null);
-            ModalAlterarConsulta.setVisible(true);
+                int modelRow = JTConsultas.convertRowIndexToModel(JTConsultas.getSelectedRow());
+                int value = (Integer) JTConsultas.getModel().getValueAt(modelRow, 0);
+                codconsulta = value;
+                readatributos();
+                String nome = (String) JTConsultas.getModel().getValueAt(modelRow, 1);
+                labelpaciente.setText(nome);
+                ModalAlterarConsulta.setSize(520, 305);
+                ModalAlterarConsulta.setModal(true);
+                ModalAlterarConsulta.setLocationRelativeTo(null);
+                ModalAlterarConsulta.setVisible(true);
 
-        } else {
-            JOptionPane.showMessageDialog(this, "Selecione uma consulta para alterar");
+            } else {
+                JOptionPane.showMessageDialog(this, "Selecione uma consulta para alterar");
+            }
         }
-       }
     }//GEN-LAST:event_JTConsultasMousePressed
 
     /**
