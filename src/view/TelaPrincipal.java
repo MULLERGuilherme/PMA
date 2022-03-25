@@ -1574,9 +1574,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 a.setPsicomotricidade((String) JCBPsicomotricidade2.getSelectedItem());
                 boolean sucesso = dao.Create(a);
                 if (sucesso) {
-                    JOptionPane.showMessageDialog(ModalAnamnese3, "Anamnese Inserida Com Sucesso");
+                    //JOptionPane.showMessageDialog(ModalAnamnese3, "Anamnese Inserida Com Sucesso");
                     a = dao.ReadAnamneseConsulta(codconsulta);
                     codanamnese = a.getCodAnamnese();
+                    ModalAnamnese3.dispose();
                 }
             }
 
@@ -1638,7 +1639,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
             boolean sucesso = dao.Update(a);
             if (sucesso) {
-                JOptionPane.showMessageDialog(this, "Anamnese Alterada Com Sucesso");
+                //JOptionPane.showMessageDialog(this, "Anamnese Alterada Com Sucesso");
+                ModalAnamnese3.dispose();
             }
         }
     }
