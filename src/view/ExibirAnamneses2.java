@@ -1034,6 +1034,7 @@ public void readpsicologo() {
                 return canEdit [columnIndex];
             }
         });
+        JTAnamneses.getTableHeader().setReorderingAllowed(false);
         JTAnamneses.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 JTAnamnesesMouseClicked(evt);

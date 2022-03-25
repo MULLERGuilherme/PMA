@@ -759,6 +759,7 @@ private String getFirstWord(String text) {
                 return canEdit [columnIndex];
             }
         });
+        JTAnotacoes.getTableHeader().setReorderingAllowed(false);
         JTAnotacoes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 JTAnotacoesMousePressed(evt);

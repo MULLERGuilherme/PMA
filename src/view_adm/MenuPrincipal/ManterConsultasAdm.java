@@ -326,6 +326,7 @@ public class ManterConsultasAdm extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        JTConsultas.getTableHeader().setReorderingAllowed(false);
         JTConsultas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 JTConsultasMouseClicked(evt);
@@ -532,8 +533,7 @@ public class ManterConsultasAdm extends javax.swing.JFrame {
                         .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jEImagePanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(BtnHelp, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                        .addComponent(BtnHelp, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jEImagePanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)

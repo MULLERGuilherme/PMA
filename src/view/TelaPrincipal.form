@@ -1944,7 +1944,7 @@
                   <Dimension value="[1080, 200]"/>
                 </Property>
                 <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
-                  <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                  <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
                 </Property>
                 <Property name="toolTipText" type="java.lang.String" value="Exibe as consultas de uma determinada data"/>
               </Properties>

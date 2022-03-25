@@ -412,10 +412,10 @@ public class M extends javax.swing.JFrame {
 
         PainelIdentificacaoPessoal1.setBackground(new java.awt.Color(59, 131, 117));
 
+        BtnSalvarAlteracoesNovo1.setText("Salvar Alterações");
         BtnSalvarAlteracoesNovo1.setBackground(new java.awt.Color(0, 112, 186));
         BtnSalvarAlteracoesNovo1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnSalvarAlteracoesNovo1.setForeground(new java.awt.Color(255, 255, 255));
-        BtnSalvarAlteracoesNovo1.setText("Salvar Alterações");
         BtnSalvarAlteracoesNovo1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnSalvarAlteracoesNovo1ActionPerformed(evt);
@@ -1498,10 +1498,10 @@ public class M extends javax.swing.JFrame {
 
         PainelIdentificacaoPessoal3.setBackground(new java.awt.Color(59, 131, 117));
 
+        BtnSalvarAlteracoesAlterar2.setText("Salvar Alterações");
         BtnSalvarAlteracoesAlterar2.setBackground(new java.awt.Color(0, 112, 186));
         BtnSalvarAlteracoesAlterar2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnSalvarAlteracoesAlterar2.setForeground(new java.awt.Color(255, 255, 255));
-        BtnSalvarAlteracoesAlterar2.setText("Salvar Alterações");
         BtnSalvarAlteracoesAlterar2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnSalvarAlteracoesAlterar2ActionPerformed(evt);
@@ -2049,8 +2049,8 @@ public class M extends javax.swing.JFrame {
 
         jEImagePanel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/spring-floral-watercolor-background-vector-green-with-leaf-illustration_53876-126350.jpg"))); // NOI18N
 
-        BtnNovo.setBackground(new java.awt.Color(204, 204, 204));
         BtnNovo.setText("Novo");
+        BtnNovo.setBackground(new java.awt.Color(204, 204, 204));
         BtnNovo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnNovoActionPerformed(evt);
@@ -2081,6 +2081,7 @@ public class M extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        JTPacientes.getTableHeader().setReorderingAllowed(false);
         JTPacientes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 JTPacientesMouseClicked(evt);
@@ -2228,8 +2229,8 @@ public class M extends javax.swing.JFrame {
             }
         });
 
-        btnRestaurar.setBackground(new java.awt.Color(204, 204, 204));
         btnRestaurar.setText("Restaurar");
+        btnRestaurar.setBackground(new java.awt.Color(204, 204, 204));
         btnRestaurar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRestaurarActionPerformed(evt);

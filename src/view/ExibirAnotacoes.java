@@ -530,43 +530,43 @@ public void readpsicologo() {
             .addGap(0, 50, Short.MAX_VALUE)
         );
 
-        jLabel7.setText("Anotações da Consulta");
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(59, 131, 117));
+        jLabel7.setText("Anotações da Consulta");
 
-        LabelNomePaciente.setText("Nome do Paciente :");
         LabelNomePaciente.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        LabelNomePaciente.setText("Nome do Paciente :");
 
-        LabelNome5.setText(" Variável Nome do Paciente");
         LabelNome5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        LabelNome5.setText(" Variável Nome do Paciente");
 
-        LabelAssunto.setText("Assunto:");
         LabelAssunto.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        LabelAssunto.setText("Assunto:");
 
         txtAssunto.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        LabelAssunto1.setText("Texto:");
         LabelAssunto1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        LabelAssunto1.setText("Texto:");
 
         txtTexto.setColumns(20);
         txtTexto.setRows(5);
         txtTexto.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jScrollPane2.setViewportView(txtTexto);
 
-        BtnCancelarAnotacao.setText("Cancelar");
         BtnCancelarAnotacao.setBackground(new java.awt.Color(255, 153, 153));
         BtnCancelarAnotacao.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnCancelarAnotacao.setForeground(new java.awt.Color(255, 255, 255));
+        BtnCancelarAnotacao.setText("Cancelar");
         BtnCancelarAnotacao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnCancelarAnotacaoActionPerformed(evt);
             }
         });
 
-        BtnSalvarAlteracoesAnotacao.setText("Salvar Alterações");
         BtnSalvarAlteracoesAnotacao.setBackground(new java.awt.Color(0, 112, 186));
         BtnSalvarAlteracoesAnotacao.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnSalvarAlteracoesAnotacao.setForeground(new java.awt.Color(255, 255, 255));
+        BtnSalvarAlteracoesAnotacao.setText("Salvar Alterações");
         BtnSalvarAlteracoesAnotacao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnSalvarAlteracoesAnotacaoActionPerformed(evt);
@@ -753,6 +753,7 @@ public void readpsicologo() {
                 return canEdit [columnIndex];
             }
         });
+        JTAnotacoes.getTableHeader().setReorderingAllowed(false);
         JTAnotacoes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 JTAnotacoesMousePressed(evt);

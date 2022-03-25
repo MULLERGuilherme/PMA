@@ -1212,13 +1212,14 @@ public class ExibirAnamneses extends javax.swing.JFrame {
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                true, false, false, true
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
+        JTAnamneses.getTableHeader().setReorderingAllowed(false);
         JTAnamneses.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 JTAnamnesesMouseClicked(evt);

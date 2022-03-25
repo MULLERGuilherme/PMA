@@ -1214,10 +1214,10 @@ public void readpsicologo() {
         jPanel2.setForeground(new java.awt.Color(59, 131, 117));
         jPanel2.setPreferredSize(new java.awt.Dimension(1080, 89));
 
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Alterar Consulta");
         jLabel4.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("Alterar Consulta");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -1409,6 +1409,7 @@ public void readpsicologo() {
                 return canEdit [columnIndex];
             }
         });
+        JTConsultas.getTableHeader().setReorderingAllowed(false);
         JTConsultas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 JTConsultasMousePressed(evt);

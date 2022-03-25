@@ -1324,6 +1324,7 @@ public boolean readcampos() {
             }
         });
         JTConsultas.setMaximumSize(new java.awt.Dimension(1080, 200));
+        JTConsultas.getTableHeader().setReorderingAllowed(false);
         JTConsultas.setToolTipText("Exibe as consultas de uma determinada data");
         JTConsultas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
