@@ -2853,6 +2853,7 @@ public class M extends javax.swing.JFrame {
                                 getPageData(currentPage);
                             }
                             this.clearNovoR();
+                            
                             ModalNovoResolucaoMenor.dispose();
                         }
 
@@ -2867,7 +2868,12 @@ public class M extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, msg, "ERRO!", JOptionPane.ERROR_MESSAGE);
             }
         }
-
+        if(totalPages>1){
+            if(currentPage==1){
+                BtnAvancarPouco.setEnabled(true);
+                BtnAvancarBastante.setEnabled(true);
+                }
+        }
     }//GEN-LAST:event_BtnSalvarAlteracoesNovo1ActionPerformed
 
 

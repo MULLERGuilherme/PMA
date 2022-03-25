@@ -1317,8 +1317,8 @@ public boolean readcampos() {
                 return canEdit [columnIndex];
             }
         });
-        JTConsultas.setToolTipText("Exibe as consultas de uma determinada data");
         JTConsultas.setMaximumSize(new java.awt.Dimension(1080, 200));
+        JTConsultas.setToolTipText("Exibe as consultas de uma determinada data");
         JTConsultas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 JTConsultasMouseClicked(evt);
