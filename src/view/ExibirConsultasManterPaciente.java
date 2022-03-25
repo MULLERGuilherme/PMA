@@ -1368,7 +1368,15 @@ public void readpsicologo() {
             new String [] {
                 "CodConsulta", "Horário", "Status"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         JTConsultas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 JTConsultasMousePressed(evt);
@@ -1677,20 +1685,19 @@ public void readatributos() {
         BtnExcluir.setEnabled(true);
         if (evt.getClickCount() == 2) {
             if (JTConsultas.getSelectedRow() != -1) {
+            int modelRow = JTConsultas.convertRowIndexToModel(JTConsultas.getSelectedRow());
+            int value = (Integer)JTConsultas.getModel().getValueAt(modelRow,0);
+            codconsulta = value;
+            readatributos();
 
-                int modelRow = JTConsultas.convertRowIndexToModel(JTConsultas.getSelectedRow());
-                int value = (Integer) JTConsultas.getModel().getValueAt(modelRow, 0);
+            ModalAlterarConsulta.setSize(586, 320);
+            ModalAlterarConsulta.setModal(true);
+            ModalAlterarConsulta.setLocationRelativeTo(null);
+            ModalAlterarConsulta.setVisible(true);
 
-                AlterarConsulta.codconsulta = value;
-                AlterarConsulta.codpaciente = this.codpaciente;
-                AlterarConsulta cp = new AlterarConsulta(this);
-                cp.setLocationRelativeTo(null);
-                cp.setResizable(false);
-                cp.setVisible(true);
-
-            } else {
-                JOptionPane.showMessageDialog(this, "Selecione uma consulta para alterar");
-            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Selecione uma consulta para alterar");
+        }
         }
     }//GEN-LAST:event_JTConsultasMousePressed
 
