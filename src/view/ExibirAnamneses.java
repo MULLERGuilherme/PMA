@@ -97,19 +97,18 @@ public class ExibirAnamneses extends javax.swing.JFrame {
     public ExibirAnamneses() {
         this.getCount();
         initComponents();
-        
+
         ModalAnamnese2.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
         ModalHelp.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
         ModalMeusDados.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
-        
-         Psicologo p = new Psicologo();
+
+        Psicologo p = new Psicologo();
         PsicologoDAO dao = new PsicologoDAO();
         p = dao.ReadPsicologo(Main.cod);
         jLabel32.setText(p.getNome_completo());
-        String str= getFirstWord(jLabel32.getText());
+        String str = getFirstWord(jLabel32.getText());
         jLabel32.setText(str);
-        
-        
+
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
         BtnExibirAnamneses.setEnabled(false);
         BtnVoltarPouco.setEnabled(false);
@@ -128,21 +127,21 @@ public class ExibirAnamneses extends javax.swing.JFrame {
 
         //ReadJTable();
     }
-    
+
     private String getFirstWord(String text) {
 
-  int index = text.indexOf(' ');
+        int index = text.indexOf(' ');
 
-  if (index > -1) { // Check if there is more than one word.
+        if (index > -1) { // Check if there is more than one word.
 
-    return text.substring(0, index).trim(); // Extract first word.
+            return text.substring(0, index).trim(); // Extract first word.
 
-  } else {
+        } else {
 
-    return text; // Text is the first word itself.
-  }
-}
-    
+            return text; // Text is the first word itself.
+        }
+    }
+
     public void readpsicologo() {
         Psicologo p = new Psicologo();
         PsicologoDAO dao = new PsicologoDAO();
@@ -289,41 +288,55 @@ public class ExibirAnamneses extends javax.swing.JFrame {
         AnamneseDAO dao2 = new AnamneseDAO();
         a2 = dao2.ReadAnamnese(cod);
         a.setCodAnamnese(a2.getCodAnamnese());
-        if (a.getCodAnamnese() != 0) {
-            a.setQueixaPrincipal(txtQueixaPrincipal2.getText());
-            a.setSubitaOuProgressiva((String) SubitaOuProgressiva2.getSelectedItem());
+        if (!Validar.vCamposVaziosAnm(null, txtQueixaPrincipal2, DataInicio2)) {
+            if (a.getCodAnamnese() != 0) {
+                a.setQueixaPrincipal(txtQueixaPrincipal2.getText());
+                a.setSubitaOuProgressiva((String) SubitaOuProgressiva2.getSelectedItem());
 
-            //java.util.Date date = new java.util.Date();
-            Object param = DataInicio2.getDate();
-            a.setInicioDaQueixa(param);
-            a.setQueixasSecundarias(txtQueixaSecundaria2.getText());
-            a.setHistoricoFamiliar(txtHistoricoFamiliar2.getText());
-            a.setDiagnostico(txtDiagnostico2.getText());
-            a.setEncaminhamento(txtEncaminhamento2.getText());
-            a.setDoencasConhecidas(txtDoencasConhecidas2.getText());
-            a.setMedicamentosUtilizados(txtMedicamentosUtilizados2.getText());
-            a.getConsulta().setCodConsulta(a2.getConsulta().getCodConsulta());
-            a.setOqueMudou(txtOqueMudou2.getText());
-            a.setSintomas(txtSintomas2.getText());
-            a.setComoComecou(txtComoComecou2.getText());
-            a.setQCIntegridadeSensorial(CheckBoxIntegridadeSensorial1.isSelected());
-            a.setQCPercepcao(CheckBoxPercepcao1.isSelected());
-            a.setQCAtencao(CheckBoxAtencao1.isSelected());
-            a.setQCMemoria(CheckBoxMemoria1.isSelected());
-            a.setQAEVolicao(CheckBoxVolicao1.isSelected());
-            a.setQAEAfeto(CheckBoxAfeto1.isSelected());
-            a.setQAEAnsiedade(CheckBoxAnsiedade1.isSelected());
-            a.setQAEMedo(CheckBoxMedo1.isSelected());
-            a.setQAECulpa(CheckBoxCulpa1.isSelected());
-            a.setQAERaiva(CheckBoxRaiva1.isSelected());
-            a.setQAELuto(CheckBoxLuto1.isSelected());
-            a.setQAEHumor(CheckBoxHumor1.isSelected());
-            a.setQAEDesanimo(CheckBoxDesanimo1.isSelected());
-            a.setPsicomotricidade((String) JCBPsicomotricidade2.getSelectedItem());
+                //java.util.Date date = new java.util.Date();
+                Object param = DataInicio2.getDate();
+                a.setInicioDaQueixa(param);
+                a.setQueixasSecundarias(txtQueixaSecundaria2.getText());
+                a.setHistoricoFamiliar(txtHistoricoFamiliar2.getText());
+                a.setDiagnostico(txtDiagnostico2.getText());
+                a.setEncaminhamento(txtEncaminhamento2.getText());
+                a.setDoencasConhecidas(txtDoencasConhecidas2.getText());
+                a.setMedicamentosUtilizados(txtMedicamentosUtilizados2.getText());
+                a.getConsulta().setCodConsulta(a2.getConsulta().getCodConsulta());
+                a.setOqueMudou(txtOqueMudou2.getText());
+                a.setSintomas(txtSintomas2.getText());
+                a.setComoComecou(txtComoComecou2.getText());
+                a.setQCIntegridadeSensorial(CheckBoxIntegridadeSensorial1.isSelected());
+                a.setQCPercepcao(CheckBoxPercepcao1.isSelected());
+                a.setQCAtencao(CheckBoxAtencao1.isSelected());
+                a.setQCMemoria(CheckBoxMemoria1.isSelected());
+                a.setQAEVolicao(CheckBoxVolicao1.isSelected());
+                a.setQAEAfeto(CheckBoxAfeto1.isSelected());
+                a.setQAEAnsiedade(CheckBoxAnsiedade1.isSelected());
+                a.setQAEMedo(CheckBoxMedo1.isSelected());
+                a.setQAECulpa(CheckBoxCulpa1.isSelected());
+                a.setQAERaiva(CheckBoxRaiva1.isSelected());
+                a.setQAELuto(CheckBoxLuto1.isSelected());
+                a.setQAEHumor(CheckBoxHumor1.isSelected());
+                a.setQAEDesanimo(CheckBoxDesanimo1.isSelected());
+                a.setPsicomotricidade((String) JCBPsicomotricidade2.getSelectedItem());
 
-            boolean sucesso = dao.Update(a);
-            if (sucesso) {
-                JOptionPane.showMessageDialog(this, "Anamnese Alterada Com Sucesso");
+                boolean sucesso = dao.Update(a);
+                if (sucesso) {
+                    //JOptionPane.showMessageDialog(null, "Anamnese Alterada Com Sucesso");
+                    if (txtBusca.getText() != "") {
+                        getCountBusca(txtBusca.getText());
+                        SpinnerNumPaginas.setValue(currentPage);
+                        LabelQtdePaginas.setText("de " + totalPages);
+                        getPageDataBusca(currentPage, txtBusca.getText());
+                    } else {
+                        getCount();
+                        SpinnerNumPaginas.setValue(currentPage);
+                        LabelQtdePaginas.setText("de " + totalPages);
+                        getPageData(currentPage);
+                    }
+                    ModalAnamnese2.dispose();
+                }
             }
         }
     }
@@ -1529,17 +1542,23 @@ public class ExibirAnamneses extends javax.swing.JFrame {
             int modelRow = JTAnamneses.convertRowIndexToModel(JTAnamneses.getSelectedRow());
             int value = (Integer) JTAnamneses.getModel().getValueAt(modelRow, 0);
             a.setCodAnamnese(value);
-            boolean sucesso = adao.Delete(a);
 
-            if (sucesso) {
-                JOptionPane.showMessageDialog(this, "Anamnese Apagada com Sucesso");
+            int result = JOptionPane.showConfirmDialog(null, "Você tem certeza que deseja excluir esta Anamnese?\nA exclusão é permanente e não poderá ser recuperada. Prosseguir?", "Confirmar Exclusão?", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
 
+            if (result == 0) {
+                boolean sucesso = adao.Delete(a);
+
+                if (!sucesso) {
+                    JOptionPane.showMessageDialog(null, "Falha ao apagar a Anamnese, tente novamente!", "ERRO", JOptionPane.ERROR_MESSAGE);
+                    //JOptionPane.showMessageDialog(this, "Anamnese Apagada com Sucesso");
+
+                }
             }
 
         } else {
-            JOptionPane.showMessageDialog(this, "Selecione uma anamnese para excluir");
+            JOptionPane.showMessageDialog(null, "Selecione uma anamnese para excluir", "ERRO", JOptionPane.ERROR_MESSAGE);
         }
-        if (txtBusca.getText() == "") {
+        if (txtBusca.getText() != "") {
             getCountBusca(txtBusca.getText());
             SpinnerNumPaginas.setValue(currentPage);
             LabelQtdePaginas.setText("de " + totalPages);
@@ -1548,7 +1567,7 @@ public class ExibirAnamneses extends javax.swing.JFrame {
             getCount();
             SpinnerNumPaginas.setValue(currentPage);
             LabelQtdePaginas.setText("de " + totalPages);
-            getPageDataBusca(currentPage, txtBusca.getText());
+            getPageData(currentPage);
         }
     }//GEN-LAST:event_btnExcluirActionPerformed
 
@@ -1629,15 +1648,14 @@ public class ExibirAnamneses extends javax.swing.JFrame {
 
             LabelQtdePaginas.setText("de " + totalPages);
             getPageDataBusca(1, txtBusca.getText());
-             if(totalPages==1){
-            BtnAvancarPouco.setEnabled(false);
-            BtnAvancarBastante.setEnabled(false);
-            
-        }
-             else{
-                 BtnAvancarPouco.setEnabled(true);
+            if (totalPages == 1) {
+                BtnAvancarPouco.setEnabled(false);
+                BtnAvancarBastante.setEnabled(false);
+
+            } else {
+                BtnAvancarPouco.setEnabled(true);
                 BtnAvancarBastante.setEnabled(true);
-             }
+            }
         } else {
             PAGE_SIZE = (int) SpinnerLimite.getValue();
             getCount();
@@ -1647,15 +1665,14 @@ public class ExibirAnamneses extends javax.swing.JFrame {
 
             LabelQtdePaginas.setText("de " + totalPages);
             getPageData(1);
-             if(totalPages==1){
-            BtnAvancarPouco.setEnabled(false);
-            BtnAvancarBastante.setEnabled(false);
-            
-        }
-             else{
-                 BtnAvancarPouco.setEnabled(true);
+            if (totalPages == 1) {
+                BtnAvancarPouco.setEnabled(false);
+                BtnAvancarBastante.setEnabled(false);
+
+            } else {
+                BtnAvancarPouco.setEnabled(true);
                 BtnAvancarBastante.setEnabled(true);
-             }
+            }
         }
     }//GEN-LAST:event_SpinnerLimiteStateChanged
 
@@ -1663,42 +1680,42 @@ public class ExibirAnamneses extends javax.swing.JFrame {
         if (currentPage != 1) {
             if (txtBusca.getText() != "") {
                 if (currentPage - 5 < 1) {
-                    getPageDataBusca(1, txtBusca.getText()); BtnAvancarPouco.setEnabled(true);
+                    getPageDataBusca(1, txtBusca.getText());
+                    BtnAvancarPouco.setEnabled(true);
                     BtnAvancarPouco.setEnabled(true);
                     BtnAvancarBastante.setEnabled(true);
-                    
-                    
+
                 } else {
                     getPageDataBusca(currentPage - 5, txtBusca.getText());
                     btnalterar.setEnabled(false);
-                 btnExcluir.setEnabled(false);
-                  BtnAvancarPouco.setEnabled(true);
+                    btnExcluir.setEnabled(false);
+                    BtnAvancarPouco.setEnabled(true);
                     BtnAvancarBastante.setEnabled(true);
-                   
+
                 }
 
             } else {
                 if (currentPage - 5 < 1) {
                     getPageData(1);
-                     BtnAvancarPouco.setEnabled(true);
+                    BtnAvancarPouco.setEnabled(true);
                     BtnAvancarBastante.setEnabled(true);
-                   
+
                 } else {
                     getPageData(currentPage - 5);
                     btnalterar.setEnabled(false);
-                 btnExcluir.setEnabled(false);
-                  BtnAvancarPouco.setEnabled(true);
+                    btnExcluir.setEnabled(false);
+                    BtnAvancarPouco.setEnabled(true);
                     BtnAvancarBastante.setEnabled(true);
-                   
+
                 }
             }
 
         }
         SpinnerNumPaginas.setValue((int) currentPage);
         if (currentPage == 1) {
-                         BtnVoltarPouco.setEnabled(false);
-                    BtnVoltarBastante.setEnabled(false);  
-                }
+            BtnVoltarPouco.setEnabled(false);
+            BtnVoltarBastante.setEnabled(false);
+        }
     }//GEN-LAST:event_BtnVoltarBastanteActionPerformed
 
     private void BtnVoltarPoucoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVoltarPoucoActionPerformed
@@ -1706,53 +1723,52 @@ public class ExibirAnamneses extends javax.swing.JFrame {
         if (currentPage != 1) { //diferente da 1 pagina
             if (txtBusca.getText() != "") {
                 getPageDataBusca(currentPage - 1, txtBusca.getText());
-                 btnalterar.setEnabled(false);
-                 btnExcluir.setEnabled(false);
-                 BtnAvancarPouco.setEnabled(true);
-                 BtnAvancarBastante.setEnabled(true);
-                
+                btnalterar.setEnabled(false);
+                btnExcluir.setEnabled(false);
+                BtnAvancarPouco.setEnabled(true);
+                BtnAvancarBastante.setEnabled(true);
+
             } else {
                 getPageData(currentPage - 1);
-                 BtnAvancarPouco.setEnabled(true);
-                 BtnAvancarBastante.setEnabled(true);
-                 
+                BtnAvancarPouco.setEnabled(true);
+                BtnAvancarBastante.setEnabled(true);
+
             }
 
         }
         SpinnerNumPaginas.setValue((int) currentPage);
-         if (currentPage == 1) {
-                    BtnVoltarPouco.setEnabled(false);
-                    BtnVoltarBastante.setEnabled(false);  
-                }
+        if (currentPage == 1) {
+            BtnVoltarPouco.setEnabled(false);
+            BtnVoltarBastante.setEnabled(false);
+        }
     }//GEN-LAST:event_BtnVoltarPoucoActionPerformed
 
     private void SpinnerNumPaginasStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_SpinnerNumPaginasStateChanged
         // TODO add your handling code here:
         if (txtBusca.getText() != "") {
-             int pag1 = currentPage;
+            int pag1 = currentPage;
             getPageDataBusca((int) SpinnerNumPaginas.getValue(), txtBusca.getText());
             int pag2 = currentPage;
-            if(pag2<pag1){
+            if (pag2 < pag1) {
                 BtnAvancarPouco.setEnabled(true);
                 BtnAvancarBastante.setEnabled(true);
-                    if (currentPage == 1) {
-                        BtnVoltarPouco.setEnabled(false);
-                        BtnVoltarBastante.setEnabled(false);  
+                if (currentPage == 1) {
+                    BtnVoltarPouco.setEnabled(false);
+                    BtnVoltarBastante.setEnabled(false);
                 }
+            } else {
+                {
+                    BtnVoltarPouco.setEnabled(true);
+                    BtnVoltarBastante.setEnabled(true);
+                    if (currentPage == totalPages) {
+                        BtnAvancarPouco.setEnabled(false);
+                        BtnAvancarBastante.setEnabled(false);
                     }
-                    else{
-                    {
-                        BtnVoltarPouco.setEnabled(true);
-                        BtnVoltarBastante.setEnabled(true);
-                        if (currentPage == totalPages) {
-                            BtnAvancarPouco.setEnabled(false);
-                            BtnAvancarBastante.setEnabled(false);  
                 }
-                    }       
             }
-            
+
             btnalterar.setEnabled(false);
-             btnExcluir.setEnabled(false);
+            btnExcluir.setEnabled(false);
 
         } else {
 
@@ -1765,21 +1781,21 @@ public class ExibirAnamneses extends javax.swing.JFrame {
         if (currentPage < totalPages) {
             if (txtBusca.getText() != "") {
                 getPageDataBusca(currentPage + 1, txtBusca.getText());
-                 btnalterar.setEnabled(false);
-                 btnExcluir.setEnabled(false);
-                 BtnVoltarPouco.setEnabled(true);
-                 BtnVoltarBastante.setEnabled(true);
-                    if (currentPage == totalPages) {
-                        BtnAvancarPouco.setEnabled(false);
-                        BtnAvancarBastante.setEnabled(false);  
+                btnalterar.setEnabled(false);
+                btnExcluir.setEnabled(false);
+                BtnVoltarPouco.setEnabled(true);
+                BtnVoltarBastante.setEnabled(true);
+                if (currentPage == totalPages) {
+                    BtnAvancarPouco.setEnabled(false);
+                    BtnAvancarBastante.setEnabled(false);
                 }
             } else {
                 getPageData(currentPage + 1);
-                 BtnVoltarPouco.setEnabled(true);
-                 BtnVoltarBastante.setEnabled(true);
-                 if (currentPage == totalPages) {
+                BtnVoltarPouco.setEnabled(true);
+                BtnVoltarBastante.setEnabled(true);
+                if (currentPage == totalPages) {
                     BtnAvancarPouco.setEnabled(false);
-                    BtnAvancarBastante.setEnabled(false);  
+                    BtnAvancarBastante.setEnabled(false);
                 }
             }
 
@@ -1793,43 +1809,43 @@ public class ExibirAnamneses extends javax.swing.JFrame {
             if (txtBusca.getText() != "") {
                 if (currentPage + 5 > totalPages) {
                     getPageDataBusca(totalPages, txtBusca.getText());
-                     btnalterar.setEnabled(false);
-                     btnExcluir.setEnabled(false);
-                        BtnVoltarPouco.setEnabled(true);
-                        BtnVoltarBastante.setEnabled(true);
-                        if (currentPage == totalPages) {
+                    btnalterar.setEnabled(false);
+                    btnExcluir.setEnabled(false);
+                    BtnVoltarPouco.setEnabled(true);
+                    BtnVoltarBastante.setEnabled(true);
+                    if (currentPage == totalPages) {
                         BtnAvancarPouco.setEnabled(false);
-                        BtnAvancarBastante.setEnabled(false);  
-                }
+                        BtnAvancarBastante.setEnabled(false);
+                    }
                 } else {
                     getPageDataBusca(currentPage + 5, txtBusca.getText());
-                     btnalterar.setEnabled(false);
-                     btnExcluir.setEnabled(false);
-                      BtnVoltarPouco.setEnabled(true);
-                      BtnVoltarBastante.setEnabled(true);
-                      if (currentPage == totalPages) {
+                    btnalterar.setEnabled(false);
+                    btnExcluir.setEnabled(false);
+                    BtnVoltarPouco.setEnabled(true);
+                    BtnVoltarBastante.setEnabled(true);
+                    if (currentPage == totalPages) {
                         BtnAvancarPouco.setEnabled(false);
-                        BtnAvancarBastante.setEnabled(false);  
-                }
-                     
+                        BtnAvancarBastante.setEnabled(false);
+                    }
+
                 }
             } else {
                 if (currentPage + 5 > totalPages) {
                     getPageData(totalPages);
-                     BtnVoltarPouco.setEnabled(true);
-                     BtnVoltarBastante.setEnabled(true);
-                     if (currentPage == totalPages) {
+                    BtnVoltarPouco.setEnabled(true);
+                    BtnVoltarBastante.setEnabled(true);
+                    if (currentPage == totalPages) {
                         BtnAvancarPouco.setEnabled(false);
-                        BtnAvancarBastante.setEnabled(false);  
-                }
+                        BtnAvancarBastante.setEnabled(false);
+                    }
                 } else {
                     getPageData(currentPage + 5);
-                     BtnVoltarPouco.setEnabled(true);
-                     BtnVoltarBastante.setEnabled(true);
-                     if (currentPage == totalPages) {
-                         BtnAvancarPouco.setEnabled(false);
-                         BtnAvancarBastante.setEnabled(false);  
-                }
+                    BtnVoltarPouco.setEnabled(true);
+                    BtnVoltarBastante.setEnabled(true);
+                    if (currentPage == totalPages) {
+                        BtnAvancarPouco.setEnabled(false);
+                        BtnAvancarBastante.setEnabled(false);
+                    }
                 }
             }
 
@@ -1873,7 +1889,7 @@ public class ExibirAnamneses extends javax.swing.JFrame {
         if (!Character.isDigit(c)) {
             evt.consume();
         }
-         if (TxtTelefone6.getText().length()==11) {
+        if (TxtTelefone6.getText().length() == 11) {
             evt.consume();
         }
     }//GEN-LAST:event_TxtTelefone6KeyTyped
@@ -1883,7 +1899,7 @@ public class ExibirAnamneses extends javax.swing.JFrame {
         if (!Character.isDigit(c)) {
             evt.consume();
         }
-         if (TxtTelefone7.getText().length()==11) {
+        if (TxtTelefone7.getText().length() == 11) {
             evt.consume();
         }
     }//GEN-LAST:event_TxtTelefone7KeyTyped
@@ -1963,7 +1979,7 @@ public class ExibirAnamneses extends javax.swing.JFrame {
 //                        JOptionPane.showMessageDialog(this, "Psicologo: " + p.getNome_completo() + " Salvo com sucesso");
                         ModalMeusDados.dispose();
                         jLabel32.setText(p.getNome_completo());
-                        String str= getFirstWord(jLabel32.getText());
+                        String str = getFirstWord(jLabel32.getText());
                         jLabel32.setText(str);
                         // this.clear();
                     }
@@ -1978,7 +1994,7 @@ public class ExibirAnamneses extends javax.swing.JFrame {
                     tf.setPaciente(p);
                     tfdao.CreatePc(tf);
                 }
-                */
+                 */
                 //mostrar mensagem de sucesso
                 // JOptionPane.showMessageDialog(null,"Paciente Cadastrado com Sucesso!");
                 // ReadJTable();

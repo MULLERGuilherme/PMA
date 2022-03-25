@@ -1758,20 +1758,24 @@ public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
 
             int modelRow = JTConsultas.convertRowIndexToModel(JTConsultas.getSelectedRow());
             int value = (Integer) JTConsultas.getModel().getValueAt(modelRow, 0);
-            int result = JOptionPane.showConfirmDialog(this, "Você tem certeza que deseja excluir esta Consulta?\nA exclusão é permanente e não poderá ser recuperada. Prosseguir?", "Confirmar Exclusão?", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+            int result = JOptionPane.showConfirmDialog(null, "Você tem certeza que deseja excluir esta Consulta?\nA exclusão é permanente e não poderá ser recuperada. Prosseguir?", "Confirmar Exclusão?", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
 
             if (result == 0) {
                 c.setCodConsulta(value);
                 boolean sucesso = Deletar.DConsulta(c);
 
                 if (!sucesso) {
-                    JOptionPane.showMessageDialog(this, "Falha ao apagar a Consulta, tente novamente!", "ERRO", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Falha ao apagar a Consulta, tente novamente!", "ERRO", JOptionPane.ERROR_MESSAGE);
 
                 }
+                getCount();
+                SpinnerNumPaginas.setValue(currentPage);
+                LabelQtdePaginas.setText("de " + totalPages);
+                getPageData(currentPage);
             }
 
         } else {
-            JOptionPane.showMessageDialog(this, "Selecione uma consulta para apagar");
+            JOptionPane.showMessageDialog(null, "Selecione uma consulta para apagar", "ERRO", JOptionPane.ERROR_MESSAGE);
         }
 //        if (txtBusca.getText() == "") {
 //            getCountBusca(txtBusca.getText());
