@@ -143,6 +143,12 @@ public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
         //System.out.println(totalPages);
         this.getPageData(1);
     }
+    
+    public void clearAnotacao() {
+        txtAssunto.setText(null);
+        txtTexto.setText(null);
+    }
+    
 private String getFirstWord(String text) {
 
   int index = text.indexOf(' ');
@@ -2034,6 +2040,7 @@ private void Cadastrar() {
         }
     }
     private void BtnCancelarAnotacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCancelarAnotacaoActionPerformed
+        clearAnotacao();
         ModalAnotacao.dispose();
     }//GEN-LAST:event_BtnCancelarAnotacaoActionPerformed
 
@@ -2047,6 +2054,7 @@ private void Cadastrar() {
             a.getConsulta().setCodConsulta(codconsulta);
 
             boolean sucesso = dao.Create(a);
+            clearAnotacao();
             ModalAnotacao.dispose();
         }
     }//GEN-LAST:event_BtnSalvarAlteracoesAnotacaoActionPerformed
