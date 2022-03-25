@@ -98,6 +98,7 @@ public class ConsultaDAO {
                 c.getPsicologo().setCodPsicologo(rs.getInt("CodPsicologo"));
                 c.setDataConsulta(rs.getTimestamp("DataConsulta"));
                 c.setStatus(rs.getString("Status"));
+                c.setPagamento(rs.getString("Pagamento"));
 
 
 
