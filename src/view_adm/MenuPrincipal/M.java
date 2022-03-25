@@ -3462,31 +3462,44 @@ public class M extends javax.swing.JFrame {
                             tf2.setPaciente(p);
                             tf2.setNumero(TxtTelefone8.getText());
                             tfdao.CreatePc(tf2);
-
+                            if (txtBusca.getText() != "") {
+                                getCountBusca(txtBusca.getText());
+                                SpinnerNumPaginas.setValue(currentPage);
+                                LabelQtdePaginas.setText("de " + totalPages);
+                                getPageDataBusca(currentPage, txtBusca.getText());
+                            } else {
+                                getCount();
+                                SpinnerNumPaginas.setValue(currentPage);
+                                LabelQtdePaginas.setText("de " + totalPages);
+                                getPageData(currentPage);
+                            }
+                            clearAlterarR();
+                            ModalAlterarResolucaoMenor.dispose();
+                        } else {
+                            if (txtBusca.getText() != "") {
+                                getCountBusca(txtBusca.getText());
+                                SpinnerNumPaginas.setValue(currentPage);
+                                LabelQtdePaginas.setText("de " + totalPages);
+                                getPageDataBusca(currentPage, txtBusca.getText());
+                            } else {
+                                getCount();
+                                SpinnerNumPaginas.setValue(currentPage);
+                                LabelQtdePaginas.setText("de " + totalPages);
+                                getPageData(currentPage);
+                            }
+                            clearAlterarR();
+                            ModalAlterarResolucaoMenor.dispose();
                         }
                         //JOptionPane.showMessageDialog(this, "Paciente " + p.getNome_Completo() + " Atualizado com sucesso");
                         //this.clear();
-                        String str = "Paciente " + p.getNome_Completo() + " Atualizado com sucesso";
-                        clearAlterarR();
-                        ModalAlterarResolucaoMenor.dispose();
+                        //String str = "Paciente " + p.getNome_Completo() + " Atualizado com sucesso";
+
                     }
 
                 }
 
                 //mostrar mensagem de sucesso
                 // JOptionPane.showMessageDialog(null,"Paciente Cadastrado com Sucesso!");
-                if (txtBusca.getText() != "") {
-                    getCountBusca(txtBusca.getText());
-                    SpinnerNumPaginas.setValue(currentPage);
-                    LabelQtdePaginas.setText("de " + totalPages);
-                    getPageDataBusca(currentPage, txtBusca.getText());
-                } else {
-                    getCount();
-                    SpinnerNumPaginas.setValue(currentPage);
-                    LabelQtdePaginas.setText("de " + totalPages);
-                    getPageData(currentPage);
-                }
-
             } else {
                 JOptionPane.showMessageDialog(null, msg, "ERRO!", JOptionPane.ERROR_MESSAGE);
             }
