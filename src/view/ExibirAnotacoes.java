@@ -336,6 +336,8 @@ public void readpsicologo() {
         BtnExibirAnotacoes = new javax.swing.JButton();
         BtnExibirAnotacoes1 = new javax.swing.JButton();
 
+        ModalHelp.setResizable(false);
+
         jPanel4.setBackground(new java.awt.Color(59, 131, 117));
         jPanel4.setForeground(new java.awt.Color(59, 131, 117));
         jPanel4.setPreferredSize(new java.awt.Dimension(1080, 89));
@@ -365,6 +367,8 @@ public void readpsicologo() {
         );
 
         ModalHelp.getContentPane().add(jPanel5, java.awt.BorderLayout.CENTER);
+
+        ModalMeusDados.setResizable(false);
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel10.setText("Nome:");
@@ -503,6 +507,8 @@ public void readpsicologo() {
                 .addComponent(BtnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
+
+        ModalAnotacao.setResizable(false);
 
         jEImagePanel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/simboloma.png"))); // NOI18N
 

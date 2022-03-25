@@ -3,6 +3,9 @@
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
     <Container class="javax.swing.JDialog" name="ModalAnamnese3">
+      <Properties>
+        <Property name="resizable" type="boolean" value="false"/>
+      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -926,18 +929,18 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="LabelNomePaciente1">
                       <Properties>
+                        <Property name="text" type="java.lang.String" value="Nome do Paciente :"/>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Tahoma" size="18" style="1"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Nome do Paciente :"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="labelnomeanamnese">
                       <Properties>
+                        <Property name="text" type="java.lang.String" value=" Vari&#xe1;vel Nome do Paciente"/>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Tahoma" size="18" style="1"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value=" Vari&#xe1;vel Nome do Paciente"/>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -949,6 +952,9 @@
       </SubComponents>
     </Container>
     <Container class="javax.swing.JDialog" name="ModalAnotacao">
+      <Properties>
+        <Property name="resizable" type="boolean" value="false"/>
+      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -1195,6 +1201,9 @@
       </SubComponents>
     </Container>
     <Container class="javax.swing.JDialog" name="ModalMeusDados">
+      <Properties>
+        <Property name="resizable" type="boolean" value="false"/>
+      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">

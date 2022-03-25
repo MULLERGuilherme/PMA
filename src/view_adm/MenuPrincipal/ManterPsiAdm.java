@@ -243,6 +243,8 @@ public class ManterPsiAdm extends javax.swing.JFrame {
         BtnManterPsicologo = new javax.swing.JButton();
         BtnSair = new javax.swing.JButton();
 
+        ModalHelp.setResizable(false);
+
         jPanel4.setBackground(new java.awt.Color(59, 131, 117));
         jPanel4.setForeground(new java.awt.Color(59, 131, 117));
         jPanel4.setPreferredSize(new java.awt.Dimension(1080, 89));
@@ -272,6 +274,8 @@ public class ManterPsiAdm extends javax.swing.JFrame {
         );
 
         ModalHelp.getContentPane().add(jPanel5, java.awt.BorderLayout.CENTER);
+
+        ModalAlterarSenha.setResizable(false);
 
         jPanel6.setBackground(new java.awt.Color(59, 131, 117));
         jPanel6.setForeground(new java.awt.Color(59, 131, 117));
@@ -385,6 +389,8 @@ public class ManterPsiAdm extends javax.swing.JFrame {
                 .addGap(0, 0, 0)
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
+
+        ModalAlterarPsicologo.setResizable(false);
 
         jPanel8.setBackground(new java.awt.Color(59, 131, 117));
         jPanel8.setForeground(new java.awt.Color(59, 131, 117));
@@ -558,6 +564,8 @@ public class ManterPsiAdm extends javax.swing.JFrame {
         );
 
         ModalAlterarPsicologo.getContentPane().add(jPanel9, java.awt.BorderLayout.CENTER);
+
+        ModalCadastrarPsicologo.setResizable(false);
 
         jPanel2.setBackground(new java.awt.Color(59, 131, 117));
         jPanel2.setForeground(new java.awt.Color(59, 131, 117));

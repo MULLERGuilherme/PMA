@@ -445,6 +445,8 @@ public class ExibirAnamneses extends javax.swing.JFrame {
         BtnExibirAnotacoes = new javax.swing.JButton();
         BtnExibirAnotacoes1 = new javax.swing.JButton();
 
+        ModalAnamnese2.setResizable(false);
+
         jScrollPane3.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -931,6 +933,8 @@ public class ExibirAnamneses extends javax.swing.JFrame {
             .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 1081, Short.MAX_VALUE)
         );
 
+        ModalHelp.setResizable(false);
+
         jPanel4.setBackground(new java.awt.Color(59, 131, 117));
         jPanel4.setForeground(new java.awt.Color(59, 131, 117));
         jPanel4.setPreferredSize(new java.awt.Dimension(1080, 89));
@@ -960,6 +964,8 @@ public class ExibirAnamneses extends javax.swing.JFrame {
         );
 
         ModalHelp.getContentPane().add(jPanel5, java.awt.BorderLayout.CENTER);
+
+        ModalMeusDados.setResizable(false);
 
         jLabel10.setText("Nome:");
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N

@@ -383,6 +383,8 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         btnBuscar = new javax.swing.JButton();
         BtnCadastro = new javax.swing.JButton();
 
+        ModalNovoResolucaoMenor.setResizable(false);
+
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         txtNome1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -1281,6 +1283,8 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
+        ModalMeusDados.setResizable(false);
+
         jLabel3.setText("Nome:");
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
@@ -1419,6 +1423,8 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        ModalHelp.setResizable(false);
+
         jPanel4.setBackground(new java.awt.Color(59, 131, 117));
         jPanel4.setForeground(new java.awt.Color(59, 131, 117));
         jPanel4.setPreferredSize(new java.awt.Dimension(1080, 89));
@@ -1448,6 +1454,8 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         );
 
         ModalHelp.getContentPane().add(jPanel5, java.awt.BorderLayout.CENTER);
+
+        ModalAlterarResolucaoMenor.setResizable(false);
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 

@@ -296,6 +296,8 @@ public void readpsicologo() {
         BtnExibirAnotacoes = new javax.swing.JButton();
         BtnExibirAnotacoes1 = new javax.swing.JButton();
 
+        ModalAnamnese2.setResizable(false);
+
         jScrollPane3.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -781,6 +783,8 @@ public void readpsicologo() {
             ModalAnamnese2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 1081, Short.MAX_VALUE)
         );
+
+        ModalMeusDados.setResizable(false);
 
         jLabel3.setText("Nome:");
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N

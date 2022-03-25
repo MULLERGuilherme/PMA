@@ -292,6 +292,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         BtnExibirAnotacoes = new javax.swing.JButton();
         BtnExibirAnotacoes1 = new javax.swing.JButton();
 
+        ModalHelp.setResizable(false);
+
         jPanel4.setBackground(new java.awt.Color(59, 131, 117));
         jPanel4.setForeground(new java.awt.Color(59, 131, 117));
         jPanel4.setPreferredSize(new java.awt.Dimension(1080, 89));
@@ -446,6 +448,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         );
 
         ModalAlterarConsulta.getContentPane().add(jPanel3, java.awt.BorderLayout.CENTER);
+
+        ModalAnamnese3.setResizable(false);
 
         jScrollPane3.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -671,11 +675,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel30.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel30.setForeground(new java.awt.Color(255, 0, 0));
 
-        LabelNomePaciente1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         LabelNomePaciente1.setText("Nome do Paciente :");
+        LabelNomePaciente1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        labelnomeanamnese.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         labelnomeanamnese.setText(" Variável Nome do Paciente");
+        labelnomeanamnese.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         javax.swing.GroupLayout PainelDadosPaciente5Layout = new javax.swing.GroupLayout(PainelDadosPaciente5);
         PainelDadosPaciente5.setLayout(PainelDadosPaciente5Layout);
@@ -934,6 +938,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
             .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 1081, Short.MAX_VALUE)
         );
 
+        ModalAnotacao.setResizable(false);
+
         jEImagePanel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/simboloma.png"))); // NOI18N
 
         javax.swing.GroupLayout jEImagePanel4Layout = new javax.swing.GroupLayout(jEImagePanel4);
@@ -1076,6 +1082,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
             ModalAnotacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING)
         );
+
+        ModalMeusDados.setResizable(false);
 
         jLabel10.setText("Nome:");
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N

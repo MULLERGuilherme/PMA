@@ -414,6 +414,8 @@ public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
         BtnExibirAnotacoes = new javax.swing.JButton();
         BtnExibirAnotacoes1 = new javax.swing.JButton();
 
+        ModalAnamnese3.setResizable(false);
+
         jScrollPane3.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
@@ -916,6 +918,8 @@ public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
             .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 1081, Short.MAX_VALUE)
         );
 
+        ModalAnotacao.setResizable(false);
+
         jEImagePanel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/simboloma.png"))); // NOI18N
 
         javax.swing.GroupLayout jEImagePanel4Layout = new javax.swing.GroupLayout(jEImagePanel4);
@@ -1058,6 +1062,8 @@ public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
             ModalAnotacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING)
         );
+
+        ModalMeusDados.setResizable(false);
 
         jLabel3.setText("Nome:");
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N

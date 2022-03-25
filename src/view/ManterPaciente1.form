@@ -3,6 +3,9 @@
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
     <Container class="javax.swing.JDialog" name="ModalNovoResolucaoMenor">
+      <Properties>
+        <Property name="resizable" type="boolean" value="false"/>
+      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -1625,6 +1628,9 @@
       </SubComponents>
     </Container>
     <Container class="javax.swing.JDialog" name="ModalMeusDados">
+      <Properties>
+        <Property name="resizable" type="boolean" value="false"/>
+      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -1817,6 +1823,9 @@
       </SubComponents>
     </Container>
     <Container class="javax.swing.JDialog" name="ModalHelp">
+      <Properties>
+        <Property name="resizable" type="boolean" value="false"/>
+      </Properties>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
       <SubComponents>
@@ -1877,6 +1886,9 @@
       </SubComponents>
     </Container>
     <Container class="javax.swing.JDialog" name="ModalAlterarResolucaoMenor">
+      <Properties>
+        <Property name="resizable" type="boolean" value="false"/>
+      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">

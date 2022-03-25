@@ -219,6 +219,8 @@ public class ManterConsultasAdm extends javax.swing.JFrame {
         BtnManterPsicologo = new javax.swing.JButton();
         BtnSair = new javax.swing.JButton();
 
+        ModalHelp.setResizable(false);
+
         jPanel4.setBackground(new java.awt.Color(59, 131, 117));
         jPanel4.setForeground(new java.awt.Color(59, 131, 117));
         jPanel4.setPreferredSize(new java.awt.Dimension(1080, 89));
@@ -257,10 +259,10 @@ public class ManterConsultasAdm extends javax.swing.JFrame {
 
         PainelMeusDados.setBackground(new java.awt.Color(102, 102, 102));
 
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Administrador");
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Administrador");
 
         javax.swing.GroupLayout PainelMeusDadosLayout = new javax.swing.GroupLayout(PainelMeusDados);
         PainelMeusDados.setLayout(PainelMeusDadosLayout);
@@ -279,10 +281,10 @@ public class ManterConsultasAdm extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("CONSULTAS");
         jLabel4.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("CONSULTAS");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -355,8 +357,8 @@ public class ManterConsultasAdm extends javax.swing.JFrame {
 
         PainelPaginacao.setOpaque(false);
 
-        LabelLimite.setText("Limite");
         LabelLimite.setBackground(new java.awt.Color(204, 204, 204));
+        LabelLimite.setText("Limite");
 
         SpinnerLimite.setModel(new javax.swing.SpinnerNumberModel(1, 1, 15, 1));
         SpinnerLimite.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -379,8 +381,8 @@ public class ManterConsultasAdm extends javax.swing.JFrame {
             }
         });
 
-        LabelPagina.setText("Página");
         LabelPagina.setBackground(new java.awt.Color(204, 204, 204));
+        LabelPagina.setText("Página");
 
         SpinnerNumPaginas.setModel(new javax.swing.SpinnerNumberModel(1, 1, totalPages, 1));
         SpinnerNumPaginas.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -389,8 +391,8 @@ public class ManterConsultasAdm extends javax.swing.JFrame {
             }
         });
 
-        LabelQtdePaginas.setText("de X");
         LabelQtdePaginas.setBackground(new java.awt.Color(204, 204, 204));
+        LabelQtdePaginas.setText("de X");
 
         BtnAvancarPouco.setText(">");
         BtnAvancarPouco.addActionListener(new java.awt.event.ActionListener() {
@@ -561,50 +563,50 @@ public class ManterConsultasAdm extends javax.swing.JFrame {
         PainelMenu.setBackground(new java.awt.Color(102, 102, 102));
         PainelMenu.setForeground(new java.awt.Color(102, 102, 102));
 
-        BtnInicio.setText("Início");
         BtnInicio.setBackground(new java.awt.Color(102, 102, 102));
         BtnInicio.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnInicio.setForeground(new java.awt.Color(255, 255, 255));
+        BtnInicio.setText("Início");
         BtnInicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnInicioActionPerformed(evt);
             }
         });
 
-        BtnManterPaciente.setText("Pacientes");
         BtnManterPaciente.setBackground(new java.awt.Color(102, 102, 102));
         BtnManterPaciente.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnManterPaciente.setForeground(new java.awt.Color(255, 255, 255));
+        BtnManterPaciente.setText("Pacientes");
         BtnManterPaciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnManterPacienteActionPerformed(evt);
             }
         });
 
-        BtnManterConsulta.setText("Consultas");
         BtnManterConsulta.setBackground(new java.awt.Color(102, 102, 102));
         BtnManterConsulta.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnManterConsulta.setForeground(new java.awt.Color(255, 255, 255));
+        BtnManterConsulta.setText("Consultas");
         BtnManterConsulta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnManterConsultaActionPerformed(evt);
             }
         });
 
-        BtnManterPsicologo.setText("Psicólogos");
         BtnManterPsicologo.setBackground(new java.awt.Color(102, 102, 102));
         BtnManterPsicologo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnManterPsicologo.setForeground(new java.awt.Color(255, 255, 255));
+        BtnManterPsicologo.setText("Psicólogos");
         BtnManterPsicologo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnManterPsicologoActionPerformed(evt);
             }
         });
 
-        BtnSair.setText("Sair");
         BtnSair.setBackground(new java.awt.Color(102, 102, 102));
         BtnSair.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnSair.setForeground(new java.awt.Color(255, 255, 255));
+        BtnSair.setText("Sair");
         BtnSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnSairActionPerformed(evt);
