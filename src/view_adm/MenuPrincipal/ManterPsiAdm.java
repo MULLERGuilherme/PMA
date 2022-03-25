@@ -2203,6 +2203,12 @@ public class ManterPsiAdm extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(null, "As senhas são diferentes", "ERRO", JOptionPane.ERROR_MESSAGE);
         }
+        if(totalPages>1){
+            if(currentPage<totalPages){
+                BtnAvancarPouco.setEnabled(true);
+                BtnAvancarBastante.setEnabled(true);
+                }
+        }
     }//GEN-LAST:event_BtnCadastrarPsicologoActionPerformed
 
     private void BtnCancelar5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCancelar5ActionPerformed

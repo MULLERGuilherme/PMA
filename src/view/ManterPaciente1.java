@@ -2862,7 +2862,12 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, msg, "ERRO!", JOptionPane.ERROR_MESSAGE);
             }
         }
-
+        if(totalPages>1){
+            if(currentPage<totalPages){
+                BtnAvancarPouco.setEnabled(true);
+                BtnAvancarBastante.setEnabled(true);
+                }
+        }
     }//GEN-LAST:event_BtnSalvarAlteracoesNovo1ActionPerformed
 
     private void BtnCancelar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCancelar1ActionPerformed
