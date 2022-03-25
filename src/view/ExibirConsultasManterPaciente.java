@@ -57,7 +57,7 @@ public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
     public static boolean existe;
 
     //Paginacao
-    int PAGE_SIZE = 1;
+    int PAGE_SIZE = 12;
     double tableRowCount;
     int totalPages = 1;
     int currentPage = 1;
@@ -352,6 +352,8 @@ public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
         jLabel26 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
+        LabelNomePaciente1 = new javax.swing.JLabel();
+        labelnomeanamnese = new javax.swing.JLabel();
         ModalAnotacao = new javax.swing.JDialog();
         jScrollPane4 = new javax.swing.JScrollPane();
         jPanel7 = new javax.swing.JPanel();
@@ -444,7 +446,7 @@ public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
         PainelIdentificacaoPessoal5.setLayout(PainelIdentificacaoPessoal5Layout);
         PainelIdentificacaoPessoal5Layout.setHorizontalGroup(
             PainelIdentificacaoPessoal5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 917, Short.MAX_VALUE)
         );
         PainelIdentificacaoPessoal5Layout.setVerticalGroup(
             PainelIdentificacaoPessoal5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -665,6 +667,12 @@ public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
         jLabel30.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel30.setForeground(new java.awt.Color(255, 0, 0));
 
+        LabelNomePaciente1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        LabelNomePaciente1.setText("Nome do Paciente :");
+
+        labelnomeanamnese.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        labelnomeanamnese.setText(" Variável Nome do Paciente");
+
         javax.swing.GroupLayout PainelDadosPaciente5Layout = new javax.swing.GroupLayout(PainelDadosPaciente5);
         PainelDadosPaciente5.setLayout(PainelDadosPaciente5Layout);
         PainelDadosPaciente5Layout.setHorizontalGroup(
@@ -695,14 +703,20 @@ public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
                                     .addComponent(jLabel22))
                                 .addGap(19, 19, 19)
                                 .addGroup(PainelDadosPaciente5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(LabelNome6)
-                                    .addComponent(jLabel57))
-                                .addGap(34, 34, 34)
-                                .addGroup(PainelDadosPaciente5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(PainelDadosPaciente5Layout.createSequentialGroup()
-                                        .addComponent(DataInicio2, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 393, Short.MAX_VALUE))
-                                    .addComponent(txtQueixaPrincipal2)))
+                                        .addGroup(PainelDadosPaciente5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(LabelNome6)
+                                            .addComponent(jLabel57))
+                                        .addGap(34, 34, 34)
+                                        .addGroup(PainelDadosPaciente5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addGroup(PainelDadosPaciente5Layout.createSequentialGroup()
+                                                .addComponent(DataInicio2, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(0, 393, Short.MAX_VALUE))
+                                            .addComponent(txtQueixaPrincipal2)))
+                                    .addGroup(PainelDadosPaciente5Layout.createSequentialGroup()
+                                        .addComponent(LabelNomePaciente1)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(labelnomeanamnese))))
                             .addGroup(PainelDadosPaciente5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addGroup(PainelDadosPaciente5Layout.createSequentialGroup()
                                     .addComponent(jLabel30)
@@ -792,7 +806,11 @@ public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
                     .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE))
                 .addGap(0, 0, 0)
                 .addComponent(PainelIdentificacaoPessoal5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(71, 71, 71)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(PainelDadosPaciente5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LabelNomePaciente1)
+                    .addComponent(labelnomeanamnese))
+                .addGap(38, 38, 38)
                 .addGroup(PainelDadosPaciente5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtQueixaPrincipal2)
                     .addComponent(LabelNome6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1717,9 +1735,10 @@ public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
             int value = (Integer) JTConsultas.getModel().getValueAt(modelRow, 0);
             codconsulta = value;
             readatributos();
-
+            
             ModalAlterarConsulta.setSize(586, 320);
             ModalAlterarConsulta.setModal(true);
+            ModalAlterarConsulta.setResizable(false);
             ModalAlterarConsulta.setLocationRelativeTo(null);
             ModalAlterarConsulta.setVisible(true);
 
@@ -1730,7 +1749,7 @@ public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
     public void readatributos() {
         Consulta c = new Consulta();
         ConsultaDAO cdao = new ConsultaDAO();
-
+        PacienteDAO dao = new PacienteDAO();
         c = cdao.ReadConsulta(codconsulta);
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String string;
@@ -1742,6 +1761,11 @@ public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
         datepicker.setDateTimePermissive(dateTime);
 
         status.setSelectedItem(c.getStatus());
+        JCBPagamento.setSelectedItem(c.getPagamento());
+        Paciente p = dao.ReadPaciente(c.getPaciente().getCodPaciente());
+        labelpaciente.setText(p.getNome_Completo());
+        labelnomeanotacao.setText(p.getNome_Completo());
+        labelnomeanamnese.setText(p.getNome_Completo());
     }
     private void BtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExcluirActionPerformed
         // TODO add your handling code here:
@@ -2337,6 +2361,7 @@ public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
         ModalAnamnese3.setSize(1039, 600);
         jScrollPane3.getVerticalScrollBar().setUnitIncrement(15);
         ModalAnamnese3.setModal(true);
+        ModalAnamnese3.setResizable(false);
         ModalAnamnese3.setLocationRelativeTo(null);
         ModalAnamnese3.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -2348,6 +2373,7 @@ public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
         ModalAnotacao.setSize(890, 600);
         jScrollPane4.getVerticalScrollBar().setUnitIncrement(15);
         ModalAnotacao.setModal(true);
+        ModalAnotacao.setResizable(false);
         ModalAnotacao.setLocationRelativeTo(null);
         ModalAnotacao.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -2488,6 +2514,7 @@ public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
     private javax.swing.JLabel LabelLimite;
     private javax.swing.JLabel LabelNome6;
     private javax.swing.JLabel LabelNomePaciente;
+    private javax.swing.JLabel LabelNomePaciente1;
     private javax.swing.JLabel LabelPagina;
     private javax.swing.JLabel LabelQtdePaginas;
     private javax.swing.JDialog ModalAlterarConsulta;
@@ -2561,6 +2588,7 @@ public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
     private javax.swing.JLabel lNome;
     private javax.swing.JLabel labelInicioQueixa4;
     private javax.swing.JLabel labelInicioQueixa5;
+    private javax.swing.JLabel labelnomeanamnese;
     private javax.swing.JLabel labelnomeanotacao;
     private javax.swing.JLabel labelpaciente;
     private javax.swing.JLabel labeltelefone;
