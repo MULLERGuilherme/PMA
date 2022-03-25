@@ -397,10 +397,10 @@ public class ManterPaciente1 extends javax.swing.JFrame {
 
         PainelIdentificacaoPessoal1.setBackground(new java.awt.Color(59, 131, 117));
 
+        BtnSalvarAlteracoesNovo1.setText("Salvar Alterações");
         BtnSalvarAlteracoesNovo1.setBackground(new java.awt.Color(0, 112, 186));
         BtnSalvarAlteracoesNovo1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnSalvarAlteracoesNovo1.setForeground(new java.awt.Color(255, 255, 255));
-        BtnSalvarAlteracoesNovo1.setText("Salvar Alterações");
         BtnSalvarAlteracoesNovo1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnSalvarAlteracoesNovo1ActionPerformed(evt);
@@ -1463,10 +1463,10 @@ public class ManterPaciente1 extends javax.swing.JFrame {
 
         PainelIdentificacaoPessoal3.setBackground(new java.awt.Color(59, 131, 117));
 
+        BtnSalvarAlteracoesAlterar2.setText("Salvar Alterações");
         BtnSalvarAlteracoesAlterar2.setBackground(new java.awt.Color(0, 112, 186));
         BtnSalvarAlteracoesAlterar2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnSalvarAlteracoesAlterar2.setForeground(new java.awt.Color(255, 255, 255));
-        BtnSalvarAlteracoesAlterar2.setText("Salvar Alterações");
         BtnSalvarAlteracoesAlterar2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnSalvarAlteracoesAlterar2ActionPerformed(evt);
@@ -2162,7 +2162,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
+                return false;
             }
         });
         JTPacientes.addMouseListener(new java.awt.event.MouseAdapter() {
