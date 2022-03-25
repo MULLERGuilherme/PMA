@@ -1900,6 +1900,11 @@ public class ManterPsiAdm extends javax.swing.JFrame {
                     msg += "\nNúmero de Telefone 2 Invalido: " + TxtTelefone7.getText() + "\nO Número deve ser no formato xxxxxxxxxxx";
                 }
             }
+            if (JCBdeletados.getSelectedIndex() == 1) {
+                p.setDeletado(true);
+            } else {
+                p.setDeletado(false);
+            }
             if (dadosvalidos) {
 
                 if (dao.UpdatePsicologSemLogin(p)) {
@@ -1911,25 +1916,49 @@ public class ManterPsiAdm extends javax.swing.JFrame {
                     if (tfdao.UpdateTPsicologo(t.get(0))) {
 
                         if (t.size() == 2) {
-                            t.get(1).setNumero(TxtTelefone7.getText());
-                            tfdao.UpdateTPsicologo(t.get(1));
+                            if (TxtTelefone7.getText().isEmpty()) {
+                                tfdao.HardDeleteTelefone(t.get(1));
+                            } else {
+                                t.get(1).setNumero(TxtTelefone7.getText());
+                                tfdao.UpdateTPsicologo(t.get(1));
+                            }
 
                         }
-                        JOptionPane.showMessageDialog(this, "Psicologo: " + p.getNome_completo() + " Salvo com sucesso");
+                        if (!TxtTelefone7.getText().isEmpty() && t.size() == 1) {
+                            tf2.setPsicologo(p);
+                            tf2.setNumero(TxtTelefone7.getText());
+                            if (tfdao.CreatePsi(tf2)) {
+                                if (txtBusca.getText() != "") {
+                                    getCountBusca(txtBusca.getText());
+                                    SpinnerNumPaginas.setValue(currentPage);
+                                    LabelQtdePaginas.setText("de " + totalPages);
+                                    getPageDataBusca(currentPage, txtBusca.getText());
+                                } else {
+                                    getCount();
+                                    SpinnerNumPaginas.setValue(currentPage);
+                                    LabelQtdePaginas.setText("de " + totalPages);
+                                    getPageData(currentPage);
+                                }
+                                this.clearAlterar();
+                                ModalAlterarPsicologo.dispose();
+                            }
 
-                        if (txtBusca.getText() != "") {
-                            getCountBusca(txtBusca.getText());
-                            SpinnerNumPaginas.setValue(currentPage);
-                            LabelQtdePaginas.setText("de " + totalPages);
-                            getPageDataBusca(currentPage, txtBusca.getText());
                         } else {
-                            getCount();
-                            SpinnerNumPaginas.setValue(currentPage);
-                            LabelQtdePaginas.setText("de " + totalPages);
-                            getPageData(currentPage);
+                            if (txtBusca.getText() != "") {
+                                getCountBusca(txtBusca.getText());
+                                SpinnerNumPaginas.setValue(currentPage);
+                                LabelQtdePaginas.setText("de " + totalPages);
+                                getPageDataBusca(currentPage, txtBusca.getText());
+                            } else {
+                                getCount();
+                                SpinnerNumPaginas.setValue(currentPage);
+                                LabelQtdePaginas.setText("de " + totalPages);
+                                getPageData(currentPage);
+                            }
+                            this.clearAlterar();
+                            ModalAlterarPsicologo.dispose();
                         }
-                        this.clearAlterar();
-                        ModalAlterarPsicologo.dispose();
+                        //JOptionPane.showMessageDialog(this, "Psicologo: " + p.getNome_completo() + " Salvo com sucesso");
 
                     }
 
@@ -2142,9 +2171,10 @@ public class ManterPsiAdm extends javax.swing.JFrame {
                                     SpinnerNumPaginas.setValue(currentPage);
                                     LabelQtdePaginas.setText("de " + totalPages);
                                     getPageData(currentPage);
-                                    this.clearNovo();
-                                    ModalCadastrarPsicologo.dispose();
+
                                 }
+                                this.clearNovo();
+                                ModalCadastrarPsicologo.dispose();
                             }
 
                         } else {
