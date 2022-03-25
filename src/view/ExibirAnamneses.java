@@ -1649,7 +1649,7 @@ public class ExibirAnamneses extends javax.swing.JFrame {
                 }
 
             } else {
-                JOptionPane.showMessageDialog(this, "Selecione uma anamnese para alterar");
+                JOptionPane.showMessageDialog(this, "Selecione uma anamnese para alterar", "ERRO", JOptionPane.ERROR_MESSAGE);
             }
         }
     }//GEN-LAST:event_JTAnamnesesMousePressed
