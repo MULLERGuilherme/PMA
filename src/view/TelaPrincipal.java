@@ -1655,7 +1655,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String string;
         string = dateFormat.format(c.getDataConsulta());
-        System.out.println(string);
+        //System.out.println(string);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         LocalDateTime dateTime = LocalDateTime.parse(string, formatter);
         //System.out.println(Validar.fDatetime(c.getDataConsulta()));
@@ -1714,7 +1714,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void BtnAlterarConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAlterarConsultaActionPerformed
         if (datepicker.getDateTimePermissive() == null) {
-            JOptionPane.showMessageDialog(this, "Por favor Insira uma data válida");
+            JOptionPane.showMessageDialog(this, "Por favor Insira uma data válida", "ERRO", JOptionPane.ERROR_MESSAGE);
         } else {
             Consulta c = new Consulta();
             ConsultaDAO cdao = new ConsultaDAO();
@@ -1743,9 +1743,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
         //a2 = dao2.ReadAnamneseConsulta(codconsulta);
         //codanamnese = a2.getCodAnamnese();
         existe = readcampos();
-       
+        
 
         ModalAnamnese3.setSize(1039, 600);
+        ModalAnamnese3.setResizable(false);
         jScrollPane3.getVerticalScrollBar().setUnitIncrement(15);
         ModalAnamnese3.setModal(true);
         ModalAnamnese3.setLocationRelativeTo(null);
@@ -1758,6 +1759,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         ModalAnotacao.setSize(890, 600);
         jScrollPane4.getVerticalScrollBar().setUnitIncrement(15);
         ModalAnotacao.setModal(true);
+        ModalAnotacao.setResizable(false);
         ModalAnotacao.setLocationRelativeTo(null);
         ModalAnotacao.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
