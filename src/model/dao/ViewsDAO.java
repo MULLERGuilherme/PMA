@@ -1062,7 +1062,7 @@ public class ViewsDAO {
         ResultSet rs = null;
         List<Vw_Anotacoes_Paciente> vw = new ArrayList<>();
         try {
-            stmt = con.prepareStatement("SELECT * FROM vw_Anotacoes_Paciente Where CodigoPsicologo = ? AND PacienteDeletado = false  Group By CodAnotacao Limit " + size + " OFFSET " + start);
+            stmt = con.prepareStatement("SELECT * FROM vw_Anotacoes_Paciente Where CodigoPsicologo = ? AND PacienteDeletado = false  Group By CodAnotacao order by DataAnotacao DESC Limit " + size + " OFFSET " + start);
             stmt.setInt(1, codPsicologo);
             rs = stmt.executeQuery();
 
@@ -1095,7 +1095,7 @@ public class ViewsDAO {
         ResultSet rs = null;
         List<Vw_Anotacoes_Paciente> vw = new ArrayList<>();
         try {
-            stmt = con.prepareStatement("SELECT * FROM vw_Anotacoes_Paciente Where CodigoPsicologo = ? AND PacienteDeletado = false  AND ((Paciente Like '%" + Busca + "%') OR (Assunto Like '%" + Busca + "%') OR (DataAnotacao Like '%" + Busca + "%')) Group By CodAnotacao Limit " + size + " OFFSET " + start);
+            stmt = con.prepareStatement("SELECT * FROM vw_Anotacoes_Paciente Where CodigoPsicologo = ? AND PacienteDeletado = false  AND ((Paciente Like '%" + Busca + "%') OR (Assunto Like '%" + Busca + "%') OR (DataAnotacao Like '%" + Busca + "%')) Group By CodAnotacao order by DataAnotacao DESC Limit " + size + " OFFSET " + start);
             stmt.setInt(1, codPsicologo);
             rs = stmt.executeQuery();
 

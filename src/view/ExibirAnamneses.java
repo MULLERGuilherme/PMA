@@ -170,6 +170,7 @@ public class ExibirAnamneses extends javax.swing.JFrame {
         AnamneseDAO dao = new AnamneseDAO();
         a = dao.ReadAnamnese(cod);
         int codanamnese = a.getCodAnamnese();
+        
         if (codanamnese != 0) {
 
             txtQueixaPrincipal2.setText(a.getQueixaPrincipal());
@@ -198,8 +199,9 @@ public class ExibirAnamneses extends javax.swing.JFrame {
             CheckBoxLuto1.setSelected(a.isQAELuto());
             CheckBoxHumor1.setSelected(a.isQAEHumor());
             CheckBoxDesanimo1.setSelected(a.isQAEDesanimo());
-
+            
             JCBPsicomotricidade2.setSelectedItem(a.getPsicomotricidade());
+            
             return true;
         }
         return false;
@@ -409,6 +411,8 @@ public class ExibirAnamneses extends javax.swing.JFrame {
         jLabel26 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
+        labelnomepaciente = new javax.swing.JLabel();
+        LabelNomePaciente = new javax.swing.JLabel();
         ModalHelp = new javax.swing.JDialog();
         jPanel4 = new JPanel();
         jPanel5 = new javax.swing.JPanel();
@@ -473,7 +477,7 @@ public class ExibirAnamneses extends javax.swing.JFrame {
         PainelIdentificacaoPessoal4.setLayout(PainelIdentificacaoPessoal4Layout);
         PainelIdentificacaoPessoal4Layout.setHorizontalGroup(
             PainelIdentificacaoPessoal4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 917, Short.MAX_VALUE)
         );
         PainelIdentificacaoPessoal4Layout.setVerticalGroup(
             PainelIdentificacaoPessoal4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -694,6 +698,12 @@ public class ExibirAnamneses extends javax.swing.JFrame {
         jLabel30.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel30.setForeground(new java.awt.Color(255, 0, 0));
 
+        labelnomepaciente.setText(" Variável Nome do Paciente");
+        labelnomepaciente.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+
+        LabelNomePaciente.setText("Nome do Paciente :");
+        LabelNomePaciente.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+
         javax.swing.GroupLayout PainelDadosPaciente4Layout = new javax.swing.GroupLayout(PainelDadosPaciente4);
         PainelDadosPaciente4.setLayout(PainelDadosPaciente4Layout);
         PainelDadosPaciente4Layout.setHorizontalGroup(
@@ -724,14 +734,20 @@ public class ExibirAnamneses extends javax.swing.JFrame {
                                     .addComponent(jLabel22))
                                 .addGap(19, 19, 19)
                                 .addGroup(PainelDadosPaciente4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(LabelNome5)
-                                    .addComponent(jLabel57))
-                                .addGap(34, 34, 34)
-                                .addGroup(PainelDadosPaciente4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(PainelDadosPaciente4Layout.createSequentialGroup()
-                                        .addComponent(DataInicio2, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 393, Short.MAX_VALUE))
-                                    .addComponent(txtQueixaPrincipal2)))
+                                        .addGroup(PainelDadosPaciente4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(LabelNome5)
+                                            .addComponent(jLabel57))
+                                        .addGap(34, 34, 34)
+                                        .addGroup(PainelDadosPaciente4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addGroup(PainelDadosPaciente4Layout.createSequentialGroup()
+                                                .addComponent(DataInicio2, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(0, 393, Short.MAX_VALUE))
+                                            .addComponent(txtQueixaPrincipal2)))
+                                    .addGroup(PainelDadosPaciente4Layout.createSequentialGroup()
+                                        .addComponent(LabelNomePaciente)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(labelnomepaciente))))
                             .addGroup(PainelDadosPaciente4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addGroup(PainelDadosPaciente4Layout.createSequentialGroup()
                                     .addComponent(jLabel30)
@@ -821,7 +837,11 @@ public class ExibirAnamneses extends javax.swing.JFrame {
                     .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE))
                 .addGap(0, 0, 0)
                 .addComponent(PainelIdentificacaoPessoal4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(71, 71, 71)
+                .addGap(18, 18, 18)
+                .addGroup(PainelDadosPaciente4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LabelNomePaciente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(labelnomepaciente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(31, 31, 31)
                 .addGroup(PainelDadosPaciente4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtQueixaPrincipal2)
                     .addComponent(LabelNome5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1518,6 +1538,7 @@ public class ExibirAnamneses extends javax.swing.JFrame {
             //a2 = dao2.ReadAnamneseConsulta(codconsulta);
             //codanamnese = a2.getCodAnamnese();
             existe = readcampos(codigoanamnese);
+             labelnomepaciente.setText((String) JTAnamneses.getModel().getValueAt(modelRow, 1));
             if (existe) {
                 ModalAnamnese2.setSize(1039, 600);
                 jScrollPane3.getVerticalScrollBar().setUnitIncrement(15);
@@ -1613,6 +1634,7 @@ public class ExibirAnamneses extends javax.swing.JFrame {
                 int modelRow = JTAnamneses.convertRowIndexToModel(JTAnamneses.getSelectedRow());
                 int value = (Integer) JTAnamneses.getModel().getValueAt(modelRow, 0);
                 this.codigoanamnese = value;
+                labelnomepaciente.setText((String) JTAnamneses.getModel().getValueAt(modelRow, 1));
                 //a2 = dao2.ReadAnamneseConsulta(codconsulta);
                 //codanamnese = a2.getCodAnamnese();
                 existe = readcampos(codigoanamnese);
@@ -2121,6 +2143,7 @@ public class ExibirAnamneses extends javax.swing.JFrame {
     private javax.swing.JLabel LabelEmail3;
     private javax.swing.JLabel LabelLimite;
     private javax.swing.JLabel LabelNome5;
+    private javax.swing.JLabel LabelNomePaciente;
     private javax.swing.JLabel LabelPagina;
     private javax.swing.JLabel LabelQtdePaginas;
     private javax.swing.JDialog ModalAnamnese2;
@@ -2178,6 +2201,7 @@ public class ExibirAnamneses extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel labelInicioQueixa4;
     private javax.swing.JLabel labelInicioQueixa5;
+    private javax.swing.JLabel labelnomepaciente;
     private javax.swing.JLabel labeltelefone;
     private javax.swing.JLabel labeltelefone2;
     private javax.swing.JTextField txtBusca;

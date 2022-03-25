@@ -75,7 +75,7 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
     public boolean existe;
 
     //Paginacao
-    int PAGE_SIZE = 5;
+    int PAGE_SIZE = 15;
     double tableRowCount;
     int totalPages = 1;
     int currentPage = 1;
@@ -86,23 +86,22 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
         tableRowCount = dao.getRowCountTableExibirAnotacoes(Main.cod);
         if (tableRowCount > 0) {
             totalPages = (int) Math.ceil(tableRowCount / PAGE_SIZE);
-          
 
         }
-          currentPage = 1;
+        currentPage = 1;
     }
 
     public void getCountBusca(String Busca) {
         ViewsDAO dao = new ViewsDAO();
 
-        tableRowCount = dao.getRowCountTableExibirAnotacoesBusca(Main.cod,Busca);
+        tableRowCount = dao.getRowCountTableExibirAnotacoesBusca(Main.cod, Busca);
         //System.out.println(tableRowCount);
         if (tableRowCount > 0) {
             totalPages = (int) Math.ceil(tableRowCount / PAGE_SIZE);
             currentPage = 1;
 
         }
-          currentPage = 1;
+        currentPage = 1;
     }
 
     public void getPageData(int pageNo) {
@@ -128,16 +127,16 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
     public ExibirAnotacoes() {
         this.getCount();
         initComponents();
-        
+
         ModalAnotacao.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
         ModalHelp.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
         ModalMeusDados.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
-        
+
         Psicologo p = new Psicologo();
         PsicologoDAO dao = new PsicologoDAO();
         p = dao.ReadPsicologo(Main.cod);
         jLabel11.setText(p.getNome_completo());
-        String str= getFirstWord(jLabel11.getText());
+        String str = getFirstWord(jLabel11.getText());
         jLabel11.setText(str);
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
         BtnExibirAnotacoes.setEnabled(false);
@@ -174,21 +173,22 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
 //            });
 //        }
 //    }
-private String getFirstWord(String text) {
 
-  int index = text.indexOf(' ');
+    private String getFirstWord(String text) {
 
-  if (index > -1) { // Check if there is more than one word.
+        int index = text.indexOf(' ');
 
-    return text.substring(0, index).trim(); // Extract first word.
+        if (index > -1) { // Check if there is more than one word.
 
-  } else {
+            return text.substring(0, index).trim(); // Extract first word.
 
-    return text; // Text is the first word itself.
-  }
-}
+        } else {
 
-public void readpsicologo() {
+            return text; // Text is the first word itself.
+        }
+    }
+
+    public void readpsicologo() {
         Psicologo p = new Psicologo();
         PsicologoDAO dao = new PsicologoDAO();
         p = dao.ReadPsicologo(Main.cod);
@@ -210,7 +210,6 @@ public void readpsicologo() {
 
         }
     }
-
 
     public void ReadJTablePag(int start, int size) {
         DefaultTableModel model = (DefaultTableModel) JTAnotacoes.getModel();
@@ -1034,8 +1033,8 @@ public void readpsicologo() {
 
     private void txtBuscaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscaKeyPressed
         //        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            //            this.ReadJTableBusca(txtBusca.getText());
-            //        }
+        //            this.ReadJTableBusca(txtBusca.getText());
+        //        }
     }//GEN-LAST:event_txtBuscaKeyPressed
 
     private void BtnHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnHelpActionPerformed
@@ -1057,9 +1056,9 @@ public void readpsicologo() {
                     BtnVoltarBastante.setEnabled(true);
                     if (currentPage == totalPages) {
                         BtnAvancarPouco.setEnabled(false);
-                        BtnAvancarBastante.setEnabled(false);  
-                }
-                  
+                        BtnAvancarBastante.setEnabled(false);
+                    }
+
                 } else {
                     getPageDataBusca(currentPage + 5, txtBusca.getText());
                     BtnAlterarAnotacao.setEnabled(false);
@@ -1068,8 +1067,8 @@ public void readpsicologo() {
                     BtnVoltarBastante.setEnabled(true);
                     if (currentPage == totalPages) {
                         BtnAvancarPouco.setEnabled(false);
-                        BtnAvancarBastante.setEnabled(false);  
-                }
+                        BtnAvancarBastante.setEnabled(false);
+                    }
                 }
             } else {
                 if (currentPage + 5 > totalPages) {
@@ -1077,19 +1076,19 @@ public void readpsicologo() {
                     BtnVoltarPouco.setEnabled(true);
                     BtnVoltarBastante.setEnabled(true);
                     if (currentPage == totalPages) {
-                         BtnAvancarPouco.setEnabled(false);
-                         BtnAvancarBastante.setEnabled(false);  
-                }
+                        BtnAvancarPouco.setEnabled(false);
+                        BtnAvancarBastante.setEnabled(false);
+                    }
                 } else {
                     getPageData(currentPage + 5);
-                        BtnAlterarAnotacao.setEnabled(false);
-                        BtnExcluirAnotacao.setEnabled(false);
-                        BtnVoltarPouco.setEnabled(true);
-                        BtnVoltarBastante.setEnabled(true);
-                        if (currentPage == totalPages) {
-                            BtnAvancarPouco.setEnabled(false);
-                            BtnAvancarBastante.setEnabled(false);  
-                }
+                    BtnAlterarAnotacao.setEnabled(false);
+                    BtnExcluirAnotacao.setEnabled(false);
+                    BtnVoltarPouco.setEnabled(true);
+                    BtnVoltarBastante.setEnabled(true);
+                    if (currentPage == totalPages) {
+                        BtnAvancarPouco.setEnabled(false);
+                        BtnAvancarBastante.setEnabled(false);
+                    }
                 }
             }
 
@@ -1106,17 +1105,17 @@ public void readpsicologo() {
                 BtnVoltarPouco.setEnabled(true);
                 BtnVoltarBastante.setEnabled(true);
                 if (currentPage == totalPages) {
-                  BtnAvancarPouco.setEnabled(false);
-                  BtnAvancarBastante.setEnabled(false);  
+                    BtnAvancarPouco.setEnabled(false);
+                    BtnAvancarBastante.setEnabled(false);
                 }
-                 
+
             } else {
                 getPageData(currentPage + 1);
                 BtnVoltarPouco.setEnabled(true);
                 BtnVoltarBastante.setEnabled(true);
                 if (currentPage == totalPages) {
-                  BtnAvancarPouco.setEnabled(false);
-                  BtnAvancarBastante.setEnabled(false);  
+                    BtnAvancarPouco.setEnabled(false);
+                    BtnAvancarBastante.setEnabled(false);
                 }
             }
 
@@ -1130,26 +1129,25 @@ public void readpsicologo() {
             int pag1 = currentPage;
             getPageDataBusca((int) SpinnerNumPaginas.getValue(), txtBusca.getText());
             int pag2 = currentPage;
-            if(pag2<pag1){
+            if (pag2 < pag1) {
                 BtnAvancarPouco.setEnabled(true);
                 BtnAvancarBastante.setEnabled(true);
-                    if (currentPage == 1) {
-                        BtnVoltarPouco.setEnabled(false);
-                        BtnVoltarBastante.setEnabled(false);  
+                if (currentPage == 1) {
+                    BtnVoltarPouco.setEnabled(false);
+                    BtnVoltarBastante.setEnabled(false);
                 }
+            } else {
+                {
+                    BtnVoltarPouco.setEnabled(true);
+                    BtnVoltarBastante.setEnabled(true);
+                    if (currentPage == totalPages) {
+                        BtnAvancarPouco.setEnabled(false);
+                        BtnAvancarBastante.setEnabled(false);
                     }
-                    else{
-                    {
-                        BtnVoltarPouco.setEnabled(true);
-                        BtnVoltarBastante.setEnabled(true);
-                        if (currentPage == totalPages) {
-                            BtnAvancarPouco.setEnabled(false);
-                            BtnAvancarBastante.setEnabled(false);  
                 }
-                    }       
             }
-             BtnAlterarAnotacao.setEnabled(false);
-             BtnExcluirAnotacao.setEnabled(false);
+            BtnAlterarAnotacao.setEnabled(false);
+            BtnExcluirAnotacao.setEnabled(false);
 
         } else {
 
@@ -1163,24 +1161,24 @@ public void readpsicologo() {
         if (currentPage != 1) { //diferente da 1 pagina
             if (txtBusca.getText() != "") {
                 getPageDataBusca(currentPage - 1, txtBusca.getText());
-                 BtnAlterarAnotacao.setEnabled(false);
-                 BtnExcluirAnotacao.setEnabled(false);
-                 BtnAvancarPouco.setEnabled(true);
-                 BtnAvancarBastante.setEnabled(true);
-                 
+                BtnAlterarAnotacao.setEnabled(false);
+                BtnExcluirAnotacao.setEnabled(false);
+                BtnAvancarPouco.setEnabled(true);
+                BtnAvancarBastante.setEnabled(true);
+
             } else {
                 getPageData(currentPage - 1);
-                    BtnAvancarPouco.setEnabled(true);
-                    BtnAvancarBastante.setEnabled(true);
-                   
+                BtnAvancarPouco.setEnabled(true);
+                BtnAvancarBastante.setEnabled(true);
+
             }
 
         }
         SpinnerNumPaginas.setValue((int) currentPage);
         if (currentPage == 1) {
-                    BtnVoltarPouco.setEnabled(false);
-                    BtnVoltarBastante.setEnabled(false);  
-                }
+            BtnVoltarPouco.setEnabled(false);
+            BtnVoltarBastante.setEnabled(false);
+        }
     }//GEN-LAST:event_BtnVoltarPoucoActionPerformed
 
     private void BtnVoltarBastanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVoltarBastanteActionPerformed
@@ -1190,15 +1188,14 @@ public void readpsicologo() {
                     getPageDataBusca(1, txtBusca.getText());
                     BtnAvancarPouco.setEnabled(true);
                     BtnAvancarBastante.setEnabled(true);
-                    
-                    
+
                 } else {
                     getPageDataBusca(currentPage - 5, txtBusca.getText());
-                     BtnAlterarAnotacao.setEnabled(false);
-                     BtnExcluirAnotacao.setEnabled(false);
-                     BtnAvancarPouco.setEnabled(true);
-                     BtnAvancarBastante.setEnabled(true);
-                     
+                    BtnAlterarAnotacao.setEnabled(false);
+                    BtnExcluirAnotacao.setEnabled(false);
+                    BtnAvancarPouco.setEnabled(true);
+                    BtnAvancarBastante.setEnabled(true);
+
                 }
 
             } else {
@@ -1206,27 +1203,27 @@ public void readpsicologo() {
                     getPageData(1);
                     BtnAvancarPouco.setEnabled(true);
                     BtnAvancarBastante.setEnabled(true);
-                  
+
                 } else {
                     getPageData(currentPage - 5);
                     BtnAlterarAnotacao.setEnabled(false);
                     BtnExcluirAnotacao.setEnabled(false);
                     BtnAvancarPouco.setEnabled(true);
                     BtnAvancarBastante.setEnabled(true);
-                   
+
                 }
             }
 
         }
         SpinnerNumPaginas.setValue((int) currentPage);
         if (currentPage == 1) {
-                        BtnVoltarPouco.setEnabled(false);
-                        BtnVoltarBastante.setEnabled(false);  
-                }
+            BtnVoltarPouco.setEnabled(false);
+            BtnVoltarBastante.setEnabled(false);
+        }
     }//GEN-LAST:event_BtnVoltarBastanteActionPerformed
 
     private void SpinnerLimiteStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_SpinnerLimiteStateChanged
-       BtnVoltarPouco.setEnabled(false);
+        BtnVoltarPouco.setEnabled(false);
         BtnVoltarBastante.setEnabled(false);
         if (txtBusca.getText() != "") {
             PAGE_SIZE = (int) SpinnerLimite.getValue();
@@ -1236,15 +1233,14 @@ public void readpsicologo() {
 
             LabelQtdePaginas.setText("de " + totalPages);
             getPageDataBusca(1, txtBusca.getText());
-             if(totalPages==1){
-            BtnAvancarPouco.setEnabled(false);
-            BtnAvancarBastante.setEnabled(false);
-            
-        }
-             else{
-                 BtnAvancarPouco.setEnabled(true);
+            if (totalPages == 1) {
+                BtnAvancarPouco.setEnabled(false);
+                BtnAvancarBastante.setEnabled(false);
+
+            } else {
+                BtnAvancarPouco.setEnabled(true);
                 BtnAvancarBastante.setEnabled(true);
-             }
+            }
         } else {
             PAGE_SIZE = (int) SpinnerLimite.getValue();
             getCount();
@@ -1254,15 +1250,14 @@ public void readpsicologo() {
 
             LabelQtdePaginas.setText("de " + totalPages);
             getPageData(1);
-             if(totalPages==1){
-            BtnAvancarPouco.setEnabled(false);
-            BtnAvancarBastante.setEnabled(false);
-            
-        }
-             else{
-                 BtnAvancarPouco.setEnabled(true);
+            if (totalPages == 1) {
+                BtnAvancarPouco.setEnabled(false);
+                BtnAvancarBastante.setEnabled(false);
+
+            } else {
+                BtnAvancarPouco.setEnabled(true);
                 BtnAvancarBastante.setEnabled(true);
-             }
+            }
         }
     }//GEN-LAST:event_SpinnerLimiteStateChanged
 
@@ -1301,12 +1296,21 @@ public void readpsicologo() {
             int modelRow = JTAnotacoes.convertRowIndexToModel(JTAnotacoes.getSelectedRow());
             int value = (Integer) JTAnotacoes.getModel().getValueAt(modelRow, 0);
             a.setCodAnotacao(value);
-            dao.Delete(a);
+
+            int result = JOptionPane.showConfirmDialog(null, "Você tem certeza que deseja excluir esta Anotação?\nA exclusão é permanente e não poderá ser recuperada. Prosseguir?", "Confirmar Exclusão?", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+
+            if (result == 0) {
+                boolean sucesso = dao.Delete(a);
+                if (!sucesso) {
+                    JOptionPane.showMessageDialog(null, "Falha ao apagar a Anotação, tente novamente!", "ERRO", JOptionPane.ERROR_MESSAGE);
+
+                }
+            }
             //limpar a tela
 
             //mostrar mensagem de sucesso
             // JOptionPane.showMessageDialog(null,"Paciente Cadastrado com Sucesso!");
-            if (txtBusca.getText() == "") {
+            if (txtBusca.getText() != "") {
                 getCountBusca(txtBusca.getText());
                 SpinnerNumPaginas.setValue(currentPage);
                 LabelQtdePaginas.setText("de " + totalPages);
@@ -1315,7 +1319,7 @@ public void readpsicologo() {
                 getCount();
                 SpinnerNumPaginas.setValue(currentPage);
                 LabelQtdePaginas.setText("de " + totalPages);
-                getPageDataBusca(currentPage, txtBusca.getText());
+                getPageData(currentPage);
             }
 
         } else {
@@ -1326,16 +1330,16 @@ public void readpsicologo() {
     private void BtnAlterarAnotacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAlterarAnotacaoActionPerformed
         // TODO add your handling code here:
         //      if (JTAnotacoes.getSelectedRow() != -1) {
-            //             int modelRow = JTAnotacoes.convertRowIndexToModel(JTAnotacoes.getSelectedRow());
-            //            int value = (Integer)JTAnotacoes.getModel().getValueAt(modelRow,0);
-            //            AlterarAnotacaoPacienteMenu.codanotacao = value;
-            //            AlterarAnotacaoPacienteMenu cp = new AlterarAnotacaoPacienteMenu();
-            //            cp.setVisible(true);
-            //            this.dispose();
-            //
-            //        } else {
-            //            JOptionPane.showMessageDialog(this, "Selecione uma anotacao para alterar");
-            //        }
+        //             int modelRow = JTAnotacoes.convertRowIndexToModel(JTAnotacoes.getSelectedRow());
+        //            int value = (Integer)JTAnotacoes.getModel().getValueAt(modelRow,0);
+        //            AlterarAnotacaoPacienteMenu.codanotacao = value;
+        //            AlterarAnotacaoPacienteMenu cp = new AlterarAnotacaoPacienteMenu();
+        //            cp.setVisible(true);
+        //            this.dispose();
+        //
+        //        } else {
+        //            JOptionPane.showMessageDialog(this, "Selecione uma anotacao para alterar");
+        //        }
         if (JTAnotacoes.getSelectedRow() != -1) {
             Anotacao a = new Anotacao();
             AnotacaoDAO dao = new AnotacaoDAO();
@@ -1398,7 +1402,7 @@ public void readpsicologo() {
         if (!Character.isDigit(c)) {
             evt.consume();
         }
-         if (TxtTelefone6.getText().length()==11) {
+        if (TxtTelefone6.getText().length() == 11) {
             evt.consume();
         }
     }//GEN-LAST:event_TxtTelefone6KeyTyped
@@ -1408,7 +1412,7 @@ public void readpsicologo() {
         if (!Character.isDigit(c)) {
             evt.consume();
         }
-         if (TxtTelefone7.getText().length()==11) {
+        if (TxtTelefone7.getText().length() == 11) {
             evt.consume();
         }
     }//GEN-LAST:event_TxtTelefone7KeyTyped
@@ -1488,7 +1492,7 @@ public void readpsicologo() {
 //                        JOptionPane.showMessageDialog(this, "Psicologo: " + p.getNome_completo() + " Salvo com sucesso");
                         ModalMeusDados.dispose();
                         jLabel11.setText(p.getNome_completo());
-                        String str= getFirstWord(jLabel11.getText());
+                        String str = getFirstWord(jLabel11.getText());
                         jLabel11.setText(str);
                         // this.clear();
                     }
@@ -1503,7 +1507,7 @@ public void readpsicologo() {
                     tf.setPaciente(p);
                     tfdao.CreatePc(tf);
                 }
-                */
+                 */
                 //mostrar mensagem de sucesso
                 // JOptionPane.showMessageDialog(null,"Paciente Cadastrado com Sucesso!");
                 // ReadJTable();
@@ -1542,7 +1546,7 @@ public void readpsicologo() {
         tl.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BtnExibirAnotacoes1ActionPerformed
-public void clearAnotacao() {
+    public void clearAnotacao() {
         txtAssunto.setText(null);
         txtTexto.setText(null);
     }
@@ -1560,20 +1564,22 @@ public void clearAnotacao() {
 
             a.setCodAnotacao(codigoanotacao);
             boolean sucesso = dao.Update(a);
-            if (sucesso) {
-                JOptionPane.showMessageDialog(null, "Anotação Atualizada  com Sucesso!");
+            if (!sucesso) {
+                JOptionPane.showMessageDialog(null, "Falha ao Atualizar a Anotação!", "ERRO", JOptionPane.ERROR_MESSAGE);
             }
-        }
-        if (txtBusca.getText() == "") {
-            getCountBusca(txtBusca.getText());
-            SpinnerNumPaginas.setValue(currentPage);
-            LabelQtdePaginas.setText("de " + totalPages);
-            getPageDataBusca(currentPage, txtBusca.getText());
-        } else {
-            getCount();
-            SpinnerNumPaginas.setValue(currentPage);
-            LabelQtdePaginas.setText("de " + totalPages);
-            getPageDataBusca(currentPage, txtBusca.getText());
+
+            if (txtBusca.getText() != "") {
+                getCountBusca(txtBusca.getText());
+                SpinnerNumPaginas.setValue(currentPage);
+                LabelQtdePaginas.setText("de " + totalPages);
+                getPageDataBusca(currentPage, txtBusca.getText());
+            } else {
+                getCount();
+                SpinnerNumPaginas.setValue(currentPage);
+                LabelQtdePaginas.setText("de " + totalPages);
+                getPageData(currentPage);
+            }
+            ModalAnotacao.dispose();
         }
     }//GEN-LAST:event_BtnSalvarAlteracoesAnotacaoActionPerformed
 
