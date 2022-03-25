@@ -1754,8 +1754,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnHelpActionPerformed
 
     private void BtnAlterarConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAlterarConsultaActionPerformed
-        if (datepicker.getDateTimePermissive() == null) {
-            JOptionPane.showMessageDialog(this, "Por favor Insira uma data válida", "ERRO", JOptionPane.ERROR_MESSAGE);
+      
+        if (datepicker.getDateTimeStrict() == null) {
+            
+            JOptionPane.showMessageDialog(this, "Por favor Insira Data e Horário Válidos", "ERRO", JOptionPane.ERROR_MESSAGE);
         } else {
             Consulta c = new Consulta();
             ConsultaDAO cdao = new ConsultaDAO();

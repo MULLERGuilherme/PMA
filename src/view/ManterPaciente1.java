@@ -2892,11 +2892,11 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, msg, "ERRO!", JOptionPane.ERROR_MESSAGE);
             }
         }
-        if(totalPages>1){
-            if(currentPage<totalPages){
+        if (totalPages > 1) {
+            if (currentPage < totalPages) {
                 BtnAvancarPouco.setEnabled(true);
                 BtnAvancarBastante.setEnabled(true);
-                }
+            }
         }
     }//GEN-LAST:event_BtnSalvarAlteracoesNovo1ActionPerformed
 
@@ -3696,31 +3696,36 @@ public class ManterPaciente1 extends javax.swing.JFrame {
 
     private void BtnCadastrarConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCadastrarConsultaActionPerformed
         if (JTPacientes.getSelectedRow() != -1) {
+            if (data.getDateTimeStrict() == null) {
 
-            Consulta c = new Consulta();
-            ConsultaDAO cdao = new ConsultaDAO();
-            Paciente p = new Paciente();
-            int modelRow = JTPacientes.convertRowIndexToModel(JTPacientes.getSelectedRow());
-            int value = (Integer) JTPacientes.getModel().getValueAt(modelRow, 0);
-            c.getPaciente().setCodPaciente(value);
-            c.getPsicologo().setCodPsicologo(Main.cod);
+                JOptionPane.showMessageDialog(this, "Por favor Insira Data e Horário Válidos", "ERRO", JOptionPane.ERROR_MESSAGE);
+            } else {
+                Consulta c = new Consulta();
+                ConsultaDAO cdao = new ConsultaDAO();
+                Paciente p = new Paciente();
+                int modelRow = JTPacientes.convertRowIndexToModel(JTPacientes.getSelectedRow());
+                int value = (Integer) JTPacientes.getModel().getValueAt(modelRow, 0);
+                c.getPaciente().setCodPaciente(value);
+                c.getPsicologo().setCodPsicologo(Main.cod);
 
-            //java.util.Date date = new java.util.Date();
-            Object param;
-            LocalDateTime dateTime = (data.getDateTimePermissive());
-            //  System.out.println("Data formatada"+param);
-            c.setDataConsulta(dateTime);
-            c.setStatus("A confirmar");
-            c.setPagamento((String) JCBPagamento.getSelectedItem());
-            boolean sucesso = cdao.Create(c);
-            if (sucesso) {
+                //java.util.Date date = new java.util.Date();
+                Object param;
+                LocalDateTime dateTime = (data.getDateTimePermissive());
+                //  System.out.println("Data formatada"+param);
+                c.setDataConsulta(dateTime);
+                c.setStatus("A confirmar");
+                c.setPagamento((String) JCBPagamento.getSelectedItem());
+                boolean sucesso = cdao.Create(c);
+                if (sucesso) {
 //                JOptionPane.showMessageDialog(this, "Consulta Salva com sucesso");
-                   JCBPagamento.setSelectedIndex(0) ;
-                   ModalAlterarConsulta.dispose();
-                   data.clear();
+                    JCBPagamento.setSelectedIndex(0);
+                    ModalAlterarConsulta.dispose();
+                    data.clear();
+                }
             }
+
         } else {
-            JOptionPane.showMessageDialog(this, "Selecione um paciente para cadastrar uma consulta");
+            JOptionPane.showMessageDialog(this, "Selecione um paciente para cadastrar uma consulta", "ERRO", JOptionPane.ERROR_MESSAGE);
         }
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnCadastrarConsultaActionPerformed

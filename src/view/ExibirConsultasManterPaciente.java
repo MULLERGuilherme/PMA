@@ -76,8 +76,6 @@ public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
 
     }
 
-  
-
     public void getPageData(int pageNo) {
 
         currentPage = pageNo;
@@ -88,8 +86,6 @@ public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
         ReadJTablePag(startRow, PAGE_SIZE);
 
     }
-
-
 
     /**
      * Creates new form ExibirConsultasManterPaciente
@@ -2318,8 +2314,9 @@ public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnAlterarActionPerformed
 
     private void BtnAlterarConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAlterarConsultaActionPerformed
-        if (datepicker.getDateTimePermissive() == null) {
-            JOptionPane.showMessageDialog(this, "Por favor Insira uma data válida");
+        if (datepicker.getDateTimeStrict() == null) {
+
+            JOptionPane.showMessageDialog(this, "Por favor Insira Data e Horário Válidos", "ERRO", JOptionPane.ERROR_MESSAGE);
         } else {
             Consulta c = new Consulta();
             ConsultaDAO cdao = new ConsultaDAO();
