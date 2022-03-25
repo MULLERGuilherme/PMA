@@ -2124,6 +2124,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
 
         BtnNovo.setText("Novo");
         BtnNovo.setBackground(new java.awt.Color(204, 204, 204));
+        BtnNovo.setToolTipText("Criar um Novo Paciente");
         BtnNovo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnNovoActionPerformed(evt);
@@ -2132,6 +2133,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
 
         BtnVisuAlterarDados.setText(" Dados");
         BtnVisuAlterarDados.setBackground(new java.awt.Color(204, 204, 204));
+        BtnVisuAlterarDados.setToolTipText("Exibe os Dados de um Paciente selecionado");
         BtnVisuAlterarDados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnVisuAlterarDadosActionPerformed(evt);
@@ -2140,6 +2142,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
 
         btnVisuAnamneses.setText("Anamneses");
         btnVisuAnamneses.setBackground(new java.awt.Color(204, 204, 204));
+        btnVisuAnamneses.setToolTipText("Exibe as Anamneses de um Paciente selecionado");
         btnVisuAnamneses.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVisuAnamnesesActionPerformed(evt);
@@ -2148,6 +2151,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
 
         btnVisuConsultas.setText("Consultas");
         btnVisuConsultas.setBackground(new java.awt.Color(204, 204, 204));
+        btnVisuConsultas.setToolTipText("Exibe as Consultas de um Paciente selecionado");
         btnVisuConsultas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVisuConsultasActionPerformed(evt);
@@ -2156,6 +2160,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
 
         btnVisuAnotacoes.setText("Anotaçoes");
         btnVisuAnotacoes.setBackground(new java.awt.Color(204, 204, 204));
+        btnVisuAnotacoes.setToolTipText("Exibe as Anotações de um Paciente selecionado");
         btnVisuAnotacoes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVisuAnotacoesActionPerformed(evt);
@@ -2200,6 +2205,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         LabelLimite.setBackground(new java.awt.Color(204, 204, 204));
 
         SpinnerLimite.setModel(new javax.swing.SpinnerNumberModel(1, 1, 15, 1));
+        SpinnerLimite.setToolTipText("Alterar Limite de Pacientes que podem aparecer na Tabela");
         SpinnerLimite.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 SpinnerLimiteStateChanged(evt);
@@ -2207,6 +2213,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         });
 
         BtnVoltarBastante.setText("<<");
+        BtnVoltarBastante.setToolTipText("Voltar 5 páginas");
         BtnVoltarBastante.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnVoltarBastanteActionPerformed(evt);
@@ -2214,6 +2221,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         });
 
         BtnVoltarPouco.setText("<");
+        BtnVoltarPouco.setToolTipText("Voltar 1 página");
         BtnVoltarPouco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnVoltarPoucoActionPerformed(evt);
@@ -2224,6 +2232,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         LabelPagina.setBackground(new java.awt.Color(204, 204, 204));
 
         SpinnerNumPaginas.setModel(new javax.swing.SpinnerNumberModel(1, 1, totalPages, 1));
+        SpinnerNumPaginas.setToolTipText("Selecionar uma Página");
         SpinnerNumPaginas.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 SpinnerNumPaginasStateChanged(evt);
@@ -2234,6 +2243,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         LabelQtdePaginas.setBackground(new java.awt.Color(204, 204, 204));
 
         BtnAvancarPouco.setText(">");
+        BtnAvancarPouco.setToolTipText("Avançar 1 página");
         BtnAvancarPouco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnAvancarPoucoActionPerformed(evt);
@@ -2242,6 +2252,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
 
         BtnAvancarBastante.setText(">>");
         BtnAvancarBastante.setOpaque(false);
+        BtnAvancarBastante.setToolTipText("Avançar 5 páginas");
         BtnAvancarBastante.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnAvancarBastanteActionPerformed(evt);
@@ -2296,6 +2307,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             }
         });
 
+        txtBusca.setToolTipText("");
         txtBusca.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtBuscaKeyPressed(evt);
@@ -2305,6 +2317,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         jLabel14.setText("Buscar:");
 
         btnBuscar.setText("Buscar");
+        btnBuscar.setToolTipText("Realiza a Busca de um Paciente");
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscarActionPerformed(evt);
@@ -2313,6 +2326,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
 
         BtnCadastro.setText("Cadastrar Consulta");
         BtnCadastro.setBackground(new java.awt.Color(204, 204, 204));
+        BtnCadastro.setToolTipText("Cadastra uma nova Consulta para o Paciente selecionado");
         BtnCadastro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnCadastroActionPerformed(evt);
@@ -2385,6 +2399,8 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                 .addComponent(PainelPaginacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39))
         );
+
+        BtnNovo.getAccessibleContext().setAccessibleDescription("");
 
         getContentPane().add(jEImagePanel1, java.awt.BorderLayout.CENTER);
 

@@ -3159,7 +3159,11 @@
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="cc" red="cc" type="rgb"/>
             </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Criar um Novo Paciente"/>
           </Properties>
+          <AccessibilityProperties>
+            <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value=""/>
+          </AccessibilityProperties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnNovoActionPerformed"/>
           </Events>
@@ -3170,6 +3174,7 @@
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="cc" red="cc" type="rgb"/>
             </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Exibe os Dados de um Paciente selecionado"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnVisuAlterarDadosActionPerformed"/>
@@ -3181,6 +3186,7 @@
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="cc" red="cc" type="rgb"/>
             </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Exibe as Anamneses de um Paciente selecionado"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVisuAnamnesesActionPerformed"/>
@@ -3192,6 +3198,7 @@
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="cc" red="cc" type="rgb"/>
             </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Exibe as Consultas de um Paciente selecionado"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVisuConsultasActionPerformed"/>
@@ -3203,6 +3210,7 @@
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="cc" red="cc" type="rgb"/>
             </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Exibe as Anota&#xe7;&#xf5;es de um Paciente selecionado"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVisuAnotacoesActionPerformed"/>
@@ -3296,6 +3304,7 @@
                 <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
                   <SpinnerModel initial="1" maximum="15" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
                 </Property>
+                <Property name="toolTipText" type="java.lang.String" value="Alterar Limite de Pacientes que podem aparecer na Tabela"/>
               </Properties>
               <Events>
                 <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="SpinnerLimiteStateChanged"/>
@@ -3304,6 +3313,7 @@
             <Component class="javax.swing.JButton" name="BtnVoltarBastante">
               <Properties>
                 <Property name="text" type="java.lang.String" value="&lt;&lt;"/>
+                <Property name="toolTipText" type="java.lang.String" value="Voltar 5 p&#xe1;ginas"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnVoltarBastanteActionPerformed"/>
@@ -3312,6 +3322,7 @@
             <Component class="javax.swing.JButton" name="BtnVoltarPouco">
               <Properties>
                 <Property name="text" type="java.lang.String" value="&lt;"/>
+                <Property name="toolTipText" type="java.lang.String" value="Voltar 1 p&#xe1;gina"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnVoltarPoucoActionPerformed"/>
@@ -3330,6 +3341,7 @@
                 <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="new javax.swing.SpinnerNumberModel(1, 1, totalPages, 1)" type="code"/>
                 </Property>
+                <Property name="toolTipText" type="java.lang.String" value="Selecionar uma P&#xe1;gina"/>
               </Properties>
               <Events>
                 <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="SpinnerNumPaginasStateChanged"/>
@@ -3346,6 +3358,7 @@
             <Component class="javax.swing.JButton" name="BtnAvancarPouco">
               <Properties>
                 <Property name="text" type="java.lang.String" value="&gt;"/>
+                <Property name="toolTipText" type="java.lang.String" value="Avan&#xe7;ar 1 p&#xe1;gina"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnAvancarPoucoActionPerformed"/>
@@ -3355,6 +3368,7 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="&gt;&gt;"/>
                 <Property name="opaque" type="boolean" value="false"/>
+                <Property name="toolTipText" type="java.lang.String" value="Avan&#xe7;ar 5 p&#xe1;ginas"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnAvancarBastanteActionPerformed"/>
@@ -3373,6 +3387,9 @@
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txtBusca">
+          <Properties>
+            <Property name="toolTipText" type="java.lang.String" value=""/>
+          </Properties>
           <Events>
             <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtBuscaKeyPressed"/>
           </Events>
@@ -3385,6 +3402,7 @@
         <Component class="javax.swing.JButton" name="btnBuscar">
           <Properties>
             <Property name="text" type="java.lang.String" value="Buscar"/>
+            <Property name="toolTipText" type="java.lang.String" value="Realiza a Busca de um Paciente"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBuscarActionPerformed"/>
@@ -3396,6 +3414,7 @@
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="cc" red="cc" type="rgb"/>
             </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Cadastra uma nova Consulta para o Paciente selecionado"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnCadastroActionPerformed"/>

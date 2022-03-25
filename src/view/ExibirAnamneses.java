@@ -1180,6 +1180,7 @@ public class ExibirAnamneses extends javax.swing.JFrame {
 
         btnalterar.setText("Alterar");
         btnalterar.setBackground(new java.awt.Color(204, 204, 204));
+        btnalterar.setToolTipText("Altera os Dados de uma Anamnese Selecionada");
         btnalterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnalterarActionPerformed(evt);
@@ -1188,6 +1189,7 @@ public class ExibirAnamneses extends javax.swing.JFrame {
 
         btnExcluir.setText("Excluir");
         btnExcluir.setBackground(new java.awt.Color(204, 204, 204));
+        btnExcluir.setToolTipText("Excluir uma Anamnese Selecionada");
         btnExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnExcluirActionPerformed(evt);
@@ -1201,6 +1203,7 @@ public class ExibirAnamneses extends javax.swing.JFrame {
         });
 
         btnBuscar.setText("Buscar");
+        btnBuscar.setToolTipText("Realiza a busca de um Paciente");
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscarActionPerformed(evt);
@@ -1337,6 +1340,7 @@ public class ExibirAnamneses extends javax.swing.JFrame {
         );
 
         BtnHelp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/SimboloHelp.png"))); // NOI18N
+        BtnHelp.setToolTipText("Ajuda");
         BtnHelp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnHelpActionPerformed(evt);
