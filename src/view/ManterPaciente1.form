@@ -3365,10 +3365,10 @@
       <SubComponents>
         <Component class="javax.swing.JButton" name="BtnNovo">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Novo"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="cc" red="cc" type="rgb"/>
             </Property>
+            <Property name="text" type="java.lang.String" value="Novo"/>
             <Property name="toolTipText" type="java.lang.String" value="Criar um Novo Paciente"/>
           </Properties>
           <AccessibilityProperties>
@@ -3404,10 +3404,10 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnVisuConsultas">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Consultas"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="cc" red="cc" type="rgb"/>
             </Property>
+            <Property name="text" type="java.lang.String" value="Consultas"/>
             <Property name="toolTipText" type="java.lang.String" value="Exibe as Consultas de um Paciente selecionado"/>
           </Properties>
           <Events>

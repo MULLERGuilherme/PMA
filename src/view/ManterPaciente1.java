@@ -2728,6 +2728,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
 //        }
 //        
 //        txtCPF1.setFormatterFactory(new DefaultFormatterFactory(formatter));
+        this.clearNovoR();
         ModalNovoResolucaoMenor.setSize(840, 660);
         DataNasc2.setFont(new Font("Tahoma", Font.BOLD, 18));
         ModalNovoResolucaoMenor.setResizable(false);
@@ -2741,6 +2742,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
     private void BtnVisuAlterarDadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVisuAlterarDadosActionPerformed
         // TODO add your handling code here:
         if (JTPacientes.getSelectedRow() != -1) {
+            this.clearAlterarR();
             int modelRow = JTPacientes.convertRowIndexToModel(JTPacientes.getSelectedRow());
             int value = (Integer) JTPacientes.getModel().getValueAt(modelRow, 0);
             this.codigopaciente = value;
