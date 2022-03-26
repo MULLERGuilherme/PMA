@@ -1251,11 +1251,10 @@ public class VisualizarAnotacoes extends javax.swing.JFrame {
         getPageDataBusca(1, txtBusca.getText());
         BtnVoltarBastante.setEnabled(false);
         BtnVoltarBastante.setEnabled(false);
-        if(totalPages==1){
+        if (totalPages == 1) {
             BtnAvancarBastante.setEnabled(false);
             BtnAvancarBastante.setEnabled(false);
-        }
-        else{
+        } else {
             BtnAvancarBastante.setEnabled(true);
             BtnAvancarBastante.setEnabled(true);
         }
@@ -1491,6 +1490,8 @@ public class VisualizarAnotacoes extends javax.swing.JFrame {
                 String nome = (String) JTAnotacoes.getModel().getValueAt(modelRow, 1);
                 //a2 = dao2.ReadAnamneseConsulta(codconsulta);
                 //codanamnese = a2.getCodAnamnese();
+                txtAssunto.setText(null);
+                txtTexto.setText(null);
                 existe = readcampos(codigoanotacao);
                 ModalAnotacao.setSize(862, 870);
                 LabelNome5.setText(nome);
@@ -1565,6 +1566,8 @@ public class VisualizarAnotacoes extends javax.swing.JFrame {
             String nome = (String) JTAnotacoes.getModel().getValueAt(modelRow, 1);
             //a2 = dao2.ReadAnamneseConsulta(codconsulta);
             //codanamnese = a2.getCodAnamnese();
+            txtAssunto.setText(null);
+            txtTexto.setText(null);
             existe = readcampos(codigoanotacao);
             ModalAnotacao.setSize(890, 600);
             jScrollPane3.getVerticalScrollBar().setUnitIncrement(15);
