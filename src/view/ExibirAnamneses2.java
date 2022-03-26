@@ -1715,7 +1715,37 @@ public class ExibirAnamneses2 extends javax.swing.JFrame {
             getPageData(currentPage);
         }
     }//GEN-LAST:event_btnExcluirActionPerformed
-
+    
+       public void clearAnamnese(){
+        txtQueixaPrincipal2.setText("");
+        txtQueixaSecundaria2.setText("");
+        DataInicio2.clear();
+        txtComoComecou2.setText("");
+        txtDiagnostico2.setText("");
+        txtEncaminhamento2.setText("");
+        txtHistoricoFamiliar2.setText("");
+        txtDoencasConhecidas2.setText("");
+        txtSintomas2.setText("");
+        txtMedicamentosUtilizados2.setText("");
+        txtOqueMudou2.setText("");
+        SubitaOuProgressiva2.setSelectedIndex(0);
+        JCBPsicomotricidade2.setSelectedIndex(0);
+        CheckBoxVolicao1.setSelected(false);
+        CheckBoxAfeto1.setSelected(false);
+        CheckBoxHumor1.setSelected(false);
+        CheckBoxAnsiedade1.setSelected(false);
+        CheckBoxMedo1.setSelected(false);
+        CheckBoxCulpa1.setSelected(false);
+        CheckBoxRaiva1.setSelected(false);
+        CheckBoxLuto1.setSelected(false);
+      
+        CheckBoxDesanimo1.setSelected(false);
+        CheckBoxIntegridadeSensorial1.setSelected(false);
+        CheckBoxPercepcao1.setSelected(false);
+        CheckBoxAtencao1.setSelected(false);
+        CheckBoxMemoria1.setSelected(false);
+    }
+       
     private void btnalterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnalterarActionPerformed
         // TODO add your handling code here:
         //        if (JTAnamneses.getSelectedRow() != -1) {
@@ -1737,6 +1767,7 @@ public class ExibirAnamneses2 extends javax.swing.JFrame {
             labelnomepaciente.setText((String) JTAnamneses.getModel().getValueAt(modelRow, 1));
             //a2 = dao2.ReadAnamneseConsulta(codconsulta);
             //codanamnese = a2.getCodAnamnese();
+            clearAnamnese();
             existe = readcampos(codigoanamnese);
 
             if (existe) {
@@ -1996,6 +2027,7 @@ public class ExibirAnamneses2 extends javax.swing.JFrame {
                 this.codigoanamnese = value;
                 //a2 = dao2.ReadAnamneseConsulta(codconsulta);
                 //codanamnese = a2.getCodAnamnese();
+                clearAnamnese();
                 existe = readcampos(codigoanamnese);
                 labelnomepaciente.setText((String) JTAnamneses.getModel().getValueAt(modelRow, 1));
                 if (existe) {

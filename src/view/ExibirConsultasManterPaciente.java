@@ -1958,6 +1958,7 @@ public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
         CheckBoxCulpa1.setSelected(false);
         CheckBoxRaiva1.setSelected(false);
         CheckBoxLuto1.setSelected(false);
+      
         CheckBoxDesanimo1.setSelected(false);
         CheckBoxIntegridadeSensorial1.setSelected(false);
         CheckBoxPercepcao1.setSelected(false);
