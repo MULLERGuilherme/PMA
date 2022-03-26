@@ -2218,6 +2218,7 @@ public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
                 a.setQAECulpa(CheckBoxCulpa1.isSelected());
                 a.setQAERaiva(CheckBoxRaiva1.isSelected());
                 a.setQAELuto(CheckBoxLuto1.isSelected());
+                a.setQAEHumor(CheckBoxHumor1.isSelected());
                 a.setQAEDesanimo(CheckBoxDesanimo1.isSelected());
 
                 a.setPsicomotricidade((String) JCBPsicomotricidade2.getSelectedItem());
@@ -2271,6 +2272,7 @@ public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
                 a.setQAECulpa(CheckBoxCulpa1.isSelected());
                 a.setQAERaiva(CheckBoxRaiva1.isSelected());
                 a.setQAELuto(CheckBoxLuto1.isSelected());
+                a.setQAEHumor(CheckBoxHumor1.isSelected());
                 a.setQAEDesanimo(CheckBoxDesanimo1.isSelected());
                 a.setPsicomotricidade((String) JCBPsicomotricidade2.getSelectedItem());
 
@@ -2527,6 +2529,7 @@ public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
         AnamneseDAO dao2 = new AnamneseDAO();
         //a2 = dao2.ReadAnamneseConsulta(codconsulta);
         //codanamnese = a2.getCodAnamnese();
+        clearAnamnese();
         existe = readcampos();
         if (existe) {
 
@@ -2539,7 +2542,7 @@ public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
         ModalAnamnese3.setModal(true);
         ModalAnamnese3.setResizable(false);
         ModalAnamnese3.setLocationRelativeTo(null);
-        clearAnamnese();
+        
         ModalAnamnese3.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
