@@ -50,6 +50,7 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
 import javax.swing.table.TableRowSorter;
@@ -80,6 +81,7 @@ public class VisualizarAnotacoes extends javax.swing.JFrame {
     int totalPages = 1;
     int currentPage = 1;
     int startRow = 0;
+    private int codigopsicologo;
 
     public void getCount() {
         ViewsDAO dao = new ViewsDAO();
@@ -310,6 +312,18 @@ public class VisualizarAnotacoes extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
         BtnAlterar = new javax.swing.JButton();
+        LabelEsqueciSenha = new javax.swing.JLabel();
+        ModalAlterarSenha = new javax.swing.JDialog();
+        jPanel8 = new JPanel();
+        jLabel43 = new javax.swing.JLabel();
+        jPanel9 = new javax.swing.JPanel();
+        jLabel44 = new javax.swing.JLabel();
+        txtSenha1 = new javax.swing.JPasswordField();
+        jLabel45 = new javax.swing.JLabel();
+        txtConfirmarSenha1 = new javax.swing.JPasswordField();
+        chckMostrarSenha1 = new javax.swing.JCheckBox();
+        BtnAlterar1 = new javax.swing.JButton();
+        BtnCancelar8 = new javax.swing.JButton();
         jPanel1 = new JPanel();
         PainelMeusDados = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
@@ -372,23 +386,23 @@ public class VisualizarAnotacoes extends javax.swing.JFrame {
             .addGap(0, 50, Short.MAX_VALUE)
         );
 
+        jLabel7.setText("Anotações da Consulta");
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(59, 131, 117));
-        jLabel7.setText("Anotações da Consulta");
 
-        LabelNomePaciente.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         LabelNomePaciente.setText("Nome do Paciente :");
+        LabelNomePaciente.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        LabelNome5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         LabelNome5.setText(" Variável Nome do Paciente");
+        LabelNome5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        LabelAssunto.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         LabelAssunto.setText("Assunto:");
+        LabelAssunto.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         txtAssunto.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        LabelAssunto1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         LabelAssunto1.setText("Texto:");
+        LabelAssunto1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         txtTexto.setColumns(20);
         txtTexto.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -484,7 +498,7 @@ public class VisualizarAnotacoes extends javax.swing.JFrame {
         ModalAnotacao.getContentPane().setLayout(ModalAnotacaoLayout);
         ModalAnotacaoLayout.setHorizontalGroup(
             ModalAnotacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 853, Short.MAX_VALUE)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         ModalAnotacaoLayout.setVerticalGroup(
             ModalAnotacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -525,8 +539,8 @@ public class VisualizarAnotacoes extends javax.swing.JFrame {
 
         ModalMeusDados.setResizable(false);
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel3.setText("Nome:");
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         txtNome3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -539,8 +553,8 @@ public class VisualizarAnotacoes extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel4.setText("CRP:");
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         txtCRP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -553,11 +567,11 @@ public class VisualizarAnotacoes extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel5.setText("E-mail:");
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        labeltelefone.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         labeltelefone.setText("Telefone:");
+        labeltelefone.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         TxtTelefone6.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -565,8 +579,8 @@ public class VisualizarAnotacoes extends javax.swing.JFrame {
             }
         });
 
-        labeltelefone2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         labeltelefone2.setText("Telefone 2:");
+        labeltelefone2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         TxtTelefone7.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -576,13 +590,13 @@ public class VisualizarAnotacoes extends javax.swing.JFrame {
 
         PainelIdentificacaoPessoal5.setBackground(new java.awt.Color(59, 131, 117));
 
+        jLabel15.setText("DADOS DO PSICÓLOGO");
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel15.setText("DADOS DO PSICÓLOGO");
 
+        jLabel35.setText("NOME");
         jLabel35.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel35.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel35.setText("NOME");
 
         javax.swing.GroupLayout PainelIdentificacaoPessoal5Layout = new javax.swing.GroupLayout(PainelIdentificacaoPessoal5);
         PainelIdentificacaoPessoal5.setLayout(PainelIdentificacaoPessoal5Layout);
@@ -601,12 +615,33 @@ public class VisualizarAnotacoes extends javax.swing.JFrame {
             .addComponent(jLabel35, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        BtnAlterar.setText("Alterar");
         BtnAlterar.setBackground(new java.awt.Color(59, 131, 117));
         BtnAlterar.setForeground(new java.awt.Color(255, 255, 255));
-        BtnAlterar.setText("Alterar");
         BtnAlterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnAlterarActionPerformed(evt);
+            }
+        });
+
+        LabelEsqueciSenha.setText("Alterar Senha");
+        LabelEsqueciSenha.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                LabelEsqueciSenhaMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                LabelEsqueciSenhaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                LabelEsqueciSenhaMouseExited(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                LabelEsqueciSenhaMouseReleased(evt);
+            }
+        });
+        LabelEsqueciSenha.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                LabelEsqueciSenhaKeyPressed(evt);
             }
         });
 
@@ -621,17 +656,19 @@ public class VisualizarAnotacoes extends javax.swing.JFrame {
                 .addGap(190, 190, 190))
             .addGroup(ModalMeusDadosLayout.createSequentialGroup()
                 .addGap(45, 45, 45)
-                .addGroup(ModalMeusDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5)
-                    .addComponent(labeltelefone)
-                    .addComponent(labeltelefone2)
-                    .addComponent(jLabel3)
-                    .addComponent(TxtTelefone6, javax.swing.GroupLayout.DEFAULT_SIZE, 441, Short.MAX_VALUE)
-                    .addComponent(TxtTelefone7)
-                    .addComponent(txtEmail2)
-                    .addComponent(txtCRP)
-                    .addComponent(txtNome3))
+                .addGroup(ModalMeusDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(LabelEsqueciSenha)
+                    .addGroup(ModalMeusDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel4)
+                        .addComponent(jLabel5)
+                        .addComponent(labeltelefone)
+                        .addComponent(labeltelefone2)
+                        .addComponent(jLabel3)
+                        .addComponent(TxtTelefone6, javax.swing.GroupLayout.DEFAULT_SIZE, 441, Short.MAX_VALUE)
+                        .addComponent(TxtTelefone7)
+                        .addComponent(txtEmail2)
+                        .addComponent(txtCRP)
+                        .addComponent(txtNome3)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         ModalMeusDadosLayout.setVerticalGroup(
@@ -658,9 +695,126 @@ public class VisualizarAnotacoes extends javax.swing.JFrame {
                 .addComponent(labeltelefone2)
                 .addGap(18, 18, 18)
                 .addComponent(TxtTelefone7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 133, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(LabelEsqueciSenha)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
                 .addComponent(BtnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
+        );
+
+        ModalAlterarSenha.setResizable(false);
+
+        jPanel8.setBackground(new java.awt.Color(59, 131, 117));
+        jPanel8.setForeground(new java.awt.Color(59, 131, 117));
+        jPanel8.setPreferredSize(new java.awt.Dimension(1080, 89));
+
+        jLabel43.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel43.setText("Alterar Senha");
+        jLabel43.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabel43.setForeground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel43, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel43, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
+        );
+
+        jLabel44.setText("Nova Senha");
+        jLabel44.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+
+        txtSenha1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        jLabel45.setText("Confirme a Nova Senha");
+        jLabel45.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+
+        txtConfirmarSenha1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        chckMostrarSenha1.setText("MostrarSenha");
+        chckMostrarSenha1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                chckMostrarSenha1MouseClicked(evt);
+            }
+        });
+
+        BtnAlterar1.setText("Alterar");
+        BtnAlterar1.setBackground(new java.awt.Color(0, 112, 186));
+        BtnAlterar1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        BtnAlterar1.setForeground(new java.awt.Color(255, 255, 255));
+        BtnAlterar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAlterar1ActionPerformed(evt);
+            }
+        });
+
+        BtnCancelar8.setText("Cancelar");
+        BtnCancelar8.setBackground(new java.awt.Color(255, 153, 153));
+        BtnCancelar8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        BtnCancelar8.setForeground(new java.awt.Color(255, 255, 255));
+        BtnCancelar8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnCancelar8ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                .addGap(0, 37, Short.MAX_VALUE)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel45)
+                    .addComponent(jLabel44)
+                    .addComponent(txtSenha1, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(chckMostrarSenha1)
+                        .addComponent(txtConfirmarSenha1, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(36, 36, 36))
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGap(116, 116, 116)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(BtnCancelar8, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
+                    .addComponent(BtnAlterar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(jLabel44)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtSenha1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel45)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtConfirmarSenha1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(chckMostrarSenha1)
+                .addGap(18, 18, 18)
+                .addComponent(BtnAlterar1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(BtnCancelar8, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(36, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout ModalAlterarSenhaLayout = new javax.swing.GroupLayout(ModalAlterarSenha.getContentPane());
+        ModalAlterarSenha.getContentPane().setLayout(ModalAlterarSenhaLayout);
+        ModalAlterarSenhaLayout.setHorizontalGroup(
+            ModalAlterarSenhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, 357, Short.MAX_VALUE)
+        );
+        ModalAlterarSenhaLayout.setVerticalGroup(
+            ModalAlterarSenhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ModalAlterarSenhaLayout.createSequentialGroup()
+                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -671,8 +825,8 @@ public class VisualizarAnotacoes extends javax.swing.JFrame {
 
         PainelMeusDados.setBackground(new java.awt.Color(102, 102, 102));
 
-        jButton2.setBackground(new java.awt.Color(102, 102, 102));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/UserIconBranco90x90.png"))); // NOI18N
+        jButton2.setBackground(new java.awt.Color(102, 102, 102));
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton2MouseClicked(evt);
@@ -684,9 +838,9 @@ public class VisualizarAnotacoes extends javax.swing.JFrame {
             }
         });
 
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout PainelMeusDadosLayout = new javax.swing.GroupLayout(PainelMeusDados);
         PainelMeusDados.setLayout(PainelMeusDadosLayout);
@@ -709,10 +863,10 @@ public class VisualizarAnotacoes extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jLabel2.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("EXIBIR ANOTAÇÕES");
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -779,8 +933,8 @@ public class VisualizarAnotacoes extends javax.swing.JFrame {
 
         PainelPaginacao.setOpaque(false);
 
-        LabelLimite.setBackground(new java.awt.Color(204, 204, 204));
         LabelLimite.setText("Limite");
+        LabelLimite.setBackground(new java.awt.Color(204, 204, 204));
 
         SpinnerLimite.setModel(new javax.swing.SpinnerNumberModel(1, 1, 15, 1));
         SpinnerLimite.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -803,8 +957,8 @@ public class VisualizarAnotacoes extends javax.swing.JFrame {
             }
         });
 
-        LabelPagina.setBackground(new java.awt.Color(204, 204, 204));
         LabelPagina.setText("Página");
+        LabelPagina.setBackground(new java.awt.Color(204, 204, 204));
 
         SpinnerNumPaginas.setModel(new javax.swing.SpinnerNumberModel(1, 1, totalPages, 1));
         SpinnerNumPaginas.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -813,8 +967,8 @@ public class VisualizarAnotacoes extends javax.swing.JFrame {
             }
         });
 
-        LabelQtdePaginas.setBackground(new java.awt.Color(204, 204, 204));
         LabelQtdePaginas.setText("de X");
+        LabelQtdePaginas.setBackground(new java.awt.Color(204, 204, 204));
 
         BtnAvancarPouco.setText(">");
         BtnAvancarPouco.addActionListener(new java.awt.event.ActionListener() {
@@ -893,11 +1047,11 @@ public class VisualizarAnotacoes extends javax.swing.JFrame {
 
         jLabel14.setText("Buscar:");
 
-        jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel1.setText("Exibindo Anotações do Paciente");
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
 
-        lNome.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         lNome.setText("jLabel3");
+        lNome.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
 
         BtnVoltarPaciente.setText("Voltar");
         BtnVoltarPaciente.addActionListener(new java.awt.event.ActionListener() {
@@ -975,50 +1129,50 @@ public class VisualizarAnotacoes extends javax.swing.JFrame {
         PainelMenu.setBackground(new java.awt.Color(102, 102, 102));
         PainelMenu.setForeground(new java.awt.Color(102, 102, 102));
 
+        BtnVoltar.setText("Início");
         BtnVoltar.setBackground(new java.awt.Color(102, 102, 102));
         BtnVoltar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnVoltar.setForeground(new java.awt.Color(255, 255, 255));
-        BtnVoltar.setText("Início");
         BtnVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnVoltarActionPerformed(evt);
             }
         });
 
+        BtnPacientes.setText("Pacientes");
         BtnPacientes.setBackground(new java.awt.Color(102, 102, 102));
         BtnPacientes.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnPacientes.setForeground(new java.awt.Color(255, 255, 255));
-        BtnPacientes.setText("Pacientes");
         BtnPacientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnPacientesActionPerformed(evt);
             }
         });
 
+        BtnExibirAnamneses.setText("Exibir Anamneses");
         BtnExibirAnamneses.setBackground(new java.awt.Color(102, 102, 102));
         BtnExibirAnamneses.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnExibirAnamneses.setForeground(new java.awt.Color(255, 255, 255));
-        BtnExibirAnamneses.setText("Exibir Anamneses");
         BtnExibirAnamneses.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnExibirAnamnesesActionPerformed(evt);
             }
         });
 
+        BtnExibirAnotacoes.setText("Exibir Anotações");
         BtnExibirAnotacoes.setBackground(new java.awt.Color(102, 102, 102));
         BtnExibirAnotacoes.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnExibirAnotacoes.setForeground(new java.awt.Color(255, 255, 255));
-        BtnExibirAnotacoes.setText("Exibir Anotações");
         BtnExibirAnotacoes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnExibirAnotacoesActionPerformed(evt);
             }
         });
 
+        BtnExibirAnotacoes1.setText("Sair");
         BtnExibirAnotacoes1.setBackground(new java.awt.Color(102, 102, 102));
         BtnExibirAnotacoes1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnExibirAnotacoes1.setForeground(new java.awt.Color(255, 255, 255));
-        BtnExibirAnotacoes1.setText("Sair");
         BtnExibirAnotacoes1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnExibirAnotacoes1ActionPerformed(evt);
@@ -1605,6 +1759,75 @@ public class VisualizarAnotacoes extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_BtnAlterarActionPerformed
 
+    private void chckMostrarSenha1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chckMostrarSenha1MouseClicked
+        if (chckMostrarSenha1.isSelected()) {
+            txtSenha1.setEchoChar((char) 0);
+            txtConfirmarSenha1.setEchoChar((char) 0);
+        } else {
+            txtSenha1.setEchoChar('*');
+            txtConfirmarSenha1.setEchoChar('*');
+        }
+    }//GEN-LAST:event_chckMostrarSenha1MouseClicked
+
+    private void BtnAlterar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAlterar1ActionPerformed
+
+        Psicologo p = new Psicologo();
+        PsicologoDAO dao = new PsicologoDAO();
+        if (!Validar.vCamposVaziosSenha(this, txtSenha1, txtConfirmarSenha1)) {
+            String senha = new String(txtSenha1.getPassword());
+            String csenha = new String(txtConfirmarSenha1.getPassword());
+            if (senha.equals(csenha)) {
+                p.setSenha(senha);
+                p.setCodPsicologo(this.codigopsicologo);
+                UIManager.put("OptionPane.yesButtonText", "Sim");
+                UIManager.put("OptionPane.noButtonText", "Não");
+
+                int result = JOptionPane.showConfirmDialog(this, "Alterar Usuário Senha??", "Confirmar Alteração", JOptionPane.YES_NO_OPTION);
+
+                if (result == 0) {
+                    dao.UpdateSenha(p);
+                    //JOptionPane.showMessageDialog(this, "Usuário e Senha Atualizado com Sucesso!");
+                    //TelaLogin tl = new TelaLogin();
+                    //tl.setVisible(true);
+                    ModalAlterarSenha.dispose();
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "As senhas inseridas são diferentes!");
+
+            }
+        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnAlterar1ActionPerformed
+
+    private void BtnCancelar8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCancelar8ActionPerformed
+        ModalAlterarSenha.dispose();
+    }//GEN-LAST:event_BtnCancelar8ActionPerformed
+
+    private void LabelEsqueciSenhaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LabelEsqueciSenhaMouseClicked
+        // TODO add your handling code here:
+        ModalAlterarSenha.setSize(367, 475);
+        ModalAlterarSenha.setModal(true);
+        //            readpsicologo();
+        ModalAlterarSenha.setLocationRelativeTo(null);
+        ModalAlterarSenha.setVisible(true);
+    }//GEN-LAST:event_LabelEsqueciSenhaMouseClicked
+
+    private void LabelEsqueciSenhaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LabelEsqueciSenhaMouseEntered
+        LabelEsqueciSenha.setForeground(new java.awt.Color(255, 0, 255));
+    }//GEN-LAST:event_LabelEsqueciSenhaMouseEntered
+
+    private void LabelEsqueciSenhaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LabelEsqueciSenhaMouseExited
+        LabelEsqueciSenha.setForeground(new java.awt.Color(0, 0, 0));
+    }//GEN-LAST:event_LabelEsqueciSenhaMouseExited
+
+    private void LabelEsqueciSenhaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LabelEsqueciSenhaMouseReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LabelEsqueciSenhaMouseReleased
+
+    private void LabelEsqueciSenhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_LabelEsqueciSenhaKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LabelEsqueciSenhaKeyPressed
+
     /**
      * @param args the command line arguments
      */
@@ -1645,9 +1868,11 @@ public class VisualizarAnotacoes extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnAlterar;
+    private javax.swing.JButton BtnAlterar1;
     private javax.swing.JButton BtnAlterarAnotacao;
     private javax.swing.JButton BtnAvancarBastante;
     private javax.swing.JButton BtnAvancarPouco;
+    private javax.swing.JButton BtnCancelar8;
     private javax.swing.JButton BtnCancelarAnotacao;
     private javax.swing.JButton BtnExcluirAnotacao;
     private javax.swing.JButton BtnExibirAnamneses;
@@ -1663,11 +1888,13 @@ public class VisualizarAnotacoes extends javax.swing.JFrame {
     private javax.swing.JTable JTAnotacoes;
     private javax.swing.JLabel LabelAssunto;
     private javax.swing.JLabel LabelAssunto1;
+    private javax.swing.JLabel LabelEsqueciSenha;
     private javax.swing.JLabel LabelLimite;
     private javax.swing.JLabel LabelNome5;
     private javax.swing.JLabel LabelNomePaciente;
     private javax.swing.JLabel LabelPagina;
     private javax.swing.JLabel LabelQtdePaginas;
+    private javax.swing.JDialog ModalAlterarSenha;
     private javax.swing.JDialog ModalAnotacao;
     private javax.swing.JDialog ModalHelp;
     private javax.swing.JDialog ModalMeusDados;
@@ -1681,6 +1908,7 @@ public class VisualizarAnotacoes extends javax.swing.JFrame {
     private javax.swing.JTextField TxtTelefone6;
     private javax.swing.JTextField TxtTelefone7;
     private javax.swing.JButton btnBuscar;
+    private javax.swing.JCheckBox chckMostrarSenha1;
     private javax.swing.JButton jButton2;
     private LIB.JEImagePanel jEImagePanel1;
     private LIB.JEImagePanel jEImagePanel4;
@@ -1692,12 +1920,17 @@ public class VisualizarAnotacoes extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -1707,8 +1940,10 @@ public class VisualizarAnotacoes extends javax.swing.JFrame {
     private javax.swing.JTextField txtAssunto;
     private javax.swing.JTextField txtBusca;
     private javax.swing.JTextField txtCRP;
+    private javax.swing.JPasswordField txtConfirmarSenha1;
     private javax.swing.JTextField txtEmail2;
     private javax.swing.JTextField txtNome3;
+    private javax.swing.JPasswordField txtSenha1;
     private javax.swing.JTextArea txtTexto;
     // End of variables declaration//GEN-END:variables
 }

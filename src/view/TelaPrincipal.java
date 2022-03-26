@@ -27,6 +27,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
 import javax.swing.table.TableRowSorter;
@@ -56,6 +57,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private boolean fone2 = false;
     private int codigopaciente = -1;
     private int codigoconsulta = -1;
+    private int codigopsicologo;
 
     public TelaPrincipal() {
         initComponents();
@@ -270,6 +272,18 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
         BtnAlterar = new javax.swing.JButton();
+        LabelEsqueciSenha = new javax.swing.JLabel();
+        ModalAlterarSenha = new javax.swing.JDialog();
+        jPanel8 = new JPanel();
+        jLabel43 = new javax.swing.JLabel();
+        jPanel9 = new javax.swing.JPanel();
+        jLabel44 = new javax.swing.JLabel();
+        txtSenha1 = new javax.swing.JPasswordField();
+        jLabel45 = new javax.swing.JLabel();
+        txtConfirmarSenha1 = new javax.swing.JPasswordField();
+        chckMostrarSenha1 = new javax.swing.JCheckBox();
+        BtnAlterar1 = new javax.swing.JButton();
+        BtnCancelar8 = new javax.swing.JButton();
         jPanel1 = new JPanel();
         PainelMeusDados = new javax.swing.JPanel();
         jButton3 = new javax.swing.JButton();
@@ -1170,6 +1184,27 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        LabelEsqueciSenha.setText("Alterar Senha");
+        LabelEsqueciSenha.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                LabelEsqueciSenhaMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                LabelEsqueciSenhaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                LabelEsqueciSenhaMouseExited(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                LabelEsqueciSenhaMouseReleased(evt);
+            }
+        });
+        LabelEsqueciSenha.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                LabelEsqueciSenhaKeyPressed(evt);
+            }
+        });
+
         javax.swing.GroupLayout ModalMeusDadosLayout = new javax.swing.GroupLayout(ModalMeusDados.getContentPane());
         ModalMeusDados.getContentPane().setLayout(ModalMeusDadosLayout);
         ModalMeusDadosLayout.setHorizontalGroup(
@@ -1181,17 +1216,19 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addGap(190, 190, 190))
             .addGroup(ModalMeusDadosLayout.createSequentialGroup()
                 .addGap(45, 45, 45)
-                .addGroup(ModalMeusDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel12)
-                    .addComponent(jLabel13)
-                    .addComponent(labeltelefone)
-                    .addComponent(labeltelefone2)
-                    .addComponent(jLabel10)
-                    .addComponent(TxtTelefone6, javax.swing.GroupLayout.DEFAULT_SIZE, 441, Short.MAX_VALUE)
-                    .addComponent(TxtTelefone7)
-                    .addComponent(txtEmail2)
-                    .addComponent(txtCRP)
-                    .addComponent(txtNome3))
+                .addGroup(ModalMeusDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(LabelEsqueciSenha)
+                    .addGroup(ModalMeusDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel12)
+                        .addComponent(jLabel13)
+                        .addComponent(labeltelefone)
+                        .addComponent(labeltelefone2)
+                        .addComponent(jLabel10)
+                        .addComponent(TxtTelefone6, javax.swing.GroupLayout.DEFAULT_SIZE, 441, Short.MAX_VALUE)
+                        .addComponent(TxtTelefone7)
+                        .addComponent(txtEmail2)
+                        .addComponent(txtCRP)
+                        .addComponent(txtNome3)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         ModalMeusDadosLayout.setVerticalGroup(
@@ -1218,9 +1255,126 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addComponent(labeltelefone2)
                 .addGap(18, 18, 18)
                 .addComponent(TxtTelefone7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 133, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(LabelEsqueciSenha)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
                 .addComponent(BtnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
+        );
+
+        ModalAlterarSenha.setResizable(false);
+
+        jPanel8.setBackground(new java.awt.Color(59, 131, 117));
+        jPanel8.setForeground(new java.awt.Color(59, 131, 117));
+        jPanel8.setPreferredSize(new java.awt.Dimension(1080, 89));
+
+        jLabel43.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabel43.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel43.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel43.setText("Alterar Senha");
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel43, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel43, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
+        );
+
+        jLabel44.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel44.setText("Nova Senha");
+
+        txtSenha1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        jLabel45.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel45.setText("Confirme a Nova Senha");
+
+        txtConfirmarSenha1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        chckMostrarSenha1.setText("MostrarSenha");
+        chckMostrarSenha1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                chckMostrarSenha1MouseClicked(evt);
+            }
+        });
+
+        BtnAlterar1.setBackground(new java.awt.Color(0, 112, 186));
+        BtnAlterar1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        BtnAlterar1.setForeground(new java.awt.Color(255, 255, 255));
+        BtnAlterar1.setText("Alterar");
+        BtnAlterar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAlterar1ActionPerformed(evt);
+            }
+        });
+
+        BtnCancelar8.setBackground(new java.awt.Color(255, 153, 153));
+        BtnCancelar8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        BtnCancelar8.setForeground(new java.awt.Color(255, 255, 255));
+        BtnCancelar8.setText("Cancelar");
+        BtnCancelar8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnCancelar8ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                .addGap(0, 37, Short.MAX_VALUE)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel45)
+                    .addComponent(jLabel44)
+                    .addComponent(txtSenha1, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(chckMostrarSenha1)
+                        .addComponent(txtConfirmarSenha1, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(36, 36, 36))
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGap(116, 116, 116)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(BtnCancelar8, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
+                    .addComponent(BtnAlterar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(jLabel44)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtSenha1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel45)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtConfirmarSenha1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(chckMostrarSenha1)
+                .addGap(18, 18, 18)
+                .addComponent(BtnAlterar1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(BtnCancelar8, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(36, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout ModalAlterarSenhaLayout = new javax.swing.GroupLayout(ModalAlterarSenha.getContentPane());
+        ModalAlterarSenha.getContentPane().setLayout(ModalAlterarSenhaLayout);
+        ModalAlterarSenhaLayout.setHorizontalGroup(
+            ModalAlterarSenhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, 357, Short.MAX_VALUE)
+        );
+        ModalAlterarSenhaLayout.setVerticalGroup(
+            ModalAlterarSenhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ModalAlterarSenhaLayout.createSequentialGroup()
+                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -2079,6 +2233,75 @@ public class TelaPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_JTConsultasMousePressed
 
+    private void chckMostrarSenha1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chckMostrarSenha1MouseClicked
+        if (chckMostrarSenha1.isSelected()) {
+            txtSenha1.setEchoChar((char) 0);
+            txtConfirmarSenha1.setEchoChar((char) 0);
+        } else {
+            txtSenha1.setEchoChar('*');
+            txtConfirmarSenha1.setEchoChar('*');
+        }
+    }//GEN-LAST:event_chckMostrarSenha1MouseClicked
+
+    private void BtnAlterar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAlterar1ActionPerformed
+
+        Psicologo p = new Psicologo();
+        PsicologoDAO dao = new PsicologoDAO();
+        if (!Validar.vCamposVaziosSenha(this, txtSenha1, txtConfirmarSenha1)) {
+            String senha = new String(txtSenha1.getPassword());
+            String csenha = new String(txtConfirmarSenha1.getPassword());
+            if (senha.equals(csenha)) {
+                p.setSenha(senha);
+                p.setCodPsicologo(this.codigopsicologo);
+                UIManager.put("OptionPane.yesButtonText", "Sim");
+                UIManager.put("OptionPane.noButtonText", "Não");
+
+                int result = JOptionPane.showConfirmDialog(this, "Alterar Usuário Senha??", "Confirmar Alteração", JOptionPane.YES_NO_OPTION);
+
+                if (result == 0) {
+                    dao.UpdateSenha(p);
+                    //JOptionPane.showMessageDialog(this, "Usuário e Senha Atualizado com Sucesso!");
+                    //TelaLogin tl = new TelaLogin();
+                    //tl.setVisible(true);
+                    ModalAlterarSenha.dispose();
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "As senhas inseridas são diferentes!");
+
+            }
+        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnAlterar1ActionPerformed
+
+    private void BtnCancelar8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCancelar8ActionPerformed
+        ModalAlterarSenha.dispose();
+    }//GEN-LAST:event_BtnCancelar8ActionPerformed
+
+    private void LabelEsqueciSenhaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LabelEsqueciSenhaMouseClicked
+        // TODO add your handling code here:
+        ModalAlterarSenha.setSize(367, 475);
+        ModalAlterarSenha.setModal(true);
+        //            readpsicologo();
+        ModalAlterarSenha.setLocationRelativeTo(null);
+        ModalAlterarSenha.setVisible(true);
+    }//GEN-LAST:event_LabelEsqueciSenhaMouseClicked
+
+    private void LabelEsqueciSenhaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LabelEsqueciSenhaMouseEntered
+        LabelEsqueciSenha.setForeground(new java.awt.Color(255, 0, 255));
+    }//GEN-LAST:event_LabelEsqueciSenhaMouseEntered
+
+    private void LabelEsqueciSenhaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LabelEsqueciSenhaMouseExited
+        LabelEsqueciSenha.setForeground(new java.awt.Color(0, 0, 0));
+    }//GEN-LAST:event_LabelEsqueciSenhaMouseExited
+
+    private void LabelEsqueciSenhaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LabelEsqueciSenhaMouseReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LabelEsqueciSenhaMouseReleased
+
+    private void LabelEsqueciSenhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_LabelEsqueciSenhaKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LabelEsqueciSenhaKeyPressed
+
     /**
      * @param args the command line arguments
      */
@@ -2117,9 +2340,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnAlterar;
+    private javax.swing.JButton BtnAlterar1;
     private javax.swing.JButton BtnAlterarConsulta;
     private javax.swing.JButton BtnCancelar6;
     private javax.swing.JButton BtnCancelar7;
+    private javax.swing.JButton BtnCancelar8;
     private javax.swing.JButton BtnCancelarAnotacao;
     private javax.swing.JButton BtnExcluir;
     private javax.swing.JButton BtnExibirAnamneses;
@@ -2152,10 +2377,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel LabelAssunto;
     private javax.swing.JLabel LabelAssunto1;
     private javax.swing.JLabel LabelEmail3;
+    private javax.swing.JLabel LabelEsqueciSenha;
     private javax.swing.JLabel LabelNome6;
     private javax.swing.JLabel LabelNomePaciente;
     private javax.swing.JLabel LabelNomePaciente1;
     private javax.swing.JDialog ModalAlterarConsulta;
+    private javax.swing.JDialog ModalAlterarSenha;
     private javax.swing.JDialog ModalAnamnese3;
     private javax.swing.JDialog ModalAnotacao;
     private javax.swing.JDialog ModalHelp;
@@ -2170,6 +2397,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField TxtTelefone6;
     private javax.swing.JTextField TxtTelefone7;
     private javax.swing.JButton btnAlterar;
+    private javax.swing.JCheckBox chckMostrarSenha1;
     private com.github.lgooddatepicker.components.DateTimePicker datepicker;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -2196,6 +2424,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel50;
@@ -2217,6 +2448,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -2232,6 +2465,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField txtAssunto;
     private javax.swing.JTextField txtCRP;
     private javax.swing.JTextField txtComoComecou2;
+    private javax.swing.JPasswordField txtConfirmarSenha1;
     private javax.swing.JTextField txtDiagnostico2;
     private javax.swing.JTextField txtDoencasConhecidas2;
     private javax.swing.JTextField txtEmail2;
@@ -2242,6 +2476,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField txtOqueMudou2;
     private javax.swing.JTextField txtQueixaPrincipal2;
     private javax.swing.JTextField txtQueixaSecundaria2;
+    private javax.swing.JPasswordField txtSenha1;
     private javax.swing.JTextField txtSintomas2;
     private javax.swing.JTextArea txtTexto;
     // End of variables declaration//GEN-END:variables
