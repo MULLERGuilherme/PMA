@@ -1328,11 +1328,10 @@ public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
                                     .addComponent(JCBPagamento, 0, 154, Short.MAX_VALUE)
                                     .addComponent(status, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE))
-                            .addComponent(BtnAlterarConsulta, javax.swing.GroupLayout.Alignment.TRAILING))))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(BtnAlterarConsulta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -1873,7 +1872,7 @@ public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
             codconsulta = value;
             readatributos();
 
-            ModalAlterarConsulta.setSize(586, 320);
+            ModalAlterarConsulta.setSize(520, 305);
             ModalAlterarConsulta.setModal(true);
             ModalAlterarConsulta.setResizable(false);
             ModalAlterarConsulta.setLocationRelativeTo(null);
@@ -1954,7 +1953,7 @@ public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
                 codconsulta = value;
                 readatributos();
 
-                ModalAlterarConsulta.setSize(586, 320);
+                ModalAlterarConsulta.setSize(520, 305);
                 ModalAlterarConsulta.setModal(true);
                 ModalAlterarConsulta.setLocationRelativeTo(null);
                 ModalAlterarConsulta.setVisible(true);
