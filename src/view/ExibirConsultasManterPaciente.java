@@ -1864,6 +1864,16 @@ public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(this, "Selecione uma consulta para alterar");
         }
+        BtnVoltarBastante.setEnabled(false);
+        BtnVoltarBastante.setEnabled(false);
+        if(totalPages==1){
+            BtnAvancarBastante.setEnabled(false);
+            BtnAvancarBastante.setEnabled(false);
+        }
+        else{
+            BtnAvancarBastante.setEnabled(true);
+            BtnAvancarBastante.setEnabled(true);
+        }
     }//GEN-LAST:event_btnalterarconsultaActionPerformed
     public void readatributos() {
         Consulta c = new Consulta();

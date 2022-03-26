@@ -767,6 +767,16 @@ public class ManterConsultasAdm extends javax.swing.JFrame {
         SpinnerNumPaginas.setValue(1);
         LabelQtdePaginas.setText("de " + totalPages);
         getPageDataBusca(1, txtBusca.getText());
+        BtnVoltarBastante.setEnabled(false);
+        BtnVoltarBastante.setEnabled(false);
+        if(totalPages==1){
+            BtnAvancarBastante.setEnabled(false);
+            BtnAvancarBastante.setEnabled(false);
+        }
+        else{
+            BtnAvancarBastante.setEnabled(true);
+            BtnAvancarBastante.setEnabled(true);
+        }
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void SpinnerLimiteStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_SpinnerLimiteStateChanged
