@@ -317,7 +317,7 @@ public class ConsultaDAO {
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("Update consulta set Deletada = true WHERE CodPaciente =? ");
+            stmt = con.prepareStatement("Update consulta set Status = 'Cancelada', Deletada = true WHERE CodPaciente =? ");
 
             stmt.setInt(1, p.getCodPaciente());
 
@@ -360,7 +360,7 @@ public class ConsultaDAO {
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("Update consulta set Deletada = true WHERE CodPsicologo =? ");
+            stmt = con.prepareStatement("Update consulta set Status = 'Cancelada', Deletada = true WHERE CodPsicologo =? ");
 
             stmt.setInt(1, p.getCodPsicologo());
 
