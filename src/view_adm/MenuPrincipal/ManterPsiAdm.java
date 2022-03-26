@@ -1754,11 +1754,11 @@ public class ManterPsiAdm extends javax.swing.JFrame {
         BtnVoltarBastante.setEnabled(false);
         BtnVoltarBastante.setEnabled(false);
         if(totalPages==1){
-            BtnAvancarBastante.setEnabled(false);
+            BtnAvancarPouco.setEnabled(false);
             BtnAvancarBastante.setEnabled(false);
         }
         else{
-            BtnAvancarBastante.setEnabled(true);
+            BtnAvancarPouco.setEnabled(true);
             BtnAvancarBastante.setEnabled(true);
         }
     }//GEN-LAST:event_JCBdeletadosActionPerformed

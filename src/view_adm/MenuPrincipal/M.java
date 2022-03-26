@@ -3633,6 +3633,16 @@ public class M extends javax.swing.JFrame {
             if (result == 0) {
                 boolean status = Deletar.DPaciente(p);
                 //limpar a tela
+                BtnVoltarPouco.setEnabled(false);
+                BtnVoltarBastante.setEnabled(false);
+                if(totalPages==1){
+                    BtnAvancarPouco.setEnabled(false);
+                    BtnAvancarBastante.setEnabled(false);
+                }
+                else{
+                    BtnAvancarPouco.setEnabled(true);
+                    BtnAvancarBastante.setEnabled(true);
+                }
                 if (!status) {
                     Restaurar.RestaurarPaciente(p.getCodPaciente());
                     JOptionPane.showMessageDialog(this, "Houve um problema ao Excluir o Paciente, tente novamente!", "ERRO!", JOptionPane.ERROR_MESSAGE);
@@ -3687,10 +3697,10 @@ public class M extends javax.swing.JFrame {
         BtnVoltarBastante.setEnabled(false);
         if(totalPages==1){
             BtnAvancarBastante.setEnabled(false);
-            BtnAvancarBastante.setEnabled(false);
+            BtnAvancarPouco.setEnabled(false);
         }
         else{
-            BtnAvancarBastante.setEnabled(true);
+            BtnAvancarPouco.setEnabled(true);
             BtnAvancarBastante.setEnabled(true);
         }
     }//GEN-LAST:event_JCBdeletadosActionPerformed
