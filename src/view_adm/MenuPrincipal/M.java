@@ -3683,6 +3683,16 @@ public class M extends javax.swing.JFrame {
             LabelQtdePaginas.setText("de " + totalPages);
             getPageData(currentPage);
         }
+        BtnVoltarBastante.setEnabled(false);
+        BtnVoltarBastante.setEnabled(false);
+        if(totalPages==1){
+            BtnAvancarBastante.setEnabled(false);
+            BtnAvancarBastante.setEnabled(false);
+        }
+        else{
+            BtnAvancarBastante.setEnabled(true);
+            BtnAvancarBastante.setEnabled(true);
+        }
     }//GEN-LAST:event_JCBdeletadosActionPerformed
 
     private void btnRestaurarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRestaurarActionPerformed
