@@ -67,7 +67,6 @@ public class TelaLogin extends javax.swing.JFrame {
         txtLogin = new javax.swing.JTextField();
         BtnLogin = new javax.swing.JButton();
         txtSenha = new javax.swing.JPasswordField();
-        LabelEsqueciSenha = new javax.swing.JLabel();
         PainelGradiente =  new JPanelGradient();
         jLabel4 = new javax.swing.JLabel();
         ChckMostrarSenha = new javax.swing.JCheckBox();
@@ -105,27 +104,6 @@ public class TelaLogin extends javax.swing.JFrame {
         txtSenha.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtSenhaKeyPressed(evt);
-            }
-        });
-
-        LabelEsqueciSenha.setText("Esqueci minha senha");
-        LabelEsqueciSenha.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                LabelEsqueciSenhaMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                LabelEsqueciSenhaMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                LabelEsqueciSenhaMouseExited(evt);
-            }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                LabelEsqueciSenhaMouseReleased(evt);
-            }
-        });
-        LabelEsqueciSenha.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                LabelEsqueciSenhaKeyPressed(evt);
             }
         });
 
@@ -178,11 +156,8 @@ public class TelaLogin extends javax.swing.JFrame {
                         .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(30, 30, 30)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(ChckMostrarSenha)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(LabelEsqueciSenha))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(ChckMostrarSenha, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(BtnLogin, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(0, 31, Short.MAX_VALUE))
         );
@@ -199,9 +174,7 @@ public class TelaLogin extends javax.swing.JFrame {
                 .addGap(7, 7, 7)
                 .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LabelEsqueciSenha)
-                    .addComponent(ChckMostrarSenha))
+                .addComponent(ChckMostrarSenha)
                 .addGap(28, 28, 28)
                 .addComponent(BtnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(44, Short.MAX_VALUE))
@@ -262,18 +235,6 @@ public class TelaLogin extends javax.swing.JFrame {
 
     }//GEN-LAST:event_BtnLoginActionPerformed
 
-    private void LabelEsqueciSenhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_LabelEsqueciSenhaKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_LabelEsqueciSenhaKeyPressed
-
-    private void LabelEsqueciSenhaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LabelEsqueciSenhaMouseClicked
-        // TODO add your handling code here:
-        ValidarUsuario vu = new ValidarUsuario();
-        vu.setVisible(true);
-
-        this.dispose();
-    }//GEN-LAST:event_LabelEsqueciSenhaMouseClicked
-
     private void ChckMostrarSenhaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ChckMostrarSenhaMouseClicked
         if (ChckMostrarSenha.isSelected()) {
             txtSenha.setEchoChar((char) 0);
@@ -281,18 +242,6 @@ public class TelaLogin extends javax.swing.JFrame {
             txtSenha.setEchoChar('*');
         }
     }//GEN-LAST:event_ChckMostrarSenhaMouseClicked
-
-    private void LabelEsqueciSenhaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LabelEsqueciSenhaMouseEntered
-        LabelEsqueciSenha.setForeground(new java.awt.Color(255, 0, 255));
-    }//GEN-LAST:event_LabelEsqueciSenhaMouseEntered
-
-    private void LabelEsqueciSenhaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LabelEsqueciSenhaMouseReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_LabelEsqueciSenhaMouseReleased
-
-    private void LabelEsqueciSenhaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LabelEsqueciSenhaMouseExited
-        LabelEsqueciSenha.setForeground(new java.awt.Color(0, 0, 0));
-    }//GEN-LAST:event_LabelEsqueciSenhaMouseExited
 
     private void txtSenhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSenhaKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
@@ -435,7 +384,6 @@ public class TelaLogin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnLogin;
     private javax.swing.JCheckBox ChckMostrarSenha;
-    private javax.swing.JLabel LabelEsqueciSenha;
     private javax.swing.JPanel PainelGradiente;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

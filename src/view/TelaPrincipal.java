@@ -13,6 +13,7 @@ import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Toolkit;
+import java.awt.event.KeyEvent;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -2054,13 +2055,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNome3ActionPerformed
 
-    private void txtNome3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNome3KeyTyped
-        char c = evt.getKeyChar();
-        if (Character.isDigit(c)) {
-            evt.consume();
-        }
-    }//GEN-LAST:event_txtNome3KeyTyped
-
     private void txtCRPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCRPActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCRPActionPerformed
@@ -2319,6 +2313,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void btnMeusDadosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMeusDadosMouseExited
         btnMeusDados.setBorderPainted(false);
     }//GEN-LAST:event_btnMeusDadosMouseExited
+
+    private void txtNome3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNome3KeyTyped
+       
+    }//GEN-LAST:event_txtNome3KeyTyped
 
     /**
      * @param args the command line arguments

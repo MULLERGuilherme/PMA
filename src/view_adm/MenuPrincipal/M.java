@@ -2023,7 +2023,7 @@ public class M extends javax.swing.JFrame {
             PainelMeusDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PainelMeusDadosLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, 64, Short.MAX_VALUE)
+                .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -2039,18 +2039,16 @@ public class M extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(PainelMeusDados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, 984, Short.MAX_VALUE)
+                .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, 992, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(PainelMeusDados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, 67, Short.MAX_VALUE)
                 .addContainerGap())
+            .addComponent(PainelMeusDados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.NORTH);
@@ -3620,7 +3618,8 @@ public class M extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnCadastrarConsultaActionPerformed
 
     private void BtnExcluirPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnExcluirPacienteActionPerformed
-        // TODO add your handling code here:
+        BtnVoltarPouco.setEnabled(false);
+        BtnVoltarBastante.setEnabled(false);
         if (JTPacientes.getSelectedRow() != -1) {
             int modelRow = JTPacientes.convertRowIndexToModel(JTPacientes.getSelectedRow());
             int value = (Integer) JTPacientes.getModel().getValueAt(modelRow, 0);
@@ -3635,17 +3634,14 @@ public class M extends javax.swing.JFrame {
                 boolean status = Deletar.DPaciente(p);
                 //limpar a tela
                
-                if(totalPages==1){
+                if(totalPages<2){
                     BtnAvancarPouco.setEnabled(false);
                     BtnAvancarBastante.setEnabled(false);
-                     BtnVoltarPouco.setEnabled(false);
-                     BtnVoltarBastante.setEnabled(false);
+                     
                 }
                 else{
                     BtnAvancarPouco.setEnabled(true);
                     BtnAvancarBastante.setEnabled(true);
-                     BtnVoltarPouco.setEnabled(false);
-                     BtnVoltarBastante.setEnabled(false);
                 }
                 if (!status) {
                     Restaurar.RestaurarPaciente(p.getCodPaciente());

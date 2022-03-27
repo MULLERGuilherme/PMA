@@ -45,12 +45,8 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="ChckMostrarSenha" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="LabelEsqueciSenha" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="ChckMostrarSenha" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="BtnLogin" alignment="0" min="-2" pref="251" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -72,10 +68,7 @@
               <EmptySpace min="7" pref="7" max="-2" attributes="0"/>
               <Component id="txtSenha" min="-2" pref="30" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="LabelEsqueciSenha" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="ChckMostrarSenha" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
+              <Component id="ChckMostrarSenha" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
               <Component id="BtnLogin" min="-2" pref="42" max="-2" attributes="0"/>
               <EmptySpace pref="44" max="32767" attributes="0"/>
@@ -126,18 +119,6 @@
     <Component class="javax.swing.JPasswordField" name="txtSenha">
       <Events>
         <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtSenhaKeyPressed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="LabelEsqueciSenha">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Esqueci minha senha"/>
-      </Properties>
-      <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="LabelEsqueciSenhaMouseClicked"/>
-        <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="LabelEsqueciSenhaMouseEntered"/>
-        <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="LabelEsqueciSenhaMouseExited"/>
-        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="LabelEsqueciSenhaMouseReleased"/>
-        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="LabelEsqueciSenhaKeyPressed"/>
       </Events>
     </Component>
     <Container class="javax.swing.JPanel" name="PainelGradiente">

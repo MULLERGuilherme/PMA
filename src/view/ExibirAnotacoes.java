@@ -1436,26 +1436,39 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
         BtnAlterarAnotacao.setEnabled(true);
         BtnExcluirAnotacao.setEnabled(true);
         if (evt.getClickCount() == 2) {
-            if (JTAnotacoes.getSelectedRow() != -1) {
-                Anotacao a = new Anotacao();
-                AnotacaoDAO dao = new AnotacaoDAO();
-                int modelRow = JTAnotacoes.convertRowIndexToModel(JTAnotacoes.getSelectedRow());
-                int value = (Integer) JTAnotacoes.getModel().getValueAt(modelRow, 0);
-                this.codigoanotacao = value;
-                String nome = (String) JTAnotacoes.getModel().getValueAt(modelRow, 1);
-                //a2 = dao2.ReadAnamneseConsulta(codconsulta);
-                //codanamnese = a2.getCodAnamnese();
-                txtAssunto.setText(null);
-                txtTexto.setText(null);
-                existe = readcampos(codigoanotacao);
-                ModalAnotacao.setSize(862, 870);
-                LabelNome5.setText(nome);
-                ModalAnotacao.setModal(true);
-                ModalAnotacao.setLocationRelativeTo(null);
-                ModalAnotacao.setVisible(true);
-            } else {
-                JOptionPane.showMessageDialog(this, "Selecione uma anotacao para alterar");
-            }
+            // TODO add your handling code here:
+        //      if (JTAnotacoes.getSelectedRow() != -1) {
+        //             int modelRow = JTAnotacoes.convertRowIndexToModel(JTAnotacoes.getSelectedRow());
+        //            int value = (Integer)JTAnotacoes.getModel().getValueAt(modelRow,0);
+        //            AlterarAnotacaoPacienteMenu.codanotacao = value;
+        //            AlterarAnotacaoPacienteMenu cp = new AlterarAnotacaoPacienteMenu();
+        //            cp.setVisible(true);
+        //            this.dispose();
+        //
+        //        } else {
+        //            JOptionPane.showMessageDialog(this, "Selecione uma anotacao para alterar");
+        //        }
+        if (JTAnotacoes.getSelectedRow() != -1) {
+            Anotacao a = new Anotacao();
+            AnotacaoDAO dao = new AnotacaoDAO();
+            int modelRow = JTAnotacoes.convertRowIndexToModel(JTAnotacoes.getSelectedRow());
+            int value = (Integer) JTAnotacoes.getModel().getValueAt(modelRow, 0);
+            this.codigoanotacao = value;
+            String nome = (String) JTAnotacoes.getModel().getValueAt(modelRow, 1);
+            //a2 = dao2.ReadAnamneseConsulta(codconsulta);
+            //codanamnese = a2.getCodAnamnese();
+            txtAssunto.setText(null);
+            txtTexto.setText(null);
+            existe = readcampos(codigoanotacao);
+            ModalAnotacao.setSize(890, 600);
+            jScrollPane4.getVerticalScrollBar().setUnitIncrement(15);
+            LabelNome5.setText(nome);
+            ModalAnotacao.setModal(true);
+            ModalAnotacao.setLocationRelativeTo(null);
+            ModalAnotacao.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "Selecione uma anotacao para alterar", "ERRO", JOptionPane.ERROR_MESSAGE);
+        }
 
         }
     }//GEN-LAST:event_JTAnotacoesMousePressed
