@@ -7,12 +7,14 @@ package view;
 
 import util.Util;
 import Validacoes.Validar;
+import java.awt.Color;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
@@ -107,9 +109,9 @@ public class ExibirAnamneses extends javax.swing.JFrame {
         Psicologo p = new Psicologo();
         PsicologoDAO dao = new PsicologoDAO();
         p = dao.ReadPsicologo(Main.cod);
-        jLabel32.setText(p.getNome_completo());
-        String str = getFirstWord(jLabel32.getText());
-        jLabel32.setText(str);
+        jLabel11.setText(p.getNome_completo());
+        String str = getFirstWord(jLabel11.getText());
+        jLabel11.setText(str);
 
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pmaiconemenor.png")));
         BtnExibirAnamneses.setEnabled(false);
@@ -447,9 +449,9 @@ public class ExibirAnamneses extends javax.swing.JFrame {
         BtnCancelar8 = new javax.swing.JButton();
         jPanel1 = new JPanel();
         jLabel1 = new javax.swing.JLabel();
-        PainelMeusDados6 = new javax.swing.JPanel();
-        jButton9 = new javax.swing.JButton();
-        jLabel32 = new javax.swing.JLabel();
+        PainelMeusDados = new javax.swing.JPanel();
+        btnMeusDados = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
         jEImagePanel1 = new LIB.JEImagePanel();
         btnalterar = new javax.swing.JButton();
         btnExcluir = new javax.swing.JButton();
@@ -1183,10 +1185,10 @@ public class ExibirAnamneses extends javax.swing.JFrame {
         jPanel8.setForeground(new java.awt.Color(59, 131, 117));
         jPanel8.setPreferredSize(new java.awt.Dimension(1080, 89));
 
-        jLabel43.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel43.setText("Alterar Senha");
         jLabel43.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel43.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel43.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel43.setText("Alterar Senha");
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -1199,13 +1201,13 @@ public class ExibirAnamneses extends javax.swing.JFrame {
             .addComponent(jLabel43, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
         );
 
-        jLabel44.setText("Nova Senha");
         jLabel44.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel44.setText("Nova Senha");
 
         txtSenha1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
-        jLabel45.setText("Confirme a Nova Senha");
         jLabel45.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel45.setText("Confirme a Nova Senha");
 
         txtConfirmarSenha1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
@@ -1216,20 +1218,20 @@ public class ExibirAnamneses extends javax.swing.JFrame {
             }
         });
 
-        BtnAlterar1.setText("Alterar");
         BtnAlterar1.setBackground(new java.awt.Color(0, 112, 186));
         BtnAlterar1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnAlterar1.setForeground(new java.awt.Color(255, 255, 255));
+        BtnAlterar1.setText("Alterar");
         BtnAlterar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnAlterar1ActionPerformed(evt);
             }
         });
 
-        BtnCancelar8.setText("Cancelar");
         BtnCancelar8.setBackground(new java.awt.Color(255, 153, 153));
         BtnCancelar8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnCancelar8.setForeground(new java.awt.Color(255, 255, 255));
+        BtnCancelar8.setText("Cancelar");
         BtnCancelar8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnCancelar8ActionPerformed(evt);
@@ -1303,43 +1305,54 @@ public class ExibirAnamneses extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
 
-        PainelMeusDados6.setBackground(new java.awt.Color(102, 102, 102));
+        PainelMeusDados.setBackground(new java.awt.Color(102, 102, 102));
 
-        jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/UserIconBranco90x90.png"))); // NOI18N
-        jButton9.setBackground(new java.awt.Color(102, 102, 102));
-        jButton9.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnMeusDados.setBackground(new java.awt.Color(102, 102, 102));
+        btnMeusDados.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/UserIconBranco_66x66.png"))); // NOI18N
+        btnMeusDados.setBorder(null);
+        btnMeusDados.setContentAreaFilled(false);
+        btnMeusDados.setFocusPainted(false);
+        btnMeusDados.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton9MouseClicked(evt);
+                btnMeusDadosMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnMeusDadosMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnMeusDadosMouseExited(evt);
             }
         });
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
+        btnMeusDados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
+                btnMeusDadosActionPerformed(evt);
             }
         });
 
-        jLabel32.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel32.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel32.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
-        javax.swing.GroupLayout PainelMeusDados6Layout = new javax.swing.GroupLayout(PainelMeusDados6);
-        PainelMeusDados6.setLayout(PainelMeusDados6Layout);
-        PainelMeusDados6Layout.setHorizontalGroup(
-            PainelMeusDados6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelMeusDados6Layout.createSequentialGroup()
+        javax.swing.GroupLayout PainelMeusDadosLayout = new javax.swing.GroupLayout(PainelMeusDados);
+        PainelMeusDados.setLayout(PainelMeusDadosLayout);
+        PainelMeusDadosLayout.setHorizontalGroup(
+            PainelMeusDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PainelMeusDadosLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnMeusDados, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(29, Short.MAX_VALUE))
         );
-        PainelMeusDados6Layout.setVerticalGroup(
-            PainelMeusDados6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelMeusDados6Layout.createSequentialGroup()
-                .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(PainelMeusDados6Layout.createSequentialGroup()
+        PainelMeusDadosLayout.setVerticalGroup(
+            PainelMeusDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PainelMeusDadosLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel32, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(PainelMeusDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(PainelMeusDadosLayout.createSequentialGroup()
+                        .addComponent(btnMeusDados, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -1348,17 +1361,15 @@ public class ExibirAnamneses extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addComponent(PainelMeusDados6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addComponent(PainelMeusDados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 996, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(PainelMeusDados6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(PainelMeusDados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.NORTH);
@@ -1549,7 +1560,7 @@ public class ExibirAnamneses extends javax.swing.JFrame {
                             .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 722, Short.MAX_VALUE)))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 732, Short.MAX_VALUE)))
                 .addGap(18, 18, 18)
                 .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -2196,9 +2207,9 @@ public class ExibirAnamneses extends javax.swing.JFrame {
                         }
 //                        JOptionPane.showMessageDialog(this, "Psicologo: " + p.getNome_completo() + " Salvo com sucesso");
                         ModalMeusDados.dispose();
-                        jLabel32.setText(p.getNome_completo());
-                        String str = getFirstWord(jLabel32.getText());
-                        jLabel32.setText(str);
+                        jLabel11.setText(p.getNome_completo());
+                        String str = getFirstWord(jLabel11.getText());
+                        jLabel11.setText(str);
                         // this.clear();
                     }
 
@@ -2221,20 +2232,6 @@ public class ExibirAnamneses extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_BtnAlterarActionPerformed
-
-    private void jButton9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseClicked
-        ModalMeusDados.setSize(540, 620);
-        ModalMeusDados.setModal(true);
-        TxtTelefone7.setVisible(false);
-        labeltelefone2.setVisible(false);
-        readpsicologo();
-        ModalMeusDados.setLocationRelativeTo(null);
-        ModalMeusDados.setVisible(true);
-    }//GEN-LAST:event_jButton9MouseClicked
-
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton9ActionPerformed
 
     private void BtnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVoltarActionPerformed
         TelaPrincipal mp1 = new TelaPrincipal();
@@ -2335,6 +2332,29 @@ public class ExibirAnamneses extends javax.swing.JFrame {
         ModalAlterarSenha.dispose();
     }//GEN-LAST:event_BtnCancelar8ActionPerformed
 
+    private void btnMeusDadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMeusDadosMouseClicked
+        ModalMeusDados.setSize(540, 620);
+        ModalMeusDados.setModal(true);
+        TxtTelefone7.setVisible(false);
+        labeltelefone2.setVisible(false);
+        readpsicologo();
+        ModalMeusDados.setLocationRelativeTo(null);
+        ModalMeusDados.setVisible(true);
+    }//GEN-LAST:event_btnMeusDadosMouseClicked
+
+    private void btnMeusDadosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMeusDadosMouseEntered
+        btnMeusDados.setBorderPainted(true);
+        btnMeusDados.setBorder(BorderFactory.createLineBorder(Color.WHITE,1));
+    }//GEN-LAST:event_btnMeusDadosMouseEntered
+
+    private void btnMeusDadosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMeusDadosMouseExited
+        btnMeusDados.setBorderPainted(false);
+    }//GEN-LAST:event_btnMeusDadosMouseExited
+
+    private void btnMeusDadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMeusDadosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMeusDadosActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2422,7 +2442,7 @@ public class ExibirAnamneses extends javax.swing.JFrame {
     private javax.swing.JPanel PainelIdentificacaoPessoal4;
     private javax.swing.JPanel PainelIdentificacaoPessoal6;
     private javax.swing.JPanel PainelMenu;
-    private javax.swing.JPanel PainelMeusDados6;
+    private javax.swing.JPanel PainelMeusDados;
     private javax.swing.JPanel PainelPaginacao;
     private javax.swing.JSpinner SpinnerLimite;
     private javax.swing.JSpinner SpinnerNumPaginas;
@@ -2431,13 +2451,14 @@ public class ExibirAnamneses extends javax.swing.JFrame {
     private javax.swing.JTextField TxtTelefone7;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnExcluir;
+    private javax.swing.JButton btnMeusDados;
     private javax.swing.JButton btnalterar;
     private javax.swing.JCheckBox chckMostrarSenha1;
-    private javax.swing.JButton jButton9;
     private LIB.JEImagePanel jEImagePanel1;
     private LIB.JEImagePanel jEImagePanel4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -2451,7 +2472,6 @@ public class ExibirAnamneses extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel43;
