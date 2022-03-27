@@ -49,6 +49,7 @@ import java.awt.Toolkit;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
@@ -325,10 +326,10 @@ public class VisualizarAnotacoes extends javax.swing.JFrame {
         BtnAlterar1 = new javax.swing.JButton();
         BtnCancelar8 = new javax.swing.JButton();
         jPanel1 = new JPanel();
-        PainelMeusDados = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
-        jLabel11 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        PainelMeusDados = new javax.swing.JPanel();
+        btnMeusDados = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
         jEImagePanel1 = new LIB.JEImagePanel();
         BtnAlterarAnotacao = new javax.swing.JButton();
         BtnExcluirAnotacao = new javax.swing.JButton();
@@ -386,23 +387,23 @@ public class VisualizarAnotacoes extends javax.swing.JFrame {
             .addGap(0, 50, Short.MAX_VALUE)
         );
 
-        jLabel7.setText("Anotações da Consulta");
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(59, 131, 117));
+        jLabel7.setText("Anotações da Consulta");
 
-        LabelNomePaciente.setText("Nome do Paciente :");
         LabelNomePaciente.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        LabelNomePaciente.setText("Nome do Paciente :");
 
-        LabelNome5.setText(" Variável Nome do Paciente");
         LabelNome5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        LabelNome5.setText(" Variável Nome do Paciente");
 
-        LabelAssunto.setText("Assunto:");
         LabelAssunto.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        LabelAssunto.setText("Assunto:");
 
         txtAssunto.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        LabelAssunto1.setText("Texto:");
         LabelAssunto1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        LabelAssunto1.setText("Texto:");
 
         txtTexto.setColumns(20);
         txtTexto.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -539,8 +540,8 @@ public class VisualizarAnotacoes extends javax.swing.JFrame {
 
         ModalMeusDados.setResizable(false);
 
-        jLabel3.setText("Nome:");
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel3.setText("Nome:");
 
         txtNome3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -553,8 +554,8 @@ public class VisualizarAnotacoes extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setText("CRP:");
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel4.setText("CRP:");
 
         txtCRP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -567,11 +568,11 @@ public class VisualizarAnotacoes extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.setText("E-mail:");
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel5.setText("E-mail:");
 
-        labeltelefone.setText("Telefone:");
         labeltelefone.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        labeltelefone.setText("Telefone:");
 
         TxtTelefone6.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -579,8 +580,8 @@ public class VisualizarAnotacoes extends javax.swing.JFrame {
             }
         });
 
-        labeltelefone2.setText("Telefone 2:");
         labeltelefone2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        labeltelefone2.setText("Telefone 2:");
 
         TxtTelefone7.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -590,13 +591,13 @@ public class VisualizarAnotacoes extends javax.swing.JFrame {
 
         PainelIdentificacaoPessoal5.setBackground(new java.awt.Color(59, 131, 117));
 
-        jLabel15.setText("DADOS DO PSICÓLOGO");
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel15.setText("DADOS DO PSICÓLOGO");
 
-        jLabel35.setText("NOME");
         jLabel35.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel35.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel35.setText("NOME");
 
         javax.swing.GroupLayout PainelIdentificacaoPessoal5Layout = new javax.swing.GroupLayout(PainelIdentificacaoPessoal5);
         PainelIdentificacaoPessoal5.setLayout(PainelIdentificacaoPessoal5Layout);
@@ -615,9 +616,9 @@ public class VisualizarAnotacoes extends javax.swing.JFrame {
             .addComponent(jLabel35, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        BtnAlterar.setText("Alterar");
         BtnAlterar.setBackground(new java.awt.Color(59, 131, 117));
         BtnAlterar.setForeground(new java.awt.Color(255, 255, 255));
+        BtnAlterar.setText("Alterar");
         BtnAlterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnAlterarActionPerformed(evt);
@@ -708,10 +709,10 @@ public class VisualizarAnotacoes extends javax.swing.JFrame {
         jPanel8.setForeground(new java.awt.Color(59, 131, 117));
         jPanel8.setPreferredSize(new java.awt.Dimension(1080, 89));
 
-        jLabel43.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel43.setText("Alterar Senha");
         jLabel43.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel43.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel43.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel43.setText("Alterar Senha");
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -724,13 +725,13 @@ public class VisualizarAnotacoes extends javax.swing.JFrame {
             .addComponent(jLabel43, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
         );
 
-        jLabel44.setText("Nova Senha");
         jLabel44.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel44.setText("Nova Senha");
 
         txtSenha1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
-        jLabel45.setText("Confirme a Nova Senha");
         jLabel45.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel45.setText("Confirme a Nova Senha");
 
         txtConfirmarSenha1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
@@ -741,20 +742,20 @@ public class VisualizarAnotacoes extends javax.swing.JFrame {
             }
         });
 
-        BtnAlterar1.setText("Alterar");
         BtnAlterar1.setBackground(new java.awt.Color(0, 112, 186));
         BtnAlterar1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnAlterar1.setForeground(new java.awt.Color(255, 255, 255));
+        BtnAlterar1.setText("Alterar");
         BtnAlterar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnAlterar1ActionPerformed(evt);
             }
         });
 
-        BtnCancelar8.setText("Cancelar");
         BtnCancelar8.setBackground(new java.awt.Color(255, 153, 153));
         BtnCancelar8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnCancelar8.setForeground(new java.awt.Color(255, 255, 255));
+        BtnCancelar8.setText("Cancelar");
         BtnCancelar8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnCancelar8ActionPerformed(evt);
@@ -823,70 +824,85 @@ public class VisualizarAnotacoes extends javax.swing.JFrame {
         jPanel1.setForeground(new java.awt.Color(59, 131, 117));
         jPanel1.setPreferredSize(new java.awt.Dimension(1080, 89));
 
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("EXIBIR ANOTAÇÕES");
+
         PainelMeusDados.setBackground(new java.awt.Color(102, 102, 102));
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/UserIconBranco90x90.png"))); // NOI18N
-        jButton2.setBackground(new java.awt.Color(102, 102, 102));
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnMeusDados.setBackground(new java.awt.Color(102, 102, 102));
+        btnMeusDados.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/UserIconBranco_66x66.png"))); // NOI18N
+        btnMeusDados.setBorder(null);
+        btnMeusDados.setContentAreaFilled(false);
+        btnMeusDados.setFocusPainted(false);
+        btnMeusDados.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt);
+                btnMeusDadosMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnMeusDadosMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnMeusDadosMouseExited(evt);
             }
         });
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnMeusDados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnMeusDadosActionPerformed(evt);
             }
         });
 
-        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout PainelMeusDadosLayout = new javax.swing.GroupLayout(PainelMeusDados);
         PainelMeusDados.setLayout(PainelMeusDadosLayout);
         PainelMeusDadosLayout.setHorizontalGroup(
             PainelMeusDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelMeusDadosLayout.createSequentialGroup()
+            .addGroup(PainelMeusDadosLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnMeusDados, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(29, Short.MAX_VALUE))
         );
         PainelMeusDadosLayout.setVerticalGroup(
             PainelMeusDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelMeusDadosLayout.createSequentialGroup()
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(PainelMeusDadosLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(PainelMeusDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(PainelMeusDadosLayout.createSequentialGroup()
+                        .addComponent(btnMeusDados, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
-
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("EXIBIR ANOTAÇÕES");
-        jLabel2.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(PainelMeusDados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(368, 368, 368)
                 .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 1069, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addComponent(PainelMeusDados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 1087, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(PainelMeusDados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addComponent(PainelMeusDados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.NORTH);
@@ -933,8 +949,8 @@ public class VisualizarAnotacoes extends javax.swing.JFrame {
 
         PainelPaginacao.setOpaque(false);
 
-        LabelLimite.setText("Limite");
         LabelLimite.setBackground(new java.awt.Color(204, 204, 204));
+        LabelLimite.setText("Limite");
 
         SpinnerLimite.setModel(new javax.swing.SpinnerNumberModel(1, 1, 15, 1));
         SpinnerLimite.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -957,8 +973,8 @@ public class VisualizarAnotacoes extends javax.swing.JFrame {
             }
         });
 
-        LabelPagina.setText("Página");
         LabelPagina.setBackground(new java.awt.Color(204, 204, 204));
+        LabelPagina.setText("Página");
 
         SpinnerNumPaginas.setModel(new javax.swing.SpinnerNumberModel(1, 1, totalPages, 1));
         SpinnerNumPaginas.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -967,8 +983,8 @@ public class VisualizarAnotacoes extends javax.swing.JFrame {
             }
         });
 
-        LabelQtdePaginas.setText("de X");
         LabelQtdePaginas.setBackground(new java.awt.Color(204, 204, 204));
+        LabelQtdePaginas.setText("de X");
 
         BtnAvancarPouco.setText(">");
         BtnAvancarPouco.addActionListener(new java.awt.event.ActionListener() {
@@ -1047,11 +1063,11 @@ public class VisualizarAnotacoes extends javax.swing.JFrame {
 
         jLabel14.setText("Buscar:");
 
-        jLabel1.setText("Exibindo Anotações do Paciente");
         jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel1.setText("Exibindo Anotações do Paciente");
 
-        lNome.setText("jLabel3");
         lNome.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        lNome.setText("jLabel3");
 
         BtnVoltarPaciente.setText("Voltar");
         BtnVoltarPaciente.addActionListener(new java.awt.event.ActionListener() {
@@ -1129,50 +1145,50 @@ public class VisualizarAnotacoes extends javax.swing.JFrame {
         PainelMenu.setBackground(new java.awt.Color(102, 102, 102));
         PainelMenu.setForeground(new java.awt.Color(102, 102, 102));
 
-        BtnVoltar.setText("Início");
         BtnVoltar.setBackground(new java.awt.Color(102, 102, 102));
         BtnVoltar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnVoltar.setForeground(new java.awt.Color(255, 255, 255));
+        BtnVoltar.setText("Início");
         BtnVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnVoltarActionPerformed(evt);
             }
         });
 
-        BtnPacientes.setText("Pacientes");
         BtnPacientes.setBackground(new java.awt.Color(102, 102, 102));
         BtnPacientes.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnPacientes.setForeground(new java.awt.Color(255, 255, 255));
+        BtnPacientes.setText("Pacientes");
         BtnPacientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnPacientesActionPerformed(evt);
             }
         });
 
-        BtnExibirAnamneses.setText("Exibir Anamneses");
         BtnExibirAnamneses.setBackground(new java.awt.Color(102, 102, 102));
         BtnExibirAnamneses.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnExibirAnamneses.setForeground(new java.awt.Color(255, 255, 255));
+        BtnExibirAnamneses.setText("Exibir Anamneses");
         BtnExibirAnamneses.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnExibirAnamnesesActionPerformed(evt);
             }
         });
 
-        BtnExibirAnotacoes.setText("Exibir Anotações");
         BtnExibirAnotacoes.setBackground(new java.awt.Color(102, 102, 102));
         BtnExibirAnotacoes.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnExibirAnotacoes.setForeground(new java.awt.Color(255, 255, 255));
+        BtnExibirAnotacoes.setText("Exibir Anotações");
         BtnExibirAnotacoes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnExibirAnotacoesActionPerformed(evt);
             }
         });
 
-        BtnExibirAnotacoes1.setText("Sair");
         BtnExibirAnotacoes1.setBackground(new java.awt.Color(102, 102, 102));
         BtnExibirAnotacoes1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnExibirAnotacoes1.setForeground(new java.awt.Color(255, 255, 255));
+        BtnExibirAnotacoes1.setText("Sair");
         BtnExibirAnotacoes1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnExibirAnotacoes1ActionPerformed(evt);
@@ -1616,20 +1632,6 @@ public class VisualizarAnotacoes extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_BtnExibirAnotacoes1ActionPerformed
 
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        ModalMeusDados.setSize(540, 620);
-        ModalMeusDados.setModal(true);
-        TxtTelefone7.setVisible(false);
-        labeltelefone2.setVisible(false);
-        readpsicologo();
-        ModalMeusDados.setLocationRelativeTo(null);
-        ModalMeusDados.setVisible(true);
-    }//GEN-LAST:event_jButton2MouseClicked
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
-
     private void txtNome3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNome3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNome3ActionPerformed
@@ -1841,6 +1843,29 @@ public class VisualizarAnotacoes extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_LabelEsqueciSenhaKeyPressed
 
+    private void btnMeusDadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMeusDadosMouseClicked
+        ModalMeusDados.setSize(540, 620);
+        ModalMeusDados.setModal(true);
+        TxtTelefone7.setVisible(false);
+        labeltelefone2.setVisible(false);
+        readpsicologo();
+        ModalMeusDados.setLocationRelativeTo(null);
+        ModalMeusDados.setVisible(true);
+    }//GEN-LAST:event_btnMeusDadosMouseClicked
+
+    private void btnMeusDadosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMeusDadosMouseEntered
+        btnMeusDados.setBorderPainted(true);
+        btnMeusDados.setBorder(BorderFactory.createLineBorder(Color.WHITE,1));
+    }//GEN-LAST:event_btnMeusDadosMouseEntered
+
+    private void btnMeusDadosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMeusDadosMouseExited
+        btnMeusDados.setBorderPainted(false);
+    }//GEN-LAST:event_btnMeusDadosMouseExited
+
+    private void btnMeusDadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMeusDadosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMeusDadosActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1921,8 +1946,8 @@ public class VisualizarAnotacoes extends javax.swing.JFrame {
     private javax.swing.JTextField TxtTelefone6;
     private javax.swing.JTextField TxtTelefone7;
     private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnMeusDados;
     private javax.swing.JCheckBox chckMostrarSenha1;
-    private javax.swing.JButton jButton2;
     private LIB.JEImagePanel jEImagePanel1;
     private LIB.JEImagePanel jEImagePanel4;
     private javax.swing.JLabel jLabel1;
