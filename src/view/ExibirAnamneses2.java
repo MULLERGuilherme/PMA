@@ -6,11 +6,13 @@
 package view;
 
 import Validacoes.Validar;
+import java.awt.Color;
 import java.awt.Toolkit;
 import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
@@ -283,10 +285,10 @@ public class ExibirAnamneses2 extends javax.swing.JFrame {
         BtnAlterar1 = new javax.swing.JButton();
         BtnCancelar8 = new javax.swing.JButton();
         jPanel1 = new JPanel();
-        PainelMeusDados = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
-        jLabel11 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        PainelMeusDados = new javax.swing.JPanel();
+        btnMeusDados = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
         jEImagePanel1 = new LIB.JEImagePanel();
         btnalterar = new javax.swing.JButton();
         btnExcluir = new javax.swing.JButton();
@@ -551,11 +553,11 @@ public class ExibirAnamneses2 extends javax.swing.JFrame {
         jLabel30.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel30.setForeground(new java.awt.Color(255, 0, 0));
 
-        LabelNomePaciente.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         LabelNomePaciente.setText("Nome do Paciente :");
+        LabelNomePaciente.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        labelnomepaciente.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         labelnomepaciente.setText(" Variável Nome do Paciente");
+        labelnomepaciente.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         javax.swing.GroupLayout PainelDadosPaciente4Layout = new javax.swing.GroupLayout(PainelDadosPaciente4);
         PainelDadosPaciente4.setLayout(PainelDadosPaciente4Layout);
@@ -990,10 +992,10 @@ public class ExibirAnamneses2 extends javax.swing.JFrame {
         jPanel8.setForeground(new java.awt.Color(59, 131, 117));
         jPanel8.setPreferredSize(new java.awt.Dimension(1080, 89));
 
-        jLabel43.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel43.setText("Alterar Senha");
         jLabel43.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel43.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel43.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel43.setText("Alterar Senha");
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -1006,13 +1008,13 @@ public class ExibirAnamneses2 extends javax.swing.JFrame {
             .addComponent(jLabel43, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
         );
 
-        jLabel44.setText("Nova Senha");
         jLabel44.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel44.setText("Nova Senha");
 
         txtSenha1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
-        jLabel45.setText("Confirme a Nova Senha");
         jLabel45.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel45.setText("Confirme a Nova Senha");
 
         txtConfirmarSenha1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
@@ -1023,20 +1025,20 @@ public class ExibirAnamneses2 extends javax.swing.JFrame {
             }
         });
 
-        BtnAlterar1.setText("Alterar");
         BtnAlterar1.setBackground(new java.awt.Color(0, 112, 186));
         BtnAlterar1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnAlterar1.setForeground(new java.awt.Color(255, 255, 255));
+        BtnAlterar1.setText("Alterar");
         BtnAlterar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnAlterar1ActionPerformed(evt);
             }
         });
 
-        BtnCancelar8.setText("Cancelar");
         BtnCancelar8.setBackground(new java.awt.Color(255, 153, 153));
         BtnCancelar8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnCancelar8.setForeground(new java.awt.Color(255, 255, 255));
+        BtnCancelar8.setText("Cancelar");
         BtnCancelar8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnCancelar8ActionPerformed(evt);
@@ -1105,18 +1107,32 @@ public class ExibirAnamneses2 extends javax.swing.JFrame {
         jPanel1.setForeground(new java.awt.Color(59, 131, 117));
         jPanel1.setPreferredSize(new java.awt.Dimension(1080, 89));
 
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("EXIBIR ANAMNESES");
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+
         PainelMeusDados.setBackground(new java.awt.Color(102, 102, 102));
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/UserIconBranco90x90.png"))); // NOI18N
-        jButton2.setBackground(new java.awt.Color(102, 102, 102));
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnMeusDados.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/UserIconBranco_66x66.png"))); // NOI18N
+        btnMeusDados.setBackground(new java.awt.Color(102, 102, 102));
+        btnMeusDados.setBorder(null);
+        btnMeusDados.setContentAreaFilled(false);
+        btnMeusDados.setFocusPainted(false);
+        btnMeusDados.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt);
+                btnMeusDadosMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnMeusDadosMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnMeusDadosMouseExited(evt);
             }
         });
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnMeusDados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnMeusDadosActionPerformed(evt);
             }
         });
 
@@ -1128,33 +1144,31 @@ public class ExibirAnamneses2 extends javax.swing.JFrame {
         PainelMeusDados.setLayout(PainelMeusDadosLayout);
         PainelMeusDadosLayout.setHorizontalGroup(
             PainelMeusDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelMeusDadosLayout.createSequentialGroup()
+            .addGroup(PainelMeusDadosLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnMeusDados, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(25, Short.MAX_VALUE))
         );
         PainelMeusDadosLayout.setVerticalGroup(
             PainelMeusDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelMeusDadosLayout.createSequentialGroup()
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(PainelMeusDadosLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(PainelMeusDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(PainelMeusDadosLayout.createSequentialGroup()
+                        .addComponent(btnMeusDados, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
-
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("EXIBIR ANAMNESES");
-        jLabel2.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(2, 2, 2)
                 .addComponent(PainelMeusDados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 990, Short.MAX_VALUE)
@@ -1163,12 +1177,10 @@ public class ExibirAnamneses2 extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(PainelMeusDados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
+            .addComponent(PainelMeusDados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.NORTH);
@@ -2081,20 +2093,6 @@ public class ExibirAnamneses2 extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_BtnExibirAnotacoes1ActionPerformed
 
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        ModalMeusDados.setSize(540, 620);
-        ModalMeusDados.setModal(true);
-        TxtTelefone7.setVisible(false);
-        labeltelefone2.setVisible(false);
-        readpsicologo();
-        ModalMeusDados.setLocationRelativeTo(null);
-        ModalMeusDados.setVisible(true);
-    }//GEN-LAST:event_jButton2MouseClicked
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
-
     private void txtNome3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNome3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNome3ActionPerformed
@@ -2306,6 +2304,29 @@ public class ExibirAnamneses2 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_LabelEsqueciSenhaKeyPressed
 
+    private void btnMeusDadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMeusDadosMouseClicked
+        ModalMeusDados.setSize(540, 620);
+        ModalMeusDados.setModal(true);
+        TxtTelefone7.setVisible(false);
+        labeltelefone2.setVisible(false);
+        readpsicologo();
+        ModalMeusDados.setLocationRelativeTo(null);
+        ModalMeusDados.setVisible(true);
+    }//GEN-LAST:event_btnMeusDadosMouseClicked
+
+    private void btnMeusDadosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMeusDadosMouseEntered
+        btnMeusDados.setBorderPainted(true);
+        btnMeusDados.setBorder(BorderFactory.createLineBorder(Color.WHITE,1));
+    }//GEN-LAST:event_btnMeusDadosMouseEntered
+
+    private void btnMeusDadosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMeusDadosMouseExited
+        btnMeusDados.setBorderPainted(false);
+    }//GEN-LAST:event_btnMeusDadosMouseExited
+
+    private void btnMeusDadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMeusDadosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMeusDadosActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2398,9 +2419,9 @@ public class ExibirAnamneses2 extends javax.swing.JFrame {
     private javax.swing.JTextField TxtTelefone7;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnExcluir;
+    private javax.swing.JButton btnMeusDados;
     private javax.swing.JButton btnalterar;
     private javax.swing.JCheckBox chckMostrarSenha1;
-    private javax.swing.JButton jButton2;
     private LIB.JEImagePanel jEImagePanel1;
     private LIB.JEImagePanel jEImagePanel4;
     private javax.swing.JLabel jLabel1;
