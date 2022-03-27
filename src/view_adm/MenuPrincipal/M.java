@@ -3246,7 +3246,10 @@ public class M extends javax.swing.JFrame {
     }//GEN-LAST:event_SpinnerLimiteStateChanged
 
     private void SpinnerNumPaginasStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_SpinnerNumPaginasStateChanged
-        // TODO add your handling code here:
+        if (currentPage == 1) {
+                    BtnVoltarPouco.setEnabled(false);
+                    BtnVoltarBastante.setEnabled(false);
+                }
         if (txtBusca.getText() != "") {
             int pag1 = currentPage;
             getPageDataBusca((int) SpinnerNumPaginas.getValue(), txtBusca.getText());
@@ -3254,10 +3257,7 @@ public class M extends javax.swing.JFrame {
             if (pag2 < pag1) {
                 BtnAvancarPouco.setEnabled(true);
                 BtnAvancarBastante.setEnabled(true);
-                if (currentPage == 1) {
-                    BtnVoltarPouco.setEnabled(false);
-                    BtnVoltarBastante.setEnabled(false);
-                }
+                
             } else {
                 {
                     BtnVoltarPouco.setEnabled(true);
@@ -3698,7 +3698,7 @@ public class M extends javax.swing.JFrame {
             getPageData(currentPage);
         }
         BtnVoltarBastante.setEnabled(false);
-        BtnVoltarBastante.setEnabled(false);
+        BtnVoltarPouco.setEnabled(false);
         if(totalPages==1){
             BtnAvancarBastante.setEnabled(false);
             BtnAvancarPouco.setEnabled(false);
