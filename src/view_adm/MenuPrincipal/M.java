@@ -2900,6 +2900,7 @@ public class M extends javax.swing.JFrame {
 
         if (JCBdeletados.getSelectedIndex() == 1) {
             btnRestaurar.setEnabled(true);
+            BtnExcluirPaciente.setEnabled(false);
         }
         if (evt.getClickCount() == 2) {
             if (JTPacientes.getSelectedRow() != -1) {
@@ -3633,15 +3634,18 @@ public class M extends javax.swing.JFrame {
             if (result == 0) {
                 boolean status = Deletar.DPaciente(p);
                 //limpar a tela
-                BtnVoltarPouco.setEnabled(false);
-                BtnVoltarBastante.setEnabled(false);
+               
                 if(totalPages==1){
                     BtnAvancarPouco.setEnabled(false);
                     BtnAvancarBastante.setEnabled(false);
+                     BtnVoltarPouco.setEnabled(false);
+                     BtnVoltarBastante.setEnabled(false);
                 }
                 else{
                     BtnAvancarPouco.setEnabled(true);
                     BtnAvancarBastante.setEnabled(true);
+                     BtnVoltarPouco.setEnabled(false);
+                     BtnVoltarBastante.setEnabled(false);
                 }
                 if (!status) {
                     Restaurar.RestaurarPaciente(p.getCodPaciente());
