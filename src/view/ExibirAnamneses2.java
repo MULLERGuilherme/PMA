@@ -8,6 +8,7 @@ package view;
 import Validacoes.Validar;
 import java.awt.Color;
 import java.awt.Toolkit;
+import java.awt.event.KeyEvent;
 import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -1799,27 +1800,41 @@ public class ExibirAnamneses2 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnalterarActionPerformed
 
     private void txtBuscaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscaKeyPressed
-        //        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-        //            this.ReadJTableBusca(txtBusca.getText());
-        //        }
-    }//GEN-LAST:event_txtBuscaKeyPressed
-
-    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        // TODO add your handling code here:
-
-        //System.out.println(JCBAtributo.getSelectedIndex());
+                if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+                    btnalterar.setEnabled(false);
+        btnExcluir.setEnabled(false);
         getCountBusca(txtBusca.getText());
         SpinnerNumPaginas.setValue(1);
         LabelQtdePaginas.setText("de " + totalPages);
         getPageDataBusca(1, txtBusca.getText());
-        BtnVoltarBastante.setEnabled(false);
+        BtnVoltarPouco.setEnabled(false);
         BtnVoltarBastante.setEnabled(false);
         if(totalPages==1){
-            BtnAvancarBastante.setEnabled(false);
+            BtnAvancarPouco.setEnabled(false);
             BtnAvancarBastante.setEnabled(false);
         }
         else{
+            BtnAvancarPouco.setEnabled(true);
             BtnAvancarBastante.setEnabled(true);
+        }
+                }
+    }//GEN-LAST:event_txtBuscaKeyPressed
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        btnalterar.setEnabled(false);
+        btnExcluir.setEnabled(false);
+        getCountBusca(txtBusca.getText());
+        SpinnerNumPaginas.setValue(1);
+        LabelQtdePaginas.setText("de " + totalPages);
+        getPageDataBusca(1, txtBusca.getText());
+        BtnVoltarPouco.setEnabled(false);
+        BtnVoltarBastante.setEnabled(false);
+        if(totalPages==1){
+            BtnAvancarPouco.setEnabled(false);
+            BtnAvancarBastante.setEnabled(false);
+        }
+        else{
+            BtnAvancarPouco.setEnabled(true);
             BtnAvancarBastante.setEnabled(true);
         }
     }//GEN-LAST:event_btnBuscarActionPerformed
