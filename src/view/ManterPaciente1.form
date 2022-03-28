@@ -2999,14 +2999,14 @@
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="jLabel83">
                   <Properties>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="text" type="java.lang.String" value="AJUDA"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="24" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
-                    <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="AJUDA"/>
                   </Properties>
                 </Component>
               </SubComponents>
@@ -3111,10 +3111,10 @@
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="jLabel84">
                   <Properties>
+                    <Property name="text" type="java.lang.String" value="Como Editar os dados de um Paciente?"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="18" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Como Editar os dados de um Paciente?"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel85">
@@ -3129,10 +3129,10 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel87">
                   <Properties>
+                    <Property name="text" type="java.lang.String" value="Como Cadastrar um Paciente?"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="18" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Como Cadastrar um Paciente?"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel88">
@@ -3152,10 +3152,10 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel91">
                   <Properties>
+                    <Property name="text" type="java.lang.String" value="Como Visualizar ou Alterar as Consultas de um paciente?"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="18" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Como Visualizar ou Alterar as Consultas de um paciente?"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel92">
@@ -3175,10 +3175,10 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel95">
                   <Properties>
+                    <Property name="text" type="java.lang.String" value="Como Agendar uma Consulta?"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="18" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Como Agendar uma Consulta?"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel96">
@@ -3198,10 +3198,10 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel99">
                   <Properties>
+                    <Property name="text" type="java.lang.String" value="Como Visualizar ou Alterar as Anota&#xe7;&#xf5;es?"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="18" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Como Visualizar ou Alterar as Anota&#xe7;&#xf5;es?"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel100">
@@ -3216,10 +3216,10 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel102">
                   <Properties>
+                    <Property name="text" type="java.lang.String" value="Como Visualizar ou Alterar as Anamneses?"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="18" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Como Visualizar ou Alterar as Anamneses?"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel103">

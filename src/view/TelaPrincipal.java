@@ -272,6 +272,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel35 = new javax.swing.JLabel();
         BtnAlterar = new javax.swing.JButton();
         LabelEsqueciSenha = new javax.swing.JLabel();
+        txtCrp = new javax.swing.JFormattedTextField();
         ModalAlterarSenha = new javax.swing.JDialog();
         jPanel8 = new JPanel();
         jLabel43 = new javax.swing.JLabel();
@@ -1199,6 +1200,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        try {
+            txtCrp.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/######")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
         javax.swing.GroupLayout ModalMeusDadosLayout = new javax.swing.GroupLayout(ModalMeusDados.getContentPane());
         ModalMeusDados.getContentPane().setLayout(ModalMeusDadosLayout);
         ModalMeusDadosLayout.setHorizontalGroup(
@@ -1213,7 +1220,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addGroup(ModalMeusDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(LabelEsqueciSenha)
                     .addGroup(ModalMeusDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel12)
+                        .addGroup(ModalMeusDadosLayout.createSequentialGroup()
+                            .addComponent(jLabel12)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtCrp, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(36, 36, 36))
                         .addComponent(jLabel13)
                         .addComponent(labeltelefone)
                         .addComponent(labeltelefone2)
@@ -1234,7 +1245,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(txtNome3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel12)
+                .addGroup(ModalMeusDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(txtCrp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(txtCRP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -1251,7 +1264,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addComponent(TxtTelefone7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(LabelEsqueciSenha)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
                 .addComponent(BtnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -2268,7 +2281,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         Telefone tf2 = new Telefone();
         TelefoneDAO tfdao = new TelefoneDAO();
         String msg = "Existem campos com formatos Inválidos\n\nFavor Verificar os campos:";
-
+//        String crp = null;
+//        if ((String) txtCrp.getValue() != null) {
+//            crp = (String) crp.getValue();
+//            cpf = cpf.replace(".", "").replace("-", "");
+//        }
         if (!Validar.vCamposVaziosManterPSI(this, txtNome3, txtEmail2, txtCRP, TxtTelefone6)) {
             if (Validar.vNome(txtNome3.getText())) {
                 p.setNome_completo(txtNome3.getText());
@@ -2679,6 +2696,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField txtCRP;
     private javax.swing.JTextField txtComoComecou2;
     private javax.swing.JPasswordField txtConfirmarSenha1;
+    private javax.swing.JFormattedTextField txtCrp;
     private javax.swing.JTextField txtDiagnostico2;
     private javax.swing.JTextField txtDoencasConhecidas2;
     private javax.swing.JTextField txtEmail2;
