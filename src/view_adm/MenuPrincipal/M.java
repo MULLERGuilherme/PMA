@@ -1983,6 +1983,8 @@ public class M extends javax.swing.JFrame {
 
         ModalAlterarConsulta.getContentPane().add(jPanel3, java.awt.BorderLayout.CENTER);
 
+        ModalHelp.setResizable(false);
+
         jPanel12.setBackground(new java.awt.Color(59, 131, 117));
 
         jLabel83.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);

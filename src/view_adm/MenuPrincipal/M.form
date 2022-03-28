@@ -2764,6 +2764,9 @@
       </SubComponents>
     </Container>
     <Container class="javax.swing.JDialog" name="ModalHelp">
+      <Properties>
+        <Property name="resizable" type="boolean" value="false"/>
+      </Properties>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
       <SubComponents>
@@ -2957,10 +2960,10 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel92">
                   <Properties>
+                    <Property name="text" type="java.lang.String" value="Como Cadastrar um Paciente?"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="18" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Como Cadastrar um Paciente?"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel19">
@@ -2980,10 +2983,10 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel93">
                   <Properties>
+                    <Property name="text" type="java.lang.String" value="Como Restaurar um Paciente?"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="18" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Como Restaurar um Paciente?"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel44">

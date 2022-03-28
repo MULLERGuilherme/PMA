@@ -1145,6 +1145,9 @@
       </SubComponents>
     </Container>
     <Container class="javax.swing.JDialog" name="ModalHelp">
+      <Properties>
+        <Property name="resizable" type="boolean" value="false"/>
+      </Properties>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
       <SubComponents>

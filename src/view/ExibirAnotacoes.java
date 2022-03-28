@@ -622,6 +622,8 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        ModalHelp.setResizable(false);
+
         jPanel12.setBackground(new java.awt.Color(59, 131, 117));
 
         jLabel83.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
