@@ -2655,14 +2655,16 @@ public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
 
             LabelQtdePaginas.setText("de " + totalPages);
             getPageData(1);
-            if (totalPages == 1) {
-                BtnAvancarPouco.setEnabled(false);
-                BtnAvancarBastante.setEnabled(false);
-
-            } else {
-                BtnAvancarPouco.setEnabled(true);
-                BtnAvancarBastante.setEnabled(true);
-            }
+            BtnVoltarPouco.setEnabled(false);
+            BtnVoltarBastante.setEnabled(false);
+            if(totalPages==1){
+            BtnAvancarPouco.setEnabled(false);
+            BtnAvancarBastante.setEnabled(false);
+        }
+        else{
+            BtnAvancarPouco.setEnabled(true);
+            BtnAvancarBastante.setEnabled(true);
+        }
 
         }
     }//GEN-LAST:event_DataInicioPropertyChange
@@ -2683,14 +2685,16 @@ public class ExibirConsultasManterPaciente extends javax.swing.JFrame {
 
             LabelQtdePaginas.setText("de " + totalPages);
             getPageData(1);
-            if (totalPages == 1) {
-                BtnAvancarPouco.setEnabled(false);
-                BtnAvancarBastante.setEnabled(false);
-
-            } else {
-                BtnAvancarPouco.setEnabled(true);
-                BtnAvancarBastante.setEnabled(true);
-            }
+           BtnVoltarPouco.setEnabled(false);
+            BtnVoltarBastante.setEnabled(false);
+            if(totalPages==1){
+            BtnAvancarPouco.setEnabled(false);
+            BtnAvancarBastante.setEnabled(false);
+        }
+        else{
+            BtnAvancarPouco.setEnabled(true);
+            BtnAvancarBastante.setEnabled(true);
+        }
 
         }
     }//GEN-LAST:event_DataFimPropertyChange
