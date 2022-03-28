@@ -383,11 +383,7 @@ public class ManterPsiAdm extends javax.swing.JFrame {
         jLabel21.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel21.setText("Nome");
 
-        txtNome3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNome3ActionPerformed(evt);
-            }
-        });
+        txtNome3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         txtNome3.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtNome3KeyTyped(evt);
@@ -397,12 +393,15 @@ public class ManterPsiAdm extends javax.swing.JFrame {
         jLabel22.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel22.setText("Email");
 
+        txtEmail2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+
         jLabel23.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel23.setText("CRP");
 
         labeltelefone1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         labeltelefone1.setText("Telefone");
 
+        TxtTelefone6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         TxtTelefone6.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 TxtTelefone6KeyTyped(evt);
@@ -432,6 +431,7 @@ public class ManterPsiAdm extends javax.swing.JFrame {
             }
         });
 
+        TxtTelefone7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         TxtTelefone7.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 TxtTelefone7KeyTyped(evt);
@@ -464,6 +464,7 @@ public class ManterPsiAdm extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        fcrp.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
 
         jPanel8.setBackground(new java.awt.Color(59, 131, 117));
         jPanel8.setForeground(new java.awt.Color(59, 131, 117));
@@ -572,11 +573,7 @@ public class ManterPsiAdm extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel2.setText("Nome");
 
-        txtNome1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNome1ActionPerformed(evt);
-            }
-        });
+        txtNome1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         txtNome1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtNome1KeyTyped(evt);
@@ -586,17 +583,25 @@ public class ManterPsiAdm extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel3.setText("Email");
 
+        txtEmail1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel4.setText("CRP");
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel5.setText("Usuário");
 
+        txtLogin.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel15.setText("Senha");
 
+        txtSenha.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+
         LabelConfirmarSenha.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         LabelConfirmarSenha.setText("Confirmar Senha");
+
+        txtConfirmarSenha.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
 
         chckMostrarSenha.setText("Mostar Senha");
         chckMostrarSenha.addActionListener(new java.awt.event.ActionListener() {
@@ -608,6 +613,7 @@ public class ManterPsiAdm extends javax.swing.JFrame {
         labeltelefone.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         labeltelefone.setText("Telefone");
 
+        TxtTelefone1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         TxtTelefone1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 TxtTelefone1KeyTyped(evt);
@@ -637,6 +643,7 @@ public class ManterPsiAdm extends javax.swing.JFrame {
             }
         });
 
+        TxtTelefone5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         TxtTelefone5.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 TxtTelefone5KeyTyped(evt);
@@ -648,6 +655,7 @@ public class ManterPsiAdm extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        txtCrp.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -1977,13 +1985,9 @@ public class ManterPsiAdm extends javax.swing.JFrame {
         ModalAlterarSenha.dispose();
     }//GEN-LAST:event_BtnCancelar7ActionPerformed
 
-    private void txtNome3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNome3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNome3ActionPerformed
-
     private void txtNome3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNome3KeyTyped
         char c = evt.getKeyChar();
-        if (Character.isDigit(c)) {
+        if (!Character.isLetter(c)&& !Character.isWhitespace(c) && !Character.isISOControl(c)) {
             evt.consume();
         }
     }//GEN-LAST:event_txtNome3KeyTyped
@@ -2199,13 +2203,9 @@ public class ManterPsiAdm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_LabelEsqueciSenhaKeyPressed
 
-    private void txtNome1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNome1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNome1ActionPerformed
-
     private void txtNome1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNome1KeyTyped
         char c = evt.getKeyChar();
-        if (Character.isDigit(c)) {
+        if (!Character.isLetter(c)&& !Character.isWhitespace(c) && !Character.isISOControl(c)) {
             evt.consume();
         }
     }//GEN-LAST:event_txtNome1KeyTyped

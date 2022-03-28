@@ -3707,7 +3707,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
 
     private void txtNome1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNome1KeyTyped
         char c = evt.getKeyChar();
-        if (Character.isDigit(c)) {
+        if (!Character.isLetter(c)&& !Character.isWhitespace(c) && !Character.isISOControl(c)) {
             evt.consume();
         }
     }//GEN-LAST:event_txtNome1KeyTyped
