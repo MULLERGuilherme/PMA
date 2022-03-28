@@ -2,69 +2,6 @@
 
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
-    <Container class="javax.swing.JDialog" name="ModalHelp">
-      <Properties>
-        <Property name="resizable" type="boolean" value="false"/>
-      </Properties>
-
-      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
-      <SubComponents>
-        <Container class="javax.swing.JPanel" name="jPanel4">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="75" green="83" red="3b" type="rgb"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="75" green="83" red="3b" type="rgb"/>
-            </Property>
-            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[1080, 89]"/>
-            </Property>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new JPanel()"/>
-          </AuxValues>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
-              <BorderConstraints direction="North"/>
-            </Constraint>
-          </Constraints>
-
-          <Layout>
-            <DimensionLayout dim="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="400" max="32767" attributes="0"/>
-              </Group>
-            </DimensionLayout>
-            <DimensionLayout dim="1">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="89" max="32767" attributes="0"/>
-              </Group>
-            </DimensionLayout>
-          </Layout>
-        </Container>
-        <Container class="javax.swing.JPanel" name="jPanel5">
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
-              <BorderConstraints direction="Center"/>
-            </Constraint>
-          </Constraints>
-
-          <Layout>
-            <DimensionLayout dim="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="400" max="32767" attributes="0"/>
-              </Group>
-            </DimensionLayout>
-            <DimensionLayout dim="1">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="439" max="32767" attributes="0"/>
-              </Group>
-            </DimensionLayout>
-          </Layout>
-        </Container>
-      </SubComponents>
-    </Container>
     <Container class="javax.swing.JDialog" name="ModalAlterarConsulta">
       <Properties>
         <Property name="resizable" type="boolean" value="false"/>
@@ -1847,6 +1784,314 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnCancelar8ActionPerformed"/>
               </Events>
             </Component>
+          </SubComponents>
+        </Container>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JDialog" name="ModalHelp">
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
+      <SubComponents>
+        <Container class="javax.swing.JPanel" name="jPanel11">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
+              <BorderConstraints direction="First"/>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jPanel12" alignment="0" max="32767" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="jPanel13" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="jPanel12" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="jPanel13" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Container class="javax.swing.JPanel" name="jPanel12">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="75" green="83" red="3b" type="rgb"/>
+                </Property>
+              </Properties>
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabel83" max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabel83" max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JLabel" name="jLabel83">
+                  <Properties>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="text" type="java.lang.String" value="AJUDA"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="24" style="1"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Container class="javax.swing.JPanel" name="jPanel13">
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabel87" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel97" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="jLabel95" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel88" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel89" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jLabel90" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel93" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel96" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="jLabel19" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jLabel92" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jLabel23" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jLabel24" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jLabel46" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jLabel47" alignment="0" min="-2" pref="533" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="jLabel58" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="jLabel48" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jLabel59" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jLabel60" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                              <Component id="jLabel105" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel62" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel63" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel64" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="jLabel61" max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="jLabel105" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabel61" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabel62" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabel63" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabel64" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="jLabel87" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabel88" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabel89" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabel90" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="jLabel95" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="jLabel92" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabel93" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="jLabel96" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabel23" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabel24" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabel46" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabel47" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="jLabel97" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabel48" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabel58" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabel59" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabel60" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JLabel" name="jLabel87">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Como Alterar uma Consulta?"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="18" style="1"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel88">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Selecionando uma consulta na tabela e clicando duas vezes ou apertando o bot&#xe3;o &quot;Alterar&quot;, ser&#xe1; aberta uma "/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel89">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="janela para que se possa visualizar e editar os dados da consulta, para que os dados da consulta sejam atualiza"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel90">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="dos &#xe9; necess&#xe1;rio apenas clicar no bot&#xe3;o &quot;Salvar Altera&#xe7;&#xf5;es&quot;"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel92">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Selecionando uma consulta na tabela e apertando o bot&#xe3;o &quot;Excluir&quot;, ser&#xe1; aberta uma janela pedindo a confrima"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel93">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="confirma&#xe7;&#xe3;o da exclus&#xe3;o da consulta, caso a exclus&#xe3;o seja confirmada a consulta &#xe9; deletada."/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel95">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Como Excluir uma Consulta?"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="18" style="1"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel96">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Como Criar uma Anamnese?"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="18" style="1"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel19">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Selecionando uma consulta na tabela e clicando duas vezes ou apertando o bot&#xe3;o &quot;Alterar&quot;, ser&#xe1; aberta uma "/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel23">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="janela para que se possa visualizar e editar os dados da consulta, clicando no bot&#xe3;o &quot;Editar Anamnese&quot; ser&#xe1; a"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel24">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="aberta uma janela para que possam ser inserido os dados da anamnese, caso j&#xe1; tenha uma anamnese salva na"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel46">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="consulta selecionada os dados dessa anamnese podem ser visualizados e editados. Para atualizar a anamnese"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel47">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="&#xe9; necess&#xe1;rio apenas clicar no bot&#xe3;o &quot;Salvar Altera&#xe7;&#xf5;es&quot;."/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel97">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Como Criar uma Anamnese?"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="18" style="1"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel48">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Selecionando uma consulta na tabela e clicando duas vezes ou apertando o bot&#xe3;o &quot;Alterar&quot;, ser&#xe1; aberta uma "/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel58">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="janela para que se possa visualizar e editar os dados da consulta, clicando no bot&#xe3;o &quot;Nova Anota&#xe7;&#xe3;o&quot; ser&#xe1; aber"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel59">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="ta uma janela para que possam ser inseridos os dados da anota&#xe7;&#xe3;o, para cadastrar a anota&#xe7;&#xe3;o &#xe9; necess&#xe1;rio a"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel60">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="penas clicar no bot&#xe3;o &quot;Salvar Altera&#xe7;&#xf5;es&quot;."/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel105">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Como Selecionar uma Data?"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="18" style="1"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel61">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="A tabela dessa tela s&#xf3; mostra as consultas de uma data selecionada, quando a tela for aberta a data selecionada"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel62">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="&#xe9; por padr&#xe3;o a data atual, para escolher outra data &#xe9; necess&#xe1;rio clicar no bot&#xe3;o a direita da data selecionada, acima"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel63">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="da tabela, ao clicar no bot&#xe3;o, &#xe9; necess&#xe1;rio apenas selecionar a data desejada, e a tabela ir&#xe1; mostrar as consultas des"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel64">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="sa data."/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
           </SubComponents>
         </Container>
       </SubComponents>
