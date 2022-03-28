@@ -292,6 +292,43 @@ public class Validar {
         return vazio;
 
     }
+    
+     public static boolean vCamposVaziosPSI(JFrame jframe, JTextField Nome, JTextField Email, String CRP, JTextField Login, JTextField Senha, JTextField Telefone) {
+        boolean vazio = false;
+        String msg = "Existem Campos Obrigatórios em branco.\nFavor verificar os seguintes campos:\n";
+        if (Nome.getText().isEmpty()) {
+            msg += "Nome";
+            vazio = true;
+        }
+        if (Email.getText().isEmpty()) {
+            msg += "\nEmail";
+            vazio = true;
+        }
+        if (CRP == null) {
+        
+        
+            msg += "\nCRP";
+            vazio = true;
+        }
+        
+        if (Telefone.getText().isEmpty()) {
+            msg += "\nTelefone";
+            vazio = true;
+        }
+        if (Login.getText().isEmpty()) {
+            msg += "\nUsuário";
+            vazio = true;
+        }
+        if (Senha.getText().isEmpty()) {
+            msg += "\nSenha";
+            vazio = true;
+        }
+        if (vazio) {
+            JOptionPane.showMessageDialog(jframe, msg, "ERRO!", JOptionPane.ERROR_MESSAGE);
+        }
+        return vazio;
+
+    }
 
     public static boolean vCamposVaziosPSI(JFrame jframe, JTextField Email, JTextField CRP) {
         boolean vazio = false;
@@ -399,6 +436,37 @@ public class Validar {
             vazio = true;
         }
         if (CRP.getText().isEmpty()) {
+            msg += "\nCRP";
+            vazio = true;
+        }
+        if (Telefone.getText().isEmpty()) {
+            msg += "\nTelefone";
+            vazio = true;
+        }
+        
+        if (Telefone.getText().isEmpty()) {
+            msg += "\nTelefone 1";
+            vazio = true;
+        }
+        if (vazio) {
+            JOptionPane.showMessageDialog(jframe, msg, "ERRO!", JOptionPane.ERROR_MESSAGE);
+        }
+        return vazio;
+
+    }
+    
+     public static boolean vCamposVaziosManterPSI(JFrame jframe, JTextField Nome, JTextField Email, String CRP, JTextField Telefone) {
+        boolean vazio = false;
+        String msg = "Existem Campos Obrigatórios em branco.\nFavor verificar os seguintes campos:\n";
+        if (Nome.getText().isEmpty()) {
+            msg += "Nome Completo";
+            vazio = true;
+        }
+        if (Email.getText().isEmpty()) {
+            msg += "\nEmail";
+            vazio = true;
+        }
+        if (CRP == "") {
             msg += "\nCRP";
             vazio = true;
         }
