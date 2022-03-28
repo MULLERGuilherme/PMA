@@ -269,10 +269,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
         TxtTelefone7 = new javax.swing.JTextField();
         PainelIdentificacaoPessoal6 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
-        jLabel35 = new javax.swing.JLabel();
         BtnAlterar = new javax.swing.JButton();
         LabelEsqueciSenha = new javax.swing.JLabel();
         fcrp = new javax.swing.JFormattedTextField();
+        BtnCancelar9 = new javax.swing.JButton();
         ModalAlterarSenha = new javax.swing.JDialog();
         jPanel8 = new JPanel();
         jLabel43 = new javax.swing.JLabel();
@@ -1097,6 +1097,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel10.setText("Nome:");
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
+        txtNome3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         txtNome3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNome3ActionPerformed(evt);
@@ -1114,9 +1115,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel13.setText("E-mail:");
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
+        txtEmail2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+
         labeltelefone.setText("Telefone:");
         labeltelefone.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
+        TxtTelefone6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         TxtTelefone6.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 TxtTelefone6KeyTyped(evt);
@@ -1126,6 +1130,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         labeltelefone2.setText("Telefone 2:");
         labeltelefone2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
+        TxtTelefone7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         TxtTelefone7.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 TxtTelefone7KeyTyped(evt);
@@ -1134,33 +1139,25 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         PainelIdentificacaoPessoal6.setBackground(new java.awt.Color(59, 131, 117));
 
+        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel15.setText("DADOS DO PSICÓLOGO");
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
-
-        jLabel35.setText("NOME");
-        jLabel35.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel35.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout PainelIdentificacaoPessoal6Layout = new javax.swing.GroupLayout(PainelIdentificacaoPessoal6);
         PainelIdentificacaoPessoal6.setLayout(PainelIdentificacaoPessoal6Layout);
         PainelIdentificacaoPessoal6Layout.setHorizontalGroup(
             PainelIdentificacaoPessoal6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PainelIdentificacaoPessoal6Layout.createSequentialGroup()
-                .addGap(80, 80, 80)
-                .addComponent(jLabel15)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel35)
-                .addContainerGap(86, Short.MAX_VALUE))
+            .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         PainelIdentificacaoPessoal6Layout.setVerticalGroup(
             PainelIdentificacaoPessoal6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
-            .addComponent(jLabel35, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         BtnAlterar.setText("Alterar");
-        BtnAlterar.setBackground(new java.awt.Color(59, 131, 117));
+        BtnAlterar.setBackground(new java.awt.Color(0, 112, 186));
+        BtnAlterar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnAlterar.setForeground(new java.awt.Color(255, 255, 255));
         BtnAlterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1194,9 +1191,20 @@ public class TelaPrincipal extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        fcrp.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         fcrp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fcrpActionPerformed(evt);
+            }
+        });
+
+        BtnCancelar9.setBackground(new java.awt.Color(255, 153, 153));
+        BtnCancelar9.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        BtnCancelar9.setForeground(new java.awt.Color(255, 255, 255));
+        BtnCancelar9.setText("Cancelar");
+        BtnCancelar9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnCancelar9ActionPerformed(evt);
             }
         });
 
@@ -1204,59 +1212,65 @@ public class TelaPrincipal extends javax.swing.JFrame {
         ModalMeusDados.getContentPane().setLayout(ModalMeusDadosLayout);
         ModalMeusDadosLayout.setHorizontalGroup(
             ModalMeusDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PainelIdentificacaoPessoal6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(ModalMeusDadosLayout.createSequentialGroup()
+                .addGroup(ModalMeusDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(PainelIdentificacaoPessoal6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(ModalMeusDadosLayout.createSequentialGroup()
+                        .addGap(45, 45, 45)
+                        .addGroup(ModalMeusDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(LabelEsqueciSenha)
+                            .addGroup(ModalMeusDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(labeltelefone, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(labeltelefone2, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(fcrp, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 265, Short.MAX_VALUE)
+                                .addComponent(txtEmail2, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(TxtTelefone6, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(TxtTelefone7, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtNome3, javax.swing.GroupLayout.Alignment.LEADING)))))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(ModalMeusDadosLayout.createSequentialGroup()
+                .addGap(106, 106, 106)
+                .addComponent(BtnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ModalMeusDadosLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(BtnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(190, 190, 190))
-            .addGroup(ModalMeusDadosLayout.createSequentialGroup()
-                .addGap(45, 45, 45)
-                .addGroup(ModalMeusDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(LabelEsqueciSenha)
-                    .addGroup(ModalMeusDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(ModalMeusDadosLayout.createSequentialGroup()
-                            .addComponent(jLabel12)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(fcrp, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jLabel13)
-                        .addComponent(labeltelefone)
-                        .addComponent(labeltelefone2)
-                        .addComponent(jLabel10)
-                        .addComponent(TxtTelefone6, javax.swing.GroupLayout.DEFAULT_SIZE, 441, Short.MAX_VALUE)
-                        .addComponent(TxtTelefone7)
-                        .addComponent(txtEmail2)
-                        .addComponent(txtNome3)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(BtnCancelar9, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(122, 122, 122))
         );
         ModalMeusDadosLayout.setVerticalGroup(
             ModalMeusDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ModalMeusDadosLayout.createSequentialGroup()
                 .addComponent(PainelIdentificacaoPessoal6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel10)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtNome3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(ModalMeusDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel12)
-                    .addComponent(fcrp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(56, 56, 56)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(fcrp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel13)
-                .addGap(24, 24, 24)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtEmail2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(labeltelefone)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(TxtTelefone6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(labeltelefone2)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(TxtTelefone7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(LabelEsqueciSenha)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(BtnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(BtnCancelar9, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         ModalAlterarSenha.setResizable(false);
@@ -2192,7 +2206,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnSalvarAlteracoesAnotacaoActionPerformed
 
     private void btnMeusDadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMeusDadosMouseClicked
-        ModalMeusDados.setSize(540, 620);
+        ModalMeusDados.setSize(360, 588);
         ModalMeusDados.setModal(true);
 //        TxtTelefone7.setVisible(false);
 //        labeltelefone2.setVisible(false);
@@ -2209,7 +2223,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         TelefoneDAO tdao = new TelefoneDAO();
         t = tdao.ReadTPsicologo(p.getCodPsicologo());
         txtNome3.setText(p.getNome_completo());
-        jLabel35.setText(p.getNome_completo());
+      
 
         fcrp.setText(p.getCRP());
         txtEmail2.setText(p.getEmail());
@@ -2512,6 +2526,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_fcrpActionPerformed
 
+    private void BtnCancelar9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCancelar9ActionPerformed
+        ModalMeusDados.dispose();
+    }//GEN-LAST:event_BtnCancelar9ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2555,6 +2573,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton BtnCancelar6;
     private javax.swing.JButton BtnCancelar7;
     private javax.swing.JButton BtnCancelar8;
+    private javax.swing.JButton BtnCancelar9;
     private javax.swing.JButton BtnCancelarAnotacao;
     private javax.swing.JButton BtnExcluir;
     private javax.swing.JButton BtnExibirAnamneses;
@@ -2636,7 +2655,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel43;

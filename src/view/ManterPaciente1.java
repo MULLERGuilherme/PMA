@@ -58,8 +58,9 @@ import model.dao.PsicologoDAO;
 import model.dao.TelefoneDAO;
 import model.dao.ViewsDAO;
 import util.Util;
-import static view.ManterPsicologo.codpsicologo;
+//import static view.ManterPsicologo.codpsicologo;
 import view_adm.MenuPrincipal.M;
+import static view_adm.MenuPrincipal.VisuPsicologoADM.codpsicologo;
 
 /**
  *
@@ -4042,7 +4043,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
     }
     private void BtnCadastrarPsicologo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCadastrarPsicologo1ActionPerformed
         // TODO add your handling code here:
-        boolean dadosvalidos = true;
+         boolean dadosvalidos = true;
 
         Psicologo p = new Psicologo();
         PsicologoDAO dao = new PsicologoDAO();
@@ -4050,19 +4051,12 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         Telefone tf2 = new Telefone();
         TelefoneDAO tfdao = new TelefoneDAO();
         String msg = "Existem campos com formatos Inválidos\n\nFavor Verificar os campos:";
-        String crp = "";
-        try {
-            fcrp.commitEdit();
-        } catch (ParseException ex) {
-            Logger.getLogger(M.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        if ((String) fcrp.getValue() != null) {
-            crp = (String) fcrp.getValue();
-            crp = crp.replace("/", "");
-        }
-
-        if (!Validar.vCamposVaziosManterPSI(this, txtNome3, txtEmail2, crp, TxtTelefone6)) {
+//        String crp = null;
+//        if ((String) txtCrp.getValue() != null) {
+//            crp = (String) crp.getValue();
+//            cpf = cpf.replace(".", "").replace("-", "");
+//        }
+        if (!Validar.vCamposVaziosManterPSI(this, txtNome3, txtEmail2, fcrp, TxtTelefone6)) {
             if (Validar.vNome(txtNome3.getText())) {
                 p.setNome_completo(txtNome3.getText());
             } else {
@@ -4077,14 +4071,14 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                 msg += "\nEmail Invalido: " + txtEmail2.getText();
             }
 
-            if (Validar.vCRP(crp)) {
-                p.setCRP(crp);
+            if (Validar.vCRP(fcrp.getText())) {
+                p.setCRP(fcrp.getText());
             } else {
                 dadosvalidos = false;
                 msg += "\nCPF Invalido: " + fcrp.getText();
             }
 
-            p.setCodPsicologo(this.codigopsicologo);
+            p.setCodPsicologo(codpsicologo);
 
             if (Validar.vTelefone(TxtTelefone6.getText())) {
                 tf.setNumero(TxtTelefone6.getText());
@@ -4109,9 +4103,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                     msg += "\nNúmero de Telefone 2 Invalido: " + TxtTelefone7.getText() + "\nO Número deve ser no formato xxxxxxxxxxx";
                 }
             }
-            
             if (dadosvalidos) {
-
                 if (dao.UpdatePsicologSemLogin(p)) {
 
                     p = dao.ReadPsicologo(p.getCRP());
@@ -4121,50 +4113,16 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                     if (tfdao.UpdateTPsicologo(t.get(0))) {
 
                         if (t.size() == 2) {
-                            if (TxtTelefone7.getText().isEmpty()) {
-                                tfdao.HardDeleteTelefone(t.get(1));
-                            } else {
-                                t.get(1).setNumero(TxtTelefone7.getText());
-                                tfdao.UpdateTPsicologo(t.get(1));
-                            }
+                            t.get(1).setNumero(TxtTelefone7.getText());
+                            tfdao.UpdateTPsicologo(t.get(1));
 
                         }
-                        if (!TxtTelefone7.getText().isEmpty() && t.size() == 1) {
-                            tf2.setPsicologo(p);
-                            tf2.setNumero(TxtTelefone7.getText());
-                            if (tfdao.CreatePsi(tf2)) {
-                                if (txtBusca.getText() != "") {
-                                    getCountBusca(txtBusca.getText());
-                                    SpinnerNumPaginas.setValue(currentPage);
-                                    LabelQtdePaginas.setText("de " + totalPages);
-                                    getPageDataBusca(currentPage, txtBusca.getText());
-                                } else {
-                                    getCount();
-                                    SpinnerNumPaginas.setValue(currentPage);
-                                    LabelQtdePaginas.setText("de " + totalPages);
-                                    getPageData(currentPage);
-                                }
-                                this.clearAlterar();
-                                ModalMeusDados.dispose();
-                            }
-
-                        } else {
-                            if (txtBusca.getText() != "") {
-                                getCountBusca(txtBusca.getText());
-                                SpinnerNumPaginas.setValue(currentPage);
-                                LabelQtdePaginas.setText("de " + totalPages);
-                                getPageDataBusca(currentPage, txtBusca.getText());
-                            } else {
-                                getCount();
-                                SpinnerNumPaginas.setValue(currentPage);
-                                LabelQtdePaginas.setText("de " + totalPages);
-                                getPageData(currentPage);
-                            }
-                            this.clearAlterar();
-                            ModalMeusDados.dispose();
-                        }
-                        //JOptionPane.showMessageDialog(this, "Psicologo: " + p.getNome_completo() + " Salvo com sucesso");
-
+//                        JOptionPane.showMessageDialog(this, "Psicologo: " + p.getNome_completo() + " Salvo com sucesso");
+                        jLabel11.setText(p.getNome_completo());
+                        String str = getFirstWord(jLabel11.getText());
+                        jLabel11.setText(str);
+                        ModalMeusDados.dispose();
+                        // this.clear();
                     }
 
                 }
@@ -4177,20 +4135,10 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                     tf.setPaciente(p);
                     tfdao.CreatePc(tf);
                 }
-                */
+                 */
                 //mostrar mensagem de sucesso
                 // JOptionPane.showMessageDialog(null,"Paciente Cadastrado com Sucesso!");
-                if (txtBusca.getText() != "") {
-                    getCountBusca(txtBusca.getText());
-                    SpinnerNumPaginas.setValue(currentPage);
-                    LabelQtdePaginas.setText("de " + totalPages);
-                    getPageDataBusca(currentPage, txtBusca.getText());
-                } else {
-                    getCount();
-                    SpinnerNumPaginas.setValue(currentPage);
-                    LabelQtdePaginas.setText("de " + totalPages);
-                    getPageData(currentPage);
-                }
+                // ReadJTable();
             } else {
                 JOptionPane.showMessageDialog(this, msg);
             }
