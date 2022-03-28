@@ -4115,7 +4115,7 @@ public class ManterPaciente1 extends javax.swing.JFrame {
             String csenha = new String(txtConfirmarSenha1.getPassword());
             if (senha.equals(csenha)) {
                 p.setSenha(senha);
-                p.setCodPsicologo(this.codigopsicologo);
+                p.setCodPsicologo(Main.cod);
                 UIManager.put("OptionPane.yesButtonText", "Sim");
                 UIManager.put("OptionPane.noButtonText", "Não");
 
