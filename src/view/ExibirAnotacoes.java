@@ -1305,7 +1305,7 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
     }//GEN-LAST:event_txtBuscaKeyPressed
 
     private void BtnHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnHelpActionPerformed
-        ModalHelp.setSize(540, 620);
+        ModalHelp.setSize(700, 300);
         ModalHelp.setModal(true);
         ModalHelp.setVisible(false);
         ModalHelp.setVisible(false);

@@ -285,6 +285,18 @@ public class ExibirAnamneses2 extends javax.swing.JFrame {
         chckMostrarSenha1 = new javax.swing.JCheckBox();
         BtnAlterar1 = new javax.swing.JButton();
         BtnCancelar8 = new javax.swing.JButton();
+        ModalHelp = new javax.swing.JDialog();
+        jPanel11 = new javax.swing.JPanel();
+        jPanel12 = new javax.swing.JPanel();
+        jLabel83 = new javax.swing.JLabel();
+        jPanel13 = new javax.swing.JPanel();
+        jLabel87 = new javax.swing.JLabel();
+        jLabel88 = new javax.swing.JLabel();
+        jLabel89 = new javax.swing.JLabel();
+        jLabel90 = new javax.swing.JLabel();
+        jLabel92 = new javax.swing.JLabel();
+        jLabel93 = new javax.swing.JLabel();
+        jLabel95 = new javax.swing.JLabel();
         jPanel1 = new JPanel();
         jLabel2 = new javax.swing.JLabel();
         PainelMeusDados = new javax.swing.JPanel();
@@ -311,6 +323,7 @@ public class ExibirAnamneses2 extends javax.swing.JFrame {
         BtnAvancarPouco = new javax.swing.JButton();
         BtnAvancarBastante = new javax.swing.JButton();
         BtnVoltarPaciente = new javax.swing.JButton();
+        BtnHelp = new javax.swing.JButton();
         PainelMenu = new javax.swing.JPanel();
         BtnVoltar = new javax.swing.JButton();
         BtnPacientes = new javax.swing.JButton();
@@ -993,10 +1006,10 @@ public class ExibirAnamneses2 extends javax.swing.JFrame {
         jPanel8.setForeground(new java.awt.Color(59, 131, 117));
         jPanel8.setPreferredSize(new java.awt.Dimension(1080, 89));
 
-        jLabel43.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        jLabel43.setForeground(new java.awt.Color(255, 255, 255));
         jLabel43.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel43.setText("Alterar Senha");
+        jLabel43.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabel43.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -1009,13 +1022,13 @@ public class ExibirAnamneses2 extends javax.swing.JFrame {
             .addComponent(jLabel43, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
         );
 
-        jLabel44.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel44.setText("Nova Senha");
+        jLabel44.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         txtSenha1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
-        jLabel45.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel45.setText("Confirme a Nova Senha");
+        jLabel45.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         txtConfirmarSenha1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
@@ -1026,20 +1039,20 @@ public class ExibirAnamneses2 extends javax.swing.JFrame {
             }
         });
 
+        BtnAlterar1.setText("Alterar");
         BtnAlterar1.setBackground(new java.awt.Color(0, 112, 186));
         BtnAlterar1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnAlterar1.setForeground(new java.awt.Color(255, 255, 255));
-        BtnAlterar1.setText("Alterar");
         BtnAlterar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnAlterar1ActionPerformed(evt);
             }
         });
 
+        BtnCancelar8.setText("Cancelar");
         BtnCancelar8.setBackground(new java.awt.Color(255, 153, 153));
         BtnCancelar8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         BtnCancelar8.setForeground(new java.awt.Color(255, 255, 255));
-        BtnCancelar8.setText("Cancelar");
         BtnCancelar8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnCancelar8ActionPerformed(evt);
@@ -1101,6 +1114,111 @@ public class ExibirAnamneses2 extends javax.swing.JFrame {
                 .addGap(0, 0, 0)
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
+
+        jPanel12.setBackground(new java.awt.Color(59, 131, 117));
+
+        jLabel83.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel83.setText("AJUDA");
+        jLabel83.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel83.setForeground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
+        jPanel12.setLayout(jPanel12Layout);
+        jPanel12Layout.setHorizontalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel83, javax.swing.GroupLayout.DEFAULT_SIZE, 563, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel12Layout.setVerticalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel83, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jLabel87.setText("Como Visualizar ou Editar uma Anamnese?");
+        jLabel87.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+
+        jLabel88.setText("Selecionando uma anamnese na tabela e clicando duas vezes ou apertando o botão \"Alterar\", será aberta uma ");
+
+        jLabel89.setText("janela para que se possa visualizar e editar os dados de uma anamnese, para que os dados da anamnese sejam");
+
+        jLabel90.setText("atualizados é necessário apenas clicar no botão \"Salvar Alterações\"");
+
+        jLabel92.setText("Selecionando uma anamnese na tabela e clicando duas vezes ou apertando o botão \"Excluirr\", será aberta uma ja");
+
+        jLabel93.setText("nela pedindo a confirmação da exclusão da anamnese, caso a exclusão seja confirmada a anamnese é deletada");
+
+        jLabel95.setText("Como Excluir uma Anamnese?");
+        jLabel95.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+
+        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
+        jPanel13.setLayout(jPanel13Layout);
+        jPanel13Layout.setHorizontalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel13Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel13Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel87)
+                            .addComponent(jLabel88)
+                            .addComponent(jLabel89)
+                            .addComponent(jLabel90)
+                            .addComponent(jLabel92)
+                            .addComponent(jLabel93))
+                        .addGap(8, 8, 8))
+                    .addGroup(jPanel13Layout.createSequentialGroup()
+                        .addComponent(jLabel95)
+                        .addGap(0, 0, Short.MAX_VALUE))))
+        );
+        jPanel13Layout.setVerticalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel13Layout.createSequentialGroup()
+                .addComponent(jLabel87)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel88)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel89)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel90)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel95)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel92)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel93)
+                .addGap(0, 9, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
+        jPanel11.setLayout(jPanel11Layout);
+        jPanel11Layout.setHorizontalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel11Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
+        );
+        jPanel11Layout.setVerticalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel11Layout.createSequentialGroup()
+                .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 547, Short.MAX_VALUE))
+            .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
+                    .addContainerGap(63, Short.MAX_VALUE)
+                    .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(361, 361, 361)))
+        );
+
+        ModalHelp.getContentPane().add(jPanel11, java.awt.BorderLayout.PAGE_START);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -1359,6 +1477,13 @@ public class ExibirAnamneses2 extends javax.swing.JFrame {
             }
         });
 
+        BtnHelp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/SimboloHelp.png"))); // NOI18N
+        BtnHelp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnHelpActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jEImagePanel1Layout = new javax.swing.GroupLayout(jEImagePanel1);
         jEImagePanel1.setLayout(jEImagePanel1Layout);
         jEImagePanel1Layout.setHorizontalGroup(
@@ -1371,7 +1496,9 @@ public class ExibirAnamneses2 extends javax.swing.JFrame {
                     .addGroup(jEImagePanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lNome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(lNome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(BtnHelp, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jEImagePanel1Layout.createSequentialGroup()
                         .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jEImagePanel1Layout.createSequentialGroup()
@@ -1392,10 +1519,12 @@ public class ExibirAnamneses2 extends javax.swing.JFrame {
             jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jEImagePanel1Layout.createSequentialGroup()
                 .addGap(6, 6, 6)
-                .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(lNome)
-                    .addComponent(BtnVoltarPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(BtnHelp, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel1)
+                        .addComponent(lNome)
+                        .addComponent(BtnVoltarPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 0, 0)
                 .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnBuscar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1411,7 +1540,7 @@ public class ExibirAnamneses2 extends javax.swing.JFrame {
                         .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(PainelPaginacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
 
         getContentPane().add(jEImagePanel1, java.awt.BorderLayout.CENTER);
@@ -2342,6 +2471,15 @@ public class ExibirAnamneses2 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnMeusDadosActionPerformed
 
+    private void BtnHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnHelpActionPerformed
+        ModalHelp.setSize(700, 300);
+        ModalHelp.setModal(true);
+        ModalHelp.setVisible(false);
+        ModalHelp.setVisible(false);
+        ModalHelp.setLocationRelativeTo(null);
+        ModalHelp.setVisible(true);
+    }//GEN-LAST:event_BtnHelpActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2388,6 +2526,7 @@ public class ExibirAnamneses2 extends javax.swing.JFrame {
     private javax.swing.JButton BtnExibirAnamneses;
     private javax.swing.JButton BtnExibirAnotacoes;
     private javax.swing.JButton BtnExibirAnotacoes1;
+    private javax.swing.JButton BtnHelp;
     private javax.swing.JButton BtnPacientes;
     private javax.swing.JButton BtnSalvarAlteracoes5;
     private javax.swing.JButton BtnSalvarAlteracoes7;
@@ -2420,6 +2559,7 @@ public class ExibirAnamneses2 extends javax.swing.JFrame {
     private javax.swing.JLabel LabelQtdePaginas;
     private javax.swing.JDialog ModalAlterarSenha;
     private javax.swing.JDialog ModalAnamnese2;
+    private javax.swing.JDialog ModalHelp;
     private javax.swing.JDialog ModalMeusDados;
     private javax.swing.JPanel PainelDadosPaciente4;
     private javax.swing.JPanel PainelIdentificacaoPessoal4;
@@ -2470,7 +2610,18 @@ public class ExibirAnamneses2 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel55;
     private javax.swing.JLabel jLabel56;
     private javax.swing.JLabel jLabel57;
+    private javax.swing.JLabel jLabel83;
+    private javax.swing.JLabel jLabel87;
+    private javax.swing.JLabel jLabel88;
+    private javax.swing.JLabel jLabel89;
+    private javax.swing.JLabel jLabel90;
+    private javax.swing.JLabel jLabel92;
+    private javax.swing.JLabel jLabel93;
+    private javax.swing.JLabel jLabel95;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
