@@ -32,7 +32,9 @@ public class ConnectionFactory {
             Class.forName(DRIVER);    
             return DriverManager.getConnection(URL,USER,PASSWORD);                                
         } catch (ClassNotFoundException | SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro na Conexão, Banco não encontrado!", "Erro", JOptionPane.ERROR_MESSAGE);
             throw new RuntimeException("Erro na Conexão, Banco não encontrado: ",ex);
+            //throw new RuntimeException(null, "Erro na Conexão, Banco não encontrado", "ERRO", JOptionPane.ERROR_MESSAGE);
         }
     }
      public static Connection getConnection(JFrame jframe){
@@ -40,8 +42,8 @@ public class ConnectionFactory {
             Class.forName(DRIVER);    
             return DriverManager.getConnection(URL,USER,PASSWORD);                                
         } catch (ClassNotFoundException | SQLException ex) {
-             JOptionPane.showMessageDialog(jframe, "Erro na Conexãom. Não foi possível se conectar ao servidor Banco de Dados\nVerifique sua Conexão e tente novamente!");
-              throw new RuntimeException("Erro na Conexão, Banco não encontrado: ",ex);
+             JOptionPane.showMessageDialog(jframe, "Erro na Conexão. Não foi possível se conectar ao servidor Banco de Dados\nVerifique sua Conexão e tente novamente!", "ERRO", JOptionPane.ERROR_MESSAGE);
+              throw new RuntimeException( null ,ex);
         }
     }
     
