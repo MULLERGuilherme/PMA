@@ -1514,7 +1514,7 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel92">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Selecionando uma anamnese na tabela e clicando duas vezes ou apertando o bot&#xe3;o &quot;Excluirr&quot;, ser&#xe1; aberta uma ja"/>
+                    <Property name="text" type="java.lang.String" value="Selecionando uma anamnese na tabela e clicando duas vezes ou apertando o bot&#xe3;o &quot;Excluir&quot;, ser&#xe1; aberta uma ja"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel93">

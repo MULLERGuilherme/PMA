@@ -1273,10 +1273,10 @@ public class ExibirAnamneses extends javax.swing.JFrame {
 
         jPanel12.setBackground(new java.awt.Color(59, 131, 117));
 
-        jLabel83.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel83.setForeground(new java.awt.Color(255, 255, 255));
         jLabel83.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel83.setText("AJUDA");
+        jLabel83.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel83.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
         jPanel12.setLayout(jPanel12Layout);
@@ -1295,8 +1295,8 @@ public class ExibirAnamneses extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jLabel87.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel87.setText("Como Visualizar ou Editar uma Anamnese?");
+        jLabel87.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         jLabel88.setText("Selecionando uma anamnese na tabela e clicando duas vezes ou apertando o botão \"Alterar\", será aberta uma ");
 
@@ -1304,12 +1304,12 @@ public class ExibirAnamneses extends javax.swing.JFrame {
 
         jLabel90.setText("atualizados é necessário apenas clicar no botão \"Salvar Alterações\"");
 
-        jLabel92.setText("Selecionando uma anamnese na tabela e clicando duas vezes ou apertando o botão \"Excluirr\", será aberta uma ja");
+        jLabel92.setText("Selecionando uma anamnese na tabela e clicando duas vezes ou apertando o botão \"Excluir\", será aberta uma ja");
 
         jLabel93.setText("nela pedindo a confirmação da exclusão da anamnese, caso a exclusão seja confirmada a anamnese é deletada");
 
-        jLabel95.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel95.setText("Como Excluir uma Anamnese?");
+        jLabel95.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
         jPanel13.setLayout(jPanel13Layout);
