@@ -407,8 +407,10 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
         LabelAssunto1.setText("Texto:");
 
         txtTexto.setColumns(20);
-        txtTexto.setRows(5);
         txtTexto.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        txtTexto.setLineWrap(true);
+        txtTexto.setRows(5);
+        txtTexto.setWrapStyleWord(true);
         jScrollPane2.setViewportView(txtTexto);
 
         BtnCancelarAnotacao.setBackground(new java.awt.Color(255, 153, 153));
