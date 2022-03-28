@@ -1409,7 +1409,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jLabel83" pref="561" max="32767" attributes="0"/>
+                          <Component id="jLabel83" pref="563" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -1427,14 +1427,14 @@
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="jLabel83">
                   <Properties>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="text" type="java.lang.String" value="AJUDA"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="24" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
-                    <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="AJUDA"/>
                   </Properties>
                 </Component>
               </SubComponents>
@@ -1491,10 +1491,10 @@
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="jLabel87">
                   <Properties>
+                    <Property name="text" type="java.lang.String" value="Como Visualizar ou Editar uma Anamnese?"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="18" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Como Visualizar ou Editar uma Anamnese?"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel88">
@@ -1514,7 +1514,7 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel92">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Selecionando uma anamnese na tabela e clicando duas vezes ou apertando o bot&#xe3;o &quot;Alterar&quot;, ser&#xe1; aberta uma ja"/>
+                    <Property name="text" type="java.lang.String" value="Selecionando uma anamnese na tabela e clicando duas vezes ou apertando o bot&#xe3;o &quot;Excluirr&quot;, ser&#xe1; aberta uma ja"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel93">
@@ -1524,10 +1524,10 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel95">
                   <Properties>
+                    <Property name="text" type="java.lang.String" value="Como Excluir uma Anamnese?"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="18" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Como Excluir uma Anamnese?"/>
                   </Properties>
                 </Component>
               </SubComponents>

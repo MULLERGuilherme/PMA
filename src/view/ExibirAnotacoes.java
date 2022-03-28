@@ -818,7 +818,7 @@ public class ExibirAnotacoes extends javax.swing.JFrame {
 
         jLabel90.setText("atualizados é necessário apenas clicar no botão \"Salvar Alterações\"");
 
-        jLabel92.setText("Selecionando uma anamnese na tabela e clicando duas vezes ou apertando o botão \"Excluir\", será aberta uma ja");
+        jLabel92.setText("Selecionando uma anotação na tabela e clicando duas vezes ou apertando o botão \"Excluir\", será aberta uma ja");
 
         jLabel93.setText("nela pedindo a confirmação da exclusão da anotação, caso a exclusão seja confirmada a anotação é deletada");
 

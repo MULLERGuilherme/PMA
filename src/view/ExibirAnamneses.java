@@ -1284,7 +1284,7 @@ public class ExibirAnamneses extends javax.swing.JFrame {
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel12Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel83, javax.swing.GroupLayout.DEFAULT_SIZE, 561, Short.MAX_VALUE)
+                .addComponent(jLabel83, javax.swing.GroupLayout.DEFAULT_SIZE, 563, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel12Layout.setVerticalGroup(
@@ -1304,7 +1304,7 @@ public class ExibirAnamneses extends javax.swing.JFrame {
 
         jLabel90.setText("atualizados é necessário apenas clicar no botão \"Salvar Alterações\"");
 
-        jLabel92.setText("Selecionando uma anamnese na tabela e clicando duas vezes ou apertando o botão \"Alterar\", será aberta uma ja");
+        jLabel92.setText("Selecionando uma anamnese na tabela e clicando duas vezes ou apertando o botão \"Excluirr\", será aberta uma ja");
 
         jLabel93.setText("nela pedindo a confirmação da exclusão da anamnese, caso a exclusão seja confirmada a anamnese é deletada");
 
