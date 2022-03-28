@@ -1373,10 +1373,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jPanel12.setBackground(new java.awt.Color(59, 131, 117));
 
-        jLabel83.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel83.setForeground(new java.awt.Color(255, 255, 255));
         jLabel83.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel83.setText("AJUDA");
+        jLabel83.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel83.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
         jPanel12.setLayout(jPanel12Layout);
@@ -1395,8 +1395,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jLabel87.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel87.setText("Como Alterar uma Consulta?");
+        jLabel87.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         jLabel88.setText("Selecionando uma consulta na tabela e clicando duas vezes ou apertando o botão \"Alterar\", será aberta uma ");
 
@@ -1408,11 +1408,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jLabel93.setText("confirmação da exclusão da consulta, caso a exclusão seja confirmada a consulta é deletada.");
 
-        jLabel95.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel95.setText("Como Excluir uma Consulta?");
+        jLabel95.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
-        jLabel96.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel96.setText("Como Criar uma Anamnese?");
+        jLabel96.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         jLabel19.setText("Selecionando uma consulta na tabela e clicando duas vezes ou apertando o botão \"Alterar\", será aberta uma ");
 
@@ -1424,8 +1424,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jLabel47.setText("é necessário apenas clicar no botão \"Salvar Alterações\".");
 
-        jLabel97.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel97.setText("Como Criar uma Anamnese?");
+        jLabel97.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         jLabel48.setText("Selecionando uma consulta na tabela e clicando duas vezes ou apertando o botão \"Alterar\", será aberta uma ");
 
@@ -1435,8 +1435,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jLabel60.setText("penas clicar no botão \"Salvar Alterações\".");
 
-        jLabel105.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel105.setText("Como Selecionar uma Data?");
+        jLabel105.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         jLabel61.setText("A tabela dessa tela só mostra as consultas de uma data selecionada, quando a tela for aberta a data selecionada");
 
@@ -1724,27 +1724,24 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jEImagePanel1Layout.setHorizontalGroup(
             jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jEImagePanel1Layout.createSequentialGroup()
-                .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jEImagePanel1Layout.createSequentialGroup()
-                        .addGap(397, 397, 397)
-                        .addComponent(btnAlterar)
-                        .addGap(97, 97, 97)
-                        .addComponent(BtnExcluir)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jEImagePanel1Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(DataChooser, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(113, 113, 113)
-                        .addComponent(BtnHelp, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
-            .addGroup(jEImagePanel1Layout.createSequentialGroup()
                 .addGap(158, 158, 158)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
-                .addContainerGap(231, Short.MAX_VALUE))
+                .addGap(29, 231, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jEImagePanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jEImagePanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(DataChooser, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(113, 113, 113)
+                        .addComponent(BtnHelp, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(BtnExcluir, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnAlterar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)))
+                .addContainerGap())
             .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jEImagePanel1Layout.createSequentialGroup()
                     .addGap(143, 143, 143)
@@ -1764,15 +1761,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jEImagePanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(DataChooser, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 459, Short.MAX_VALUE)
+                .addGap(11, 11, 11)
+                .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(BtnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 359, Short.MAX_VALUE)
                 .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jLabel2))
-                .addGap(18, 18, 18)
-                .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAlterar)
-                    .addComponent(BtnExcluir))
-                .addGap(43, 43, 43))
+                .addGap(84, 84, 84))
             .addGroup(jEImagePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jEImagePanel1Layout.createSequentialGroup()
                     .addGap(62, 62, 62)

@@ -2021,7 +2021,7 @@ public class M extends javax.swing.JFrame {
 
         jLabel89.setText("para que possam ser editados os dados do paciente selecionado, quando terminar as alterações, é só clicar no");
 
-        jLabel90.setText("botão \"Salcar Alterações\" para que os dados sejam atualizados.");
+        jLabel90.setText("botão \"Salvar Alterações\" para que os dados sejam atualizados.");
 
         jLabel92.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel92.setText("Como Cadastrar um Paciente?");

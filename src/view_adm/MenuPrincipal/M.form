@@ -2952,7 +2952,7 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel90">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="bot&#xe3;o &quot;Salcar Altera&#xe7;&#xf5;es&quot; para que os dados sejam atualizados."/>
+                    <Property name="text" type="java.lang.String" value="bot&#xe3;o &quot;Salvar Altera&#xe7;&#xf5;es&quot; para que os dados sejam atualizados."/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel92">
