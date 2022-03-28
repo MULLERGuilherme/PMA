@@ -1396,29 +1396,23 @@
                       <Component id="PainelIdentificacaoPessoal6" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
                               <Component id="LabelEsqueciSenha" min="-2" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="jLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel13" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="labeltelefone" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="labeltelefone2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel10" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="fcrp" alignment="0" pref="265" max="32767" attributes="0"/>
-                                  <Component id="txtEmail2" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="TxtTelefone6" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="TxtTelefone7" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtNome3" alignment="0" max="32767" attributes="0"/>
-                              </Group>
+                              <Component id="jLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel13" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="labeltelefone" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="labeltelefone2" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel10" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="fcrp" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtEmail2" alignment="0" max="32767" attributes="0"/>
+                              <Component id="TxtTelefone6" alignment="0" max="32767" attributes="0"/>
+                              <Component id="TxtTelefone7" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtNome3" alignment="0" max="32767" attributes="0"/>
+                              <Component id="BtnAlterar" alignment="1" pref="265" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="106" max="-2" attributes="0"/>
-                  <Component id="BtnAlterar" min="-2" pref="145" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
