@@ -1492,11 +1492,6 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
         txtNome2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        txtNome2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNome2ActionPerformed(evt);
-            }
-        });
         txtNome2.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtNome2KeyTyped(evt);
@@ -2115,10 +2110,10 @@ public class ManterPaciente1 extends javax.swing.JFrame {
 
         jPanel12.setBackground(new java.awt.Color(59, 131, 117));
 
-        jLabel83.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel83.setForeground(new java.awt.Color(255, 255, 255));
         jLabel83.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel83.setText("AJUDA");
+        jLabel83.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel83.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
         jPanel12.setLayout(jPanel12Layout);
@@ -2137,15 +2132,15 @@ public class ManterPaciente1 extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jLabel84.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel84.setText("Como Editar os dados de um Paciente?");
+        jLabel84.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         jLabel85.setText("Clicando no Botão \"Novo\" será aberta uma janela para que você possa inserir os dados do paciente, quando termi-");
 
         jLabel86.setText("nar de inserir os dados é só clicar no botão \"Cadastrar\" que o novo paciente terá seu cadastro realizado.");
 
-        jLabel87.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel87.setText("Como Cadastrar um Paciente?");
+        jLabel87.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         jLabel88.setText("Selecionando um paciente na tabela e dando dois cliques ou apertando o botão \"Dados\", será aberta uma janela");
 
@@ -2153,8 +2148,8 @@ public class ManterPaciente1 extends javax.swing.JFrame {
 
         jLabel90.setText("botão \"Salcar Alterações\" para que os dados sejam atualizados.");
 
-        jLabel91.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel91.setText("Como Visualizar ou Alterar as Consultas de um paciente?");
+        jLabel91.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         jLabel92.setText("Selecionando um paciente na tabela e apertando o botão \"Cadastrar Consulta\", será aberta uma janela para que");
 
@@ -2162,8 +2157,8 @@ public class ManterPaciente1 extends javax.swing.JFrame {
 
         jLabel94.setText("é só clicar no botão \"Cadastrar\" para que a consulta seja agendada");
 
-        jLabel95.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel95.setText("Como Agendar uma Consulta?");
+        jLabel95.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         jLabel96.setText("Selecionando um paciente na tabela e apertando o botão \"Consultas\", será aberta uma nova tela, em que é pos-");
 
@@ -2171,15 +2166,15 @@ public class ManterPaciente1 extends javax.swing.JFrame {
 
         jLabel98.setText("assim como o status da consulta. Também é possível criar anameses ou anotações a partir dessas telas.");
 
-        jLabel99.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel99.setText("Como Visualizar ou Alterar as Anotações?");
+        jLabel99.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         jLabel100.setText("Selecionando um paciente na tabela e apertando o botão \"Anamneses\", será aberta uma nova tela, em que é");
 
         jLabel101.setText("possível selecionar uma das anamneses do paciente para visualização ou edição.");
 
-        jLabel102.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel102.setText("Como Visualizar ou Alterar as Anamneses?");
+        jLabel102.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         jLabel103.setText("Selecionando um paciente na tabela e apertando o botão \"Anotações\", será aberta uma nova tela, em que é");
 
@@ -3856,14 +3851,9 @@ public class ManterPaciente1 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_TxtEndereco1ActionPerformed
 
-    private void txtNome2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNome2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNome2ActionPerformed
-
     private void txtNome2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNome2KeyTyped
-        // TODO add your handling code here:
         char c = evt.getKeyChar();
-        if (Character.isDigit(c)) {
+        if (!Character.isLetter(c)&& !Character.isWhitespace(c) && !Character.isISOControl(c)) {
             evt.consume();
         }
     }//GEN-LAST:event_txtNome2KeyTyped

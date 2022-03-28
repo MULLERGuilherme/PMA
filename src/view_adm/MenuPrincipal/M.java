@@ -3408,7 +3408,7 @@ public class M extends javax.swing.JFrame {
 
     private void txtNome1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNome1KeyTyped
         char c = evt.getKeyChar();
-        if (Character.isDigit(c)) {
+        if (!Character.isLetter(c)&& !Character.isWhitespace(c) && !Character.isISOControl(c)) {
             evt.consume();
         }
     }//GEN-LAST:event_txtNome1KeyTyped
@@ -3530,9 +3530,8 @@ public class M extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNome2ActionPerformed
 
     private void txtNome2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNome2KeyTyped
-        // TODO add your handling code here:
         char c = evt.getKeyChar();
-        if (Character.isDigit(c)) {
+        if (!Character.isLetter(c)&& !Character.isWhitespace(c) && !Character.isISOControl(c)) {
             evt.consume();
         }
     }//GEN-LAST:event_txtNome2KeyTyped
