@@ -3104,10 +3104,10 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="jLabel15">
           <Properties>
+            <Property name="text" type="java.lang.String" value="Nome:"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="18" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Nome:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtNome3">
@@ -3123,18 +3123,18 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel18">
           <Properties>
+            <Property name="text" type="java.lang.String" value="CRP:"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="18" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="CRP:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel19">
           <Properties>
+            <Property name="text" type="java.lang.String" value="E-mail:"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="18" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="E-mail:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtEmail2">
@@ -3146,10 +3146,10 @@
         </Component>
         <Component class="javax.swing.JLabel" name="labeltelefone">
           <Properties>
+            <Property name="text" type="java.lang.String" value="Telefone:"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="18" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Telefone:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="TxtTelefone6">
@@ -3164,10 +3164,10 @@
         </Component>
         <Component class="javax.swing.JLabel" name="labeltelefone2">
           <Properties>
+            <Property name="text" type="java.lang.String" value="Telefone 2:"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="18" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Telefone 2:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="TxtTelefone7">
@@ -3202,20 +3202,21 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jLabel20">
               <Properties>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="text" type="java.lang.String" value="DADOS DO PSIC&#xd3;LOGO"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="24" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="DADOS DO PSIC&#xd3;LOGO"/>
               </Properties>
             </Component>
           </SubComponents>
         </Container>
         <Component class="javax.swing.JButton" name="BtnAlterar">
           <Properties>
+            <Property name="text" type="java.lang.String" value="Alterar"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ba" green="70" red="0" type="rgb"/>
             </Property>
@@ -3225,7 +3226,6 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Alterar"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnAlterarActionPerformed"/>
@@ -3258,6 +3258,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="BtnCancelar9">
           <Properties>
+            <Property name="text" type="java.lang.String" value="Cancelar"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="99" green="99" red="ff" type="rgb"/>
             </Property>
@@ -3267,7 +3268,6 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Cancelar"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnCancelar9ActionPerformed"/>
@@ -3403,11 +3403,11 @@
             </Component>
             <Component class="javax.swing.JButton" name="btnMeusDados">
               <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="66" green="66" red="66" type="rgb"/>
-                </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/view/UserIconBranco_66x66.png"/>
+                </Property>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="66" green="66" red="66" type="rgb"/>
                 </Property>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="null"/>
@@ -3597,14 +3597,14 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="BtnNovo" min="-2" pref="153" max="-2" attributes="0"/>
-                              <Component id="btnVisuAnotacoes" alignment="1" min="-2" pref="153" max="-2" attributes="0"/>
-                              <Component id="btnVisuAnamneses" alignment="1" min="-2" pref="153" max="-2" attributes="0"/>
                               <Component id="BtnVisuAlterarDados" alignment="1" min="-2" pref="153" max="-2" attributes="0"/>
                           </Group>
                           <Component id="BtnHelp" alignment="1" min="-2" pref="24" max="-2" attributes="0"/>
                       </Group>
                       <Component id="BtnCadastro" min="-2" pref="152" max="-2" attributes="0"/>
                       <Component id="btnVisuConsultas" min="-2" pref="153" max="-2" attributes="0"/>
+                      <Component id="btnVisuAnamneses" min="-2" pref="153" max="-2" attributes="0"/>
+                      <Component id="btnVisuAnotacoes" alignment="1" min="-2" pref="153" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -3636,13 +3636,13 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="BtnVisuAlterarDados" min="-2" pref="40" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="btnVisuAnamneses" min="-2" pref="40" max="-2" attributes="0"/>
+                          <Component id="BtnCadastro" min="-2" pref="40" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="btnVisuConsultas" min="-2" pref="40" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="btnVisuAnotacoes" min="-2" pref="40" max="-2" attributes="0"/>
+                          <Component id="btnVisuAnamneses" min="-2" pref="40" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="BtnCadastro" min="-2" pref="40" max="-2" attributes="0"/>
+                          <Component id="btnVisuAnotacoes" min="-2" pref="40" max="-2" attributes="0"/>
                       </Group>
                       <Component id="jScrollPane1" min="-2" pref="472" max="-2" attributes="0"/>
                   </Group>
